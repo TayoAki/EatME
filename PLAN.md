@@ -170,9 +170,9 @@ The device time zone is stored per user and used for day boundaries and streaks.
 - [ ] Clerk auth screen (Google + Apple, with icons)
 
 ### 3 · Database, webhooks, background jobs
-- [ ] Drizzle schema + Neon connection + migrations + scripts
-- [ ] Trigger.dev config
-- [ ] Clerk webhook API route + user created / updated / deleted tasks
+- [x] Drizzle schema + Neon connection + migrations + scripts
+- [x] Trigger.dev config
+- [x] Clerk webhook API route + user created / updated / deleted tasks
 
 ### 4 · Tabs, home, scan, profile
 - [ ] Native tabs (Home · Scan · Profile)
