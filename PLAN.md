@@ -162,12 +162,12 @@ The device time zone is stored per user and used for day boundaries and streaks.
 - [x] `AGENTS.md` (instructions) + `CLAUDE.md` (imports `AGENTS.md`)
 
 ### 2 · UI design, welcome, onboarding, auth
-- [ ] AI-generated design references in `design/` + logo + welcome demo image
-- [ ] NativeWind v4
-- [ ] Welcome screen
-- [ ] Onboarding questions (9 steps)
-- [ ] Building your plan + plan ready screens
-- [ ] Clerk auth screen (Google + Apple, with icons)
+- [x] AI-generated design references in `design/` + logo + welcome demo image
+- [x] NativeWind v4
+- [x] Welcome screen
+- [x] Onboarding questions (9 steps)
+- [x] Building your plan + plan ready screens
+- [x] Clerk auth screen (Google + Apple, with icons)
 
 ### 3 · Database, webhooks, background jobs
 - [x] Drizzle schema + Neon connection + migrations + scripts
@@ -175,11 +175,11 @@ The device time zone is stored per user and used for day boundaries and streaks.
 - [x] Clerk webhook API route + user created / updated / deleted tasks
 
 ### 4 · Tabs, home, scan, profile
-- [ ] Native tabs (Home · Scan · Profile)
-- [ ] Home screen (streak sheet, date strip, rings, today's meals)
-- [ ] AI plan generation + save onboarding to the database + force onboarding
-- [ ] Scan: camera permission, camera, gallery, ImageKit upload, analyze-meal task, realtime
-- [ ] Meal list with ImageKit thumbnails, hide non-food, edit a meal
+- [x] Native tabs (Home · Scan · Profile)
+- [x] Home screen (streak sheet, date strip, rings, today's meals)
+- [x] AI plan generation + save onboarding to the database + force onboarding
+- [x] Scan: camera permission, camera, gallery, ImageKit upload, analyze-meal task, realtime
+- [x] Meal list with ImageKit thumbnails, hide non-food, edit a meal
 
 ### 5 · Sentry & profile
 - [ ] Sentry (errors, replay, logs, tracing)
@@ -187,8 +187,8 @@ The device time zone is stored per user and used for day boundaries and streaks.
 - [ ] Sign out + delete account (Clerk, DB, meals, ImageKit)
 
 ### 6 · Optimizations
-- [ ] Downscale photos (ImageKit transformation) before the vision model
-- [ ] Scrollable calendar (two weeks back)
+- [x] Downscale photos (ImageKit transformation) before the vision model
+- [x] Scrollable calendar (two weeks back)
 - [ ] Sentry test bench (dev only) + Send feedback button
 
 ### 7 · Legal & landing
