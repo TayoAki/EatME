@@ -1,3 +1,4 @@
+import { File } from 'expo-file-system';
 import { ImageManipulator, SaveFormat } from 'expo-image-manipulator';
 import { Platform } from 'react-native';
 
@@ -32,8 +33,9 @@ export async function uploadMeal(api: ApiClient, photo: { uri: string; width?: n
   if (Platform.OS === 'web') {
     form.append(MEAL_PHOTO_FIELD, await (await fetch(uri)).blob(), fileName);
   } else {
-    // React Native uploads local files from { uri, name, type }.
-    form.append(MEAL_PHOTO_FIELD, { uri, name: fileName, type: 'image/jpeg' } as unknown as Blob);
+    // Expo's fetch only uploads Blob-like parts: a File from expo-file-system works, React Native's
+    // old { uri, name, type } objects fail with "Unsupported FormDataPart implementation".
+    form.append(MEAL_PHOTO_FIELD, new File(uri), fileName);
   }
 
   const { meal } = await api<{ meal: Meal }>('/api/meals', { method: 'POST', form });
