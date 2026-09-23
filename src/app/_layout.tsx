@@ -4,7 +4,7 @@ import { navigationIntegration, Sentry } from '@/lib/sentry';
 
 import { ClerkProvider, useAuth } from '@clerk/expo';
 import { tokenCache } from '@clerk/expo/token-cache';
-import { QueryClientProvider } from '@tanstack/react-query';
+import { QueryClientProvider, useQueryClient } from '@tanstack/react-query';
 import { Stack, useNavigationContainerRef } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
@@ -81,6 +81,13 @@ function RootNavigator() {
   useEffect(() => {
     Sentry.setUser(isSignedIn && userId ? { id: userId } : null);
   }, [isSignedIn, userId]);
+
+  // After sign-out (or account deletion) drop every cached response of the previous user.
+  // Runs after the signed-out screens replaced the app screens, so nothing reads the cache anymore.
+  const client = useQueryClient();
+  useEffect(() => {
+    if (isLoaded && !isSignedIn) client.clear();
+  }, [client, isLoaded, isSignedIn]);
 
   if (!ready) return slowStart ? <LoadingScreen label="Connecting…" /> : null;
 

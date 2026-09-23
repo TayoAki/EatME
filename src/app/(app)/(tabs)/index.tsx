@@ -11,13 +11,18 @@ import { StreakSheet } from '@/components/home/streak-sheet';
 import { colors } from '@/constants/colors';
 import { useMeals, useProfile, useStreak } from '@/lib/queries';
 import { formatDay, todayIso } from '@/lib/time';
+import type { Profile } from '@/shared/user';
 
 /** Space for the floating native tab bar so it never covers the last meal. */
 const TAB_BAR_SPACE = 110;
 
 export default function HomeScreen() {
-  const insets = useSafeAreaInsets();
   const profile = useProfile();
+  return profile ? <Home profile={profile} /> : null;
+}
+
+function Home({ profile }: { profile: Profile }) {
+  const insets = useSafeAreaInsets();
   const [selectedDate, setSelectedDate] = useState(todayIso);
   const [streakOpen, setStreakOpen] = useState(false);
 

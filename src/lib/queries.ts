@@ -26,11 +26,10 @@ export function useMe() {
   });
 }
 
-/** Profile of the signed-in user. Only use inside the (app) group, where it is guaranteed to exist. */
+/** Profile of the signed-in user — null only for a moment while signing out. */
 export function useProfile() {
   const { data } = useMe();
-  if (!data?.user) throw new Error('useProfile() used before the profile was loaded');
-  return data.user;
+  return data?.user ?? null;
 }
 
 export function useMeals(date: string) {
@@ -41,7 +40,7 @@ export function useMeals(date: string) {
     queryFn: () => api<{ meals: Meal[] }>(`/api/meals?date=${date}`),
     // Keep refreshing while a meal is still being analyzed in the background.
     refetchInterval: (query) =>
-      query.state.data?.meals.some((meal) => meal.status === 'analyzing') ? 3000 : false,
+      query.state.data?.meals?.some((meal) => meal.status === 'analyzing') ? 3000 : false,
   });
 }
 

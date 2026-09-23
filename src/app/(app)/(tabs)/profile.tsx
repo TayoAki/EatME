@@ -1,6 +1,5 @@
 import { useAuth, useUser } from '@clerk/expo';
 import * as Sentry from '@sentry/react-native';
-import { useQueryClient } from '@tanstack/react-query';
 import Constants from 'expo-constants';
 import { Image } from 'expo-image';
 import { router } from 'expo-router';
@@ -24,17 +23,21 @@ import { colors } from '@/constants/colors';
 import { confirm, notify } from '@/lib/confirm';
 import { links, openLink } from '@/lib/links';
 import { useDeleteAccount, useProfile } from '@/lib/queries';
+import type { Profile } from '@/shared/user';
 
 const TAB_BAR_SPACE = 110;
 
 const comingSoon = (feature: string) => notify(feature, 'This option is coming soon.');
 
 export default function ProfileScreen() {
-  const insets = useSafeAreaInsets();
   const profile = useProfile();
+  return profile ? <ProfileContent profile={profile} /> : null;
+}
+
+function ProfileContent({ profile }: { profile: Profile }) {
+  const insets = useSafeAreaInsets();
   const { user } = useUser();
   const { signOut } = useAuth();
-  const queryClient = useQueryClient();
   const deleteAccount = useDeleteAccount();
   const [signingOut, setSigningOut] = useState(false);
 
@@ -47,8 +50,8 @@ export default function ProfileScreen() {
   const handleSignOut = async () => {
     setSigningOut(true);
     try {
+      // The root layout clears the cached data once the signed-out screens are shown.
       await signOut();
-      queryClient.clear();
     } finally {
       setSigningOut(false);
     }
@@ -63,10 +66,7 @@ export default function ProfileScreen() {
     });
     if (!confirmed) return;
     deleteAccount.mutate(undefined, {
-      onSuccess: async () => {
-        await signOut().catch(() => undefined);
-        queryClient.clear();
-      },
+      onSuccess: () => void signOut().catch(() => undefined),
       onError: (error) => notify("We couldn't delete your account", error.message),
     });
   };

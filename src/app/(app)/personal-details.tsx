@@ -112,6 +112,10 @@ function EditDetailSheet({
 
 export default function PersonalDetailsScreen() {
   const profile = useProfile();
+  return profile ? <PersonalDetails profile={profile} /> : null;
+}
+
+function PersonalDetails({ profile }: { profile: Profile }) {
   const update = useUpdateProfile();
   const [editing, setEditing] = useState<Field | null>(null);
 
