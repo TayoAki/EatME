@@ -2,6 +2,9 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   presets: [require('nativewind/preset')],
+  // The app is light-only (userInterfaceStyle: "light"). "class" lets Expo set the color scheme
+  // without NativeWind throwing "Cannot manually set color scheme" on web.
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {

@@ -57,7 +57,7 @@ export function OnboardingScreen({
           accessibilityRole="progressbar"
           accessibilityValue={{ min: 0, max: 100, now: Math.round(progress * 100) }}
           className="h-1.5 flex-1 overflow-hidden rounded-full bg-surface">
-          <Animated.View style={barStyle} className="h-full rounded-full bg-ink" />
+          <Animated.View style={[{ height: '100%', borderRadius: 999, backgroundColor: colors.ink }, barStyle]} />
         </View>
       </View>
 

@@ -52,7 +52,7 @@ export function SkeletonBar({ width, height = 12 }: { width: number | `${number}
     opacity.value = withRepeat(withTiming(1, { duration: 700 }), -1, true);
   }, [opacity]);
   const style = useAnimatedStyle(() => ({ opacity: opacity.value }));
-  return <Animated.View style={[{ width, height }, style]} className="rounded-full bg-surface" />;
+  return <Animated.View style={[{ width, height, borderRadius: height, backgroundColor: colors.track }, style]} />;
 }
 
 export function MealCard({ meal }: { meal: Meal }) {

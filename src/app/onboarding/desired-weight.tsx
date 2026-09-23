@@ -40,7 +40,7 @@ export default function DesiredWeightStep() {
           max={max}
           step={step}
           value={value}
-          majorEvery={metric ? 10 : 10}
+          majorStep={metric ? 5 : 10}
           onChange={(v) => setAnswers({ targetWeightKg: metric ? v : round1(lbToKg(v)) })}
         />
       </View>

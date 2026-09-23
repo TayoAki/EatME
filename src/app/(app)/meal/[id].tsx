@@ -42,7 +42,7 @@ function NumberField({
           onChangeText={(text) => onChange(digitsOnly(text))}
           keyboardType="number-pad"
           selectTextOnFocus
-          className="flex-1 text-right text-[18px] font-semibold text-ink"
+          className="min-w-0 flex-1 text-right text-[18px] font-semibold text-ink"
         />
         {unit ? <Text className="ml-1 text-[15px] text-muted">{unit}</Text> : null}
         <Pencil size={14} color={colors.muted} style={{ marginLeft: 8 }} />
@@ -113,7 +113,7 @@ function MealEditor({ meal }: { meal: Meal }) {
             value={name}
             onChangeText={setName}
             maxLength={80}
-            className="flex-1 text-[28px] font-bold tracking-tight text-ink"
+            className="min-w-0 flex-1 text-[28px] font-bold tracking-tight text-ink"
           />
           <Pencil size={20} color={colors.ink} />
         </View>

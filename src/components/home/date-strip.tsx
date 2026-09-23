@@ -55,7 +55,7 @@ export function DateStrip({ selected, onSelect, loggedDates }: DateStripProps) {
       showsHorizontalScrollIndicator={false}
       snapToInterval={weekWidth}
       decelerationRate="fast"
-      contentContainerStyle={{ paddingHorizontal: H_PADDING }}
+      style={{ marginHorizontal: H_PADDING }}
       getItemLayout={(_, index) => ({ length: dayWidth, offset: dayWidth * index, index })}
       initialScrollIndex={WEEKS_BACK * 7}
       extraData={`${selected}|${loggedDates.join(',')}`}
