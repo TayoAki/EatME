@@ -2,7 +2,7 @@ import { File } from 'expo-file-system';
 import { ImageManipulator, SaveFormat } from 'expo-image-manipulator';
 import { Platform } from 'react-native';
 
-import { MEAL_PHOTO_FIELD, type Meal } from '@/shared/meals';
+import type { Meal } from '@/shared/meals';
 
 import type { ApiClient } from './api';
 
@@ -21,23 +21,23 @@ async function prepare(uri: string, width?: number, height?: number) {
   return result.uri;
 }
 
+/** The JPEG's bytes: read from the phone's file system, or from the browser's blob on web. */
+async function readBytes(uri: string): Promise<Uint8Array | ArrayBuffer> {
+  if (Platform.OS === 'web') return (await fetch(uri)).arrayBuffer();
+  return new File(uri).bytes();
+}
+
 /**
  * Photo → EatME server (stored in the bucket, meal saved as "analyzing", AI analysis started).
+ * The photo is sent as the raw request body — no FormData, which Expo's fetch only partly supports.
  * The caller then polls `GET /api/meals/:id` for the result.
  */
 export async function uploadMeal(api: ApiClient, photo: { uri: string; width?: number; height?: number }) {
   const uri = await prepare(photo.uri, photo.width, photo.height);
-  const fileName = `meal-${Date.now()}.jpg`;
-
-  const form = new FormData();
-  if (Platform.OS === 'web') {
-    form.append(MEAL_PHOTO_FIELD, await (await fetch(uri)).blob(), fileName);
-  } else {
-    // Expo's fetch only uploads Blob-like parts: a File from expo-file-system works, React Native's
-    // old { uri, name, type } objects fail with "Unsupported FormDataPart implementation".
-    form.append(MEAL_PHOTO_FIELD, new File(uri), fileName);
-  }
-
-  const { meal } = await api<{ meal: Meal }>('/api/meals', { method: 'POST', form });
+  const data = await readBytes(uri);
+  const { meal } = await api<{ meal: Meal }>('/api/meals', {
+    method: 'POST',
+    binary: { data, type: 'image/jpeg' },
+  });
   return meal;
 }

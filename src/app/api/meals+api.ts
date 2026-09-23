@@ -48,9 +48,36 @@ export const GET = handle(async (request) => {
 });
 
 /**
- * Creates a meal from a photo (multipart form data, field `photo`): stores the photo in the bucket,
- * saves the meal as "analyzing" and starts the AI analysis in the background. The app then polls
- * `GET /api/meals/:id`.
+ * The photo's bytes. The app sends the JPEG itself as the body (`Content-Type: image/jpeg`);
+ * multipart form data with a `photo` field is accepted too (older app versions).
+ */
+async function readPhoto(request: Request): Promise<ArrayBuffer> {
+  const declaredSize = Number(request.headers.get('content-length') ?? 0);
+  if (declaredSize > MAX_MEAL_PHOTO_BYTES + 64 * 1024) throw new HttpError(413, 'That photo is too large.');
+
+  let bytes: ArrayBuffer;
+  const contentType = request.headers.get('content-type') ?? '';
+  if (contentType.startsWith('image/')) {
+    bytes = await request.arrayBuffer();
+  } else if (contentType.startsWith('multipart/form-data')) {
+    // Typed by hand: the project's global FormData type is React Native's, which has no get().
+    const form = (await request.formData().catch(() => null)) as MultipartForm | null;
+    const photo = form?.get(MEAL_PHOTO_FIELD);
+    if (!photo || typeof photo === 'string') throw new HttpError(400, 'Attach the meal photo.');
+    if (photo.type && !photo.type.startsWith('image/')) throw new HttpError(415, 'Only photos can be analyzed.');
+    bytes = await photo.arrayBuffer();
+  } else {
+    throw new HttpError(415, 'Send the meal photo as image/jpeg.');
+  }
+
+  if (bytes.byteLength === 0) throw new HttpError(400, 'Attach the meal photo.');
+  if (bytes.byteLength > MAX_MEAL_PHOTO_BYTES) throw new HttpError(413, 'That photo is too large.');
+  return bytes;
+}
+
+/**
+ * Creates a meal from a photo: stores the photo in the bucket, saves the meal as "analyzing" and
+ * starts the AI analysis in the background. The app then polls `GET /api/meals/:id`.
  */
 export const POST = handle(async (request) => {
   const userId = await requireUserId(request);
@@ -69,16 +96,10 @@ export const POST = handle(async (request) => {
     throw new HttpError(429, `You can scan up to ${DAILY_SCAN_LIMIT} meals a day. Please try again tomorrow.`);
   }
 
-  // Typed by hand: the project's global FormData type is React Native's, which has no get().
-  const form = (await request.formData().catch(() => null)) as MultipartForm | null;
-  const photo = form?.get(MEAL_PHOTO_FIELD);
-  if (!photo || typeof photo === 'string') throw new HttpError(400, 'Attach the meal photo.');
-  if (photo.size === 0 || photo.size > MAX_MEAL_PHOTO_BYTES) throw new HttpError(413, 'That photo is too large.');
-  if (photo.type && !photo.type.startsWith('image/')) throw new HttpError(415, 'Only photos can be analyzed.');
-
+  const photo = await readPhoto(request);
   const id = crypto.randomUUID();
   const imageKey = mealPhotoKey(userId, id);
-  await putObject(imageKey, await photo.arrayBuffer(), 'image/jpeg');
+  await putObject(imageKey, photo, 'image/jpeg');
 
   try {
     const [meal] = await db.insert(meals).values({ id, userId, status: 'analyzing', imageKey }).returning();

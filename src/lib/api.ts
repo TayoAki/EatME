@@ -17,8 +17,8 @@ type RequestOptions = {
   method?: 'GET' | 'POST' | 'PATCH' | 'PUT' | 'DELETE';
   /** JSON body. */
   body?: unknown;
-  /** Multipart body (photo uploads). */
-  form?: FormData;
+  /** Binary body sent as-is (photo uploads), e.g. `{ data: jpegBytes, type: 'image/jpeg' }`. */
+  binary?: { data: Uint8Array | ArrayBuffer; type: string };
   signal?: AbortSignal;
 };
 
@@ -26,11 +26,12 @@ type RequestOptions = {
  * Calls the EatME API with the session cookie. On iOS/Android the cookie comes from SecureStore and
  * is added by hand (as Better Auth's Expo guide recommends); on web the browser sends it.
  */
-export async function apiFetch<T>(path: string, { method = 'GET', body, form, signal }: RequestOptions = {}) {
+export async function apiFetch<T>(path: string, { method = 'GET', body, binary, signal }: RequestOptions = {}) {
   const headers: Record<string, string> = { Accept: 'application/json' };
   let payload: BodyInit | undefined;
-  if (form) {
-    payload = form;
+  if (binary) {
+    headers['Content-Type'] = binary.type;
+    payload = binary.data as BodyInit;
   } else if (body !== undefined) {
     headers['Content-Type'] = 'application/json';
     payload = JSON.stringify(body);
