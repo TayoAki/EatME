@@ -15,10 +15,18 @@
       }
     },
     "preview": {
-      "distribution": "internal"
+      "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://api-production-174d.up.railway.app",
+        "EXPO_PUBLIC_LEGAL_URL": "https://api-production-174d.up.railway.app"
+      }
     },
     "production": {
-      "autoIncrement": true
+      "autoIncrement": true,
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://api-production-174d.up.railway.app",
+        "EXPO_PUBLIC_LEGAL_URL": "https://api-production-174d.up.railway.app"
+      }
     }
   },
   "submit": {

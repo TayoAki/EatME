@@ -19,9 +19,9 @@ until they match closely (layout, spacing, font weights, colors).
 
 ## Stack
 
-Expo SDK 57 · Expo Router (`src/app`) · NativeWind v4 · Clerk (`@clerk/expo`) · Neon Postgres +
-Drizzle · Trigger.dev v4 · OpenAI SDK → OpenRouter (`openai/gpt-5.6-luna`) · ImageKit ·
-TanStack Query · Zustand · Sentry.
+Expo SDK 57 · Expo Router (`src/app`) · NativeWind v4 · Better Auth (email + password) ·
+Railway (server, Postgres + Drizzle, storage bucket) · OpenAI SDK → OpenRouter
+(`openai/gpt-5.6-luna`) · TanStack Query · Zustand · Sentry.
 
 ## Project structure
 
@@ -33,12 +33,12 @@ src/app/            routes only (screens, layouts, API routes)
   api/              Expo API routes (`*+api.ts`) — server only
 src/components/     UI components (ui/ = primitives, feature folders for the rest)
 src/lib/            client utilities (api client, queries, stores, formatting)
-src/lib/server/     server-only helpers (auth, imagekit, account deletion) — never import from screens
-src/shared/         code shared by client, API routes and tasks (zod schemas, nutrition math, types)
+src/lib/server/     server-only helpers (auth, storage, AI, plan, meal analysis, account deletion)
+src/shared/         code shared by the app and the API routes (zod schemas, nutrition math, types)
 src/db/             Drizzle schema + client (server only)
-src/trigger/        Trigger.dev tasks (server only)
+server/index.mjs    production server on Railway (API routes + legal pages + migrations)
 design/             AI-generated UI references
-legal/              landing page, privacy policy, terms (static site, Cloudflare)
+legal/              landing page, privacy policy, terms (served by the server)
 drizzle/            generated SQL migrations — never edit by hand
 ```
 
@@ -48,30 +48,36 @@ drizzle/            generated SQL migrations — never edit by hand
   (`bg-surface`, `text-muted`, `text-protein` …). Inline `style` only for dynamic values
   (animations, SVG, measured sizes). Light theme only.
 - Screens stay thin: data fetching lives in `src/lib/queries.ts` (TanStack Query hooks),
-  calls go through `useApi()` in `src/lib/api.ts`, which attaches the Clerk session token.
+  calls go through `useApi()` in `src/lib/api.ts`, which sends the Better Auth session cookie.
 - API routes: authenticate with `requireUserId(request)` from `src/lib/server/auth.ts`, validate
   input with zod, wrap handlers with `handle()` so errors become JSON responses.
-- Server-only modules (`src/db`, `src/trigger`, `src/lib/server`) must never be imported by a
-  screen or component. Screens may use `import type` from task files (for Realtime typing).
-- AI calls run **only** inside Trigger.dev tasks (retries, no timeouts). Use the client in
-  `src/trigger/ai.ts`; models come from env (`AI_MODEL`, `AI_VISION_MODEL`).
-- Use Trigger.dev `logger` inside tasks, `Sentry.logger` in the app for important events.
+- Server-only modules (`src/db`, `src/lib/server`) must never be imported by a screen or
+  component.
+- AI calls run **only** on the server (`src/lib/server/plan.ts`, `meal-analysis.ts`) with
+  retries; long work runs in the background and the app polls. Use the client in
+  `src/lib/server/ai.ts`; models come from env (`AI_MODEL`, `AI_VISION_MODEL`).
+- Photos live in the private Railway bucket (`src/lib/server/storage.ts`); the app only ever
+  gets short-lived signed links.
+- `console.*` on the server (Railway logs), `Sentry.logger` in the app for important events.
 - Database changes: edit `src/db/schema.ts` → `npm run db:generate` → `npm run db:migrate`.
 - Secrets live in `.env` (git-ignored). Only `EXPO_PUBLIC_*` values may be read by the app;
   everything else is server-only. Document new variables in `.env.example`.
-- Apple rules to keep: Sign in with Apple must stay next to Google, "Delete account" must stay
-  in Profile, Privacy Policy + Terms links must work.
+- Apple rules to keep: "Delete account" must stay in Profile, Privacy Policy + Terms links
+  must work, and if Google sign-in is ever added, Sign in with Apple must be added next to it.
 - No automated test suites in V1 — verify manually and run lint + typecheck.
 
 ## Local development
 
-Run these in separate terminals and keep them open:
+One terminal is enough — the Expo dev server runs the app and the API routes (including
+sign-in and the AI calls):
 
 ```bash
-npx expo start                     # app + API routes (dev build: press i / a)
-npx trigger.dev@latest dev         # Trigger.dev tasks (npm run trigger:dev)
-ngrok http --url=<your-domain> 8081  # Clerk webhooks → /api/webhooks/clerk
+npx expo start                     # dev build: press i / a
 ```
+
+`.env` needs `DATABASE_URL` (Railway Postgres public URL + `?sslmode=no-verify`),
+`BETTER_AUTH_SECRET`, `OPENROUTER_API_KEY` and the `S3_*` bucket credentials. Deploys happen
+on Railway when the branch is pushed (`railway.json`).
 
 ## Expo has changed — do not trust your training data
 
@@ -95,7 +101,8 @@ npx expo install --fix      # fix incompatible package versions
 npm run db:generate         # create a migration from src/db/schema.ts
 npm run db:migrate          # apply migrations to DATABASE_URL
 npm run db:studio           # browse the database
-npm run trigger:dev         # run Trigger.dev tasks locally
+npm run build:server        # export the API routes for the production server
+npm run start:server        # run the production server (as on Railway)
 ```
 
 Run lint and typecheck before declaring any task done.

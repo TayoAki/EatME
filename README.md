@@ -15,62 +15,52 @@ onboarding.
 
 ## Stack
 
+The whole backend is **one Railway project + OpenRouter** — no other accounts.
+
 | | |
 | --- | --- |
 | App | Expo SDK 57, React Native, Expo Router (native tabs), NativeWind v4, TanStack Query, Zustand |
-| Auth | Clerk — Sign in with Apple + Google |
-| Backend | Expo Router API routes (`src/app/api`) |
-| Database | Neon Postgres + Drizzle ORM |
-| AI agents / background jobs | Trigger.dev v4 (+ Realtime) |
-| AI model | `openai/gpt-5.6-luna` via OpenRouter (OpenAI SDK) — or OpenAI directly |
-| Images | ImageKit (direct uploads, on-the-fly resizing) |
-| Monitoring | Sentry (errors, logs, tracing, session replay, user feedback) |
-| Legal site | Static HTML on Cloudflare (Wrangler) |
+| Sign-in | Better Auth — email + password, sessions in Postgres |
+| Server | Expo Router API routes (`src/app/api`), run on Railway by `server/index.mjs` |
+| Database | Railway Postgres + Drizzle ORM |
+| Photos | Railway storage bucket (private, S3-compatible; the app gets signed links) |
+| AI | `openai/gpt-5.6-luna` via OpenRouter (OpenAI SDK) — runs inside the server |
+| Monitoring | Sentry, optional (errors, logs, tracing, session replay, user feedback) |
+| Legal site | Static HTML in `legal/`, served by the same Railway server |
 
 ## How it works
 
 ```
-Onboarding answers ──▶ POST /api/plan ──▶ Trigger.dev "generate-plan" ──▶ OpenRouter (GPT)
-                                     ◀── Realtime progress + daily targets ──┘
-Sign in (Clerk) ──▶ POST /api/onboarding ──▶ Neon (users)
-Clerk webhooks ──▶ /api/webhooks/clerk ──▶ Trigger.dev "clerk-user-*" ──▶ Neon (users)
+Onboarding answers ──▶ POST /api/plan ──▶ OpenRouter (GPT) ──▶ daily targets (formula fallback)
+Sign up (email + password) ──▶ /api/auth/* (Better Auth) ──▶ POST /api/onboarding ──▶ Postgres
 
-Photo ──▶ ImageKit (signed direct upload) ──▶ POST /api/meals ──▶ Neon (meal: analyzing)
-                                                    └──▶ Trigger.dev "analyze-meal" ──▶ OpenRouter vision
-                                                              └──▶ Neon (calories + macros) ──▶ Realtime ──▶ app
+Photo ──▶ POST /api/meals ──▶ bucket + meal row ("analyzing") ──▶ background AI analysis
+            ▲                                                          │
+            └──────── app polls GET /api/meals/:id ◀── calories + macros saved
 ```
 
 ## Setup
 
-You need Node.js 20+, and Xcode (iOS) or Android Studio — or an [EAS](https://expo.dev/eas) account to
-build in the cloud. All services below have free tiers.
+You need Node.js 22+, and Xcode (iOS) or Android Studio — or an [EAS](https://expo.dev/eas) account to
+build in the cloud.
 
 ```bash
 npm install
 cp .env.example .env
 ```
 
-Fill in `.env` as you go:
+1. **Railway** — the project `eatme` has three pieces: the **api** service (this repo), **Postgres** and
+   the **meal-photos** bucket. The api service's variables reference the other two, so production needs
+   nothing else. For local development copy into `.env`:
+   - `DATABASE_URL` — Postgres → *Connect* → public connection URL, with `?sslmode=no-verify` appended
+     (enable the TCP proxy / public networking on Postgres if there is no public URL yet).
+   - `S3_ENDPOINT`, `S3_BUCKET`, `S3_ACCESS_KEY_ID`, `S3_SECRET_ACCESS_KEY` — bucket → *Credentials*.
+2. **OpenRouter** — `OPENROUTER_API_KEY`. `AI_MODEL` / `AI_VISION_MODEL` default to `openai/gpt-5.6-luna`.
+3. **Sign-in** — `BETTER_AUTH_SECRET` (any long random string: `openssl rand -hex 32`),
+   `BETTER_AUTH_URL=http://localhost:8081`.
+4. **Sentry** (optional) — `EXPO_PUBLIC_SENTRY_DSN` from a *React Native* project.
 
-1. **Clerk** — create an application with **Google** and **Apple** sign-in.
-   - `EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY` and `CLERK_SECRET_KEY` from *Configure → API keys*.
-   - *Native applications*: allow the redirect URL `eatme://` for mobile SSO.
-2. **Neon** — create a project and copy the connection string into `DATABASE_URL`, then create the tables:
-   ```bash
-   npm run db:migrate
-   ```
-3. **OpenRouter** — create a key for `OPENROUTER_API_KEY`. `AI_MODEL` / `AI_VISION_MODEL` default to
-   `openai/gpt-5.6-luna`. (Prefer OpenAI directly? Leave OpenRouter empty and set `OPENAI_API_KEY`.)
-4. **ImageKit** — *Developer options*: `IMAGEKIT_PUBLIC_KEY`, `IMAGEKIT_PRIVATE_KEY`, `IMAGEKIT_URL_ENDPOINT`.
-5. **Trigger.dev** — create a project: `TRIGGER_PROJECT_REF` (*Project settings*) and the development
-   `TRIGGER_SECRET_KEY` (*API keys*). In development the tasks read the same `.env`.
-6. **ngrok** — claim your free static domain, then in **Clerk → Webhooks** add the endpoint
-   `https://<your-ngrok-domain>/api/webhooks/clerk` with the `user.created`, `user.updated` and
-   `user.deleted` events. Copy its signing secret into `CLERK_WEBHOOK_SIGNING_SECRET`.
-7. **Sentry** — create a *React Native* project: `EXPO_PUBLIC_SENTRY_DSN`. For readable stack traces in
-   release builds also set `SENTRY_AUTH_TOKEN`, `SENTRY_ORG`, `SENTRY_PROJECT`.
-8. **Legal site** — deploy `legal/` (see [`legal/README.md`](./legal/README.md)), replace its placeholders,
-   and put the URL in `EXPO_PUBLIC_LEGAL_URL`.
+The server creates the database tables itself when it starts; to do it by hand run `npm run db:migrate`.
 
 ## Run it
 
@@ -78,15 +68,12 @@ EatME uses native modules, so it runs in a **development build**, not Expo Go:
 
 ```bash
 npx expo run:ios          # or: npx expo run:android  (or: eas build --profile development)
+npx expo start            # the dev server runs the app AND the API routes — one terminal
 ```
 
-Then keep these three terminals open:
-
-```bash
-npx expo start                              # app + API routes
-npm run trigger:dev                         # Trigger.dev tasks
-ngrok http --url=<your-ngrok-domain> 8081   # Clerk webhooks → your machine
-```
+**Quickest way to try it:** put `EXPO_PUBLIC_API_URL=https://api-production-174d.up.railway.app` in `.env`.
+The app then uses the live Railway server (sign-in, AI, photos) and needs nothing else locally. Leave it
+empty to run the API routes on your own dev server instead (needs the server variables from step 1–3).
 
 In the simulator the camera is black — use **Choose from gallery** on the Scan tab. Want data without
 scanning? `npm run db:seed -- --email you@example.com` adds two weeks of sample meals.
@@ -95,14 +82,11 @@ scanning? `npm run db:seed -- --email you@example.com` adds two weeks of sample 
 
 | Piece | How |
 | --- | --- |
-| API routes | `npx expo export --platform web` then `npx eas-cli@latest deploy` (EAS Hosting). Add the server env vars in EAS and set `EXPO_PUBLIC_API_URL` to the deployment URL for app builds. |
-| Trigger.dev tasks | Add `DATABASE_URL`, `OPENROUTER_API_KEY`, `AI_MODEL`, `AI_VISION_MODEL` and the ImageKit keys to the *Production* environment in the Trigger.dev dashboard, then `npm run trigger:deploy`. |
-| Clerk webhook | Point it at `https://<your-api-domain>/api/webhooks/clerk` for production. |
-| Legal site | `npm run legal:deploy` (Cloudflare) |
-| App | `npx eas-cli@latest build --profile production` and `eas submit` |
+| Server, database, photos, legal pages | Push the branch — Railway builds (`npm run build:server`), runs migrations and starts `server/index.mjs` (`railway.json`). Health check: `/api/health`. |
+| App | `npx eas-cli@latest build --profile production` and `eas submit`. The `preview` and `production` profiles in `eas.json` already point the app at the Railway URL. |
 
-Before submitting to the App Store: Sign in with Apple is next to Google, **Delete account** is in Profile,
-and the Privacy Policy / Terms of Service links point to your deployed legal site.
+Before submitting to the App Store: **Delete account** is in Profile, the Privacy Policy / Terms links
+work, the placeholders in `legal/` are filled in, and App Review gets a test email + password.
 
 ## Scripts
 
@@ -110,22 +94,21 @@ and the Privacy Policy / Terms of Service links point to your deployed legal sit
 | --- | --- |
 | `npm start` | Expo dev server (app + API routes) |
 | `npm run ios` / `npm run android` | Build and run the development build |
+| `npm run build:server` / `start:server` | Export the API routes / run the production server (as on Railway) |
 | `npm run lint` / `npm run typecheck` | ESLint / TypeScript |
 | `npm run db:generate` / `db:migrate` / `db:push` / `db:studio` | Drizzle migrations and database browser |
 | `npm run db:seed -- --email you@example.com` | Sample meals for testing |
-| `npm run trigger:dev` / `trigger:deploy` | Run / deploy the Trigger.dev tasks |
-| `npm run legal:dev` / `legal:deploy` | Preview / deploy the legal site on Cloudflare |
 
 ## Project structure
 
 ```
 src/app/            screens and layouts (Expo Router) + API routes in src/app/api
 src/components/     UI (ui/ primitives, home/, scan/, onboarding/, pickers/, profile/)
-src/lib/            client helpers (API client, queries, stores, Sentry, formatting)
-src/lib/server/     server-only helpers (Clerk auth, ImageKit, account deletion, streaks)
-src/shared/         zod schemas + nutrition math shared by app, API and tasks
+src/lib/            client helpers (API client, sign-in client, queries, stores, Sentry, formatting)
+src/lib/server/     server-only helpers (auth, storage bucket, AI plan, meal analysis, account deletion)
+src/shared/         zod schemas + nutrition math shared by the app and the server
 src/db/             Drizzle schema and client
-src/trigger/        Trigger.dev tasks and AI prompts
+server/             production server for Railway
 drizzle/            SQL migrations
 design/             AI-generated UI references (and the prompts that made them)
 legal/              landing page, privacy policy, terms of service
@@ -133,7 +116,9 @@ legal/              landing page, privacy policy, terms of service
 
 ## Notes
 
-- **Realtime on React Native:** `@trigger.dev/react-hooks` pulls in two server-only libraries (`jose`,
-  `@s2-dev/streamstore`) that can't be bundled for iOS/Android. `metro.config.js` swaps them for empty
-  modules on native — the app never calls them. The scan and plan screens also poll the API as a fallback.
-- **Costs:** one plan or one meal analysis with `gpt-5.6-luna` costs a fraction of a cent.
+- **Limits:** 10 plan requests per hour per IP, 50 scans a day per account, and Better Auth's sign-in rate
+  limiter — they keep the AI bill predictable. One plan or meal analysis costs a fraction of a cent.
+- **Resilience:** AI calls are retried; a meal analysis that a restart or deploy interrupted is picked up
+  again the next time the app loads meals.
+- **V2:** forgot password + email verification (needs an email service such as Resend), Sign in with Apple
+  and Google (Better Auth social providers). See the backlog in `PLAN.md`.
