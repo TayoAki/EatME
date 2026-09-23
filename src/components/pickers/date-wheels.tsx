@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { View } from 'react-native';
 
 import { WheelPicker } from '@/components/ui/wheel-picker';
+import { MAX_AGE, MIN_AGE } from '@/shared/onboarding';
 
 const MONTHS = [
   'January',
@@ -32,7 +33,7 @@ type DateWheelsProps = {
 };
 
 /** Month / day / year wheels sharing one selection band. */
-export function DateWheels({ value, onChange, minAge = 13, maxAge = 100 }: DateWheelsProps) {
+export function DateWheels({ value, onChange, minAge = MIN_AGE, maxAge = MAX_AGE }: DateWheelsProps) {
   const [year, month, day] = value.split('-').map(Number);
   const thisYear = new Date().getFullYear();
 

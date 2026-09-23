@@ -6,6 +6,7 @@ import {
   GENDERS,
   GOALS,
   UNIT_SYSTEMS,
+  dateOfBirthSchema,
   type ActivityLevel,
   type Diet,
   type Gender,
@@ -56,7 +57,7 @@ export type StreakResponse = {
 export const updateProfileSchema = z
   .object({
     gender: z.enum(GENDERS),
-    dateOfBirth: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+    dateOfBirth: dateOfBirthSchema,
     heightCm: z.number().min(100).max(250),
     weightKg: z.number().min(30).max(300),
     targetWeightKg: z.number().min(30).max(300),

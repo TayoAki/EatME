@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+import { ageFromDateOfBirth } from './nutrition';
+
 /**
  * Onboarding answers and the AI-generated nutrition plan.
  * Shared by the app (onboarding screens), the API routes and the Trigger.dev tasks.
@@ -23,11 +25,19 @@ export const MIN_WEEKLY_GOAL_KG = 0.1;
 export const MAX_WEEKLY_GOAL_KG = 1.5;
 export const DEFAULT_WEEKLY_GOAL_KG = 0.5;
 
+/** Minimum age in the Terms of Service; the birthday pickers stop at these ages too. */
+export const MIN_AGE = 13;
+export const MAX_AGE = 100;
+
 const isoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Expected a YYYY-MM-DD date');
+
+export const dateOfBirthSchema = isoDate
+  .refine((value) => ageFromDateOfBirth(value) >= MIN_AGE, `You must be at least ${MIN_AGE} years old to use EatME`)
+  .refine((value) => ageFromDateOfBirth(value) <= MAX_AGE, 'Enter a valid date of birth');
 
 export const onboardingAnswersSchema = z.object({
   gender: z.enum(GENDERS),
-  dateOfBirth: isoDate,
+  dateOfBirth: dateOfBirthSchema,
   heightCm: z.number().min(100).max(250),
   weightKg: z.number().min(30).max(300),
   goal: z.enum(GOALS),

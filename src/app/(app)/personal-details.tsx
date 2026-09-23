@@ -17,7 +17,8 @@ import { notify } from '@/lib/confirm';
 import { haptics } from '@/lib/haptics';
 import { useProfile, useUpdateProfile } from '@/lib/queries';
 import { formatLongDate, fromIsoDate } from '@/lib/time';
-import { GENDER_LABELS, GENDERS, type Gender } from '@/shared/onboarding';
+import { ageFromDateOfBirth } from '@/shared/nutrition';
+import { GENDER_LABELS, GENDERS, MIN_AGE, type Gender } from '@/shared/onboarding';
 import type { Profile, UpdateProfileBody } from '@/shared/user';
 import { formatHeight, formatWeight } from '@/shared/units';
 
@@ -71,6 +72,7 @@ function EditDetailSheet({
   const [height, setHeight] = useState(profile.heightCm ?? 175);
   const [dateOfBirth, setDateOfBirth] = useState(profile.dateOfBirth ?? '2000-01-01');
   const [gender, setGender] = useState<Gender | undefined>(profile.gender ?? undefined);
+  const tooYoung = field === 'dateOfBirth' && ageFromDateOfBirth(dateOfBirth) < MIN_AGE;
 
   const save = () => {
     if (field === 'targetWeightKg') onSave({ targetWeightKg: weight });
@@ -88,7 +90,14 @@ function EditDetailSheet({
       ) : field === 'heightCm' ? (
         <HeightWheels heightCm={height} unit={profile.unitSystem} onChange={setHeight} />
       ) : field === 'dateOfBirth' ? (
-        <DateWheels value={dateOfBirth} onChange={setDateOfBirth} />
+        <>
+          <DateWheels value={dateOfBirth} onChange={setDateOfBirth} />
+          {tooYoung ? (
+            <Text className="mt-3 text-center text-[14px] text-muted">
+              You need to be at least {MIN_AGE} to use EatME.
+            </Text>
+          ) : null}
+        </>
       ) : (
         <View className="gap-3">
           {GENDERS.map((value) => (
@@ -104,7 +113,7 @@ function EditDetailSheet({
       )}
       <View className="mt-6 flex-row gap-3">
         <Button title="Cancel" variant="secondary" className="flex-1" onPress={onClose} />
-        <Button title="Save" className="flex-1" loading={saving} onPress={save} />
+        <Button title="Save" className="flex-1" loading={saving} disabled={tooYoung} onPress={save} />
       </View>
     </BottomSheet>
   );
