@@ -80,8 +80,8 @@
     "db:seed": "tsx scripts/seed.ts",
     "trigger:dev": "trigger.dev dev",
     "trigger:deploy": "trigger.dev deploy",
-    "legal:dev": "wrangler dev --config legal/wrangler.jsonc",
-    "legal:deploy": "wrangler deploy --config legal/wrangler.jsonc"
+    "legal:dev": "npx wrangler@4 dev --config legal/wrangler.jsonc --persist-to .wrangler/state",
+    "legal:deploy": "npx wrangler@4 deploy --config legal/wrangler.jsonc"
   },
   "private": true
 }

@@ -50,7 +50,7 @@ Welcome ──Get started──▶ Onboarding questions ──▶ Building your 
 1. **Welcome** — logo, headline, phone demo image, `Get started`, `Sign in` link.
 2. **Onboarding questions** (before auth, answers kept on device):
    1. Gender
-   2. Birthday
+   2. Birthday (13 or older, matching the Terms of Service)
    3. Height
    4. Current weight
    5. Goal — lose / maintain / gain
@@ -148,9 +148,12 @@ The device time zone is stored per user and used for day boundaries and streaks.
 
 ## 8. Legal & landing
 - `legal/index.html` landing page, `legal/terms.html`, `legal/privacy.html`,
-  `legal/style.css`, phone mockups — same look as the app (white, minimal).
-- Deployed to Cloudflare (Wrangler static assets). The app's Privacy / Terms links
-  point at the deployed URL (`EXPO_PUBLIC_LEGAL_URL`).
+  `legal/404.html`, `legal/style.css`, phone mockups made from real app screens —
+  same look as the app (white, minimal). No JavaScript, cookies or analytics.
+- Deployed to Cloudflare (Wrangler static assets, `npm run legal:deploy`). The app's
+  Privacy / Terms links point at the deployed URL (`EXPO_PUBLIC_LEGAL_URL`).
+- Placeholders (`[Company Legal Name]`, `[Contact Email]`, …) are highlighted on the
+  pages; `legal/README.md` has the checklist to fill them in before release.
 
 ---
 
@@ -192,6 +195,6 @@ The device time zone is stored per user and used for day boundaries and streaks.
 - [x] Sentry test bench (dev only) + Send feedback button
 
 ### 7 · Legal & landing
-- [ ] Landing page, terms of service, privacy policy
-- [ ] Cloudflare (Wrangler) deploy config + app links
-- [ ] Seed script for test data
+- [x] Landing page, terms of service, privacy policy
+- [x] Cloudflare (Wrangler) deploy config + app links
+- [x] Seed script for test data
