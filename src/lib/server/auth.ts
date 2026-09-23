@@ -8,6 +8,12 @@ import { accounts, sessions, users, verifications } from '@/db/schema';
 import { HttpError } from './http';
 
 const isProduction = process.env.NODE_ENV === 'production';
+/**
+ * Inside Expo Go the app identifies itself as exp://… instead of eatme://. ALLOW_EXPO_GO=true lets
+ * testers use Expo Go against the live server. Turn it off before release, and before adding
+ * Google/Apple sign-in (their redirects must only go back to eatme://).
+ */
+const allowExpoGo = !isProduction || process.env.ALLOW_EXPO_GO === 'true';
 
 function createAuth() {
   return betterAuth({
@@ -29,7 +35,12 @@ function createAuth() {
     },
     // Stay signed in for 30 days; every day of use extends the session.
     session: { expiresIn: 60 * 60 * 24 * 30, updateAge: 60 * 60 * 24 },
-    trustedOrigins: ['eatme://', ...(isProduction ? [] : ['exp://', 'exp://**', 'http://localhost:8081'])],
+    // "exp://" matches every Expo Go address (exp://<host>:<port>).
+    trustedOrigins: [
+      'eatme://',
+      ...(allowExpoGo ? ['exp://'] : []),
+      ...(isProduction ? [] : ['http://localhost:8081']),
+    ],
     advanced: {
       // Railway's proxy puts the caller's address in X-Real-IP (used by the sign-in rate limiter).
       ipAddress: { ipAddressHeaders: ['x-real-ip'] },

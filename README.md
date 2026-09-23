@@ -64,16 +64,26 @@ The server creates the database tables itself when it starts; to do it by hand r
 
 ## Run it
 
-EatME uses native modules, so it runs in a **development build**, not Expo Go:
+**Quickest way to try it (free, on your phone):** install **Expo Go**, then
+
+```bash
+echo "EXPO_PUBLIC_API_URL=https://api-production-174d.up.railway.app" > .env
+npx expo start --go --tunnel   # scan the QR code with the phone camera
+```
+
+The app then uses the live Railway server (sign-in, AI, photos) and needs nothing else locally —
+`--tunnel` lets a phone reach a dev server that is not on the same Wi-Fi (e.g. GitHub Codespaces).
+Signing in from Expo Go needs `ALLOW_EXPO_GO=true` on the Railway server (already set).
+
+For the full app (its own icon, Sentry crash reports) use a **development build**:
 
 ```bash
 npx expo run:ios          # or: npx expo run:android  (or: eas build --profile development)
 npx expo start            # the dev server runs the app AND the API routes — one terminal
 ```
 
-**Quickest way to try it:** put `EXPO_PUBLIC_API_URL=https://api-production-174d.up.railway.app` in `.env`.
-The app then uses the live Railway server (sign-in, AI, photos) and needs nothing else locally. Leave it
-empty to run the API routes on your own dev server instead (needs the server variables from step 1–3).
+Leave `EXPO_PUBLIC_API_URL` empty to run the API routes on your own dev server instead (needs the server
+variables from step 1–3).
 
 In the simulator the camera is black — use **Choose from gallery** on the Scan tab. Want data without
 scanning? `npm run db:seed -- --email you@example.com` adds two weeks of sample meals.
@@ -86,7 +96,8 @@ scanning? `npm run db:seed -- --email you@example.com` adds two weeks of sample 
 | App | `npx eas-cli@latest build --profile production` and `eas submit`. The `preview` and `production` profiles in `eas.json` already point the app at the Railway URL. |
 
 Before submitting to the App Store: **Delete account** is in Profile, the Privacy Policy / Terms links
-work, the placeholders in `legal/` are filled in, and App Review gets a test email + password.
+work, the placeholders in `legal/` are filled in, App Review gets a test email + password, and the
+Railway variable `ALLOW_EXPO_GO` (lets Expo Go sign in while testing) is removed.
 
 ## Scripts
 
