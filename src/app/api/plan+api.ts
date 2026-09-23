@@ -1,21 +1,14 @@
-import { tasks } from '@trigger.dev/sdk';
-
 import { handle, readJson } from '@/lib/server/http';
+import { generatePlan } from '@/lib/server/plan';
+import { clientIp, rateLimit } from '@/lib/server/rate-limit';
 import { onboardingAnswersSchema } from '@/shared/onboarding';
-import type { generatePlan } from '@/trigger/generate-plan';
 
 /**
- * Starts the AI plan for the onboarding answers. Public on purpose: the plan is built before the
- * user signs up. Returns the run handle so the app can follow it with Trigger.dev Realtime.
+ * Builds the daily plan for the onboarding answers with AI and returns it (a few seconds).
+ * Public on purpose — the plan is built before sign-up — so it is rate limited per IP address.
  */
 export const POST = handle(async (request) => {
+  rateLimit(`plan:${clientIp(request)}`, 10, 60 * 60_000);
   const answers = onboardingAnswersSchema.parse(await readJson(request));
-
-  const run = await tasks.trigger<typeof generatePlan>('generate-plan', answers, {
-    tags: ['onboarding'],
-    // Nobody waits for a plan after this — drop the run if it cannot start in time.
-    ttl: '10m',
-  });
-
-  return Response.json({ runId: run.id, publicAccessToken: run.publicAccessToken });
+  return Response.json({ plan: await generatePlan(answers) });
 });

@@ -18,10 +18,8 @@ import {
 /** Profile returned by `GET /api/me`. */
 export type Profile = {
   id: string;
-  email: string | null;
-  firstName: string | null;
-  lastName: string | null;
-  imageUrl: string | null;
+  email: string;
+  name: string;
   gender: Gender | null;
   dateOfBirth: string | null;
   heightCm: number | null;

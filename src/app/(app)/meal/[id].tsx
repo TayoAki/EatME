@@ -11,7 +11,6 @@ import { Screen } from '@/components/ui/screen';
 import { colors } from '@/constants/colors';
 import { confirm, notify } from '@/lib/confirm';
 import { haptics } from '@/lib/haptics';
-import { mealHeroUrl } from '@/lib/image-url';
 import { useDeleteMeal, useMeal, useUpdateMeal } from '@/lib/queries';
 import { formatDay, formatTime, toIsoDate } from '@/lib/time';
 import type { Meal } from '@/shared/meals';
@@ -92,14 +91,18 @@ function MealEditor({ meal }: { meal: Meal }) {
     });
   };
 
-  const hero = mealHeroUrl(meal.imageUrl);
+  const hero = meal.imageUrl;
 
   return (
     <KeyboardAvoidingView className="flex-1" behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
       <ScrollView contentContainerClassName="px-5 pb-8" keyboardShouldPersistTaps="handled">
         <View className="overflow-hidden rounded-card bg-surface">
           {hero ? (
-            <Image source={{ uri: hero }} style={{ width: '100%', aspectRatio: 4 / 3 }} contentFit="cover" />
+            <Image
+              source={{ uri: hero, cacheKey: meal.id }}
+              style={{ width: '100%', aspectRatio: 4 / 3 }}
+              contentFit="cover"
+            />
           ) : (
             <View className="aspect-[4/3] items-center justify-center">
               <UtensilsCrossed size={40} color={colors.faint} />

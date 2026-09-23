@@ -1,5 +1,5 @@
 import * as Sentry from '@sentry/react-native';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import { Image } from 'expo-image';
 import { Flame, ImageOff, TriangleAlert } from 'lucide-react-native';
 import { useEffect, useRef, useState } from 'react';
@@ -10,40 +10,16 @@ import { SkeletonBar } from '@/components/home/meal-card';
 import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/ui/logo';
 import { colors } from '@/constants/colors';
-import { ApiError, useApi, type ApiClient } from '@/lib/api';
+import { useApi } from '@/lib/api';
 import { haptics } from '@/lib/haptics';
-import { uploadAndAnalyzeMeal } from '@/lib/meal-upload';
+import { uploadMeal } from '@/lib/meal-upload';
 import { useInvalidateMeals } from '@/lib/queries';
-import { useRunStatus } from '@/lib/use-run-status';
-import { MEAL_ANALYSIS_STAGES, type Meal, type MealAnalysisStage } from '@/shared/meals';
-import type { AnalyzeMealOutput, analyzeMeal } from '@/trigger/analyze-meal';
+import { MEAL_ANALYSIS_STAGES, type Meal } from '@/shared/meals';
 
 import type { Photo } from './camera-capture';
 
-/** Polling fallback: the meal row tells us the outcome too (a deleted row means "not food"). */
-async function pollMeal(api: ApiClient, id: string) {
-  try {
-    const { meal } = await api<{ meal: Meal }>(`/api/meals/${id}`);
-    if (meal.status === 'completed') {
-      return { status: 'COMPLETED', output: { status: 'completed', meal } as AnalyzeMealOutput, metadata: null };
-    }
-    return { status: meal.status === 'failed' ? 'FAILED' : 'EXECUTING', output: null, metadata: null };
-  } catch (error) {
-    if (error instanceof ApiError && error.status === 404) {
-      const output: AnalyzeMealOutput = { status: 'not_food', reason: "That doesn't look like food." };
-      return { status: 'COMPLETED', output, metadata: null };
-    }
-    throw error;
-  }
-}
-
-const STAGE_PROGRESS: Partial<Record<MealAnalysisStage, number>> = {
-  preparing: 30,
-  identifying: 40,
-  calculating: 75,
-  saving: 92,
-  done: 100,
-};
+/** Stop waiting after this long; the analysis keeps running and the meal shows up on Home later. */
+const GIVE_UP_AFTER_SECONDS = 90;
 
 function MacroBox({ label, value, color }: { label: string; value: number | null; color: string }) {
   return (
@@ -68,8 +44,8 @@ type AnalysisViewProps = {
 };
 
 /**
- * Optimistic result card: the photo shows immediately, then the card fills in live while the
- * analyze-meal task runs on Trigger.dev.
+ * Optimistic result card: the photo shows immediately, then the card fills in when the server has
+ * analyzed the meal (the app checks every 1.5 seconds).
  */
 export function AnalysisView({ photo, onScanAnother, onDone, bottomSpace }: AnalysisViewProps) {
   const insets = useSafeAreaInsets();
@@ -77,7 +53,7 @@ export function AnalysisView({ photo, onScanAnother, onDone, bottomSpace }: Anal
   const invalidateMeals = useInvalidateMeals();
 
   const upload = useMutation({
-    mutationFn: () => uploadAndAnalyzeMeal(api, photo),
+    mutationFn: () => uploadMeal(api, photo),
     onError: (error) => Sentry.logger.error('Meal upload failed', { error: error.message }),
   });
   const started = useRef(false);
@@ -89,29 +65,34 @@ export function AnalysisView({ photo, onScanAnother, onDone, bottomSpace }: Anal
     upload.mutate();
   });
 
-  const created = upload.data;
-  const run = useRunStatus<typeof analyzeMeal, AnalyzeMealOutput>(
-    created ? { runId: created.runId, publicAccessToken: created.publicAccessToken } : undefined,
-    { queryKey: ['meal-run', created?.meal.id], fetch: () => pollMeal(api, created!.meal.id) },
-  );
+  const mealId = upload.data?.id;
+  const [elapsed, setElapsed] = useState(0);
+  const timedOut = elapsed >= GIVE_UP_AFTER_SECONDS;
+  const result = useQuery({
+    queryKey: ['meal-analysis', mealId],
+    queryFn: () => api<{ meal: Meal }>(`/api/meals/${mealId}`),
+    enabled: !!mealId && !timedOut,
+    refetchInterval: (query) => (query.state.data?.meal.status === 'analyzing' || !query.state.data ? 1500 : false),
+    retry: 2,
+  });
 
-  const outcome = run.output;
-  const failed = upload.isError || run.isFailed;
-  const stage = (typeof run.metadata?.stage === 'string' ? run.metadata.stage : 'queued') as MealAnalysisStage;
+  const analyzed = result.data?.meal;
+  const outcome = analyzed && analyzed.status !== 'analyzing' ? analyzed : null;
+  const failed = upload.isError || outcome?.status === 'failed' || (timedOut && !outcome);
+  const done = outcome?.status === 'completed' || outcome?.status === 'not_food';
 
-  // Progress: time-based while waiting, jumps forward with each stage the task reports.
+  // Progress: time-based while waiting, then fills up when the result arrives.
   const [progress, setProgress] = useState(4);
   useEffect(() => {
     if (failed) return;
     const timer = setInterval(() => {
-      const elapsed = (Date.now() - startedAt.current) / 1000;
-      const floor = outcome ? 100 : (STAGE_PROGRESS[stage] ?? 0);
-      const waiting = 90 * (1 - Math.exp(-elapsed / 6));
-      const target = outcome ? 100 : Math.min(95, Math.max(floor, waiting));
-      setProgress((p) => (p >= target ? p : Math.min(target, p + (outcome ? 5 : 0.8))));
+      const seconds = (Date.now() - startedAt.current) / 1000;
+      setElapsed(Math.floor(seconds));
+      const target = done ? 100 : Math.min(95, 90 * (1 - Math.exp(-seconds / 6)));
+      setProgress((p) => (p >= target ? p : Math.min(target, p + (done ? 5 : 0.8))));
     }, 50);
     return () => clearInterval(timer);
-  }, [failed, outcome, stage]);
+  }, [failed, done]);
 
   // Refresh the home screen once the meal is saved.
   const notified = useRef(false);
@@ -121,26 +102,27 @@ export function AnalysisView({ photo, onScanAnother, onDone, bottomSpace }: Anal
     if (outcome.status === 'completed') {
       haptics.success();
       Sentry.logger.info('Meal analyzed', {
-        mealId: outcome.meal.id,
-        calories: outcome.meal.calories ?? 0,
+        mealId: outcome.id,
+        calories: outcome.calories ?? 0,
         seconds: Math.round((Date.now() - startedAt.current) / 1000),
       });
-    } else {
+    } else if (outcome.status === 'not_food') {
       haptics.warning();
-      Sentry.logger.warn('Scanned photo is not food', { reason: outcome.reason });
+      Sentry.logger.warn('Scanned photo is not food', { reason: outcome.error ?? 'unknown' });
+    } else {
+      Sentry.logger.error('Meal analysis failed', { mealId: outcome.id, error: outcome.error ?? 'unknown' });
     }
     void invalidateMeals();
   }, [outcome, invalidateMeals]);
 
-  const failureLogged = useRef(false);
-  useEffect(() => {
-    if (!run.isFailed || failureLogged.current) return;
-    failureLogged.current = true;
-    Sentry.logger.error('Meal analysis failed', { runId: created?.runId ?? 'unknown', status: run.status ?? 'unknown' });
-  }, [run.isFailed, run.status, created?.runId]);
-
-  const stageLabel = upload.isPending ? 'Uploading your photo…' : MEAL_ANALYSIS_STAGES[stage];
-  const meal = outcome?.status === 'completed' ? outcome.meal : null;
+  const stageLabel = upload.isPending
+    ? 'Uploading your photo…'
+    : [...MEAL_ANALYSIS_STAGES].reverse().find((stage) => elapsed >= stage.after)?.label;
+  const meal = outcome?.status === 'completed' ? outcome : null;
+  const notFood = outcome?.status === 'not_food' ? outcome : null;
+  const failureMessage = upload.error?.message ?? (timedOut && !outcome
+    ? 'This is taking longer than usual. Your meal will appear on Home when it is ready.'
+    : 'Please try again with a clearer photo of your meal.');
 
   return (
     <View className="flex-1 bg-canvas" style={{ paddingTop: insets.top }}>
@@ -167,13 +149,15 @@ export function AnalysisView({ photo, onScanAnother, onDone, bottomSpace }: Anal
                 <MacroBox label="Fats" value={meal.fatG} color={colors.fat} />
               </View>
             </>
-          ) : outcome?.status === 'not_food' ? (
+          ) : notFood ? (
             <View className="items-center py-2">
               <ImageOff size={32} color={colors.ink} />
               <Text className="mt-3 text-center text-[22px] font-bold tracking-tight text-ink">
                 That doesn&apos;t look like food
               </Text>
-              <Text className="mt-2 text-center text-[15px] leading-[21px] text-muted">{outcome.reason}</Text>
+              <Text className="mt-2 text-center text-[15px] leading-[21px] text-muted">
+                {notFood.error ?? 'Try a photo of your plate.'}
+              </Text>
             </View>
           ) : failed ? (
             <View className="items-center py-2">
@@ -182,7 +166,7 @@ export function AnalysisView({ photo, onScanAnother, onDone, bottomSpace }: Anal
                 We couldn&apos;t analyze this photo
               </Text>
               <Text className="mt-2 text-center text-[15px] leading-[21px] text-muted">
-                {upload.error?.message ?? 'Please try again with a clearer photo of your meal.'}
+                {failureMessage}
               </Text>
             </View>
           ) : (
@@ -214,7 +198,7 @@ export function AnalysisView({ photo, onScanAnother, onDone, bottomSpace }: Anal
         </View>
       </ScrollView>
 
-      {meal || outcome?.status === 'not_food' || failed ? (
+      {meal || notFood || failed ? (
         <View className="flex-row gap-3 px-5 pt-3" style={{ paddingBottom: bottomSpace }}>
           <Button
             title={meal ? 'Scan another' : 'Retake'}

@@ -1,8 +1,8 @@
-import { useAuth } from '@clerk/expo';
 import * as Sentry from '@sentry/react-native';
 import { useEffect, useRef } from 'react';
 
 import { ErrorScreen, LoadingScreen } from '@/components/full-screen-state';
+import { authClient } from '@/lib/auth-client';
 import { useOnboardingStore, type PendingOnboarding } from '@/lib/onboarding-store';
 import { useSaveOnboarding } from '@/lib/queries';
 import { deviceTimeZone } from '@/lib/time';
@@ -14,7 +14,6 @@ import { deviceTimeZone } from '@/lib/time';
 export function FinishOnboarding({ pending }: { pending: PendingOnboarding }) {
   const save = useSaveOnboarding();
   const reset = useOnboardingStore((s) => s.reset);
-  const { signOut } = useAuth();
   const started = useRef(false);
 
   const run = () =>
@@ -46,7 +45,7 @@ export function FinishOnboarding({ pending }: { pending: PendingOnboarding }) {
         message={save.error.message}
         onRetry={run}
         retrying={save.isPending}
-        secondaryAction={{ label: 'Sign out', onPress: () => void signOut() }}
+        secondaryAction={{ label: 'Sign out', onPress: () => void authClient.signOut() }}
       />
     );
   }

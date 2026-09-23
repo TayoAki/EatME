@@ -2,8 +2,6 @@ import '@/global.css';
 // Initialise Sentry before anything else renders.
 import { navigationIntegration, Sentry } from '@/lib/sentry';
 
-import { ClerkProvider, useAuth } from '@clerk/expo';
-import { tokenCache } from '@clerk/expo/token-cache';
 import { QueryClientProvider, useQueryClient } from '@tanstack/react-query';
 import { Stack, useNavigationContainerRef } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
@@ -14,13 +12,13 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { FinishOnboarding } from '@/components/finish-onboarding';
 import { ErrorScreen, LoadingScreen, MissingConfigScreen } from '@/components/full-screen-state';
 import { colors } from '@/constants/colors';
+import { API_URL } from '@/lib/api-url';
+import { useSession } from '@/lib/auth-client';
 import { useOnboardingHydrated, usePendingOnboarding } from '@/lib/onboarding-store';
 import { useMe } from '@/lib/queries';
 import { queryClient } from '@/lib/query-client';
 
 void SplashScreen.preventAutoHideAsync();
-
-const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY ?? '';
 
 function RootLayout() {
   const navigationRef = useNavigationContainerRef();
@@ -28,23 +26,21 @@ function RootLayout() {
     if (navigationRef) navigationIntegration.registerNavigationContainer(navigationRef);
   }, [navigationRef]);
 
-  if (!publishableKey) {
+  if (!API_URL) {
     return (
       <MissingConfigScreen
-        variable="EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY"
-        hint="Add your Clerk publishable key to .env (Clerk dashboard → API keys), then restart Expo."
+        variable="EXPO_PUBLIC_API_URL"
+        hint="Set it to your Railway server URL (e.g. https://api-production.up.railway.app), then rebuild the app."
       />
     );
   }
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <ClerkProvider publishableKey={publishableKey} tokenCache={tokenCache}>
-        <QueryClientProvider client={queryClient}>
-          <StatusBar style="dark" />
-          <RootNavigator />
-        </QueryClientProvider>
-      </ClerkProvider>
+      <QueryClientProvider client={queryClient}>
+        <StatusBar style="dark" />
+        <RootNavigator />
+      </QueryClientProvider>
     </GestureHandlerRootView>
   );
 }
@@ -59,7 +55,7 @@ export default Sentry.wrap(RootLayout);
  * - signed in with a plan → (app) tabs
  */
 function RootNavigator() {
-  const { isLoaded, isSignedIn, userId } = useAuth();
+  const { isLoaded, isSignedIn, userId } = useSession();
   const hydrated = useOnboardingHydrated();
   const pending = usePendingOnboarding();
   const me = useMe();
@@ -77,7 +73,7 @@ function RootNavigator() {
     if (ready || slowStart) void SplashScreen.hideAsync();
   }, [ready, slowStart]);
 
-  // Attach the Clerk user id to every Sentry event, log and replay.
+  // Attach the user id to every Sentry event, log and replay.
   useEffect(() => {
     Sentry.setUser(isSignedIn && userId ? { id: userId } : null);
   }, [isSignedIn, userId]);

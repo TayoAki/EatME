@@ -1,31 +1,57 @@
-import { createClerkClient, verifyToken } from '@clerk/backend';
+import { expo } from '@better-auth/expo';
+import { betterAuth } from 'better-auth';
+import { drizzleAdapter } from 'better-auth/adapters/drizzle';
+
+import { db } from '@/db';
+import { accounts, sessions, users, verifications } from '@/db/schema';
 
 import { HttpError } from './http';
 
-let clerk: ReturnType<typeof createClerkClient> | null = null;
+const isProduction = process.env.NODE_ENV === 'production';
 
-/** Clerk Backend API client (server only). */
-export function clerkClient() {
-  const secretKey = process.env.CLERK_SECRET_KEY;
-  if (!secretKey) throw new Error('CLERK_SECRET_KEY is not set. Add it to .env (Clerk dashboard → API keys).');
-  clerk ??= createClerkClient({ secretKey });
-  return clerk;
+function createAuth() {
+  return betterAuth({
+    appName: 'EatME',
+    baseURL: process.env.BETTER_AUTH_URL,
+    secret: process.env.BETTER_AUTH_SECRET,
+    basePath: '/api/auth',
+    database: drizzleAdapter(db, {
+      provider: 'pg',
+      usePlural: true,
+      schema: { users, sessions, accounts, verifications },
+    }),
+    // V1: email + password only. "Forgot password" and email verification need an email service (V2).
+    emailAndPassword: {
+      enabled: true,
+      minPasswordLength: 8,
+      maxPasswordLength: 128,
+      autoSignIn: true,
+    },
+    // Stay signed in for 30 days; every day of use extends the session.
+    session: { expiresIn: 60 * 60 * 24 * 30, updateAge: 60 * 60 * 24 },
+    trustedOrigins: ['eatme://', ...(isProduction ? [] : ['exp://', 'exp://**', 'http://localhost:8081'])],
+    advanced: {
+      // Railway's proxy puts the caller's address in X-Real-IP (used by the sign-in rate limiter).
+      ipAddress: { ipAddressHeaders: ['x-real-ip'] },
+    },
+    plugins: [expo()],
+  });
+}
+
+let instance: ReturnType<typeof createAuth> | undefined;
+
+/** Better Auth server instance, created on first use (it needs the database). Server only. */
+export function getAuth() {
+  instance ??= createAuth();
+  return instance;
 }
 
 /**
- * Verifies the Clerk session token sent by the app (`Authorization: Bearer <token>`) and returns the
- * Clerk user id. Throws a 401 HttpError when the token is missing or invalid.
+ * Reads the session cookie the app sends with every request and returns the signed-in user's id.
+ * Throws a 401 HttpError when there is no valid session.
  */
 export async function requireUserId(request: Request): Promise<string> {
-  const header = request.headers.get('authorization');
-  const token = header?.startsWith('Bearer ') ? header.slice('Bearer '.length).trim() : null;
-  if (!token) throw new HttpError(401, 'Sign in required');
-
-  try {
-    const payload = await verifyToken(token, { secretKey: process.env.CLERK_SECRET_KEY });
-    if (!payload.sub) throw new Error('Token has no subject');
-    return payload.sub;
-  } catch {
-    throw new HttpError(401, 'Your session has expired. Please sign in again.');
-  }
+  const result = await getAuth().api.getSession({ headers: request.headers });
+  if (!result) throw new HttpError(401, 'Please sign in again.');
+  return result.user.id;
 }

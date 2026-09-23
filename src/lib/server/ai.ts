@@ -10,8 +10,8 @@ const usingOpenRouter = () => !!process.env.OPENROUTER_API_KEY;
 let client: OpenAI | null = null;
 
 /**
- * OpenAI SDK client. Uses OpenRouter (OpenAI-compatible) when OPENROUTER_API_KEY is set,
- * otherwise OpenAI directly with OPENAI_API_KEY.
+ * OpenAI SDK client (server only). Uses OpenRouter (OpenAI-compatible) when OPENROUTER_API_KEY is
+ * set, otherwise OpenAI directly with OPENAI_API_KEY.
  */
 export function ai() {
   if (client) return client;
@@ -20,14 +20,14 @@ export function ai() {
       apiKey: process.env.OPENROUTER_API_KEY,
       baseURL: OPENROUTER_BASE_URL,
       defaultHeaders: { 'X-Title': 'EatME' },
-      // Trigger.dev retries the whole task; keep the SDK's own retries low.
-      maxRetries: 1,
-      timeout: 90_000,
+      // The SDK retries rate limits, 5xx and timeouts; the callers add their own retries on top.
+      maxRetries: 2,
+      timeout: 45_000,
     });
   } else if (process.env.OPENAI_API_KEY) {
-    client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY, maxRetries: 1, timeout: 90_000 });
+    client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY, maxRetries: 2, timeout: 45_000 });
   } else {
-    throw new Error('Set OPENROUTER_API_KEY (or OPENAI_API_KEY) in your Trigger.dev environment variables.');
+    throw new Error('Set OPENROUTER_API_KEY (or OPENAI_API_KEY) in the server environment variables.');
   }
   return client;
 }

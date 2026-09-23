@@ -2,21 +2,20 @@
   "name": "eatme",
   "main": "expo-router/entry",
   "version": "1.0.0",
+  "engines": {
+    "node": ">=22"
+  },
   "dependencies": {
-    "@clerk/backend": "^3.19.0",
-    "@clerk/expo": "^4.6.9",
+    "@better-auth/expo": "^1.7.5",
     "@expo/ui": "~57.0.19",
-    "@neondatabase/serverless": "^1.1.0",
     "@react-native-async-storage/async-storage": "2.2.0",
     "@react-native-community/slider": "5.2.0",
     "@sentry/react-native": "~7.11.0",
     "@tanstack/react-query": "^5.103.2",
-    "@trigger.dev/react-hooks": "^4.6.4",
-    "@trigger.dev/sdk": "^4.6.4",
+    "aws4fetch": "^1.0.20",
+    "better-auth": "^1.7.5",
     "drizzle-orm": "^0.45.3",
     "expo": "~57.0.24",
-    "expo-apple-authentication": "~57.0.2",
-    "expo-auth-session": "~57.0.12",
     "expo-camera": "~57.0.5",
     "expo-constants": "~57.0.19",
     "expo-crypto": "~57.0.3",
@@ -30,6 +29,7 @@
     "expo-image-picker": "~57.0.19",
     "expo-linking": "~57.0.10",
     "expo-localization": "~57.0.2",
+    "expo-network": "~57.0.2",
     "expo-router": "~57.0.22",
     "expo-secure-store": "~57.0.4",
     "expo-splash-screen": "~57.0.9",
@@ -40,6 +40,7 @@
     "lucide-react-native": "^1.47.0",
     "nativewind": "^4.2.7",
     "openai": "^7.23.0",
+    "pg": "^8.23.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-native": "0.86.3",
@@ -54,6 +55,7 @@
     "zustand": "^5.0.15"
   },
   "devDependencies": {
+    "@types/pg": "^8.23.1",
     "@types/react": "~19.2.2",
     "babel-preset-expo": "~57.0.0",
     "dotenv": "^18.0.3",
@@ -62,7 +64,6 @@
     "eslint-config-expo": "~57.0.2",
     "prettier-plugin-tailwindcss": "^0.5.14",
     "tailwindcss": "^3.4.19",
-    "trigger.dev": "^4.6.4",
     "tsx": "^4.23.15",
     "typescript": "~6.0.3"
   },
@@ -71,17 +72,15 @@
     "ios": "expo run:ios",
     "android": "expo run:android",
     "web": "expo start --web",
+    "build:server": "expo export --platform web --output-dir dist",
+    "start:server": "node server/index.mjs",
     "lint": "expo lint",
     "typecheck": "tsc --noEmit",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
-    "db:seed": "tsx scripts/seed.ts",
-    "trigger:dev": "trigger.dev dev",
-    "trigger:deploy": "trigger.dev deploy",
-    "legal:dev": "npx wrangler@4 dev --config legal/wrangler.jsonc --persist-to .wrangler/state",
-    "legal:deploy": "npx wrangler@4 deploy --config legal/wrangler.jsonc"
+    "db:seed": "tsx scripts/seed.ts"
   },
   "private": true
 }

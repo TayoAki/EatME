@@ -1,4 +1,3 @@
-import { useAuth } from '@clerk/expo';
 import { Redirect, router } from 'expo-router';
 import { Check, ClipboardList, Scale, Sparkles, Target, type LucideIcon } from 'lucide-react-native';
 import { useMemo } from 'react';
@@ -8,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { ProgressRing } from '@/components/ui/progress-ring';
 import { Screen } from '@/components/ui/screen';
 import { colors } from '@/constants/colors';
+import { useSession } from '@/lib/auth-client';
 import { completeAnswers, useOnboardingStore } from '@/lib/onboarding-store';
 import { FIRST_STEP_HREF } from '@/lib/onboarding-steps';
 import { formatLongDate } from '@/lib/time';
@@ -38,7 +38,7 @@ export default function PlanReadyScreen() {
   const plan = useOnboardingStore((s) => s.plan);
   const rawAnswers = useOnboardingStore((s) => s.answers);
   const markPendingSave = useOnboardingStore((s) => s.markPendingSave);
-  const { isSignedIn } = useAuth();
+  const { isSignedIn } = useSession();
   const answers = useMemo(() => completeAnswers(rawAnswers), [rawAnswers]);
 
   if (!plan || !answers) return <Redirect href={FIRST_STEP_HREF} />;

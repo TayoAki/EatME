@@ -1,7 +1,5 @@
-import { useAuth, useUser } from '@clerk/expo';
 import * as Sentry from '@sentry/react-native';
 import Constants from 'expo-constants';
-import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import {
   Bug,
@@ -19,7 +17,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { SettingsGroup, SettingsRow } from '@/components/profile/settings';
 import { Button } from '@/components/ui/button';
-import { colors } from '@/constants/colors';
+import { authClient } from '@/lib/auth-client';
 import { confirm, notify } from '@/lib/confirm';
 import { links, openLink } from '@/lib/links';
 import { useDeleteAccount, useProfile } from '@/lib/queries';
@@ -36,22 +34,17 @@ export default function ProfileScreen() {
 
 function ProfileContent({ profile }: { profile: Profile }) {
   const insets = useSafeAreaInsets();
-  const { user } = useUser();
-  const { signOut } = useAuth();
   const deleteAccount = useDeleteAccount();
   const [signingOut, setSigningOut] = useState(false);
 
-  const name =
-    [profile.firstName ?? user?.firstName, profile.lastName ?? user?.lastName].filter(Boolean).join(' ') ||
-    'EatME member';
-  const email = profile.email ?? user?.primaryEmailAddress?.emailAddress ?? '';
-  const avatar = user?.imageUrl ?? profile.imageUrl;
+  const name = profile.name.trim() || 'EatME member';
+  const email = profile.email;
 
   const handleSignOut = async () => {
     setSigningOut(true);
     try {
       // The root layout clears the cached data once the signed-out screens are shown.
-      await signOut();
+      await authClient.signOut();
     } finally {
       setSigningOut(false);
     }
@@ -66,7 +59,7 @@ function ProfileContent({ profile }: { profile: Profile }) {
     });
     if (!confirmed) return;
     deleteAccount.mutate(undefined, {
-      onSuccess: () => void signOut().catch(() => undefined),
+      onSuccess: () => void authClient.signOut().catch(() => undefined),
       onError: (error) => notify("We couldn't delete your account", error.message),
     });
   };
@@ -82,13 +75,9 @@ function ProfileContent({ profile }: { profile: Profile }) {
       </Text>
 
       <View className="flex-row items-center gap-4 rounded-card border border-line bg-canvas p-4">
-        {avatar ? (
-          <Image source={{ uri: avatar }} style={{ width: 64, height: 64, borderRadius: 32 }} />
-        ) : (
-          <View className="h-16 w-16 items-center justify-center rounded-full bg-surface">
-            <UserRound size={28} color={colors.muted} />
-          </View>
-        )}
+        <View className="h-16 w-16 items-center justify-center rounded-full bg-surface">
+          <Text className="text-[24px] font-bold text-ink">{name.charAt(0).toUpperCase()}</Text>
+        </View>
         <View className="flex-1">
           <Text numberOfLines={1} className="text-[22px] font-bold tracking-tight text-ink">
             {name}

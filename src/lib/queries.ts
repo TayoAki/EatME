@@ -1,4 +1,3 @@
-import { useAuth } from '@clerk/expo';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 import type { Meal, UpdateMealBody } from '@/shared/meals';
@@ -6,6 +5,7 @@ import type { SaveOnboardingBody } from '@/shared/onboarding';
 import type { MeResponse, StreakResponse, UpdateProfileBody } from '@/shared/user';
 
 import { useApi } from './api';
+import { useSession } from './auth-client';
 
 export const queryKeys = {
   me: (userId: string | null | undefined) => ['me', userId] as const,
@@ -16,7 +16,7 @@ export const queryKeys = {
 };
 
 export function useMe() {
-  const { isSignedIn, userId } = useAuth();
+  const { isSignedIn, userId } = useSession();
   const api = useApi();
   return useQuery({
     queryKey: queryKeys.me(userId),
@@ -33,7 +33,7 @@ export function useProfile() {
 }
 
 export function useMeals(date: string) {
-  const { userId } = useAuth();
+  const { userId } = useSession();
   const api = useApi();
   return useQuery({
     queryKey: queryKeys.meals(userId, date),
@@ -45,7 +45,7 @@ export function useMeals(date: string) {
 }
 
 export function useMeal(id: string) {
-  const { userId } = useAuth();
+  const { userId } = useSession();
   const api = useApi();
   return useQuery({
     queryKey: queryKeys.meal(userId, id),
@@ -54,7 +54,7 @@ export function useMeal(id: string) {
 }
 
 export function useStreak() {
-  const { userId } = useAuth();
+  const { userId } = useSession();
   const api = useApi();
   return useQuery({
     queryKey: queryKeys.streak(userId),
@@ -63,7 +63,7 @@ export function useStreak() {
 }
 
 export function useSaveOnboarding() {
-  const { userId } = useAuth();
+  const { userId } = useSession();
   const api = useApi();
   const queryClient = useQueryClient();
   return useMutation({
@@ -73,7 +73,7 @@ export function useSaveOnboarding() {
 }
 
 export function useUpdateProfile() {
-  const { userId } = useAuth();
+  const { userId } = useSession();
   const api = useApi();
   const queryClient = useQueryClient();
   return useMutation({
@@ -91,7 +91,7 @@ export function useDeleteAccount() {
 
 /** Refresh everything that depends on the meal list (home list, streak). */
 export function useInvalidateMeals() {
-  const { userId } = useAuth();
+  const { userId } = useSession();
   const queryClient = useQueryClient();
   return () =>
     Promise.all([
@@ -101,7 +101,7 @@ export function useInvalidateMeals() {
 }
 
 export function useUpdateMeal(id: string) {
-  const { userId } = useAuth();
+  const { userId } = useSession();
   const api = useApi();
   const queryClient = useQueryClient();
   const invalidateMeals = useInvalidateMeals();

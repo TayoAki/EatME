@@ -1,4 +1,5 @@
 import {
+  boolean,
   date,
   doublePrecision,
   index,
@@ -31,13 +32,16 @@ const timestamps = {
     .$onUpdate(() => new Date()),
 };
 
+/**
+ * One row per account. The first columns are Better Auth's user model (created at sign-up),
+ * the rest is filled in when the user finishes onboarding.
+ */
 export const users = pgTable('users', {
-  /** Clerk user id (user_...). Rows are created by the Clerk webhook or by onboarding. */
   id: text().primaryKey(),
-  email: text(),
-  firstName: text(),
-  lastName: text(),
-  imageUrl: text(),
+  name: text().notNull(),
+  email: text().notNull().unique(),
+  emailVerified: boolean().notNull().default(false),
+  image: text(),
 
   // Onboarding answers (always metric)
   gender: genderEnum(),
@@ -65,6 +69,58 @@ export const users = pgTable('users', {
   ...timestamps,
 });
 
+// Better Auth tables (sign-in sessions, password accounts, verification tokens).
+
+export const sessions = pgTable(
+  'sessions',
+  {
+    id: text().primaryKey(),
+    expiresAt: timestamp({ withTimezone: true }).notNull(),
+    token: text().notNull().unique(),
+    ipAddress: text(),
+    userAgent: text(),
+    userId: text()
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
+    ...timestamps,
+  },
+  (t) => [index('sessions_user_id_idx').on(t.userId)],
+);
+
+export const accounts = pgTable(
+  'accounts',
+  {
+    id: text().primaryKey(),
+    accountId: text().notNull(),
+    providerId: text().notNull(),
+    userId: text()
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
+    accessToken: text(),
+    refreshToken: text(),
+    idToken: text(),
+    accessTokenExpiresAt: timestamp({ withTimezone: true }),
+    refreshTokenExpiresAt: timestamp({ withTimezone: true }),
+    scope: text(),
+    /** Password hash for email + password sign-in (never the password itself). */
+    password: text(),
+    ...timestamps,
+  },
+  (t) => [index('accounts_user_id_idx').on(t.userId)],
+);
+
+export const verifications = pgTable(
+  'verifications',
+  {
+    id: text().primaryKey(),
+    identifier: text().notNull(),
+    value: text().notNull(),
+    expiresAt: timestamp({ withTimezone: true }).notNull(),
+    ...timestamps,
+  },
+  (t) => [index('verifications_identifier_idx').on(t.identifier)],
+);
+
 export const meals = pgTable(
   'meals',
   {
@@ -78,11 +134,12 @@ export const meals = pgTable(
     proteinG: integer(),
     carbsG: integer(),
     fatG: integer(),
-    /** Original ImageKit URL (transformations are added when the image is displayed). */
-    imageUrl: text(),
-    imageFileId: text(),
-    imagePath: text(),
-    triggerRunId: text(),
+    /** Key of the photo in the storage bucket: meals/<userId>/<mealId>.jpg */
+    imageKey: text(),
+    /** Start of the running analysis. An old value means the server stopped mid-way: retry. */
+    analysisStartedAt: timestamp({ withTimezone: true }),
+    analysisAttempts: integer().notNull().default(0),
+    /** Why the analysis failed, or why the photo is not food. */
     error: text(),
     loggedAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
     ...timestamps,

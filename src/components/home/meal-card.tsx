@@ -11,17 +11,17 @@ import Animated, {
 } from 'react-native-reanimated';
 
 import { colors } from '@/constants/colors';
-import { mealThumbnailUrl } from '@/lib/image-url';
 import { formatTime } from '@/lib/time';
 import type { Meal } from '@/shared/meals';
 
 const THUMB = 88;
 
-function Thumbnail({ uri, dimmed }: { uri?: string; dimmed?: boolean }) {
+/** `cacheKey` keeps the photo cached although its signed link changes on every refresh. */
+function Thumbnail({ uri, cacheKey, dimmed }: { uri: string | null; cacheKey: string; dimmed?: boolean }) {
   return (
     <View style={{ width: THUMB, height: THUMB }} className="overflow-hidden rounded-2xl bg-surface">
       {uri ? (
-        <Image source={{ uri }} style={{ width: THUMB, height: THUMB }} contentFit="cover" transition={200} />
+        <Image source={{ uri, cacheKey }} style={{ width: THUMB, height: THUMB }} contentFit="cover" transition={200} />
       ) : (
         <View className="flex-1 items-center justify-center">
           <UtensilsCrossed size={28} color={colors.faint} />
@@ -64,7 +64,7 @@ export function MealCard({ meal }: { meal: Meal }) {
       disabled={analyzing}
       onPress={() => router.push({ pathname: '/meal/[id]', params: { id: meal.id } })}
       className="flex-row gap-3.5 rounded-[22px] border border-line bg-canvas p-2.5 active:opacity-80">
-      <Thumbnail uri={mealThumbnailUrl(meal.imageUrl)} dimmed={analyzing} />
+      <Thumbnail uri={meal.imageUrl} cacheKey={meal.id} dimmed={analyzing} />
       {analyzing ? (
         <View className="flex-1 justify-center gap-2.5 pr-2">
           <Text className="text-[16px] font-semibold text-ink">Analyzing…</Text>

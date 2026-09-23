@@ -2,13 +2,13 @@ import type { MealRow, User } from '@/db/schema';
 import type { Meal } from '@/shared/meals';
 import type { Profile } from '@/shared/user';
 
+import { signedGetUrl } from './storage';
+
 export function toProfile(user: User): Profile {
   return {
     id: user.id,
     email: user.email,
-    firstName: user.firstName,
-    lastName: user.lastName,
-    imageUrl: user.imageUrl,
+    name: user.name,
     gender: user.gender,
     dateOfBirth: user.dateOfBirth,
     heightCm: user.heightCm,
@@ -31,7 +31,7 @@ export function toProfile(user: User): Profile {
   };
 }
 
-export function toMeal(meal: MealRow): Meal {
+export async function toMeal(meal: MealRow): Promise<Meal> {
   return {
     id: meal.id,
     status: meal.status,
@@ -40,8 +40,7 @@ export function toMeal(meal: MealRow): Meal {
     proteinG: meal.proteinG,
     carbsG: meal.carbsG,
     fatG: meal.fatG,
-    imageUrl: meal.imageUrl,
-    triggerRunId: meal.triggerRunId,
+    imageUrl: meal.imageKey ? await signedGetUrl(meal.imageKey) : null,
     error: meal.error,
     loggedAt: meal.loggedAt.toISOString(),
     createdAt: meal.createdAt.toISOString(),

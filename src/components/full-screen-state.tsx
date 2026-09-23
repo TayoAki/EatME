@@ -1,3 +1,5 @@
+import * as SplashScreen from 'expo-splash-screen';
+import { useEffect } from 'react';
 import { ActivityIndicator, Text, View } from 'react-native';
 
 import { Button } from '@/components/ui/button';
@@ -17,8 +19,12 @@ export function LoadingScreen({ label }: { label?: string }) {
   );
 }
 
-/** Shown in development when a required environment variable is missing. */
+/** Shown when a required environment variable is missing from the build. */
 export function MissingConfigScreen({ variable, hint }: { variable: string; hint: string }) {
+  useEffect(() => {
+    void SplashScreen.hideAsync();
+  }, []);
+
   return (
     <View className="flex-1 items-center justify-center bg-canvas px-8">
       <Logo size={72} />

@@ -1,11 +1,7 @@
-import { useAuth } from '@clerk/expo';
-import { useCallback } from 'react';
+import { Platform } from 'react-native';
 
-/**
- * In development the Expo dev server serves the API routes, so relative URLs just work.
- * Production builds call the deployed server (EAS Hosting) set in EXPO_PUBLIC_API_URL.
- */
-const API_URL = (process.env.EXPO_PUBLIC_API_URL ?? '').replace(/\/$/, '');
+import { API_URL } from './api-url';
+import { authClient } from './auth-client';
 
 export class ApiError extends Error {
   constructor(
@@ -19,26 +15,41 @@ export class ApiError extends Error {
 
 type RequestOptions = {
   method?: 'GET' | 'POST' | 'PATCH' | 'PUT' | 'DELETE';
+  /** JSON body. */
   body?: unknown;
-  token?: string | null;
+  /** Multipart body (photo uploads). */
+  form?: FormData;
   signal?: AbortSignal;
 };
 
-export async function apiFetch<T>(path: string, { method = 'GET', body, token, signal }: RequestOptions = {}) {
+/**
+ * Calls the EatME API with the session cookie. On iOS/Android the cookie comes from SecureStore and
+ * is added by hand (as Better Auth's Expo guide recommends); on web the browser sends it.
+ */
+export async function apiFetch<T>(path: string, { method = 'GET', body, form, signal }: RequestOptions = {}) {
   const headers: Record<string, string> = { Accept: 'application/json' };
-  if (body !== undefined) headers['Content-Type'] = 'application/json';
-  if (token) headers.Authorization = `Bearer ${token}`;
+  let payload: BodyInit | undefined;
+  if (form) {
+    payload = form;
+  } else if (body !== undefined) {
+    headers['Content-Type'] = 'application/json';
+    payload = JSON.stringify(body);
+  }
 
-  const res = await fetch(`${API_URL}${path}`, {
-    method,
-    headers,
-    body: body === undefined ? undefined : JSON.stringify(body),
-    signal,
-  });
+  let credentials: RequestCredentials = 'include';
+  if (Platform.OS !== 'web') {
+    const cookie = await authClient.getCookie();
+    if (cookie) headers.Cookie = cookie;
+    credentials = 'omit';
+  }
+
+  const res = await fetch(`${API_URL}${path}`, { method, headers, body: payload, signal, credentials });
 
   const text = await res.text();
   const data = text ? safeJson(text) : null;
   if (!res.ok) {
+    // The session expired or was revoked: re-check it, which signs the app out if it is gone.
+    if (res.status === 401) authClient.$store.notify('$sessionSignal');
     const message =
       (data && typeof data === 'object' && 'error' in data && typeof data.error === 'string'
         ? data.error
@@ -56,14 +67,9 @@ function safeJson(text: string): unknown {
   }
 }
 
-/** Authenticated API client — attaches the Clerk session token to every request. */
+/** API client for screens and hooks (kept as a hook so call sites don't change if auth changes). */
 export function useApi() {
-  const { getToken } = useAuth();
-  return useCallback(
-    async <T>(path: string, options: Omit<RequestOptions, 'token'> = {}) =>
-      apiFetch<T>(path, { ...options, token: await getToken() }),
-    [getToken],
-  );
+  return apiFetch;
 }
 
-export type ApiClient = ReturnType<typeof useApi>;
+export type ApiClient = typeof apiFetch;

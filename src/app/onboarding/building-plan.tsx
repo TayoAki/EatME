@@ -13,10 +13,8 @@ import { cn } from '@/lib/cn';
 import { haptics } from '@/lib/haptics';
 import { completeAnswers, useOnboardingStore } from '@/lib/onboarding-store';
 import { FIRST_STEP_HREF } from '@/lib/onboarding-steps';
-import { useRunStatus, type RunHandle } from '@/lib/use-run-status';
 import { formulaPlan } from '@/shared/nutrition';
 import type { NutritionPlan, OnboardingAnswers } from '@/shared/onboarding';
-import type { generatePlan } from '@/trigger/generate-plan';
 
 const CHECKLIST = [
   { label: 'Calories', at: 25 },
@@ -25,23 +23,22 @@ const CHECKLIST = [
   { label: 'Fats', at: 92 },
 ] as const;
 
-const FALLBACK_STAGES = [
+const STAGES = [
   { at: 0, text: 'Estimating your metabolic rate…' },
   { at: 35, text: 'Calculating your daily calories…' },
   { at: 60, text: 'Balancing your macros…' },
   { at: 85, text: 'Finalizing your plan…' },
 ];
 
-type PlanPoll = { status: string; output: NutritionPlan | null; metadata: Record<string, unknown> | null };
-
 export default function BuildingPlanScreen() {
   const rawAnswers = useOnboardingStore((s) => s.answers);
   const setPlan = useOnboardingStore((s) => s.setPlan);
   const answers = useMemo(() => completeAnswers(rawAnswers), [rawAnswers]);
 
-  // 1. Trigger the generate-plan task through our API.
+  // 1. Ask the server for the AI plan (takes a few seconds).
   const start = useMutation({
-    mutationFn: (body: OnboardingAnswers) => apiFetch<RunHandle>('/api/plan', { method: 'POST', body }),
+    mutationFn: (body: OnboardingAnswers) =>
+      apiFetch<{ plan: NutritionPlan }>('/api/plan', { method: 'POST', body }),
   });
   const started = useRef(false);
   const startedAt = useRef(0);
@@ -52,34 +49,26 @@ export default function BuildingPlanScreen() {
     start.mutate(answers);
   });
 
-  // 2. Follow the run in real time.
-  const handle = start.data;
-  const run = useRunStatus<typeof generatePlan, NutritionPlan>(handle, {
-    queryKey: ['plan-run', handle?.runId],
-    fetch: () => apiFetch<PlanPoll>(`/api/plan/${handle?.runId}`),
-  });
-
-  // 3. Smooth percentage: follows the task's progress metadata, time-based while waiting.
-  const serverProgress = typeof run.metadata?.progress === 'number' ? run.metadata.progress : 0;
+  // 2. Smooth percentage: time-based while waiting, then fills up when the plan arrives.
   const [displayed, setDisplayed] = useState(0);
-  const failed = start.isError || run.isFailed;
-  const done = !!run.output;
+  const result = start.data?.plan;
+  const failed = start.isError;
+  const done = !!result;
 
   useEffect(() => {
     if (failed) return;
     const timer = setInterval(() => {
       const elapsed = (Date.now() - startedAt.current) / 1000;
-      const waiting = 88 * (1 - Math.exp(-elapsed / 5));
-      const target = done ? 100 : Math.min(95, Math.max(serverProgress, waiting));
+      const target = done ? 100 : Math.min(95, 88 * (1 - Math.exp(-elapsed / 5)));
       setDisplayed((current) => (current >= target ? current : Math.min(target, current + (done ? 4 : 1))));
     }, 40);
     return () => clearInterval(timer);
-  }, [done, failed, serverProgress]);
+  }, [done, failed]);
 
-  // 4. Plan ready → store it and show it.
+  // 3. Plan ready → store it and show it.
   useEffect(() => {
-    if (!run.output || displayed < 100) return;
-    const plan = run.output;
+    if (!result || displayed < 100) return;
+    const plan = result;
     const log = plan.source === 'ai' ? Sentry.logger.info : Sentry.logger.warn;
     log(plan.source === 'ai' ? 'Onboarding plan generated' : 'Onboarding plan used the formula fallback', {
       planSource: plan.source,
@@ -88,13 +77,11 @@ export default function BuildingPlanScreen() {
     haptics.success();
     setPlan(plan);
     router.replace('/onboarding/plan');
-  }, [displayed, run.output, setPlan]);
+  }, [displayed, result, setPlan]);
 
   if (!answers) return <Redirect href={FIRST_STEP_HREF} />;
 
-  const stage =
-    (typeof run.metadata?.stage === 'string' && run.metadata.stage) ||
-    [...FALLBACK_STAGES].reverse().find((s) => displayed >= s.at)?.text;
+  const stage = [...STAGES].reverse().find((s) => displayed >= s.at)?.text;
 
   const retry = () => {
     startedAt.current = Date.now();
@@ -105,7 +92,7 @@ export default function BuildingPlanScreen() {
 
   const applyStandardPlan = () => {
     Sentry.logger.warn('Onboarding plan generation failed, user picked the standard plan', {
-      error: start.error?.message ?? run.status ?? 'unknown',
+      error: start.error?.message ?? 'unknown',
     });
     setPlan(formulaPlan(answers));
     router.replace('/onboarding/plan');

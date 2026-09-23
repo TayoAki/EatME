@@ -1,22 +1,28 @@
-import { tasks } from '@trigger.dev/sdk';
-import { and, desc, eq, gte, lt, ne, sql } from 'drizzle-orm';
+import { and, count, desc, eq, gte, inArray, lt, sql } from 'drizzle-orm';
 
 import { db } from '@/db';
 import { meals, users } from '@/db/schema';
 import { requireUserId } from '@/lib/server/auth';
 import { toMeal } from '@/lib/server/dto';
-import { handle, HttpError, readJson } from '@/lib/server/http';
-import { getFileDetails, mealsFolder } from '@/lib/server/imagekit';
-import { createMealSchema } from '@/shared/meals';
-import type { analyzeMeal } from '@/trigger/analyze-meal';
+import { handle, HttpError } from '@/lib/server/http';
+import { resumeStalledAnalyses, startMealAnalysis } from '@/lib/server/meal-analysis';
+import { deleteObject, mealPhotoKey, putObject } from '@/lib/server/storage';
+import { MAX_MEAL_PHOTO_BYTES, MEAL_PHOTO_FIELD } from '@/shared/meals';
 
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+/** Scans per rolling 24 hours — keeps the AI bill predictable. */
+const DAILY_SCAN_LIMIT = 50;
+
+type UploadedFile = { size: number; type: string; arrayBuffer(): Promise<ArrayBuffer> };
+type MultipartForm = { get(name: string): UploadedFile | string | null };
 
 /** Meals logged on one local day (`?date=YYYY-MM-DD`, in the user's time zone). */
 export const GET = handle(async (request) => {
   const userId = await requireUserId(request);
   const date = new URL(request.url).searchParams.get('date');
   if (!date || !DATE_RE.test(date)) throw new HttpError(400, 'Pass ?date=YYYY-MM-DD');
+
+  void resumeStalledAnalyses(userId).catch((error: unknown) => console.error('[meals] resume failed', error));
 
   const user = await db.query.users.findFirst({ where: eq(users.id, userId), columns: { timezone: true } });
   const tz = user?.timezone ?? 'UTC';
@@ -31,59 +37,55 @@ export const GET = handle(async (request) => {
     .where(
       and(
         eq(meals.userId, userId),
-        ne(meals.status, 'failed'),
+        inArray(meals.status, ['analyzing', 'completed']),
         gte(meals.loggedAt, dayStart),
         lt(meals.loggedAt, dayEnd),
       ),
     )
     .orderBy(desc(meals.loggedAt));
 
-  return Response.json({ meals: rows.map(toMeal) });
+  return Response.json({ meals: await Promise.all(rows.map(toMeal)) });
 });
 
 /**
- * Creates a meal from a photo the app already uploaded to ImageKit, then triggers the analyze-meal
- * task. Returns the run handle so the app can follow the analysis with Trigger.dev Realtime.
+ * Creates a meal from a photo (multipart form data, field `photo`): stores the photo in the bucket,
+ * saves the meal as "analyzing" and starts the AI analysis in the background. The app then polls
+ * `GET /api/meals/:id`.
  */
 export const POST = handle(async (request) => {
   const userId = await requireUserId(request);
-  const { fileId } = createMealSchema.parse(await readJson(request));
 
-  // Never trust the client with URLs: look the file up and make sure it is in this user's folder.
-  const file = await getFileDetails(fileId);
-  if (!file || !file.filePath.startsWith(`${mealsFolder(userId)}/`)) {
-    throw new HttpError(400, 'Photo not found. Please try again.');
+  const user = await db.query.users.findFirst({
+    where: eq(users.id, userId),
+    columns: { onboardingCompletedAt: true },
+  });
+  if (!user?.onboardingCompletedAt) throw new HttpError(409, 'Finish onboarding before logging meals.');
+
+  const [{ scans }] = await db
+    .select({ scans: count() })
+    .from(meals)
+    .where(and(eq(meals.userId, userId), gte(meals.createdAt, new Date(Date.now() - 24 * 60 * 60 * 1000))));
+  if (scans >= DAILY_SCAN_LIMIT) {
+    throw new HttpError(429, `You can scan up to ${DAILY_SCAN_LIMIT} meals a day. Please try again tomorrow.`);
   }
 
-  const user = await db.query.users.findFirst({ where: eq(users.id, userId), columns: { id: true } });
-  if (!user) throw new HttpError(409, 'Finish onboarding before logging meals.');
+  // Typed by hand: the project's global FormData type is React Native's, which has no get().
+  const form = (await request.formData().catch(() => null)) as MultipartForm | null;
+  const photo = form?.get(MEAL_PHOTO_FIELD);
+  if (!photo || typeof photo === 'string') throw new HttpError(400, 'Attach the meal photo.');
+  if (photo.size === 0 || photo.size > MAX_MEAL_PHOTO_BYTES) throw new HttpError(413, 'That photo is too large.');
+  if (photo.type && !photo.type.startsWith('image/')) throw new HttpError(415, 'Only photos can be analyzed.');
 
-  const [meal] = await db
-    .insert(meals)
-    .values({ userId, status: 'analyzing', imageUrl: file.url, imageFileId: file.fileId, imagePath: file.filePath })
-    .returning();
+  const id = crypto.randomUUID();
+  const imageKey = mealPhotoKey(userId, id);
+  await putObject(imageKey, await photo.arrayBuffer(), 'image/jpeg');
 
   try {
-    const run = await tasks.trigger<typeof analyzeMeal>(
-      'analyze-meal',
-      { mealId: meal.id },
-      { tags: [`user_${userId}`, `meal_${meal.id}`], idempotencyKey: `analyze-${meal.id}` },
-    );
-    const [saved] = await db
-      .update(meals)
-      .set({ triggerRunId: run.id })
-      .where(eq(meals.id, meal.id))
-      .returning();
-
-    return Response.json(
-      { meal: toMeal(saved), runId: run.id, publicAccessToken: run.publicAccessToken },
-      { status: 201 },
-    );
+    const [meal] = await db.insert(meals).values({ id, userId, status: 'analyzing', imageKey }).returning();
+    startMealAnalysis(meal.id);
+    return Response.json({ meal: await toMeal(meal) }, { status: 201 });
   } catch (error) {
-    await db
-      .update(meals)
-      .set({ status: 'failed', error: 'Could not start the analysis' })
-      .where(eq(meals.id, meal.id));
+    await deleteObject(imageKey).catch(() => undefined);
     throw error;
   }
 });
