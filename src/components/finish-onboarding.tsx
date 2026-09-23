@@ -1,4 +1,5 @@
 import { useAuth } from '@clerk/expo';
+import * as Sentry from '@sentry/react-native';
 import { useEffect, useRef } from 'react';
 
 import { ErrorScreen, LoadingScreen } from '@/components/full-screen-state';
@@ -21,8 +22,14 @@ export function FinishOnboarding({ pending }: { pending: PendingOnboarding }) {
       { ...pending, timezone: deviceTimeZone() },
       {
         onSuccess: () => {
+          Sentry.logger.info('Onboarding completed', {
+            planSource: pending.plan.source,
+            goal: pending.answers.goal,
+            calories: pending.plan.calories,
+          });
           reset();
         },
+        onError: (error) => Sentry.logger.error('Saving the onboarding plan failed', { error: error.message }),
       },
     );
 

@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/react-native';
 import { useMutation } from '@tanstack/react-query';
 import { Image } from 'expo-image';
 import { Flame, ImageOff, TriangleAlert } from 'lucide-react-native';
@@ -75,7 +76,10 @@ export function AnalysisView({ photo, onScanAnother, onDone, bottomSpace }: Anal
   const api = useApi();
   const invalidateMeals = useInvalidateMeals();
 
-  const upload = useMutation({ mutationFn: () => uploadAndAnalyzeMeal(api, photo) });
+  const upload = useMutation({
+    mutationFn: () => uploadAndAnalyzeMeal(api, photo),
+    onError: (error) => Sentry.logger.error('Meal upload failed', { error: error.message }),
+  });
   const started = useRef(false);
   const startedAt = useRef(0);
   useEffect(() => {
@@ -114,10 +118,26 @@ export function AnalysisView({ photo, onScanAnother, onDone, bottomSpace }: Anal
   useEffect(() => {
     if (!outcome || notified.current) return;
     notified.current = true;
-    if (outcome.status === 'completed') haptics.success();
-    else haptics.warning();
+    if (outcome.status === 'completed') {
+      haptics.success();
+      Sentry.logger.info('Meal analyzed', {
+        mealId: outcome.meal.id,
+        calories: outcome.meal.calories ?? 0,
+        seconds: Math.round((Date.now() - startedAt.current) / 1000),
+      });
+    } else {
+      haptics.warning();
+      Sentry.logger.warn('Scanned photo is not food', { reason: outcome.reason });
+    }
     void invalidateMeals();
   }, [outcome, invalidateMeals]);
+
+  const failureLogged = useRef(false);
+  useEffect(() => {
+    if (!run.isFailed || failureLogged.current) return;
+    failureLogged.current = true;
+    Sentry.logger.error('Meal analysis failed', { runId: created?.runId ?? 'unknown', status: run.status ?? 'unknown' });
+  }, [run.isFailed, run.status, created?.runId]);
 
   const stageLabel = upload.isPending ? 'Uploading your photo…' : MEAL_ANALYSIS_STAGES[stage];
   const meal = outcome?.status === 'completed' ? outcome.meal : null;

@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/react-native';
 import { useMutation } from '@tanstack/react-query';
 import { Redirect, router } from 'expo-router';
 import { Check } from 'lucide-react-native';
@@ -78,8 +79,14 @@ export default function BuildingPlanScreen() {
   // 4. Plan ready → store it and show it.
   useEffect(() => {
     if (!run.output || displayed < 100) return;
+    const plan = run.output;
+    const log = plan.source === 'ai' ? Sentry.logger.info : Sentry.logger.warn;
+    log(plan.source === 'ai' ? 'Onboarding plan generated' : 'Onboarding plan used the formula fallback', {
+      planSource: plan.source,
+      calories: plan.calories,
+    });
     haptics.success();
-    setPlan(run.output);
+    setPlan(plan);
     router.replace('/onboarding/plan');
   }, [displayed, run.output, setPlan]);
 
@@ -97,6 +104,9 @@ export default function BuildingPlanScreen() {
   };
 
   const applyStandardPlan = () => {
+    Sentry.logger.warn('Onboarding plan generation failed, user picked the standard plan', {
+      error: start.error?.message ?? run.status ?? 'unknown',
+    });
     setPlan(formulaPlan(answers));
     router.replace('/onboarding/plan');
   };

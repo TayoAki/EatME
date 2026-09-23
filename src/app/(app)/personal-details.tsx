@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/react-native';
 import { router } from 'expo-router';
 import { ArrowLeft, Pencil } from 'lucide-react-native';
 import { useState } from 'react';
@@ -120,7 +121,10 @@ export default function PersonalDetailsScreen() {
         haptics.success();
         setEditing(null);
       },
-      onError: (error) => notify("We couldn't save your changes", error.message),
+      onError: (error) => {
+        Sentry.logger.error('Profile save failed', { fields: Object.keys(changes).join(','), error: error.message });
+        notify("We couldn't save your changes", error.message);
+      },
     });
 
   return (

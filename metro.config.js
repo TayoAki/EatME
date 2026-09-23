@@ -1,7 +1,8 @@
-const { getDefaultConfig } = require('expo/metro-config');
+const { getSentryExpoConfig } = require('@sentry/react-native/metro');
 const { withNativeWind } = require('nativewind/metro');
 
-const config = getDefaultConfig(__dirname);
+// Expo's default Metro config + Sentry debug IDs so production stack traces map to the source.
+const config = getSentryExpoConfig(__dirname);
 
 /**
  * `@trigger.dev/react-hooks` pulls in all of `@trigger.dev/core`, including two server-only

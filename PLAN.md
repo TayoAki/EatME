@@ -182,14 +182,14 @@ The device time zone is stored per user and used for day boundaries and streaks.
 - [x] Meal list with ImageKit thumbnails, hide non-food, edit a meal
 
 ### 5 · Sentry & profile
-- [ ] Sentry (errors, replay, logs, tracing)
-- [ ] Profile screen (settings style) + personal details
-- [ ] Sign out + delete account (Clerk, DB, meals, ImageKit)
+- [x] Sentry (errors, replay, logs, tracing)
+- [x] Profile screen (settings style) + personal details
+- [x] Sign out + delete account (Clerk, DB, meals, ImageKit)
 
 ### 6 · Optimizations
 - [x] Downscale photos (ImageKit transformation) before the vision model
 - [x] Scrollable calendar (two weeks back)
-- [ ] Sentry test bench (dev only) + Send feedback button
+- [x] Sentry test bench (dev only) + Send feedback button
 
 ### 7 · Legal & landing
 - [ ] Landing page, terms of service, privacy policy

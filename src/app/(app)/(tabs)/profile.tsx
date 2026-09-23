@@ -1,9 +1,11 @@
 import { useAuth, useUser } from '@clerk/expo';
+import * as Sentry from '@sentry/react-native';
 import { useQueryClient } from '@tanstack/react-query';
 import Constants from 'expo-constants';
 import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import {
+  Bug,
   FileText,
   Globe,
   MessageSquareText,
@@ -107,14 +109,16 @@ export default function ProfileScreen() {
       </SettingsGroup>
 
       <SettingsGroup title="Support">
-        <SettingsRow
-          icon={MessageSquareText}
-          label="Send feedback"
-          onPress={() => notify('Send feedback', 'Feedback is coming soon.')}
-        />
+        <SettingsRow icon={MessageSquareText} label="Send feedback" onPress={() => Sentry.showFeedbackWidget()} />
         <SettingsRow icon={ShieldCheck} label="Privacy Policy" onPress={() => void openLink(links.privacy)} />
         <SettingsRow icon={FileText} label="Terms of Service" onPress={() => void openLink(links.terms)} />
       </SettingsGroup>
+
+      {__DEV__ ? (
+        <SettingsGroup title="Developer">
+          <SettingsRow icon={Bug} label="Sentry test bench" onPress={() => router.push('/sentry-test')} />
+        </SettingsGroup>
+      ) : null}
 
       <View className="gap-2">
         <Button title="Sign out" variant="secondary" loading={signingOut} onPress={() => void handleSignOut()} />

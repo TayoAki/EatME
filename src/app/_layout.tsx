@@ -1,9 +1,11 @@
 import '@/global.css';
+// Initialise Sentry before anything else renders.
+import { navigationIntegration, Sentry } from '@/lib/sentry';
 
 import { ClerkProvider, useAuth } from '@clerk/expo';
 import { tokenCache } from '@clerk/expo/token-cache';
 import { QueryClientProvider } from '@tanstack/react-query';
-import { Stack } from 'expo-router';
+import { Stack, useNavigationContainerRef } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
@@ -20,7 +22,12 @@ void SplashScreen.preventAutoHideAsync();
 
 const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY ?? '';
 
-export default function RootLayout() {
+function RootLayout() {
+  const navigationRef = useNavigationContainerRef();
+  useEffect(() => {
+    if (navigationRef) navigationIntegration.registerNavigationContainer(navigationRef);
+  }, [navigationRef]);
+
   if (!publishableKey) {
     return (
       <MissingConfigScreen
@@ -42,6 +49,8 @@ export default function RootLayout() {
   );
 }
 
+export default Sentry.wrap(RootLayout);
+
 /**
  * Routing rules (PLAN.md §3):
  * - signed out            → (public) welcome / sign-in + onboarding
@@ -50,7 +59,7 @@ export default function RootLayout() {
  * - signed in with a plan → (app) tabs
  */
 function RootNavigator() {
-  const { isLoaded, isSignedIn } = useAuth();
+  const { isLoaded, isSignedIn, userId } = useAuth();
   const hydrated = useOnboardingHydrated();
   const pending = usePendingOnboarding();
   const me = useMe();
@@ -67,6 +76,11 @@ function RootNavigator() {
   useEffect(() => {
     if (ready || slowStart) void SplashScreen.hideAsync();
   }, [ready, slowStart]);
+
+  // Attach the Clerk user id to every Sentry event, log and replay.
+  useEffect(() => {
+    Sentry.setUser(isSignedIn && userId ? { id: userId } : null);
+  }, [isSignedIn, userId]);
 
   if (!ready) return slowStart ? <LoadingScreen label="Connecting…" /> : null;
 
