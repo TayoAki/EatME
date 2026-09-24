@@ -21,6 +21,7 @@ import { authClient } from '@/lib/auth-client';
 import { confirm, notify } from '@/lib/confirm';
 import { links, openLink } from '@/lib/links';
 import { useDeleteAccount, useProfile } from '@/lib/queries';
+import { sentryEnabled } from '@/lib/sentry';
 import type { Profile } from '@/shared/user';
 
 const TAB_BAR_SPACE = 110;
@@ -98,7 +99,10 @@ function ProfileContent({ profile }: { profile: Profile }) {
       </SettingsGroup>
 
       <SettingsGroup title="Support">
-        <SettingsRow icon={MessageSquareText} label="Send feedback" onPress={() => Sentry.showFeedbackWidget()} />
+        {/* Feedback goes to Sentry, so the row only shows once a DSN is set. */}
+        {sentryEnabled ? (
+          <SettingsRow icon={MessageSquareText} label="Send feedback" onPress={() => Sentry.showFeedbackWidget()} />
+        ) : null}
         <SettingsRow icon={ShieldCheck} label="Privacy Policy" onPress={() => void openLink(links.privacy)} />
         <SettingsRow icon={FileText} label="Terms of Service" onPress={() => void openLink(links.terms)} />
       </SettingsGroup>

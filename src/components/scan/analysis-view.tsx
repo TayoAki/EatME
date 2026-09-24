@@ -54,6 +54,8 @@ export function AnalysisView({ photo, onScanAnother, onDone, bottomSpace }: Anal
 
   const upload = useMutation({
     mutationFn: () => uploadMeal(api, photo),
+    // Home shows the new meal as "Analyzing…" right away and keeps checking on it.
+    onSuccess: () => void invalidateMeals(),
     onError: (error) => Sentry.logger.error('Meal upload failed', { error: error.message }),
   });
   const started = useRef(false);

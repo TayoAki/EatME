@@ -9,9 +9,12 @@ export const navigationIntegration = Sentry.reactNavigationIntegration({
 
 const dsn = process.env.EXPO_PUBLIC_SENTRY_DSN;
 
+/** Without a DSN nothing reaches Sentry — crash reports and in-app feedback included. */
+export const sentryEnabled = !!dsn;
+
 Sentry.init({
   dsn,
-  enabled: !!dsn,
+  enabled: sentryEnabled,
   environment: __DEV__ ? 'development' : 'production',
   sendDefaultPii: true,
 
