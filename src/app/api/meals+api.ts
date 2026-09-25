@@ -4,10 +4,10 @@ import { db } from '@/db';
 import { meals, users } from '@/db/schema';
 import { requireUserId } from '@/lib/server/auth';
 import { ANALYZED_SOURCES, freeScansPerDay, isActive, paymentsEnabled, scansToday, subscriptionOf } from '@/lib/server/billing';
-import { dateParam, dayBounds, userTimeZone } from '@/lib/server/day';
+import { dateParam, dayBounds, loggedAtFor, userTimeZone } from '@/lib/server/day';
 import { toMeal } from '@/lib/server/dto';
 import { handle, HttpError, readJson } from '@/lib/server/http';
-import { logFoodMeal, logProductMeal } from '@/lib/server/instant-meals';
+import { logFoodMeal, logProductMeal, logQuickMeal } from '@/lib/server/instant-meals';
 import { resumeStalledAnalyses, startMealAnalysis } from '@/lib/server/meal-analysis';
 import { rateLimit } from '@/lib/server/rate-limit';
 import { deleteObject, mealPhotoKey, putObject } from '@/lib/server/storage';
@@ -17,6 +17,7 @@ import {
   MAX_MEAL_PHOTO_BYTES,
   MEAL_PHOTO_FIELD,
   PHOTO_MODES,
+  quickMealSchema,
   type PhotoMode,
 } from '@/shared/meals';
 import { barcodeMealSchema, foodMealSchema } from '@/shared/products';
@@ -24,7 +25,7 @@ import { barcodeMealSchema, foodMealSchema } from '@/shared/products';
 /** AI analyses (photos, labels, descriptions) per rolling 24 hours — keeps the AI bill predictable. */
 const DAILY_SCAN_LIMIT = 50;
 
-/** Meals logged without AI (barcodes, database foods) per 24 hours: only there to stop abuse. */
+/** Meals logged without AI (barcodes, database foods, quick adds) per 24 hours: only there to stop abuse. */
 const DAILY_INSTANT_LIMIT = 300;
 
 type UploadedFile = { size: number; type: string; arrayBuffer(): Promise<ArrayBuffer> };
@@ -137,8 +138,9 @@ const has = (body: unknown, key: string) => typeof body === 'object' && body !==
 /**
  * Logs a meal. A photo (a meal, or a nutrition label with `?mode=label`; stored in the bucket) or
  * JSON `{ text }` describing the meal starts the AI analysis in the background, and the app polls
- * `GET /api/meals/:id`. JSON `{ barcode: { code, grams } }` (a packaged product) or
- * `{ food: { foodId, grams } }` (a USDA database food) is saved as completed right away.
+ * `GET /api/meals/:id`. JSON `{ barcode: { code, grams } }` (a packaged product),
+ * `{ food: { foodId, grams } }` (a USDA database food) or `{ quick: { calories, … } }` (numbers
+ * typed in) is saved as completed right away.
  */
 export const POST = handle(async (request) => {
   const userId = await requireUserId(request);
@@ -151,11 +153,17 @@ export const POST = handle(async (request) => {
 
   if ((request.headers.get('content-type') ?? '').startsWith('application/json')) {
     const body = await readJson(request);
-    if (has(body, 'barcode') || has(body, 'food')) {
+    if (has(body, 'barcode') || has(body, 'food') || has(body, 'quick')) {
       rateLimit(`instant-meals:${userId}`, DAILY_INSTANT_LIMIT, 24 * 60 * 60 * 1000);
-      const meal = has(body, 'barcode')
-        ? await logProductMeal(userId, barcodeMealSchema.parse(body).barcode)
-        : await logFoodMeal(userId, foodMealSchema.parse(body).food);
+      let meal;
+      if (has(body, 'quick')) {
+        const { quick } = quickMealSchema.parse(body);
+        meal = await logQuickMeal(userId, quick, loggedAtFor(quick.date, user.timezone));
+      } else if (has(body, 'barcode')) {
+        meal = await logProductMeal(userId, barcodeMealSchema.parse(body).barcode);
+      } else {
+        meal = await logFoodMeal(userId, foodMealSchema.parse(body).food);
+      }
       return Response.json({ meal: await toMeal(meal) }, { status: 201 });
     }
     await checkAiLimit(userId, user.timezone);

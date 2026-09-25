@@ -1,0 +1,1 @@
+ALTER TYPE "public"."meal_source" ADD VALUE 'quick';

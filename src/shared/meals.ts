@@ -7,8 +7,8 @@ import type { ProductSource } from './products';
 export const MEAL_STATUSES = ['analyzing', 'completed', 'failed', 'not_food'] as const;
 export type MealStatus = (typeof MEAL_STATUSES)[number];
 
-/** How the meal was logged. */
-export const MEAL_SOURCES = ['photo', 'text', 'label', 'copy', 'barcode', 'food'] as const;
+/** How the meal was logged. `quick`: calories and macros typed in (quick add), no AI. */
+export const MEAL_SOURCES = ['photo', 'text', 'label', 'copy', 'barcode', 'food', 'quick'] as const;
 export type MealSource = (typeof MEAL_SOURCES)[number];
 
 /** How sure the AI was: "low" shows a "rough estimate" note. */
@@ -205,6 +205,30 @@ export const duplicateMealSchema = z.object({
     .regex(/^\d{4}-\d{2}-\d{2}$/)
     .optional(),
 });
+
+/** Body of `POST /api/meals` for a quick add: numbers typed in, no AI. At least one above 0. */
+export const quickMealSchema = z.object({
+  quick: z
+    .object({
+      name: z.string().trim().max(80).optional(),
+      /** Worked out from the macros (4/4/9) when left out. */
+      calories: z.number().min(0).max(10000).optional(),
+      proteinG: z.number().min(0).max(1000).optional(),
+      carbsG: z.number().min(0).max(2000).optional(),
+      fatG: z.number().min(0).max(1000).optional(),
+      fiberG: z.number().min(0).max(500).optional(),
+      /** Logs it on an earlier day (today when left out). */
+      date: z
+        .string()
+        .regex(/^\d{4}-\d{2}-\d{2}$/)
+        .optional(),
+    })
+    .strict()
+    .refine((q) => [q.calories, q.proteinG, q.carbsG, q.fatG, q.fiberG].some((value) => (value ?? 0) > 0), {
+      message: 'Type at least one number.',
+    }),
+});
+export type QuickMeal = z.infer<typeof quickMealSchema>['quick'];
 
 /** Body of `POST /api/days/copy`: copies every meal of one day to another. */
 export const copyDaySchema = z.object({

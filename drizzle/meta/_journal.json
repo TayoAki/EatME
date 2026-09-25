@@ -71,6 +71,13 @@
       "when": 1790323305458,
       "tag": "0009_food_quality",
       "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1790367712955,
+      "tag": "0010_quick_add",
+      "breakpoints": true
     }
   ]
 }

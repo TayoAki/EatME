@@ -4,7 +4,7 @@ import type { AddDoseBody, AddSymptomsBody, Glp1Response, Glp1Settings } from '@
 import type { WeeklyInsights } from '@/shared/insights';
 import type { BillingStatus } from '@/shared/billing';
 import type { Features } from '@/shared/features';
-import type { FoodSummary, Meal, UpdateMealBody, UpdateMealItemsBody } from '@/shared/meals';
+import type { FoodSummary, Meal, QuickMeal, UpdateMealBody, UpdateMealItemsBody } from '@/shared/meals';
 import type { NutrientDay } from '@/shared/nutrients';
 import type { Product } from '@/shared/products';
 import type { SupplementBody, SupplementsDay } from '@/shared/supplements';
@@ -170,6 +170,17 @@ export function useDuplicateMeal() {
   return useMutation({
     mutationFn: ({ id, date }: { id: string; date?: string }) =>
       api<{ meal: Meal }>(`/api/meals/${id}/duplicate`, { method: 'POST', body: { date: date && dayParam(date) } }),
+    onSuccess: () => invalidateMeals(),
+  });
+}
+
+/** Quick add: calories and macros typed in (no AI), now or on an earlier `date`. */
+export function useQuickAdd() {
+  const api = useApi();
+  const invalidateMeals = useInvalidateMeals();
+  return useMutation({
+    mutationFn: ({ date, ...quick }: QuickMeal) =>
+      api<{ meal: Meal }>('/api/meals', { method: 'POST', body: { quick: { ...quick, date: date && dayParam(date) } } }),
     onSuccess: () => invalidateMeals(),
   });
 }

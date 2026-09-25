@@ -1,11 +1,12 @@
 import { CameraView, useCameraPermissions, type BarcodeScanningResult, type BarcodeType } from 'expo-camera';
-import { useIsFocused } from 'expo-router';
+import { router, useIsFocused } from 'expo-router';
 import * as ImagePicker from 'expo-image-picker';
-import { Camera, Image as ImageIcon, Keyboard, PenLine, Search, Star, Zap, ZapOff } from 'lucide-react-native';
+import { Camera, Image as ImageIcon, Keyboard, PenLine, Search, SquarePlus, Star, Zap, ZapOff } from 'lucide-react-native';
 import { useRef, useState } from 'react';
 import { ActivityIndicator, Linking, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { QuickAddSheet } from '@/components/meal/quick-add-sheet';
 import { BarcodeEntrySheet } from '@/components/scan/barcode-entry-sheet';
 import { FavoritesSheet } from '@/components/scan/favorites-sheet';
 import { Button } from '@/components/ui/button';
@@ -112,10 +113,12 @@ export function CameraCapture({ onPhoto, bottomSpace, mode, onModeChange, onDesc
   const [capturing, setCapturing] = useState(false);
   const [favoritesOpen, setFavoritesOpen] = useState(false);
   const [typing, setTyping] = useState(false);
+  const [quickOpen, setQuickOpen] = useState(false);
   const scanned = useRef(false);
   const sheets = (
     <>
       <FavoritesSheet visible={favoritesOpen} onClose={() => setFavoritesOpen(false)} />
+      <QuickAddSheet visible={quickOpen} onClose={() => setQuickOpen(false)} onLogged={() => router.navigate('/')} />
       <BarcodeEntrySheet
         visible={typing}
         onClose={() => setTyping(false)}
@@ -175,7 +178,10 @@ export function CameraCapture({ onPhoto, bottomSpace, mode, onModeChange, onDesc
             <Button title="Describe a meal" variant="ghost" className="flex-1" onPress={onDescribe} />
             <Button title="Search foods" variant="ghost" className="flex-1" onPress={onSearch} />
           </View>
-          <Button title="Favourites" variant="ghost" onPress={() => setFavoritesOpen(true)} />
+          <View className="flex-row">
+            <Button title="Favourites" variant="ghost" className="flex-1" onPress={() => setFavoritesOpen(true)} />
+            <Button title="Quick add" variant="ghost" className="flex-1" onPress={() => setQuickOpen(true)} />
+          </View>
         </View>
         {sheets}
       </View>
@@ -208,13 +214,22 @@ export function CameraCapture({ onPhoto, bottomSpace, mode, onModeChange, onDesc
       />
 
       <View className="flex-row items-center justify-between px-5" style={{ paddingTop: insets.top + 8 }}>
-        <IconButton
-          accessibilityLabel="Favourites"
-          variant="dark"
-          size={44}
-          icon={<Star size={20} color={colors.canvas} />}
-          onPress={() => setFavoritesOpen(true)}
-        />
+        <View className="flex-row gap-2">
+          <IconButton
+            accessibilityLabel="Favourites"
+            variant="dark"
+            size={44}
+            icon={<Star size={20} color={colors.canvas} />}
+            onPress={() => setFavoritesOpen(true)}
+          />
+          <IconButton
+            accessibilityLabel="Quick add"
+            variant="dark"
+            size={44}
+            icon={<SquarePlus size={20} color={colors.canvas} />}
+            onPress={() => setQuickOpen(true)}
+          />
+        </View>
         <View pointerEvents="none" className="absolute inset-x-0 bottom-0 h-11 items-center justify-center">
           <Text className="text-[18px] font-semibold text-white">{COPY[mode].title}</Text>
         </View>

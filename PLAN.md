@@ -580,7 +580,7 @@ added to an earlier day are stored at local noon of that day.
 - [ ] Personal food memory (7.9): after correcting a food, "Remember this next time?"; when the
   AI names that food again, the person's version (the food and their usual amount) is used
   before the USDA database
-- [ ] Quick add (7.8): type calories and macros, no AI, not counted as a scan
+- [x] Quick add (7.8): type calories and macros, no AI, not counted as a scan
 - [ ] Weight trend line, milestones and a weigh-in reminder (7.7): milestones never below the
   BMI 18.5 floor
 

@@ -101,6 +101,16 @@ export function caloriesFromMacros(m: { proteinG: number; carbsG: number; fatG: 
 }
 
 /**
+ * Typed-in calories and macros that disagree by more than 20% (quick add). Labels round and
+ * alcohol or sugar alcohols add calories, so this is only ever a gentle note.
+ */
+export function macrosDisagree(calories: number, m: { proteinG: number; carbsG: number; fatG: number }) {
+  const fromMacros = caloriesFromMacros(m);
+  if (calories <= 0 || fromMacros <= 0) return false;
+  return Math.abs(fromMacros - calories) / calories > 0.2;
+}
+
+/**
  * Validate an AI plan against the formula. Returns `null` when the plan is unsafe or wildly off,
  * otherwise the plan with carbs adjusted so the macros add up to the calories.
  */

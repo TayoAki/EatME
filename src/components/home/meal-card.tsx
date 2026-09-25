@@ -1,6 +1,6 @@
 import { Image } from 'expo-image';
 import { router } from 'expo-router';
-import { Flame, PenLine, ScanBarcode, UtensilsCrossed } from 'lucide-react-native';
+import { Flame, PenLine, ScanBarcode, SquarePlus, UtensilsCrossed } from 'lucide-react-native';
 import { useEffect } from 'react';
 import { ActivityIndicator, Pressable, Text, View } from 'react-native';
 import Animated, {
@@ -23,6 +23,7 @@ function Thumbnail({
   dimmed,
   described,
   barcode,
+  quick,
 }: {
   uri: string | null;
   cacheKey: string;
@@ -31,6 +32,8 @@ function Thumbnail({
   described?: boolean;
   /** Logged by barcode: a barcode instead of the plate icon. */
   barcode?: boolean;
+  /** Quick add (numbers typed in). */
+  quick?: boolean;
 }) {
   return (
     <View style={{ width: THUMB, height: THUMB }} className="overflow-hidden rounded-2xl bg-surface">
@@ -42,6 +45,8 @@ function Thumbnail({
             <PenLine size={26} color={colors.faint} />
           ) : barcode ? (
             <ScanBarcode size={26} color={colors.faint} />
+          ) : quick ? (
+            <SquarePlus size={26} color={colors.faint} />
           ) : (
             <UtensilsCrossed size={28} color={colors.faint} />
           )}
@@ -94,6 +99,7 @@ export function MealCard({ meal, showQuality = false, calm = false }: { meal: Me
         dimmed={analyzing}
         described={!meal.imageUrl && !!meal.note}
         barcode={meal.source === 'barcode'}
+        quick={meal.source === 'quick'}
       />
       {analyzing ? (
         <View className="flex-1 justify-center gap-2.5 pr-2">

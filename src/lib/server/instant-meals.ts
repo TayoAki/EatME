@@ -1,7 +1,10 @@
+import type { SQL } from 'drizzle-orm';
+
 import { db } from '@/db';
 import { meals, type MealRow } from '@/db/schema';
-import { scaleNutrition, type MealSource } from '@/shared/meals';
+import { scaleNutrition, type BaseNutrition, type MealSource, type QuickMeal } from '@/shared/meals';
 import { scaleNutrients } from '@/shared/nutrients';
+import { caloriesFromMacros } from '@/shared/nutrition';
 
 import { foodNutrients, itemTotals, type ComputedItem } from './food-match';
 import { foodsByIds } from './foods';
@@ -53,4 +56,32 @@ export async function logFoodMeal(userId: string, { foodId, grams }: { foodId: n
   if (!food) throw new HttpError(400, 'That food is not in the database.');
   const item: ComputedItem = { name: food.description.split(',')[0], foodId, grams, nutrients: foodNutrients(food, grams) };
   return createMeal(userId, 'food', food.description, [item]);
+}
+
+/**
+ * Quick add: calories and macros typed in, no AI and no food list. Calories left out are worked
+ * out from the macros; fiber left out stays unknown (like meals logged before fiber tracking).
+ */
+export async function logQuickMeal(userId: string, quick: QuickMeal, loggedAt: Date | SQL) {
+  const macros = { proteinG: quick.proteinG ?? 0, carbsG: quick.carbsG ?? 0, fatG: quick.fatG ?? 0 };
+  const base: BaseNutrition = {
+    calories: quick.calories ?? caloriesFromMacros(macros),
+    ...macros,
+    fiberG: quick.fiberG ?? null,
+  };
+  const [meal] = await db
+    .insert(meals)
+    .values({
+      userId,
+      status: 'completed',
+      source: 'quick',
+      name: quick.name || 'Quick add',
+      confidence: 'high',
+      ...scaleNutrition(base, 1),
+      baseNutrition: base,
+      portion: 1,
+      loggedAt,
+    })
+    .returning();
+  return meal;
 }

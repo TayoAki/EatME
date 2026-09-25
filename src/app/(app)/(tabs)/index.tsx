@@ -1,5 +1,5 @@
 import { router } from 'expo-router';
-import { Camera, ChevronRight, Copy } from 'lucide-react-native';
+import { Camera, ChevronRight, Copy, Plus } from 'lucide-react-native';
 import { useMemo, useState } from 'react';
 import { ActivityIndicator, Pressable, RefreshControl, ScrollView, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -16,6 +16,7 @@ import { StreakSheet } from '@/components/home/streak-sheet';
 import { SupplementsCard } from '@/components/home/supplements-card';
 import { WaterSheet } from '@/components/home/water-sheet';
 import { WeeklyCard, WeeklySheet } from '@/components/home/weekly-card';
+import { QuickAddSheet } from '@/components/meal/quick-add-sheet';
 import { Button } from '@/components/ui/button';
 import { colors } from '@/constants/colors';
 import { notify } from '@/lib/confirm';
@@ -52,6 +53,7 @@ function Home({ profile }: { profile: Profile }) {
   const [weeklyOpen, setWeeklyOpen] = useState(false);
   const [doseOpen, setDoseOpen] = useState(false);
   const [symptomsOpen, setSymptomsOpen] = useState(false);
+  const [quickOpen, setQuickOpen] = useState(false);
 
   const meals = useMeals(selectedDate);
   const streak = useStreak();
@@ -170,9 +172,20 @@ function Home({ profile }: { profile: Profile }) {
         ) : null}
 
         <View className="mt-7 px-5">
-          <Text accessibilityRole="header" className="mb-3 text-[20px] font-bold tracking-tight text-ink">
-            {isToday ? "Today's meals" : `Meals · ${formatDay(selectedDate)}`}
-          </Text>
+          <View className="mb-3 flex-row items-center justify-between gap-3">
+            <Text accessibilityRole="header" className="flex-1 text-[20px] font-bold tracking-tight text-ink">
+              {isToday ? "Today's meals" : `Meals · ${formatDay(selectedDate)}`}
+            </Text>
+            <Pressable
+              accessibilityRole="button"
+              accessibilityLabel="Quick add"
+              hitSlop={10}
+              onPress={() => setQuickOpen(true)}
+              className="flex-row items-center gap-1 active:opacity-60">
+              <Plus size={17} color={colors.ink} strokeWidth={2.4} />
+              <Text className="text-[15px] font-semibold text-ink">Quick add</Text>
+            </Pressable>
+          </View>
 
           {meals.isPending ? (
             <View className="items-center py-10">
@@ -254,6 +267,8 @@ function Home({ profile }: { profile: Profile }) {
           <SymptomSheet visible={symptomsOpen} onClose={() => setSymptomsOpen(false)} />
         </>
       ) : null}
+
+      <QuickAddSheet visible={quickOpen} onClose={() => setQuickOpen(false)} date={selectedDate} />
 
       <StreakSheet
         visible={streakOpen}
