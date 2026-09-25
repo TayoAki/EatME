@@ -1,4 +1,4 @@
-import { and, countDistinct, eq, gt, inArray, isNotNull, sql } from 'drizzle-orm';
+import { and, desc, eq, gt, inArray, isNotNull, sql } from 'drizzle-orm';
 
 import { db } from '@/db';
 import { productReports, products } from '@/db/schema';
@@ -24,10 +24,14 @@ async function reportedProduct(rawCode: string) {
   return row;
 }
 
-/** Sets or clears the flag from the open reports of the last FLAG_DAYS. */
+/**
+ * Sets or clears the flag from the open reports of the last FLAG_DAYS (one per person). The flag
+ * time is the third-newest report's: the flag shows until that report is FLAG_DAYS old, which is
+ * when fewer than three recent reports are left.
+ */
 async function updateFlag(code: string) {
-  const [{ reporters }] = await db
-    .select({ reporters: countDistinct(productReports.userId) })
+  const [third] = await db
+    .select({ at: productReports.updatedAt })
     .from(productReports)
     .where(
       and(
@@ -35,10 +39,13 @@ async function updateFlag(code: string) {
         eq(productReports.status, 'open'),
         gt(productReports.updatedAt, sql`now() - make_interval(days => ${FLAG_DAYS})`),
       ),
-    );
+    )
+    .orderBy(desc(productReports.updatedAt))
+    .offset(REPORTERS_TO_FLAG - 1)
+    .limit(1);
   await db
     .update(products)
-    .set({ flaggedAt: reporters >= REPORTERS_TO_FLAG ? sql`coalesce(${products.flaggedAt}, now())` : null })
+    .set({ flaggedAt: third?.at ?? null })
     .where(eq(products.code, code));
 }
 

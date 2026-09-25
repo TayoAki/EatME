@@ -16,7 +16,7 @@ const TAB_BAR_SPACE = 96;
 
 type Step =
   | { name: 'capture' }
-  | { name: 'preview'; photos: Photo[]; mode: PhotoMode }
+  | { name: 'preview'; photos: Photo[]; mode: PhotoMode; note: string }
   | { name: 'describe'; text?: string }
   | { name: 'product'; code: string }
   | { name: 'search' }
@@ -26,8 +26,8 @@ export default function ScanScreen() {
   const insets = useSafeAreaInsets();
   const [step, setStep] = useState<Step>({ name: 'capture' });
   const [mode, setMode] = useState<ScanMode>('meal');
-  // Steer the AI: the photos taken so far while the camera takes another angle of the same meal.
-  const [adding, setAdding] = useState<Photo[] | null>(null);
+  // Steer the AI: the photos (and note) so far while the camera takes another angle of the same meal.
+  const [adding, setAdding] = useState<{ photos: Photo[]; note: string } | null>(null);
   const features = useFeatures();
   const payments = !!features.data?.payments;
   const billing = useBilling(payments);
@@ -43,6 +43,8 @@ export default function ScanScreen() {
       <PhotoPreview
         photos={photos}
         mode={step.mode}
+        note={step.note}
+        onNoteChange={(note) => setStep({ ...step, note })}
         bottomSpace={bottomSpace}
         onRetake={capture}
         addNeedsPremium={addNeedsPremium}
@@ -54,7 +56,7 @@ export default function ScanScreen() {
                   return;
                 }
                 setMode('meal');
-                setAdding(photos);
+                setAdding({ photos, note: step.note });
                 capture();
               }
             : undefined
@@ -64,7 +66,7 @@ export default function ScanScreen() {
           if (next.length === 0) capture();
           else setStep({ ...step, photos: next });
         }}
-        onAnalyze={(note) => analyze({ kind: 'photo', photos, mode: step.mode, note })}
+        onAnalyze={() => analyze({ kind: 'photo', photos, mode: step.mode, note: step.note.trim() })}
       />
     );
   }
@@ -132,9 +134,9 @@ export default function ScanScreen() {
       adding={
         adding
           ? {
-              count: adding.length,
+              count: adding.photos.length,
               onDone: () => {
-                setStep({ name: 'preview', photos: adding, mode: 'meal' });
+                setStep({ name: 'preview', photos: adding.photos, mode: 'meal', note: adding.note });
                 setAdding(null);
               },
             }
@@ -142,10 +144,10 @@ export default function ScanScreen() {
       }
       onPhoto={(photo) => {
         if (adding) {
-          setStep({ name: 'preview', photos: [...adding, photo], mode: 'meal' });
+          setStep({ name: 'preview', photos: [...adding.photos, photo], mode: 'meal', note: adding.note });
           setAdding(null);
         } else {
-          setStep({ name: 'preview', photos: [photo], mode: mode === 'label' ? 'label' : 'meal' });
+          setStep({ name: 'preview', photos: [photo], mode: mode === 'label' ? 'label' : 'meal', note: '' });
         }
       }}
     />

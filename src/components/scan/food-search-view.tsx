@@ -7,6 +7,7 @@ import { FoodAmountSheet } from '@/components/meal/food-amount-sheet';
 import { FoodSearchList } from '@/components/meal/food-search-sheet';
 import { IconButton } from '@/components/ui/icon-button';
 import { colors } from '@/constants/colors';
+import { useCalmMode } from '@/lib/calm';
 import type { FoodSummary } from '@/shared/meals';
 
 type FoodSearchViewProps = {
@@ -19,6 +20,7 @@ type FoodSearchViewProps = {
 export function FoodSearchView({ bottomSpace, onBack, onLog }: FoodSearchViewProps) {
   const insets = useSafeAreaInsets();
   const [picked, setPicked] = useState<FoodSummary | null>(null);
+  const calm = useCalmMode();
 
   return (
     <View className="flex-1 bg-canvas" style={{ paddingTop: insets.top }}>
@@ -43,6 +45,7 @@ export function FoodSearchView({ bottomSpace, onBack, onLog }: FoodSearchViewPro
             portions: picked.portions,
           }}
           saving={false}
+          hideCalories={calm}
           saveLabel="Log it"
           onClose={() => setPicked(null)}
           onSave={(grams) => onLog(picked, grams)}

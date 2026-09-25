@@ -223,9 +223,12 @@ export const POST = handle(async (request) => {
   const imageKey = mealPhotoKey(userId, id);
   const extraKeys = photos.slice(1).map((_, i) => extraPhotoKey(userId, id, i + 2));
   const keys = [imageKey, ...extraKeys];
-  await Promise.all(keys.map((key, i) => putObject(key, photos[i], 'image/jpeg')));
 
   try {
+    // Every upload settles before any clean-up, so a slow one can't land after it.
+    const uploads = await Promise.allSettled(keys.map((key, i) => putObject(key, photos[i], 'image/jpeg')));
+    const failed = uploads.find((upload): upload is PromiseRejectedResult => upload.status === 'rejected');
+    if (failed) throw failed.reason;
     const [meal] = await db
       .insert(meals)
       .values({

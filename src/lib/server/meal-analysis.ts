@@ -2,7 +2,7 @@ import { and, eq, isNull, lt, or, sql } from 'drizzle-orm';
 
 import type { ChatCompletionMessageParam } from 'openai/resources/chat/completions';
 
-import { db } from '@/db';
+import { db, type Executor } from '@/db';
 import { mealItems, meals, type MealRow } from '@/db/schema';
 import {
   labelAnalysisSchema,
@@ -82,10 +82,10 @@ export function baseFromNutrients(n: ComputedItem['nutrients']): BaseNutrition {
 }
 
 /** Saves the meal's foods (replacing any earlier list); returns their ids in order. */
-export async function saveItems(mealId: string, items: readonly ComputedItem[]) {
-  await db.delete(mealItems).where(eq(mealItems.mealId, mealId));
+export async function saveItems(mealId: string, items: readonly ComputedItem[], executor: Executor = db) {
+  await executor.delete(mealItems).where(eq(mealItems.mealId, mealId));
   if (items.length === 0) return [];
-  const rows = await db
+  const rows = await executor
     .insert(mealItems)
     .values(
       items.map((item, position) => ({
@@ -252,45 +252,47 @@ async function analyzeMeal(mealId: string) {
     }
 
     // Split pipeline: the AI listed the foods and grams, the USDA database does the math where a
-    // food matches. Without items (labels) the AI's totals are used as they are.
-    const items = analysis.items.length > 0 ? await computeItems(analysis.items, memory) : [];
+    // food matches. Without items (labels) the AI's totals are used as they are. The ids are made
+    // here because the question's answers point at the foods.
+    const computed = analysis.items.length > 0 ? await computeItems(analysis.items, memory) : [];
+    const items = computed.map((item) => ({ ...item, id: crypto.randomUUID() }));
     const totals = items.length > 0 ? itemTotals(items) : null;
     const base = totals ? baseFromNutrients(totals.nutrients) : baseNutrition(analysis);
-    const [updated] = await db
-      .update(meals)
-      .set({
-        status: 'completed',
-        name: analysis.name.trim() || 'Meal',
-        ...scaleNutrition(base, meal.portion),
-        baseNutrition: base,
-        nutrients: totals?.nutrients ?? null,
-        matchedShare: totals?.matchedShare ?? null,
-        confidence: analysis.confidence,
-        servingSize: analysis.servingSize?.trim() || null,
-        processing: analysis.processing ?? null,
-        processingReason: analysis.processingReason?.trim() || null,
-        addedSugarG: analysis.addedSugarG ?? null,
-        error: null,
-        analysisStartedAt: null,
-      })
-      .where(and(eq(meals.id, mealId), eq(meals.status, 'analyzing')))
-      .returning({ id: meals.id });
-    if (updated) {
-      const itemIds = await saveItems(mealId, items);
-      await markUsed(items.flatMap((item) => (item.personalFoodId ? [item.personalFoodId] : [])));
-      // Steer the AI: the options of its question are worked out now, so answering needs no AI call.
-      if (followUpEnabled() && analysis.question && items.length > 0) {
-        const followUp = await buildFollowUp(
-          analysis.question,
-          analysis.items,
-          items.map((item, i) => ({ ...item, id: itemIds[i] })),
-        ).catch((error: unknown) => {
-          console.warn(`[meals] follow-up question for ${mealId} failed`, error);
-          return null;
-        });
-        if (followUp) await db.update(meals).set({ followUp }).where(eq(meals.id, mealId));
-      }
-    }
+    // Steer the AI: the options of its question are worked out now, so answering needs no AI call.
+    const followUp =
+      followUpEnabled() && analysis.question && items.length > 0
+        ? await buildFollowUp(analysis.question, analysis.items, items).catch((error: unknown) => {
+            console.warn(`[meals] follow-up question for ${mealId} failed`, error);
+            return null;
+          })
+        : null;
+    // The meal, its foods and its question are saved together: the app stops polling at the first
+    // finished answer, so it must never see a finished meal without them.
+    const updated = await db.transaction(async (tx) => {
+      const [row] = await tx
+        .update(meals)
+        .set({
+          status: 'completed',
+          name: analysis.name.trim() || 'Meal',
+          ...scaleNutrition(base, meal.portion),
+          baseNutrition: base,
+          nutrients: totals?.nutrients ?? null,
+          matchedShare: totals?.matchedShare ?? null,
+          confidence: analysis.confidence,
+          servingSize: analysis.servingSize?.trim() || null,
+          processing: analysis.processing ?? null,
+          processingReason: analysis.processingReason?.trim() || null,
+          addedSugarG: analysis.addedSugarG ?? null,
+          followUp,
+          error: null,
+          analysisStartedAt: null,
+        })
+        .where(and(eq(meals.id, mealId), eq(meals.status, 'analyzing')))
+        .returning({ id: meals.id });
+      if (row) await saveItems(mealId, items, tx);
+      return !!row;
+    });
+    if (updated) await markUsed(items.flatMap((item) => (item.personalFoodId ? [item.personalFoodId] : [])));
     if (totals) {
       const remembered = items.filter((item) => item.personalFoodId).length;
       console.info('[meals] foods', JSON.stringify({ mealId, items: items.length, remembered, matchedShare: totals.matchedShare }));

@@ -18,6 +18,9 @@ function createDb() {
 
 type Database = ReturnType<typeof createDb>;
 
+/** The client or an open transaction: helpers that take one can also run inside `db.transaction`. */
+export type Executor = Database | Parameters<Parameters<Database['transaction']>[0]>[0];
+
 /**
  * Every API route is bundled on its own, each with its own copy of this module. Keeping the client
  * on `globalThis` gives the whole server process one pool (instead of one pool per route, which

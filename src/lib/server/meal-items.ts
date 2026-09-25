@@ -1,12 +1,12 @@
 import { and, asc, eq, sql } from 'drizzle-orm';
 
-import { db } from '@/db';
+import { db, type Executor } from '@/db';
 import { foods, mealItems, meals, products, type MealItemRow, type MealRow } from '@/db/schema';
 import { scaleNutrition, type Meal, type MealItem, type UpdateMealItemsBody } from '@/shared/meals';
 import { scaleNutrients } from '@/shared/nutrients';
 import { foodKey, type FoodCorrection } from '@/shared/personal-foods';
 
-import { applyChange } from './follow-up';
+import { applyChange, closedQuestion } from './follow-up';
 
 import { toMeal, toMealItem } from './dto';
 import { foodNutrients, itemTotals, type ComputedItem } from './food-match';
@@ -75,7 +75,7 @@ export async function replaceItems(meal: MealRow, body: UpdateMealItemsBody) {
     };
   });
 
-  const { meal: saved, itemIds } = await saveComputedItems(meal, items);
+  const { meal: saved, itemIds } = await saveComputedItems(meal, items, { closeQuestion: true });
   const describe = (foodId: number | null) => (foodId ? (foodMap.get(foodId)?.description ?? null) : null);
   return { meal: saved, corrections: correctionsOf(meal, body, existing, items, itemIds, describe) };
 }
@@ -107,37 +107,46 @@ function correctionsOf(
 }
 
 /**
- * Saves a meal's foods and recomputes the meal from them (as logged: the portion goes back to 1).
- * Used by food edits and by the answer to the follow-up question.
+ * Saves a meal's foods and recomputes the meal from them (as logged: the portion goes back to 1),
+ * in one transaction (or the caller's `executor`). Used by food edits (which close an unanswered
+ * question) and by the answer to the question.
  */
-export async function saveComputedItems(meal: MealRow, items: readonly ComputedItem[]) {
+export async function saveComputedItems(
+  meal: MealRow,
+  items: readonly ComputedItem[],
+  { closeQuestion = false, executor }: { closeQuestion?: boolean; executor?: Executor } = {},
+) {
   const totals = itemTotals(items);
   const base = baseFromNutrients(totals.nutrients);
   // The added-sugar estimate follows the calories (it has no database value to recompute from).
   const oldCalories = (meal.baseNutrition?.calories ?? 0) * meal.portion;
   const addedSugarG =
     meal.addedSugarG === null ? null : oldCalories > 0 ? (meal.addedSugarG * meal.portion * base.calories) / oldCalories : meal.addedSugarG;
-  const [saved] = await db
-    .update(meals)
-    .set({
-      ...scaleNutrition(base, 1),
-      baseNutrition: base,
-      portion: 1,
-      nutrients: totals.nutrients,
-      matchedShare: totals.matchedShare,
-      addedSugarG,
-    })
-    .where(eq(meals.id, meal.id))
-    .returning();
-  const itemIds = await saveItems(meal.id, items);
-  return { meal: saved, itemIds };
+  const save = async (tx: Executor) => {
+    const [saved] = await tx
+      .update(meals)
+      .set({
+        ...scaleNutrition(base, 1),
+        baseNutrition: base,
+        portion: 1,
+        nutrients: totals.nutrients,
+        matchedShare: totals.matchedShare,
+        addedSugarG,
+        ...(closeQuestion ? { followUp: closedQuestion } : {}),
+      })
+      .where(eq(meals.id, meal.id))
+      .returning();
+    const itemIds = await saveItems(meal.id, items, tx);
+    return { meal: saved, itemIds };
+  };
+  return executor ? save(executor) : db.transaction(save);
 }
 
 /** Copies a meal's foods to another meal ("Log again", copy a day). */
-export async function copyItems(fromMealId: string, toMealId: string) {
-  const rows = await db.select().from(mealItems).where(eq(mealItems.mealId, fromMealId)).orderBy(asc(mealItems.position));
+export async function copyItems(fromMealId: string, toMealId: string, executor: Executor = db) {
+  const rows = await executor.select().from(mealItems).where(eq(mealItems.mealId, fromMealId)).orderBy(asc(mealItems.position));
   if (rows.length === 0) return;
-  await db
+  await executor
     .insert(mealItems)
     .values(
       rows.map(({ position, name, foodId, productCode, grams, nutrients, aiName, personalFoodId }) => ({
@@ -163,26 +172,29 @@ export async function answerFollowUp(meal: MealRow, option: number | 'skip') {
   if (!state) throw new HttpError(404, 'This meal has no question.');
   const answer = option === 'skip' ? -1 : option;
   if (answer >= 0 && !state.options[answer]) throw new HttpError(400, 'Pick one of the answers.');
-  // Claim the answer first, so two taps can't both change the meal.
-  const [claimed] = await db
-    .update(meals)
-    .set({ followUp: { ...state, answer } })
-    .where(and(eq(meals.id, meal.id), sql`${meals.followUp}->>'answer' is null`))
-    .returning();
-  if (!claimed) throw new HttpError(409, 'This question is already answered.');
-  if (answer < 0) return claimed;
+  return db.transaction(async (tx) => {
+    // Claim the answer first, so two taps can't both change the meal; the change is saved with it.
+    const [claimed] = await tx
+      .update(meals)
+      .set({ followUp: { ...state, answer } })
+      .where(and(eq(meals.id, meal.id), sql`${meals.followUp}->>'answer' is null`))
+      .returning();
+    if (!claimed) throw new HttpError(409, 'This question is already answered.');
+    if (answer < 0) return claimed;
 
-  const rows = await db.select().from(mealItems).where(eq(mealItems.mealId, meal.id)).orderBy(asc(mealItems.position));
-  const items: ComputedItem[] = rows.map((row) => ({
-    id: row.id,
-    name: row.name,
-    foodId: row.foodId,
-    productCode: row.productCode,
-    grams: row.grams * meal.portion,
-    nutrients: scaleNutrients(row.nutrients, meal.portion),
-    aiName: row.aiName,
-    personalFoodId: row.personalFoodId,
-  }));
-  const { meal: saved } = await saveComputedItems(claimed, applyChange(items, state.options[answer].change));
-  return saved;
+    const rows = await tx.select().from(mealItems).where(eq(mealItems.mealId, meal.id)).orderBy(asc(mealItems.position));
+    const items: ComputedItem[] = rows.map((row) => ({
+      id: row.id,
+      name: row.name,
+      foodId: row.foodId,
+      productCode: row.productCode,
+      grams: row.grams * claimed.portion,
+      nutrients: scaleNutrients(row.nutrients, claimed.portion),
+      aiName: row.aiName,
+      personalFoodId: row.personalFoodId,
+    }));
+    const change = state.options[answer].change;
+    const { meal: saved } = await saveComputedItems(claimed, applyChange(items, change), { executor: tx });
+    return saved;
+  });
 }

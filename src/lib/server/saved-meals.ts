@@ -1,7 +1,7 @@
 import { and, asc, count, desc, eq, inArray, sql } from 'drizzle-orm';
 import { z } from 'zod';
 
-import { db } from '@/db';
+import { db, type Executor } from '@/db';
 import { mealRepeatResponses, mealRepeats, meals, type MealRow } from '@/db/schema';
 import {
   MAX_REPEATS,
@@ -19,7 +19,8 @@ import { foodNutrients, type ComputedItem } from './food-match';
 import { foodsByIds } from './foods';
 import { HttpError } from './http';
 import { createMeal } from './instant-meals';
-import { copyMeal } from './meal-values';
+import { copyMeal, copyPhoto } from './meal-values';
+import { deleteObject } from './storage';
 import { localDate } from './streak';
 
 const uuid = z.string().uuid();
@@ -176,6 +177,10 @@ async function findRepeat(userId: string, repeatId: string) {
 const responseOn = (repeatId: string, date: string) =>
   and(eq(mealRepeatResponses.repeatId, repeatId), eq(mealRepeatResponses.date, date));
 
+/** One answer at a time per planned meal and day: a double tap or a second button waits here. */
+const lockRepeat = (tx: Executor, repeatId: string) =>
+  tx.execute(sql`select 1 from ${mealRepeats} where ${mealRepeats.id} = ${repeatId} for update`);
+
 /**
  * "Log it" on a planned meal: a copy of the saved meal at its usual time that day (or now, when
  * that time is still ahead). Tapping twice never logs it twice.
@@ -187,36 +192,52 @@ export async function logPlanned(userId: string, repeatId: string, date: string)
   if (date > localDate(new Date(), timeZone)) throw new HttpError(400, "You can't log things in the future.");
   const usualTime = sql`((${date}::date + ${repeat.time}::time)::timestamp at time zone ${timeZone})`;
 
-  return db.transaction(async (tx) => {
-    // One answer at a time per planned meal (a double tap waits here, then finds the first copy).
-    await tx.execute(sql`select 1 from ${mealRepeats} where ${mealRepeats.id} = ${repeat.id} for update`);
-    const answer = await tx.query.mealRepeatResponses.findFirst({ where: responseOn(repeat.id, date) });
-    if (answer?.response === 'logged' && answer.mealId) {
-      const logged = await tx.query.meals.findFirst({ where: eq(meals.id, answer.mealId) });
-      if (logged) return { meal: logged, created: false };
+  // The photo is copied first, so the transaction holds its lock only for the database writes.
+  const id = crypto.randomUUID();
+  const photo = { id, imageKey: await copyPhoto(saved, id) };
+  let created = false;
+  try {
+    const result = await db.transaction(async (tx) => {
+      await lockRepeat(tx, repeat.id);
+      const answer = await tx.query.mealRepeatResponses.findFirst({ where: responseOn(repeat.id, date) });
+      if (answer?.response === 'logged' && answer.mealId) {
+        const logged = await tx.query.meals.findFirst({ where: eq(meals.id, answer.mealId) });
+        if (logged) return { meal: logged, created: false };
+      }
+      // The copy and the answer are saved together: never a logged copy the card still offers.
+      const meal = await copyMeal(saved, sql`least(now(), ${usualTime})`, { photo, executor: tx });
+      await tx
+        .insert(mealRepeatResponses)
+        .values({ repeatId: repeat.id, date, response: 'logged', mealId: meal.id })
+        .onConflictDoUpdate({
+          target: [mealRepeatResponses.repeatId, mealRepeatResponses.date],
+          set: { response: 'logged', mealId: meal.id, updatedAt: new Date() },
+        });
+      return { meal, created: true };
+    });
+    created = result.created;
+    return result;
+  } finally {
+    // The first tap's copy was found (or nothing was saved): this photo copy isn't needed.
+    if (!created && photo.imageKey) {
+      await deleteObject(photo.imageKey).catch((error: unknown) => console.warn('[saved-meals] could not delete a spare photo', error));
     }
-    const meal = await copyMeal(saved, sql`least(now(), ${usualTime})`);
-    await tx
-      .insert(mealRepeatResponses)
-      .values({ repeatId: repeat.id, date, response: 'logged', mealId: meal.id })
-      .onConflictDoUpdate({
-        target: [mealRepeatResponses.repeatId, mealRepeatResponses.date],
-        set: { response: 'logged', mealId: meal.id, updatedAt: new Date() },
-      });
-    return { meal, created: true };
-  });
+  }
 }
 
 /** "Not today": nothing is logged, and the planned meal is not offered again that day. */
 export async function skipPlanned(userId: string, repeatId: string, date: string) {
   const repeat = await findRepeat(userId, repeatId);
-  const answer = await db.query.mealRepeatResponses.findFirst({ where: responseOn(repeat.id, date) });
-  if (answer?.response === 'logged' && answer.mealId) throw new HttpError(409, 'This meal is already logged for that day.');
-  await db
-    .insert(mealRepeatResponses)
-    .values({ repeatId: repeat.id, date, response: 'skipped', mealId: null })
-    .onConflictDoUpdate({
-      target: [mealRepeatResponses.repeatId, mealRepeatResponses.date],
-      set: { response: 'skipped', mealId: null, updatedAt: new Date() },
-    });
+  await db.transaction(async (tx) => {
+    await lockRepeat(tx, repeat.id);
+    const answer = await tx.query.mealRepeatResponses.findFirst({ where: responseOn(repeat.id, date) });
+    if (answer?.response === 'logged' && answer.mealId) throw new HttpError(409, 'This meal is already logged for that day.');
+    await tx
+      .insert(mealRepeatResponses)
+      .values({ repeatId: repeat.id, date, response: 'skipped', mealId: null })
+      .onConflictDoUpdate({
+        target: [mealRepeatResponses.repeatId, mealRepeatResponses.date],
+        set: { response: 'skipped', mealId: null, updatedAt: new Date() },
+      });
+  });
 }

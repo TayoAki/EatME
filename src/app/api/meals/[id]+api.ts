@@ -5,6 +5,7 @@ import { db } from '@/db';
 import { meals } from '@/db/schema';
 import { requireUserId } from '@/lib/server/auth';
 import { toMeal } from '@/lib/server/dto';
+import { closedQuestion } from '@/lib/server/follow-up';
 import { toMealWithItems } from '@/lib/server/meal-items';
 import { handle, HttpError, readJson } from '@/lib/server/http';
 import { resumeStalledAnalyses } from '@/lib/server/meal-analysis';
@@ -51,7 +52,12 @@ export const PATCH = handle<Params>(async (request, { id }) => {
 
   const update = mealChanges(meal, changes);
   if (Object.keys(update).length === 0) return Response.json({ meal: await toMealWithItems(meal) });
-  const [saved] = await db.update(meals).set(update).where(eq(meals.id, meal.id)).returning();
+  // New numbers or a new portion close the AI's question: its answers were for the meal as analyzed.
+  const [saved] = await db
+    .update(meals)
+    .set(update.baseNutrition ? { ...update, followUp: closedQuestion } : update)
+    .where(eq(meals.id, meal.id))
+    .returning();
   return Response.json({ meal: await toMealWithItems(saved) });
 });
 

@@ -1,6 +1,6 @@
 import type { SQL } from 'drizzle-orm';
 
-import { db } from '@/db';
+import { db, type Executor } from '@/db';
 import { meals, type MealRow } from '@/db/schema';
 import { scaleNutrition, type BaseNutrition, type UpdateMealBody } from '@/shared/meals';
 
@@ -52,6 +52,28 @@ export function mealChanges(meal: MealRow, changes: UpdateMealBody) {
   return update;
 }
 
+/** A copy of the meal's photo for the new meal `id`: its key, or null (no photo, or the copy failed). */
+export async function copyPhoto(meal: MealRow, id: string) {
+  if (!meal.imageKey) return null;
+  try {
+    const imageKey = mealPhotoKey(meal.userId, id);
+    await putObject(imageKey, await getObject(meal.imageKey), 'image/jpeg');
+    return imageKey;
+  } catch (error) {
+    // The copy is still useful without a picture.
+    console.warn(`[meals] could not copy the photo of ${meal.id}`, error);
+    return null;
+  }
+}
+
+type CopyOptions = {
+  status?: 'completed' | 'saved';
+  name?: string;
+  /** Inside a transaction: the new meal's id and its photo, copied beforehand with `copyPhoto`. */
+  photo?: { id: string; imageKey: string | null };
+  executor?: Executor;
+};
+
 /**
  * "Log again": a completed copy of `meal` for the same user, with its own copy of the photo
  * (so deleting either meal never removes the other's picture). No AI call, so it is free and instant.
@@ -61,22 +83,12 @@ export function mealChanges(meal: MealRow, changes: UpdateMealBody) {
 export async function copyMeal(
   meal: MealRow,
   loggedAt: Date | SQL,
-  { status = 'completed', name }: { status?: 'completed' | 'saved'; name?: string } = {},
+  { status = 'completed', name, photo, executor = db }: CopyOptions = {},
 ) {
   if (meal.status !== 'completed' && meal.status !== 'saved') throw new HttpError(409, 'Only analyzed meals can be logged again');
-  const id = crypto.randomUUID();
-  let imageKey: string | null = null;
-  if (meal.imageKey) {
-    try {
-      imageKey = mealPhotoKey(meal.userId, id);
-      await putObject(imageKey, await getObject(meal.imageKey), 'image/jpeg');
-    } catch (error) {
-      // The copy is still useful without a picture.
-      console.warn(`[meals] could not copy the photo of ${meal.id}`, error);
-      imageKey = null;
-    }
-  }
-  const [copy] = await db
+  const id = photo?.id ?? crypto.randomUUID();
+  const imageKey = photo ? photo.imageKey : await copyPhoto(meal, id);
+  const [copy] = await executor
     .insert(meals)
     .values({
       id,
@@ -104,6 +116,6 @@ export async function copyMeal(
       loggedAt,
     })
     .returning();
-  await copyItems(meal.id, copy.id);
+  await copyItems(meal.id, copy.id, executor);
   return copy;
 }

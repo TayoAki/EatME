@@ -158,7 +158,11 @@ export const updateMealItemsSchema = z.object({
       }),
     )
     .min(1)
-    .max(30),
+    .max(30)
+    .refine((items) => {
+      const ids = items.flatMap((item) => (item.id ? [item.id] : []));
+      return new Set(ids).size === ids.length;
+    }, 'Each food can be listed only once.'),
 });
 export type UpdateMealItemsBody = z.infer<typeof updateMealItemsSchema>;
 
@@ -197,15 +201,27 @@ const mealTotalsSchema = z.object({
   notFoodReason: z.string().max(200).nullable(),
 });
 
-/** The question the AI may ask (FOLLOW_UP_QUESTION): `item` is 1-based, 0 = the whole meal. */
+/**
+ * The question the AI may ask (FOLLOW_UP_QUESTION): `item` is 1-based, 0 = the whole meal. The
+ * question is optional, so one that breaks the rules is dropped (never failing the analysis) and
+ * extra fillings are cut.
+ */
 const followUpQuestionSchema = z
   .object({
     kind: z.enum(FOLLOW_UP_KINDS),
     item: z.number().int().min(0).max(20),
-    fillings: z.array(z.object({ label: z.string().max(40), food: z.string().max(160) })).max(3),
+    fillings: z
+      .array(
+        z.object({
+          label: z.string().transform((label) => label.slice(0, 40)),
+          food: z.string().transform((food) => food.slice(0, 160)),
+        }),
+      )
+      .transform((fillings) => fillings.slice(0, 3)),
   })
   .nullable()
-  .optional();
+  .optional()
+  .catch(null);
 export type FollowUpQuestion = NonNullable<z.infer<typeof followUpQuestionSchema>>;
 
 /** Structured output for a meal photo or description: totals plus the foods it is made of. */

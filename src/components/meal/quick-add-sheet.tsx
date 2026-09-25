@@ -83,9 +83,11 @@ export function QuickAddSheet({ visible, onClose, date, onLogged }: QuickAddShee
   >;
   const macros = { proteinG: values.proteinG ?? 0, carbsG: values.carbsG ?? 0, fatG: values.fatG ?? 0 };
   const fromMacros = Math.round(caloriesFromMacros(macros));
+  // 0 kcal counts as left empty: the calories then come from the macros (as on the server).
+  const calories = values.calories || undefined;
   const tooBig = (Object.keys(MAX) as Key[]).some((key) => (values[key] ?? 0) > MAX[key]);
   const ready = Object.values(values).some((value) => (value ?? 0) > 0) && !tooBig;
-  const disagree = values.calories !== undefined && macrosDisagree(values.calories, macros);
+  const disagree = calories !== undefined && macrosDisagree(calories, macros);
   const set = (key: Key) => (value: string) => setText((current) => ({ ...current, [key]: value }));
 
   const reset = () => {
@@ -98,7 +100,7 @@ export function QuickAddSheet({ visible, onClose, date, onLogged }: QuickAddShee
   };
   const log = () =>
     quickAdd.mutate(
-      { name: name.trim() || undefined, ...values, date },
+      { name: name.trim() || undefined, ...values, calories, date },
       {
         onSuccess: ({ meal }) => {
           haptics.success();
@@ -147,7 +149,7 @@ export function QuickAddSheet({ visible, onClose, date, onLogged }: QuickAddShee
 
         {tooBig ? (
           <Text className="mt-3 text-[14px] leading-5 text-danger">That looks like more than one meal. Check the numbers.</Text>
-        ) : values.calories === undefined && fromMacros > 0 ? (
+        ) : calories === undefined && fromMacros > 0 ? (
           <Text className="mt-3 text-[14px] leading-5 text-muted">
             Calories left empty: about {fromMacros.toLocaleString('en-US')} kcal from the macros.
           </Text>

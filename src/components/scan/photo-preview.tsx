@@ -1,6 +1,5 @@
 import { Image } from 'expo-image';
 import { Crown, Plus, X } from 'lucide-react-native';
-import { useState } from 'react';
 import { KeyboardAvoidingView, Platform, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 
 import { Button } from '@/components/ui/button';
@@ -19,8 +18,10 @@ type PhotoPreviewProps = {
   /** Adding angles is part of Premium (payments on, free account). */
   addNeedsPremium?: boolean;
   onRemovePhoto: (index: number) => void;
-  /** `note`: what the photo can't show (meals only). */
-  onAnalyze: (note: string) => void;
+  /** What the photo can't show (meals only). Kept by the scan screen, so adding an angle keeps it. */
+  note: string;
+  onNoteChange: (note: string) => void;
+  onAnalyze: () => void;
   bottomSpace: number;
 };
 
@@ -33,10 +34,11 @@ export function PhotoPreview({
   onAddPhoto,
   addNeedsPremium = false,
   onRemovePhoto,
+  note,
+  onNoteChange,
   onAnalyze,
   bottomSpace,
 }: PhotoPreviewProps) {
-  const [note, setNote] = useState('');
   const shown = photos[photos.length - 1];
   const several = photos.length > 1 || !!onAddPhoto;
   return (
@@ -88,7 +90,7 @@ export function PhotoPreview({
             <TextInput
               accessibilityLabel="Add a note"
               value={note}
-              onChangeText={setNote}
+              onChangeText={onNoteChange}
               maxLength={MAX_MEAL_NOTE_LENGTH}
               placeholder="Add a note: cooked in butter, ate half…"
               placeholderTextColor={colors.faint}
@@ -107,7 +109,7 @@ export function PhotoPreview({
           <Button
             title={mode === 'label' ? 'Read the label' : 'Analyze the food'}
             className="flex-[1.6]"
-            onPress={() => onAnalyze(note.trim())}
+            onPress={onAnalyze}
           />
         </View>
       </View>

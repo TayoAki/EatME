@@ -653,9 +653,11 @@ added to an earlier day are stored at local noon of that day.
   behind `FOLLOW_UP_QUESTION`: the AI may return one `question` (cooking fat, portion or filling);
   the server writes the wording ("What was it cooked in?", "How big was your portion?", "What
   was inside?") and works out the options when the meal is analysed: fixed USDA items for
-  fat (olive oil 5 g or 14 g, butter 14 g), portion multipliers 0.25–3, matched foods for
+  fat (olive oil 5 g or 14 g, butter 14 g), portion ½×, 1×, 1½× or 2×, matched foods for
   fillings. It is asked only when the options differ by at least 60 kcal or 10%, and answered
-  through `POST /api/meals/:id/follow-up` with no second AI call. Checked on ~15 weighed meals
+  through `POST /api/meals/:id/follow-up` with no second AI call; editing the foods, numbers or
+  portion by hand first closes it (its answers were for the meal as analysed). A question that
+  breaks the rules is dropped, never failing the analysis. Checked on ~15 weighed meals
   (1 photo vs 3) and the §11 benchmark before the flag is turned on.
 - Calm mode: `preferences.calmMode` hides calorie and macro numbers everywhere, screen-reader
   labels included (fiber and water stay); rings over a goal are neutral grey; words replace

@@ -447,7 +447,9 @@ export function useReportProduct(code: string) {
       if (report) await api(`/api/products/${code}/report`, { method: 'POST', body: report });
       else await api(`/api/products/${code}/report`, { method: 'DELETE' });
     },
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['product', code] }),
+    // Every product lookup: the screen's query uses the code as scanned, which can differ from the
+    // product's own (a 12-digit UPC-A is stored as its 13-digit EAN).
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['product'] }),
   });
 }
 

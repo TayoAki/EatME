@@ -68,13 +68,13 @@ export async function logFoodMeal(userId: string, { foodId, grams }: { foodId: n
 }
 
 /**
- * Quick add: calories and macros typed in, no AI and no food list. Calories left out are worked
- * out from the macros; fiber left out stays unknown (like meals logged before fiber tracking).
+ * Quick add: calories and macros typed in, no AI and no food list. Calories left out (or 0) are
+ * worked out from the macros; fiber left out stays unknown (like meals logged before fiber tracking).
  */
 export async function logQuickMeal(userId: string, quick: QuickMeal, loggedAt: Date | SQL) {
   const macros = { proteinG: quick.proteinG ?? 0, carbsG: quick.carbsG ?? 0, fatG: quick.fatG ?? 0 };
   const base: BaseNutrition = {
-    calories: quick.calories ?? caloriesFromMacros(macros),
+    calories: quick.calories || caloriesFromMacros(macros),
     ...macros,
     fiberG: quick.fiberG ?? null,
   };

@@ -126,9 +126,10 @@ const FOLLOW_UP_SCHEMA = {
       required: ['kind', 'item', 'fillings'],
       properties: {
         kind: { type: 'string', enum: ['cooking_fat', 'portion', 'filling'] },
-        item: { type: 'integer' },
+        item: { type: 'integer', description: '1 = the first of items, 0 = the whole meal' },
         fillings: {
           type: 'array',
+          description: 'Up to 3, only for "filling"; otherwise empty',
           items: {
             type: 'object',
             additionalProperties: false,

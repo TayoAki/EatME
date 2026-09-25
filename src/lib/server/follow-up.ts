@@ -1,7 +1,7 @@
-import { inArray } from 'drizzle-orm';
+import { inArray, sql } from 'drizzle-orm';
 
 import { db } from '@/db';
-import { foods, type FoodRow } from '@/db/schema';
+import { foods, meals, type FoodRow } from '@/db/schema';
 import type { AiMealItem, FollowUpChange, FollowUpKind, FollowUpQuestion, FollowUpState } from '@/shared/meals';
 import { scaleNutrients, type NutrientAmounts } from '@/shared/nutrients';
 
@@ -40,6 +40,12 @@ function worthAsking(spread: number, mealCalories: number) {
 }
 
 const round1 = (value: number) => Math.round(value * 10) / 10;
+
+/**
+ * An unanswered question, closed as skipped (-1): for updates that change a meal's foods or numbers
+ * by hand. Its answers were worked out for the meal as analyzed, so they no longer fit.
+ */
+export const closedQuestion = sql`case when ${meals.followUp}->>'answer' is null then jsonb_set(${meals.followUp}, '{answer}', '-1') else ${meals.followUp} end`;
 
 /** Applies an answer to a meal's foods (as logged). */
 export function applyChange(items: readonly ComputedItem[], change: FollowUpChange): ComputedItem[] {
