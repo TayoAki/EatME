@@ -35,13 +35,14 @@ Rules:
 - Otherwise identify the meal and give it a short, natural name (at most 5 words, e.g. "Grilled chicken salad").
 - Estimate the portion sizes you can see, using the plate, cutlery and hands for scale, then estimate the total calories and grams of protein, carbs and fat for everything visible. Sum all items.
 - Round calories to the nearest 5 and macros to whole grams. protein × 4 + carbs × 4 + fat × 9 should be within 10% of the calories.
+- fiberG: grams of dietary fiber. It comes from vegetables, fruit, legumes, nuts, seeds and whole grains; refined grains, meat, fish, eggs, dairy and oils have little or none. Fiber is part of the carbs, so it can never be more than carbsG.
 - confidence: "high" when the dish and portion are clear, "medium" when parts are hidden or ambiguous, "low" when you are unsure.
 - notFoodReason must be null when isFood is true.`;
 
 export const MEAL_JSON_SCHEMA = {
   type: 'object',
   additionalProperties: false,
-  required: ['isFood', 'name', 'calories', 'proteinG', 'carbsG', 'fatG', 'confidence', 'notFoodReason'],
+  required: ['isFood', 'name', 'calories', 'proteinG', 'carbsG', 'fatG', 'fiberG', 'confidence', 'notFoodReason'],
   properties: {
     isFood: { type: 'boolean' },
     name: { type: 'string', description: 'Short meal name, empty when not food' },
@@ -49,6 +50,7 @@ export const MEAL_JSON_SCHEMA = {
     proteinG: { type: 'number' },
     carbsG: { type: 'number' },
     fatG: { type: 'number' },
+    fiberG: { type: 'number', description: 'Grams of dietary fiber, at most carbsG' },
     confidence: { type: 'string', enum: ['low', 'medium', 'high'] },
     notFoodReason: { type: ['string', 'null'] },
   },

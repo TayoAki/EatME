@@ -116,3 +116,27 @@ export function goalDate(
   date.setDate(date.getDate() + Math.ceil(weeks * 7));
   return date;
 }
+
+/** Picks the value for the user's sex; "other" (or unknown) gets the midpoint. */
+function bySex(gender: Gender | null | undefined, values: { female: number; male: number }) {
+  if (gender === 'female') return values.female;
+  if (gender === 'male') return values.male;
+  return Math.round((values.female + values.male) / 2);
+}
+
+/** Daily fiber in grams: US/Canada adequate intakes (Dietary Reference Intakes) by sex and age. */
+export function recommendedFiberG(gender: Gender | null | undefined, age: number) {
+  if (age < 14) return bySex(gender, { female: 26, male: 31 });
+  if (age < 51) return bySex(gender, { female: age < 19 ? 26 : 25, male: 38 });
+  return bySex(gender, { female: 21, male: 30 });
+}
+
+/**
+ * Daily water from drinks in millilitres: about 80% of the IOM (2004) adequate intake for total
+ * water; the rest comes from food. A guide, not a quota — thirst is the better signal.
+ */
+export function recommendedWaterMl(gender: Gender | null | undefined, age: number) {
+  if (age < 14) return bySex(gender, { female: 1600, male: 1800 });
+  if (age < 19) return bySex(gender, { female: 1800, male: 2600 });
+  return bySex(gender, { female: 2200, male: 3000 });
+}

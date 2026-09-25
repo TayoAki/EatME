@@ -7,6 +7,7 @@ import { requireUserId } from '@/lib/server/auth';
 import { toMeal } from '@/lib/server/dto';
 import { handle, HttpError, readJson } from '@/lib/server/http';
 import { resumeStalledAnalyses } from '@/lib/server/meal-analysis';
+import { mealChanges } from '@/lib/server/meal-values';
 import { deleteObject } from '@/lib/server/storage';
 import { updateMealSchema } from '@/shared/meals';
 
@@ -36,7 +37,7 @@ export const GET = handle<Params>(async (request, { id }) => {
   return Response.json({ meal: await toMeal(meal) });
 });
 
-/** Manual corrections of the AI estimate. */
+/** Manual corrections of the AI estimate, favourites and portion size. */
 export const PATCH = handle<Params>(async (request, { id }) => {
   const userId = await requireUserId(request);
   const changes = updateMealSchema.parse(await readJson(request));
@@ -45,7 +46,9 @@ export const PATCH = handle<Params>(async (request, { id }) => {
   const meal = await findMeal(userId, id);
   if (meal.status !== 'completed') throw new HttpError(409, 'This meal is still being analyzed');
 
-  const [saved] = await db.update(meals).set(changes).where(eq(meals.id, meal.id)).returning();
+  const update = mealChanges(meal, changes);
+  if (Object.keys(update).length === 0) return Response.json({ meal: await toMeal(meal) });
+  const [saved] = await db.update(meals).set(update).where(eq(meals.id, meal.id)).returning();
   return Response.json({ meal: await toMeal(saved) });
 });
 

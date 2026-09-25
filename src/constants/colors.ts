@@ -10,6 +10,9 @@ export const colors = {
   protein: '#F2665E',
   carbs: '#F4A63A',
   fat: '#4F8EF7',
+  /** Plum and teal: checked for colourblind separation against protein, carbs and fat. */
+  fiber: '#B15FB0',
+  water: '#14B8A6',
   flame: '#FF7A1A',
   danger: '#E5484D',
   success: '#2FB36B',

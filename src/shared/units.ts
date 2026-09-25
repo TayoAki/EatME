@@ -30,3 +30,22 @@ export function formatHeight(cm: number, unit: UnitSystem) {
 }
 
 export const weightUnitLabel = (unit: UnitSystem) => (unit === 'metric' ? 'kg' : 'lb');
+
+export const ML_PER_FL_OZ = 29.5735;
+export const mlToFlOz = (ml: number) => ml / ML_PER_FL_OZ;
+export const flOzToMl = (flOz: number) => flOz * ML_PER_FL_OZ;
+
+/** "1.25 L" / "750 ml" in metric, "42 fl oz" in imperial. */
+export function formatVolume(ml: number, unit: UnitSystem) {
+  if (unit === 'imperial') return `${Math.round(mlToFlOz(ml))} fl oz`;
+  if (ml >= 1000) return `${(Math.round(ml / 50) * 50 / 1000).toLocaleString(undefined, { maximumFractionDigits: 2 })} L`;
+  return `${Math.round(ml)} ml`;
+}
+
+/** One-tap water amounts: a glass, a bottle, a big bottle (8 / 16 / 24 fl oz in imperial). */
+export function waterAmounts(unit: UnitSystem): { ml: number; label: string }[] {
+  if (unit === 'imperial') {
+    return [8, 16, 24].map((oz) => ({ ml: Math.round(flOzToMl(oz)), label: `${oz} fl oz` }));
+  }
+  return [250, 500, 750].map((ml) => ({ ml, label: `${ml} ml` }));
+}

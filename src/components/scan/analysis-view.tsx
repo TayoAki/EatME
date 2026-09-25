@@ -150,6 +150,15 @@ export function AnalysisView({ photo, onScanAnother, onDone, bottomSpace }: Anal
                 <MacroBox label="Carbs" value={meal.carbsG} color={colors.carbs} />
                 <MacroBox label="Fats" value={meal.fatG} color={colors.fat} />
               </View>
+              <View className="mt-4 flex-row items-center gap-2">
+                <View style={{ backgroundColor: colors.fiber }} className="h-2.5 w-2.5 rounded-full" />
+                <Text className="text-[15px] text-ink">Fiber {meal.fiberG ?? 0} g</Text>
+              </View>
+              {meal.confidence === 'low' ? (
+                <Text className="mt-2 text-[13px] leading-[18px] text-muted">
+                  Rough estimate — the photo didn&apos;t show everything clearly. You can adjust it on the meal screen.
+                </Text>
+              ) : null}
             </>
           ) : notFood ? (
             <View className="items-center py-2">

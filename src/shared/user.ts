@@ -35,6 +35,12 @@ export type Profile = {
   dailyProteinG: number | null;
   dailyCarbsG: number | null;
   dailyFatG: number | null;
+  /** Daily fiber goal (g): the user's own, or the recommended one. */
+  dailyFiberG: number;
+  /** Daily water goal from drinks (ml): the user's own, or the recommended one. */
+  dailyWaterMl: number;
+  /** Official recommendations for this user, for "Use recommended". */
+  recommended: { fiberG: number; waterMl: number };
   planSource: PlanSource | null;
   planSummary: string | null;
   onboardingCompletedAt: string | null;
@@ -64,6 +70,9 @@ export const updateProfileSchema = z
     diet: z.enum(DIETS),
     unitSystem: z.enum(UNIT_SYSTEMS),
     timezone: z.string().min(1).max(100),
+    /** null = go back to the recommended goal. */
+    dailyFiberG: z.number().int().min(5).max(100).nullable(),
+    dailyWaterMl: z.number().int().min(500).max(6000).nullable(),
   })
   .partial();
 export type UpdateProfileBody = z.infer<typeof updateProfileSchema>;

@@ -1,11 +1,12 @@
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import { useIsFocused } from 'expo-router';
 import * as ImagePicker from 'expo-image-picker';
-import { Camera, Image as ImageIcon, Zap, ZapOff } from 'lucide-react-native';
-import { useRef, useState } from 'react';
+import { Camera, Image as ImageIcon, Star, Zap, ZapOff } from 'lucide-react-native';
+import { useRef, useState, type ReactNode } from 'react';
 import { ActivityIndicator, Linking, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { FavoritesSheet } from '@/components/scan/favorites-sheet';
 import { Button } from '@/components/ui/button';
 import { IconButton } from '@/components/ui/icon-button';
 import { colors } from '@/constants/colors';
@@ -17,6 +18,10 @@ type CameraCaptureProps = {
   onPhoto: (photo: Photo) => void;
   /** Space reserved at the bottom for the tab bar. */
   bottomSpace: number;
+  /** Extra action in the top-right corner (other ways to log). */
+  topRight?: ReactNode;
+  /** Shown above the shutter, e.g. the photo-mode switch. */
+  aboveShutter?: ReactNode;
 };
 
 async function pickFromGallery(): Promise<Photo | null> {
@@ -34,13 +39,15 @@ function Corner({ style }: { style: object }) {
   return <View style={[styles.corner, style]} />;
 }
 
-export function CameraCapture({ onPhoto, bottomSpace }: CameraCaptureProps) {
+export function CameraCapture({ onPhoto, bottomSpace, topRight, aboveShutter }: CameraCaptureProps) {
   const insets = useSafeAreaInsets();
   const isFocused = useIsFocused();
   const [permission, requestPermission] = useCameraPermissions();
   const cameraRef = useRef<CameraView>(null);
   const [flash, setFlash] = useState(false);
   const [capturing, setCapturing] = useState(false);
+  const [favoritesOpen, setFavoritesOpen] = useState(false);
+  const favoritesSheet = <FavoritesSheet visible={favoritesOpen} onClose={() => setFavoritesOpen(false)} />;
 
   const openGallery = async () => {
     const photo = await pickFromGallery();
@@ -74,7 +81,10 @@ export function CameraCapture({ onPhoto, bottomSpace }: CameraCaptureProps) {
             <Button title="Open Settings" onPress={() => void Linking.openSettings()} />
           )}
           <Button title="Choose from gallery" variant="secondary" onPress={() => void openGallery()} />
+          <Button title="Favourites" variant="ghost" onPress={() => setFavoritesOpen(true)} />
+          {topRight}
         </View>
+        {favoritesSheet}
       </View>
     );
   }
@@ -102,8 +112,16 @@ export function CameraCapture({ onPhoto, bottomSpace }: CameraCaptureProps) {
         animateShutter
       />
 
-      <View className="items-center" style={{ paddingTop: insets.top + 12 }}>
+      <View className="flex-row items-center justify-between px-5" style={{ paddingTop: insets.top + 8 }}>
+        <IconButton
+          accessibilityLabel="Favourites"
+          variant="dark"
+          size={44}
+          icon={<Star size={20} color={colors.canvas} />}
+          onPress={() => setFavoritesOpen(true)}
+        />
         <Text className="text-[18px] font-semibold text-white">Scan food</Text>
+        {topRight ?? <View style={{ width: 44 }} />}
       </View>
 
       <View pointerEvents="none" className="flex-1 items-center justify-center">
@@ -118,6 +136,7 @@ export function CameraCapture({ onPhoto, bottomSpace }: CameraCaptureProps) {
         <Text className="mt-6 text-[15px] font-medium text-white">Center your meal in the frame</Text>
       </View>
 
+      {aboveShutter}
       <View className="flex-row items-center justify-between px-10 pt-5" style={{ paddingBottom: bottomSpace }}>
         <IconButton
           accessibilityLabel="Choose a photo from your gallery"
@@ -142,6 +161,7 @@ export function CameraCapture({ onPhoto, bottomSpace }: CameraCaptureProps) {
           onPress={() => setFlash((on) => !on)}
         />
       </View>
+      {favoritesSheet}
     </View>
   );
 }

@@ -82,9 +82,12 @@ Welcome ──Get started──▶ Onboarding questions ──▶ Building your 
   logged days.
 - Horizontal date strip — scrollable back two weeks, never into the future.
 - Calories-left card with a ring, three macro cards (protein, carbs, fat) with rings.
+- Fiber ring and water card (v1.1): "+" logs a glass (250 ml / 8 fl oz); tapping the card
+  opens the water sheet (quick amounts, custom amount, the day's entries with undo).
 - "Today's meals" list (selected day): thumbnail (signed bucket link), name,
   time, calories, macros. Meals still analyzing show a live "Analyzing…" card.
   Non-food scans never appear. Tap a meal to edit its values (manual corrections).
+- An empty today with meals yesterday offers "Copy yesterday's meals".
 - Bottom padding so the tab bar never covers content.
 
 **Scan**
@@ -99,10 +102,19 @@ Welcome ──Get started──▶ Onboarding questions ──▶ Building your 
 - Not food → "That doesn't look like food" + the AI's reason + retake (the photo is
   deleted). Failed AI calls are retried (3 attempts); an analysis interrupted by a
   server restart resumes the next time the app loads meals.
-- Result: name, calories, protein, carbs, fat → `Scan another` or `Done`.
+- Result: name, calories, protein, carbs, fat, fiber (+ "rough estimate" when the AI's
+  confidence is low) → `Scan another` or `Done`.
+- Favourites (star button on the camera, or on the permission screen): one tap logs a
+  copy of a favourite meal now.
+
+**Meal (modal)**
+- Photo, name, portion chips (½× 1× 1½× 2×, scaled from the stored unrounded values so
+  there is no drift), editable calories, macros and fiber, favourite star, `Log again
+  today`, `Delete meal`.
 
 **Profile**
-- User card, Account section (Personal details — editable, Preferences, Language,
+- User card, Account section (Personal details — editable, Daily goals — fiber and
+  water, recommended or your own, Preferences, Language,
   Upgrade to Family Plan — UI only), Support (Send feedback via Sentry — shown only
   when a Sentry DSN is set, Privacy Policy, Terms of Service), Sign out, Delete account
   (with confirmation).
@@ -114,7 +126,8 @@ Welcome ──Get started──▶ Onboarding questions ──▶ Building your 
 **users** — `id` (Better Auth user id, PK), `name`, `email` (unique), `email_verified`,
 `image`, `gender`, `date_of_birth`, `height_cm`, `weight_kg`, `goal`, `target_weight_kg`,
 `activity_level`, `weekly_goal_kg`, `diet`, `unit_system`, `timezone`,
-`daily_calories`, `daily_protein_g`, `daily_carbs_g`, `daily_fat_g`, `plan_source`
+`daily_calories`, `daily_protein_g`, `daily_carbs_g`, `daily_fat_g`, `daily_fiber_g` and
+`daily_water_ml` (empty = the recommended goal), `plan_source`
 (`ai` / `formula`), `plan_summary`, `onboarding_completed_at`, `created_at`, `updated_at`.
 
 **sessions**, **accounts** (password hash), **verifications** — Better Auth tables,
@@ -122,11 +135,17 @@ cascade-deleted with the user.
 
 **meals** — `id` (uuid), `user_id` → users.id (cascade delete), `status`
 (`analyzing` / `completed` / `failed` / `not_food`), `name`, `calories`, `protein_g`,
-`carbs_g`, `fat_g`, `image_key` (bucket key `meals/<userId>/<mealId>.jpg`),
+`carbs_g`, `fat_g`, `fiber_g`, `confidence` (`low` / `medium` / `high`), `source`
+(`photo` / `text` / `label` / `copy` / `barcode` / `food`), `is_favorite`, `portion`,
+`base_nutrition` (unrounded values for one portion), `image_key` (bucket key
+`meals/<userId>/<mealId>.jpg`),
 `analysis_started_at` + `analysis_attempts` (lease + retries), `error`, `logged_at`,
 `created_at`, `updated_at`.
 
-The device time zone is stored per user and used for day boundaries and streaks.
+**water_logs** — `id`, `user_id` (cascade delete), `amount_ml` (1–2,000), `logged_at`.
+
+The device time zone is stored per user and used for day boundaries and streaks. Entries
+added to an earlier day are stored at local noon of that day.
 
 ## 6. Backend
 
@@ -139,6 +158,11 @@ The device time zone is stored per user and used for day boundaries and streaks.
 | `GET/PATCH/DELETE /api/me` | session | Profile, edits (personal details, time zone), delete account |
 | `GET/POST /api/meals` | session | List a day's meals / upload a photo + start the analysis (50/day) |
 | `GET/PATCH/DELETE /api/meals/:id` | session | Read (polled while analyzing), correct or delete a meal |
+| `POST /api/meals/:id/duplicate` | session | Log a meal again (today or an earlier day), photo copied |
+| `POST /api/days/copy` | session | Copy one day's meals to another day (same local times) |
+| `GET /api/favorites` | session | Favourite meals, newest first |
+| `GET/POST /api/water` | session | A day's water entries + total / add an entry |
+| `DELETE /api/water/:id` | session | Remove a water entry |
 | `GET /api/streak` | session | Current streak + logged days |
 | `GET /api/health` | public | Railway health check |
 
@@ -230,7 +254,7 @@ The device time zone is stored per user and used for day boundaries and streaks.
 
 > From the September 2026 research: the competitive brief (store rules, safety limits,
 > market), the fiber, water and micronutrients plan, and the model-accuracy review.
-> Scores are out of 10 on the plan's weighted scorecard. Nothing below is built yet.
+> Scores are out of 10 on the plan's weighted scorecard. Ticked items are built.
 
 ### 9 · Beta testing (now)
 - [ ] Testers run the beta checklist; confirm meal scanning works on iPhone (Codespace on
@@ -268,7 +292,7 @@ The device time zone is stored per user and used for day boundaries and streaks.
   cost and speed, then pick `AI_VISION_MODEL`
 - [ ] Prompt upgrades, measured with the benchmark: portion-focused prompt, step-by-step
   estimate, meal time as context
-- [ ] Save the AI's confidence on each meal; show "rough estimate" when it is low
+- [x] Save the AI's confidence on each meal; show "rough estimate" when it is low
 - [ ] Ask one tap-to-answer question when it matters (portion, oil or butter, filling)
 - [ ] Split pipeline in V2: the AI lists foods and grams, the USDA database does the math (§15)
 
@@ -287,8 +311,8 @@ The device time zone is stored per user and used for day boundaries and streaks.
   data), non-commercial datasets (MetaFood3D, UEC-Food)
 
 ### 12 · v1.1
-- [ ] Fiber and water (7.8), decisions below
-- [ ] Log again, copy yesterday, favourites, portion control ½×–2× (8.4)
+- [x] Fiber and water (7.8), decisions below
+- [x] Log again, copy yesterday, favourites, portion control ½×–2× (8.4)
 
 **Fiber and water: decisions**
 - Fiber comes with each scan (`fiberG` in the meal prompt and schema, clamped to 0–carbs
@@ -301,10 +325,10 @@ The device time zone is stored per user and used for day boundaries and streaks.
   above 1 L within an hour. The goal is a guide and going over it is never celebrated.
 - Data: `meals.fiber_g`, `meals.confidence`, `users.daily_fiber_g`, `users.daily_water_ml`,
   new `water_logs` table (cascade delete); `GET/POST /api/water`, `DELETE /api/water/:id`;
-  one shared `dayRange()` helper for meals, water and streaks.
+  one shared day helper (`src/lib/server/day.ts`) for meals and water.
 - Home: one new row under the macro cards, Fiber (plum `#B15FB0`) and Water (teal
-  `#14B8A6`), colours checked for colourblind safety. Design references first
-  (`design/prompts/10-fiber-water.md`).
+  `#14B8A6`), colours checked for colourblind safety. Design prompt:
+  `design/prompts/10-fiber-water.md`.
 
 ### 13 · v1.2
 - [ ] Describe a meal: a text box (keyboard dictation gives voice), a note on a photo, a

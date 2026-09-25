@@ -1,8 +1,17 @@
 import { Image } from 'expo-image';
 import { router, useLocalSearchParams } from 'expo-router';
-import { Pencil, UtensilsCrossed, X } from 'lucide-react-native';
+import { Pencil, Repeat, Star, UtensilsCrossed, X } from 'lucide-react-native';
 import { useState } from 'react';
-import { ActivityIndicator, KeyboardAvoidingView, Platform, ScrollView, Text, TextInput, View } from 'react-native';
+import {
+  ActivityIndicator,
+  KeyboardAvoidingView,
+  Platform,
+  Pressable,
+  ScrollView,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
 
 import { ErrorScreen } from '@/components/full-screen-state';
 import { Button } from '@/components/ui/button';
@@ -11,9 +20,50 @@ import { Screen } from '@/components/ui/screen';
 import { colors } from '@/constants/colors';
 import { confirm, notify } from '@/lib/confirm';
 import { haptics } from '@/lib/haptics';
-import { useDeleteMeal, useMeal, useUpdateMeal } from '@/lib/queries';
+import { cn } from '@/lib/cn';
+import { useDeleteMeal, useDuplicateMeal, useMeal, useUpdateMeal } from '@/lib/queries';
 import { formatDay, formatTime, toIsoDate } from '@/lib/time';
-import type { Meal } from '@/shared/meals';
+import { PORTION_OPTIONS, type Meal } from '@/shared/meals';
+
+const PORTION_LABELS: Record<(typeof PORTION_OPTIONS)[number], string> = { 0.5: '½×', 1: '1×', 1.5: '1½×', 2: '2×' };
+
+/** One-tap portion sizes; the server rescales every number from the original estimate. */
+function PortionPicker({ meal }: { meal: Meal }) {
+  const update = useUpdateMeal(meal.id);
+  const custom = !PORTION_OPTIONS.includes(meal.portion as (typeof PORTION_OPTIONS)[number]);
+  return (
+    <View className="mt-5">
+      <Text className="mb-2 text-[15px] font-semibold text-ink">
+        Portion{custom ? ` · ${Math.round(meal.portion * 100) / 100}×` : ''}
+      </Text>
+      <View className="flex-row gap-2">
+        {PORTION_OPTIONS.map((portion) => {
+          const selected = meal.portion === portion;
+          return (
+            <Pressable
+              key={portion}
+              accessibilityRole="button"
+              accessibilityLabel={`${portion} times the portion`}
+              accessibilityState={{ selected, disabled: update.isPending }}
+              disabled={update.isPending || selected}
+              onPress={() => {
+                haptics.selection();
+                update.mutate({ portion }, { onError: (error) => notify("We couldn't change the portion", error.message) });
+              }}
+              className={cn(
+                'h-11 flex-1 items-center justify-center rounded-2xl border',
+                selected ? 'border-ink bg-ink' : 'border-line bg-canvas',
+              )}>
+              <Text className={cn('text-[15px] font-semibold', selected ? 'text-white' : 'text-ink')}>
+                {PORTION_LABELS[portion]}
+              </Text>
+            </Pressable>
+          );
+        })}
+      </View>
+    </View>
+  );
+}
 
 const digitsOnly = (text: string) => text.replace(/[^0-9]/g, '').slice(0, 5);
 
@@ -53,11 +103,25 @@ function NumberField({
 function MealEditor({ meal }: { meal: Meal }) {
   const update = useUpdateMeal(meal.id);
   const remove = useDeleteMeal();
+  const duplicate = useDuplicateMeal();
   const [name, setName] = useState(meal.name ?? '');
   const [calories, setCalories] = useState(String(meal.calories ?? 0));
   const [protein, setProtein] = useState(String(meal.proteinG ?? 0));
   const [carbs, setCarbs] = useState(String(meal.carbsG ?? 0));
   const [fat, setFat] = useState(String(meal.fatG ?? 0));
+  const [fiber, setFiber] = useState(meal.fiberG === null ? '' : String(meal.fiberG));
+
+  const logAgain = () =>
+    duplicate.mutate(
+      { id: meal.id },
+      {
+        onSuccess: () => {
+          haptics.success();
+          notify('Logged again', `${meal.name ?? 'This meal'} was added to today.`);
+        },
+        onError: (error) => notify("We couldn't log this meal again", error.message),
+      },
+    );
 
   const save = () =>
     update.mutate(
@@ -67,6 +131,8 @@ function MealEditor({ meal }: { meal: Meal }) {
         proteinG: Number(protein || 0),
         carbsG: Number(carbs || 0),
         fatG: Number(fat || 0),
+        // Older meals have no fiber estimate: only send it once someone types a value.
+        ...(fiber === '' ? {} : { fiberG: Number(fiber) }),
       },
       {
         onSuccess: () => {
@@ -123,6 +189,15 @@ function MealEditor({ meal }: { meal: Meal }) {
         <Text className="mt-1 text-[15px] text-muted">
           {formatDay(toIsoDate(new Date(meal.loggedAt)))} · {formatTime(meal.loggedAt)}
         </Text>
+        {meal.confidence === 'low' ? (
+          <View className="mt-3 rounded-2xl bg-surface p-3.5">
+            <Text className="text-[14px] leading-5 text-ink">
+              Rough estimate — the photo didn&apos;t show everything clearly. Check the numbers or adjust the portion.
+            </Text>
+          </View>
+        ) : null}
+
+        <PortionPicker meal={meal} />
 
         <View className="mt-5 rounded-card border border-line px-4 py-2">
           <NumberField label="Calories" value={calories} onChange={setCalories} />
@@ -130,9 +205,18 @@ function MealEditor({ meal }: { meal: Meal }) {
           <NumberField label="Protein" value={protein} onChange={setProtein} unit="g" dot={colors.protein} />
           <NumberField label="Carbs" value={carbs} onChange={setCarbs} unit="g" dot={colors.carbs} />
           <NumberField label="Fats" value={fat} onChange={setFat} unit="g" dot={colors.fat} />
+          <NumberField label="Fiber" value={fiber} onChange={setFiber} unit="g" dot={colors.fiber} />
         </View>
 
         <Button title="Save changes" className="mt-6" loading={update.isPending} onPress={save} />
+        <Button
+          title="Log again today"
+          variant="secondary"
+          className="mt-2"
+          icon={<Repeat size={18} color={colors.ink} />}
+          loading={duplicate.isPending}
+          onPress={logAgain}
+        />
         <Button
           title="Delete meal"
           variant="danger"
@@ -145,16 +229,35 @@ function MealEditor({ meal }: { meal: Meal }) {
   );
 }
 
+function FavoriteButton({ meal }: { meal: Meal }) {
+  const update = useUpdateMeal(meal.id);
+  const favorite = meal.isFavorite;
+  return (
+    <IconButton
+      accessibilityLabel={favorite ? 'Remove from favourites' : 'Add to favourites'}
+      icon={<Star size={20} color={favorite ? colors.flame : colors.ink} fill={favorite ? colors.flame : 'transparent'} />}
+      onPress={() => {
+        haptics.selection();
+        update.mutate(
+          { isFavorite: !favorite },
+          { onError: (error) => notify("We couldn't update your favourites", error.message) },
+        );
+      }}
+    />
+  );
+}
+
 export default function MealDetailsScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const meal = useMeal(id);
+  const loaded = meal.data?.meal;
 
   return (
     <Screen>
       <View className="h-14 flex-row items-center justify-between px-5">
         <IconButton accessibilityLabel="Close" icon={<X size={20} color={colors.ink} />} onPress={() => router.back()} />
         <Text className="text-[17px] font-semibold text-ink">Meal</Text>
-        <View className="w-10" />
+        {loaded?.status === 'completed' ? <FavoriteButton meal={loaded} /> : <View className="w-10" />}
       </View>
       {meal.isPending ? (
         <View className="flex-1 items-center justify-center">
@@ -168,7 +271,8 @@ export default function MealDetailsScreen() {
           secondaryAction={{ label: 'Close', onPress: () => router.back() }}
         />
       ) : (
-        <MealEditor key={meal.data.meal.id} meal={meal.data.meal} />
+        // Re-mount when the portion changes so the fields show the rescaled numbers.
+        <MealEditor key={`${meal.data.meal.id}:${meal.data.meal.portion}`} meal={meal.data.meal} />
       )}
     </Screen>
   );

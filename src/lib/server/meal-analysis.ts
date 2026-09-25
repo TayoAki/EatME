@@ -2,7 +2,7 @@ import { and, eq, isNull, lt, or, sql } from 'drizzle-orm';
 
 import { db } from '@/db';
 import { meals } from '@/db/schema';
-import { mealAnalysisSchema } from '@/shared/meals';
+import { mealAnalysisSchema, scaleNutrition, type BaseNutrition, type MealAnalysis } from '@/shared/meals';
 
 import { modelFor, structuredCompletion } from './ai';
 import { MEAL_JSON_SCHEMA, MEAL_SYSTEM_PROMPT } from './prompts';
@@ -40,6 +40,17 @@ async function claim(mealId: string) {
     .where(and(eq(meals.id, mealId), eq(meals.status, 'analyzing'), stale()))
     .returning();
   return meal;
+}
+
+/** The AI's numbers for one portion. Fiber is part of the carbs and never more than 60 g a meal. */
+export function baseNutrition(analysis: Pick<MealAnalysis, 'calories' | 'proteinG' | 'carbsG' | 'fatG' | 'fiberG'>): BaseNutrition {
+  return {
+    calories: analysis.calories,
+    proteinG: analysis.proteinG,
+    carbsG: analysis.carbsG,
+    fatG: analysis.fatG,
+    fiberG: Math.min(analysis.fiberG, analysis.carbsG, 60),
+  };
 }
 
 function toDataUrl(bytes: ArrayBuffer) {
@@ -97,15 +108,15 @@ async function analyzeMeal(mealId: string) {
       return;
     }
 
+    const base = baseNutrition(analysis);
     await db
       .update(meals)
       .set({
         status: 'completed',
         name: analysis.name.trim() || 'Meal',
-        calories: Math.round(analysis.calories),
-        proteinG: Math.round(analysis.proteinG),
-        carbsG: Math.round(analysis.carbsG),
-        fatG: Math.round(analysis.fatG),
+        ...scaleNutrition(base, meal.portion),
+        baseNutrition: base,
+        confidence: analysis.confidence,
         error: null,
         analysisStartedAt: null,
       })

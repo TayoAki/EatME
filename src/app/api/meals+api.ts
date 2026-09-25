@@ -1,15 +1,15 @@
-import { and, count, desc, eq, gte, inArray, lt, sql } from 'drizzle-orm';
+import { and, count, desc, eq, gte, inArray, lt } from 'drizzle-orm';
 
 import { db } from '@/db';
 import { meals, users } from '@/db/schema';
 import { requireUserId } from '@/lib/server/auth';
+import { dateParam, dayBounds, userTimeZone } from '@/lib/server/day';
 import { toMeal } from '@/lib/server/dto';
 import { handle, HttpError } from '@/lib/server/http';
 import { resumeStalledAnalyses, startMealAnalysis } from '@/lib/server/meal-analysis';
 import { deleteObject, mealPhotoKey, putObject } from '@/lib/server/storage';
 import { MAX_MEAL_PHOTO_BYTES, MEAL_PHOTO_FIELD } from '@/shared/meals';
 
-const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 /** Scans per rolling 24 hours — keeps the AI bill predictable. */
 const DAILY_SCAN_LIMIT = 50;
 
@@ -19,17 +19,11 @@ type MultipartForm = { get(name: string): UploadedFile | string | null };
 /** Meals logged on one local day (`?date=YYYY-MM-DD`, in the user's time zone). */
 export const GET = handle(async (request) => {
   const userId = await requireUserId(request);
-  const date = new URL(request.url).searchParams.get('date');
-  if (!date || !DATE_RE.test(date)) throw new HttpError(400, 'Pass ?date=YYYY-MM-DD');
+  const date = dateParam(request);
 
   void resumeStalledAnalyses(userId).catch((error: unknown) => console.error('[meals] resume failed', error));
 
-  const user = await db.query.users.findFirst({ where: eq(users.id, userId), columns: { timezone: true } });
-  const tz = user?.timezone ?? 'UTC';
-
-  // Local midnight → next local midnight, converted to timestamps so the index can be used.
-  const dayStart = sql`(${date}::timestamp at time zone ${tz})`;
-  const dayEnd = sql`((${date}::date + 1)::timestamp at time zone ${tz})`;
+  const { start: dayStart, end: dayEnd } = dayBounds(date, await userTimeZone(userId));
 
   const rows = await db
     .select()

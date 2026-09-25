@@ -4,6 +4,7 @@ import {
   doublePrecision,
   index,
   integer,
+  jsonb,
   pgEnum,
   pgTable,
   text,
@@ -11,7 +12,7 @@ import {
   uuid,
 } from 'drizzle-orm/pg-core';
 
-import { MEAL_STATUSES } from '@/shared/meals';
+import { MEAL_CONFIDENCES, MEAL_SOURCES, MEAL_STATUSES, type BaseNutrition } from '@/shared/meals';
 import { ACTIVITY_LEVELS, DIETS, GENDERS, GOALS, PLAN_SOURCES, UNIT_SYSTEMS } from '@/shared/onboarding';
 
 // Column names are generated in snake_case (see `casing` in drizzle.config.ts and src/db/index.ts).
@@ -23,6 +24,8 @@ export const dietEnum = pgEnum('diet', DIETS);
 export const unitSystemEnum = pgEnum('unit_system', UNIT_SYSTEMS);
 export const planSourceEnum = pgEnum('plan_source', PLAN_SOURCES);
 export const mealStatusEnum = pgEnum('meal_status', MEAL_STATUSES);
+export const mealSourceEnum = pgEnum('meal_source', MEAL_SOURCES);
+export const mealConfidenceEnum = pgEnum('meal_confidence', MEAL_CONFIDENCES);
 
 const timestamps = {
   createdAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
@@ -65,6 +68,10 @@ export const users = pgTable('users', {
   planSource: planSourceEnum(),
   planSummary: text(),
   onboardingCompletedAt: timestamp({ withTimezone: true }),
+
+  // The user's own daily goals. Empty = use the recommended value (src/shared/nutrition.ts).
+  dailyFiberG: integer(),
+  dailyWaterMl: integer(),
 
   ...timestamps,
 });
@@ -134,6 +141,15 @@ export const meals = pgTable(
     proteinG: integer(),
     carbsG: integer(),
     fatG: integer(),
+    /** Empty for meals logged before fiber tracking. */
+    fiberG: integer(),
+    confidence: mealConfidenceEnum(),
+    source: mealSourceEnum().notNull().default('photo'),
+    isFavorite: boolean().notNull().default(false),
+    /** Multiplier of the estimated amount; the columns above already include it. */
+    portion: doublePrecision().notNull().default(1),
+    /** Unrounded numbers for a portion of 1, so portion changes never drift. */
+    baseNutrition: jsonb().$type<BaseNutrition>(),
     /** Key of the photo in the storage bucket: meals/<userId>/<mealId>.jpg */
     imageKey: text(),
     /** Start of the running analysis. An old value means the server stopped mid-way: retry. */
@@ -147,6 +163,22 @@ export const meals = pgTable(
   (t) => [index('meals_user_id_logged_at_idx').on(t.userId, t.loggedAt)],
 );
 
+/** Water and other drinks, one row per entry. */
+export const waterLogs = pgTable(
+  'water_logs',
+  {
+    id: uuid().primaryKey().defaultRandom(),
+    userId: text()
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
+    amountMl: integer().notNull(),
+    loggedAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
+    ...timestamps,
+  },
+  (t) => [index('water_logs_user_id_logged_at_idx').on(t.userId, t.loggedAt)],
+);
+
 export type User = typeof users.$inferSelect;
 export type NewUser = typeof users.$inferInsert;
 export type MealRow = typeof meals.$inferSelect;
+export type WaterLogRow = typeof waterLogs.$inferSelect;

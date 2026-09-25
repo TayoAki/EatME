@@ -1,16 +1,21 @@
-import { Camera } from 'lucide-react-native';
+import { Camera, Copy } from 'lucide-react-native';
 import { useMemo, useState } from 'react';
 import { ActivityIndicator, RefreshControl, ScrollView, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { DateStrip } from '@/components/home/date-strip';
+import { FiberWaterRow } from '@/components/home/fiber-water-row';
 import { HomeHeader } from '@/components/home/home-header';
 import { MealCard } from '@/components/home/meal-card';
 import { NutritionSummary, type Totals } from '@/components/home/nutrition-summary';
 import { StreakSheet } from '@/components/home/streak-sheet';
+import { WaterSheet } from '@/components/home/water-sheet';
+import { Button } from '@/components/ui/button';
 import { colors } from '@/constants/colors';
-import { useMeals, useProfile, useStreak } from '@/lib/queries';
-import { formatDay, todayIso } from '@/lib/time';
+import { notify } from '@/lib/confirm';
+import { haptics } from '@/lib/haptics';
+import { useAddWater, useCopyDay, useMeals, useProfile, useStreak, useWater } from '@/lib/queries';
+import { addDays, formatDay, todayIso, toIsoDate } from '@/lib/time';
 import type { Profile } from '@/shared/user';
 
 /** Space for the floating native tab bar so it never covers the last meal. */
@@ -25,9 +30,15 @@ function Home({ profile }: { profile: Profile }) {
   const insets = useSafeAreaInsets();
   const [selectedDate, setSelectedDate] = useState(todayIso);
   const [streakOpen, setStreakOpen] = useState(false);
+  const [waterOpen, setWaterOpen] = useState(false);
 
   const meals = useMeals(selectedDate);
   const streak = useStreak();
+  const water = useWater(selectedDate);
+  const addWater = useAddWater(selectedDate);
+  const copyDay = useCopyDay();
+  const yesterday = toIsoDate(addDays(new Date(), -1));
+  const yesterdayMeals = useMeals(yesterday);
 
   const targets: Totals = {
     calories: profile.dailyCalories ?? 2000,
@@ -46,8 +57,21 @@ function Home({ profile }: { profile: Profile }) {
       fatG: done.reduce((sum, m) => sum + (m.fatG ?? 0), 0),
     };
   }, [list]);
+  // Meals logged before fiber tracking have no fiber estimate; they are left out of the total.
+  const fiberG = (list ?? []).reduce((sum, m) => sum + (m.status === 'completed' ? (m.fiberG ?? 0) : 0), 0);
 
   const isToday = selectedDate === todayIso();
+  const canCopyYesterday =
+    isToday && list?.length === 0 && (yesterdayMeals.data?.meals.some((m) => m.status === 'completed') ?? false);
+
+  const copyYesterday = () =>
+    copyDay.mutate(
+      { from: yesterday, to: selectedDate },
+      {
+        onSuccess: () => haptics.success(),
+        onError: (error) => notify("We couldn't copy yesterday's meals", error.message),
+      },
+    );
 
   return (
     <View className="flex-1 bg-canvas" style={{ paddingTop: insets.top }}>
@@ -60,6 +84,7 @@ function Home({ profile }: { profile: Profile }) {
             onRefresh={() => {
               void meals.refetch();
               void streak.refetch();
+              void water.refetch();
             }}
             tintColor={colors.ink}
           />
@@ -71,6 +96,15 @@ function Home({ profile }: { profile: Profile }) {
         </View>
 
         <NutritionSummary consumed={consumed} targets={targets} />
+        <FiberWaterRow
+          fiberG={fiberG}
+          fiberGoalG={profile.dailyFiberG}
+          waterMl={water.data?.totalMl ?? 0}
+          waterGoalMl={profile.dailyWaterMl}
+          unit={profile.unitSystem}
+          onAddWater={(ml) => addWater.mutate(ml, { onError: (error) => notify("We couldn't log that drink", error.message) })}
+          onOpenWater={() => setWaterOpen(true)}
+        />
 
         <View className="mt-7 px-5">
           <Text accessibilityRole="header" className="mb-3 text-[20px] font-bold tracking-tight text-ink">
@@ -105,10 +139,29 @@ function Home({ profile }: { profile: Profile }) {
               <Text className="mt-1 text-center text-[14px] leading-5 text-muted">
                 {isToday ? 'Open the Scan tab and snap a photo of your food.' : 'Pick another day or scan a meal today.'}
               </Text>
+              {canCopyYesterday ? (
+                <Button
+                  title="Copy yesterday's meals"
+                  variant="outline"
+                  size="md"
+                  className="mt-4"
+                  icon={<Copy size={16} color={colors.ink} />}
+                  loading={copyDay.isPending}
+                  onPress={copyYesterday}
+                />
+              ) : null}
             </View>
           )}
         </View>
       </ScrollView>
+
+      <WaterSheet
+        visible={waterOpen}
+        onClose={() => setWaterOpen(false)}
+        date={selectedDate}
+        unit={profile.unitSystem}
+        goalMl={profile.dailyWaterMl}
+      />
 
       <StreakSheet
         visible={streakOpen}

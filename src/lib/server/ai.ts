@@ -11,14 +11,15 @@ let client: OpenAI | null = null;
 
 /**
  * OpenAI SDK client (server only). Uses OpenRouter (OpenAI-compatible) when OPENROUTER_API_KEY is
- * set, otherwise OpenAI directly with OPENAI_API_KEY.
+ * set, otherwise OpenAI directly with OPENAI_API_KEY. AI_BASE_URL points it at any other
+ * OpenAI-compatible endpoint (a local stand-in for tests, another provider).
  */
 export function ai() {
   if (client) return client;
   if (usingOpenRouter()) {
     client = new OpenAI({
       apiKey: process.env.OPENROUTER_API_KEY,
-      baseURL: OPENROUTER_BASE_URL,
+      baseURL: process.env.AI_BASE_URL || OPENROUTER_BASE_URL,
       defaultHeaders: { 'X-Title': 'EatME' },
       // The SDK retries rate limits, 5xx and timeouts; the callers add their own retries on top.
       maxRetries: 2,
