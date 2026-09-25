@@ -6,6 +6,7 @@ import { AppState, Linking, Pressable, ScrollView, Switch, Text, View } from 're
 import { TimeSheet } from '@/components/reminders/time-sheet';
 import { BottomSheet } from '@/components/ui/bottom-sheet';
 import { Button } from '@/components/ui/button';
+import { Chip } from '@/components/ui/chip';
 import { IconButton } from '@/components/ui/icon-button';
 import { Screen } from '@/components/ui/screen';
 import { SegmentedControl } from '@/components/ui/segmented-control';
@@ -31,6 +32,16 @@ const EVERY_OPTIONS = [
 ] as const;
 
 const hourLabel = (hour: number) => formatTimeOfDay({ hour, minute: 0 });
+const SHORT_WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const pad = (n: number) => String(n).padStart(2, '0');
+const OFTEN_OPTIONS = [
+  { label: 'Once a week', value: 'weekly' },
+  { label: 'Every day', value: 'daily' },
+] as const;
+
+/** "Mondays at 7:30 AM" or "Every day at 7:30 AM". */
+const weighInLabel = (weighIn: ReminderSettings['weighIn']) =>
+  `${weighIn.weekday === null ? 'Every day' : WEEKDAYS[weighIn.weekday]} at ${formatTimeOfDay(weighIn)}`;
 
 function usePermission() {
   const [permission, setPermission] = useState<NotificationPermission>(remindersSupported ? 'undetermined' : 'unsupported');
@@ -125,7 +136,51 @@ function WaterSheet({
   );
 }
 
-type Editing = { kind: 'time'; key: MealSlot | 'dose'; title: string } | { kind: 'water' } | null;
+/** When to weigh in: once a week (a weekday) or every day, and the time. */
+function WeighInSheet({
+  value,
+  onClose,
+  onSave,
+}: {
+  value: ReminderSettings['weighIn'];
+  onClose: () => void;
+  onSave: (value: ReminderSettings['weighIn']) => void;
+}) {
+  const [often, setOften] = useState<'weekly' | 'daily'>(value.weekday === null ? 'daily' : 'weekly');
+  const [weekday, setWeekday] = useState(value.weekday ?? 1);
+  const [hour, setHour] = useState(value.hour);
+  const [minute, setMinute] = useState(value.minute - (value.minute % 5));
+  const hours = useMemo(() => Array.from({ length: 24 }, (_, h) => ({ label: hourLabel(h), value: h })), []);
+  const minutes = useMemo(() => Array.from({ length: 12 }, (_, i) => ({ label: pad(i * 5), value: i * 5 })), []);
+  return (
+    <BottomSheet visible onClose={onClose}>
+      <Text className="mb-4 text-center text-[22px] font-bold tracking-tight text-ink">Weigh-in reminder</Text>
+      <SegmentedControl options={OFTEN_OPTIONS} value={often} onChange={setOften} />
+      {often === 'weekly' ? (
+        <View className="mt-4 flex-row flex-wrap justify-center gap-2">
+          {[1, 2, 3, 4, 5, 6, 0].map((day) => (
+            <Chip key={day} label={SHORT_WEEKDAYS[day]} selected={weekday === day} onPress={() => setWeekday(day)} className="px-3" />
+          ))}
+        </View>
+      ) : null}
+      <View className="relative mt-3 flex-row">
+        <View pointerEvents="none" style={{ top: 44, height: 44 }} className="absolute left-0 right-0 rounded-xl bg-surface" />
+        <WheelPicker accessibilityLabel="Hour" className="flex-1" showBand={false} visibleCount={3} items={hours} value={hour} onChange={setHour} />
+        <WheelPicker accessibilityLabel="Minute" className="flex-1" showBand={false} visibleCount={3} items={minutes} value={minute} onChange={setMinute} />
+      </View>
+      <View className="mt-5 flex-row gap-3">
+        <Button title="Cancel" variant="secondary" className="flex-1" onPress={onClose} />
+        <Button
+          title="Save"
+          className="flex-1"
+          onPress={() => onSave({ ...value, hour, minute, weekday: often === 'daily' ? null : weekday })}
+        />
+      </View>
+    </BottomSheet>
+  );
+}
+
+type Editing = { kind: 'time'; key: MealSlot | 'dose'; title: string } | { kind: 'water' } | { kind: 'weighIn' } | null;
 
 export default function RemindersScreen() {
   const profile = useProfile();
@@ -221,6 +276,24 @@ export default function RemindersScreen() {
           </View>
         </View>
 
+        <View>
+          <Text className="mb-2 ml-1 text-[15px] font-medium text-muted">Weight</Text>
+          <View className="overflow-hidden rounded-[20px] border border-line">
+            <ReminderRow
+              first
+              title="Weigh-in"
+              subtitle={weighInLabel(settings.weighIn)}
+              enabled={settings.weighIn.enabled}
+              disabled={disabled}
+              onToggle={(on) => void toggle({ weighIn: { ...settings.weighIn, enabled: on } }, on)}
+              onPressDetail={() => setEditing({ kind: 'weighIn' })}
+            />
+          </View>
+          <Text className="ml-1 mt-2 text-[13px] leading-[18px] text-muted">
+            Same time, same conditions — before breakfast is easiest. Opens Weight so logging takes a second.
+          </Text>
+        </View>
+
         {glp1 ? (
           <View>
             <Text className="mb-2 ml-1 text-[15px] font-medium text-muted">GLP-1</Text>
@@ -249,6 +322,15 @@ export default function RemindersScreen() {
           onClose={() => setEditing(null)}
           onSave={(time: TimeOfDay) => {
             update({ [editing.key]: { ...settings[editing.key], ...time } });
+            setEditing(null);
+          }}
+        />
+      ) : editing?.kind === 'weighIn' ? (
+        <WeighInSheet
+          value={settings.weighIn}
+          onClose={() => setEditing(null)}
+          onSave={(next) => {
+            update({ weighIn: next });
             setEditing(null);
           }}
         />

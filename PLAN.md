@@ -581,7 +581,7 @@ added to an earlier day are stored at local noon of that day.
   AI names that food again, the person's version (the food and their usual amount) is used
   before the USDA database
 - [x] Quick add (7.8): type calories and macros, no AI, not counted as a scan
-- [ ] Weight trend line, milestones and a weigh-in reminder (7.7): milestones never below the
+- [x] Weight trend line, milestones and a weigh-in reminder (7.7): milestones never below the
   BMI 18.5 floor
 
 **v2.1 decisions** (about 25 developer-days; migrations `quick_add`, `repeat_meals`,

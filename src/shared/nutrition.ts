@@ -18,6 +18,11 @@ export function minimumCalories(gender: Gender | null | undefined) {
   return bySex(gender, { female: 1200, male: 1500 });
 }
 
+/** The weight at a BMI of 18.5 for this height: EatME never sets a milestone (or goal) below it. */
+export function bmiFloorKg(heightCm: number) {
+  return 18.5 * (heightCm / 100) ** 2;
+}
+
 /** Protein worth aiming for at each meal: the daily goal spread over about four meals, at least 20 g. */
 export function proteinPerMeal(dailyProteinG: number) {
   return Math.max(20, Math.round(dailyProteinG / 4 / 5) * 5);

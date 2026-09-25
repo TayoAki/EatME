@@ -17,6 +17,8 @@ export type ReminderSettings = {
   water: { enabled: boolean; startHour: number; endHour: number; everyHours: number };
   /** GLP-1 mode: on the dose day (or every day for daily medicines) at this time. */
   dose: MealReminder;
+  /** Step on the scale: weekly on `weekday` (0 = Sunday, as the app stores it) or daily when null. */
+  weighIn: MealReminder & { weekday: number | null };
 };
 
 export const DEFAULT_REMINDERS: ReminderSettings = {
@@ -25,6 +27,7 @@ export const DEFAULT_REMINDERS: ReminderSettings = {
   dinner: { enabled: false, hour: 19, minute: 0 },
   water: { enabled: false, startHour: 9, endHour: 19, everyHours: 2 },
   dose: { enabled: false, hour: 9, minute: 0 },
+  weighIn: { enabled: false, hour: 7, minute: 30, weekday: 1 },
 };
 
 export const MEAL_SLOTS: { slot: MealSlot; title: string; body: string }[] = [
@@ -99,6 +102,17 @@ export function planReminders(settings: ReminderSettings, glp1: Glp1Settings | n
             trigger: { type: 'daily', hour, minute },
           },
     );
+  }
+
+  if (settings.weighIn.enabled) {
+    const { hour, minute, weekday } = settings.weighIn;
+    planned.push({
+      identifier: `${REMINDER_PREFIX}weigh-in`,
+      title: 'Weigh-in',
+      body: 'Step on the scale before breakfast and log it. The trend matters more than any one number.',
+      url: '/weight',
+      trigger: weekday === null ? { type: 'daily', hour, minute } : { type: 'weekly', weekday: weekday + 1, hour, minute },
+    });
   }
   return planned;
 }

@@ -5,8 +5,8 @@ import Svg, { Circle, Line, Path, Text as SvgText } from 'react-native-svg';
 import { colors } from '@/constants/colors';
 import { fromIsoDate } from '@/lib/time';
 
-/** A weigh-in in the unit shown (kg or lb). */
-export type ChartPoint = { date: string; value: number };
+/** A weigh-in and the trend that day, in the unit shown (kg or lb). */
+export type ChartPoint = { date: string; value: number; trend: number };
 
 type WeightChartProps = {
   points: ChartPoint[];
@@ -34,12 +34,12 @@ function ticks(min: number, max: number, count = 4) {
   return values;
 }
 
-/** Weigh-ins over time on a date scale, with the goal weight. */
+/** The trend line over time on a date scale, the weigh-ins as dots, and the goal weight. */
 export function WeightChart({ points, goal, unit }: WeightChartProps) {
   const [width, setWidth] = useState(0);
   if (points.length === 0) return null;
 
-  const values = points.map((p) => p.value);
+  const values = points.flatMap((p) => [p.value, p.trend]);
   const dataLow = Math.min(...values);
   const dataHigh = Math.max(...values);
   // A far-away goal would flatten the line: it is drawn when within ~10 kg or the data's own spread.
@@ -61,9 +61,9 @@ export function WeightChart({ points, goal, unit }: WeightChartProps) {
   const last = dayNumber(points[points.length - 1].date);
   const x = (date: string) => (last === first ? PAD.left + innerW / 2 : PAD.left + ((dayNumber(date) - first) / (last - first)) * innerW);
   const y = (value: number) => PAD.top + (1 - (value - yMin) / (yMax - yMin)) * innerH;
-  const line = points.map((p, i) => `${i === 0 ? 'M' : 'L'}${x(p.date).toFixed(1)},${y(p.value).toFixed(1)}`).join(' ');
+  const line = points.map((p, i) => `${i === 0 ? 'M' : 'L'}${x(p.date).toFixed(1)},${y(p.trend).toFixed(1)}`).join(' ');
   const end = points[points.length - 1];
-  const summary = `Weight from ${points[0].value.toFixed(1)} ${unit} on ${shortDate(points[0].date)} to ${end.value.toFixed(1)} ${unit} on ${shortDate(end.date)}${goal !== null ? `, goal ${goal.toFixed(1)} ${unit}` : ''}`;
+  const summary = `Weight trend from ${points[0].trend.toFixed(1)} ${unit} on ${shortDate(points[0].date)} to ${end.trend.toFixed(1)} ${unit} on ${shortDate(end.date)}, ${points.length} ${points.length === 1 ? 'weigh-in' : 'weigh-ins'}${goal !== null ? `, goal ${goal.toFixed(1)} ${unit}` : ''}`;
   const xLabels = last === first ? [points[0].date] : [points[0].date, end.date];
 
   return (
@@ -99,18 +99,11 @@ export function WeightChart({ points, goal, unit }: WeightChartProps) {
               </SvgText>
             </>
           ) : null}
-          <Path d={line} stroke={colors.ink} strokeWidth={2.5} fill="none" strokeLinejoin="round" strokeLinecap="round" />
-          {points.map((p, i) => (
-            <Circle
-              key={p.date}
-              cx={x(p.date)}
-              cy={y(p.value)}
-              r={i === points.length - 1 ? 5 : points.length > 40 ? 0 : 3}
-              fill={i === points.length - 1 ? colors.ink : colors.canvas}
-              stroke={colors.ink}
-              strokeWidth={2}
-            />
+          {points.map((p) => (
+            <Circle key={`w-${p.date}`} cx={x(p.date)} cy={y(p.value)} r={points.length > 60 ? 2 : 3} fill={colors.faint} />
           ))}
+          <Path d={line} stroke={colors.ink} strokeWidth={2.5} fill="none" strokeLinejoin="round" strokeLinecap="round" />
+          <Circle cx={x(end.date)} cy={y(end.trend)} r={5} fill={colors.ink} stroke={colors.canvas} strokeWidth={2} />
           {xLabels.map((date, i) => (
             <SvgText
               key={`x-${date}`}
