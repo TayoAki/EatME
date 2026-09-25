@@ -100,10 +100,18 @@ Welcome ──Get started──▶ Onboarding questions ──▶ Building your 
 - Bottom padding so the tab bar never covers content.
 
 **Scan**
-- Mode switch above the shutter: **Meal** (estimate) or **Nutrition label** (read the
-  printed values for one serving, then pick the servings). A pen button opens **Describe
-  a meal**: a text box (the keyboard's mic gives voice) with examples; the AI estimates it
-  like a photo. Photos of meals can carry an optional note ("cooked in butter, ate half").
+- Mode switch above the shutter: **Meal** (estimate), **Nutrition label** (read the
+  printed values for one serving, then pick the servings) or **Barcode** (V2: EAN/UPC codes
+  are read by the camera; a keyboard button in place of the shutter types the number, with a
+  check-digit test). A pen button opens **Describe a meal**: a text box (the keyboard's mic
+  gives voice) with examples; the AI estimates it like a photo. Photos of meals can carry an
+  optional note ("cooked in butter, ate half"). A search button opens **Search foods** (V2):
+  the USDA database search, pick a food and the grams (household measures offered), logged
+  at once without AI.
+- Barcode → product screen: name, brand, grams (serving, whole pack or 100 g chips), the
+  label's calories and macros for that amount, attribution (Open Food Facts, ODbL / USDA),
+  `Log it` (no AI, instant). Unknown barcode or no nutrition facts → `Scan the nutrition
+  label` or `Search foods`.
 - Ask for camera permission (`expo-camera`), then show the camera with a shutter.
 - Gallery button (`expo-image-picker`) to pick a food photo instead.
 - Preview with `Retake` / `Analyze the food`.
@@ -185,8 +193,15 @@ measures), `version`; full-text index on the description. Loaded from `data/fndd
 when the server starts (`server/foods.mjs`; rebuild the file with `npm run foods:build`).
 
 **meal_items** — `meal_id` (cascade), `position`, `name`, `food_id` (→ foods, empty = the
-AI's estimate), `grams`, `nutrients`; **meals.nutrients** (every nutrient for a portion of 1)
-and **meals.matched_share** (share of calories from database foods).
+AI's estimate), `product_code` (a packaged product's barcode), `grams`, `nutrients`;
+**meals.nutrients** (every nutrient for a portion of 1) and **meals.matched_share** (share of
+calories from USDA database foods).
+
+**products** — cache of packaged products by barcode (`code`, EAN-13 for UPC-A): `source`
+(`off` Open Food Facts / `usda` Branded Foods; empty = nobody knew it), `name`, `brand`,
+`serving_size`, `serving_grams`, `package_grams`, `nutrients` per 100 g (only what the label
+declares), `fetched_at` (refreshed after 30 days; unknown codes asked again after a day). Kept
+in its own table as the ODbL asks; not personal data.
 
 **supplements** — `user_id` (cascade), `name`, `nutrients` (per dose), `schedule` (`daily` /
 `as_needed`), `archived_at` (removed from the list, history kept); **supplement_logs** — one
@@ -208,7 +223,8 @@ added to an earlier day are stored at local noon of that day.
 | `POST /api/plan` | public, 10/h per IP | AI plan for the onboarding answers (formula fallback) |
 | `POST /api/onboarding` | session | Save answers + plan on the user |
 | `GET/PATCH/DELETE /api/me` | session | Profile, edits (personal details, time zone), delete account |
-| `GET/POST /api/meals` | session | List a day's meals / log a meal + start the analysis (50 AI analyses a day): a JPEG body (`?mode=label` for labels, `X-Meal-Note` header for a note) or JSON `{ text }` |
+| `GET/POST /api/meals` | session | List a day's meals / log a meal + start the analysis (50 AI analyses a day): a JPEG body (`?mode=label` for labels, `X-Meal-Note` header for a note) or JSON `{ text }`; JSON `{ barcode: { code, grams } }` or `{ food: { foodId, grams } }` logs at once without AI |
+| `GET /api/products/:code` | session, 120/h | A packaged product by barcode: cache → Open Food Facts → USDA Branded Foods (with `FDC_API_KEY`) |
 | `GET/PATCH/DELETE /api/meals/:id` | session | Read (polled while analyzing), correct or delete a meal |
 | `POST /api/meals/:id/duplicate` | session | Log a meal again (today or an earlier day), photo copied |
 | `POST /api/days/copy` | session | Copy one day's meals to another day (same local times) |
@@ -425,7 +441,9 @@ added to an earlier day are stored at local noon of that day.
   33 of the 65 nutrients are kept; real-AI check: the test photos match 100% of calories.
 - [x] Supplements log (6.7): presets or your own dose, a tick per day on Home, counted in
   Vitamins & minerals with a note above adult upper limits; past days keep their dose.
-- [ ] Barcode scanning (Open Food Facts) and food search
+- [x] Barcode scanning (Open Food Facts, USDA Branded Foods fallback) and food search: the
+  camera reads EAN/UPC codes (or type them), products are cached on the server, logging a
+  product or a database food is instant and needs no AI (not counted in the daily AI limit).
 - [ ] Weight history and a progress chart
 - [ ] Email service (Resend): forgot password, email verification
 - [ ] Sign in with Apple + Google (Better Auth social providers; Apple is required once

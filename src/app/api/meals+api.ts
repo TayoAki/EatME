@@ -6,7 +6,9 @@ import { requireUserId } from '@/lib/server/auth';
 import { dateParam, dayBounds, userTimeZone } from '@/lib/server/day';
 import { toMeal } from '@/lib/server/dto';
 import { handle, HttpError, readJson } from '@/lib/server/http';
+import { logFoodMeal, logProductMeal } from '@/lib/server/instant-meals';
 import { resumeStalledAnalyses, startMealAnalysis } from '@/lib/server/meal-analysis';
+import { rateLimit } from '@/lib/server/rate-limit';
 import { deleteObject, mealPhotoKey, putObject } from '@/lib/server/storage';
 import {
   describeMealSchema,
@@ -16,12 +18,15 @@ import {
   PHOTO_MODES,
   type PhotoMode,
 } from '@/shared/meals';
+import { barcodeMealSchema, foodMealSchema } from '@/shared/products';
 
 /** AI analyses (photos, labels, descriptions) per rolling 24 hours — keeps the AI bill predictable. */
 const DAILY_SCAN_LIMIT = 50;
 
-/** Meals that cost an AI call. Copies and favourites are free. */
+/** Meals that cost an AI call. Copies, favourites, barcodes and database foods are free. */
 const ANALYZED_SOURCES = ['photo', 'label', 'text'] as const;
+/** Meals logged without AI (barcodes, database foods) per 24 hours: only there to stop abuse. */
+const DAILY_INSTANT_LIMIT = 300;
 
 type UploadedFile = { size: number; type: string; arrayBuffer(): Promise<ArrayBuffer> };
 type MultipartForm = { get(name: string): UploadedFile | string | null };
@@ -99,20 +104,7 @@ function photoMode(request: Request): PhotoMode {
   return mode as PhotoMode;
 }
 
-/**
- * Creates a meal and starts the AI analysis in the background; the app then polls
- * `GET /api/meals/:id`. The body is either a photo (a meal, or a nutrition label with
- * `?mode=label`; stored in the bucket) or JSON `{ text }` describing the meal in words.
- */
-export const POST = handle(async (request) => {
-  const userId = await requireUserId(request);
-
-  const user = await db.query.users.findFirst({
-    where: eq(users.id, userId),
-    columns: { onboardingCompletedAt: true },
-  });
-  if (!user?.onboardingCompletedAt) throw new HttpError(409, 'Finish onboarding before logging meals.');
-
+async function checkAiLimit(userId: string) {
   const [{ scans }] = await db
     .select({ scans: count() })
     .from(meals)
@@ -126,14 +118,42 @@ export const POST = handle(async (request) => {
   if (scans >= DAILY_SCAN_LIMIT) {
     throw new HttpError(429, `You can log up to ${DAILY_SCAN_LIMIT} meals with AI a day. Please try again tomorrow.`);
   }
+}
+
+const has = (body: unknown, key: string) => typeof body === 'object' && body !== null && key in body;
+
+/**
+ * Logs a meal. A photo (a meal, or a nutrition label with `?mode=label`; stored in the bucket) or
+ * JSON `{ text }` describing the meal starts the AI analysis in the background, and the app polls
+ * `GET /api/meals/:id`. JSON `{ barcode: { code, grams } }` (a packaged product) or
+ * `{ food: { foodId, grams } }` (a USDA database food) is saved as completed right away.
+ */
+export const POST = handle(async (request) => {
+  const userId = await requireUserId(request);
+
+  const user = await db.query.users.findFirst({
+    where: eq(users.id, userId),
+    columns: { onboardingCompletedAt: true },
+  });
+  if (!user?.onboardingCompletedAt) throw new HttpError(409, 'Finish onboarding before logging meals.');
 
   if ((request.headers.get('content-type') ?? '').startsWith('application/json')) {
-    const { text } = describeMealSchema.parse(await readJson(request));
+    const body = await readJson(request);
+    if (has(body, 'barcode') || has(body, 'food')) {
+      rateLimit(`instant-meals:${userId}`, DAILY_INSTANT_LIMIT, 24 * 60 * 60 * 1000);
+      const meal = has(body, 'barcode')
+        ? await logProductMeal(userId, barcodeMealSchema.parse(body).barcode)
+        : await logFoodMeal(userId, foodMealSchema.parse(body).food);
+      return Response.json({ meal: await toMeal(meal) }, { status: 201 });
+    }
+    await checkAiLimit(userId);
+    const { text } = describeMealSchema.parse(body);
     const [meal] = await db.insert(meals).values({ userId, status: 'analyzing', source: 'text', note: text }).returning();
     startMealAnalysis(meal.id);
     return Response.json({ meal: await toMeal(meal) }, { status: 201 });
   }
 
+  await checkAiLimit(userId);
   const mode = photoMode(request);
   // Label numbers are printed on the package; a note would only compete with them.
   const note = mode === 'meal' ? photoNote(request) : null;

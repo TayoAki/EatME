@@ -1,7 +1,7 @@
 import * as Sentry from '@sentry/react-native';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { Image } from 'expo-image';
-import { CircleHelp, Flame, ImageOff, PenLine, TriangleAlert } from 'lucide-react-native';
+import { CircleHelp, Flame, ImageOff, PenLine, ScanBarcode, Search, TriangleAlert } from 'lucide-react-native';
 import { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, ScrollView, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -15,19 +15,25 @@ import { colors } from '@/constants/colors';
 import { useApi } from '@/lib/api';
 import { useSession } from '@/lib/auth-client';
 import { haptics } from '@/lib/haptics';
-import { describeMeal, uploadMeal } from '@/lib/meal-upload';
+import { describeMeal, logFood, logProduct, uploadMeal } from '@/lib/meal-upload';
 import { queryKeys, useInvalidateMeals, useProfile } from '@/lib/queries';
-import { MEAL_ANALYSIS_STAGES, type Meal, type PhotoMode } from '@/shared/meals';
+import { MEAL_ANALYSIS_STAGES, type FoodSummary, type Meal, type PhotoMode } from '@/shared/meals';
+import { distinctBrand, type Product } from '@/shared/products';
 
 import type { Photo } from './camera-capture';
 
 /** Stop waiting after this long; the analysis keeps running and the meal shows up on Home later. */
 const GIVE_UP_AFTER_SECONDS = 90;
 
-/** What the user sent: a photo of a meal or label (with an optional note), or a description. */
+/**
+ * What the user sent: a photo of a meal or label (with an optional note), a description, or —
+ * logged right away without AI — a packaged product by its barcode or a database food.
+ */
 export type MealInput =
   | { kind: 'photo'; photo: Photo; mode: PhotoMode; note?: string }
-  | { kind: 'text'; text: string };
+  | { kind: 'text'; text: string }
+  | { kind: 'barcode'; product: Product; grams: number }
+  | { kind: 'food'; food: FoodSummary; grams: number };
 
 const COPY = {
   photo: {
@@ -48,9 +54,38 @@ const COPY = {
     failed: "We couldn't estimate this meal",
     retry: 'Please try again, or add a little more detail.',
   },
+  barcode: {
+    first: 'Saving…',
+    notFood: '',
+    failed: "We couldn't log this product",
+    retry: 'Please try again.',
+  },
+  food: {
+    first: 'Saving…',
+    notFood: '',
+    failed: "We couldn't log this food",
+    retry: 'Please try again.',
+  },
 } as const;
 
-function MacroBox({ label, value, color }: { label: string; value: number | null; color: string }) {
+/** Name and amount of a product or database food, where a photo would be. */
+function LoggedFood({ icon, name, detail }: { icon: 'barcode' | 'food'; name: string; detail: string }) {
+  return (
+    <View className="flex-row gap-3 rounded-card bg-surface p-4">
+      {icon === 'barcode' ? (
+        <ScanBarcode size={18} color={colors.muted} style={{ marginTop: 2 }} />
+      ) : (
+        <Search size={18} color={colors.muted} style={{ marginTop: 2 }} />
+      )}
+      <View className="flex-1">
+        <Text className="text-[17px] leading-6 text-ink">{name}</Text>
+        <Text className="text-[14px] text-muted">{detail}</Text>
+      </View>
+    </View>
+  );
+}
+
+export function MacroBox({ label, value, color }: { label: string; value: number | null; color: string }) {
   return (
     <View className="flex-1 rounded-2xl border border-line px-3 py-3">
       <View className="flex-row items-center gap-1.5">
@@ -84,14 +119,22 @@ export function AnalysisView({ input, onScanAnother, onEdit, onDone, bottomSpace
   const { userId } = useSession();
   const profile = useProfile();
   const invalidateMeals = useInvalidateMeals();
-  const kind = input.kind === 'text' ? 'text' : input.mode === 'label' ? 'label' : 'photo';
+  const kind = input.kind === 'photo' ? (input.mode === 'label' ? 'label' : 'photo') : input.kind;
   const copy = COPY[kind];
 
   const upload = useMutation({
-    mutationFn: () =>
-      input.kind === 'text'
-        ? describeMeal(api, input.text)
-        : uploadMeal(api, input.photo, { mode: input.mode, note: input.note }),
+    mutationFn: () => {
+      switch (input.kind) {
+        case 'text':
+          return describeMeal(api, input.text);
+        case 'barcode':
+          return logProduct(api, input.product.code, input.grams);
+        case 'food':
+          return logFood(api, input.food.id, input.grams);
+        default:
+          return uploadMeal(api, input.photo, { mode: input.mode, note: input.note });
+      }
+    },
     // Home shows the new meal as "Analyzing…" right away and keeps checking on it.
     onSuccess: () => void invalidateMeals(),
     onError: (error) => Sentry.logger.error('Meal upload failed', { kind, error: error.message }),
@@ -160,7 +203,9 @@ export function AnalysisView({ input, onScanAnother, onEdit, onDone, bottomSpace
   const stageLabel = upload.isPending
     ? input.kind === 'text'
       ? 'Sending your description…'
-      : 'Uploading your photo…'
+      : input.kind === 'photo'
+        ? 'Uploading your photo…'
+        : copy.first
     : elapsed < MEAL_ANALYSIS_STAGES[1].after
       ? copy.first
       : [...MEAL_ANALYSIS_STAGES].reverse().find((stage) => elapsed >= stage.after)?.label;
@@ -181,6 +226,14 @@ export function AnalysisView({ input, onScanAnother, onEdit, onDone, bottomSpace
           <View className="overflow-hidden rounded-card bg-surface">
             <Image source={{ uri: input.photo.uri }} style={{ width: '100%', aspectRatio: 4 / 3 }} contentFit="cover" />
           </View>
+        ) : input.kind === 'barcode' ? (
+          <LoggedFood
+            icon="barcode"
+            name={input.product.name}
+            detail={[distinctBrand(input.product), `${input.grams} g`].filter(Boolean).join(' · ')}
+          />
+        ) : input.kind === 'food' ? (
+          <LoggedFood icon="food" name={input.food.description} detail={`${input.grams} g · USDA food database`} />
         ) : (
           <View className="flex-row gap-3 rounded-card bg-surface p-4">
             <PenLine size={18} color={colors.muted} style={{ marginTop: 2 }} />
@@ -274,7 +327,7 @@ export function AnalysisView({ input, onScanAnother, onEdit, onDone, bottomSpace
           ) : input.kind === 'text' && onEdit ? (
             <Button title="Edit description" variant="secondary" className="flex-1" onPress={onEdit} />
           ) : (
-            <Button title="Retake" variant="secondary" className="flex-1" onPress={onScanAnother} />
+            <Button title={input.kind === 'photo' ? 'Retake' : 'Back'} variant="secondary" className="flex-1" onPress={onScanAnother} />
           )}
           {meal ? <Button title="Done" className="flex-1" onPress={onDone} /> : null}
         </View>

@@ -10,8 +10,15 @@ import { FOOD_MATCH_JSON_SCHEMA, FOOD_MATCH_SYSTEM_PROMPT } from './prompts';
 
 const CANDIDATES = 10;
 
-/** An item of a meal with its numbers: from the database food, or the AI's own estimate. */
-export type ComputedItem = { name: string; foodId: number | null; grams: number; nutrients: NutrientAmounts };
+/** An item of a meal with its numbers: from the database food, a product's label, or the AI's own estimate. */
+export type ComputedItem = {
+  name: string;
+  foodId: number | null;
+  /** Barcode of the packaged product the numbers come from. */
+  productCode?: string | null;
+  grams: number;
+  nutrients: NutrientAmounts;
+};
 
 const matchSchema = z.object({
   matches: z.array(z.object({ item: z.number().int(), fdcId: z.number().int().nullable() })),

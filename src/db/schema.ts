@@ -18,6 +18,7 @@ import { sql } from 'drizzle-orm';
 import { MEAL_CONFIDENCES, MEAL_SOURCES, MEAL_STATUSES, type BaseNutrition } from '@/shared/meals';
 import { INJECTION_SITES, type Glp1Settings, type Symptom } from '@/shared/glp1';
 import type { NutrientAmounts } from '@/shared/nutrients';
+import { PRODUCT_SOURCES } from '@/shared/products';
 import { SUPPLEMENT_SCHEDULES } from '@/shared/supplements';
 import type { MacroTargets } from '@/shared/nutrition';
 import { ACTIVITY_LEVELS, DIETS, GENDERS, GOALS, PLAN_SOURCES, UNIT_SYSTEMS } from '@/shared/onboarding';
@@ -35,6 +36,7 @@ export const mealSourceEnum = pgEnum('meal_source', MEAL_SOURCES);
 export const mealConfidenceEnum = pgEnum('meal_confidence', MEAL_CONFIDENCES);
 export const injectionSiteEnum = pgEnum('injection_site', INJECTION_SITES);
 export const supplementScheduleEnum = pgEnum('supplement_schedule', SUPPLEMENT_SCHEDULES);
+export const productSourceEnum = pgEnum('product_source', PRODUCT_SOURCES);
 
 const timestamps = {
   createdAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
@@ -236,6 +238,8 @@ export const mealItems = pgTable(
     name: text().notNull(),
     /** The database food; empty = the AI's own estimate for this item. */
     foodId: integer().references(() => foods.id, { onDelete: 'set null' }),
+    /** The packaged product (barcode) the item was logged from; its numbers are the label's. */
+    productCode: text(),
     grams: doublePrecision().notNull(),
     /** Nutrients of this item at `grams`. */
     nutrients: jsonb().$type<NutrientAmounts>().notNull(),
@@ -245,6 +249,24 @@ export const mealItems = pgTable(
 );
 
 export type FoodRow = typeof foods.$inferSelect;
+
+/**
+ * Packaged products looked up by barcode: a cache of Open Food Facts (ODbL: kept in its own table
+ * and credited in the app) and USDA Branded Foods. Nutrients are per 100 g. An empty `source`
+ * means nobody knew the barcode when it was last looked up.
+ */
+export const products = pgTable('products', {
+  code: text().primaryKey(),
+  source: productSourceEnum(),
+  name: text(),
+  brand: text(),
+  servingSize: text(),
+  servingGrams: doublePrecision(),
+  packageGrams: doublePrecision(),
+  nutrients: jsonb().$type<NutrientAmounts>(),
+  fetchedAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
+});
+export type ProductRow = typeof products.$inferSelect;
 export type MealItemRow = typeof mealItems.$inferSelect;
 
 /** GLP-1 mode: doses as the user logged them (their own label, never a suggestion). */

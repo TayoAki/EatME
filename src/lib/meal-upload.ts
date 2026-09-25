@@ -60,3 +60,15 @@ export async function describeMeal(api: ApiClient, text: string) {
   const { meal } = await api<{ meal: Meal }>('/api/meals', { method: 'POST', body: { text: text.trim() } });
   return meal;
 }
+
+/** A packaged product by its barcode: saved right away with the label's numbers (no AI). */
+export async function logProduct(api: ApiClient, code: string, grams: number) {
+  const { meal } = await api<{ meal: Meal }>('/api/meals', { method: 'POST', body: { barcode: { code, grams } } });
+  return meal;
+}
+
+/** A food from the USDA database search: saved right away (no AI). */
+export async function logFood(api: ApiClient, foodId: number, grams: number) {
+  const { meal } = await api<{ meal: Meal }>('/api/meals', { method: 'POST', body: { food: { foodId, grams } } });
+  return meal;
+}

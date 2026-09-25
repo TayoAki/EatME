@@ -3,9 +3,11 @@ import { useState } from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { AnalysisView, type MealInput } from '@/components/scan/analysis-view';
-import { CameraCapture, type Photo } from '@/components/scan/camera-capture';
+import { CameraCapture, type Photo, type ScanMode } from '@/components/scan/camera-capture';
 import { DescribeMeal } from '@/components/scan/describe-meal';
+import { FoodSearchView } from '@/components/scan/food-search-view';
 import { PhotoPreview } from '@/components/scan/photo-preview';
+import { ProductView } from '@/components/scan/product-view';
 import type { PhotoMode } from '@/shared/meals';
 
 /** Height of the floating native tab bar above the home indicator. */
@@ -13,25 +15,28 @@ const TAB_BAR_SPACE = 96;
 
 type Step =
   | { name: 'capture' }
-  | { name: 'preview'; photo: Photo }
+  | { name: 'preview'; photo: Photo; mode: PhotoMode }
   | { name: 'describe'; text?: string }
+  | { name: 'product'; code: string }
+  | { name: 'search' }
   | { name: 'analyzing'; input: MealInput; key: number };
 
 export default function ScanScreen() {
   const insets = useSafeAreaInsets();
   const [step, setStep] = useState<Step>({ name: 'capture' });
-  const [mode, setMode] = useState<PhotoMode>('meal');
+  const [mode, setMode] = useState<ScanMode>('meal');
   const bottomSpace = insets.bottom + TAB_BAR_SPACE;
   const analyze = (input: MealInput) => setStep({ name: 'analyzing', input, key: Date.now() });
+  const capture = () => setStep({ name: 'capture' });
 
   if (step.name === 'preview') {
     return (
       <PhotoPreview
         photo={step.photo}
-        mode={mode}
+        mode={step.mode}
         bottomSpace={bottomSpace}
-        onRetake={() => setStep({ name: 'capture' })}
-        onAnalyze={(note) => analyze({ kind: 'photo', photo: step.photo, mode, note })}
+        onRetake={capture}
+        onAnalyze={(note) => analyze({ kind: 'photo', photo: step.photo, mode: step.mode, note })}
       />
     );
   }
@@ -41,9 +46,31 @@ export default function ScanScreen() {
       <DescribeMeal
         initialText={step.text}
         bottomSpace={bottomSpace}
-        onBack={() => setStep({ name: 'capture' })}
+        onBack={capture}
         onSubmit={(text) => analyze({ kind: 'text', text })}
       />
+    );
+  }
+
+  if (step.name === 'product') {
+    return (
+      <ProductView
+        code={step.code}
+        bottomSpace={bottomSpace}
+        onBack={capture}
+        onScanLabel={() => {
+          setMode('label');
+          capture();
+        }}
+        onSearch={() => setStep({ name: 'search' })}
+        onLog={(product, grams) => analyze({ kind: 'barcode', product, grams })}
+      />
+    );
+  }
+
+  if (step.name === 'search') {
+    return (
+      <FoodSearchView bottomSpace={bottomSpace} onBack={capture} onLog={(food, grams) => analyze({ kind: 'food', food, grams })} />
     );
   }
 
@@ -54,10 +81,12 @@ export default function ScanScreen() {
         key={step.key}
         input={input}
         bottomSpace={bottomSpace}
-        onScanAnother={() => setStep(input.kind === 'text' ? { name: 'describe' } : { name: 'capture' })}
+        onScanAnother={() =>
+          setStep(input.kind === 'text' ? { name: 'describe' } : input.kind === 'food' ? { name: 'search' } : { name: 'capture' })
+        }
         onEdit={input.kind === 'text' ? () => setStep({ name: 'describe', text: input.text }) : undefined}
         onDone={() => {
-          setStep({ name: 'capture' });
+          capture();
           router.navigate('/');
         }}
       />
@@ -70,7 +99,9 @@ export default function ScanScreen() {
       mode={mode}
       onModeChange={setMode}
       onDescribe={() => setStep({ name: 'describe' })}
-      onPhoto={(photo) => setStep({ name: 'preview', photo })}
+      onSearch={() => setStep({ name: 'search' })}
+      onBarcode={(code) => setStep({ name: 'product', code })}
+      onPhoto={(photo) => setStep({ name: 'preview', photo, mode: mode === 'label' ? 'label' : 'meal' })}
     />
   );
 }

@@ -9,15 +9,20 @@ import { haptics } from '@/lib/haptics';
 import { useUpdateMealItems } from '@/lib/queries';
 import { toIsoDate } from '@/lib/time';
 import type { FoodSummary, Meal, MealItem } from '@/shared/meals';
+import { distinctBrand, PRODUCT_SOURCE_LABELS } from '@/shared/products';
 
 import { FoodAmountSheet, type FoodDraft } from './food-amount-sheet';
 import { FoodSearchSheet } from './food-search-sheet';
+
+const packageLabel = (name: string, brand: string | null) =>
+  ['Package label', distinctBrand({ name, brand })].filter(Boolean).join(' · ');
 
 const draftFromItem = (item: MealItem): FoodDraft => ({
   id: item.id,
   foodId: item.foodId,
   name: item.name,
   foodName: item.foodName,
+  product: item.product,
   grams: item.grams,
   kcalPerGram: item.grams > 0 ? item.calories / item.grams : 0,
   portions: item.portions,
@@ -35,7 +40,7 @@ const draftFromFood = (food: FoodSummary, keep?: FoodDraft): FoodDraft => ({
 
 /**
  * The foods of a meal with their weights. Changing a weight or a food recalculates the meal from
- * the USDA database; AI estimates without a database food scale with their weight.
+ * the USDA database; packaged products and AI estimates without a database food scale with their weight.
  */
 export function FoodsSection({ meal }: { meal: Meal }) {
   const items = meal.items ?? [];
@@ -68,6 +73,7 @@ export function FoodsSection({ meal }: { meal: Meal }) {
 
   if (items.length === 0) return null;
   const share = Math.round((meal.matchedShare ?? 0) * 100);
+  const packaged = items.every((item) => item.product);
   const logged = toIsoDate(new Date(meal.loggedAt));
 
   return (
@@ -97,7 +103,7 @@ export function FoodsSection({ meal }: { meal: Meal }) {
                 {item.name}
               </Text>
               <Text numberOfLines={1} className="text-[12px] text-muted">
-                {item.foodName ?? 'AI estimate'}
+                {item.foodName ?? (item.product ? packageLabel(item.name, item.product.brand) : 'AI estimate')}
               </Text>
             </View>
             <Text className="text-[14px] text-muted">{item.grams} g</Text>
@@ -111,9 +117,11 @@ export function FoodsSection({ meal }: { meal: Meal }) {
         className="mt-2 flex-row items-center gap-1.5 px-1 active:opacity-60">
         <Database size={13} color={colors.muted} />
         <Text className="flex-1 text-[12px] leading-4 text-muted">
-          {share > 0
-            ? `${share}% of the calories come from the USDA food database. See the day's vitamins and minerals ›`
-            : 'These are AI estimates. Pick database foods for vitamins and minerals.'}
+          {packaged
+            ? `Numbers from the package label (${PRODUCT_SOURCE_LABELS[items[0].product?.source ?? 'off']}). See the day's nutrients ›`
+            : share > 0
+              ? `${share}% of the calories come from the USDA food database. See the day's vitamins and minerals ›`
+              : 'These are AI estimates. Pick database foods for vitamins and minerals.'}
         </Text>
       </Pressable>
 

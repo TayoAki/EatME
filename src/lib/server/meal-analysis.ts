@@ -76,7 +76,15 @@ export async function saveItems(mealId: string, items: readonly ComputedItem[]) 
   await db.delete(mealItems).where(eq(mealItems.mealId, mealId));
   if (items.length === 0) return;
   await db.insert(mealItems).values(
-    items.map((item, position) => ({ mealId, position, name: item.name, foodId: item.foodId, grams: item.grams, nutrients: item.nutrients })),
+    items.map((item, position) => ({
+      mealId,
+      position,
+      name: item.name,
+      foodId: item.foodId,
+      productCode: item.productCode ?? null,
+      grams: item.grams,
+      nutrients: item.nutrients,
+    })),
   );
 }
 

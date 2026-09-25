@@ -1,7 +1,7 @@
 import { asc, eq } from 'drizzle-orm';
 
 import { db } from '@/db';
-import { foods, mealItems, meals, type MealRow } from '@/db/schema';
+import { foods, mealItems, meals, products, type MealRow } from '@/db/schema';
 import { scaleNutrition, type Meal, type MealItem, type UpdateMealItemsBody } from '@/shared/meals';
 import { scaleNutrients } from '@/shared/nutrients';
 
@@ -14,13 +14,25 @@ import { baseFromNutrients, saveItems } from './meal-analysis';
 /** The foods of a meal for its logged portion, with their database names. */
 export async function loadItems(meal: MealRow): Promise<MealItem[]> {
   const rows = await db
-    .select({ item: mealItems, description: foods.description, portions: foods.portions })
+    .select({
+      item: mealItems,
+      description: foods.description,
+      portions: foods.portions,
+      productBrand: products.brand,
+      productSource: products.source,
+    })
     .from(mealItems)
     .leftJoin(foods, eq(mealItems.foodId, foods.id))
+    .leftJoin(products, eq(mealItems.productCode, products.code))
     .where(eq(mealItems.mealId, meal.id))
     .orderBy(asc(mealItems.position));
   return rows.map((row) =>
-    toMealItem(row.item, meal.portion, row.description ? { description: row.description, portions: row.portions ?? [] } : null),
+    toMealItem(
+      row.item,
+      meal.portion,
+      row.description ? { description: row.description, portions: row.portions ?? [] } : null,
+      row.item.productCode ? { code: row.item.productCode, brand: row.productBrand, source: row.productSource } : null,
+    ),
   );
 }
 
@@ -30,8 +42,8 @@ export async function toMealWithItems(meal: MealRow): Promise<Meal> {
 
 /**
  * Recomputes a meal from its edited food list (grams as logged). Database foods are calculated
- * from the database; kept AI estimates are rescaled to their new weight. The edited list is the
- * meal as logged, so the portion goes back to 1.
+ * from the database; kept AI estimates and packaged products are rescaled to their new weight.
+ * The edited list is the meal as logged, so the portion goes back to 1.
  */
 export async function replaceItems(meal: MealRow, body: UpdateMealItemsBody) {
   const existing = new Map((await db.select().from(mealItems).where(eq(mealItems.mealId, meal.id))).map((i) => [i.id, i]));
@@ -45,7 +57,13 @@ export async function replaceItems(meal: MealRow, body: UpdateMealItemsBody) {
     }
     const old = input.id ? existing.get(input.id) : undefined;
     if (!old || old.grams <= 0) throw new HttpError(400, 'Pick new foods from the database.');
-    return { name: input.name, foodId: null, grams: input.grams, nutrients: scaleNutrients(old.nutrients, input.grams / old.grams) };
+    return {
+      name: input.name,
+      foodId: null,
+      productCode: old.productCode,
+      grams: input.grams,
+      nutrients: scaleNutrients(old.nutrients, input.grams / old.grams),
+    };
   });
 
   const totals = itemTotals(items);
@@ -71,5 +89,15 @@ export async function copyItems(fromMealId: string, toMealId: string) {
   if (rows.length === 0) return;
   await db
     .insert(mealItems)
-    .values(rows.map(({ position, name, foodId, grams, nutrients }) => ({ mealId: toMealId, position, name, foodId, grams, nutrients })));
+    .values(
+      rows.map(({ position, name, foodId, productCode, grams, nutrients }) => ({
+        mealId: toMealId,
+        position,
+        name,
+        foodId,
+        productCode,
+        grams,
+        nutrients,
+      })),
+    );
 }

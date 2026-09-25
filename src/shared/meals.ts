@@ -1,6 +1,7 @@
 import { z } from 'zod';
 
 import type { NutrientAmounts } from './nutrients';
+import type { ProductSource } from './products';
 
 /** `not_food`: the AI decided the photo is not a meal (the photo is deleted, the row is kept). */
 export const MEAL_STATUSES = ['analyzing', 'completed', 'failed', 'not_food'] as const;
@@ -53,7 +54,10 @@ export type Meal = {
   updatedAt: string;
 };
 
-/** A food of a meal. `foodId` points to the USDA database; null = the AI's own estimate. */
+/**
+ * A food of a meal. `foodId` points to the USDA database; `product` is a packaged product logged by
+ * its barcode (the label's numbers); neither = the AI's own estimate.
+ */
 export type MealItem = {
   id: string;
   name: string;
@@ -68,6 +72,7 @@ export type MealItem = {
   fiberG: number | null;
   /** Household measures of the database food, e.g. [["1 cup", 140]]. */
   portions: [string, number][];
+  product: { code: string; brand: string | null; source: ProductSource | null } | null;
 };
 
 /** A food from the USDA database, as search returns it. Nutrients per 100 g. */

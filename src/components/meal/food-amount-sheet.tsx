@@ -4,14 +4,18 @@ import { ScrollView, Text, TextInput, View } from 'react-native';
 import { BottomSheet } from '@/components/ui/bottom-sheet';
 import { Button } from '@/components/ui/button';
 import { Chip } from '@/components/ui/chip';
+import type { MealItem } from '@/shared/meals';
+import { distinctBrand, PRODUCT_SOURCE_LABELS } from '@/shared/products';
 
 export type FoodDraft = {
   /** Existing item id; empty for a food being added. */
   id?: string;
   foodId: number | null;
   name: string;
-  /** Database description, or null for the AI's own estimate. */
+  /** Database description, or null for a packaged product or the AI's own estimate. */
   foodName: string | null;
+  /** A packaged product logged by barcode (its label's numbers). */
+  product?: MealItem['product'];
   grams: number;
   /** Calories per gram, for the live preview. */
   kcalPerGram: number;
@@ -23,12 +27,14 @@ type FoodAmountSheetProps = {
   saving: boolean;
   onClose: () => void;
   onSave: (grams: number) => void;
+  /** "Save" by default. */
+  saveLabel?: string;
   onChangeFood?: () => void;
   onRemove?: () => void;
 };
 
 /** How much of a food: grams, or one of the database's household measures. */
-export function FoodAmountSheet({ draft, saving, onClose, onSave, onChangeFood, onRemove }: FoodAmountSheetProps) {
+export function FoodAmountSheet({ draft, saving, onClose, onSave, saveLabel = 'Save', onChangeFood, onRemove }: FoodAmountSheetProps) {
   const [text, setText] = useState(String(Math.round(draft.grams)));
   const grams = Number(text);
   const valid = Number.isFinite(grams) && grams >= 1 && grams <= 3000;
@@ -39,7 +45,12 @@ export function FoodAmountSheet({ draft, saving, onClose, onSave, onChangeFood, 
         {draft.name}
       </Text>
       <Text className="mt-0.5 text-[14px] leading-5 text-muted">
-        {draft.foodName ?? 'AI estimate — this food is not in the database'}
+        {draft.foodName ??
+          (draft.product
+            ? ['Package label', distinctBrand({ name: draft.name, brand: draft.product.brand }), PRODUCT_SOURCE_LABELS[draft.product.source ?? 'off']]
+                .filter(Boolean)
+                .join(' · ')
+            : 'AI estimate — this food is not in the database')}
       </Text>
 
       <View className="mt-4 h-20 flex-row items-center justify-center gap-2 rounded-card bg-surface px-5">
@@ -70,7 +81,7 @@ export function FoodAmountSheet({ draft, saving, onClose, onSave, onChangeFood, 
         </ScrollView>
       ) : null}
 
-      <Button title="Save" className="mt-5" loading={saving} disabled={!valid} onPress={() => onSave(grams)} />
+      <Button title={saveLabel} className="mt-5" loading={saving} disabled={!valid} onPress={() => onSave(grams)} />
       {onChangeFood || onRemove ? (
         <View className="mt-2 flex-row gap-2">
           {onChangeFood ? <Button title="Change food" variant="secondary" size="md" className="flex-1" onPress={onChangeFood} /> : null}

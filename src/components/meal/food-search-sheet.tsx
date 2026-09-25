@@ -4,21 +4,25 @@ import { ActivityIndicator, Pressable, ScrollView, Text, TextInput, View } from 
 
 import { BottomSheet } from '@/components/ui/bottom-sheet';
 import { colors } from '@/constants/colors';
+import { cn } from '@/lib/cn';
 import { useFoodSearch } from '@/lib/queries';
 import type { FoodSummary } from '@/shared/meals';
 
-type FoodSearchSheetProps = { visible: boolean; onClose: () => void; onPick: (food: FoodSummary) => void; title?: string };
+type FoodSearchListProps = {
+  onPick: (food: FoodSummary) => void;
+  /** Fixed list height inside a sheet; the list fills the screen otherwise. */
+  listHeight?: number;
+};
 
-/** Search the USDA food database (FNDDS) and pick a food. */
-export function FoodSearchSheet({ visible, onClose, onPick, title = 'Add a food' }: FoodSearchSheetProps) {
+/** Search box and results from the USDA food database (FNDDS). */
+export function FoodSearchList({ onPick, listHeight }: FoodSearchListProps) {
   const [query, setQuery] = useState('');
   const search = useFoodSearch(query);
   const foods = search.data?.foods ?? [];
   const typed = query.trim().length >= 2;
 
   return (
-    <BottomSheet visible={visible} onClose={onClose}>
-      <Text className="text-[22px] font-bold tracking-tight text-ink">{title}</Text>
+    <>
       <View className="mt-3 h-12 flex-row items-center gap-2 rounded-field bg-surface px-4">
         <Search size={18} color={colors.muted} />
         <TextInput
@@ -34,7 +38,11 @@ export function FoodSearchSheet({ visible, onClose, onPick, title = 'Add a food'
         />
         {search.isFetching ? <ActivityIndicator color={colors.muted} /> : null}
       </View>
-      <ScrollView style={{ height: 340 }} className="mt-3" keyboardShouldPersistTaps="handled">
+      <ScrollView
+        style={listHeight ? { height: listHeight } : undefined}
+        className={cn('mt-3', !listHeight && 'flex-1')}
+        keyboardShouldPersistTaps="handled"
+        keyboardDismissMode="on-drag">
         {!typed ? (
           <Text className="px-1 text-[14px] leading-5 text-muted">
             Foods come from the USDA food database, with calories and nutrients per 100 g.
@@ -57,6 +65,18 @@ export function FoodSearchSheet({ visible, onClose, onPick, title = 'Add a food'
           ))
         )}
       </ScrollView>
+    </>
+  );
+}
+
+type FoodSearchSheetProps = { visible: boolean; onClose: () => void; onPick: (food: FoodSummary) => void; title?: string };
+
+/** Search the USDA food database (FNDDS) and pick a food. */
+export function FoodSearchSheet({ visible, onClose, onPick, title = 'Add a food' }: FoodSearchSheetProps) {
+  return (
+    <BottomSheet visible={visible} onClose={onClose}>
+      <Text className="text-[22px] font-bold tracking-tight text-ink">{title}</Text>
+      <FoodSearchList onPick={onPick} listHeight={340} />
     </BottomSheet>
   );
 }

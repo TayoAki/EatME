@@ -92,6 +92,7 @@ export function toMealItem(
   item: MealItemRow,
   portion: number,
   food: { description: string; portions: [string, number][] } | null,
+  product: MealItem['product'] = null,
 ): MealItem {
   const n = scaleNutrients(item.nutrients, portion);
   const round = (value: number | undefined) => Math.round(value ?? 0);
@@ -107,6 +108,7 @@ export function toMealItem(
     fatG: round(n.fat),
     fiberG: n.fiber === undefined ? null : round(n.fiber),
     portions: food?.portions ?? [],
+    product,
   };
 }
 

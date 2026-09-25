@@ -1,6 +1,6 @@
 import { Image } from 'expo-image';
 import { router } from 'expo-router';
-import { Flame, PenLine, UtensilsCrossed } from 'lucide-react-native';
+import { Flame, PenLine, ScanBarcode, UtensilsCrossed } from 'lucide-react-native';
 import { useEffect } from 'react';
 import { ActivityIndicator, Pressable, Text, View } from 'react-native';
 import Animated, {
@@ -22,12 +22,15 @@ function Thumbnail({
   cacheKey,
   dimmed,
   described,
+  barcode,
 }: {
   uri: string | null;
   cacheKey: string;
   dimmed?: boolean;
   /** Logged in words: a pen instead of the plate icon. */
   described?: boolean;
+  /** Logged by barcode: a barcode instead of the plate icon. */
+  barcode?: boolean;
 }) {
   return (
     <View style={{ width: THUMB, height: THUMB }} className="overflow-hidden rounded-2xl bg-surface">
@@ -35,7 +38,13 @@ function Thumbnail({
         <Image source={{ uri, cacheKey }} style={{ width: THUMB, height: THUMB }} contentFit="cover" transition={200} />
       ) : (
         <View className="flex-1 items-center justify-center">
-          {described ? <PenLine size={26} color={colors.faint} /> : <UtensilsCrossed size={28} color={colors.faint} />}
+          {described ? (
+            <PenLine size={26} color={colors.faint} />
+          ) : barcode ? (
+            <ScanBarcode size={26} color={colors.faint} />
+          ) : (
+            <UtensilsCrossed size={28} color={colors.faint} />
+          )}
         </View>
       )}
       {dimmed ? (
@@ -75,7 +84,13 @@ export function MealCard({ meal }: { meal: Meal }) {
       disabled={analyzing}
       onPress={() => router.push({ pathname: '/meal/[id]', params: { id: meal.id } })}
       className="flex-row gap-3.5 rounded-[22px] border border-line bg-canvas p-2.5 active:opacity-80">
-      <Thumbnail uri={meal.imageUrl} cacheKey={meal.id} dimmed={analyzing} described={!meal.imageUrl && !!meal.note} />
+      <Thumbnail
+        uri={meal.imageUrl}
+        cacheKey={meal.id}
+        dimmed={analyzing}
+        described={!meal.imageUrl && !!meal.note}
+        barcode={meal.source === 'barcode'}
+      />
       {analyzing ? (
         <View className="flex-1 justify-center gap-2.5 pr-2">
           <Text className="text-[16px] font-semibold text-ink">Analyzing…</Text>

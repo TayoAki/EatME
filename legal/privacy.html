@@ -182,7 +182,9 @@
             the status of its analysis and any changes you make to those values. You can add a short note to a photo
             (for example, how it was cooked), which we store with the meal. Instead of a photo, you can describe a meal
             in words; we store that description with the meal. You can also photograph a nutrition label on food
-            packaging; we store that photo, the serving size printed on it and the number of servings you choose. When
+            packaging; we store that photo, the serving size printed on it and the number of servings you choose. You can
+            also scan a product's barcode or pick a food from our food database search; we store the product or food, its
+            barcode and the amount you choose. When
             you log a meal again or copy a day, we store a copy of those meals, including a copy of their photos. If a photo does not show food or cannot be
             analyzed, we delete the photo and keep only a short note about what happened (see
             <a href="#ai-processing">Section 4</a>). We use the days on which you logged meals to show your history and
@@ -365,6 +367,15 @@
             database stored on our server), our server sends those food names and weights, together with database
             entries that could match, to an AI language model through OpenRouter, which picks the matching entries. No
             photo, name or other account information is included in that request.
+          </p>
+
+          <h3>Barcodes and food search (no AI)</h3>
+          <p>
+            When you scan or type a barcode, our server looks the number up in its own copy of product data first and,
+            when needed, asks Open Food Facts (a public, open food database) and, if configured, USDA FoodData Central
+            for the product. Only the barcode number is sent, from our server, never your name, email address or other
+            account information, and the product data is kept on our server so that the next lookup is answered there.
+            Searching foods and logging a barcode or a food from the search do not use AI.
           </p>
 
           <h3>What the AI providers do with your data</h3>

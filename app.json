@@ -47,10 +47,10 @@
       [
         "expo-camera",
         {
-          "cameraPermission": "EatME uses the camera to scan your meals and estimate their calories and macros.",
+          "cameraPermission": "EatME uses the camera to scan your meals, nutrition labels and barcodes to estimate their calories and macros.",
           "microphonePermission": false,
           "recordAudioAndroid": false,
-          "barcodeScannerEnabled": false
+          "barcodeScannerEnabled": true
         }
       ],
       [

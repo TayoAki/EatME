@@ -4,12 +4,13 @@ import type { AddDoseBody, AddSymptomsBody, Glp1Response, Glp1Settings } from '@
 import type { WeeklyInsights } from '@/shared/insights';
 import type { FoodSummary, Meal, UpdateMealBody, UpdateMealItemsBody } from '@/shared/meals';
 import type { NutrientDay } from '@/shared/nutrients';
+import type { Product } from '@/shared/products';
 import type { SupplementBody, SupplementsDay } from '@/shared/supplements';
 import type { SaveOnboardingBody } from '@/shared/onboarding';
 import type { MeResponse, StreakResponse, UpdateProfileBody } from '@/shared/user';
 import type { WaterDay, WaterEntry } from '@/shared/water';
 
-import { useApi } from './api';
+import { ApiError, useApi } from './api';
 import { useSession } from './auth-client';
 import { todayIso } from './time';
 
@@ -330,6 +331,17 @@ export function useFoodSearch(query: string) {
     enabled: q.length >= 2,
     staleTime: 60 * 60_000,
     placeholderData: (previous) => previous,
+  });
+}
+
+/** A packaged product by its barcode. A 404 (nobody knows it) is not retried. */
+export function useProduct(code: string) {
+  const api = useApi();
+  return useQuery({
+    queryKey: ['product', code],
+    queryFn: ({ signal }) => api<{ product: Product }>(`/api/products/${code}`, { signal }),
+    staleTime: 60 * 60_000,
+    retry: (count, error) => !(error instanceof ApiError && error.status < 500) && count < 2,
   });
 }
 

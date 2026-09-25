@@ -1,6 +1,6 @@
 import { Image } from 'expo-image';
 import { router, useLocalSearchParams } from 'expo-router';
-import { Pencil, PenLine, Repeat, Star, UtensilsCrossed, X } from 'lucide-react-native';
+import { Pencil, PenLine, Repeat, ScanBarcode, Search, Star, UtensilsCrossed, X } from 'lucide-react-native';
 import { useState } from 'react';
 import {
   ActivityIndicator,
@@ -164,6 +164,11 @@ function MealEditor({ meal }: { meal: Meal }) {
   const hero = meal.imageUrl;
   // Logged in words (or a copy of such a meal): the description takes the photo's place.
   const described = !meal.imageUrl && !!meal.note;
+  // Logged by barcode or from the database search: a short line instead of an empty photo box.
+  const items = meal.items ?? [];
+  const fromBarcode = items.length > 0 && items.every((item) => item.product);
+  const fromDatabase = meal.source === 'food';
+  const barcodes = [...new Set(items.flatMap((item) => (item.product ? [item.product.code] : [])))];
 
   return (
     <KeyboardAvoidingView className="flex-1" behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
@@ -172,6 +177,19 @@ function MealEditor({ meal }: { meal: Meal }) {
           <View className="flex-row gap-3 rounded-card bg-surface p-4">
             <PenLine size={18} color={colors.muted} style={{ marginTop: 2 }} />
             <Text className="flex-1 text-[17px] leading-6 text-ink">{meal.note}</Text>
+          </View>
+        ) : !hero && (fromBarcode || fromDatabase) ? (
+          <View className="flex-row gap-3 rounded-card bg-surface p-4">
+            {fromBarcode ? (
+              <ScanBarcode size={18} color={colors.muted} style={{ marginTop: 2 }} />
+            ) : (
+              <Search size={18} color={colors.muted} style={{ marginTop: 2 }} />
+            )}
+            <Text className="flex-1 text-[15px] leading-[21px] text-ink">
+              {fromBarcode
+                ? `Logged from a barcode (${barcodes.join(', ')}) with the numbers on the package.`
+                : 'Logged from the USDA food database.'}
+            </Text>
           </View>
         ) : (
           <View className="overflow-hidden rounded-card bg-surface">
