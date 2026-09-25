@@ -435,6 +435,8 @@ added to an earlier day are stored at local noon of that day.
   ID, .p8) and a Google "Web application" OAuth client with the redirect URI
   `<server>/api/auth/callback/google`; set the variables in `.env.example` on Railway
 - [ ] Production builds with EAS; TestFlight and Play internal testing
+- [ ] Apple developer account in the company's name, not a person's (5.1.1(ix): apps that need
+  sensitive health data, such as GLP-1 mode's medicine log, "should be submitted by a legal entity")
 
 ### 11 · Accuracy (portion size and hidden fat limit accuracy more than the model does)
 - [ ] Model benchmark: ~100 Nutrition5k dishes (public, weighed) plus weighed beta meals,
@@ -443,7 +445,8 @@ added to an earlier day are stored at local noon of that day.
 - [ ] Prompt upgrades, measured with the benchmark: portion-focused prompt, step-by-step
   estimate, meal time as context
 - [x] Save the AI's confidence on each meal; show "rough estimate" when it is low
-- [ ] Ask one tap-to-answer question when it matters (portion, oil or butter, filling)
+- [ ] Ask one tap-to-answer question when it matters (portion, oil or butter, filling); planned
+  for v2.1 with several photos per meal (§16)
 - [x] Split pipeline in V2: the AI lists foods and grams, the USDA database does the math (§15)
 
 **Data sources (free to start; checked September 2026)**
@@ -524,8 +527,89 @@ added to an earlier day are stored at local noon of that day.
   Preferences; same AI call, three more fields; real-model check: salmon and rice → whole,
   cola and crisps → highly processed (35 g added sugar), sourdough and cheddar → processed
 
+### 16 · After launch: what users ask for
+
+> From the September 2026 market research (the "EatME Demand Check" brief): App Store reviews,
+> MacroFactor's feature board, Reddit, store listings, and FDA and store rules. Scores use the
+> same scorecard. Nothing here is built, and none of it comes before the launch items in §10.
+
+**The two questions**
+- Peptide tracking: yes for GLP-1 users, who want shots, pens, food and weight in one place;
+  no for research-peptide "stacks": 10 app requests in six months against ~50 posts by people
+  selling their own tracker, 15+ apps already, and their most-wanted feature (dose maths) is
+  what Apple 1.4.2 restricts
+- "Makeweight": three small weight-cut apps launched July–August 2026 (4 ratings or fewer) and
+  a waitlist site. The demand comes mostly from high-school wrestlers asking for fast water cuts,
+  whom the 18+ rule excludes. A safe competition mode for adults is a research slot; water cuts
+  are never built.
+
+**Measure first**
+- [ ] Count testers with GLP-1 mode on (`users.glp1` not null) and ask three questions: a
+  weight-loss medicine (which one), other injectables they would like to track, a weight-class
+  sport. GLP-1 mode+ moves to v2.1 if at least 15% use GLP-1 mode, to "Later" if under 5%.
+
+**v2.1 (first release after launch)**
+- [ ] Repeat meals (9.1): save foods as a meal, repeat a meal on chosen days (shown as a
+  suggestion to confirm, never logged silently), copy any past day or meal
+- [ ] Steer the AI (8.0): several photos of one meal, plus the tap-to-answer question from §11
+- [ ] Calm mode (7.9): a Preferences switch that hides calorie and macro numbers, neutral
+  colours when over a goal, no streaks that reset or cost money
+- [ ] Barcode fixes (7.9): show where a product's numbers come from; report a wrong product
+- [ ] Quick add (7.8): type calories and macros, no AI, not counted as a scan
+- [ ] Weight trend line, milestones and a weigh-in reminder (7.7): milestones never below the
+  BMI 18.5 floor
+
+**v2.2**
+- [ ] GLP-1 mode+ (7.8), free: several medicines; "Other" takes the medicine's name as the
+  prescription label shows it (free text, no suggestions, no list of research peptides); pens
+  or vials left and a use-by reminder (counts only, never mg → mL → units maths); injection
+  sites with left and right, the last one shown; doses stay exactly as the label says
+- [ ] Body measurements and private progress photos (7.5): photos in the private bucket, signed
+  links, never sent to the AI
+- [ ] Export and a doctor report (7.3): a CSV of everything; a one-page PDF with the weight
+  trend, average intake, protein, doses and side effects
+- [ ] What to eat next (6.9): ideas for the calories and macros left, first from the person's
+  own meals (no AI), then optional AI ideas; never below the calorie floor
+
+**Later**
+- [ ] Adaptive calorie target (6.4): a weekly check-in proposes a new target from the weight
+  trend and logged food; the person accepts or ignores it; same floors and weekly limit
+- [ ] Read steps, workouts and sleep from Apple Health / Health Connect (6.3); exercise
+  calories count toward the goal only if the person turns that on
+- [ ] Alcohol drinks (6.0): calories from strength and volume
+
+**Research slots (built only if the check passes)**
+- Estimated medicine-level chart (5.9), approved GLP-1s only: Shotsy users call theirs "a game
+  changer", but it sits close to dosing advice. Check: legal review and wording ("an estimate,
+  never a reason to change a dose").
+- Competition mode for adults (5.4): weigh-in date and type, weight class, a daily target that
+  never plans more than 1 kg or 1.5% of body weight a week (whichever is lower), "not reachable
+  safely, consider the next class", a refuel checklist after the weigh-in, a stop-and-get-help
+  card. Check: at least 5% of adult testers compete in a weight-class sport.
+
+**Rules that come with these features**
+- Medicines, measurements, progress photos and weigh-ins are health data: never sent to
+  analytics, Sentry or the AI; covered by the Washington health-data policy (§10); deleted with
+  the account
+- No peptide names (BPC-157, retatrutide …) in the app, the store listing, keywords or
+  screenshots; no links to sellers, no affiliate deals, never "research use only"
+- Medicine tracking stays free (MyFitnessPal and Noom give it away)
+- Honest paywall (Apple pulled Cal AI in April 2026 over its paywall): the billed price is the
+  biggest price on screen, the trial says when it renews, nothing costs money to restore a
+  streak, no rating prompt before a first good scan
+- 18+ stays; nothing is marketed to high-school athletes
+- Review 8 weeks after launch, and again when FDA decides on the July 2026 peptide votes
+
 ### Not doing for now
 - AI-guessed vitamins and minerals from the photo (5.0): studies show large errors (for
   example vitamin D underestimated by 100%)
 - AI coach chat (4.4)
 - Depth-sensor portions and training our own model
+- Household sharing and family plans (5.2)
+- Research-peptide library, stacks and cycles (3.2): Google Play bars apps that promote
+  unapproved substances, FDA has not cleared these substances for compounding, 15+ apps exist
+- Dose, reconstitution or syringe-unit calculators (4.3): Apple 1.4.2 allows them only from drug
+  makers, hospitals, universities, insurers, pharmacies or with FDA clearance; FDA cited a
+  "peptide calculator" in an August 2026 warning letter; unit mix-ups have caused 5–20× overdoses
+- Water loading, fluid restriction, sauna or sweat-suit plans for making weight (4.0): NFHS, NCAA
+  and USA Wrestling rules forbid them, deaths are on record, and Apple 1.4 covers physical harm
