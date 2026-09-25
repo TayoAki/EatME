@@ -46,5 +46,11 @@ export async function getStreak(userId: string, timeZone: string): Promise<Strea
   const oldest = shiftDate(today, -LOGGED_DATES_DAYS);
   const loggedDates = [...days].filter((d) => d >= oldest).sort();
 
-  return { current, loggedDates, today };
+  // Every logged day ever (calm mode's "days logged", which never resets).
+  const [{ total }] = await db
+    .select({ total: sql<number>`count(distinct ${localDay})::int` })
+    .from(meals)
+    .where(and(eq(meals.userId, userId), eq(meals.status, 'completed')));
+
+  return { current, totalDays: total, loggedDates, today };
 }

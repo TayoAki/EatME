@@ -75,13 +75,16 @@ export function SkeletonBar({ width, height = 12 }: { width: number | `${number}
   return <Animated.View style={[{ width, height, borderRadius: height, backgroundColor: colors.track }, style]} />;
 }
 
-/** `showQuality`: the person switched the food-quality tag on (Preferences). */
-export function MealCard({ meal, showQuality = false }: { meal: Meal; showQuality?: boolean }) {
+/**
+ * `showQuality`: the person switched the food-quality tag on (Preferences).
+ * `calm`: calm mode hides the calorie and macro numbers.
+ */
+export function MealCard({ meal, showQuality = false, calm = false }: { meal: Meal; showQuality?: boolean; calm?: boolean }) {
   const analyzing = meal.status === 'analyzing';
   return (
     <Pressable
       accessibilityRole="button"
-      accessibilityLabel={analyzing ? 'Meal being analyzed' : `${meal.name}, ${meal.calories} calories`}
+      accessibilityLabel={analyzing ? 'Meal being analyzed' : calm ? `${meal.name}` : `${meal.name}, ${meal.calories} calories`}
       disabled={analyzing}
       onPress={() => router.push({ pathname: '/meal/[id]', params: { id: meal.id } })}
       className="flex-row gap-3.5 rounded-[22px] border border-line bg-canvas p-2.5 active:opacity-80">
@@ -106,20 +109,30 @@ export function MealCard({ meal, showQuality = false }: { meal: Meal; showQualit
             </Text>
             <Text className="text-[13px] text-muted">{formatTime(meal.loggedAt)}</Text>
           </View>
-          <View className="flex-row items-center gap-1.5">
-            <Flame size={15} color={colors.ink} fill={colors.ink} />
-            <Text className="text-[14px] text-ink">{meal.calories ?? 0} calories</Text>
-            {showQuality && meal.processing ? (
-              <Text numberOfLines={1} className="flex-1 text-[13px] text-muted">
-                · {PROCESSING_LABELS[meal.processing]}
+          {calm ? (
+            showQuality && meal.processing ? (
+              <Text numberOfLines={1} className="text-[13px] text-muted">
+                {PROCESSING_LABELS[meal.processing]}
               </Text>
-            ) : null}
-          </View>
-          <View className="flex-row gap-4">
-            <MacroValue color={colors.protein} value={meal.proteinG} />
-            <MacroValue color={colors.carbs} value={meal.carbsG} />
-            <MacroValue color={colors.fat} value={meal.fatG} />
-          </View>
+            ) : null
+          ) : (
+            <>
+              <View className="flex-row items-center gap-1.5">
+                <Flame size={15} color={colors.ink} fill={colors.ink} />
+                <Text className="text-[14px] text-ink">{meal.calories ?? 0} calories</Text>
+                {showQuality && meal.processing ? (
+                  <Text numberOfLines={1} className="flex-1 text-[13px] text-muted">
+                    · {PROCESSING_LABELS[meal.processing]}
+                  </Text>
+                ) : null}
+              </View>
+              <View className="flex-row gap-4">
+                <MacroValue color={colors.protein} value={meal.proteinG} />
+                <MacroValue color={colors.carbs} value={meal.carbsG} />
+                <MacroValue color={colors.fat} value={meal.fatG} />
+              </View>
+            </>
+          )}
         </View>
       )}
     </Pressable>

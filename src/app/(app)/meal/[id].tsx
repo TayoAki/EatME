@@ -21,6 +21,7 @@ import { ServingsStepper } from '@/components/meal/servings-stepper';
 import { Button } from '@/components/ui/button';
 import { IconButton } from '@/components/ui/icon-button';
 import { Screen } from '@/components/ui/screen';
+import { ShowNumbers } from '@/components/ui/show-numbers';
 import { colors } from '@/constants/colors';
 import { confirm, notify } from '@/lib/confirm';
 import { haptics } from '@/lib/haptics';
@@ -104,7 +105,8 @@ function NumberField({
   );
 }
 
-function MealEditor({ meal }: { meal: Meal }) {
+/** `showNumbers`: false in calm mode until the person taps "Show numbers". */
+function MealEditor({ meal, showNumbers, onShowNumbers }: { meal: Meal; showNumbers: boolean; onShowNumbers: () => void }) {
   const update = useUpdateMeal(meal.id);
   const remove = useDeleteMeal();
   const duplicate = useDuplicateMeal();
@@ -245,27 +247,37 @@ function MealEditor({ meal }: { meal: Meal }) {
           <PortionPicker meal={meal} />
         )}
 
-        <View className="mt-5 rounded-card border border-line px-4 py-2">
-          <NumberField label="Calories" value={calories} onChange={setCalories} />
-          <View className="h-px bg-line" />
-          <NumberField label="Protein" value={protein} onChange={setProtein} unit="g" dot={colors.protein} />
-          <NumberField label="Carbs" value={carbs} onChange={setCarbs} unit="g" dot={colors.carbs} />
-          <NumberField label="Fats" value={fat} onChange={setFat} unit="g" dot={colors.fat} />
-          <NumberField label="Fiber" value={fiber} onChange={setFiber} unit="g" dot={colors.fiber} />
-        </View>
+        {showNumbers ? (
+          <View className="mt-5 rounded-card border border-line px-4 py-2">
+            <NumberField label="Calories" value={calories} onChange={setCalories} />
+            <View className="h-px bg-line" />
+            <NumberField label="Protein" value={protein} onChange={setProtein} unit="g" dot={colors.protein} />
+            <NumberField label="Carbs" value={carbs} onChange={setCarbs} unit="g" dot={colors.carbs} />
+            <NumberField label="Fats" value={fat} onChange={setFat} unit="g" dot={colors.fat} />
+            <NumberField label="Fiber" value={fiber} onChange={setFiber} unit="g" dot={colors.fiber} />
+          </View>
+        ) : (
+          // Calm mode: fiber keeps its number.
+          <View className="mt-5 gap-3">
+            <ShowNumbers onPress={onShowNumbers} />
+            <View className="rounded-card border border-line px-4 py-2">
+              <NumberField label="Fiber" value={fiber} onChange={setFiber} unit="g" dot={colors.fiber} />
+            </View>
+          </View>
+        )}
 
-        {profile?.dailyProteinG ? (
+        {profile?.dailyProteinG && showNumbers ? (
           <View className="mt-4">
             <ProteinHint proteinG={meal.proteinG ?? 0} dailyProteinG={profile.dailyProteinG} />
           </View>
         ) : null}
         {profile?.preferences.foodQualityTag && meal.processing ? (
           <View className="mt-4">
-            <QualityTag meal={meal} />
+            <QualityTag meal={meal} hideSugar={!showNumbers} />
           </View>
         ) : null}
 
-        <FoodsSection meal={meal} />
+        <FoodsSection meal={meal} showNumbers={showNumbers} />
 
         <Button title="Save changes" className="mt-6" loading={update.isPending} onPress={save} />
         <Button
@@ -310,6 +322,10 @@ export default function MealDetailsScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const meal = useMeal(id);
   const loaded = meal.data?.meal;
+  const profile = useProfile();
+  // Kept here (not in the editor, which re-mounts after each change) so the numbers stay shown.
+  const [revealed, setRevealed] = useState(false);
+  const showNumbers = !profile?.preferences.calmMode || revealed;
 
   return (
     <Screen>
@@ -332,7 +348,12 @@ export default function MealDetailsScreen() {
       ) : (
         // Re-mount whenever the meal changes on the server (portion, foods) so the fields show the
         // recalculated numbers instead of stale ones.
-        <MealEditor key={`${meal.data.meal.id}:${meal.data.meal.updatedAt}`} meal={meal.data.meal} />
+        <MealEditor
+          key={`${meal.data.meal.id}:${meal.data.meal.updatedAt}`}
+          meal={meal.data.meal}
+          showNumbers={showNumbers}
+          onShowNumbers={() => setRevealed(true)}
+        />
       )}
     </Screen>
   );

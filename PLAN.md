@@ -574,7 +574,7 @@ added to an earlier day are stored at local noon of that day.
 - [ ] Repeat meals (9.1): save foods as a meal, repeat a meal on chosen days (shown as a
   suggestion to confirm, never logged silently), copy any past day or meal
 - [ ] Steer the AI (8.0): several photos of one meal, plus the tap-to-answer question from §11
-- [ ] Calm mode (7.9): a Preferences switch that hides calorie and macro numbers, neutral
+- [x] Calm mode (7.9): a Preferences switch that hides calorie and macro numbers, neutral
   colours when over a goal, and "days logged" instead of the streak that resets
 - [ ] Barcode fixes (7.9): show where a product's numbers come from; report a wrong product
 - [ ] Personal food memory (7.9): after correcting a food, "Remember this next time?"; when the

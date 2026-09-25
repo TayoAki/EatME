@@ -4,6 +4,7 @@ import { Pressable, Text, View } from 'react-native';
 import { BottomSheet } from '@/components/ui/bottom-sheet';
 import { colors } from '@/constants/colors';
 import { fromIsoDate } from '@/lib/time';
+import { calmFocusMessage } from '@/shared/calm';
 import type { WeeklyInsights } from '@/shared/insights';
 import type { UnitSystem } from '@/shared/onboarding';
 import { formatVolume } from '@/shared/units';
@@ -63,14 +64,21 @@ function Stat({ color, label }: { color: string; label: string }) {
   );
 }
 
-/** "Last 7 days" on Home: calories per day, the week's averages and one neutral suggestion. */
-export function WeeklyCard({ insights, onPress }: { insights: WeeklyInsights; onPress: () => void }) {
+/**
+ * "Last 7 days" on Home: calories per day, the week's averages and one neutral suggestion.
+ * Calm mode keeps the bars and the tip but leaves out the calorie and protein numbers.
+ */
+export function WeeklyCard({ insights, onPress, calm = false }: { insights: WeeklyInsights; onPress: () => void; calm?: boolean }) {
   const { averages } = insights;
   if (!averages) return null;
   return (
     <Pressable
       accessibilityRole="button"
-      accessibilityLabel={`Last 7 days: ${insights.daysLogged} of 7 days logged, ${averages.calories} calories on average. Opens the details.`}
+      accessibilityLabel={
+        calm
+          ? `Last 7 days: ${insights.daysLogged} of 7 days logged. Opens the details.`
+          : `Last 7 days: ${insights.daysLogged} of 7 days logged, ${averages.calories} calories on average. Opens the details.`
+      }
       onPress={onPress}
       className="rounded-card border border-line bg-canvas p-4 active:opacity-80">
       <View className="mb-3 flex-row items-center justify-between">
@@ -82,23 +90,27 @@ export function WeeklyCard({ insights, onPress }: { insights: WeeklyInsights; on
       </View>
       <CalorieBars insights={insights} />
       <View className="mt-3 flex-row flex-wrap gap-x-4 gap-y-1.5">
-        <Stat color={colors.ink} label={`${number(averages.calories)} kcal avg`} />
-        <Stat color={colors.protein} label={`${averages.proteinG} g protein`} />
+        {calm ? null : <Stat color={colors.ink} label={`${number(averages.calories)} kcal avg`} />}
+        {calm ? null : <Stat color={colors.protein} label={`${averages.proteinG} g protein`} />}
         <Stat color={colors.fiber} label={`${averages.fiberG} g fiber`} />
       </View>
       {insights.focus ? (
-        <Text className="mt-3 text-[14px] leading-5 text-ink">{insights.focus.message}</Text>
+        <Text className="mt-3 text-[14px] leading-5 text-ink">
+          {calm ? calmFocusMessage(insights.focus) : insights.focus.message}
+        </Text>
       ) : null}
     </Pressable>
   );
 }
 
-function Row({ label, color, average, goal, format }: {
+function Row({ label, color, average, goal, format, hideNumbers = false }: {
   label: string;
   color: string;
   average: number | null;
   goal: number | null;
   format: (value: number) => string;
+  /** Calm mode: the bar without the numbers. */
+  hideNumbers?: boolean;
 }) {
   const ratio = average !== null && goal ? Math.min(1, average / goal) : 0;
   return (
@@ -108,10 +120,12 @@ function Row({ label, color, average, goal, format }: {
           <View style={{ backgroundColor: color }} className="h-2.5 w-2.5 rounded-full" />
           <Text className="text-[16px] text-ink">{label}</Text>
         </View>
-        <Text className="text-[15px] text-ink">
-          <Text className="font-semibold">{average === null ? '—' : format(average)}</Text>
-          <Text className="text-muted">{goal ? ` / ${format(goal)}` : ''}</Text>
-        </Text>
+        {hideNumbers ? null : (
+          <Text className="text-[15px] text-ink">
+            <Text className="font-semibold">{average === null ? '—' : format(average)}</Text>
+            <Text className="text-muted">{goal ? ` / ${format(goal)}` : ''}</Text>
+          </Text>
+        )}
       </View>
       <View className="mt-2 h-1.5 overflow-hidden rounded-full bg-surface">
         <View style={{ width: `${ratio * 100}%`, backgroundColor: color }} className="h-full rounded-full" />
@@ -126,11 +140,13 @@ export function WeeklySheet({
   onClose,
   insights,
   unit,
+  calm = false,
 }: {
   visible: boolean;
   onClose: () => void;
   insights: WeeklyInsights;
   unit: UnitSystem;
+  calm?: boolean;
 }) {
   const { averages: a, goals } = insights;
   const grams = (value: number) => `${number(value)} g`;
@@ -144,10 +160,10 @@ export function WeeklySheet({
         <CalorieBars insights={insights} height={80} />
       </View>
       <View className="mt-3">
-        <Row label="Calories" color={colors.ink} average={a?.calories ?? null} goal={goals.calories} format={(v) => `${number(v)} kcal`} />
-        <Row label="Protein" color={colors.protein} average={a?.proteinG ?? null} goal={goals.proteinG} format={grams} />
-        <Row label="Carbs" color={colors.carbs} average={a?.carbsG ?? null} goal={goals.carbsG} format={grams} />
-        <Row label="Fats" color={colors.fat} average={a?.fatG ?? null} goal={goals.fatG} format={grams} />
+        <Row label="Calories" color={colors.ink} average={a?.calories ?? null} goal={goals.calories} format={(v) => `${number(v)} kcal`} hideNumbers={calm} />
+        <Row label="Protein" color={colors.protein} average={a?.proteinG ?? null} goal={goals.proteinG} format={grams} hideNumbers={calm} />
+        <Row label="Carbs" color={colors.carbs} average={a?.carbsG ?? null} goal={goals.carbsG} format={grams} hideNumbers={calm} />
+        <Row label="Fats" color={colors.fat} average={a?.fatG ?? null} goal={goals.fatG} format={grams} hideNumbers={calm} />
         <Row label="Fiber" color={colors.fiber} average={a?.fiberG ?? null} goal={goals.fiberG} format={grams} />
         <Row
           label="Water"
@@ -159,7 +175,7 @@ export function WeeklySheet({
       </View>
       {insights.focus ? (
         <View className="mt-3 rounded-2xl bg-surface p-3.5">
-          <Text className="text-[14px] leading-5 text-ink">{insights.focus.message}</Text>
+          <Text className="text-[14px] leading-5 text-ink">{calm ? calmFocusMessage(insights.focus) : insights.focus.message}</Text>
         </View>
       ) : null}
       <Text className="mt-3 text-[12px] leading-4 text-muted">

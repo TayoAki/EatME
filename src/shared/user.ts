@@ -21,6 +21,8 @@ import type { MacroTargets } from './nutrition';
 export type Preferences = {
   /** Food-quality tag on meals (V2 experiment, when the server offers it). */
   foodQualityTag?: boolean;
+  /** Calm mode (v2.1): calorie and macro numbers hidden, neutral colours, days logged instead of a streak. */
+  calmMode?: boolean;
 };
 
 /** Profile returned by `GET /api/me`. */
@@ -67,6 +69,8 @@ export type MeResponse = { user: Profile | null };
 export type StreakResponse = {
   /** Consecutive days (ending today, or yesterday if nothing is logged yet today) with a logged meal. */
   current: number;
+  /** Every day with a logged meal, ever. Calm mode shows this: it never resets. */
+  totalDays: number;
   /** Local dates (YYYY-MM-DD) with at least one logged meal in the last 3 weeks. */
   loggedDates: string[];
   today: string;
@@ -102,7 +106,7 @@ export const updateProfileSchema = z
     dailyCarbsG: z.number().int().min(MACRO_LIMITS.carbsG.min).max(MACRO_LIMITS.carbsG.max).nullable(),
     dailyFatG: z.number().int().min(MACRO_LIMITS.fatG.min).max(MACRO_LIMITS.fatG.max).nullable(),
     /** Merged into the stored preferences. */
-    preferences: z.object({ foodQualityTag: z.boolean() }).partial().strict(),
+    preferences: z.object({ foodQualityTag: z.boolean(), calmMode: z.boolean() }).partial().strict(),
   })
   .partial();
 export type UpdateProfileBody = z.infer<typeof updateProfileSchema>;

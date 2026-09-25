@@ -4,6 +4,7 @@ import { ActivityIndicator, Pressable, ScrollView, Text, TextInput, View } from 
 
 import { BottomSheet } from '@/components/ui/bottom-sheet';
 import { colors } from '@/constants/colors';
+import { useCalmMode } from '@/lib/calm';
 import { cn } from '@/lib/cn';
 import { useFoodSearch } from '@/lib/queries';
 import type { FoodSummary } from '@/shared/meals';
@@ -19,6 +20,8 @@ export function FoodSearchList({ onPick, listHeight }: FoodSearchListProps) {
   const [query, setQuery] = useState('');
   const search = useFoodSearch(query);
   const foods = search.data?.foods ?? [];
+  // Calm mode: food names only, no calorie and macro numbers.
+  const calm = useCalmMode();
   const typed = query.trim().length >= 2;
 
   return (
@@ -54,13 +57,15 @@ export function FoodSearchList({ onPick, listHeight }: FoodSearchListProps) {
             <Pressable
               key={food.id}
               accessibilityRole="button"
-              accessibilityLabel={`${food.description}, ${food.per100g.calories} calories per 100 grams`}
+              accessibilityLabel={calm ? food.description : `${food.description}, ${food.per100g.calories} calories per 100 grams`}
               onPress={() => onPick(food)}
               className="border-b border-line py-3 active:opacity-60">
               <Text className="text-[15px] leading-5 text-ink">{food.description}</Text>
-              <Text className="mt-0.5 text-[13px] text-muted">
-                {food.per100g.calories} kcal · P {food.per100g.proteinG} · C {food.per100g.carbsG} · F {food.per100g.fatG} per 100 g
-              </Text>
+              {calm ? null : (
+                <Text className="mt-0.5 text-[13px] text-muted">
+                  {food.per100g.calories} kcal · P {food.per100g.proteinG} · C {food.per100g.carbsG} · F {food.per100g.fatG} per 100 g
+                </Text>
+              )}
             </Pressable>
           ))
         )}

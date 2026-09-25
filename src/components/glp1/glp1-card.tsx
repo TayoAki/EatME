@@ -6,6 +6,7 @@ import { colors } from '@/constants/colors';
 import { fromIsoDate } from '@/lib/time';
 import type { Glp1Response } from '@/shared/glp1';
 import type { UnitSystem } from '@/shared/onboarding';
+import { calmProgressWord } from '@/shared/calm';
 import { formatVolume } from '@/shared/units';
 
 function FocusBar({ label, value, goal, color, text }: { label: string; value: number; goal: number; color: string; text: string }) {
@@ -32,13 +33,15 @@ type Glp1CardProps = {
   unit: UnitSystem;
   onLogDose: () => void;
   onLogSymptoms: () => void;
+  /** Calm mode: protein shows a word instead of grams. */
+  calm?: boolean;
 };
 
 /**
  * GLP-1 mode on Home: the dose schedule the user entered, and protein, fiber and water first —
  * they protect muscle and keep digestion comfortable while appetite is low.
  */
-export function Glp1Card({ glp1, proteinG, proteinGoalG, fiberG, fiberGoalG, waterMl, waterGoalMl, unit, onLogDose, onLogSymptoms }: Glp1CardProps) {
+export function Glp1Card({ glp1, proteinG, proteinGoalG, fiberG, fiberGoalG, waterMl, waterGoalMl, unit, onLogDose, onLogSymptoms, calm = false }: Glp1CardProps) {
   const settings = glp1.settings;
   if (!settings) return null;
   const Icon = settings.medication === 'semaglutide_tablet' ? Pill : Syringe;
@@ -65,7 +68,7 @@ export function Glp1Card({ glp1, proteinG, proteinGoalG, fiberG, fiberGoalG, wat
         Protein at every meal, fiber and water through the day.
       </Text>
       <View className="mt-3 gap-2">
-        <FocusBar label="Protein" value={proteinG} goal={proteinGoalG} color={colors.protein} text={`${proteinG} / ${proteinGoalG} g`} />
+        <FocusBar label="Protein" value={proteinG} goal={proteinGoalG} color={colors.protein} text={calm ? calmProgressWord(proteinG, proteinGoalG) : `${proteinG} / ${proteinGoalG} g`} />
         <FocusBar label="Fiber" value={fiberG} goal={fiberGoalG} color={colors.fiber} text={`${fiberG} / ${fiberGoalG} g`} />
         <FocusBar
           label="Water"

@@ -44,6 +44,8 @@ export default function HomeScreen() {
 
 function Home({ profile }: { profile: Profile }) {
   const insets = useSafeAreaInsets();
+  // Calm mode (Preferences): words instead of calorie and macro numbers, days logged instead of the streak.
+  const calm = !!profile.preferences.calmMode;
   const [selectedDate, setSelectedDate] = useState(todayIso);
   const [streakOpen, setStreakOpen] = useState(false);
   const [waterOpen, setWaterOpen] = useState(false);
@@ -119,7 +121,12 @@ function Home({ profile }: { profile: Profile }) {
             tintColor={colors.ink}
           />
         }>
-        <HomeHeader streak={streak.data?.current ?? 0} onStreakPress={() => setStreakOpen(true)} />
+        <HomeHeader
+          streak={streak.data?.current ?? 0}
+          daysLogged={streak.data?.totalDays ?? 0}
+          calm={calm}
+          onStreakPress={() => setStreakOpen(true)}
+        />
 
         <View className="mb-4 mt-2">
           <DateStrip selected={selectedDate} onSelect={setSelectedDate} loggedDates={streak.data?.loggedDates ?? []} />
@@ -137,10 +144,11 @@ function Home({ profile }: { profile: Profile }) {
             unit={profile.unitSystem}
             onLogDose={() => setDoseOpen(true)}
             onLogSymptoms={() => setSymptomsOpen(true)}
+            calm={calm}
           />
         ) : null}
 
-        <NutritionSummary consumed={consumed} targets={targets} />
+        <NutritionSummary consumed={consumed} targets={targets} calm={calm} />
         <FiberWaterRow
           fiberG={fiberG}
           fiberGoalG={profile.dailyFiberG}
@@ -180,7 +188,7 @@ function Home({ profile }: { profile: Profile }) {
           ) : list && list.length > 0 ? (
             <View className="gap-3">
               {list.map((meal) => (
-                <MealCard key={meal.id} meal={meal} showQuality={!!profile.preferences.foodQualityTag} />
+                <MealCard key={meal.id} meal={meal} showQuality={!!profile.preferences.foodQualityTag} calm={calm} />
               ))}
             </View>
           ) : (
@@ -211,7 +219,7 @@ function Home({ profile }: { profile: Profile }) {
 
         {isToday && insights ? (
           <View className="mt-7 px-5">
-            <WeeklyCard insights={insights} onPress={() => setWeeklyOpen(true)} />
+            <WeeklyCard insights={insights} onPress={() => setWeeklyOpen(true)} calm={calm} />
           </View>
         ) : null}
       </ScrollView>
@@ -230,6 +238,7 @@ function Home({ profile }: { profile: Profile }) {
           onClose={() => setWeeklyOpen(false)}
           insights={insights}
           unit={profile.unitSystem}
+          calm={calm}
         />
       ) : null}
 
@@ -251,6 +260,8 @@ function Home({ profile }: { profile: Profile }) {
         onClose={() => setStreakOpen(false)}
         streak={streak.data?.current ?? 0}
         loggedDates={streak.data?.loggedDates ?? []}
+        calm={calm}
+        daysLogged={streak.data?.totalDays ?? 0}
       />
     </View>
   );

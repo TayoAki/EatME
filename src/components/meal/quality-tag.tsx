@@ -6,7 +6,14 @@ import { PROCESSING_LABELS, type Meal } from '@/shared/meals';
  * Food-quality tag (V2 experiment, opt-in): how processed the meal is, the AI's one-line reason and
  * the added-sugar estimate. Deliberately neutral — the same grey for every level, no scores.
  */
-export function QualityTag({ meal }: { meal: Pick<Meal, 'processing' | 'processingReason' | 'addedSugarG'> }) {
+export function QualityTag({
+  meal,
+  hideSugar = false,
+}: {
+  meal: Pick<Meal, 'processing' | 'processingReason' | 'addedSugarG'>;
+  /** Calm mode: no grams. */
+  hideSugar?: boolean;
+}) {
   if (!meal.processing) return null;
   return (
     <View className="gap-1.5 rounded-2xl bg-surface p-3.5">
@@ -14,7 +21,7 @@ export function QualityTag({ meal }: { meal: Pick<Meal, 'processing' | 'processi
         <View className="rounded-full border border-line bg-canvas px-3 py-1">
           <Text className="text-[13px] font-semibold text-ink">{PROCESSING_LABELS[meal.processing]}</Text>
         </View>
-        {meal.addedSugarG !== null ? (
+        {meal.addedSugarG !== null && !hideSugar ? (
           <Text className="text-[13px] text-muted">Added sugar about {meal.addedSugarG} g</Text>
         ) : null}
       </View>

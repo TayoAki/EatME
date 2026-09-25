@@ -13,6 +13,7 @@ import { QualityTag } from '@/components/meal/quality-tag';
 import { ServingsStepper } from '@/components/meal/servings-stepper';
 import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/ui/logo';
+import { ShowNumbers } from '@/components/ui/show-numbers';
 import { colors } from '@/constants/colors';
 import { ApiError, useApi } from '@/lib/api';
 import { useSession } from '@/lib/auth-client';
@@ -121,6 +122,9 @@ export function AnalysisView({ input, onScanAnother, onEdit, onDone, bottomSpace
   const { userId } = useSession();
   const profile = useProfile();
   const invalidateMeals = useInvalidateMeals();
+  // Calm mode hides calorie and macro numbers until the person asks for them.
+  const [revealed, setRevealed] = useState(false);
+  const hideNumbers = !!profile?.preferences.calmMode && !revealed;
   const kind = input.kind === 'photo' ? (input.mode === 'label' ? 'label' : 'photo') : input.kind;
   const copy = COPY[kind];
 
@@ -249,16 +253,24 @@ export function AnalysisView({ input, onScanAnother, onEdit, onDone, bottomSpace
           {meal ? (
             <>
               <Text className="text-[26px] font-bold leading-8 tracking-tight text-ink">{meal.name}</Text>
-              <View className="mt-3 flex-row items-end gap-2">
-                <Flame size={30} color={colors.ink} fill={colors.ink} />
-                <Text className="text-[44px] font-bold leading-[48px] tracking-tighter text-ink">{meal.calories}</Text>
-                <Text className="mb-1.5 text-[16px] text-muted">calories</Text>
-              </View>
-              <View className="mt-5 flex-row gap-2.5">
-                <MacroBox label="Protein" value={meal.proteinG} color={colors.protein} />
-                <MacroBox label="Carbs" value={meal.carbsG} color={colors.carbs} />
-                <MacroBox label="Fats" value={meal.fatG} color={colors.fat} />
-              </View>
+              {hideNumbers ? (
+                <View className="mt-3">
+                  <ShowNumbers note="Saved to your day." onPress={() => setRevealed(true)} />
+                </View>
+              ) : (
+                <>
+                  <View className="mt-3 flex-row items-end gap-2">
+                    <Flame size={30} color={colors.ink} fill={colors.ink} />
+                    <Text className="text-[44px] font-bold leading-[48px] tracking-tighter text-ink">{meal.calories}</Text>
+                    <Text className="mb-1.5 text-[16px] text-muted">calories</Text>
+                  </View>
+                  <View className="mt-5 flex-row gap-2.5">
+                    <MacroBox label="Protein" value={meal.proteinG} color={colors.protein} />
+                    <MacroBox label="Carbs" value={meal.carbsG} color={colors.carbs} />
+                    <MacroBox label="Fats" value={meal.fatG} color={colors.fat} />
+                  </View>
+                </>
+              )}
               <View className="mt-4 flex-row items-center gap-2">
                 <View style={{ backgroundColor: colors.fiber }} className="h-2.5 w-2.5 rounded-full" />
                 <Text className="text-[15px] text-ink">Fiber {meal.fiberG ?? 0} g</Text>
@@ -268,14 +280,14 @@ export function AnalysisView({ input, onScanAnother, onEdit, onDone, bottomSpace
                   <ServingsStepper meal={meal} />
                 </View>
               ) : null}
-              {profile?.dailyProteinG ? (
+              {profile?.dailyProteinG && !hideNumbers ? (
                 <View className="mt-4">
                   <ProteinHint proteinG={meal.proteinG ?? 0} dailyProteinG={profile.dailyProteinG} />
                 </View>
               ) : null}
               {profile?.preferences.foodQualityTag && meal.processing ? (
                 <View className="mt-4">
-                  <QualityTag meal={meal} />
+                  <QualityTag meal={meal} hideSugar={hideNumbers} />
                 </View>
               ) : null}
               {meal.confidence === 'low' ? (

@@ -31,10 +31,21 @@ type FoodAmountSheetProps = {
   saveLabel?: string;
   onChangeFood?: () => void;
   onRemove?: () => void;
+  /** Calm mode: no calorie preview. */
+  hideCalories?: boolean;
 };
 
 /** How much of a food: grams, or one of the database's household measures. */
-export function FoodAmountSheet({ draft, saving, onClose, onSave, saveLabel = 'Save', onChangeFood, onRemove }: FoodAmountSheetProps) {
+export function FoodAmountSheet({
+  draft,
+  saving,
+  onClose,
+  onSave,
+  saveLabel = 'Save',
+  onChangeFood,
+  onRemove,
+  hideCalories = false,
+}: FoodAmountSheetProps) {
   const [text, setText] = useState(String(Math.round(draft.grams)));
   const grams = Number(text);
   const valid = Number.isFinite(grams) && grams >= 1 && grams <= 3000;
@@ -64,9 +75,11 @@ export function FoodAmountSheet({ draft, saving, onClose, onSave, saveLabel = 'S
         />
         <Text className="text-[20px] font-semibold text-muted">g</Text>
       </View>
-      <Text className="mt-2 text-center text-[14px] text-muted">
-        {valid ? `${Math.round(grams * draft.kcalPerGram)} kcal` : 'Between 1 and 3,000 g'}
-      </Text>
+      {valid && hideCalories ? null : (
+        <Text className="mt-2 text-center text-[14px] text-muted">
+          {valid ? `${Math.round(grams * draft.kcalPerGram)} kcal` : 'Between 1 and 3,000 g'}
+        </Text>
+      )}
 
       {draft.portions.length > 0 ? (
         <ScrollView horizontal showsHorizontalScrollIndicator={false} className="mt-3" contentContainerClassName="gap-2">

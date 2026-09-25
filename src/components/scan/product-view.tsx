@@ -6,8 +6,10 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Button } from '@/components/ui/button';
 import { Chip } from '@/components/ui/chip';
 import { IconButton } from '@/components/ui/icon-button';
+import { ShowNumbers } from '@/components/ui/show-numbers';
 import { colors } from '@/constants/colors';
 import { ApiError } from '@/lib/api';
+import { useCalmMode } from '@/lib/calm';
 import { useProduct } from '@/lib/queries';
 import { distinctBrand, type Product } from '@/shared/products';
 
@@ -45,6 +47,8 @@ function Message({ icon, title, text, children }: { icon: ReactNode; title: stri
 /** How much of a found product, with its label's numbers for that amount. */
 function ProductAmount({ product, bottomSpace, onLog }: { product: Product; bottomSpace: number; onLog: (grams: number) => void }) {
   const [text, setText] = useState(String(Math.round(product.servingGrams ?? 100)));
+  const [revealed, setRevealed] = useState(false);
+  const hideNumbers = useCalmMode() && !revealed;
   const grams = Number(text);
   const valid = Number.isFinite(grams) && grams >= 1 && grams <= 3000;
   const n = product.nutrients;
@@ -84,16 +88,22 @@ function ProductAmount({ product, bottomSpace, onLog }: { product: Product; bott
         </ScrollView>
 
         <View className="mt-5 rounded-card border border-line p-5">
-          <View className="flex-row items-end gap-2">
-            <Flame size={30} color={colors.ink} fill={colors.ink} />
-            <Text className="text-[44px] font-bold leading-[48px] tracking-tighter text-ink">{at(n.calories)}</Text>
-            <Text className="mb-1.5 text-[16px] text-muted">calories</Text>
-          </View>
-          <View className="mt-5 flex-row gap-2.5">
-            <MacroBox label="Protein" value={at(n.protein)} color={colors.protein} />
-            <MacroBox label="Carbs" value={at(n.carbs)} color={colors.carbs} />
-            <MacroBox label="Fats" value={at(n.fat)} color={colors.fat} />
-          </View>
+          {hideNumbers ? (
+            <ShowNumbers onPress={() => setRevealed(true)} />
+          ) : (
+            <>
+              <View className="flex-row items-end gap-2">
+                <Flame size={30} color={colors.ink} fill={colors.ink} />
+                <Text className="text-[44px] font-bold leading-[48px] tracking-tighter text-ink">{at(n.calories)}</Text>
+                <Text className="mb-1.5 text-[16px] text-muted">calories</Text>
+              </View>
+              <View className="mt-5 flex-row gap-2.5">
+                <MacroBox label="Protein" value={at(n.protein)} color={colors.protein} />
+                <MacroBox label="Carbs" value={at(n.carbs)} color={colors.carbs} />
+                <MacroBox label="Fats" value={at(n.fat)} color={colors.fat} />
+              </View>
+            </>
+          )}
           {n.fiber !== undefined ? (
             <View className="mt-4 flex-row items-center gap-2">
               <View style={{ backgroundColor: colors.fiber }} className="h-2.5 w-2.5 rounded-full" />
@@ -103,7 +113,9 @@ function ProductAmount({ product, bottomSpace, onLog }: { product: Product; bott
         </View>
 
         <Text className="mt-3 px-1 text-[12px] leading-4 text-muted">
-          Per 100 g: {Math.round(n.calories ?? 0)} kcal · protein {n.protein} g · carbs {n.carbs} g · fat {n.fat} g.{' '}
+          {hideNumbers
+            ? ''
+            : `Per 100 g: ${Math.round(n.calories ?? 0)} kcal · protein ${n.protein} g · carbs ${n.carbs} g · fat ${n.fat} g. `}
           {ATTRIBUTION[product.source]}
         </Text>
       </ScrollView>

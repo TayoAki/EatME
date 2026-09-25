@@ -5,6 +5,7 @@ import { ActivityIndicator, ScrollView, Text, View } from 'react-native';
 import { IconButton } from '@/components/ui/icon-button';
 import { Screen } from '@/components/ui/screen';
 import { colors } from '@/constants/colors';
+import { useCalmMode } from '@/lib/calm';
 import { useNutrients } from '@/lib/queries';
 import { addDays, formatDay, fromIsoDate, todayIso, toIsoDate } from '@/lib/time';
 import {
@@ -59,8 +60,13 @@ function Row({ target, value, fromSupplements }: { target: NutrientTarget; value
 }
 
 function Content({ day }: { day: NutrientDay }) {
+  const calm = useCalmMode();
   const targets = new Map(day.targets.map((t) => [t.key, t]));
   const covered = day.calories > 0 ? Math.round((day.coveredCalories / day.calories) * 100) : 0;
+  // Calm mode keeps the share but not the calories behind it.
+  const coverage = calm
+    ? `${covered}% of what you logged`
+    : `${day.coveredCalories.toLocaleString('en-US')} of ${day.calories.toLocaleString('en-US')} kcal (${covered}%)`;
   const totals = addNutrients([day.totals, day.supplements]);
   if (day.meals === 0 && day.supplementNames.length === 0) {
     return <Text className="mt-6 text-center text-[15px] text-muted">No meals logged on this day.</Text>;
@@ -70,7 +76,7 @@ function Content({ day }: { day: NutrientDay }) {
       <View className="rounded-2xl bg-surface p-4">
         <Text className="text-[14px] leading-5 text-ink">
           {day.meals > 0
-            ? `From the foods EatME matched in the USDA database: ${day.coveredCalories.toLocaleString('en-US')} of ${day.calories.toLocaleString('en-US')} kcal (${covered}%). Foods the AI only estimated add no vitamins or minerals, so your real intake is likely higher.`
+            ? `From the foods EatME matched in the USDA database: ${coverage}. Foods the AI only estimated add no vitamins or minerals, so your real intake is likely higher.`
             : 'No meals logged on this day yet — these numbers are your supplements only.'}
           {day.supplementNames.length > 0 ? ` Supplements included: ${day.supplementNames.join(', ')}.` : ''}
         </Text>

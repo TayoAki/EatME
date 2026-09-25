@@ -42,7 +42,8 @@ const draftFromFood = (food: FoodSummary, keep?: FoodDraft): FoodDraft => ({
  * The foods of a meal with their weights. Changing a weight or a food recalculates the meal from
  * the USDA database; packaged products and AI estimates without a database food scale with their weight.
  */
-export function FoodsSection({ meal }: { meal: Meal }) {
+/** `showNumbers`: false in calm mode (grams stay, calories are hidden). */
+export function FoodsSection({ meal, showNumbers = true }: { meal: Meal; showNumbers?: boolean }) {
   const items = meal.items ?? [];
   const update = useUpdateMealItems(meal.id);
   const [editing, setEditing] = useState<FoodDraft | null>(null);
@@ -95,7 +96,9 @@ export function FoodsSection({ meal }: { meal: Meal }) {
           <Pressable
             key={item.id}
             accessibilityRole="button"
-            accessibilityLabel={`${item.name}, ${item.grams} grams, ${item.calories} calories. Edit`}
+            accessibilityLabel={
+              showNumbers ? `${item.name}, ${item.grams} grams, ${item.calories} calories. Edit` : `${item.name}, ${item.grams} grams. Edit`
+            }
             onPress={() => setEditing(draftFromItem(item))}
             className={`min-h-[56px] flex-row items-center gap-3 px-4 py-2.5 active:bg-surface ${index > 0 ? 'border-t border-line' : ''}`}>
             <View className="flex-1">
@@ -107,7 +110,9 @@ export function FoodsSection({ meal }: { meal: Meal }) {
               </Text>
             </View>
             <Text className="text-[14px] text-muted">{item.grams} g</Text>
-            <Text className="w-[64px] text-right text-[15px] font-semibold text-ink">{item.calories} kcal</Text>
+            {showNumbers ? (
+              <Text className="w-[64px] text-right text-[15px] font-semibold text-ink">{item.calories} kcal</Text>
+            ) : null}
           </Pressable>
         ))}
       </View>
@@ -129,6 +134,7 @@ export function FoodsSection({ meal }: { meal: Meal }) {
         <FoodAmountSheet
           key={`${editing.id ?? 'new'}:${editing.foodId}`}
           draft={editing}
+          hideCalories={!showNumbers}
           saving={update.isPending}
           onClose={() => setEditing(null)}
           onSave={(grams) => saveDraft(editing, grams)}

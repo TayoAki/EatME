@@ -5,6 +5,7 @@ import { ActivityIndicator, Pressable, ScrollView, Text, View } from 'react-nati
 
 import { BottomSheet } from '@/components/ui/bottom-sheet';
 import { colors } from '@/constants/colors';
+import { useCalmMode } from '@/lib/calm';
 import { notify } from '@/lib/confirm';
 import { haptics } from '@/lib/haptics';
 import { useDuplicateMeal, useFavorites } from '@/lib/queries';
@@ -16,6 +17,7 @@ export function FavoritesSheet({ visible, onClose }: FavoritesSheetProps) {
   const favorites = useFavorites();
   const duplicate = useDuplicateMeal();
   const list = favorites.data?.meals ?? [];
+  const calm = useCalmMode();
 
   const log = (id: string, name: string | null) =>
     duplicate.mutate(
@@ -55,7 +57,7 @@ export function FavoritesSheet({ visible, onClose }: FavoritesSheetProps) {
                 <Pressable
                   key={meal.id}
                   accessibilityRole="button"
-                  accessibilityLabel={`Log ${meal.name} again, ${meal.calories} calories`}
+                  accessibilityLabel={calm ? `Log ${meal.name} again` : `Log ${meal.name} again, ${meal.calories} calories`}
                   disabled={duplicate.isPending}
                   onPress={() => log(meal.id, meal.name)}
                   className="flex-row items-center gap-3 rounded-[20px] border border-line p-2 active:opacity-70">
@@ -72,9 +74,11 @@ export function FavoritesSheet({ visible, onClose }: FavoritesSheetProps) {
                     <Text numberOfLines={1} className="text-[16px] font-semibold text-ink">
                       {meal.name}
                     </Text>
-                    <Text className="text-[13px] text-muted">
-                      {meal.calories} cal · P {meal.proteinG}g · C {meal.carbsG}g · F {meal.fatG}g
-                    </Text>
+                    {calm ? null : (
+                      <Text className="text-[13px] text-muted">
+                        {meal.calories} cal · P {meal.proteinG}g · C {meal.carbsG}g · F {meal.fatG}g
+                      </Text>
+                    )}
                   </View>
                   {duplicate.isPending && duplicate.variables?.id === meal.id ? (
                     <ActivityIndicator color={colors.ink} />
