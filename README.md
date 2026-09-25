@@ -39,6 +39,25 @@ Photo ──▶ POST /api/meals ──▶ bucket + meal row ("analyzing") ──
             └──────── app polls GET /api/meals/:id ◀── calories + macros saved
 ```
 
+## What it does
+
+- **Log a meal** by photo (AI estimate), nutrition-label photo, a typed or dictated description, a
+  **barcode** (Open Food Facts, USDA Branded Foods fallback) or a **USDA food search** — the last two
+  need no AI. Photos and descriptions are split into foods matched to the USDA FNDDS database, so the
+  numbers (and vitamins and minerals) come from the database where a food matches; grams and foods
+  can be edited.
+- **Daily picture:** calories and macros against a plan built at onboarding (your own goals allowed,
+  with safety floors), fiber and water, a protein hint per meal, weekly insights, **vitamins &
+  minerals** against the DRIs, a **supplements** log with upper-limit notes, **weight** history with a
+  chart.
+- **Habits:** log again, copy yesterday, favourites, portions, reminders (local notifications),
+  GLP-1 mode (dose day, side effects; no dosing advice), Apple Health / Health Connect sync (write
+  only) and an iOS water widget.
+- **Account:** email + password with optional email codes (forgot password, verification), optional
+  Sign in with Apple / Google, and optional EatME Premium (store billing through RevenueCat; free
+  users keep a few AI scans a day and everything else). An opt-in food-quality tag is available as
+  an experiment. Everything optional is off until configured (`GET /api/features`).
+
 ## Setup
 
 You need Node.js 22+, and Xcode (iOS) or Android Studio — or an [EAS](https://expo.dev/eas) account to
@@ -77,8 +96,9 @@ The app then uses the live Railway server (sign-in, AI, photos) and needs nothin
 Signing in from Expo Go needs `ALLOW_EXPO_GO=true` on the Railway server (already set).
 
 Everything works in Expo Go except the parts that need native code EatME brings along: **Apple
-Health / Health Connect sync** and the **iOS water widget** (Profile → Health apps explains this in
-the app). Reminders do work in Expo Go.
+Health / Health Connect sync**, the **iOS water widget**, **Sign in with Apple / Google** and
+**Premium purchases** (Profile → Health apps explains this in the app). Reminders and barcode
+scanning do work in Expo Go.
 
 For the full app (its own icon, Sentry crash reports, Health sync, the widget) use a **development build**:
 
@@ -103,8 +123,10 @@ scanning? `npm run db:seed -- --email you@example.com` adds two weeks of sample 
 Before submitting to the App Store: **Delete account** is in Profile, the Privacy Policy / Terms links
 work, the placeholders in `legal/` are filled in, App Review gets a test email + password, and the
 Railway variable `ALLOW_EXPO_GO` (lets Expo Go sign in while testing) is removed. The App ID needs the
-HealthKit, App Groups (widget) and Push Notifications capabilities (EAS sets them from the entitlements);
-Google Play needs the Health Connect declaration for writing nutrition and hydration.
+HealthKit, App Groups (widget), Sign in with Apple and Push Notifications capabilities (EAS sets them from
+the entitlements); Google Play needs the Health Connect declaration for writing nutrition and hydration.
+Optional services (email codes, Apple / Google sign-in, Premium, the food-quality experiment) each have
+their variables in `.env.example` and a checklist item in `PLAN.md` §10.
 
 ## Scripts
 
