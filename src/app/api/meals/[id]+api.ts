@@ -5,6 +5,7 @@ import { db } from '@/db';
 import { meals } from '@/db/schema';
 import { requireUserId } from '@/lib/server/auth';
 import { toMeal } from '@/lib/server/dto';
+import { toMealWithItems } from '@/lib/server/meal-items';
 import { handle, HttpError, readJson } from '@/lib/server/http';
 import { resumeStalledAnalyses } from '@/lib/server/meal-analysis';
 import { mealChanges } from '@/lib/server/meal-values';
@@ -27,14 +28,15 @@ async function findMeal(userId: string, id: string) {
   return meal;
 }
 
-/** One meal. The scan screen polls this while the photo is analyzed. */
+/** One meal with its foods. The scan screen polls this while the photo is analyzed. */
 export const GET = handle<Params>(async (request, { id }) => {
   const userId = await requireUserId(request);
   const meal = await findMeal(userId, id);
   if (meal.status === 'analyzing') {
     void resumeStalledAnalyses(userId).catch((error: unknown) => console.error('[meals] resume failed', error));
+    return Response.json({ meal: await toMeal(meal) });
   }
-  return Response.json({ meal: await toMeal(meal) });
+  return Response.json({ meal: await toMealWithItems(meal) });
 });
 
 /** Manual corrections of the AI estimate, favourites and portion size. */
@@ -47,9 +49,9 @@ export const PATCH = handle<Params>(async (request, { id }) => {
   if (meal.status !== 'completed') throw new HttpError(409, 'This meal is still being analyzed');
 
   const update = mealChanges(meal, changes);
-  if (Object.keys(update).length === 0) return Response.json({ meal: await toMeal(meal) });
+  if (Object.keys(update).length === 0) return Response.json({ meal: await toMealWithItems(meal) });
   const [saved] = await db.update(meals).set(update).where(eq(meals.id, meal.id)).returning();
-  return Response.json({ meal: await toMeal(saved) });
+  return Response.json({ meal: await toMealWithItems(saved) });
 });
 
 export const DELETE = handle<Params>(async (request, { id }) => {

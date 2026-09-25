@@ -121,8 +121,14 @@ Welcome ──Get started──▶ Onboarding questions ──▶ Building your 
 **Meal (modal)**
 - Photo (or the description of a text meal), name, the note, portion chips (½× 1× 1½× 2×,
   scaled from the stored unrounded values so there is no drift) or a servings stepper for
-  labels, editable calories, macros and fiber, the protein hint, favourite star, `Log
-  again today`, `Delete meal`.
+  labels, editable calories, macros and fiber, the protein hint, **Foods** (V2: each food
+  with its USDA database name, grams and calories; tap to change the grams — household
+  measures offered — or the food, remove it, or add a food from the database search; the
+  meal is recalculated), favourite star, `Log again today`, `Delete meal`.
+
+**Vitamins & minerals** (V2, from Home or a meal): the day's totals from the database foods
+against the DRI targets for the user's age and sex (limits for sodium, saturated fat and
+caffeine), with how many of the day's calories the database covers.
 
 **Profile**
 - User card, Account section (Personal details — editable, Daily goals — calories and
@@ -162,6 +168,15 @@ a photo's note), `serving_size` (labels), `image_key` (bucket key
 
 **water_logs** — `id`, `user_id` (cascade delete), `amount_ml` (1–2,000), `logged_at`.
 
+**foods** — USDA FNDDS 2021–2023 (5,432 foods): `id` (FoodData Central id), `code`,
+`description`, `category`, `nutrients` (33 nutrients per 100 g), `portions` (household
+measures), `version`; full-text index on the description. Loaded from `data/fndds.json.gz`
+when the server starts (`server/foods.mjs`; rebuild the file with `npm run foods:build`).
+
+**meal_items** — `meal_id` (cascade), `position`, `name`, `food_id` (→ foods, empty = the
+AI's estimate), `grams`, `nutrients`; **meals.nutrients** (every nutrient for a portion of 1)
+and **meals.matched_share** (share of calories from database foods).
+
 **users.glp1** (jsonb: medicine, weekly/daily, dose weekday; empty = off), **dose_logs**
 (`taken_at`, the user's own `dose_label`, injection `site`, `note`) and **symptom_logs**
 (`logged_at`, `symptoms[]`, `severity` 1–3, `note`), both cascade-deleted.
@@ -188,6 +203,9 @@ added to an earlier day are stored at local noon of that day.
 | `GET/PUT/DELETE /api/glp1` | session | GLP-1 mode: settings, recent doses and side effects, next dose / turn on, change or off / off + delete the history |
 | `POST /api/glp1/doses`, `DELETE /api/glp1/doses/:id` | session | Log or remove a dose |
 | `POST /api/glp1/symptoms`, `DELETE /api/glp1/symptoms/:id` | session | Log or remove side effects |
+| `GET /api/foods?q=` | session | USDA food search (as you type) |
+| `PUT /api/meals/:id/items` | session | Edit a meal's foods and grams; every number is recalculated |
+| `GET /api/nutrients?date=` | session | A day's vitamins and minerals, coverage and DRI targets |
 | `GET /api/insights/weekly` | session | The last 7 complete days: totals per day, averages, goals, one suggestion |
 | `GET /api/streak` | session | Current streak + logged days |
 | `GET /api/health` | public | Railway health check |
@@ -197,7 +215,12 @@ added to an earlier day are stored at local noon of that day.
   Mifflin-St Jeor formula, so onboarding never gets stuck.
 - `meal-analysis.ts` — photo from the bucket → vision model (low detail) → structured
   nutrition; labels are read at high detail with their own prompt; descriptions go to the
-  text model. Notes and descriptions are passed as information, never as instructions. A lease (`analysis_started_at`) makes sure only one attempt runs per meal;
+  text model. Notes and descriptions are passed as information, never as instructions.
+- `food-match.ts` (V2 split pipeline) — the AI lists each food with grams and a database-style
+  name; full-text search finds up to 10 FNDDS candidates per food; a second, text-only AI
+  call picks the matching entry (or none); the database does the math. A food without a
+  plausible match (more than 3× off the AI's own estimate) keeps the estimate. Vitamins and
+  minerals only come from matched foods. A lease (`analysis_started_at`) makes sure only one attempt runs per meal;
   stale leases are picked up again when the app loads meals.
 
 ### Railway
@@ -323,7 +346,7 @@ added to an earlier day are stored at local noon of that day.
   estimate, meal time as context
 - [x] Save the AI's confidence on each meal; show "rough estimate" when it is low
 - [ ] Ask one tap-to-answer question when it matters (portion, oil or butter, filling)
-- [ ] Split pipeline in V2: the AI lists foods and grams, the USDA database does the math (§15)
+- [x] Split pipeline in V2: the AI lists foods and grams, the USDA database does the math (§15)
 
 **Data sources (free to start; checked September 2026)**
 - Nutrition math: USDA FoodData Central (public domain, CC0): Foundation Foods and SR
@@ -379,8 +402,9 @@ added to an earlier day are stored at local noon of that day.
   water first; no dosing advice (6.6)
 
 ### 15 · V2
-- [ ] Food-database pipeline (USDA FNDDS: 5,432 foods, 65 nutrients each): vitamins and
-  minerals, editable foods and grams, the same food always gives the same numbers (6.7)
+- [x] Food-database pipeline (USDA FNDDS: 5,432 foods, 65 nutrients each): vitamins and
+  minerals, editable foods and grams, the same food always gives the same numbers (6.7).
+  33 of the 65 nutrients are kept; real-AI check: the test photos match 100% of calories.
 - [ ] Supplements log (6.7)
 - [ ] Barcode scanning (Open Food Facts) and food search
 - [ ] Weight history and a progress chart

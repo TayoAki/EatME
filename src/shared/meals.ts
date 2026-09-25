@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+import type { NutrientAmounts } from './nutrients';
+
 /** `not_food`: the AI decided the photo is not a meal (the photo is deleted, the row is kept). */
 export const MEAL_STATUSES = ['analyzing', 'completed', 'failed', 'not_food'] as const;
 export type MealStatus = (typeof MEAL_STATUSES)[number];
@@ -35,6 +37,12 @@ export type Meal = {
   note: string | null;
   /** Nutrition labels: the serving the label's numbers are for, e.g. "1 bar (40 g)". */
   servingSize: string | null;
+  /** Every nutrient for the logged portion, from the foods matched in the USDA database. */
+  nutrients: NutrientAmounts | null;
+  /** Share of the calories from database foods (0–1); null when the meal has no food list. */
+  matchedShare: number | null;
+  /** The foods of the meal (only on `GET /api/meals/:id`), for the logged portion. */
+  items?: MealItem[];
   /** Short-lived signed link to the photo in the storage bucket. */
   imageUrl: string | null;
   /** Why the analysis failed, or why the photo is not food. */
@@ -45,8 +53,65 @@ export type Meal = {
   updatedAt: string;
 };
 
-/** Structured output the vision model must return for a meal photo. */
-export const mealAnalysisSchema = z.object({
+/** A food of a meal. `foodId` points to the USDA database; null = the AI's own estimate. */
+export type MealItem = {
+  id: string;
+  name: string;
+  foodId: number | null;
+  /** The database description, e.g. "Pasta, cooked". */
+  foodName: string | null;
+  grams: number;
+  calories: number;
+  proteinG: number;
+  carbsG: number;
+  fatG: number;
+  fiberG: number | null;
+  /** Household measures of the database food, e.g. [["1 cup", 140]]. */
+  portions: [string, number][];
+};
+
+/** A food from the USDA database, as search returns it. Nutrients per 100 g. */
+export type FoodSummary = {
+  id: number;
+  description: string;
+  category: string | null;
+  per100g: { calories: number; proteinG: number; carbsG: number; fatG: number; fiberG: number | null };
+  /** Household measures: [label, grams]. */
+  portions: [string, number][];
+};
+
+/** Body of `PUT /api/meals/:id/items`: the meal's foods after editing (grams as logged). */
+export const updateMealItemsSchema = z.object({
+  items: z
+    .array(
+      z.object({
+        /** An existing item (its AI estimate can be rescaled) — or a new food from the database. */
+        id: z.string().uuid().optional(),
+        foodId: z.number().int().positive().nullable(),
+        name: z.string().trim().min(1).max(80),
+        grams: z.number().min(1).max(3000),
+      }),
+    )
+    .min(1)
+    .max(30),
+});
+export type UpdateMealItemsBody = z.infer<typeof updateMealItemsSchema>;
+
+/** One food of a meal as the AI sees it: its weight, how a food database would call it, its own estimate. */
+export const aiMealItemSchema = z.object({
+  name: z.string().max(80),
+  food: z.string().max(160),
+  grams: z.number().min(0).max(3000),
+  calories: z.number().min(0).max(5000),
+  proteinG: z.number().min(0).max(500),
+  carbsG: z.number().min(0).max(1000),
+  fatG: z.number().min(0).max(500),
+  fiberG: z.number().min(0).max(200),
+});
+export type AiMealItem = z.infer<typeof aiMealItemSchema>;
+
+/** Totals the model returns for a meal photo, a description or a nutrition label. */
+const mealTotalsSchema = z.object({
   isFood: z.boolean(),
   name: z.string().max(80),
   calories: z.number().min(0).max(5000),
@@ -57,10 +122,15 @@ export const mealAnalysisSchema = z.object({
   confidence: z.enum(MEAL_CONFIDENCES),
   notFoodReason: z.string().max(200).nullable(),
 });
+
+/** Structured output for a meal photo or description: totals plus the foods it is made of. */
+export const mealAnalysisSchema = mealTotalsSchema.extend({
+  items: z.array(aiMealItemSchema).max(20),
+});
 export type MealAnalysis = z.infer<typeof mealAnalysisSchema>;
 
 /** The same for a nutrition-facts label: values for one serving as printed. */
-export const labelAnalysisSchema = mealAnalysisSchema.extend({
+export const labelAnalysisSchema = mealTotalsSchema.extend({
   servingSize: z.string().max(80).nullable(),
 });
 export type LabelAnalysis = z.infer<typeof labelAnalysisSchema>;

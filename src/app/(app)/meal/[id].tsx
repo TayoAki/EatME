@@ -14,6 +14,7 @@ import {
 } from 'react-native';
 
 import { ErrorScreen } from '@/components/full-screen-state';
+import { FoodsSection } from '@/components/meal/foods-section';
 import { ProteinHint } from '@/components/meal/protein-hint';
 import { ServingsStepper } from '@/components/meal/servings-stepper';
 import { Button } from '@/components/ui/button';
@@ -240,6 +241,8 @@ function MealEditor({ meal }: { meal: Meal }) {
           </View>
         ) : null}
 
+        <FoodsSection meal={meal} />
+
         <Button title="Save changes" className="mt-6" loading={update.isPending} onPress={save} />
         <Button
           title="Log again today"
@@ -303,8 +306,9 @@ export default function MealDetailsScreen() {
           secondaryAction={{ label: 'Close', onPress: () => router.back() }}
         />
       ) : (
-        // Re-mount when the portion changes so the fields show the rescaled numbers.
-        <MealEditor key={`${meal.data.meal.id}:${meal.data.meal.portion}`} meal={meal.data.meal} />
+        // Re-mount whenever the meal changes on the server (portion, foods) so the fields show the
+        // recalculated numbers instead of stale ones.
+        <MealEditor key={`${meal.data.meal.id}:${meal.data.meal.updatedAt}`} meal={meal.data.meal} />
       )}
     </Screen>
   );

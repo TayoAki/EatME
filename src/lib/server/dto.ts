@@ -1,6 +1,7 @@
-import type { DoseLogRow, MealRow, SymptomLogRow, User, WaterLogRow } from '@/db/schema';
+import type { DoseLogRow, FoodRow, MealItemRow, MealRow, SymptomLogRow, User, WaterLogRow } from '@/db/schema';
 import type { DoseLog, Severity, SymptomLog } from '@/shared/glp1';
-import type { Meal } from '@/shared/meals';
+import type { FoodSummary, Meal, MealItem } from '@/shared/meals';
+import { scaleNutrients } from '@/shared/nutrients';
 import { ageFromDateOfBirth, recommendedFiberG, recommendedWaterMl } from '@/shared/nutrition';
 import type { Profile } from '@/shared/user';
 import type { WaterEntry } from '@/shared/water';
@@ -58,6 +59,8 @@ export async function toMeal(meal: MealRow): Promise<Meal> {
     portion: meal.portion,
     note: meal.note,
     servingSize: meal.servingSize,
+    nutrients: meal.nutrients ? scaleNutrients(meal.nutrients, meal.portion) : null,
+    matchedShare: meal.matchedShare,
     imageUrl: meal.imageKey ? await signedGetUrl(meal.imageKey) : null,
     error: meal.error,
     loggedAt: meal.loggedAt.toISOString(),
@@ -81,5 +84,46 @@ export function toSymptomLog(row: SymptomLogRow): SymptomLog {
     symptoms: row.symptoms,
     severity: row.severity as Severity,
     note: row.note,
+  };
+}
+
+/** A meal food for the logged portion (items are stored for a portion of 1). */
+export function toMealItem(
+  item: MealItemRow,
+  portion: number,
+  food: { description: string; portions: [string, number][] } | null,
+): MealItem {
+  const n = scaleNutrients(item.nutrients, portion);
+  const round = (value: number | undefined) => Math.round(value ?? 0);
+  return {
+    id: item.id,
+    name: item.name,
+    foodId: item.foodId,
+    foodName: food?.description ?? null,
+    grams: Math.round(item.grams * portion),
+    calories: round(n.calories),
+    proteinG: round(n.protein),
+    carbsG: round(n.carbs),
+    fatG: round(n.fat),
+    fiberG: n.fiber === undefined ? null : round(n.fiber),
+    portions: food?.portions ?? [],
+  };
+}
+
+export function toFoodSummary(food: FoodRow): FoodSummary {
+  const n = food.nutrients;
+  const round1 = (value: number | undefined) => Math.round((value ?? 0) * 10) / 10;
+  return {
+    id: food.id,
+    description: food.description,
+    category: food.category,
+    per100g: {
+      calories: Math.round(n.calories ?? 0),
+      proteinG: round1(n.protein),
+      carbsG: round1(n.carbs),
+      fatG: round1(n.fat),
+      fiberG: n.fiber === undefined ? null : round1(n.fiber),
+    },
+    portions: food.portions,
   };
 }

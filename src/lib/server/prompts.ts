@@ -37,9 +37,11 @@ Rules:
 - Round calories to the nearest 5 and macros to whole grams. protein × 4 + carbs × 4 + fat × 9 should be within 10% of the calories.
 - fiberG: grams of dietary fiber. It comes from vegetables, fruit, legumes, nuts, seeds and whole grains; refined grains, meat, fish, eggs, dairy and oils have little or none. Fiber is part of the carbs, so it can never be more than carbsG.
 - confidence: "high" when the dish and portion are clear, "medium" when parts are hidden or ambiguous, "low" when you are unsure.
+- items: every food and drink as it was eaten, one entry each, at most 12 (e.g. spaghetti bolognese = cooked pasta, meat sauce, grated parmesan). List cooking oil, butter, dressings and sauces as their own items when they are visible or typical for the dish. For each item give name (short and natural, e.g. "Spaghetti"), food (the closest generic entry of the USDA FNDDS food database, which has no brands or café names: e.g. "Pasta, cooked", "Spaghetti sauce with meat", "Cheese, Parmesan, grated", "Chicken breast, grilled, skin not eaten"; a flat white is "Coffee, Latte", sourdough is "Bread, French or Vienna"), grams (weight as eaten) and its own calories, proteinG, carbsG, fatG and fiberG. The items add up to the totals. When the photo is not food, items is empty.
 - notFoodReason must be null when isFood is true.`;
 
-export const MEAL_JSON_SCHEMA = {
+/** Totals shared by meal photos, descriptions and nutrition labels. */
+const MEAL_TOTALS_SCHEMA = {
   type: 'object',
   additionalProperties: false,
   required: ['isFood', 'name', 'calories', 'proteinG', 'carbsG', 'fatG', 'fiberG', 'confidence', 'notFoodReason'],
@@ -56,6 +58,33 @@ export const MEAL_JSON_SCHEMA = {
   },
 } as const;
 
+export const MEAL_JSON_SCHEMA = {
+  ...MEAL_TOTALS_SCHEMA,
+  required: [...MEAL_TOTALS_SCHEMA.required, 'items'],
+  properties: {
+    ...MEAL_TOTALS_SCHEMA.properties,
+    items: {
+      type: 'array',
+      description: 'Each food and drink with its weight and its own estimate',
+      items: {
+        type: 'object',
+        additionalProperties: false,
+        required: ['name', 'food', 'grams', 'calories', 'proteinG', 'carbsG', 'fatG', 'fiberG'],
+        properties: {
+          name: { type: 'string' },
+          food: { type: 'string', description: 'How the USDA food database would describe it' },
+          grams: { type: 'number' },
+          calories: { type: 'number' },
+          proteinG: { type: 'number' },
+          carbsG: { type: 'number' },
+          fatG: { type: 'number' },
+          fiberG: { type: 'number' },
+        },
+      },
+    },
+  },
+} as const;
+
 export const MEAL_TEXT_SYSTEM_PROMPT = `You are a nutritionist estimating a meal from the person's own description (typed or dictated).
 
 Rules:
@@ -64,6 +93,7 @@ Rules:
 - Otherwise give the meal a short, natural name (at most 5 words) and estimate the total calories and grams of protein, carbs, fat and fiber for everything described. Use the quantities given; when none are given, assume one typical adult portion. Count cooking oil, butter, sauces and drinks when they are mentioned or clearly implied (e.g. "fried").
 - Round calories to the nearest 5 and macros to whole grams. protein × 4 + carbs × 4 + fat × 9 should be within 10% of the calories. Fiber is part of the carbs, so it can never be more than carbsG.
 - confidence: "high" when amounts are specific (e.g. "150 g chicken breast", "2 eggs"), "medium" when you had to assume typical portions, "low" when the description is vague (e.g. "some pasta").
+- items: every food and drink as it was eaten, one entry each, at most 12 (e.g. spaghetti bolognese = cooked pasta, meat sauce, grated parmesan). List cooking oil, butter, dressings and sauces as their own items when they are visible or typical for the dish. For each item give name (short and natural, e.g. "Spaghetti"), food (the closest generic entry of the USDA FNDDS food database, which has no brands or café names: e.g. "Pasta, cooked", "Spaghetti sauce with meat", "Cheese, Parmesan, grated", "Chicken breast, grilled, skin not eaten"; a flat white is "Coffee, Latte", sourdough is "Bread, French or Vienna"), grams (weight as eaten) and its own calories, proteinG, carbsG, fatG and fiberG. The items add up to the totals. When it is not food, items is empty.
 - notFoodReason must be null when isFood is true.`;
 
 /** Instruction sent with a photo that has a note. */
@@ -82,10 +112,37 @@ Rules:
 - notFoodReason must be null when isFood is true.`;
 
 export const LABEL_JSON_SCHEMA = {
-  ...MEAL_JSON_SCHEMA,
-  required: [...MEAL_JSON_SCHEMA.required, 'servingSize'],
+  ...MEAL_TOTALS_SCHEMA,
+  required: [...MEAL_TOTALS_SCHEMA.required, 'servingSize'],
   properties: {
-    ...MEAL_JSON_SCHEMA.properties,
+    ...MEAL_TOTALS_SCHEMA.properties,
     servingSize: { type: ['string', 'null'], description: 'The serving the values are for, as printed' },
+  },
+} as const;
+
+export const FOOD_MATCH_SYSTEM_PROMPT = `You match the foods of a meal to entries of the USDA food database (FNDDS).
+
+Rules:
+- For each item, pick the candidate that is the same food with the closest preparation (cooked vs raw, fried vs grilled, with or without skin, sweetened or not). Prefer a plain or "NFS" entry when the preparation is unknown.
+- Only use an id from that item's own candidate list. Use null when no candidate is the same food: a similar-sounding but different food (e.g. "Pasta sauce" for pasta) is worse than null.
+- Answer for every item, in order.`;
+
+export const FOOD_MATCH_JSON_SCHEMA = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['matches'],
+  properties: {
+    matches: {
+      type: 'array',
+      items: {
+        type: 'object',
+        additionalProperties: false,
+        required: ['item', 'fdcId'],
+        properties: {
+          item: { type: 'integer', description: 'Item number from the list' },
+          fdcId: { type: ['integer', 'null'], description: 'Chosen candidate id, or null' },
+        },
+      },
+    },
   },
 } as const;

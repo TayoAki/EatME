@@ -1,6 +1,7 @@
-import { Camera, Copy } from 'lucide-react-native';
+import { router } from 'expo-router';
+import { Camera, ChevronRight, Copy } from 'lucide-react-native';
 import { useMemo, useState } from 'react';
-import { ActivityIndicator, RefreshControl, ScrollView, Text, View } from 'react-native';
+import { ActivityIndicator, Pressable, RefreshControl, ScrollView, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { DoseSheet } from '@/components/glp1/dose-sheet';
@@ -81,6 +82,7 @@ function Home({ profile }: { profile: Profile }) {
   const fiberG = (list ?? []).reduce((sum, m) => sum + (m.status === 'completed' ? (m.fiberG ?? 0) : 0), 0);
 
   const isToday = selectedDate === todayIso();
+  const hasNutrients = (list ?? []).some((m) => m.status === 'completed' && (m.matchedShare ?? 0) > 0);
   const canCopyYesterday =
     isToday && list?.length === 0 && (yesterdayMeals.data?.meals.some((m) => m.status === 'completed') ?? false);
 
@@ -142,6 +144,15 @@ function Home({ profile }: { profile: Profile }) {
           onAddWater={(ml) => addWater.mutate(ml, { onError: (error) => notify("We couldn't log that drink", error.message) })}
           onOpenWater={() => setWaterOpen(true)}
         />
+        {hasNutrients ? (
+          <Pressable
+            accessibilityRole="link"
+            onPress={() => router.push({ pathname: '/nutrients', params: { date: selectedDate } })}
+            className="mx-5 mt-3 flex-row items-center justify-between rounded-[20px] border border-line px-4 py-3 active:bg-surface">
+            <Text className="text-[15px] font-semibold text-ink">Vitamins & minerals</Text>
+            <ChevronRight size={18} color={colors.faint} />
+          </Pressable>
+        ) : null}
 
         <View className="mt-7 px-5">
           <Text accessibilityRole="header" className="mb-3 text-[20px] font-bold tracking-tight text-ink">

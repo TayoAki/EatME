@@ -12,6 +12,8 @@ import { drizzle } from 'drizzle-orm/node-postgres';
 import { migrate } from 'drizzle-orm/node-postgres/migrator';
 import pg from 'pg';
 
+import { loadFoods } from './foods.mjs';
+
 // expo-server's ESM build uses extensionless imports that Node cannot load; its CommonJS build works.
 const { createRequestHandler } = createRequire(import.meta.url)('expo-server/adapter/http');
 
@@ -28,6 +30,13 @@ async function runMigrations() {
   try {
     await migrate(drizzle(pool), { migrationsFolder: path.join(root, 'drizzle') });
     console.log('[server] database schema is up to date');
+    // The food database (USDA FNDDS) for meal analysis; a failure only turns matching off.
+    try {
+      const foods = await loadFoods(pool);
+      console.log(`[server] foods ${foods.loaded ? 'loaded' : 'up to date'}: ${foods.count} (${foods.version})`);
+    } catch (error) {
+      console.error('[server] could not load the food database', error);
+    }
   } finally {
     await pool.end();
   }

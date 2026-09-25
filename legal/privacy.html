@@ -351,6 +351,12 @@
             When you describe a meal in words, our server sends your description (without your name or email address)
             to an AI language model through OpenRouter, which returns the same kind of estimate as for a photo.
           </p>
+          <p>
+            The AI also lists the foods it sees with their weight. To look them up in the USDA food database (a public
+            database stored on our server), our server sends those food names and weights, together with database
+            entries that could match, to an AI language model through OpenRouter, which picks the matching entries. No
+            photo, name or other account information is included in that request.
+          </p>
 
           <h3>What the AI providers do with your data</h3>
           <p>

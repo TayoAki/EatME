@@ -5,6 +5,7 @@ import { meals, type MealRow } from '@/db/schema';
 import { scaleNutrition, type BaseNutrition, type UpdateMealBody } from '@/shared/meals';
 
 import { HttpError } from './http';
+import { copyItems } from './meal-items';
 import { getObject, mealPhotoKey, putObject } from './storage';
 
 const NUMBER_FIELDS = ['calories', 'proteinG', 'carbsG', 'fatG', 'fiberG'] as const;
@@ -87,9 +88,12 @@ export async function copyMeal(meal: MealRow, loggedAt: Date | SQL) {
       baseNutrition: currentBase(meal),
       note: meal.note,
       servingSize: meal.servingSize,
+      nutrients: meal.nutrients,
+      matchedShare: meal.matchedShare,
       imageKey,
       loggedAt,
     })
     .returning();
+  await copyItems(meal.id, copy.id);
   return copy;
 }

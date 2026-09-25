@@ -12,9 +12,11 @@ import {
   timestamp,
   uuid,
 } from 'drizzle-orm/pg-core';
+import { sql } from 'drizzle-orm';
 
 import { MEAL_CONFIDENCES, MEAL_SOURCES, MEAL_STATUSES, type BaseNutrition } from '@/shared/meals';
 import { INJECTION_SITES, type Glp1Settings, type Symptom } from '@/shared/glp1';
+import type { NutrientAmounts } from '@/shared/nutrients';
 import type { MacroTargets } from '@/shared/nutrition';
 import { ACTIVITY_LEVELS, DIETS, GENDERS, GOALS, PLAN_SOURCES, UNIT_SYSTEMS } from '@/shared/onboarding';
 
@@ -163,6 +165,10 @@ export const meals = pgTable(
     note: text(),
     /** Nutrition labels: the serving the numbers are for, e.g. "1 bar (40 g)". */
     servingSize: text(),
+    /** Every nutrient of the meal for a portion of 1, from the foods matched in the database. */
+    nutrients: jsonb().$type<NutrientAmounts>(),
+    /** Share of the calories that come from database foods (0–1); the rest is the AI's estimate. */
+    matchedShare: doublePrecision(),
     /** Key of the photo in the storage bucket: meals/<userId>/<mealId>.jpg */
     imageKey: text(),
     /** Start of the running analysis. An old value means the server stopped mid-way: retry. */
@@ -194,6 +200,49 @@ export const waterLogs = pgTable(
 export type User = typeof users.$inferSelect;
 export type NewUser = typeof users.$inferInsert;
 export type MealRow = typeof meals.$inferSelect;
+
+/**
+ * USDA FNDDS foods (loaded by server/foods.mjs from data/fndds.json.gz). Nutrients are per 100 g.
+ * `id` is the FoodData Central id.
+ */
+export const foods = pgTable(
+  'foods',
+  {
+    id: integer().primaryKey(),
+    code: text().notNull(),
+    description: text().notNull(),
+    category: text(),
+    nutrients: jsonb().$type<NutrientAmounts>().notNull(),
+    /** Household measures, e.g. [["1 cup", 246]]. */
+    portions: jsonb().$type<[string, number][]>().notNull(),
+    version: text().notNull(),
+  },
+  (t) => [index('foods_description_search_idx').using('gin', sql`to_tsvector('english', ${t.description})`)],
+);
+
+/** The foods in a meal with their weight: from the AI (matched to `foods`) or edited by the user. */
+export const mealItems = pgTable(
+  'meal_items',
+  {
+    id: uuid().primaryKey().defaultRandom(),
+    mealId: uuid()
+      .notNull()
+      .references(() => meals.id, { onDelete: 'cascade' }),
+    position: integer().notNull(),
+    /** What the item is called in the app ("Spaghetti"). */
+    name: text().notNull(),
+    /** The database food; empty = the AI's own estimate for this item. */
+    foodId: integer().references(() => foods.id, { onDelete: 'set null' }),
+    grams: doublePrecision().notNull(),
+    /** Nutrients of this item at `grams`. */
+    nutrients: jsonb().$type<NutrientAmounts>().notNull(),
+    ...timestamps,
+  },
+  (t) => [index('meal_items_meal_id_idx').on(t.mealId)],
+);
+
+export type FoodRow = typeof foods.$inferSelect;
+export type MealItemRow = typeof mealItems.$inferSelect;
 
 /** GLP-1 mode: doses as the user logged them (their own label, never a suggestion). */
 export const doseLogs = pgTable(

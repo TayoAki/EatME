@@ -60,7 +60,8 @@ cp .env.example .env
    `BETTER_AUTH_URL=http://localhost:8081`.
 4. **Sentry** (optional) — `EXPO_PUBLIC_SENTRY_DSN` from a *React Native* project.
 
-The server creates the database tables itself when it starts; to do it by hand run `npm run db:migrate`.
+The server creates the database tables and loads the USDA food database (`data/fndds.json.gz`) itself
+when it starts; to do it by hand run `npm run db:migrate` and `npm run db:foods`.
 
 ## Run it
 

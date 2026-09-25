@@ -2,7 +2,8 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 import type { AddDoseBody, AddSymptomsBody, Glp1Response, Glp1Settings } from '@/shared/glp1';
 import type { WeeklyInsights } from '@/shared/insights';
-import type { Meal, UpdateMealBody } from '@/shared/meals';
+import type { FoodSummary, Meal, UpdateMealBody, UpdateMealItemsBody } from '@/shared/meals';
+import type { NutrientDay } from '@/shared/nutrients';
 import type { SaveOnboardingBody } from '@/shared/onboarding';
 import type { MeResponse, StreakResponse, UpdateProfileBody } from '@/shared/user';
 import type { WaterDay, WaterEntry } from '@/shared/water';
@@ -22,6 +23,8 @@ export const queryKeys = {
   favorites: (userId: string | null | undefined) => ['favorites', userId] as const,
   insights: (userId: string | null | undefined) => ['insights', userId] as const,
   glp1: (userId: string | null | undefined) => ['glp1', userId] as const,
+  nutrientsAll: (userId: string | null | undefined) => ['nutrients', userId] as const,
+  nutrients: (userId: string | null | undefined, date: string) => ['nutrients', userId, date] as const,
 };
 
 /** Earlier days are sent as `date`; today logs at "now". */
@@ -111,6 +114,7 @@ export function useInvalidateMeals() {
       queryClient.invalidateQueries({ queryKey: queryKeys.streak(userId) }),
       queryClient.invalidateQueries({ queryKey: queryKeys.favorites(userId) }),
       queryClient.invalidateQueries({ queryKey: queryKeys.insights(userId) }),
+      queryClient.invalidateQueries({ queryKey: queryKeys.nutrientsAll(userId) }),
     ]);
 }
 
@@ -310,5 +314,43 @@ export function useDeleteSymptom() {
   return useMutation({
     mutationFn: (id: string) => api(`/api/glp1/symptoms/${id}`, { method: 'DELETE' }),
     onSuccess: () => invalidateGlp1(),
+  });
+}
+
+/** USDA food search as you type (at least 2 letters). */
+export function useFoodSearch(query: string) {
+  const api = useApi();
+  const q = query.trim();
+  return useQuery({
+    queryKey: ['foods', q],
+    queryFn: ({ signal }) => api<{ foods: FoodSummary[] }>(`/api/foods?q=${encodeURIComponent(q)}`, { signal }),
+    enabled: q.length >= 2,
+    staleTime: 60 * 60_000,
+    placeholderData: (previous) => previous,
+  });
+}
+
+/** Saves a meal's edited foods; the server recalculates every number. */
+export function useUpdateMealItems(id: string) {
+  const { userId } = useSession();
+  const api = useApi();
+  const queryClient = useQueryClient();
+  const invalidateMeals = useInvalidateMeals();
+  return useMutation({
+    mutationFn: (body: UpdateMealItemsBody) => api<{ meal: Meal }>(`/api/meals/${id}/items`, { method: 'PUT', body }),
+    onSuccess: (data) => {
+      queryClient.setQueryData(queryKeys.meal(userId, id), data);
+      return invalidateMeals();
+    },
+  });
+}
+
+/** A day's vitamins and minerals against the targets. */
+export function useNutrients(date: string) {
+  const { userId } = useSession();
+  const api = useApi();
+  return useQuery({
+    queryKey: queryKeys.nutrients(userId, date),
+    queryFn: () => api<NutrientDay>(`/api/nutrients?date=${date}`),
   });
 }

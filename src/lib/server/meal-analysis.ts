@@ -3,7 +3,7 @@ import { and, eq, isNull, lt, or, sql } from 'drizzle-orm';
 import type { ChatCompletionMessageParam } from 'openai/resources/chat/completions';
 
 import { db } from '@/db';
-import { meals, type MealRow } from '@/db/schema';
+import { mealItems, meals, type MealRow } from '@/db/schema';
 import {
   labelAnalysisSchema,
   mealAnalysisSchema,
@@ -14,6 +14,7 @@ import {
 } from '@/shared/meals';
 
 import { modelFor, structuredCompletion } from './ai';
+import { computeItems, itemTotals, type ComputedItem } from './food-match';
 import {
   LABEL_JSON_SCHEMA,
   LABEL_SYSTEM_PROMPT,
@@ -56,6 +57,27 @@ async function claim(mealId: string) {
     .where(and(eq(meals.id, mealId), eq(meals.status, 'analyzing'), stale()))
     .returning();
   return meal;
+}
+
+/** Base numbers (a portion of 1) from the nutrient totals of the meal's foods. */
+export function baseFromNutrients(n: ComputedItem['nutrients']): BaseNutrition {
+  const carbs = n.carbs ?? 0;
+  return {
+    calories: n.calories ?? 0,
+    proteinG: n.protein ?? 0,
+    carbsG: carbs,
+    fatG: n.fat ?? 0,
+    fiberG: n.fiber === undefined ? null : Math.min(n.fiber, carbs),
+  };
+}
+
+/** Saves the meal's foods (replacing any earlier list). */
+export async function saveItems(mealId: string, items: readonly ComputedItem[]) {
+  await db.delete(mealItems).where(eq(mealItems.mealId, mealId));
+  if (items.length === 0) return;
+  await db.insert(mealItems).values(
+    items.map((item, position) => ({ mealId, position, name: item.name, foodId: item.foodId, grams: item.grams, nutrients: item.nutrients })),
+  );
 }
 
 /** The AI's numbers for one portion. Fiber is part of the carbs and never more than 60 g a meal. */
@@ -118,7 +140,8 @@ async function askAi(meal: MealRow): Promise<MealAnalysis & Partial<Pick<LabelAn
       ],
     });
     console.info('[meals] label read', JSON.stringify({ mealId: meal.id, isFood: data.isFood, calories: data.calories, usage }));
-    return data;
+    // A label is one product: its printed numbers are the answer, no foods to match.
+    return { ...data, items: [] };
   }
 
   const { data, usage } = await structuredCompletion({
@@ -165,20 +188,31 @@ async function analyzeMeal(mealId: string) {
       return;
     }
 
-    const base = baseNutrition(analysis);
-    await db
+    // Split pipeline: the AI listed the foods and grams, the USDA database does the math where a
+    // food matches. Without items (labels) the AI's totals are used as they are.
+    const items = analysis.items.length > 0 ? await computeItems(analysis.items) : [];
+    const totals = items.length > 0 ? itemTotals(items) : null;
+    const base = totals ? baseFromNutrients(totals.nutrients) : baseNutrition(analysis);
+    const [updated] = await db
       .update(meals)
       .set({
         status: 'completed',
         name: analysis.name.trim() || 'Meal',
         ...scaleNutrition(base, meal.portion),
         baseNutrition: base,
+        nutrients: totals?.nutrients ?? null,
+        matchedShare: totals?.matchedShare ?? null,
         confidence: analysis.confidence,
         servingSize: analysis.servingSize?.trim() || null,
         error: null,
         analysisStartedAt: null,
       })
-      .where(and(eq(meals.id, mealId), eq(meals.status, 'analyzing')));
+      .where(and(eq(meals.id, mealId), eq(meals.status, 'analyzing')))
+      .returning({ id: meals.id });
+    if (updated) await saveItems(mealId, items);
+    if (totals) {
+      console.info('[meals] foods', JSON.stringify({ mealId, items: items.length, matchedShare: totals.matchedShare }));
+    }
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     console.error(`[meals] attempt ${meal.analysisAttempts} of ${MAX_ATTEMPTS} for ${mealId} failed`, error);
