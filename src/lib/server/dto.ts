@@ -68,6 +68,11 @@ export async function toMeal(meal: MealRow): Promise<Meal> {
     addedSugarG: meal.addedSugarG === null ? null : Math.round(meal.addedSugarG * meal.portion),
     savedMealId: meal.savedMealId,
     imageUrl: meal.imageKey ? await signedGetUrl(meal.imageKey) : null,
+    extraImageUrls: meal.extraImageKeys ? await Promise.all(meal.extraImageKeys.map((key) => signedGetUrl(key))) : [],
+    // How each answer changes the meal stays on the server.
+    followUp: meal.followUp
+      ? { ...meal.followUp, options: meal.followUp.options.map(({ label, calories }) => ({ label, calories })) }
+      : null,
     error: meal.error,
     loggedAt: meal.loggedAt.toISOString(),
     createdAt: meal.createdAt.toISOString(),

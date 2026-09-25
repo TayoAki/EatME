@@ -16,7 +16,14 @@ import {
 } from 'drizzle-orm/pg-core';
 import { sql } from 'drizzle-orm';
 
-import { MEAL_CONFIDENCES, MEAL_SOURCES, MEAL_STATUSES, PROCESSING_LEVELS, type BaseNutrition } from '@/shared/meals';
+import {
+  MEAL_CONFIDENCES,
+  MEAL_SOURCES,
+  MEAL_STATUSES,
+  PROCESSING_LEVELS,
+  type BaseNutrition,
+  type FollowUpState,
+} from '@/shared/meals';
 import { INJECTION_SITES, type Glp1Settings, type Symptom } from '@/shared/glp1';
 import type { NutrientAmounts } from '@/shared/nutrients';
 import {
@@ -196,6 +203,10 @@ export const meals = pgTable(
     imageKey: text(),
     /** The saved meal (status `saved`) this meal was logged from. */
     savedMealId: uuid().references((): AnyPgColumn => meals.id, { onDelete: 'set null' }),
+    /** More photos of the same meal (steer the AI): meals/<userId>/<mealId>-2.jpg, -3.jpg. */
+    extraImageKeys: text().array(),
+    /** The one tap-to-answer question and its options, when the analysis asked one. */
+    followUp: jsonb().$type<FollowUpState>(),
     /** Start of the running analysis. An old value means the server stopped mid-way: retry. */
     analysisStartedAt: timestamp({ withTimezone: true }),
     analysisAttempts: integer().notNull().default(0),

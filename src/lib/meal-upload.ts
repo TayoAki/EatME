@@ -35,22 +35,33 @@ type UploadOptions = {
 };
 
 /**
- * Photo → EatME server (stored in the bucket, meal saved as "analyzing", AI analysis started).
+ * Photos → EatME server (stored in the bucket, meal saved as "analyzing", AI analysis started).
  * The photo is sent as the raw request body — no FormData, which Expo's fetch only partly supports.
+ * Several photos of the same meal (up to 3) go back to back, their sizes in `X-Photo-Lengths`.
  * The caller then polls `GET /api/meals/:id` for the result.
  */
 export async function uploadMeal(
   api: ApiClient,
-  photo: { uri: string; width?: number; height?: number },
+  photos: readonly { uri: string; width?: number; height?: number }[],
   { mode = 'meal', note }: UploadOptions = {},
 ) {
-  const uri = await prepare(photo.uri, photo.width, photo.height);
-  const data = await readBytes(uri);
+  const parts = await Promise.all(
+    photos.map(async (photo) => new Uint8Array(await readBytes(await prepare(photo.uri, photo.width, photo.height)))),
+  );
+  const data = new Uint8Array(parts.reduce((sum, part) => sum + part.byteLength, 0));
+  let offset = 0;
+  for (const part of parts) {
+    data.set(part, offset);
+    offset += part.byteLength;
+  }
   const trimmed = note?.trim();
+  const headers: Record<string, string> = {};
+  if (trimmed && mode === 'meal') headers['X-Meal-Note'] = encodeURIComponent(trimmed);
+  if (parts.length > 1) headers['X-Photo-Lengths'] = parts.map((part) => part.byteLength).join(',');
   const { meal } = await api<{ meal: Meal }>(`/api/meals${mode === 'label' ? '?mode=label' : ''}`, {
     method: 'POST',
     binary: { data, type: 'image/jpeg' },
-    headers: trimmed && mode === 'meal' ? { 'X-Meal-Note': encodeURIComponent(trimmed) } : undefined,
+    headers,
   });
   return meal;
 }

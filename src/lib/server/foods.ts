@@ -37,6 +37,16 @@ export async function searchFoods(text: string, limit = 8, { prefix = false } = 
     .limit(limit);
 }
 
+/** A food by its exact description (any case), else the best search match. */
+export async function findFood(description: string) {
+  const [exact] = await db
+    .select()
+    .from(foods)
+    .where(sql`lower(${foods.description}) = lower(${description.trim()})`)
+    .limit(1);
+  return exact ?? (await searchFoods(description, 1))[0];
+}
+
 export async function foodsByIds(ids: readonly number[]) {
   if (ids.length === 0) return new Map<number, FoodRow>();
   const rows = await db.select().from(foods).where(inArray(foods.id, [...ids]));

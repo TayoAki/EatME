@@ -60,10 +60,11 @@ export const DELETE = handle<Params>(async (request, { id }) => {
   const meal = await findMeal(userId, id);
 
   await db.delete(meals).where(eq(meals.id, meal.id));
-  if (meal.imageKey) {
-    await deleteObject(meal.imageKey).catch((error: unknown) =>
-      console.error('[meals] could not delete the photo from the bucket', error),
-    );
-  }
+  const keys = [meal.imageKey, ...(meal.extraImageKeys ?? [])].filter((key): key is string => !!key);
+  await Promise.all(
+    keys.map((key) =>
+      deleteObject(key).catch((error: unknown) => console.error('[meals] could not delete a photo from the bucket', error)),
+    ),
+  );
   return Response.json({ deleted: true });
 });

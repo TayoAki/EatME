@@ -18,6 +18,41 @@ export type MealSource = (typeof MEAL_SOURCES)[number];
 export const MEAL_CONFIDENCES = ['low', 'medium', 'high'] as const;
 export type MealConfidence = (typeof MEAL_CONFIDENCES)[number];
 
+/** Steer the AI (v2.1): one meal can have up to 3 photos (one scan), split by `X-Photo-Lengths`. */
+export const MAX_MEAL_PHOTOS = 3;
+
+/** The one tap-to-answer question (FOLLOW_UP_QUESTION): cooking fat, a portion, or what's inside. */
+export const FOLLOW_UP_KINDS = ['cooking_fat', 'portion', 'filling'] as const;
+export type FollowUpKind = (typeof FOLLOW_UP_KINDS)[number];
+
+/** How an answer changes the meal's foods (worked out when the meal is analyzed; no second AI call). */
+export type FollowUpChange =
+  /** Replace the meal's cooking-fat items with this one (none when `add` is null). */
+  | { type: 'fat'; removeItemIds: string[]; add: { name: string; foodId: number | null; grams: number; per100g: NutrientAmounts } | null }
+  /** Scale one item, or every item when `itemId` is null. */
+  | { type: 'scale'; itemId: string | null; factor: number }
+  /** Replace one item's food, keeping its weight. */
+  | { type: 'food'; itemId: string; name: string; foodId: number; per100g: NutrientAmounts };
+
+/** Stored on the meal: the question, the options with the meal's calories for each, the answer. */
+export type FollowUpState = {
+  kind: FollowUpKind;
+  question: string;
+  /** The food it is about ("Burrito"), or null for the whole meal. */
+  about: string | null;
+  options: { label: string; calories: number; change: FollowUpChange }[];
+  /** The chosen option; -1 when skipped; null until answered. */
+  answer: number | null;
+};
+
+/** `Meal.followUp`: what the app shows (the server keeps how each answer changes the meal). */
+export type FollowUp = Omit<FollowUpState, 'options'> & { options: { label: string; calories: number }[] };
+
+/** Body of `POST /api/meals/:id/follow-up`: an option's index, or "skip". */
+export const followUpAnswerSchema = z
+  .object({ option: z.union([z.number().int().min(0).max(5), z.literal('skip')]) })
+  .strict();
+
 /** Food-quality tag (V2 experiment): how processed the meal is overall. */
 export const PROCESSING_LEVELS = ['whole', 'processed', 'highly_processed'] as const;
 export type ProcessingLevel = (typeof PROCESSING_LEVELS)[number];
@@ -65,6 +100,10 @@ export type Meal = {
   savedMealId: string | null;
   /** Short-lived signed link to the photo in the storage bucket. */
   imageUrl: string | null;
+  /** More photos of the same meal (steer the AI), as signed links. */
+  extraImageUrls: string[];
+  /** The one tap-to-answer question, when the analysis asked one. */
+  followUp: FollowUp | null;
   /** Why the analysis failed, or why the photo is not food. */
   error: string | null;
   loggedAt: string;
@@ -158,9 +197,21 @@ const mealTotalsSchema = z.object({
   notFoodReason: z.string().max(200).nullable(),
 });
 
+/** The question the AI may ask (FOLLOW_UP_QUESTION): `item` is 1-based, 0 = the whole meal. */
+const followUpQuestionSchema = z
+  .object({
+    kind: z.enum(FOLLOW_UP_KINDS),
+    item: z.number().int().min(0).max(20),
+    fillings: z.array(z.object({ label: z.string().max(40), food: z.string().max(160) })).max(3),
+  })
+  .nullable()
+  .optional();
+export type FollowUpQuestion = NonNullable<z.infer<typeof followUpQuestionSchema>>;
+
 /** Structured output for a meal photo or description: totals plus the foods it is made of. */
 export const mealAnalysisSchema = mealTotalsSchema.extend({
   items: z.array(aiMealItemSchema).max(20),
+  question: followUpQuestionSchema,
   ...qualitySchema.shape,
 });
 export type MealAnalysis = z.infer<typeof mealAnalysisSchema>;

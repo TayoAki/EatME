@@ -12,4 +12,8 @@ export type Features = {
   freeScansPerDay: number;
   /** Food-quality tag experiment: people can switch it on in Preferences. */
   foodQuality: boolean;
+  /** Up to 3 photos of one meal (Premium when payments are on). */
+  multiPhoto: boolean;
+  /** The AI may ask one tap-to-answer question after a scan. */
+  followUp: boolean;
 };

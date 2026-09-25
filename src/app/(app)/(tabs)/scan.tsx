@@ -8,14 +8,15 @@ import { DescribeMeal } from '@/components/scan/describe-meal';
 import { FoodSearchView } from '@/components/scan/food-search-view';
 import { PhotoPreview } from '@/components/scan/photo-preview';
 import { ProductView } from '@/components/scan/product-view';
-import type { PhotoMode } from '@/shared/meals';
+import { useBilling, useFeatures } from '@/lib/queries';
+import { MAX_MEAL_PHOTOS, type PhotoMode } from '@/shared/meals';
 
 /** Height of the floating native tab bar above the home indicator. */
 const TAB_BAR_SPACE = 96;
 
 type Step =
   | { name: 'capture' }
-  | { name: 'preview'; photo: Photo; mode: PhotoMode }
+  | { name: 'preview'; photos: Photo[]; mode: PhotoMode }
   | { name: 'describe'; text?: string }
   | { name: 'product'; code: string }
   | { name: 'search' }
@@ -25,18 +26,45 @@ export default function ScanScreen() {
   const insets = useSafeAreaInsets();
   const [step, setStep] = useState<Step>({ name: 'capture' });
   const [mode, setMode] = useState<ScanMode>('meal');
+  // Steer the AI: the photos taken so far while the camera takes another angle of the same meal.
+  const [adding, setAdding] = useState<Photo[] | null>(null);
+  const features = useFeatures();
+  const payments = !!features.data?.payments;
+  const billing = useBilling(payments);
+  const multiPhoto = !!features.data?.multiPhoto;
+  const addNeedsPremium = payments && !billing.data?.premium;
   const bottomSpace = insets.bottom + TAB_BAR_SPACE;
   const analyze = (input: MealInput) => setStep({ name: 'analyzing', input, key: Date.now() });
   const capture = () => setStep({ name: 'capture' });
 
   if (step.name === 'preview') {
+    const { photos } = step;
     return (
       <PhotoPreview
-        photo={step.photo}
+        photos={photos}
         mode={step.mode}
         bottomSpace={bottomSpace}
         onRetake={capture}
-        onAnalyze={(note) => analyze({ kind: 'photo', photo: step.photo, mode: step.mode, note })}
+        addNeedsPremium={addNeedsPremium}
+        onAddPhoto={
+          step.mode === 'meal' && multiPhoto && photos.length < MAX_MEAL_PHOTOS
+            ? () => {
+                if (addNeedsPremium) {
+                  router.push('/premium');
+                  return;
+                }
+                setMode('meal');
+                setAdding(photos);
+                capture();
+              }
+            : undefined
+        }
+        onRemovePhoto={(index) => {
+          const next = photos.filter((_, i) => i !== index);
+          if (next.length === 0) capture();
+          else setStep({ ...step, photos: next });
+        }}
+        onAnalyze={(note) => analyze({ kind: 'photo', photos, mode: step.mode, note })}
       />
     );
   }
@@ -101,7 +129,25 @@ export default function ScanScreen() {
       onDescribe={() => setStep({ name: 'describe' })}
       onSearch={() => setStep({ name: 'search' })}
       onBarcode={(code) => setStep({ name: 'product', code })}
-      onPhoto={(photo) => setStep({ name: 'preview', photo, mode: mode === 'label' ? 'label' : 'meal' })}
+      adding={
+        adding
+          ? {
+              count: adding.length,
+              onDone: () => {
+                setStep({ name: 'preview', photos: adding, mode: 'meal' });
+                setAdding(null);
+              },
+            }
+          : undefined
+      }
+      onPhoto={(photo) => {
+        if (adding) {
+          setStep({ name: 'preview', photos: [...adding, photo], mode: 'meal' });
+          setAdding(null);
+        } else {
+          setStep({ name: 'preview', photos: [photo], mode: mode === 'label' ? 'label' : 'meal' });
+        }
+      }}
     />
   );
 }

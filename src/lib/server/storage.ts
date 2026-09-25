@@ -44,6 +44,8 @@ async function check(res: Response, action: string, allow: number[] = []) {
 }
 
 export const mealPhotoKey = (userId: string, mealId: string) => `meals/${userId}/${mealId}.jpg`;
+/** The 2nd and 3rd photo of a meal (steer the AI). */
+export const extraPhotoKey = (userId: string, mealId: string, n: number) => `meals/${userId}/${mealId}-${n}.jpg`;
 export const userPhotosPrefix = (userId: string) => `meals/${userId}/`;
 
 export async function putObject(key: string, body: ArrayBuffer, contentType: string) {

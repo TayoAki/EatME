@@ -1,10 +1,12 @@
-import { asc, eq } from 'drizzle-orm';
+import { and, asc, eq, sql } from 'drizzle-orm';
 
 import { db } from '@/db';
 import { foods, mealItems, meals, products, type MealItemRow, type MealRow } from '@/db/schema';
 import { scaleNutrition, type Meal, type MealItem, type UpdateMealItemsBody } from '@/shared/meals';
 import { scaleNutrients } from '@/shared/nutrients';
 import { foodKey, type FoodCorrection } from '@/shared/personal-foods';
+
+import { applyChange } from './follow-up';
 
 import { toMeal, toMealItem } from './dto';
 import { foodNutrients, itemTotals, type ComputedItem } from './food-match';
@@ -150,4 +152,37 @@ export async function copyItems(fromMealId: string, toMealId: string) {
         personalFoodId,
       })),
     );
+}
+
+/**
+ * The answer to the follow-up question (steer the AI): the change worked out at analysis is
+ * applied to the meal's foods as logged. No AI call; each question is answered once.
+ */
+export async function answerFollowUp(meal: MealRow, option: number | 'skip') {
+  const state = meal.followUp;
+  if (!state) throw new HttpError(404, 'This meal has no question.');
+  const answer = option === 'skip' ? -1 : option;
+  if (answer >= 0 && !state.options[answer]) throw new HttpError(400, 'Pick one of the answers.');
+  // Claim the answer first, so two taps can't both change the meal.
+  const [claimed] = await db
+    .update(meals)
+    .set({ followUp: { ...state, answer } })
+    .where(and(eq(meals.id, meal.id), sql`${meals.followUp}->>'answer' is null`))
+    .returning();
+  if (!claimed) throw new HttpError(409, 'This question is already answered.');
+  if (answer < 0) return claimed;
+
+  const rows = await db.select().from(mealItems).where(eq(mealItems.mealId, meal.id)).orderBy(asc(mealItems.position));
+  const items: ComputedItem[] = rows.map((row) => ({
+    id: row.id,
+    name: row.name,
+    foodId: row.foodId,
+    productCode: row.productCode,
+    grams: row.grams * meal.portion,
+    nutrients: scaleNutrients(row.nutrients, meal.portion),
+    aiName: row.aiName,
+    personalFoodId: row.personalFoodId,
+  }));
+  const { meal: saved } = await saveComputedItems(claimed, applyChange(items, state.options[answer].change));
+  return saved;
 }

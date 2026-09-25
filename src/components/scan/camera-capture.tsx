@@ -1,7 +1,22 @@
-import { CameraView, useCameraPermissions, type BarcodeScanningResult, type BarcodeType } from 'expo-camera';
+import {
+  CameraView,
+  useCameraPermissions,
+  type BarcodeScanningResult,
+  type BarcodeType,
+} from 'expo-camera';
 import { router, useIsFocused } from 'expo-router';
 import * as ImagePicker from 'expo-image-picker';
-import { Camera, Image as ImageIcon, Keyboard, PenLine, Search, SquarePlus, Star, Zap, ZapOff } from 'lucide-react-native';
+import {
+  Camera,
+  Image as ImageIcon,
+  Keyboard,
+  PenLine,
+  Search,
+  SquarePlus,
+  Star,
+  Zap,
+  ZapOff,
+} from 'lucide-react-native';
 import { useRef, useState } from 'react';
 import { ActivityIndicator, Linking, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -35,6 +50,8 @@ type CameraCaptureProps = {
   onSearch: () => void;
   /** A barcode was read by the camera or typed in. */
   onBarcode: (code: string) => void;
+  /** Taking another angle of the same meal (steer the AI): how many photos there are, and back to them. */
+  adding?: { count: number; onDone: () => void };
 };
 
 const MODE_OPTIONS = [
@@ -80,8 +97,14 @@ function ModeSwitch({ mode, onChange }: { mode: ScanMode; onChange: (mode: ScanM
               haptics.selection();
               onChange(option.value);
             }}
-            className={cn('h-9 items-center justify-center rounded-full px-4', selected && 'bg-white')}>
-            <Text className={cn('text-[14px] font-semibold', selected ? 'text-ink' : 'text-white')}>{option.label}</Text>
+            className={cn(
+              'h-9 items-center justify-center rounded-full px-4',
+              selected && 'bg-white',
+            )}
+          >
+            <Text className={cn('text-[14px] font-semibold', selected ? 'text-ink' : 'text-white')}>
+              {option.label}
+            </Text>
           </Pressable>
         );
       })}
@@ -104,7 +127,50 @@ function Corner({ style }: { style: object }) {
   return <View style={[styles.corner, style]} />;
 }
 
-export function CameraCapture({ onPhoto, bottomSpace, mode, onModeChange, onDescribe, onSearch, onBarcode }: CameraCaptureProps) {
+/** "Photo 2 of 3" while adding an angle, with the way back to the photos taken. */
+function AddingBar({
+  adding,
+  dark,
+}: {
+  adding: NonNullable<CameraCaptureProps['adding']>;
+  dark: boolean;
+}) {
+  return (
+    <View
+      className={cn(
+        'flex-row items-center gap-3 rounded-full px-4 py-2',
+        dark ? 'bg-black/45' : 'bg-surface',
+      )}
+    >
+      <Text className={cn('flex-1 text-[14px] font-semibold', dark ? 'text-white' : 'text-ink')}>
+        Photo {adding.count + 1} of 3 · another angle of the same meal
+      </Text>
+      <Pressable
+        accessibilityRole="button"
+        accessibilityLabel="Back to your photos"
+        hitSlop={8}
+        onPress={adding.onDone}
+      >
+        <Text
+          className={cn('text-[14px] font-semibold underline', dark ? 'text-white' : 'text-ink')}
+        >
+          Back
+        </Text>
+      </Pressable>
+    </View>
+  );
+}
+
+export function CameraCapture({
+  onPhoto,
+  bottomSpace,
+  mode,
+  onModeChange,
+  onDescribe,
+  onSearch,
+  onBarcode,
+  adding,
+}: CameraCaptureProps) {
   const insets = useSafeAreaInsets();
   const isFocused = useIsFocused();
   const [permission, requestPermission] = useCameraPermissions();
@@ -118,7 +184,11 @@ export function CameraCapture({ onPhoto, bottomSpace, mode, onModeChange, onDesc
   const sheets = (
     <>
       <SavedMealsSheet visible={savedOpen} onClose={() => setSavedOpen(false)} />
-      <QuickAddSheet visible={quickOpen} onClose={() => setQuickOpen(false)} onLogged={() => router.navigate('/')} />
+      <QuickAddSheet
+        visible={quickOpen}
+        onClose={() => setQuickOpen(false)}
+        onLogged={() => router.navigate('/')}
+      />
       <BarcodeEntrySheet
         visible={typing}
         onClose={() => setTyping(false)}
@@ -154,14 +224,25 @@ export function CameraCapture({ onPhoto, bottomSpace, mode, onModeChange, onDesc
 
   if (!permission.granted) {
     return (
-      <View className="flex-1 bg-canvas px-6" style={{ paddingTop: insets.top + 12, paddingBottom: bottomSpace }}>
-        <SegmentedControl options={MODE_OPTIONS} value={mode} onChange={onModeChange} />
+      <View
+        className="flex-1 bg-canvas px-6"
+        style={{ paddingTop: insets.top + 12, paddingBottom: bottomSpace }}
+      >
+        {adding ? (
+          <AddingBar adding={adding} dark={false} />
+        ) : (
+          <SegmentedControl options={MODE_OPTIONS} value={mode} onChange={onModeChange} />
+        )}
         <View className="flex-1 items-center justify-center">
           <View className="h-20 w-20 items-center justify-center rounded-full bg-surface">
             <Camera size={34} color={colors.ink} strokeWidth={1.6} />
           </View>
-          <Text className="mt-6 text-center text-[26px] font-bold tracking-tight text-ink">Allow camera access</Text>
-          <Text className="mt-2 text-center text-[16px] leading-[22px] text-muted">{COPY[mode].permission}</Text>
+          <Text className="mt-6 text-center text-[26px] font-bold tracking-tight text-ink">
+            Allow camera access
+          </Text>
+          <Text className="mt-2 text-center text-[16px] leading-[22px] text-muted">
+            {COPY[mode].permission}
+          </Text>
         </View>
         <View className="gap-2">
           {permission.canAskAgain ? (
@@ -172,16 +253,39 @@ export function CameraCapture({ onPhoto, bottomSpace, mode, onModeChange, onDesc
           {mode === 'barcode' ? (
             <Button title="Type the barcode" variant="secondary" onPress={() => setTyping(true)} />
           ) : (
-            <Button title="Choose from gallery" variant="secondary" onPress={() => void openGallery()} />
+            <Button
+              title="Choose from gallery"
+              variant="secondary"
+              onPress={() => void openGallery()}
+            />
           )}
-          <View className="flex-row">
-            <Button title="Describe a meal" variant="ghost" className="flex-1" onPress={onDescribe} />
-            <Button title="Search foods" variant="ghost" className="flex-1" onPress={onSearch} />
-          </View>
-          <View className="flex-row">
-            <Button title="Saved meals" variant="ghost" className="flex-1" onPress={() => setSavedOpen(true)} />
-            <Button title="Quick add" variant="ghost" className="flex-1" onPress={() => setQuickOpen(true)} />
-          </View>
+          {adding ? null : (
+            <View className="flex-row">
+              <Button
+                title="Describe a meal"
+                variant="ghost"
+                className="flex-1"
+                onPress={onDescribe}
+              />
+              <Button title="Search foods" variant="ghost" className="flex-1" onPress={onSearch} />
+            </View>
+          )}
+          {adding ? null : (
+            <View className="flex-row">
+              <Button
+                title="Saved meals"
+                variant="ghost"
+                className="flex-1"
+                onPress={() => setSavedOpen(true)}
+              />
+              <Button
+                title="Quick add"
+                variant="ghost"
+                className="flex-1"
+                onPress={() => setQuickOpen(true)}
+              />
+            </View>
+          )}
         </View>
         {sheets}
       </View>
@@ -193,7 +297,10 @@ export function CameraCapture({ onPhoto, bottomSpace, mode, onModeChange, onDesc
     setCapturing(true);
     haptics.medium();
     try {
-      const picture = await cameraRef.current.takePictureAsync({ quality: 0.8, shutterSound: false });
+      const picture = await cameraRef.current.takePictureAsync({
+        quality: 0.8,
+        shutterSound: false,
+      });
       if (picture) onPhoto({ uri: picture.uri, width: picture.width, height: picture.height });
     } finally {
       setCapturing(false);
@@ -213,58 +320,111 @@ export function CameraCapture({ onPhoto, bottomSpace, mode, onModeChange, onDesc
         onBarcodeScanned={mode === 'barcode' && isFocused ? onScanned : undefined}
       />
 
-      <View className="flex-row items-center justify-between px-5" style={{ paddingTop: insets.top + 8 }}>
-        <View className="flex-row gap-2">
-          <IconButton
-            accessibilityLabel="Saved meals"
-            variant="dark"
-            size={44}
-            icon={<Star size={20} color={colors.canvas} />}
-            onPress={() => setSavedOpen(true)}
-          />
-          <IconButton
-            accessibilityLabel="Quick add"
-            variant="dark"
-            size={44}
-            icon={<SquarePlus size={20} color={colors.canvas} />}
-            onPress={() => setQuickOpen(true)}
-          />
+      {adding ? (
+        <View className="px-5" style={{ paddingTop: insets.top + 8 }}>
+          <AddingBar adding={adding} dark />
         </View>
-        <View pointerEvents="none" className="absolute inset-x-0 bottom-0 h-11 items-center justify-center">
-          <Text className="text-[18px] font-semibold text-white">{COPY[mode].title}</Text>
+      ) : (
+        <View
+          className="flex-row items-center justify-between px-5"
+          style={{ paddingTop: insets.top + 8 }}
+        >
+          <View className="flex-row gap-2">
+            <IconButton
+              accessibilityLabel="Saved meals"
+              variant="dark"
+              size={44}
+              icon={<Star size={20} color={colors.canvas} />}
+              onPress={() => setSavedOpen(true)}
+            />
+            <IconButton
+              accessibilityLabel="Quick add"
+              variant="dark"
+              size={44}
+              icon={<SquarePlus size={20} color={colors.canvas} />}
+              onPress={() => setQuickOpen(true)}
+            />
+          </View>
+          <View
+            pointerEvents="none"
+            className="absolute inset-x-0 bottom-0 h-11 items-center justify-center"
+          >
+            <Text className="text-[18px] font-semibold text-white">{COPY[mode].title}</Text>
+          </View>
+          <View className="flex-row gap-2">
+            <IconButton
+              accessibilityLabel="Search foods"
+              variant="dark"
+              size={44}
+              icon={<Search size={20} color={colors.canvas} />}
+              onPress={onSearch}
+            />
+            <IconButton
+              accessibilityLabel="Describe a meal"
+              variant="dark"
+              size={44}
+              icon={<PenLine size={20} color={colors.canvas} />}
+              onPress={onDescribe}
+            />
+          </View>
         </View>
-        <View className="flex-row gap-2">
-          <IconButton
-            accessibilityLabel="Search foods"
-            variant="dark"
-            size={44}
-            icon={<Search size={20} color={colors.canvas} />}
-            onPress={onSearch}
-          />
-          <IconButton
-            accessibilityLabel="Describe a meal"
-            variant="dark"
-            size={44}
-            icon={<PenLine size={20} color={colors.canvas} />}
-            onPress={onDescribe}
-          />
-        </View>
-      </View>
+      )}
 
       <View pointerEvents="none" className="flex-1 items-center justify-center">
-        <View style={mode === 'label' ? styles.labelFrame : mode === 'barcode' ? styles.barcodeFrame : styles.frame}>
-          <Corner style={{ top: 0, left: 0, borderTopWidth: 4, borderLeftWidth: 4, borderTopLeftRadius: 28 }} />
-          <Corner style={{ top: 0, right: 0, borderTopWidth: 4, borderRightWidth: 4, borderTopRightRadius: 28 }} />
-          <Corner style={{ bottom: 0, left: 0, borderBottomWidth: 4, borderLeftWidth: 4, borderBottomLeftRadius: 28 }} />
+        <View
+          style={
+            mode === 'label'
+              ? styles.labelFrame
+              : mode === 'barcode'
+                ? styles.barcodeFrame
+                : styles.frame
+          }
+        >
           <Corner
-            style={{ bottom: 0, right: 0, borderBottomWidth: 4, borderRightWidth: 4, borderBottomRightRadius: 28 }}
+            style={{
+              top: 0,
+              left: 0,
+              borderTopWidth: 4,
+              borderLeftWidth: 4,
+              borderTopLeftRadius: 28,
+            }}
+          />
+          <Corner
+            style={{
+              top: 0,
+              right: 0,
+              borderTopWidth: 4,
+              borderRightWidth: 4,
+              borderTopRightRadius: 28,
+            }}
+          />
+          <Corner
+            style={{
+              bottom: 0,
+              left: 0,
+              borderBottomWidth: 4,
+              borderLeftWidth: 4,
+              borderBottomLeftRadius: 28,
+            }}
+          />
+          <Corner
+            style={{
+              bottom: 0,
+              right: 0,
+              borderBottomWidth: 4,
+              borderRightWidth: 4,
+              borderBottomRightRadius: 28,
+            }}
           />
         </View>
         <Text className="mt-6 text-[15px] font-medium text-white">{COPY[mode].hint}</Text>
       </View>
 
-      <ModeSwitch mode={mode} onChange={onModeChange} />
-      <View className="flex-row items-center justify-between px-10 pt-5" style={{ paddingBottom: bottomSpace }}>
+      {adding ? null : <ModeSwitch mode={mode} onChange={onModeChange} />}
+      <View
+        className="flex-row items-center justify-between px-10 pt-5"
+        style={{ paddingBottom: bottomSpace }}
+      >
         {mode === 'barcode' ? (
           <View className="w-[52px]" />
         ) : (
@@ -281,7 +441,8 @@ export function CameraCapture({ onPhoto, bottomSpace, mode, onModeChange, onDesc
             accessibilityRole="button"
             accessibilityLabel="Type the barcode"
             onPress={() => setTyping(true)}
-            className="h-20 w-20 items-center justify-center rounded-full border-4 border-white active:opacity-80">
+            className="h-20 w-20 items-center justify-center rounded-full border-4 border-white active:opacity-80"
+          >
             <Keyboard size={30} color={colors.canvas} />
           </Pressable>
         ) : (
@@ -290,7 +451,8 @@ export function CameraCapture({ onPhoto, bottomSpace, mode, onModeChange, onDesc
             accessibilityLabel="Take photo"
             disabled={capturing}
             onPress={() => void takePhoto()}
-            className="h-20 w-20 items-center justify-center rounded-full border-4 border-white active:opacity-80">
+            className="h-20 w-20 items-center justify-center rounded-full border-4 border-white active:opacity-80"
+          >
             <View className="h-16 w-16 rounded-full bg-white" />
           </Pressable>
         )}
@@ -298,7 +460,13 @@ export function CameraCapture({ onPhoto, bottomSpace, mode, onModeChange, onDesc
           accessibilityLabel={flash ? 'Turn flash off' : 'Turn flash on'}
           variant="dark"
           size={52}
-          icon={flash ? <Zap size={24} color={colors.canvas} /> : <ZapOff size={24} color={colors.canvas} />}
+          icon={
+            flash ? (
+              <Zap size={24} color={colors.canvas} />
+            ) : (
+              <ZapOff size={24} color={colors.canvas} />
+            )
+          }
           onPress={() => setFlash((on) => !on)}
         />
       </View>

@@ -464,8 +464,9 @@ added to an earlier day are stored at local noon of that day.
 - [ ] Prompt upgrades, measured with the benchmark: portion-focused prompt, step-by-step
   estimate, meal time as context
 - [x] Save the AI's confidence on each meal; show "rough estimate" when it is low
-- [ ] Ask one tap-to-answer question when it matters (portion, oil or butter, filling); planned
-  for v2.1 with several photos per meal (§16)
+- [x] Ask one tap-to-answer question when it matters (portion, oil or butter, filling): built in
+  v2.1 with several photos per meal (§16), off behind `FOLLOW_UP_QUESTION` until checked on
+  ~15 weighed meals and the benchmark
 - [x] Split pipeline in V2: the AI lists foods and grams, the USDA database does the math (§15)
 
 **Data sources (free to start; checked September 2026)**
@@ -573,7 +574,8 @@ added to an earlier day are stored at local noon of that day.
 **v2.1 (first release after launch)**
 - [x] Repeat meals (9.1): save foods as a meal, repeat a meal on chosen days (shown as a
   suggestion to confirm, never logged silently), copy any past day or meal
-- [ ] Steer the AI (8.0): several photos of one meal, plus the tap-to-answer question from §11
+- [x] Steer the AI (8.0): several photos of one meal, plus the tap-to-answer question from §11
+  (built; the question stays off behind `FOLLOW_UP_QUESTION` until the weighed-meal check)
 - [x] Calm mode (7.9): a Preferences switch that hides calorie and macro numbers, neutral
   colours when over a goal, and "days logged" instead of the streak that resets
 - [x] Barcode fixes (7.9): show where a product's numbers come from; report a wrong product

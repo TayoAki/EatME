@@ -14,10 +14,12 @@ import {
 } from '@/shared/meals';
 
 import { modelFor, structuredCompletion } from './ai';
-import { foodQualityEnabled } from './experiments';
+import { followUpEnabled, foodQualityEnabled } from './experiments';
+import { buildFollowUp } from './follow-up';
 import { computeItems, itemTotals, type ComputedItem } from './food-match';
 import { markUsed, personalFoodsFor, promptNames } from './personal-foods';
 import {
+  FOLLOW_UP_RULES,
   LABEL_JSON_SCHEMA,
   LABEL_QUALITY_RULES,
   LABEL_SYSTEM_PROMPT,
@@ -25,8 +27,10 @@ import {
   MEAL_QUALITY_RULES,
   MEAL_SYSTEM_PROMPT,
   MEAL_TEXT_SYSTEM_PROMPT,
+  multiPhotoText,
   photoNoteText,
   savedNamesText,
+  withFollowUp,
   withQuality,
 } from './prompts';
 import { deleteObject, getObject } from './storage';
@@ -121,13 +125,17 @@ function toDataUrl(bytes: ArrayBuffer) {
   return `data:image/jpeg;base64,${btoa(binary)}`;
 }
 
-const userPhoto = (text: string, photo: ArrayBuffer, detail: 'low' | 'high'): ChatCompletionMessageParam => ({
+const userPhotos = (text: string, photos: readonly ArrayBuffer[], detail: 'low' | 'high'): ChatCompletionMessageParam => ({
   role: 'user',
   content: [
     { type: 'text', text },
-    { type: 'image_url', image_url: { url: toDataUrl(photo), detail } },
+    ...photos.map((photo) => ({ type: 'image_url' as const, image_url: { url: toDataUrl(photo), detail } })),
   ],
 });
+
+/** Every photo key of a meal: the first, then the extra angles. */
+const photoKeys = (meal: Pick<MealRow, 'imageKey' | 'extraImageKeys'>) =>
+  [meal.imageKey, ...(meal.extraImageKeys ?? [])].filter((key): key is string => !!key);
 
 /**
  * One AI call for the meal, depending on how it was logged. Labels also return the serving size.
@@ -138,10 +146,12 @@ async function askAi(
   savedNames: readonly string[] = [],
 ): Promise<MealAnalysis & Partial<Pick<LabelAnalysis, 'servingSize'>>> {
   const saved = savedNames.length > 0 ? savedNamesText(savedNames) : null;
-  // The food-quality experiment adds three fields to the same call.
+  // The food-quality experiment adds three fields to the same call, the follow-up question one.
   const quality = foodQualityEnabled();
-  const mealSchema = quality ? withQuality(MEAL_JSON_SCHEMA) : MEAL_JSON_SCHEMA;
-  const mealRules = quality ? MEAL_QUALITY_RULES : '';
+  const followUp = followUpEnabled();
+  const withQualityFields = quality ? withQuality(MEAL_JSON_SCHEMA) : MEAL_JSON_SCHEMA;
+  const mealSchema = followUp ? withFollowUp(withQualityFields) : withQualityFields;
+  const mealRules = (quality ? MEAL_QUALITY_RULES : '') + (followUp ? FOLLOW_UP_RULES : '');
   if (meal.source === 'text') {
     const { data, usage } = await structuredCompletion({
       model: modelFor('text'),
@@ -159,7 +169,8 @@ async function askAi(
   }
 
   if (!meal.imageKey) throw new Error('This meal has no photo');
-  const photo = await getObject(meal.imageKey);
+  const photos = await Promise.all(photoKeys(meal).map((key) => getObject(key)));
+  const photo = photos[0];
   if (meal.source === 'label') {
     // Label print is small: the model needs the full-resolution image to read it.
     const { data, usage } = await structuredCompletion({
@@ -169,7 +180,7 @@ async function askAi(
       schema: labelAnalysisSchema,
       messages: [
         { role: 'system', content: LABEL_SYSTEM_PROMPT + (quality ? LABEL_QUALITY_RULES : '') },
-        userPhoto('Read this nutrition label.', photo, 'high'),
+        userPhotos('Read this nutrition label.', [photo], 'high'),
       ],
     });
     console.info('[meals] label read', JSON.stringify({ mealId: meal.id, isFood: data.isFood, calories: data.calories, usage }));
@@ -184,9 +195,15 @@ async function askAi(
     schema: mealAnalysisSchema,
     messages: [
       { role: 'system', content: MEAL_SYSTEM_PROMPT + mealRules },
-      userPhoto(
-        [meal.note ? photoNoteText(meal.note) : 'Analyze this meal photo.', saved].filter(Boolean).join('\n\n'),
-        photo,
+      userPhotos(
+        [
+          photos.length > 1 ? multiPhotoText(photos.length) : null,
+          meal.note ? photoNoteText(meal.note) : 'Analyze this meal photo.',
+          saved,
+        ]
+          .filter(Boolean)
+          .join('\n\n'),
+        photos,
         'low',
       ),
     ],
@@ -196,9 +213,10 @@ async function askAi(
 }
 
 async function deletePhoto(meal: MealRow) {
-  if (!meal.imageKey) return;
-  await deleteObject(meal.imageKey).catch((error: unknown) =>
-    console.warn(`[meals] could not delete the photo of ${meal.id}`, error),
+  await Promise.all(
+    photoKeys(meal).map((key) =>
+      deleteObject(key).catch((error: unknown) => console.warn(`[meals] could not delete a photo of ${meal.id}`, error)),
+    ),
   );
 }
 
@@ -221,7 +239,13 @@ async function analyzeMeal(mealId: string) {
             : "That doesn't look like food.";
       await db
         .update(meals)
-        .set({ status: 'not_food', error: analysis.notFoodReason || fallback, imageKey: null, analysisStartedAt: null })
+        .set({
+          status: 'not_food',
+          error: analysis.notFoodReason || fallback,
+          imageKey: null,
+          extraImageKeys: null,
+          analysisStartedAt: null,
+        })
         .where(eq(meals.id, mealId));
       await deletePhoto(meal);
       return;
@@ -252,8 +276,20 @@ async function analyzeMeal(mealId: string) {
       .where(and(eq(meals.id, mealId), eq(meals.status, 'analyzing')))
       .returning({ id: meals.id });
     if (updated) {
-      await saveItems(mealId, items);
+      const itemIds = await saveItems(mealId, items);
       await markUsed(items.flatMap((item) => (item.personalFoodId ? [item.personalFoodId] : [])));
+      // Steer the AI: the options of its question are worked out now, so answering needs no AI call.
+      if (followUpEnabled() && analysis.question && items.length > 0) {
+        const followUp = await buildFollowUp(
+          analysis.question,
+          analysis.items,
+          items.map((item, i) => ({ ...item, id: itemIds[i] })),
+        ).catch((error: unknown) => {
+          console.warn(`[meals] follow-up question for ${mealId} failed`, error);
+          return null;
+        });
+        if (followUp) await db.update(meals).set({ followUp }).where(eq(meals.id, mealId));
+      }
     }
     if (totals) {
       const remembered = items.filter((item) => item.personalFoodId).length;
@@ -267,7 +303,7 @@ async function analyzeMeal(mealId: string) {
       // Failed meals are hidden in the app, so their photo is of no use: delete it.
       await db
         .update(meals)
-        .set({ status: 'failed', error: message.slice(0, 500), imageKey: null, analysisStartedAt: null })
+        .set({ status: 'failed', error: message.slice(0, 500), imageKey: null, extraImageKeys: null, analysisStartedAt: null })
         .where(eq(meals.id, mealId));
       await deletePhoto(meal);
       return;

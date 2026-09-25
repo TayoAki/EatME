@@ -5,16 +5,18 @@ import { meals, users } from '@/db/schema';
 import { requireUserId } from '@/lib/server/auth';
 import { ANALYZED_SOURCES, freeScansPerDay, isActive, paymentsEnabled, scansToday, subscriptionOf } from '@/lib/server/billing';
 import { dateParam, dayBounds, loggedAtFor, userTimeZone } from '@/lib/server/day';
+import { multiPhotoEnabled } from '@/lib/server/experiments';
 import { toMeal } from '@/lib/server/dto';
 import { handle, HttpError, readJson } from '@/lib/server/http';
 import { logFoodMeal, logProductMeal, logQuickMeal } from '@/lib/server/instant-meals';
 import { resumeStalledAnalyses, startMealAnalysis } from '@/lib/server/meal-analysis';
 import { rateLimit } from '@/lib/server/rate-limit';
-import { deleteObject, mealPhotoKey, putObject } from '@/lib/server/storage';
+import { deleteObject, extraPhotoKey, mealPhotoKey, putObject } from '@/lib/server/storage';
 import {
   describeMealSchema,
   MAX_MEAL_NOTE_LENGTH,
   MAX_MEAL_PHOTO_BYTES,
+  MAX_MEAL_PHOTOS,
   MEAL_PHOTO_FIELD,
   PHOTO_MODES,
   quickMealSchema,
@@ -82,6 +84,37 @@ async function readPhoto(request: Request): Promise<ArrayBuffer> {
   if (bytes.byteLength === 0) throw new HttpError(400, 'Attach the meal photo.');
   if (bytes.byteLength > MAX_MEAL_PHOTO_BYTES) throw new HttpError(413, 'That photo is too large.');
   return bytes;
+}
+
+/**
+ * The photos' bytes: one JPEG as the body, or several photos of the same meal (steer the AI) back
+ * to back with their sizes in `X-Photo-Lengths` ("48123,51200"). No FormData: Expo's fetch only
+ * partly supports it.
+ */
+async function readPhotos(request: Request): Promise<ArrayBuffer[]> {
+  const header = request.headers.get('x-photo-lengths');
+  if (!header) return [await readPhoto(request)];
+  if (Number(request.headers.get('content-length') ?? 0) > MAX_MEAL_PHOTOS * MAX_MEAL_PHOTO_BYTES + 64 * 1024) {
+    throw new HttpError(413, 'Those photos are too large.');
+  }
+  // Read the body before checking it, so a refusal never cuts the upload off mid-way.
+  const bytes = await request.arrayBuffer();
+  const lengths = header.split(',').map((value) => Number(value.trim()));
+  if (
+    lengths.length > MAX_MEAL_PHOTOS ||
+    lengths.some((n) => !Number.isInteger(n) || n <= 0 || n > MAX_MEAL_PHOTO_BYTES)
+  ) {
+    throw new HttpError(400, `Send between 1 and ${MAX_MEAL_PHOTOS} photos of the meal.`);
+  }
+  if (!(request.headers.get('content-type') ?? '').startsWith('image/')) throw new HttpError(415, 'Send the meal photos as image/jpeg.');
+  const total = lengths.reduce((sum, n) => sum + n, 0);
+  if (bytes.byteLength !== total) throw new HttpError(400, "The photos didn't arrive completely. Please try again.");
+  let offset = 0;
+  return lengths.map((n) => {
+    const photo = bytes.slice(offset, offset + n);
+    offset += n;
+    return photo;
+  });
 }
 
 /** The note sent with a photo (`X-Meal-Note`, URI-encoded so any language fits in a header). */
@@ -177,20 +210,38 @@ export const POST = handle(async (request) => {
   const mode = photoMode(request);
   // Label numbers are printed on the package; a note would only compete with them.
   const note = mode === 'meal' ? photoNote(request) : null;
-  const photo = await readPhoto(request);
+  const photos = await readPhotos(request);
+  // Several photos of one meal are still one scan.
+  if (photos.length > 1) {
+    if (mode !== 'meal') throw new HttpError(400, 'A nutrition label is read from one photo.');
+    if (!multiPhotoEnabled()) throw new HttpError(400, 'Send one photo of the meal.');
+    if (paymentsEnabled() && !isActive(await subscriptionOf(userId))) {
+      throw new HttpError(402, 'Several photos of one meal are part of Premium. Your first photo is enough to log it.');
+    }
+  }
   const id = crypto.randomUUID();
   const imageKey = mealPhotoKey(userId, id);
-  await putObject(imageKey, photo, 'image/jpeg');
+  const extraKeys = photos.slice(1).map((_, i) => extraPhotoKey(userId, id, i + 2));
+  const keys = [imageKey, ...extraKeys];
+  await Promise.all(keys.map((key, i) => putObject(key, photos[i], 'image/jpeg')));
 
   try {
     const [meal] = await db
       .insert(meals)
-      .values({ id, userId, status: 'analyzing', source: mode === 'label' ? 'label' : 'photo', note, imageKey })
+      .values({
+        id,
+        userId,
+        status: 'analyzing',
+        source: mode === 'label' ? 'label' : 'photo',
+        note,
+        imageKey,
+        extraImageKeys: extraKeys.length > 0 ? extraKeys : null,
+      })
       .returning();
     startMealAnalysis(meal.id);
     return Response.json({ meal: await toMeal(meal) }, { status: 201 });
   } catch (error) {
-    await deleteObject(imageKey).catch(() => undefined);
+    await Promise.all(keys.map((key) => deleteObject(key).catch(() => undefined)));
     throw error;
   }
 });

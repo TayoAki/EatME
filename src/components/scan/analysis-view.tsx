@@ -9,6 +9,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { SkeletonBar } from '@/components/home/meal-card';
 import { ProteinHint } from '@/components/meal/protein-hint';
+import { FollowUpCard } from '@/components/meal/follow-up-card';
 import { QualityTag } from '@/components/meal/quality-tag';
 import { ServingsStepper } from '@/components/meal/servings-stepper';
 import { Button } from '@/components/ui/button';
@@ -33,7 +34,7 @@ const GIVE_UP_AFTER_SECONDS = 90;
  * logged right away without AI — a packaged product by its barcode or a database food.
  */
 export type MealInput =
-  | { kind: 'photo'; photo: Photo; mode: PhotoMode; note?: string }
+  | { kind: 'photo'; photos: Photo[]; mode: PhotoMode; note?: string }
   | { kind: 'text'; text: string }
   | { kind: 'barcode'; product: Product; grams: number }
   | { kind: 'food'; food: FoodSummary; grams: number };
@@ -138,7 +139,7 @@ export function AnalysisView({ input, onScanAnother, onEdit, onDone, bottomSpace
         case 'food':
           return logFood(api, input.food.id, input.grams);
         default:
-          return uploadMeal(api, input.photo, { mode: input.mode, note: input.note });
+          return uploadMeal(api, input.photos, { mode: input.mode, note: input.note });
       }
     },
     // Home shows the new meal as "Analyzing…" right away and keeps checking on it.
@@ -212,7 +213,9 @@ export function AnalysisView({ input, onScanAnother, onEdit, onDone, bottomSpace
     ? input.kind === 'text'
       ? 'Sending your description…'
       : input.kind === 'photo'
-        ? 'Uploading your photo…'
+        ? input.photos.length > 1
+          ? `Uploading your ${input.photos.length} photos…`
+          : 'Uploading your photo…'
         : copy.first
     : elapsed < MEAL_ANALYSIS_STAGES[1].after
       ? copy.first
@@ -232,7 +235,19 @@ export function AnalysisView({ input, onScanAnother, onEdit, onDone, bottomSpace
         </View>
         {input.kind === 'photo' ? (
           <View className="overflow-hidden rounded-card bg-surface">
-            <Image source={{ uri: input.photo.uri }} style={{ width: '100%', aspectRatio: 4 / 3 }} contentFit="cover" />
+            <Image source={{ uri: input.photos[0].uri }} style={{ width: '100%', aspectRatio: 4 / 3 }} contentFit="cover" />
+            {input.photos.length > 1 ? (
+              <View className="absolute bottom-3 right-3 flex-row gap-1.5">
+                {input.photos.slice(1).map((photo) => (
+                  <Image
+                    key={photo.uri}
+                    source={{ uri: photo.uri }}
+                    style={{ width: 52, height: 52, borderRadius: 12, borderWidth: 2, borderColor: colors.canvas }}
+                    contentFit="cover"
+                  />
+                ))}
+              </View>
+            ) : null}
           </View>
         ) : input.kind === 'barcode' ? (
           <LoggedFood
@@ -341,6 +356,11 @@ export function AnalysisView({ input, onScanAnother, onEdit, onDone, bottomSpace
             </>
           )}
         </View>
+        {meal?.followUp && meal.followUp.answer === null ? (
+          <View className="mt-4">
+            <FollowUpCard meal={meal} hideNumbers={hideNumbers} />
+          </View>
+        ) : null}
       </ScrollView>
 
       {meal || notFood || failed ? (

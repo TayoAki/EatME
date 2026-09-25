@@ -472,6 +472,22 @@ export function useUpdateMealItems(id: string, onCorrections?: (corrections: Foo
   });
 }
 
+/** The answer to the meal's one question (steer the AI): an option's index, or "skip". */
+export function useAnswerFollowUp(mealId: string) {
+  const { userId } = useSession();
+  const api = useApi();
+  const queryClient = useQueryClient();
+  const invalidateMeals = useInvalidateMeals();
+  return useMutation({
+    mutationFn: (option: number | 'skip') =>
+      api<{ meal: Meal }>(`/api/meals/${mealId}/follow-up`, { method: 'POST', body: { option } }),
+    onSuccess: (data) => {
+      queryClient.setQueryData(queryKeys.meal(userId, mealId), data);
+      return invalidateMeals();
+    },
+  });
+}
+
 /** "Your foods": the foods the person asked EatME to remember. */
 export function usePersonalFoods() {
   const { userId } = useSession();

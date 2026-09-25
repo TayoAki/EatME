@@ -29,6 +29,7 @@ import {
 
 import { ErrorScreen } from '@/components/full-screen-state';
 import { CopyToDaySheet } from '@/components/meal/copy-to-day-sheet';
+import { FollowUpCard } from '@/components/meal/follow-up-card';
 import { FoodsSection } from '@/components/meal/foods-section';
 import { QualityTag } from '@/components/meal/quality-tag';
 import { ProteinHint } from '@/components/meal/protein-hint';
@@ -361,11 +362,26 @@ function MealEditor({ meal, showNumbers, onShowNumbers, corrections, onCorrectio
         ) : (
           <View className="overflow-hidden rounded-card bg-surface">
             {hero ? (
-              <Image
-                source={{ uri: hero, cacheKey: meal.id }}
-                style={{ width: '100%', aspectRatio: 4 / 3 }}
-                contentFit="cover"
-              />
+              <>
+                <Image
+                  source={{ uri: hero, cacheKey: meal.id }}
+                  style={{ width: '100%', aspectRatio: 4 / 3 }}
+                  contentFit="cover"
+                />
+                {meal.extraImageUrls.length > 0 ? (
+                  <View className="absolute bottom-3 right-3 flex-row gap-1.5">
+                    {meal.extraImageUrls.map((uri, i) => (
+                      <Image
+                        key={uri}
+                        accessibilityLabel={`Photo ${i + 2} of this meal`}
+                        source={{ uri, cacheKey: `${meal.id}-${i + 2}` }}
+                        style={{ width: 52, height: 52, borderRadius: 12, borderWidth: 2, borderColor: colors.canvas }}
+                        contentFit="cover"
+                      />
+                    ))}
+                  </View>
+                ) : null}
+              </>
             ) : (
               <View className="aspect-[4/3] items-center justify-center">
                 <UtensilsCrossed size={40} color={colors.faint} />
@@ -388,6 +404,11 @@ function MealEditor({ meal, showNumbers, onShowNumbers, corrections, onCorrectio
           {saved ? 'Saved meal' : `${formatDay(toIsoDate(new Date(meal.loggedAt)))} · ${formatTime(meal.loggedAt)}`}
         </Text>
         {saved ? <RepeatRow meal={meal} /> : null}
+        {meal.followUp && meal.followUp.answer === null && !saved ? (
+          <View className="mt-4">
+            <FollowUpCard meal={meal} hideNumbers={!showNumbers} />
+          </View>
+        ) : null}
         {meal.note && !described ? (
           <Text className="mt-2 text-[15px] leading-[21px] text-ink">
             <Text className="font-semibold">Your note: </Text>
