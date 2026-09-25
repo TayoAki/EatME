@@ -110,6 +110,11 @@ Welcome ──Get started──▶ Onboarding questions ──▶ Building your 
   time, calories, macros. Meals still analyzing show a live "Analyzing…" card.
   Non-food scans never appear. Tap a meal to edit its values (manual corrections).
 - An empty today with meals yesterday offers "Copy yesterday's meals".
+- v2.1: "+ Quick add" and a copy button next to the meals heading (copy chosen meals from any of
+  the last 14 days to the selected day); a "Planned for today" card for repeat meals (`Log it` /
+  `Not today`; nothing is logged until tapped). Calm mode (Preferences) shows words instead of
+  calorie and macro numbers ("Plenty left", "On your way", "Nearly there", "Goal reached"), neutral
+  grey rings over a goal and "{n} days logged" (never resets) instead of the streak.
 - "Last 7 days" card under the meals (v1.2, once two days are logged): calories per day
   against the goal, average calories, protein and fiber, and one neutral suggestion
   (something to add, never something to cut). Tapping it opens every average vs its goal.
@@ -127,7 +132,9 @@ Welcome ──Get started──▶ Onboarding questions ──▶ Building your 
 - Barcode → product screen: name, brand, grams (serving, whole pack or 100 g chips), the
   label's calories and macros for that amount, attribution (Open Food Facts, ODbL / USDA),
   `Log it` (no AI, instant). Unknown barcode or no nutrition facts → `Scan the nutrition
-  label` or `Search foods`.
+  label` or `Search foods`. v2.1: a Source card (Open Food Facts community data or USDA Branded
+  Foods, the date the numbers were checked, a link) with `Report a problem` (then the label scan
+  or food search); after three reports in 30 days everyone sees "scan the label to be sure".
 - Ask for camera permission (`expo-camera`), then show the camera with a shutter.
 - Gallery button (`expo-image-picker`) to pick a food photo instead.
 - Preview with `Retake` / `Analyze the food`.
@@ -142,8 +149,12 @@ Welcome ──Get started──▶ Onboarding questions ──▶ Building your 
 - Result: name, calories, protein, carbs, fat, fiber, the protein-per-meal hint (the daily
   protein goal spread over about four meals), servings for labels, and "rough estimate"
   when the AI's confidence is low → `Log another` or `Done`.
-- Favourites (star button on the camera, or on the permission screen): one tap logs a
-  copy of a favourite meal now.
+- Saved meals (v2.1, the star button on the camera or on the permission screen): saved meals
+  first (one tap logs a copy now, the arrow opens it to edit or repeat it), then favourites;
+  `New meal` builds one from database foods. `Quick add` (v2.1) types calories and macros.
+- Several photos (v2.1): the preview offers "Add another angle" (up to 3 of one meal, one scan,
+  Premium when payments are on). When the server's `FOLLOW_UP_QUESTION` is on, the result can
+  carry one tap-to-answer question ("What was it cooked in?") that recalculates the meal.
 
 **Meal (modal)**
 - Photo (or the description of a text meal), name, the note, portion chips (½× 1× 1½× 2×,
@@ -152,6 +163,10 @@ Welcome ──Get started──▶ Onboarding questions ──▶ Building your 
   with its USDA database name, grams and calories; tap to change the grams — household
   measures offered — or the food, remove it, or add a food from the database search; the
   meal is recalculated), favourite star, `Log again today`, `Delete meal`.
+- v2.1: `Copy to…` (another of the last 14 days) and `Save as a meal`; after food edits
+  "Remember these next time?"; items from memory show "Your usual" (Forget in the amount sheet);
+  quick adds, labels and one-food meals get `Save as my food`. A saved meal opens here too
+  ("Saved meal", a Repeat row with days and time, `Log it now`, `Delete saved meal`).
 
 **Vitamins & minerals** (V2, from Home or a meal): the day's totals from the database foods
 and the supplements ticked that day against the DRI targets for the user's age and sex
@@ -166,6 +181,11 @@ when it is within reach of the scale), `Log weight` (today or yesterday, kg or l
 (tap to remove). One weigh-in per day; the profile's weight is always the latest one, and a new
 weight in Personal details is today's weigh-in. The history starts with the onboarding weight.
 A note explains day-to-day swings; no streaks, colours or praise around weight.
+v2.1: the chart's line is the trend (each day moves it 10% toward the weigh-in, gaps handled) and
+the weigh-ins are dots; the summary shows the trend and its weekly change; milestones every 5% of
+the way (at least 1 kg apart, never below BMI 18.5) are shown once, as a plain fact, when the
+trend crosses them; a 4-week drop faster than 1 kg a week suggests checking in with a doctor; a
+weigh-in reminder row links to Reminders (weekly or daily, off by default).
 
 **Premium** (V2, only when payments are on — off by default): Profile → EatME Premium. Free
 plan: 3 AI scans a day (photos, labels, descriptions); barcodes, food search, macro goals, water,
@@ -210,7 +230,8 @@ at sign-up (or a new one). Codes, not links: they work on phones without deep li
   (breakfast, lunch, dinner, water every few hours, the GLP-1 dose; local notifications
   scheduled on the phone),
   GLP-1 mode (medicine, weekly or daily, dose day; dose and side-effect history; turn off
-  or delete the data), Supplements (V2), Preferences, Language,
+  or delete the data), Supplements (V2), Your foods (v2.1: remembered foods to rename, change
+  the usual amount or forget), Preferences (v2.1: calm mode), Language,
   Upgrade to Family Plan — UI only; Preferences holds the food-quality tag switch when the
   experiment is on), Support (Send feedback via Sentry — shown only
   when a Sentry DSN is set, Privacy Policy, Terms of Service), Sign out, Delete account
@@ -232,14 +253,32 @@ macros, for "Use my plan"), `plan_source`
 cascade-deleted with the user.
 
 **meals** — `id` (uuid), `user_id` → users.id (cascade delete), `status`
-(`analyzing` / `completed` / `failed` / `not_food`), `name`, `calories`, `protein_g`,
+(`analyzing` / `completed` / `failed` / `not_food` / `saved` — a saved meal, never part of a day),
+`name`, `calories`, `protein_g`,
 `carbs_g`, `fat_g`, `fiber_g`, `confidence` (`low` / `medium` / `high`), `source`
-(`photo` / `text` / `label` / `copy` / `barcode` / `food`), `is_favorite`, `portion`,
+(`photo` / `text` / `label` / `copy` / `barcode` / `food` / `quick`), `is_favorite`, `portion`,
 `base_nutrition` (unrounded values for one portion), `note` (a text meal's description or
 a photo's note), `serving_size` (labels), `image_key` (bucket key
 `meals/<userId>/<mealId>.jpg`),
 `analysis_started_at` + `analysis_attempts` (lease + retries), `error`, `logged_at`,
-`created_at`, `updated_at`.
+`created_at`, `updated_at`; v2.1: `saved_meal_id` (the saved meal a copy was logged from),
+`extra_image_keys` (up to two more photos, `<mealId>-2.jpg`, `-3.jpg`), `follow_up` (jsonb: the
+one question, its options with how each changes the foods, and the answer).
+
+**meal_repeats** (v2.1) — a saved meal suggested on `weekdays` (0 = Sunday) at a usual `time`
+(`HH:MM`), one per saved meal, cascade-deleted with it; **meal_repeat_responses** — one per repeat
+and local `date`: `logged` (with the copy's `meal_id`) or `skipped`.
+
+**personal_foods** (v2.1) — remembered foods, up to 500 a person (cascade delete): `name`, `keys`
+(match keys: the AI names corrected to it and its own name), `food_id` / `product_code` /
+`per100g` / `serving` (one serving without a weight), `usual_grams`, `uses`, `last_used_at`.
+**meal_items** gains `ai_name` (the AI's name, never edited) and `personal_food_id`.
+
+**product_reports** (v2.1) — one per person and product: `reason` (`wrong_product` /
+`wrong_numbers` / `missing_numbers` / `other`), `note`, `snapshot` (source, id, fetch date; never
+Open Food Facts values), `status` (`open` / `refetched` / `resolved`). **products** gains
+`source_id`, `recheck_at` (next lookup fetches again, at most once a day) and `flagged_at` (three
+people in 30 days → "scan the label to be sure").
 
 **water_logs** — `id`, `user_id` (cascade delete), `amount_ml` (1–2,000), `logged_at`.
 
@@ -290,11 +329,19 @@ added to an earlier day are stored at local noon of that day.
 | `POST /api/plan` | public, 10/h per IP | AI plan for the onboarding answers (formula fallback) |
 | `POST /api/onboarding` | session | Save answers + plan on the user |
 | `GET/PATCH/DELETE /api/me` | session | Profile, edits (personal details, time zone), delete account |
-| `GET/POST /api/meals` | session | List a day's meals / log a meal + start the analysis (50 AI analyses a day): a JPEG body (`?mode=label` for labels, `X-Meal-Note` header for a note) or JSON `{ text }`; JSON `{ barcode: { code, grams } }` or `{ food: { foodId, grams } }` logs at once without AI |
+| `GET/POST /api/meals` | session | List a day's meals / log a meal + start the analysis (50 AI analyses a day): a JPEG body (`?mode=label` for labels, `X-Meal-Note` header for a note, up to 3 photos back to back with `X-Photo-Lengths`) or JSON `{ text }`; JSON `{ barcode: { code, grams } }`, `{ food: { foodId, grams } }` or `{ quick: { calories, … } }` logs at once without AI |
+| `POST /api/meals/:id/follow-up` | session | The answer to the meal's one question (`{ option }` or `"skip"`); no AI call |
+| `GET/POST /api/saved-meals` | session, 60 writes/h | Saved meals (up to 100) with their repeats / save a logged meal (`{ mealId }`) or build one from foods |
+| `PUT/DELETE /api/saved-meals/:id/repeat` | session | Repeat a saved meal on weekdays at a time / stop (up to 20 repeats) |
+| `GET /api/repeats?date=` | session | Saved meals planned for a day, with the answer |
+| `POST /api/repeats/:id/log`, `POST /api/repeats/:id/skip` | session, 120/h | "Log it" (at its usual time, never twice) / "Not today" |
+| `GET/POST /api/personal-foods` | session, 60 writes/h | "Your foods" / remember corrected items (`{ itemIds }`) or a quick add or label (`{ mealId }`) |
+| `PATCH/DELETE /api/personal-foods/:id` | session | Rename, change the usual grams / forget |
+| `POST/DELETE /api/products/:code/report` | session, 20/day | Report a problem with a product / take it back |
 | `GET /api/products/:code` | session, 120/h | A packaged product by barcode: cache → Open Food Facts → USDA Branded Foods (with `FDC_API_KEY`) |
 | `GET/PATCH/DELETE /api/meals/:id` | session | Read (polled while analyzing), correct or delete a meal |
 | `POST /api/meals/:id/duplicate` | session | Log a meal again (today or an earlier day), photo copied |
-| `POST /api/days/copy` | session | Copy one day's meals to another day (same local times) |
+| `POST /api/days/copy` | session | Copy one day's meals (all, or `mealIds`) to another day (same local times) |
 | `GET /api/favorites` | session | Favourite meals, newest first |
 | `GET/POST /api/water` | session | A day's water entries + total / add an entry |
 | `DELETE /api/water/:id` | session | Remove a water entry |
@@ -302,7 +349,7 @@ added to an earlier day are stored at local noon of that day.
 | `POST /api/glp1/doses`, `DELETE /api/glp1/doses/:id` | session | Log or remove a dose |
 | `POST /api/glp1/symptoms`, `DELETE /api/glp1/symptoms/:id` | session | Log or remove side effects |
 | `GET /api/foods?q=` | session | USDA food search (as you type) |
-| `PUT /api/meals/:id/items` | session | Edit a meal's foods and grams; every number is recalculated |
+| `PUT /api/meals/:id/items` | session | Edit a meal's foods and grams; every number is recalculated; returns the corrections worth remembering |
 | `GET /api/nutrients?date=` | session | A day's vitamins and minerals (foods + supplements), coverage, DRI targets, upper-limit warnings |
 | `GET/POST /api/weights` | session | Weigh-ins oldest first + goal / log one (today or an earlier `date`; replaces that day's) |
 | `DELETE /api/weights/:id` | session | Remove a weigh-in; the profile's weight goes back to the latest left |
@@ -310,8 +357,8 @@ added to an earlier day are stored at local noon of that day.
 | `PATCH/DELETE /api/supplements/:id` | session | Change name, dose or schedule / remove it (history kept) |
 | `POST/DELETE /api/supplements/:id/taken` | session | Tick as taken for a day (today by default, never the future) / untick |
 | `GET /api/insights/weekly` | session | The last 7 complete days: totals per day, averages, goals, one suggestion |
-| `GET /api/streak` | session | Current streak + logged days |
-| `GET /api/features` | public | Optional features the server has set up (`email`, `apple`, `google`); the app hides the rest |
+| `GET /api/streak` | session | Current streak, logged days and all days logged (calm mode) |
+| `GET /api/features` | public | Optional features the server has set up (`email`, `apple`, `google`, `payments`, `foodQuality`, `multiPhoto`, `followUp`); the app hides the rest |
 | `GET /api/billing` | session | Free or Premium, renewal, today's free AI scans |
 | `POST /api/billing/sync` | session | Right after a purchase or restore: reads the entitlement from RevenueCat |
 | `POST /api/billing/webhook` | RevenueCat secret | Purchases, renewals, cancellations, expirations, transfers |

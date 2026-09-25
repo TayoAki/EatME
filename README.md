@@ -41,18 +41,23 @@ Photo ──▶ POST /api/meals ──▶ bucket + meal row ("analyzing") ──
 
 ## What it does
 
-- **Log a meal** by photo (AI estimate), nutrition-label photo, a typed or dictated description, a
-  **barcode** (Open Food Facts, USDA Branded Foods fallback) or a **USDA food search** — the last two
-  need no AI. Photos and descriptions are split into foods matched to the USDA FNDDS database, so the
-  numbers (and vitamins and minerals) come from the database where a food matches; grams and foods
-  can be edited.
+- **Log a meal** by photo (up to 3 angles of one meal, still one scan), nutrition-label photo, a typed
+  or dictated description, a **barcode** (Open Food Facts, USDA Branded Foods fallback; the source is
+  shown and a wrong product can be reported), a **USDA food search** or **quick add** (type calories and
+  macros) — the last three need no AI. Photos and descriptions are split into foods matched to the USDA
+  FNDDS database, so the numbers (and vitamins and minerals) come from the database where a food
+  matches; grams and foods can be edited, and corrections can be **remembered** ("Your foods") so the
+  next scan uses your version first. Behind a flag, the AI can ask one tap-to-answer question (cooking
+  fat, portion, filling).
 - **Daily picture:** calories and macros against a plan built at onboarding (your own goals allowed,
   with safety floors), fiber and water, a protein hint per meal, weekly insights, **vitamins &
-  minerals** against the DRIs, a **supplements** log with upper-limit notes, **weight** history with a
-  chart.
-- **Habits:** log again, copy yesterday, favourites, portions, reminders (local notifications),
-  GLP-1 mode (dose day, side effects; no dosing advice), Apple Health / Health Connect sync (write
-  only) and an iOS water widget.
+  minerals** against the DRIs, a **supplements** log with upper-limit notes, **weight** with a trend
+  line, milestones (never below BMI 18.5) and a weigh-in reminder. **Calm mode** hides calorie and
+  macro numbers and counts days logged instead of a streak.
+- **Habits:** log again, copy any of the last 14 days (all meals or some), favourites, **saved meals**
+  that can repeat on chosen days (suggested on Home, never logged without a tap), portions, reminders
+  (local notifications), GLP-1 mode (dose day, side effects; no dosing advice), Apple Health / Health
+  Connect sync (write only) and an iOS water widget.
 - **Account:** email + password with optional email codes (forgot password, verification), optional
   Sign in with Apple / Google, and optional EatME Premium (store billing through RevenueCat; free
   users keep a few AI scans a day and everything else). An opt-in food-quality tag is available as
@@ -179,3 +184,14 @@ legal/              landing page, privacy policy, terms of service
   After fixing a product at Open Food Facts (or confirming it is right), close its reports with
   `update product_reports set status = 'resolved' where code = '…';` and
   `update products set flagged_at = null, recheck_at = now() where code = '…';`.
+- **Measure first (PLAN.md §16):** the share of people using GLP-1 mode, to decide where GLP-1 mode+
+  goes. Leave your own team's accounts out by email:
+
+  ```sql
+  select count(*) filter (where glp1 is not null) as glp1_mode,
+         count(*) as onboarded,
+         round(100.0 * count(*) filter (where glp1 is not null) / nullif(count(*), 0), 1) as percent
+  from users
+  where onboarding_completed_at is not null
+    and email not in ('you@example.com');
+  ```
