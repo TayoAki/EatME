@@ -13,6 +13,7 @@ import {
 } from 'drizzle-orm/pg-core';
 
 import { MEAL_CONFIDENCES, MEAL_SOURCES, MEAL_STATUSES, type BaseNutrition } from '@/shared/meals';
+import type { MacroTargets } from '@/shared/nutrition';
 import { ACTIVITY_LEVELS, DIETS, GENDERS, GOALS, PLAN_SOURCES, UNIT_SYSTEMS } from '@/shared/onboarding';
 
 // Column names are generated in snake_case (see `casing` in drizzle.config.ts and src/db/index.ts).
@@ -60,11 +61,13 @@ export const users = pgTable('users', {
   /** IANA time zone of the user's device — used for day boundaries and streaks. */
   timezone: text().notNull().default('UTC'),
 
-  // Daily plan generated during onboarding
+  // Daily targets: the plan from onboarding, or the user's own numbers (Daily goals)
   dailyCalories: integer(),
   dailyProteinG: integer(),
   dailyCarbsG: integer(),
   dailyFatG: integer(),
+  /** The targets the plan suggested, for "Use my plan" after the user changed them. */
+  planTargets: jsonb().$type<MacroTargets>(),
   planSource: planSourceEnum(),
   planSummary: text(),
   onboardingCompletedAt: timestamp({ withTimezone: true }),
@@ -150,6 +153,10 @@ export const meals = pgTable(
     portion: doublePrecision().notNull().default(1),
     /** Unrounded numbers for a portion of 1, so portion changes never drift. */
     baseNutrition: jsonb().$type<BaseNutrition>(),
+    /** What the user typed: the description of a text meal, or a note added to a photo. */
+    note: text(),
+    /** Nutrition labels: the serving the numbers are for, e.g. "1 bar (40 g)". */
+    servingSize: text(),
     /** Key of the photo in the storage bucket: meals/<userId>/<mealId>.jpg */
     imageKey: text(),
     /** Start of the running analysis. An old value means the server stopped mid-way: retry. */

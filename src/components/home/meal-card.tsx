@@ -1,6 +1,6 @@
 import { Image } from 'expo-image';
 import { router } from 'expo-router';
-import { Flame, UtensilsCrossed } from 'lucide-react-native';
+import { Flame, PenLine, UtensilsCrossed } from 'lucide-react-native';
 import { useEffect } from 'react';
 import { ActivityIndicator, Pressable, Text, View } from 'react-native';
 import Animated, {
@@ -17,14 +17,25 @@ import type { Meal } from '@/shared/meals';
 const THUMB = 88;
 
 /** `cacheKey` keeps the photo cached although its signed link changes on every refresh. */
-function Thumbnail({ uri, cacheKey, dimmed }: { uri: string | null; cacheKey: string; dimmed?: boolean }) {
+function Thumbnail({
+  uri,
+  cacheKey,
+  dimmed,
+  described,
+}: {
+  uri: string | null;
+  cacheKey: string;
+  dimmed?: boolean;
+  /** Logged in words: a pen instead of the plate icon. */
+  described?: boolean;
+}) {
   return (
     <View style={{ width: THUMB, height: THUMB }} className="overflow-hidden rounded-2xl bg-surface">
       {uri ? (
         <Image source={{ uri, cacheKey }} style={{ width: THUMB, height: THUMB }} contentFit="cover" transition={200} />
       ) : (
         <View className="flex-1 items-center justify-center">
-          <UtensilsCrossed size={28} color={colors.faint} />
+          {described ? <PenLine size={26} color={colors.faint} /> : <UtensilsCrossed size={28} color={colors.faint} />}
         </View>
       )}
       {dimmed ? (
@@ -64,7 +75,7 @@ export function MealCard({ meal }: { meal: Meal }) {
       disabled={analyzing}
       onPress={() => router.push({ pathname: '/meal/[id]', params: { id: meal.id } })}
       className="flex-row gap-3.5 rounded-[22px] border border-line bg-canvas p-2.5 active:opacity-80">
-      <Thumbnail uri={meal.imageUrl} cacheKey={meal.id} dimmed={analyzing} />
+      <Thumbnail uri={meal.imageUrl} cacheKey={meal.id} dimmed={analyzing} described={!meal.imageUrl && !!meal.note} />
       {analyzing ? (
         <View className="flex-1 justify-center gap-2.5 pr-2">
           <Text className="text-[16px] font-semibold text-ink">Analyzing…</Text>

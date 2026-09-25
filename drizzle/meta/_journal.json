@@ -15,6 +15,13 @@
       "when": 1790308335688,
       "tag": "0001_fiber_water_relog",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1790310850486,
+      "tag": "0002_describe_goals",
+      "breakpoints": true
     }
   ]
 }

@@ -6,12 +6,15 @@ import { requireUserId } from '@/lib/server/auth';
 import { toProfile } from '@/lib/server/dto';
 import { handle, HttpError, readJson } from '@/lib/server/http';
 import { isValidTimeZone } from '@/lib/server/time-zone';
+import { formulaPlan, minimumCalories } from '@/shared/nutrition';
 import { saveOnboardingSchema } from '@/shared/onboarding';
 
 /** Saves the onboarding answers + the AI plan right after sign-up (the account row already exists). */
 export const POST = handle(async (request) => {
   const userId = await requireUserId(request);
-  const { answers, plan, timezone } = saveOnboardingSchema.parse(await readJson(request));
+  const { answers, plan: sentPlan, timezone } = saveOnboardingSchema.parse(await readJson(request));
+  // The plan comes from the app: never store one below the safety floor.
+  const plan = sentPlan.calories >= minimumCalories(answers.gender) ? sentPlan : formulaPlan(answers);
 
   const [row] = await db
     .update(users)
@@ -31,6 +34,7 @@ export const POST = handle(async (request) => {
       dailyProteinG: plan.proteinG,
       dailyCarbsG: plan.carbsG,
       dailyFatG: plan.fatG,
+      planTargets: { calories: plan.calories, proteinG: plan.proteinG, carbsG: plan.carbsG, fatG: plan.fatG },
       planSource: plan.source,
       planSummary: plan.summary,
       onboardingCompletedAt: new Date(),

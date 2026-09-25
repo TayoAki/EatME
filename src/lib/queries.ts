@@ -1,5 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
+import type { WeeklyInsights } from '@/shared/insights';
 import type { Meal, UpdateMealBody } from '@/shared/meals';
 import type { SaveOnboardingBody } from '@/shared/onboarding';
 import type { MeResponse, StreakResponse, UpdateProfileBody } from '@/shared/user';
@@ -18,6 +19,7 @@ export const queryKeys = {
   waterAll: (userId: string | null | undefined) => ['water', userId] as const,
   water: (userId: string | null | undefined, date: string) => ['water', userId, date] as const,
   favorites: (userId: string | null | undefined) => ['favorites', userId] as const,
+  insights: (userId: string | null | undefined) => ['insights', userId] as const,
 };
 
 /** Earlier days are sent as `date`; today logs at "now". */
@@ -106,6 +108,7 @@ export function useInvalidateMeals() {
       queryClient.invalidateQueries({ queryKey: queryKeys.mealsAll(userId) }),
       queryClient.invalidateQueries({ queryKey: queryKeys.streak(userId) }),
       queryClient.invalidateQueries({ queryKey: queryKeys.favorites(userId) }),
+      queryClient.invalidateQueries({ queryKey: queryKeys.insights(userId) }),
     ]);
 }
 
@@ -213,5 +216,16 @@ export function useDeleteWater(date: string) {
     },
     onError: (_error, _id, context) => queryClient.setQueryData(key, context?.previous),
     onSettled: () => queryClient.invalidateQueries({ queryKey: key }),
+  });
+}
+
+/** The last 7 complete days: averages against goals (Home's weekly card). */
+export function useWeeklyInsights() {
+  const { userId } = useSession();
+  const api = useApi();
+  return useQuery({
+    queryKey: queryKeys.insights(userId),
+    queryFn: () => api<WeeklyInsights>('/api/insights/weekly'),
+    staleTime: 10 * 60_000,
   });
 }

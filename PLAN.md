@@ -88,9 +88,16 @@ Welcome ──Get started──▶ Onboarding questions ──▶ Building your 
   time, calories, macros. Meals still analyzing show a live "Analyzing…" card.
   Non-food scans never appear. Tap a meal to edit its values (manual corrections).
 - An empty today with meals yesterday offers "Copy yesterday's meals".
+- "Last 7 days" card under the meals (v1.2, once two days are logged): calories per day
+  against the goal, average calories, protein and fiber, and one neutral suggestion
+  (something to add, never something to cut). Tapping it opens every average vs its goal.
 - Bottom padding so the tab bar never covers content.
 
 **Scan**
+- Mode switch above the shutter: **Meal** (estimate) or **Nutrition label** (read the
+  printed values for one serving, then pick the servings). A pen button opens **Describe
+  a meal**: a text box (the keyboard's mic gives voice) with examples; the AI estimates it
+  like a photo. Photos of meals can carry an optional note ("cooked in butter, ate half").
 - Ask for camera permission (`expo-camera`), then show the camera with a shutter.
 - Gallery button (`expo-image-picker`) to pick a food photo instead.
 - Preview with `Retake` / `Analyze the food`.
@@ -102,19 +109,22 @@ Welcome ──Get started──▶ Onboarding questions ──▶ Building your 
 - Not food → "That doesn't look like food" + the AI's reason + retake (the photo is
   deleted). Failed AI calls are retried (3 attempts); an analysis interrupted by a
   server restart resumes the next time the app loads meals.
-- Result: name, calories, protein, carbs, fat, fiber (+ "rough estimate" when the AI's
-  confidence is low) → `Scan another` or `Done`.
+- Result: name, calories, protein, carbs, fat, fiber, the protein-per-meal hint (the daily
+  protein goal spread over about four meals), servings for labels, and "rough estimate"
+  when the AI's confidence is low → `Log another` or `Done`.
 - Favourites (star button on the camera, or on the permission screen): one tap logs a
   copy of a favourite meal now.
 
 **Meal (modal)**
-- Photo, name, portion chips (½× 1× 1½× 2×, scaled from the stored unrounded values so
-  there is no drift), editable calories, macros and fiber, favourite star, `Log again
-  today`, `Delete meal`.
+- Photo (or the description of a text meal), name, the note, portion chips (½× 1× 1½× 2×,
+  scaled from the stored unrounded values so there is no drift) or a servings stepper for
+  labels, editable calories, macros and fiber, the protein hint, favourite star, `Log
+  again today`, `Delete meal`.
 
 **Profile**
-- User card, Account section (Personal details — editable, Daily goals — fiber and
-  water, recommended or your own, Preferences, Language,
+- User card, Account section (Personal details — editable, Daily goals — calories and
+  macros (your plan or your own, never under 1,200 kcal for women / 1,500 kcal for men)
+  plus fiber and water (recommended or your own), Preferences, Language,
   Upgrade to Family Plan — UI only), Support (Send feedback via Sentry — shown only
   when a Sentry DSN is set, Privacy Policy, Terms of Service), Sign out, Delete account
   (with confirmation).
@@ -127,7 +137,8 @@ Welcome ──Get started──▶ Onboarding questions ──▶ Building your 
 `image`, `gender`, `date_of_birth`, `height_cm`, `weight_kg`, `goal`, `target_weight_kg`,
 `activity_level`, `weekly_goal_kg`, `diet`, `unit_system`, `timezone`,
 `daily_calories`, `daily_protein_g`, `daily_carbs_g`, `daily_fat_g`, `daily_fiber_g` and
-`daily_water_ml` (empty = the recommended goal), `plan_source`
+`daily_water_ml` (empty = the recommended goal), `plan_targets` (the plan's calories and
+macros, for "Use my plan"), `plan_source`
 (`ai` / `formula`), `plan_summary`, `onboarding_completed_at`, `created_at`, `updated_at`.
 
 **sessions**, **accounts** (password hash), **verifications** — Better Auth tables,
@@ -137,7 +148,8 @@ cascade-deleted with the user.
 (`analyzing` / `completed` / `failed` / `not_food`), `name`, `calories`, `protein_g`,
 `carbs_g`, `fat_g`, `fiber_g`, `confidence` (`low` / `medium` / `high`), `source`
 (`photo` / `text` / `label` / `copy` / `barcode` / `food`), `is_favorite`, `portion`,
-`base_nutrition` (unrounded values for one portion), `image_key` (bucket key
+`base_nutrition` (unrounded values for one portion), `note` (a text meal's description or
+a photo's note), `serving_size` (labels), `image_key` (bucket key
 `meals/<userId>/<mealId>.jpg`),
 `analysis_started_at` + `analysis_attempts` (lease + retries), `error`, `logged_at`,
 `created_at`, `updated_at`.
@@ -156,13 +168,14 @@ added to an earlier day are stored at local noon of that day.
 | `POST /api/plan` | public, 10/h per IP | AI plan for the onboarding answers (formula fallback) |
 | `POST /api/onboarding` | session | Save answers + plan on the user |
 | `GET/PATCH/DELETE /api/me` | session | Profile, edits (personal details, time zone), delete account |
-| `GET/POST /api/meals` | session | List a day's meals / upload a photo + start the analysis (50/day) |
+| `GET/POST /api/meals` | session | List a day's meals / log a meal + start the analysis (50 AI analyses a day): a JPEG body (`?mode=label` for labels, `X-Meal-Note` header for a note) or JSON `{ text }` |
 | `GET/PATCH/DELETE /api/meals/:id` | session | Read (polled while analyzing), correct or delete a meal |
 | `POST /api/meals/:id/duplicate` | session | Log a meal again (today or an earlier day), photo copied |
 | `POST /api/days/copy` | session | Copy one day's meals to another day (same local times) |
 | `GET /api/favorites` | session | Favourite meals, newest first |
 | `GET/POST /api/water` | session | A day's water entries + total / add an entry |
 | `DELETE /api/water/:id` | session | Remove a water entry |
+| `GET /api/insights/weekly` | session | The last 7 complete days: totals per day, averages, goals, one suggestion |
 | `GET /api/streak` | session | Current streak + logged days |
 | `GET /api/health` | public | Railway health check |
 
@@ -170,7 +183,8 @@ added to an earlier day are stored at local noon of that day.
 - `plan.ts` — dietitian prompt → structured daily targets (2 attempts); falls back to the
   Mifflin-St Jeor formula, so onboarding never gets stuck.
 - `meal-analysis.ts` — photo from the bucket → vision model (low detail) → structured
-  nutrition. A lease (`analysis_started_at`) makes sure only one attempt runs per meal;
+  nutrition; labels are read at high detail with their own prompt; descriptions go to the
+  text model. Notes and descriptions are passed as information, never as instructions. A lease (`analysis_started_at`) makes sure only one attempt runs per meal;
   stale leases are picked up again when the app loads meals.
 
 ### Railway
@@ -271,8 +285,10 @@ added to an earlier day are stored at local noon of that day.
 ### 10 · Before App Store submission (these block review)
 - [ ] AI consent screen before the plan is built and before the first scan, naming
   OpenRouter and OpenAI (Apple 5.1.2(i))
-- [ ] Safer plan limits: 1,500 kcal floor for men (1,200 for women), at most 1 kg of loss a
-  week, no weight-loss target below a BMI of 18.5
+- [x] Calorie floor: 1,500 kcal for men, 1,200 for women (the plan, onboarding and Daily
+  goals)
+- [ ] Safer plan limits: at most 1 kg of loss a week, no weight-loss target below a BMI
+  of 18.5
 - [ ] Minimum age: 18 recommended (`MIN_AGE`, age rating, terms)
 - [ ] "Check with a doctor" line on the plan screen, a helpline link in Profile, no accuracy
   claims (Apple 1.4.1)
@@ -331,11 +347,11 @@ added to an earlier day are stored at local noon of that day.
   `design/prompts/10-fiber-water.md`.
 
 ### 13 · v1.2
-- [ ] Describe a meal: a text box (keyboard dictation gives voice), a note on a photo, a
+- [x] Describe a meal: a text box (keyboard dictation gives voice), a note on a photo, a
   nutrition-label photo (7.5)
-- [ ] Protein at every meal (a per-meal hint) and editable macro goals, free, with the same
+- [x] Protein at every meal (a per-meal hint) and editable macro goals, free, with the same
   safety floors (7.5)
-- [ ] Weekly insights card on Home: last week's averages against goals, neutral wording (7.0)
+- [x] Weekly insights card on Home: last week's averages against goals, neutral wording (7.0)
 
 ### 14 · v1.3 (needs a development build and push notifications)
 - [ ] Push notifications (reminders)

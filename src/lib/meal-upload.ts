@@ -2,7 +2,7 @@ import { File } from 'expo-file-system';
 import { ImageManipulator, SaveFormat } from 'expo-image-manipulator';
 import { Platform } from 'react-native';
 
-import type { Meal } from '@/shared/meals';
+import type { Meal, PhotoMode } from '@/shared/meals';
 
 import type { ApiClient } from './api';
 
@@ -27,17 +27,36 @@ async function readBytes(uri: string): Promise<Uint8Array | ArrayBuffer> {
   return new File(uri).bytes();
 }
 
+type UploadOptions = {
+  /** A photo of a meal (estimated) or of a nutrition-facts label (read). */
+  mode?: PhotoMode;
+  /** What the photo can't show, e.g. "cooked in 2 tbsp olive oil". Meals only. */
+  note?: string;
+};
+
 /**
  * Photo → EatME server (stored in the bucket, meal saved as "analyzing", AI analysis started).
  * The photo is sent as the raw request body — no FormData, which Expo's fetch only partly supports.
  * The caller then polls `GET /api/meals/:id` for the result.
  */
-export async function uploadMeal(api: ApiClient, photo: { uri: string; width?: number; height?: number }) {
+export async function uploadMeal(
+  api: ApiClient,
+  photo: { uri: string; width?: number; height?: number },
+  { mode = 'meal', note }: UploadOptions = {},
+) {
   const uri = await prepare(photo.uri, photo.width, photo.height);
   const data = await readBytes(uri);
-  const { meal } = await api<{ meal: Meal }>('/api/meals', {
+  const trimmed = note?.trim();
+  const { meal } = await api<{ meal: Meal }>(`/api/meals${mode === 'label' ? '?mode=label' : ''}`, {
     method: 'POST',
     binary: { data, type: 'image/jpeg' },
+    headers: trimmed && mode === 'meal' ? { 'X-Meal-Note': encodeURIComponent(trimmed) } : undefined,
   });
+  return meal;
+}
+
+/** A meal described in words: the server estimates it with AI, like a photo. */
+export async function describeMeal(api: ApiClient, text: string) {
+  const { meal } = await api<{ meal: Meal }>('/api/meals', { method: 'POST', body: { text: text.trim() } });
   return meal;
 }

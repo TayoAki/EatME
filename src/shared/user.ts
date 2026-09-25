@@ -14,6 +14,7 @@ import {
   type PlanSource,
   type UnitSystem,
 } from './onboarding';
+import type { MacroTargets } from './nutrition';
 
 /** Profile returned by `GET /api/me`. */
 export type Profile = {
@@ -35,6 +36,8 @@ export type Profile = {
   dailyProteinG: number | null;
   dailyCarbsG: number | null;
   dailyFatG: number | null;
+  /** What the plan suggested, for "Use my plan" once the user has changed the targets. */
+  planTargets: MacroTargets | null;
   /** Daily fiber goal (g): the user's own, or the recommended one. */
   dailyFiberG: number;
   /** Daily water goal from drinks (ml): the user's own, or the recommended one. */
@@ -57,7 +60,14 @@ export type StreakResponse = {
   today: string;
 };
 
-/** Body of `PATCH /api/me` — personal details edits and the device time zone. */
+/** Accepted range for the user's own macro targets (grams a day). Fat and protein keep a safe minimum. */
+export const MACRO_LIMITS = {
+  proteinG: { min: 30, max: 400 },
+  carbsG: { min: 20, max: 900 },
+  fatG: { min: 20, max: 300 },
+} as const;
+
+/** Body of `PATCH /api/me` — personal details, daily goals and the device time zone. */
 export const updateProfileSchema = z
   .object({
     gender: z.enum(GENDERS),
@@ -73,6 +83,12 @@ export const updateProfileSchema = z
     /** null = go back to the recommended goal. */
     dailyFiberG: z.number().int().min(5).max(100).nullable(),
     dailyWaterMl: z.number().int().min(500).max(6000).nullable(),
+    /** The user's own calorie and macro targets; null = back to the plan's value. The calorie
+     * floor depends on sex and is checked on the server (`minimumCalories`). */
+    dailyCalories: z.number().int().min(1000).max(6000).nullable(),
+    dailyProteinG: z.number().int().min(MACRO_LIMITS.proteinG.min).max(MACRO_LIMITS.proteinG.max).nullable(),
+    dailyCarbsG: z.number().int().min(MACRO_LIMITS.carbsG.min).max(MACRO_LIMITS.carbsG.max).nullable(),
+    dailyFatG: z.number().int().min(MACRO_LIMITS.fatG.min).max(MACRO_LIMITS.fatG.max).nullable(),
   })
   .partial();
 export type UpdateProfileBody = z.infer<typeof updateProfileSchema>;

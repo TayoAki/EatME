@@ -29,8 +29,12 @@ export type Meal = {
   confidence: MealConfidence | null;
   source: MealSource;
   isFavorite: boolean;
-  /** Multiplier of the originally estimated amount (the numbers above already include it). */
+  /** Multiplier of the originally estimated amount (servings for a label; the numbers above already include it). */
   portion: number;
+  /** The description of a text meal, or the note added to a photo. */
+  note: string | null;
+  /** Nutrition labels: the serving the label's numbers are for, e.g. "1 bar (40 g)". */
+  servingSize: string | null;
   /** Short-lived signed link to the photo in the storage bucket. */
   imageUrl: string | null;
   /** Why the analysis failed, or why the photo is not food. */
@@ -53,9 +57,28 @@ export const mealAnalysisSchema = z.object({
 });
 export type MealAnalysis = z.infer<typeof mealAnalysisSchema>;
 
+/** The same for a nutrition-facts label: values for one serving as printed. */
+export const labelAnalysisSchema = mealAnalysisSchema.extend({
+  servingSize: z.string().max(80).nullable(),
+});
+export type LabelAnalysis = z.infer<typeof labelAnalysisSchema>;
+
 /** `POST /api/meals` takes the photo as multipart form data in this field. */
 export const MEAL_PHOTO_FIELD = 'photo';
 export const MAX_MEAL_PHOTO_BYTES = 8 * 1024 * 1024;
+
+/** What a photo shows: a meal (estimated) or a nutrition-facts label (read). `?mode=` on upload. */
+export const PHOTO_MODES = ['meal', 'label'] as const;
+export type PhotoMode = (typeof PHOTO_MODES)[number];
+
+/** A note sent with a photo (`X-Meal-Note` header, URI-encoded) or a typed description. */
+export const MAX_MEAL_NOTE_LENGTH = 300;
+export const MAX_MEAL_DESCRIPTION_LENGTH = 500;
+
+/** Body of `POST /api/meals` as JSON: a meal described in words instead of a photo. */
+export const describeMealSchema = z.object({
+  text: z.string().trim().min(3, 'Describe what you ate.').max(MAX_MEAL_DESCRIPTION_LENGTH),
+});
 
 /** Body of `PATCH /api/meals/:id` — manual corrections. */
 export const updateMealSchema = z
@@ -68,7 +91,7 @@ export const updateMealSchema = z
     fiberG: z.number().int().min(0).max(500),
     isFavorite: z.boolean(),
     /** Scales every number by new ÷ current portion unless the numbers are sent too. */
-    portion: z.number().min(0.25).max(10),
+    portion: z.number().min(0.25).max(20),
   })
   .partial();
 export type UpdateMealBody = z.infer<typeof updateMealSchema>;

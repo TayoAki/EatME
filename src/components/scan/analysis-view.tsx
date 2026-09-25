@@ -1,25 +1,54 @@
 import * as Sentry from '@sentry/react-native';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { Image } from 'expo-image';
-import { Flame, ImageOff, TriangleAlert } from 'lucide-react-native';
+import { CircleHelp, Flame, ImageOff, PenLine, TriangleAlert } from 'lucide-react-native';
 import { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, ScrollView, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { SkeletonBar } from '@/components/home/meal-card';
+import { ProteinHint } from '@/components/meal/protein-hint';
+import { ServingsStepper } from '@/components/meal/servings-stepper';
 import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/ui/logo';
 import { colors } from '@/constants/colors';
 import { useApi } from '@/lib/api';
+import { useSession } from '@/lib/auth-client';
 import { haptics } from '@/lib/haptics';
-import { uploadMeal } from '@/lib/meal-upload';
-import { useInvalidateMeals } from '@/lib/queries';
-import { MEAL_ANALYSIS_STAGES, type Meal } from '@/shared/meals';
+import { describeMeal, uploadMeal } from '@/lib/meal-upload';
+import { queryKeys, useInvalidateMeals, useProfile } from '@/lib/queries';
+import { MEAL_ANALYSIS_STAGES, type Meal, type PhotoMode } from '@/shared/meals';
 
 import type { Photo } from './camera-capture';
 
 /** Stop waiting after this long; the analysis keeps running and the meal shows up on Home later. */
 const GIVE_UP_AFTER_SECONDS = 90;
+
+/** What the user sent: a photo of a meal or label (with an optional note), or a description. */
+export type MealInput =
+  | { kind: 'photo'; photo: Photo; mode: PhotoMode; note?: string }
+  | { kind: 'text'; text: string };
+
+const COPY = {
+  photo: {
+    first: 'Identifying your meal…',
+    notFood: "That doesn't look like food",
+    failed: "We couldn't analyze this photo",
+    retry: 'Please try again with a clearer photo of your meal.',
+  },
+  label: {
+    first: 'Reading the label…',
+    notFood: "We couldn't read the label",
+    failed: "We couldn't read this label",
+    retry: 'Please try again with a sharp, straight photo of the nutrition facts.',
+  },
+  text: {
+    first: 'Understanding your meal…',
+    notFood: "That doesn't sound like food",
+    failed: "We couldn't estimate this meal",
+    retry: 'Please try again, or add a little more detail.',
+  },
+} as const;
 
 function MacroBox({ label, value, color }: { label: string; value: number | null; color: string }) {
   return (
@@ -37,26 +66,35 @@ function MacroBox({ label, value, color }: { label: string; value: number | null
 }
 
 type AnalysisViewProps = {
-  photo: Photo;
+  input: MealInput;
   onScanAnother: () => void;
+  /** Back to the description to change it (text meals). */
+  onEdit?: () => void;
   onDone: () => void;
   bottomSpace: number;
 };
 
 /**
- * Optimistic result card: the photo shows immediately, then the card fills in when the server has
- * analyzed the meal (the app checks every 1.5 seconds).
+ * Optimistic result card: the photo (or description) shows immediately, then the card fills in when
+ * the server has analyzed the meal (the app checks every 1.5 seconds).
  */
-export function AnalysisView({ photo, onScanAnother, onDone, bottomSpace }: AnalysisViewProps) {
+export function AnalysisView({ input, onScanAnother, onEdit, onDone, bottomSpace }: AnalysisViewProps) {
   const insets = useSafeAreaInsets();
   const api = useApi();
+  const { userId } = useSession();
+  const profile = useProfile();
   const invalidateMeals = useInvalidateMeals();
+  const kind = input.kind === 'text' ? 'text' : input.mode === 'label' ? 'label' : 'photo';
+  const copy = COPY[kind];
 
   const upload = useMutation({
-    mutationFn: () => uploadMeal(api, photo),
+    mutationFn: () =>
+      input.kind === 'text'
+        ? describeMeal(api, input.text)
+        : uploadMeal(api, input.photo, { mode: input.mode, note: input.note }),
     // Home shows the new meal as "Analyzing…" right away and keeps checking on it.
     onSuccess: () => void invalidateMeals(),
-    onError: (error) => Sentry.logger.error('Meal upload failed', { error: error.message }),
+    onError: (error) => Sentry.logger.error('Meal upload failed', { kind, error: error.message }),
   });
   const started = useRef(false);
   const startedAt = useRef(0);
@@ -70,8 +108,9 @@ export function AnalysisView({ photo, onScanAnother, onDone, bottomSpace }: Anal
   const mealId = upload.data?.id;
   const [elapsed, setElapsed] = useState(0);
   const timedOut = elapsed >= GIVE_UP_AFTER_SECONDS;
+  // Same cache entry as the meal screen, so servings changes show up here too.
   const result = useQuery({
-    queryKey: ['meal-analysis', mealId],
+    queryKey: queryKeys.meal(userId, mealId ?? ''),
     queryFn: () => api<{ meal: Meal }>(`/api/meals/${mealId}`),
     enabled: !!mealId && !timedOut,
     refetchInterval: (query) => (query.state.data?.meal.status === 'analyzing' || !query.state.data ? 1500 : false),
@@ -104,27 +143,33 @@ export function AnalysisView({ photo, onScanAnother, onDone, bottomSpace }: Anal
     if (outcome.status === 'completed') {
       haptics.success();
       Sentry.logger.info('Meal analyzed', {
+        kind,
         mealId: outcome.id,
         calories: outcome.calories ?? 0,
         seconds: Math.round((Date.now() - startedAt.current) / 1000),
       });
     } else if (outcome.status === 'not_food') {
       haptics.warning();
-      Sentry.logger.warn('Scanned photo is not food', { reason: outcome.error ?? 'unknown' });
+      Sentry.logger.warn('Not food', { kind, reason: outcome.error ?? 'unknown' });
     } else {
-      Sentry.logger.error('Meal analysis failed', { mealId: outcome.id, error: outcome.error ?? 'unknown' });
+      Sentry.logger.error('Meal analysis failed', { kind, mealId: outcome.id, error: outcome.error ?? 'unknown' });
     }
     void invalidateMeals();
-  }, [outcome, invalidateMeals]);
+  }, [outcome, invalidateMeals, kind]);
 
   const stageLabel = upload.isPending
-    ? 'Uploading your photo…'
-    : [...MEAL_ANALYSIS_STAGES].reverse().find((stage) => elapsed >= stage.after)?.label;
-  const meal = outcome?.status === 'completed' ? outcome : null;
+    ? input.kind === 'text'
+      ? 'Sending your description…'
+      : 'Uploading your photo…'
+    : elapsed < MEAL_ANALYSIS_STAGES[1].after
+      ? copy.first
+      : [...MEAL_ANALYSIS_STAGES].reverse().find((stage) => elapsed >= stage.after)?.label;
+  // The result is read from the cache, which the servings stepper updates.
+  const meal = analyzed?.status === 'completed' ? analyzed : null;
   const notFood = outcome?.status === 'not_food' ? outcome : null;
-  const failureMessage = upload.error?.message ?? (timedOut && !outcome
-    ? 'This is taking longer than usual. Your meal will appear on Home when it is ready.'
-    : 'Please try again with a clearer photo of your meal.');
+  const failureMessage =
+    upload.error?.message ??
+    (timedOut && !outcome ? 'This is taking longer than usual. Your meal will appear on Home when it is ready.' : copy.retry);
 
   return (
     <View className="flex-1 bg-canvas" style={{ paddingTop: insets.top }}>
@@ -132,9 +177,16 @@ export function AnalysisView({ photo, onScanAnother, onDone, bottomSpace }: Anal
         <View className="items-center py-3">
           <Logo size={34} />
         </View>
-        <View className="overflow-hidden rounded-card bg-surface">
-          <Image source={{ uri: photo.uri }} style={{ width: '100%', aspectRatio: 4 / 3 }} contentFit="cover" />
-        </View>
+        {input.kind === 'photo' ? (
+          <View className="overflow-hidden rounded-card bg-surface">
+            <Image source={{ uri: input.photo.uri }} style={{ width: '100%', aspectRatio: 4 / 3 }} contentFit="cover" />
+          </View>
+        ) : (
+          <View className="flex-row gap-3 rounded-card bg-surface p-4">
+            <PenLine size={18} color={colors.muted} style={{ marginTop: 2 }} />
+            <Text className="flex-1 text-[17px] leading-6 text-ink">{input.text}</Text>
+          </View>
+        )}
 
         <View className="mt-4 rounded-card border border-line bg-canvas p-5">
           {meal ? (
@@ -154,18 +206,28 @@ export function AnalysisView({ photo, onScanAnother, onDone, bottomSpace }: Anal
                 <View style={{ backgroundColor: colors.fiber }} className="h-2.5 w-2.5 rounded-full" />
                 <Text className="text-[15px] text-ink">Fiber {meal.fiberG ?? 0} g</Text>
               </View>
+              {meal.servingSize ? (
+                <View className="mt-4">
+                  <ServingsStepper meal={meal} />
+                </View>
+              ) : null}
+              {profile?.dailyProteinG ? (
+                <View className="mt-4">
+                  <ProteinHint proteinG={meal.proteinG ?? 0} dailyProteinG={profile.dailyProteinG} />
+                </View>
+              ) : null}
               {meal.confidence === 'low' ? (
-                <Text className="mt-2 text-[13px] leading-[18px] text-muted">
-                  Rough estimate — the photo didn&apos;t show everything clearly. You can adjust it on the meal screen.
+                <Text className="mt-3 text-[13px] leading-[18px] text-muted">
+                  {kind === 'text'
+                    ? 'Rough estimate — amounts would make it more accurate. You can adjust it on the meal screen.'
+                    : "Rough estimate — the photo didn't show everything clearly. You can adjust it on the meal screen."}
                 </Text>
               ) : null}
             </>
           ) : notFood ? (
             <View className="items-center py-2">
-              <ImageOff size={32} color={colors.ink} />
-              <Text className="mt-3 text-center text-[22px] font-bold tracking-tight text-ink">
-                That doesn&apos;t look like food
-              </Text>
+              {kind === 'text' ? <CircleHelp size={32} color={colors.ink} /> : <ImageOff size={32} color={colors.ink} />}
+              <Text className="mt-3 text-center text-[22px] font-bold tracking-tight text-ink">{copy.notFood}</Text>
               <Text className="mt-2 text-center text-[15px] leading-[21px] text-muted">
                 {notFood.error ?? 'Try a photo of your plate.'}
               </Text>
@@ -173,12 +235,8 @@ export function AnalysisView({ photo, onScanAnother, onDone, bottomSpace }: Anal
           ) : failed ? (
             <View className="items-center py-2">
               <TriangleAlert size={32} color={colors.danger} />
-              <Text className="mt-3 text-center text-[22px] font-bold tracking-tight text-ink">
-                We couldn&apos;t analyze this photo
-              </Text>
-              <Text className="mt-2 text-center text-[15px] leading-[21px] text-muted">
-                {failureMessage}
-              </Text>
+              <Text className="mt-3 text-center text-[22px] font-bold tracking-tight text-ink">{copy.failed}</Text>
+              <Text className="mt-2 text-center text-[15px] leading-[21px] text-muted">{failureMessage}</Text>
             </View>
           ) : (
             <>
@@ -211,12 +269,13 @@ export function AnalysisView({ photo, onScanAnother, onDone, bottomSpace }: Anal
 
       {meal || notFood || failed ? (
         <View className="flex-row gap-3 px-5 pt-3" style={{ paddingBottom: bottomSpace }}>
-          <Button
-            title={meal ? 'Scan another' : 'Retake'}
-            variant="secondary"
-            className="flex-1"
-            onPress={onScanAnother}
-          />
+          {meal ? (
+            <Button title="Log another" variant="secondary" className="flex-1" onPress={onScanAnother} />
+          ) : input.kind === 'text' && onEdit ? (
+            <Button title="Edit description" variant="secondary" className="flex-1" onPress={onEdit} />
+          ) : (
+            <Button title="Retake" variant="secondary" className="flex-1" onPress={onScanAnother} />
+          )}
           {meal ? <Button title="Done" className="flex-1" onPress={onDone} /> : null}
         </View>
       ) : (

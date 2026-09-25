@@ -6,7 +6,22 @@ import type { ActivityLevel, Diet, Gender, Goal, NutritionPlan, OnboardingAnswer
  */
 
 export const KCAL_PER_KG = 7700;
-export const MIN_DAILY_CALORIES = 1200;
+
+/** Daily calorie and macro targets. */
+export type MacroTargets = { calories: number; proteinG: number; carbsG: number; fatG: number };
+
+/**
+ * The lowest daily calorie target EatME suggests or accepts (below this, dieting needs medical
+ * supervision): 1,500 kcal for men, 1,200 for women, the midpoint otherwise.
+ */
+export function minimumCalories(gender: Gender | null | undefined) {
+  return bySex(gender, { female: 1200, male: 1500 });
+}
+
+/** Protein worth aiming for at each meal: the daily goal spread over about four meals, at least 20 g. */
+export function proteinPerMeal(dailyProteinG: number) {
+  return Math.max(20, Math.round(dailyProteinG / 4 / 5) * 5);
+}
 
 const ACTIVITY_MULTIPLIER: Record<ActivityLevel, number> = {
   sedentary: 1.2,
@@ -72,7 +87,7 @@ export function macrosForCalories(
 
 export function formulaPlan(answers: OnboardingAnswers): NutritionPlan {
   const target = maintenanceCalories(answers) + dailyCalorieAdjustment(answers.goal, answers.weeklyGoalKg);
-  const calories = Math.max(MIN_DAILY_CALORIES, Math.round(target / 10) * 10);
+  const calories = Math.max(minimumCalories(answers.gender), Math.round(target / 10) * 10);
   return {
     calories,
     ...macrosForCalories(calories, answers),
@@ -91,7 +106,7 @@ export function caloriesFromMacros(m: { proteinG: number; carbsG: number; fatG: 
  */
 export function sanitizePlan(plan: NutritionPlan, answers: OnboardingAnswers): NutritionPlan | null {
   const reference = formulaPlan(answers).calories;
-  if (plan.calories < MIN_DAILY_CALORIES) return null;
+  if (plan.calories < minimumCalories(answers.gender)) return null;
   if (Math.abs(plan.calories - reference) / reference > 0.35) return null;
 
   const proteinG = Math.round(plan.proteinG);

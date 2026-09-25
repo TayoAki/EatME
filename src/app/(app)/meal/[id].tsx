@@ -1,6 +1,6 @@
 import { Image } from 'expo-image';
 import { router, useLocalSearchParams } from 'expo-router';
-import { Pencil, Repeat, Star, UtensilsCrossed, X } from 'lucide-react-native';
+import { Pencil, PenLine, Repeat, Star, UtensilsCrossed, X } from 'lucide-react-native';
 import { useState } from 'react';
 import {
   ActivityIndicator,
@@ -14,6 +14,8 @@ import {
 } from 'react-native';
 
 import { ErrorScreen } from '@/components/full-screen-state';
+import { ProteinHint } from '@/components/meal/protein-hint';
+import { ServingsStepper } from '@/components/meal/servings-stepper';
 import { Button } from '@/components/ui/button';
 import { IconButton } from '@/components/ui/icon-button';
 import { Screen } from '@/components/ui/screen';
@@ -21,7 +23,7 @@ import { colors } from '@/constants/colors';
 import { confirm, notify } from '@/lib/confirm';
 import { haptics } from '@/lib/haptics';
 import { cn } from '@/lib/cn';
-import { useDeleteMeal, useDuplicateMeal, useMeal, useUpdateMeal } from '@/lib/queries';
+import { useDeleteMeal, useDuplicateMeal, useMeal, useProfile, useUpdateMeal } from '@/lib/queries';
 import { formatDay, formatTime, toIsoDate } from '@/lib/time';
 import { PORTION_OPTIONS, type Meal } from '@/shared/meals';
 
@@ -104,6 +106,7 @@ function MealEditor({ meal }: { meal: Meal }) {
   const update = useUpdateMeal(meal.id);
   const remove = useDeleteMeal();
   const duplicate = useDuplicateMeal();
+  const profile = useProfile();
   const [name, setName] = useState(meal.name ?? '');
   const [calories, setCalories] = useState(String(meal.calories ?? 0));
   const [protein, setProtein] = useState(String(meal.proteinG ?? 0));
@@ -158,23 +161,32 @@ function MealEditor({ meal }: { meal: Meal }) {
   };
 
   const hero = meal.imageUrl;
+  // Logged in words (or a copy of such a meal): the description takes the photo's place.
+  const described = !meal.imageUrl && !!meal.note;
 
   return (
     <KeyboardAvoidingView className="flex-1" behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
       <ScrollView contentContainerClassName="px-5 pb-8" keyboardShouldPersistTaps="handled">
-        <View className="overflow-hidden rounded-card bg-surface">
-          {hero ? (
-            <Image
-              source={{ uri: hero, cacheKey: meal.id }}
-              style={{ width: '100%', aspectRatio: 4 / 3 }}
-              contentFit="cover"
-            />
-          ) : (
-            <View className="aspect-[4/3] items-center justify-center">
-              <UtensilsCrossed size={40} color={colors.faint} />
-            </View>
-          )}
-        </View>
+        {described ? (
+          <View className="flex-row gap-3 rounded-card bg-surface p-4">
+            <PenLine size={18} color={colors.muted} style={{ marginTop: 2 }} />
+            <Text className="flex-1 text-[17px] leading-6 text-ink">{meal.note}</Text>
+          </View>
+        ) : (
+          <View className="overflow-hidden rounded-card bg-surface">
+            {hero ? (
+              <Image
+                source={{ uri: hero, cacheKey: meal.id }}
+                style={{ width: '100%', aspectRatio: 4 / 3 }}
+                contentFit="cover"
+              />
+            ) : (
+              <View className="aspect-[4/3] items-center justify-center">
+                <UtensilsCrossed size={40} color={colors.faint} />
+              </View>
+            )}
+          </View>
+        )}
 
         <View className="mt-5 flex-row items-center gap-3">
           <TextInput
@@ -189,15 +201,29 @@ function MealEditor({ meal }: { meal: Meal }) {
         <Text className="mt-1 text-[15px] text-muted">
           {formatDay(toIsoDate(new Date(meal.loggedAt)))} · {formatTime(meal.loggedAt)}
         </Text>
+        {meal.note && !described ? (
+          <Text className="mt-2 text-[15px] leading-[21px] text-ink">
+            <Text className="font-semibold">Your note: </Text>
+            {meal.note}
+          </Text>
+        ) : null}
         {meal.confidence === 'low' ? (
           <View className="mt-3 rounded-2xl bg-surface p-3.5">
             <Text className="text-[14px] leading-5 text-ink">
-              Rough estimate — the photo didn&apos;t show everything clearly. Check the numbers or adjust the portion.
+              {described
+                ? 'Rough estimate — the description left out amounts. Check the numbers or adjust the portion.'
+                : "Rough estimate — the photo didn't show everything clearly. Check the numbers or adjust the portion."}
             </Text>
           </View>
         ) : null}
 
-        <PortionPicker meal={meal} />
+        {meal.servingSize ? (
+          <View className="mt-5">
+            <ServingsStepper meal={meal} />
+          </View>
+        ) : (
+          <PortionPicker meal={meal} />
+        )}
 
         <View className="mt-5 rounded-card border border-line px-4 py-2">
           <NumberField label="Calories" value={calories} onChange={setCalories} />
@@ -207,6 +233,12 @@ function MealEditor({ meal }: { meal: Meal }) {
           <NumberField label="Fats" value={fat} onChange={setFat} unit="g" dot={colors.fat} />
           <NumberField label="Fiber" value={fiber} onChange={setFiber} unit="g" dot={colors.fiber} />
         </View>
+
+        {profile?.dailyProteinG ? (
+          <View className="mt-4">
+            <ProteinHint proteinG={meal.proteinG ?? 0} dailyProteinG={profile.dailyProteinG} />
+          </View>
+        ) : null}
 
         <Button title="Save changes" className="mt-6" loading={update.isPending} onPress={save} />
         <Button

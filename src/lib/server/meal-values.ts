@@ -85,6 +85,8 @@ export async function copyMeal(meal: MealRow, loggedAt: Date | SQL) {
       source: 'copy',
       portion: meal.portion,
       baseNutrition: currentBase(meal),
+      note: meal.note,
+      servingSize: meal.servingSize,
       imageKey,
       loggedAt,
     })

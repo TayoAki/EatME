@@ -5,13 +5,23 @@ import { meals, users } from '@/db/schema';
 import { requireUserId } from '@/lib/server/auth';
 import { dateParam, dayBounds, userTimeZone } from '@/lib/server/day';
 import { toMeal } from '@/lib/server/dto';
-import { handle, HttpError } from '@/lib/server/http';
+import { handle, HttpError, readJson } from '@/lib/server/http';
 import { resumeStalledAnalyses, startMealAnalysis } from '@/lib/server/meal-analysis';
 import { deleteObject, mealPhotoKey, putObject } from '@/lib/server/storage';
-import { MAX_MEAL_PHOTO_BYTES, MEAL_PHOTO_FIELD } from '@/shared/meals';
+import {
+  describeMealSchema,
+  MAX_MEAL_NOTE_LENGTH,
+  MAX_MEAL_PHOTO_BYTES,
+  MEAL_PHOTO_FIELD,
+  PHOTO_MODES,
+  type PhotoMode,
+} from '@/shared/meals';
 
-/** Scans per rolling 24 hours — keeps the AI bill predictable. */
+/** AI analyses (photos, labels, descriptions) per rolling 24 hours — keeps the AI bill predictable. */
 const DAILY_SCAN_LIMIT = 50;
+
+/** Meals that cost an AI call. Copies and favourites are free. */
+const ANALYZED_SOURCES = ['photo', 'label', 'text'] as const;
 
 type UploadedFile = { size: number; type: string; arrayBuffer(): Promise<ArrayBuffer> };
 type MultipartForm = { get(name: string): UploadedFile | string | null };
@@ -69,9 +79,30 @@ async function readPhoto(request: Request): Promise<ArrayBuffer> {
   return bytes;
 }
 
+/** The note sent with a photo (`X-Meal-Note`, URI-encoded so any language fits in a header). */
+function photoNote(request: Request) {
+  const raw = request.headers.get('x-meal-note');
+  if (!raw) return null;
+  let note: string;
+  try {
+    note = decodeURIComponent(raw).trim();
+  } catch {
+    throw new HttpError(400, 'The note could not be read.');
+  }
+  if (note.length > MAX_MEAL_NOTE_LENGTH) throw new HttpError(400, `Keep the note under ${MAX_MEAL_NOTE_LENGTH} characters.`);
+  return note || null;
+}
+
+function photoMode(request: Request): PhotoMode {
+  const mode = new URL(request.url).searchParams.get('mode') ?? 'meal';
+  if (!(PHOTO_MODES as readonly string[]).includes(mode)) throw new HttpError(400, 'Unknown photo mode.');
+  return mode as PhotoMode;
+}
+
 /**
- * Creates a meal from a photo: stores the photo in the bucket, saves the meal as "analyzing" and
- * starts the AI analysis in the background. The app then polls `GET /api/meals/:id`.
+ * Creates a meal and starts the AI analysis in the background; the app then polls
+ * `GET /api/meals/:id`. The body is either a photo (a meal, or a nutrition label with
+ * `?mode=label`; stored in the bucket) or JSON `{ text }` describing the meal in words.
  */
 export const POST = handle(async (request) => {
   const userId = await requireUserId(request);
@@ -85,18 +116,37 @@ export const POST = handle(async (request) => {
   const [{ scans }] = await db
     .select({ scans: count() })
     .from(meals)
-    .where(and(eq(meals.userId, userId), gte(meals.createdAt, new Date(Date.now() - 24 * 60 * 60 * 1000))));
+    .where(
+      and(
+        eq(meals.userId, userId),
+        inArray(meals.source, ANALYZED_SOURCES),
+        gte(meals.createdAt, new Date(Date.now() - 24 * 60 * 60 * 1000)),
+      ),
+    );
   if (scans >= DAILY_SCAN_LIMIT) {
-    throw new HttpError(429, `You can scan up to ${DAILY_SCAN_LIMIT} meals a day. Please try again tomorrow.`);
+    throw new HttpError(429, `You can log up to ${DAILY_SCAN_LIMIT} meals with AI a day. Please try again tomorrow.`);
   }
 
+  if ((request.headers.get('content-type') ?? '').startsWith('application/json')) {
+    const { text } = describeMealSchema.parse(await readJson(request));
+    const [meal] = await db.insert(meals).values({ userId, status: 'analyzing', source: 'text', note: text }).returning();
+    startMealAnalysis(meal.id);
+    return Response.json({ meal: await toMeal(meal) }, { status: 201 });
+  }
+
+  const mode = photoMode(request);
+  // Label numbers are printed on the package; a note would only compete with them.
+  const note = mode === 'meal' ? photoNote(request) : null;
   const photo = await readPhoto(request);
   const id = crypto.randomUUID();
   const imageKey = mealPhotoKey(userId, id);
   await putObject(imageKey, photo, 'image/jpeg');
 
   try {
-    const [meal] = await db.insert(meals).values({ id, userId, status: 'analyzing', imageKey }).returning();
+    const [meal] = await db
+      .insert(meals)
+      .values({ id, userId, status: 'analyzing', source: mode === 'label' ? 'label' : 'photo', note, imageKey })
+      .returning();
     startMealAnalysis(meal.id);
     return Response.json({ meal: await toMeal(meal) }, { status: 201 });
   } catch (error) {

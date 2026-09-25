@@ -10,11 +10,20 @@ import { MealCard } from '@/components/home/meal-card';
 import { NutritionSummary, type Totals } from '@/components/home/nutrition-summary';
 import { StreakSheet } from '@/components/home/streak-sheet';
 import { WaterSheet } from '@/components/home/water-sheet';
+import { WeeklyCard, WeeklySheet } from '@/components/home/weekly-card';
 import { Button } from '@/components/ui/button';
 import { colors } from '@/constants/colors';
 import { notify } from '@/lib/confirm';
 import { haptics } from '@/lib/haptics';
-import { useAddWater, useCopyDay, useMeals, useProfile, useStreak, useWater } from '@/lib/queries';
+import {
+  useAddWater,
+  useCopyDay,
+  useMeals,
+  useProfile,
+  useStreak,
+  useWater,
+  useWeeklyInsights,
+} from '@/lib/queries';
 import { addDays, formatDay, todayIso, toIsoDate } from '@/lib/time';
 import type { Profile } from '@/shared/user';
 
@@ -31,6 +40,7 @@ function Home({ profile }: { profile: Profile }) {
   const [selectedDate, setSelectedDate] = useState(todayIso);
   const [streakOpen, setStreakOpen] = useState(false);
   const [waterOpen, setWaterOpen] = useState(false);
+  const [weeklyOpen, setWeeklyOpen] = useState(false);
 
   const meals = useMeals(selectedDate);
   const streak = useStreak();
@@ -39,6 +49,9 @@ function Home({ profile }: { profile: Profile }) {
   const copyDay = useCopyDay();
   const yesterday = toIsoDate(addDays(new Date(), -1));
   const yesterdayMeals = useMeals(yesterday);
+  const weekly = useWeeklyInsights();
+  // Two logged days are the least that says something about a week.
+  const insights = weekly.data && weekly.data.daysLogged >= 2 ? weekly.data : null;
 
   const targets: Totals = {
     calories: profile.dailyCalories ?? 2000,
@@ -85,6 +98,7 @@ function Home({ profile }: { profile: Profile }) {
               void meals.refetch();
               void streak.refetch();
               void water.refetch();
+              void weekly.refetch();
             }}
             tintColor={colors.ink}
           />
@@ -153,6 +167,12 @@ function Home({ profile }: { profile: Profile }) {
             </View>
           )}
         </View>
+
+        {isToday && insights ? (
+          <View className="mt-7 px-5">
+            <WeeklyCard insights={insights} onPress={() => setWeeklyOpen(true)} />
+          </View>
+        ) : null}
       </ScrollView>
 
       <WaterSheet
@@ -162,6 +182,15 @@ function Home({ profile }: { profile: Profile }) {
         unit={profile.unitSystem}
         goalMl={profile.dailyWaterMl}
       />
+
+      {insights ? (
+        <WeeklySheet
+          visible={weeklyOpen}
+          onClose={() => setWeeklyOpen(false)}
+          insights={insights}
+          unit={profile.unitSystem}
+        />
+      ) : null}
 
       <StreakSheet
         visible={streakOpen}

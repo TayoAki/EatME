@@ -1,11 +1,27 @@
 import { and, eq, isNull, lt, or, sql } from 'drizzle-orm';
 
+import type { ChatCompletionMessageParam } from 'openai/resources/chat/completions';
+
 import { db } from '@/db';
-import { meals } from '@/db/schema';
-import { mealAnalysisSchema, scaleNutrition, type BaseNutrition, type MealAnalysis } from '@/shared/meals';
+import { meals, type MealRow } from '@/db/schema';
+import {
+  labelAnalysisSchema,
+  mealAnalysisSchema,
+  scaleNutrition,
+  type BaseNutrition,
+  type LabelAnalysis,
+  type MealAnalysis,
+} from '@/shared/meals';
 
 import { modelFor, structuredCompletion } from './ai';
-import { MEAL_JSON_SCHEMA, MEAL_SYSTEM_PROMPT } from './prompts';
+import {
+  LABEL_JSON_SCHEMA,
+  LABEL_SYSTEM_PROMPT,
+  MEAL_JSON_SCHEMA,
+  MEAL_SYSTEM_PROMPT,
+  MEAL_TEXT_SYSTEM_PROMPT,
+  photoNoteText,
+} from './prompts';
 import { deleteObject, getObject } from './storage';
 
 /** An attempt older than this is considered dead (server restarted mid-way) and is retried. */
@@ -16,8 +32,8 @@ const stale = () =>
   or(isNull(meals.analysisStartedAt), lt(meals.analysisStartedAt, new Date(Date.now() - LEASE_MS)));
 
 /**
- * Analyzes a meal photo in the background of the API server (the request that created the meal has
- * already answered). The app polls `GET /api/meals/:id` for the result.
+ * Analyzes a meal (photo, nutrition label or description) in the background of the API server
+ * (the request that created the meal has already answered). The app polls `GET /api/meals/:id`.
  */
 export function startMealAnalysis(mealId: string) {
   void analyzeMeal(mealId).catch((error: unknown) => console.error(`[meals] analysis of ${mealId} crashed`, error));
@@ -62,49 +78,90 @@ function toDataUrl(bytes: ArrayBuffer) {
   return `data:image/jpeg;base64,${btoa(binary)}`;
 }
 
-async function analyzeMeal(mealId: string) {
-  const meal = await claim(mealId);
-  if (!meal) return;
+const userPhoto = (text: string, photo: ArrayBuffer, detail: 'low' | 'high'): ChatCompletionMessageParam => ({
+  role: 'user',
+  content: [
+    { type: 'text', text },
+    { type: 'image_url', image_url: { url: toDataUrl(photo), detail } },
+  ],
+});
 
-  if (!meal.imageKey) {
-    await db.update(meals).set({ status: 'failed', error: 'This meal has no photo' }).where(eq(meals.id, mealId));
-    return;
-  }
-
-  try {
-    const photo = await getObject(meal.imageKey);
-    const { data: analysis, usage } = await structuredCompletion({
-      model: modelFor('vision'),
+/** One AI call for the meal, depending on how it was logged. Labels also return the serving size. */
+async function askAi(meal: MealRow): Promise<MealAnalysis & Partial<Pick<LabelAnalysis, 'servingSize'>>> {
+  if (meal.source === 'text') {
+    const { data, usage } = await structuredCompletion({
+      model: modelFor('text'),
       name: 'meal_analysis',
       jsonSchema: MEAL_JSON_SCHEMA,
       schema: mealAnalysisSchema,
       messages: [
-        { role: 'system', content: MEAL_SYSTEM_PROMPT },
-        {
-          role: 'user',
-          content: [
-            { type: 'text', text: 'Analyze this meal photo.' },
-            { type: 'image_url', image_url: { url: toDataUrl(photo), detail: 'low' } },
-          ],
-        },
+        { role: 'system', content: MEAL_TEXT_SYSTEM_PROMPT },
+        { role: 'user', content: meal.note ?? '' },
       ],
     });
-    console.info('[meals] analyzed', JSON.stringify({ mealId, isFood: analysis.isFood, calories: analysis.calories, usage }));
+    console.info('[meals] described', JSON.stringify({ mealId: meal.id, isFood: data.isFood, calories: data.calories, usage }));
+    return data;
+  }
+
+  if (!meal.imageKey) throw new Error('This meal has no photo');
+  const photo = await getObject(meal.imageKey);
+  if (meal.source === 'label') {
+    // Label print is small: the model needs the full-resolution image to read it.
+    const { data, usage } = await structuredCompletion({
+      model: modelFor('vision'),
+      name: 'nutrition_label',
+      jsonSchema: LABEL_JSON_SCHEMA,
+      schema: labelAnalysisSchema,
+      messages: [
+        { role: 'system', content: LABEL_SYSTEM_PROMPT },
+        userPhoto('Read this nutrition label.', photo, 'high'),
+      ],
+    });
+    console.info('[meals] label read', JSON.stringify({ mealId: meal.id, isFood: data.isFood, calories: data.calories, usage }));
+    return data;
+  }
+
+  const { data, usage } = await structuredCompletion({
+    model: modelFor('vision'),
+    name: 'meal_analysis',
+    jsonSchema: MEAL_JSON_SCHEMA,
+    schema: mealAnalysisSchema,
+    messages: [
+      { role: 'system', content: MEAL_SYSTEM_PROMPT },
+      userPhoto(meal.note ? photoNoteText(meal.note) : 'Analyze this meal photo.', photo, 'low'),
+    ],
+  });
+  console.info('[meals] analyzed', JSON.stringify({ mealId: meal.id, isFood: data.isFood, calories: data.calories, usage }));
+  return data;
+}
+
+async function deletePhoto(meal: MealRow) {
+  if (!meal.imageKey) return;
+  await deleteObject(meal.imageKey).catch((error: unknown) =>
+    console.warn(`[meals] could not delete the photo of ${meal.id}`, error),
+  );
+}
+
+async function analyzeMeal(mealId: string) {
+  const meal = await claim(mealId);
+  if (!meal) return;
+
+  try {
+    const analysis = await askAi(meal);
 
     if (!analysis.isFood) {
       // Nothing to log. Keep the row (so the app can show why) but never keep the photo.
+      const fallback =
+        meal.source === 'text'
+          ? "That doesn't sound like food."
+          : meal.source === 'label'
+            ? "We couldn't read a nutrition label in this photo."
+            : "That doesn't look like food.";
       await db
         .update(meals)
-        .set({
-          status: 'not_food',
-          error: analysis.notFoodReason || "That doesn't look like food.",
-          imageKey: null,
-          analysisStartedAt: null,
-        })
+        .set({ status: 'not_food', error: analysis.notFoodReason || fallback, imageKey: null, analysisStartedAt: null })
         .where(eq(meals.id, mealId));
-      await deleteObject(meal.imageKey).catch((error: unknown) =>
-        console.warn(`[meals] could not delete the photo of ${mealId}`, error),
-      );
+      await deletePhoto(meal);
       return;
     }
 
@@ -117,6 +174,7 @@ async function analyzeMeal(mealId: string) {
         ...scaleNutrition(base, meal.portion),
         baseNutrition: base,
         confidence: analysis.confidence,
+        servingSize: analysis.servingSize?.trim() || null,
         error: null,
         analysisStartedAt: null,
       })
@@ -131,9 +189,7 @@ async function analyzeMeal(mealId: string) {
         .update(meals)
         .set({ status: 'failed', error: message.slice(0, 500), imageKey: null, analysisStartedAt: null })
         .where(eq(meals.id, mealId));
-      await deleteObject(meal.imageKey).catch((deleteError: unknown) =>
-        console.warn(`[meals] could not delete the photo of ${mealId}`, deleteError),
-      );
+      await deletePhoto(meal);
       return;
     }
     // Release the lease and try again shortly.
