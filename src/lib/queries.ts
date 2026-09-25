@@ -4,6 +4,7 @@ import type { AddDoseBody, AddSymptomsBody, Glp1Response, Glp1Settings } from '@
 import type { WeeklyInsights } from '@/shared/insights';
 import type { FoodSummary, Meal, UpdateMealBody, UpdateMealItemsBody } from '@/shared/meals';
 import type { NutrientDay } from '@/shared/nutrients';
+import type { SupplementBody, SupplementsDay } from '@/shared/supplements';
 import type { SaveOnboardingBody } from '@/shared/onboarding';
 import type { MeResponse, StreakResponse, UpdateProfileBody } from '@/shared/user';
 import type { WaterDay, WaterEntry } from '@/shared/water';
@@ -24,6 +25,8 @@ export const queryKeys = {
   insights: (userId: string | null | undefined) => ['insights', userId] as const,
   glp1: (userId: string | null | undefined) => ['glp1', userId] as const,
   nutrientsAll: (userId: string | null | undefined) => ['nutrients', userId] as const,
+  supplementsAll: (userId: string | null | undefined) => ['supplements', userId] as const,
+  supplements: (userId: string | null | undefined, date: string) => ['supplements', userId, date] as const,
   nutrients: (userId: string | null | undefined, date: string) => ['nutrients', userId, date] as const,
 };
 
@@ -352,5 +355,73 @@ export function useNutrients(date: string) {
   return useQuery({
     queryKey: queryKeys.nutrients(userId, date),
     queryFn: () => api<NutrientDay>(`/api/nutrients?date=${date}`),
+  });
+}
+
+export function useSupplements(date: string) {
+  const { userId } = useSession();
+  const api = useApi();
+  return useQuery({
+    queryKey: queryKeys.supplements(userId, date),
+    queryFn: () => api<SupplementsDay>(`/api/supplements?date=${date}`),
+  });
+}
+
+function useInvalidateSupplements() {
+  const { userId } = useSession();
+  const queryClient = useQueryClient();
+  return () =>
+    Promise.all([
+      queryClient.invalidateQueries({ queryKey: queryKeys.supplementsAll(userId) }),
+      queryClient.invalidateQueries({ queryKey: queryKeys.nutrientsAll(userId) }),
+    ]);
+}
+
+export function useSaveSupplement() {
+  const api = useApi();
+  const invalidate = useInvalidateSupplements();
+  return useMutation({
+    mutationFn: ({ id, body }: { id?: string; body: SupplementBody }) =>
+      id ? api(`/api/supplements/${id}`, { method: 'PATCH', body }) : api('/api/supplements', { method: 'POST', body }),
+    onSuccess: () => invalidate(),
+  });
+}
+
+export function useDeleteSupplement() {
+  const api = useApi();
+  const invalidate = useInvalidateSupplements();
+  return useMutation({
+    mutationFn: (id: string) => api(`/api/supplements/${id}`, { method: 'DELETE' }),
+    onSuccess: () => invalidate(),
+  });
+}
+
+/** Ticks or un-ticks a supplement for a day, updating the list right away. */
+export function useToggleSupplement(date: string) {
+  const { userId } = useSession();
+  const api = useApi();
+  const queryClient = useQueryClient();
+  const invalidate = useInvalidateSupplements();
+  const key = queryKeys.supplements(userId, date);
+  return useMutation({
+    mutationFn: ({ id, taken }: { id: string; taken: boolean }) =>
+      taken
+        ? api(`/api/supplements/${id}/taken`, { method: 'POST', body: { date } })
+        : api(`/api/supplements/${id}/taken?date=${date}`, { method: 'DELETE' }),
+    onMutate: async ({ id, taken }) => {
+      await queryClient.cancelQueries({ queryKey: key });
+      const previous = queryClient.getQueryData<SupplementsDay>(key);
+      if (previous) {
+        queryClient.setQueryData<SupplementsDay>(key, {
+          ...previous,
+          supplements: previous.supplements.map((s) => (s.id === id ? { ...s, taken } : s)),
+        });
+      }
+      return { previous };
+    },
+    onError: (_error, _vars, context) => {
+      if (context?.previous) queryClient.setQueryData(key, context.previous);
+    },
+    onSettled: () => invalidate(),
   });
 }

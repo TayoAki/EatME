@@ -87,6 +87,9 @@ Welcome ──Get started──▶ Onboarding questions ──▶ Building your 
   water bars, and `Log dose` / `How do you feel?` sheets (no dosing advice anywhere).
 - Fiber ring and water card (v1.1): "+" logs a glass (250 ml / 8 fl oz); tapping the card
   opens the water sheet (quick amounts, custom amount, the day's entries with undo).
+- Supplements card (V2, today, once the user has supplements): one chip per supplement, tap
+  to tick it as taken ("2 of 3 taken"); the title opens Profile → Supplements.
+- "Vitamins & minerals" link when the day has database foods or ticked supplements.
 - "Today's meals" list (selected day): thumbnail (signed bucket link), name,
   time, calories, macros. Meals still analyzing show a live "Analyzing…" card.
   Non-food scans never appear. Tap a meal to edit its values (manual corrections).
@@ -127,8 +130,16 @@ Welcome ──Get started──▶ Onboarding questions ──▶ Building your 
   meal is recalculated), favourite star, `Log again today`, `Delete meal`.
 
 **Vitamins & minerals** (V2, from Home or a meal): the day's totals from the database foods
-against the DRI targets for the user's age and sex (limits for sodium, saturated fat and
-caffeine), with how many of the day's calories the database covers.
+and the supplements ticked that day against the DRI targets for the user's age and sex
+(limits for sodium, saturated fat and caffeine), with how many of the day's calories the
+database covers, "incl. … from supplements" per row, and a note when the supplements alone
+go above an adult upper limit (e.g. vitamin D over 100 µg, zinc over 40 mg).
+
+**Supplements** (V2, Profile): the user's list (name, dose per nutrient, every day or when
+needed). Add from presets (vitamin D3, magnesium, iron, B12, calcium, vitamin C, zinc, folic
+acid, multivitamin, fish oil, creatine) or your own with the amounts from the label; tap one
+to change it or remove it. Removing keeps the days already ticked; a changed dose applies
+from the next tick. Not medical advice, no dose suggestions.
 
 **Profile**
 - User card, Account section (Personal details — editable, Daily goals — calories and
@@ -136,7 +147,7 @@ caffeine), with how many of the day's calories the database covers.
   plus fiber and water (recommended or your own), Reminders (breakfast, lunch, dinner,
   water every few hours, the GLP-1 dose; local notifications scheduled on the phone),
   GLP-1 mode (medicine, weekly or daily, dose day; dose and side-effect history; turn off
-  or delete the data), Preferences, Language,
+  or delete the data), Supplements (V2), Preferences, Language,
   Upgrade to Family Plan — UI only), Support (Send feedback via Sentry — shown only
   when a Sentry DSN is set, Privacy Policy, Terms of Service), Sign out, Delete account
   (with confirmation).
@@ -177,6 +188,10 @@ when the server starts (`server/foods.mjs`; rebuild the file with `npm run foods
 AI's estimate), `grams`, `nutrients`; **meals.nutrients** (every nutrient for a portion of 1)
 and **meals.matched_share** (share of calories from database foods).
 
+**supplements** — `user_id` (cascade), `name`, `nutrients` (per dose), `schedule` (`daily` /
+`as_needed`), `archived_at` (removed from the list, history kept); **supplement_logs** — one
+per supplement and local `date` (unique), with the dose's `nutrients` as they were that day.
+
 **users.glp1** (jsonb: medicine, weekly/daily, dose weekday; empty = off), **dose_logs**
 (`taken_at`, the user's own `dose_label`, injection `site`, `note`) and **symptom_logs**
 (`logged_at`, `symptoms[]`, `severity` 1–3, `note`), both cascade-deleted.
@@ -205,7 +220,10 @@ added to an earlier day are stored at local noon of that day.
 | `POST /api/glp1/symptoms`, `DELETE /api/glp1/symptoms/:id` | session | Log or remove side effects |
 | `GET /api/foods?q=` | session | USDA food search (as you type) |
 | `PUT /api/meals/:id/items` | session | Edit a meal's foods and grams; every number is recalculated |
-| `GET /api/nutrients?date=` | session | A day's vitamins and minerals, coverage and DRI targets |
+| `GET /api/nutrients?date=` | session | A day's vitamins and minerals (foods + supplements), coverage, DRI targets, upper-limit warnings |
+| `GET/POST /api/supplements` | session | The user's supplements with "taken" for `?date=` / add one (up to 30) |
+| `PATCH/DELETE /api/supplements/:id` | session | Change name, dose or schedule / remove it (history kept) |
+| `POST/DELETE /api/supplements/:id/taken` | session | Tick as taken for a day (today by default, never the future) / untick |
 | `GET /api/insights/weekly` | session | The last 7 complete days: totals per day, averages, goals, one suggestion |
 | `GET /api/streak` | session | Current streak + logged days |
 | `GET /api/health` | public | Railway health check |
@@ -405,7 +423,8 @@ added to an earlier day are stored at local noon of that day.
 - [x] Food-database pipeline (USDA FNDDS: 5,432 foods, 65 nutrients each): vitamins and
   minerals, editable foods and grams, the same food always gives the same numbers (6.7).
   33 of the 65 nutrients are kept; real-AI check: the test photos match 100% of calories.
-- [ ] Supplements log (6.7)
+- [x] Supplements log (6.7): presets or your own dose, a tick per day on Home, counted in
+  Vitamins & minerals with a note above adult upper limits; past days keep their dose.
 - [ ] Barcode scanning (Open Food Facts) and food search
 - [ ] Weight history and a progress chart
 - [ ] Email service (Resend): forgot password, email verification

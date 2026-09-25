@@ -7,6 +7,7 @@ import {
   FileText,
   Globe,
   HeartPulse,
+  Pill,
   MessageSquareText,
   ShieldCheck,
   SlidersHorizontal,
@@ -108,6 +109,7 @@ function ProfileContent({ profile }: { profile: Profile }) {
           value={profile.glp1 ? 'On' : 'Off'}
           onPress={() => router.push('/glp1')}
         />
+        <SettingsRow icon={Pill} label="Supplements" onPress={() => router.push('/supplements')} />
         <SettingsRow
           icon={HeartPulse}
           label={Platform.OS === 'web' ? 'Health apps' : healthName}

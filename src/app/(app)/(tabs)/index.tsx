@@ -13,6 +13,7 @@ import { HomeHeader } from '@/components/home/home-header';
 import { MealCard } from '@/components/home/meal-card';
 import { NutritionSummary, type Totals } from '@/components/home/nutrition-summary';
 import { StreakSheet } from '@/components/home/streak-sheet';
+import { SupplementsCard } from '@/components/home/supplements-card';
 import { WaterSheet } from '@/components/home/water-sheet';
 import { WeeklyCard, WeeklySheet } from '@/components/home/weekly-card';
 import { Button } from '@/components/ui/button';
@@ -26,6 +27,7 @@ import {
   useMeals,
   useProfile,
   useStreak,
+  useSupplements,
   useWater,
   useWeeklyInsights,
 } from '@/lib/queries';
@@ -58,6 +60,7 @@ function Home({ profile }: { profile: Profile }) {
   const yesterdayMeals = useMeals(yesterday);
   const weekly = useWeeklyInsights();
   const glp1 = useGlp1(!!profile.glp1);
+  const supplements = useSupplements(selectedDate);
   // Two logged days are the least that says something about a week.
   const insights = weekly.data && weekly.data.daysLogged >= 2 ? weekly.data : null;
 
@@ -82,7 +85,10 @@ function Home({ profile }: { profile: Profile }) {
   const fiberG = (list ?? []).reduce((sum, m) => sum + (m.status === 'completed' ? (m.fiberG ?? 0) : 0), 0);
 
   const isToday = selectedDate === todayIso();
-  const hasNutrients = (list ?? []).some((m) => m.status === 'completed' && (m.matchedShare ?? 0) > 0);
+  // Vitamins and minerals come from database foods and from supplements ticked that day.
+  const hasNutrients =
+    (list ?? []).some((m) => m.status === 'completed' && (m.matchedShare ?? 0) > 0) ||
+    (supplements.data?.supplements.some((s) => s.taken) ?? false);
   const canCopyYesterday =
     isToday && list?.length === 0 && (yesterdayMeals.data?.meals.some((m) => m.status === 'completed') ?? false);
 
@@ -144,6 +150,7 @@ function Home({ profile }: { profile: Profile }) {
           onAddWater={(ml) => addWater.mutate(ml, { onError: (error) => notify("We couldn't log that drink", error.message) })}
           onOpenWater={() => setWaterOpen(true)}
         />
+        {isToday ? <SupplementsCard date={selectedDate} /> : null}
         {hasNutrients ? (
           <Pressable
             accessibilityRole="link"

@@ -7,9 +7,16 @@ import { Screen } from '@/components/ui/screen';
 import { colors } from '@/constants/colors';
 import { useNutrients } from '@/lib/queries';
 import { addDays, formatDay, fromIsoDate, todayIso, toIsoDate } from '@/lib/time';
-import { NUTRIENTS, type NutrientDay, type NutrientKey, type NutrientTarget } from '@/shared/nutrients';
+import {
+  addNutrients,
+  NUTRIENT_INFO,
+  SUPPLEMENT_UPPER_LIMITS,
+  type NutrientDay,
+  type NutrientKey,
+  type NutrientTarget,
+} from '@/shared/nutrients';
 
-const INFO = Object.fromEntries(NUTRIENTS.map((n) => [n.key, n])) as Record<NutrientKey, (typeof NUTRIENTS)[number]>;
+const INFO = NUTRIENT_INFO;
 const GROUPS: { title: string; keys: NutrientKey[] }[] = [
   { title: 'Keep an eye on', keys: ['sodium', 'saturatedFat', 'caffeine'] },
   { title: 'Minerals', keys: ['potassium', 'calcium', 'iron', 'magnesium', 'zinc', 'phosphorus', 'selenium', 'copper'] },
@@ -24,7 +31,7 @@ function amount(value: number, unit: string) {
   return `${value.toLocaleString('en-US', { maximumFractionDigits: digits })} ${unit}`;
 }
 
-function Row({ target, value }: { target: NutrientTarget; value: number }) {
+function Row({ target, value, fromSupplements }: { target: NutrientTarget; value: number; fromSupplements: number }) {
   const info = INFO[target.key];
   const reference = target.goal ?? target.limit ?? 0;
   const ratio = reference > 0 ? value / reference : 0;
@@ -44,6 +51,9 @@ function Row({ target, value }: { target: NutrientTarget; value: number }) {
       <View className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-surface">
         <View style={{ width: `${Math.min(1, ratio) * 100}%`, backgroundColor: barColor }} className="h-full rounded-full" />
       </View>
+      {fromSupplements > 0 ? (
+        <Text className="mt-1 text-[12px] text-muted">incl. {amount(fromSupplements, info.unit)} from supplements</Text>
+      ) : null}
     </View>
   );
 }
@@ -51,25 +61,40 @@ function Row({ target, value }: { target: NutrientTarget; value: number }) {
 function Content({ day }: { day: NutrientDay }) {
   const targets = new Map(day.targets.map((t) => [t.key, t]));
   const covered = day.calories > 0 ? Math.round((day.coveredCalories / day.calories) * 100) : 0;
-  if (day.meals === 0) {
+  const totals = addNutrients([day.totals, day.supplements]);
+  if (day.meals === 0 && day.supplementNames.length === 0) {
     return <Text className="mt-6 text-center text-[15px] text-muted">No meals logged on this day.</Text>;
   }
   return (
     <>
       <View className="rounded-2xl bg-surface p-4">
         <Text className="text-[14px] leading-5 text-ink">
-          From the foods EatME matched in the USDA database: {day.coveredCalories.toLocaleString('en-US')} of{' '}
-          {day.calories.toLocaleString('en-US')} kcal ({covered}%). Foods the AI only estimated add no vitamins or
-          minerals, so your real intake is likely higher.
+          {day.meals > 0
+            ? `From the foods EatME matched in the USDA database: ${day.coveredCalories.toLocaleString('en-US')} of ${day.calories.toLocaleString('en-US')} kcal (${covered}%). Foods the AI only estimated add no vitamins or minerals, so your real intake is likely higher.`
+            : 'No meals logged on this day yet — these numbers are your supplements only.'}
+          {day.supplementNames.length > 0 ? ` Supplements included: ${day.supplementNames.join(', ')}.` : ''}
         </Text>
       </View>
+      {day.overLimit.length > 0 ? (
+        <View className="rounded-2xl border border-line p-4">
+          <Text className="text-[14px] leading-5 text-ink">
+            Your supplements alone are above the adult upper limit for{' '}
+            {day.overLimit
+              .map((key) => `${INFO[key].label} (${amount(SUPPLEMENT_UPPER_LIMITS[key] ?? 0, INFO[key].unit)})`)
+              .join(', ')}
+            . Check the dose with your doctor or pharmacist.
+          </Text>
+        </View>
+      ) : null}
       {GROUPS.map((group) => (
         <View key={group.title}>
           <Text className="mb-1 ml-1 text-[15px] font-medium text-muted">{group.title}</Text>
           <View className="rounded-[20px] border border-line px-4 py-1">
             {group.keys.flatMap((key) => {
               const target = targets.get(key);
-              return target ? [<Row key={key} target={target} value={day.totals[key] ?? 0} />] : [];
+              return target
+                ? [<Row key={key} target={target} value={totals[key] ?? 0} fromSupplements={day.supplements[key] ?? 0} />]
+                : [];
             })}
           </View>
         </View>

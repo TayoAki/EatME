@@ -7,8 +7,8 @@ type ChipProps = {
   label: string;
   selected: boolean;
   onPress: () => void;
-  /** Checkbox (multi-select) or radio (one of a group). */
-  role?: 'checkbox' | 'radio';
+  /** Checkbox (multi-select), radio (one of a group) or a plain action button. */
+  role?: 'checkbox' | 'radio' | 'button';
   className?: string;
 };
 
@@ -17,7 +17,7 @@ export function Chip({ label, selected, onPress, role = 'radio', className }: Ch
   return (
     <Pressable
       accessibilityRole={role}
-      accessibilityState={role === 'checkbox' ? { checked: selected } : { selected }}
+      accessibilityState={role === 'checkbox' ? { checked: selected } : role === 'radio' ? { selected } : undefined}
       accessibilityLabel={label}
       onPress={() => {
         haptics.selection();

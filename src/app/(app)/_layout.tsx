@@ -46,6 +46,7 @@ export default function AppLayout() {
         <Stack.Screen name="glp1" />
         <Stack.Screen name="health" />
         <Stack.Screen name="nutrients" />
+        <Stack.Screen name="supplements" />
         <Stack.Screen name="sentry-test" />
       </Stack>
     </>

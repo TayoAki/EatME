@@ -10,6 +10,7 @@ import {
   smallint,
   text,
   timestamp,
+  uniqueIndex,
   uuid,
 } from 'drizzle-orm/pg-core';
 import { sql } from 'drizzle-orm';
@@ -17,6 +18,7 @@ import { sql } from 'drizzle-orm';
 import { MEAL_CONFIDENCES, MEAL_SOURCES, MEAL_STATUSES, type BaseNutrition } from '@/shared/meals';
 import { INJECTION_SITES, type Glp1Settings, type Symptom } from '@/shared/glp1';
 import type { NutrientAmounts } from '@/shared/nutrients';
+import { SUPPLEMENT_SCHEDULES } from '@/shared/supplements';
 import type { MacroTargets } from '@/shared/nutrition';
 import { ACTIVITY_LEVELS, DIETS, GENDERS, GOALS, PLAN_SOURCES, UNIT_SYSTEMS } from '@/shared/onboarding';
 
@@ -32,6 +34,7 @@ export const mealStatusEnum = pgEnum('meal_status', MEAL_STATUSES);
 export const mealSourceEnum = pgEnum('meal_source', MEAL_SOURCES);
 export const mealConfidenceEnum = pgEnum('meal_confidence', MEAL_CONFIDENCES);
 export const injectionSiteEnum = pgEnum('injection_site', INJECTION_SITES);
+export const supplementScheduleEnum = pgEnum('supplement_schedule', SUPPLEMENT_SCHEDULES);
 
 const timestamps = {
   createdAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
@@ -281,3 +284,44 @@ export const symptomLogs = pgTable(
 export type DoseLogRow = typeof doseLogs.$inferSelect;
 export type SymptomLogRow = typeof symptomLogs.$inferSelect;
 export type WaterLogRow = typeof waterLogs.$inferSelect;
+
+/** The user's supplements. Removing one archives it, so days it was taken keep their numbers. */
+export const supplements = pgTable(
+  'supplements',
+  {
+    id: uuid().primaryKey().defaultRandom(),
+    userId: text()
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
+    name: text().notNull(),
+    /** Per dose, e.g. { vitaminD: 25 }. Empty when it has no tracked nutrients. */
+    nutrients: jsonb().$type<NutrientAmounts>().notNull(),
+    schedule: supplementScheduleEnum().notNull().default('daily'),
+    archivedAt: timestamp({ withTimezone: true }),
+    ...timestamps,
+  },
+  (t) => [index('supplements_user_id_idx').on(t.userId)],
+);
+
+/** "Taken" ticks: one per supplement and local day, with the dose as it was that day. */
+export const supplementLogs = pgTable(
+  'supplement_logs',
+  {
+    id: uuid().primaryKey().defaultRandom(),
+    supplementId: uuid()
+      .notNull()
+      .references(() => supplements.id, { onDelete: 'cascade' }),
+    userId: text()
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
+    date: date({ mode: 'string' }).notNull(),
+    nutrients: jsonb().$type<NutrientAmounts>().notNull(),
+    takenAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
+  },
+  (t) => [
+    uniqueIndex('supplement_logs_supplement_date_idx').on(t.supplementId, t.date),
+    index('supplement_logs_user_id_date_idx').on(t.userId, t.date),
+  ],
+);
+
+export type SupplementRow = typeof supplements.$inferSelect;
