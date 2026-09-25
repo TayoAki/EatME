@@ -6,9 +6,10 @@ import { Pressable, Text, View } from 'react-native';
 import { colors } from '@/constants/colors';
 import { confirm, notify } from '@/lib/confirm';
 import { haptics } from '@/lib/haptics';
-import { useUpdateMealItems } from '@/lib/queries';
+import { useForgetPersonalFood, useUpdateMealItems } from '@/lib/queries';
 import { toIsoDate } from '@/lib/time';
 import type { FoodSummary, Meal, MealItem } from '@/shared/meals';
+import type { FoodCorrection } from '@/shared/personal-foods';
 import { distinctBrand, PRODUCT_SOURCE_LABELS } from '@/shared/products';
 
 import { FoodAmountSheet, type FoodDraft } from './food-amount-sheet';
@@ -23,6 +24,7 @@ const draftFromItem = (item: MealItem): FoodDraft => ({
   name: item.name,
   foodName: item.foodName,
   product: item.product,
+  personalFoodId: item.personalFoodId,
   grams: item.grams,
   kcalPerGram: item.grams > 0 ? item.calories / item.grams : 0,
   portions: item.portions,
@@ -42,10 +44,22 @@ const draftFromFood = (food: FoodSummary, keep?: FoodDraft): FoodDraft => ({
  * The foods of a meal with their weights. Changing a weight or a food recalculates the meal from
  * the USDA database; packaged products and AI estimates without a database food scale with their weight.
  */
-/** `showNumbers`: false in calm mode (grams stay, calories are hidden). */
-export function FoodsSection({ meal, showNumbers = true }: { meal: Meal; showNumbers?: boolean }) {
+/**
+ * `showNumbers`: false in calm mode (grams stay, calories are hidden). `onCorrections` gets the
+ * edits worth remembering (personal food memory).
+ */
+export function FoodsSection({
+  meal,
+  showNumbers = true,
+  onCorrections,
+}: {
+  meal: Meal;
+  showNumbers?: boolean;
+  onCorrections?: (corrections: FoodCorrection[]) => void;
+}) {
   const items = meal.items ?? [];
-  const update = useUpdateMealItems(meal.id);
+  const update = useUpdateMealItems(meal.id, onCorrections);
+  const forget = useForgetPersonalFood();
   const [editing, setEditing] = useState<FoodDraft | null>(null);
   const [searching, setSearching] = useState<{ replace?: FoodDraft } | null>(null);
 
@@ -70,6 +84,24 @@ export function FoodsSection({ meal, showNumbers = true }: { meal: Meal; showNum
   const remove = async (draft: FoodDraft) => {
     const ok = await confirm({ title: `Remove ${draft.name}?`, message: 'The meal is recalculated without it.', confirmLabel: 'Remove', destructive: true });
     if (ok) save(items.filter((item) => item.id !== draft.id), () => setEditing(null));
+  };
+
+  const forgetFood = async (draft: FoodDraft) => {
+    if (!draft.personalFoodId) return;
+    const ok = await confirm({
+      title: `Forget ${draft.name}?`,
+      message: 'EatME stops using your version next time. This meal stays as it is.',
+      confirmLabel: 'Forget',
+      destructive: true,
+    });
+    if (!ok) return;
+    forget.mutate(draft.personalFoodId, {
+      onSuccess: () => {
+        haptics.success();
+        setEditing(null);
+      },
+      onError: (error) => notify("We couldn't forget it", error.message),
+    });
   };
 
   if (items.length === 0) return null;
@@ -105,9 +137,16 @@ export function FoodsSection({ meal, showNumbers = true }: { meal: Meal; showNum
               <Text numberOfLines={1} className="text-[15px] text-ink">
                 {item.name}
               </Text>
-              <Text numberOfLines={1} className="text-[12px] text-muted">
-                {item.foodName ?? (item.product ? packageLabel(item.name, item.product.brand) : 'AI estimate')}
-              </Text>
+              <View className="flex-row items-center gap-1.5">
+                {item.personalFoodId ? (
+                  <View className="rounded-full bg-surface px-2 py-px">
+                    <Text className="text-[11px] font-semibold text-ink">Your usual</Text>
+                  </View>
+                ) : null}
+                <Text numberOfLines={1} className="flex-1 text-[12px] text-muted">
+                  {item.foodName ?? (item.product ? packageLabel(item.name, item.product.brand) : item.personalFoodId ? 'Your numbers' : 'AI estimate')}
+                </Text>
+              </View>
             </View>
             <Text className="text-[14px] text-muted">{item.grams} g</Text>
             {showNumbers ? (
@@ -140,6 +179,7 @@ export function FoodsSection({ meal, showNumbers = true }: { meal: Meal; showNum
           onSave={(grams) => saveDraft(editing, grams)}
           onChangeFood={editing.id ? () => setSearching({ replace: editing }) : undefined}
           onRemove={editing.id && items.length > 1 ? () => void remove(editing) : undefined}
+          onForget={editing.personalFoodId ? () => void forgetFood(editing) : undefined}
         />
       ) : null}
       <FoodSearchSheet

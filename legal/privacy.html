@@ -196,13 +196,34 @@
             in words; we store that description with the meal. You can also photograph a nutrition label on food
             packaging; we store that photo, the serving size printed on it and the number of servings you choose. You can
             also scan a product's barcode or pick a food from our food database search; we store the product or food, its
-            barcode and the amount you choose. When
+            barcode and the amount you choose. You can also add a meal by typing its calories and macros yourself (quick
+            add), which does not use AI. When
             you log a meal again or copy a day, we store a copy of those meals, including a copy of their photos. If
             you switch on the food-quality tag in Preferences (a test feature), the AI also estimates how processed each
             meal is and how much added sugar it has, and we store that with the meal. If a photo does not show food or cannot be
             analyzed, we delete the photo and keep only a short note about what happened (see
             <a href="#ai-processing">Section 4</a>). We use the days on which you logged meals to show your history and
-            to calculate your streak.
+            to calculate your streak (or, in calm mode, the number of days you logged).
+          </p>
+
+          <h3>Saved meals, repeats and your foods</h3>
+          <p>
+            You can save a meal to log it again later and choose days on which it is suggested. We store the saved meal
+            (a copy of it, including a copy of its photo), the days and time you choose and, for each of those days,
+            whether you logged it or chose "Not today". Nothing is logged unless you tap "Log it". When you correct a
+            food in a meal, the app asks whether EatME should remember it. If you agree, we store it under "Your foods":
+            the name the AI used for it, your name for it, the food or product it refers to (or its numbers), your usual
+            amount and how often it was used. You can rename or delete these foods at any time in Profile → Your foods;
+            meals you already logged keep their numbers.
+          </p>
+
+          <h3>Reports about products</h3>
+          <p>
+            If you report a problem with a product you scanned by its barcode, we store your report: the reason you
+            pick, an optional note you write, the product and where its data came from, and when you sent it. We use
+            reports to check and correct product data. They are not shown to anyone else; when three people report the
+            same product within 30 days, everyone who looks it up sees a note to check the label, without any of the
+            reports or notes. You can withdraw your report on the product's screen.
           </p>
 
           <h3>Water log</h3>
@@ -383,6 +404,12 @@
           <p>
             When you describe a meal in words, our server sends your description (without your name or email address)
             to an AI language model through OpenRouter, which returns the same kind of estimate as for a photo.
+          </p>
+          <p>
+            If you asked EatME to remember foods ("Your foods"), up to 30 of their names are sent along with your meal
+            photo or description, so that the model names those foods the same way. They are sent as plain food names,
+            without your name, email address or other account information. The numbers for a remembered food come from
+            our server, not from the AI.
           </p>
           <p>
             The AI also lists the foods it sees with their weight. To look them up in the USDA food database (a public

@@ -1,9 +1,10 @@
 import { asc, eq } from 'drizzle-orm';
 
 import { db } from '@/db';
-import { foods, mealItems, meals, products, type MealRow } from '@/db/schema';
+import { foods, mealItems, meals, products, type MealItemRow, type MealRow } from '@/db/schema';
 import { scaleNutrition, type Meal, type MealItem, type UpdateMealItemsBody } from '@/shared/meals';
 import { scaleNutrients } from '@/shared/nutrients';
+import { foodKey, type FoodCorrection } from '@/shared/personal-foods';
 
 import { toMeal, toMealItem } from './dto';
 import { foodNutrients, itemTotals, type ComputedItem } from './food-match';
@@ -43,29 +44,71 @@ export async function toMealWithItems(meal: MealRow): Promise<Meal> {
 /**
  * Recomputes a meal from its edited food list (grams as logged). Database foods are calculated
  * from the database; kept AI estimates and packaged products are rescaled to their new weight.
- * The edited list is the meal as logged, so the portion goes back to 1.
+ * The edited list is the meal as logged, so the portion goes back to 1. Also returns the edits
+ * worth remembering (personal food memory): the person decides.
  */
 export async function replaceItems(meal: MealRow, body: UpdateMealItemsBody) {
   const existing = new Map((await db.select().from(mealItems).where(eq(mealItems.mealId, meal.id))).map((i) => [i.id, i]));
   const foodMap = await foodsByIds(body.items.flatMap((i) => (i.foodId ? [i.foodId] : [])));
 
   const items: ComputedItem[] = body.items.map((input) => {
+    const old = input.id ? existing.get(input.id) : undefined;
+    const kept = { id: old?.id, aiName: old?.aiName ?? null };
     if (input.foodId) {
       const food = foodMap.get(input.foodId);
       if (!food) throw new HttpError(400, 'That food is not in the database.');
-      return { name: input.name, foodId: food.id, grams: input.grams, nutrients: foodNutrients(food, input.grams) };
+      // Still the remembered food ("Your usual") unless the food itself was changed.
+      const personalFoodId = old && old.foodId === food.id ? old.personalFoodId : null;
+      return { ...kept, name: input.name, foodId: food.id, grams: input.grams, nutrients: foodNutrients(food, input.grams), personalFoodId };
     }
-    const old = input.id ? existing.get(input.id) : undefined;
     if (!old || old.grams <= 0) throw new HttpError(400, 'Pick new foods from the database.');
     return {
+      ...kept,
       name: input.name,
       foodId: null,
       productCode: old.productCode,
       grams: input.grams,
       nutrients: scaleNutrients(old.nutrients, input.grams / old.grams),
+      personalFoodId: old.personalFoodId,
     };
   });
 
+  const { meal: saved, itemIds } = await saveComputedItems(meal, items);
+  const describe = (foodId: number | null) => (foodId ? (foodMap.get(foodId)?.description ?? null) : null);
+  return { meal: saved, corrections: correctionsOf(meal, body, existing, items, itemIds, describe) };
+}
+
+/**
+ * Items the person changed from what the AI said (another food, another name, or more than 10%
+ * off in grams): "Remember these next time?" on the meal screen.
+ */
+function correctionsOf(
+  meal: MealRow,
+  body: UpdateMealItemsBody,
+  existing: Map<string, MealItemRow>,
+  items: readonly ComputedItem[],
+  itemIds: readonly string[],
+  describe: (foodId: number | null) => string | null,
+): FoodCorrection[] {
+  return body.items.flatMap((input, i) => {
+    const old = input.id ? existing.get(input.id) : undefined;
+    if (!old?.aiName || !foodKey(old.aiName)) return [];
+    const loggedGrams = old.grams * meal.portion;
+    const changed =
+      old.foodId !== (input.foodId ?? null) ||
+      old.name !== input.name ||
+      (loggedGrams > 0 && Math.abs(input.grams - loggedGrams) / loggedGrams > 0.1);
+    return changed
+      ? [{ itemId: itemIds[i], from: old.aiName, to: items[i].name, food: describe(items[i].foodId), grams: Math.round(items[i].grams) }]
+      : [];
+  });
+}
+
+/**
+ * Saves a meal's foods and recomputes the meal from them (as logged: the portion goes back to 1).
+ * Used by food edits and by the answer to the follow-up question.
+ */
+export async function saveComputedItems(meal: MealRow, items: readonly ComputedItem[]) {
   const totals = itemTotals(items);
   const base = baseFromNutrients(totals.nutrients);
   // The added-sugar estimate follows the calories (it has no database value to recompute from).
@@ -84,8 +127,8 @@ export async function replaceItems(meal: MealRow, body: UpdateMealItemsBody) {
     })
     .where(eq(meals.id, meal.id))
     .returning();
-  await saveItems(meal.id, items);
-  return saved;
+  const itemIds = await saveItems(meal.id, items);
+  return { meal: saved, itemIds };
 }
 
 /** Copies a meal's foods to another meal ("Log again", copy a day). */
@@ -95,7 +138,7 @@ export async function copyItems(fromMealId: string, toMealId: string) {
   await db
     .insert(mealItems)
     .values(
-      rows.map(({ position, name, foodId, productCode, grams, nutrients }) => ({
+      rows.map(({ position, name, foodId, productCode, grams, nutrients, aiName, personalFoodId }) => ({
         mealId: toMealId,
         position,
         name,
@@ -103,6 +146,8 @@ export async function copyItems(fromMealId: string, toMealId: string) {
         productCode,
         grams,
         nutrients,
+        aiName,
+        personalFoodId,
       })),
     );
 }

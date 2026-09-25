@@ -2,6 +2,7 @@ import { Image } from 'expo-image';
 import { router, useLocalSearchParams } from 'expo-router';
 import {
   BookmarkPlus,
+  Brain,
   CalendarPlus,
   ChevronRight,
   Pencil,
@@ -47,12 +48,14 @@ import {
   useDuplicateMeal,
   useMeal,
   useProfile,
+  useRememberFoods,
   useSavedMeals,
   useUpdateMeal,
 } from '@/lib/queries';
 import { formatTimeOfDay } from '@/lib/reminder-plan';
 import { formatDay, formatTime, toIsoDate } from '@/lib/time';
 import { PORTION_OPTIONS, type Meal } from '@/shared/meals';
+import type { FoodCorrection } from '@/shared/personal-foods';
 import { repeatDaysLabel, type MealRepeat } from '@/shared/saved-meals';
 
 const PORTION_LABELS: Record<(typeof PORTION_OPTIONS)[number], string> = { 0.5: '½×', 1: '1×', 1.5: '1½×', 2: '2×' };
@@ -61,6 +64,54 @@ const repeatSummary = (repeat: MealRepeat | null) =>
   repeat
     ? `${repeatDaysLabel(repeat.weekdays)} at ${formatTimeOfDay({ hour: Number(repeat.time.slice(0, 2)), minute: Number(repeat.time.slice(3, 5)) })}`
     : 'Off';
+
+/**
+ * Personal food memory: after food edits, "Remember these next time?" (Rice → Brown rice, 250 g).
+ * Saving is always the person's choice.
+ */
+function RememberCard({ corrections, onDone }: { corrections: FoodCorrection[]; onDone: () => void }) {
+  const remember = useRememberFoods();
+  return (
+    <View className="mt-4 rounded-card border border-line p-4">
+      <View className="flex-row items-center gap-2">
+        <Brain size={18} color={colors.ink} />
+        <Text className="text-[16px] font-semibold text-ink">Remember these next time?</Text>
+      </View>
+      <Text className="mt-1 text-[14px] leading-5 text-muted">
+        When EatME sees them again, it uses your version and amount first.
+      </Text>
+      <View className="mt-2 gap-1">
+        {corrections.map((c) => (
+          <Text key={c.itemId} className="text-[15px] leading-[21px] text-ink">
+            {c.from.toLowerCase() === c.to.toLowerCase() ? c.from : `${c.from} → ${c.to}`}
+            {c.food ? <Text className="text-muted"> ({c.food})</Text> : null}, {c.grams} g
+          </Text>
+        ))}
+      </View>
+      <View className="mt-3 flex-row gap-2">
+        <Button
+          title="Remember"
+          size="md"
+          className="flex-1"
+          loading={remember.isPending}
+          onPress={() =>
+            remember.mutate(
+              { itemIds: corrections.map((c) => c.itemId) },
+              {
+                onSuccess: () => {
+                  haptics.success();
+                  onDone();
+                },
+                onError: (error) => notify("We couldn't remember them", error.message),
+              },
+            )
+          }
+        />
+        <Button title="Not now" variant="secondary" size="md" className="flex-1" onPress={onDone} />
+      </View>
+    </View>
+  );
+}
 
 /** Saved meals only: which days it is planned for (opens the repeat sheet). */
 function RepeatRow({ meal }: { meal: Meal }) {
@@ -159,12 +210,22 @@ function NumberField({
   );
 }
 
-/** `showNumbers`: false in calm mode until the person taps "Show numbers". */
-function MealEditor({ meal, showNumbers, onShowNumbers }: { meal: Meal; showNumbers: boolean; onShowNumbers: () => void }) {
+type MealEditorProps = {
+  meal: Meal;
+  /** False in calm mode until the person taps "Show numbers". */
+  showNumbers: boolean;
+  onShowNumbers: () => void;
+  /** Food edits worth remembering, kept by the screen (the editor re-mounts after each change). */
+  corrections: FoodCorrection[];
+  onCorrections: (corrections: FoodCorrection[] | null) => void;
+};
+
+function MealEditor({ meal, showNumbers, onShowNumbers, corrections, onCorrections }: MealEditorProps) {
   const update = useUpdateMeal(meal.id);
   const remove = useDeleteMeal();
   const duplicate = useDuplicateMeal();
   const createSaved = useCreateSavedMeal();
+  const rememberFood = useRememberFoods();
   const profile = useProfile();
   const [copying, setCopying] = useState(false);
   // A saved meal (repeat meals) is a template: no day, no favourite, "Log it now" instead of "Log again".
@@ -247,6 +308,20 @@ function MealEditor({ meal, showNumbers, onShowNumbers }: { meal: Meal; showNumb
       onError: (error) => notify("We couldn't delete this meal", error.message),
     });
   };
+
+  // "Save as my food": a quick add or label as one serving, or the one food of a meal.
+  const mealItems = meal.items ?? [];
+  const pending = corrections.filter((c) => mealItems.some((item) => item.id === c.itemId));
+  const canRememberMeal = mealItems.length === 0 && (meal.source === 'quick' || meal.source === 'label') && meal.name !== 'Quick add';
+  const canRememberItem = mealItems.length === 1 && !mealItems[0].personalFoodId;
+  const saveAsMyFood = () =>
+    rememberFood.mutate(canRememberMeal ? { mealId: meal.id } : { itemIds: [mealItems[0].id] }, {
+      onSuccess: ({ remembered }) => {
+        haptics.success();
+        notify('Saved to Your foods', `EatME uses ${remembered[0]?.name ?? 'it'} first when it sees it again.`);
+      },
+      onError: (error) => notify("We couldn't save it", error.message),
+    });
 
   const hero = meal.imageUrl;
   // Logged in words (or a copy of such a meal): the description takes the photo's place.
@@ -367,7 +442,8 @@ function MealEditor({ meal, showNumbers, onShowNumbers }: { meal: Meal; showNumb
           </View>
         ) : null}
 
-        <FoodsSection meal={meal} showNumbers={showNumbers} />
+        <FoodsSection meal={meal} showNumbers={showNumbers} onCorrections={onCorrections} />
+        {pending.length > 0 && !saved ? <RememberCard corrections={pending} onDone={() => onCorrections(null)} /> : null}
 
         <Button title="Save changes" className="mt-6" loading={update.isPending} onPress={save} />
         <Button
@@ -400,6 +476,17 @@ function MealEditor({ meal, showNumbers, onShowNumbers }: { meal: Meal; showNumb
             />
           </View>
         )}
+        {!saved && (canRememberMeal || canRememberItem) ? (
+          <Button
+            title="Save as my food"
+            variant="outline"
+            size="md"
+            className="mt-2"
+            icon={<Brain size={17} color={colors.ink} />}
+            loading={rememberFood.isPending}
+            onPress={saveAsMyFood}
+          />
+        ) : null}
         <Button
           title={saved ? 'Delete saved meal' : 'Delete meal'}
           variant="danger"
@@ -439,6 +526,12 @@ export default function MealDetailsScreen() {
   // Kept here (not in the editor, which re-mounts after each change) so the numbers stay shown.
   const [revealed, setRevealed] = useState(false);
   const showNumbers = !profile?.preferences.calmMode || revealed;
+  // Food edits worth remembering, newest per item.
+  const [corrections, setCorrections] = useState<FoodCorrection[]>([]);
+  const addCorrections = (next: FoodCorrection[] | null) =>
+    setCorrections((current) =>
+      next === null ? [] : [...current.filter((c) => !next.some((n) => n.itemId === c.itemId)), ...next],
+    );
 
   return (
     <Screen>
@@ -466,6 +559,8 @@ export default function MealDetailsScreen() {
           meal={meal.data.meal}
           showNumbers={showNumbers}
           onShowNumbers={() => setRevealed(true)}
+          corrections={corrections}
+          onCorrections={addCorrections}
         />
       )}
     </Screen>

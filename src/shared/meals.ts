@@ -92,6 +92,8 @@ export type MealItem = {
   /** Household measures of the database food, e.g. [["1 cup", 140]]. */
   portions: [string, number][];
   product: { code: string; brand: string | null; source: ProductSource | null } | null;
+  /** Taken from the person's remembered foods ("Your usual"). */
+  personalFoodId: string | null;
 };
 
 /** A food from the USDA database, as search returns it. Nutrients per 100 g. */

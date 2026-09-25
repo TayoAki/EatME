@@ -16,6 +16,7 @@ import {
 import { modelFor, structuredCompletion } from './ai';
 import { foodQualityEnabled } from './experiments';
 import { computeItems, itemTotals, type ComputedItem } from './food-match';
+import { markUsed, personalFoodsFor, promptNames } from './personal-foods';
 import {
   LABEL_JSON_SCHEMA,
   LABEL_QUALITY_RULES,
@@ -25,6 +26,7 @@ import {
   MEAL_SYSTEM_PROMPT,
   MEAL_TEXT_SYSTEM_PROMPT,
   photoNoteText,
+  savedNamesText,
   withQuality,
 } from './prompts';
 import { deleteObject, getObject } from './storage';
@@ -75,21 +77,28 @@ export function baseFromNutrients(n: ComputedItem['nutrients']): BaseNutrition {
   };
 }
 
-/** Saves the meal's foods (replacing any earlier list). */
+/** Saves the meal's foods (replacing any earlier list); returns their ids in order. */
 export async function saveItems(mealId: string, items: readonly ComputedItem[]) {
   await db.delete(mealItems).where(eq(mealItems.mealId, mealId));
-  if (items.length === 0) return;
-  await db.insert(mealItems).values(
-    items.map((item, position) => ({
-      mealId,
-      position,
-      name: item.name,
-      foodId: item.foodId,
-      productCode: item.productCode ?? null,
-      grams: item.grams,
-      nutrients: item.nutrients,
-    })),
-  );
+  if (items.length === 0) return [];
+  const rows = await db
+    .insert(mealItems)
+    .values(
+      items.map((item, position) => ({
+        ...(item.id ? { id: item.id } : {}),
+        mealId,
+        position,
+        name: item.name,
+        foodId: item.foodId,
+        productCode: item.productCode ?? null,
+        grams: item.grams,
+        nutrients: item.nutrients,
+        aiName: item.aiName ?? null,
+        personalFoodId: item.personalFoodId ?? null,
+      })),
+    )
+    .returning({ id: mealItems.id, position: mealItems.position });
+  return rows.sort((a, b) => a.position - b.position).map((row) => row.id);
 }
 
 /** The AI's numbers for one portion. Fiber is part of the carbs and never more than 60 g a meal. */
@@ -120,8 +129,15 @@ const userPhoto = (text: string, photo: ArrayBuffer, detail: 'low' | 'high'): Ch
   ],
 });
 
-/** One AI call for the meal, depending on how it was logged. Labels also return the serving size. */
-async function askAi(meal: MealRow): Promise<MealAnalysis & Partial<Pick<LabelAnalysis, 'servingSize'>>> {
+/**
+ * One AI call for the meal, depending on how it was logged. Labels also return the serving size.
+ * `savedNames` are the person's remembered foods (sent as data).
+ */
+async function askAi(
+  meal: MealRow,
+  savedNames: readonly string[] = [],
+): Promise<MealAnalysis & Partial<Pick<LabelAnalysis, 'servingSize'>>> {
+  const saved = savedNames.length > 0 ? savedNamesText(savedNames) : null;
   // The food-quality experiment adds three fields to the same call.
   const quality = foodQualityEnabled();
   const mealSchema = quality ? withQuality(MEAL_JSON_SCHEMA) : MEAL_JSON_SCHEMA;
@@ -134,6 +150,7 @@ async function askAi(meal: MealRow): Promise<MealAnalysis & Partial<Pick<LabelAn
       schema: mealAnalysisSchema,
       messages: [
         { role: 'system', content: MEAL_TEXT_SYSTEM_PROMPT + mealRules },
+        ...(saved ? [{ role: 'user' as const, content: saved }] : []),
         { role: 'user', content: meal.note ?? '' },
       ],
     });
@@ -167,7 +184,11 @@ async function askAi(meal: MealRow): Promise<MealAnalysis & Partial<Pick<LabelAn
     schema: mealAnalysisSchema,
     messages: [
       { role: 'system', content: MEAL_SYSTEM_PROMPT + mealRules },
-      userPhoto(meal.note ? photoNoteText(meal.note) : 'Analyze this meal photo.', photo, 'low'),
+      userPhoto(
+        [meal.note ? photoNoteText(meal.note) : 'Analyze this meal photo.', saved].filter(Boolean).join('\n\n'),
+        photo,
+        'low',
+      ),
     ],
   });
   console.info('[meals] analyzed', JSON.stringify({ mealId: meal.id, isFood: data.isFood, calories: data.calories, usage }));
@@ -186,7 +207,9 @@ async function analyzeMeal(mealId: string) {
   if (!meal) return;
 
   try {
-    const analysis = await askAi(meal);
+    // The person's remembered foods: their names go to the AI, the foods come before the database.
+    const memory = meal.source === 'label' ? [] : await personalFoodsFor(meal.userId);
+    const analysis = await askAi(meal, promptNames(memory));
 
     if (!analysis.isFood) {
       // Nothing to log. Keep the row (so the app can show why) but never keep the photo.
@@ -206,7 +229,7 @@ async function analyzeMeal(mealId: string) {
 
     // Split pipeline: the AI listed the foods and grams, the USDA database does the math where a
     // food matches. Without items (labels) the AI's totals are used as they are.
-    const items = analysis.items.length > 0 ? await computeItems(analysis.items) : [];
+    const items = analysis.items.length > 0 ? await computeItems(analysis.items, memory) : [];
     const totals = items.length > 0 ? itemTotals(items) : null;
     const base = totals ? baseFromNutrients(totals.nutrients) : baseNutrition(analysis);
     const [updated] = await db
@@ -228,9 +251,13 @@ async function analyzeMeal(mealId: string) {
       })
       .where(and(eq(meals.id, mealId), eq(meals.status, 'analyzing')))
       .returning({ id: meals.id });
-    if (updated) await saveItems(mealId, items);
+    if (updated) {
+      await saveItems(mealId, items);
+      await markUsed(items.flatMap((item) => (item.personalFoodId ? [item.personalFoodId] : [])));
+    }
     if (totals) {
-      console.info('[meals] foods', JSON.stringify({ mealId, items: items.length, matchedShare: totals.matchedShare }));
+      const remembered = items.filter((item) => item.personalFoodId).length;
+      console.info('[meals] foods', JSON.stringify({ mealId, items: items.length, remembered, matchedShare: totals.matchedShare }));
     }
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);

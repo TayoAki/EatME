@@ -4,6 +4,7 @@ import { router } from 'expo-router';
 import {
   Bell,
   Bug,
+  Brain,
   Crown,
   FileText,
   Globe,
@@ -139,6 +140,7 @@ function ProfileContent({ profile }: { profile: Profile }) {
           value={healthSync ? 'On' : 'Off'}
           onPress={() => router.push('/health')}
         />
+        <SettingsRow icon={Brain} label="Your foods" onPress={() => router.push('/personal-foods')} />
         <SettingsRow icon={SlidersHorizontal} label="Preferences" onPress={() => router.push('/preferences')} />
         <SettingsRow icon={Globe} label="Language" value="English" onPress={() => comingSoon('Language')} />
         <SettingsRow icon={Users} label="Upgrade to Family Plan" onPress={() => comingSoon('Family Plan')} />

@@ -16,6 +16,8 @@ export type FoodDraft = {
   foodName: string | null;
   /** A packaged product logged by barcode (its label's numbers). */
   product?: MealItem['product'];
+  /** Taken from the person's remembered foods ("Your usual"). */
+  personalFoodId?: string | null;
   grams: number;
   /** Calories per gram, for the live preview. */
   kcalPerGram: number;
@@ -31,6 +33,8 @@ type FoodAmountSheetProps = {
   saveLabel?: string;
   onChangeFood?: () => void;
   onRemove?: () => void;
+  /** A remembered food: stop using it next time. */
+  onForget?: () => void;
   /** Calm mode: no calorie preview. */
   hideCalories?: boolean;
 };
@@ -44,6 +48,7 @@ export function FoodAmountSheet({
   saveLabel = 'Save',
   onChangeFood,
   onRemove,
+  onForget,
   hideCalories = false,
 }: FoodAmountSheetProps) {
   const [text, setText] = useState(String(Math.round(draft.grams)));
@@ -56,6 +61,7 @@ export function FoodAmountSheet({
         {draft.name}
       </Text>
       <Text className="mt-0.5 text-[14px] leading-5 text-muted">
+        {draft.personalFoodId ? 'Your usual · ' : ''}
         {draft.foodName ??
           (draft.product
             ? ['Package label', distinctBrand({ name: draft.name, brand: draft.product.brand }), PRODUCT_SOURCE_LABELS[draft.product.source ?? 'off']]
@@ -101,6 +107,7 @@ export function FoodAmountSheet({
           {onRemove ? <Button title="Remove" variant="danger" size="md" className="flex-1" onPress={onRemove} /> : null}
         </View>
       ) : null}
+      {onForget ? <Button title="Forget this food" variant="ghost" size="md" className="mt-1" onPress={onForget} /> : null}
     </BottomSheet>
   );
 }

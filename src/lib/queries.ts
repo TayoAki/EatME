@@ -6,6 +6,7 @@ import type { BillingStatus } from '@/shared/billing';
 import type { Features } from '@/shared/features';
 import type { FoodSummary, Meal, QuickMeal, UpdateMealBody, UpdateMealItemsBody } from '@/shared/meals';
 import type { NutrientDay } from '@/shared/nutrients';
+import type { FoodCorrection, PersonalFood, RememberFoodsBody, UpdatePersonalFoodBody } from '@/shared/personal-foods';
 import type { ProductReportBody, ProductResponse } from '@/shared/products';
 import type { CreateSavedMealBody, MealRepeat, PlannedMeal, SavedMeal } from '@/shared/saved-meals';
 import type { SupplementBody, SupplementsDay } from '@/shared/supplements';
@@ -36,6 +37,8 @@ export const queryKeys = {
   weights: (userId: string | null | undefined) => ['weights', userId] as const,
   billing: (userId: string | null | undefined) => ['billing', userId] as const,
   savedMeals: (userId: string | null | undefined) => ['saved-meals', userId] as const,
+  personalFoods: (userId: string | null | undefined) => ['personal-foods', userId] as const,
+  mealsDetail: (userId: string | null | undefined) => ['meal', userId] as const,
   plannedAll: (userId: string | null | undefined) => ['planned', userId] as const,
   planned: (userId: string | null | undefined, date: string) => ['planned', userId, date] as const,
 };
@@ -449,17 +452,74 @@ export function useReportProduct(code: string) {
 }
 
 /** Saves a meal's edited foods; the server recalculates every number. */
-export function useUpdateMealItems(id: string) {
+/**
+ * `onCorrections` gets the edits worth remembering. It runs here, not in `mutate()`'s callbacks:
+ * the meal editor re-mounts as soon as the meal changes, and those callbacks would be dropped.
+ */
+export function useUpdateMealItems(id: string, onCorrections?: (corrections: FoodCorrection[]) => void) {
   const { userId } = useSession();
   const api = useApi();
   const queryClient = useQueryClient();
   const invalidateMeals = useInvalidateMeals();
   return useMutation({
-    mutationFn: (body: UpdateMealItemsBody) => api<{ meal: Meal }>(`/api/meals/${id}/items`, { method: 'PUT', body }),
+    mutationFn: (body: UpdateMealItemsBody) =>
+      api<{ meal: Meal; corrections: FoodCorrection[] }>(`/api/meals/${id}/items`, { method: 'PUT', body }),
     onSuccess: (data) => {
-      queryClient.setQueryData(queryKeys.meal(userId, id), data);
+      queryClient.setQueryData(queryKeys.meal(userId, id), { meal: data.meal });
+      if (data.corrections.length > 0) onCorrections?.(data.corrections);
       return invalidateMeals();
     },
+  });
+}
+
+/** "Your foods": the foods the person asked EatME to remember. */
+export function usePersonalFoods() {
+  const { userId } = useSession();
+  const api = useApi();
+  return useQuery({
+    queryKey: queryKeys.personalFoods(userId),
+    queryFn: () => api<{ foods: PersonalFood[] }>('/api/personal-foods'),
+  });
+}
+
+/** Refresh "Your foods" and the open meals (their "Your usual" marks). */
+function useInvalidatePersonalFoods() {
+  const { userId } = useSession();
+  const queryClient = useQueryClient();
+  return () =>
+    Promise.all([
+      queryClient.invalidateQueries({ queryKey: queryKeys.personalFoods(userId) }),
+      queryClient.invalidateQueries({ queryKey: queryKeys.mealsDetail(userId) }),
+    ]);
+}
+
+/** "Remember these next time?" / "Save as my food". */
+export function useRememberFoods() {
+  const api = useApi();
+  const invalidate = useInvalidatePersonalFoods();
+  return useMutation({
+    mutationFn: (body: RememberFoodsBody) =>
+      api<{ remembered: { id: string; name: string }[] }>('/api/personal-foods', { method: 'POST', body }),
+    onSuccess: () => invalidate(),
+  });
+}
+
+export function useUpdatePersonalFood(id: string) {
+  const api = useApi();
+  const invalidate = useInvalidatePersonalFoods();
+  return useMutation({
+    mutationFn: (body: UpdatePersonalFoodBody) => api(`/api/personal-foods/${id}`, { method: 'PATCH', body }),
+    onSuccess: () => invalidate(),
+  });
+}
+
+/** "Forget": EatME stops using a remembered food. */
+export function useForgetPersonalFood() {
+  const api = useApi();
+  const invalidate = useInvalidatePersonalFoods();
+  return useMutation({
+    mutationFn: (id: string) => api(`/api/personal-foods/${id}`, { method: 'DELETE' }),
+    onSuccess: () => invalidate(),
   });
 }
 

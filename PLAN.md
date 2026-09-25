@@ -577,7 +577,7 @@ added to an earlier day are stored at local noon of that day.
 - [x] Calm mode (7.9): a Preferences switch that hides calorie and macro numbers, neutral
   colours when over a goal, and "days logged" instead of the streak that resets
 - [x] Barcode fixes (7.9): show where a product's numbers come from; report a wrong product
-- [ ] Personal food memory (7.9): after correcting a food, "Remember this next time?"; when the
+- [x] Personal food memory (7.9): after correcting a food, "Remember this next time?"; when the
   AI names that food again, the person's version (the food and their usual amount) is used
   before the USDA database
 - [x] Quick add (7.8): type calories and macros, no AI, not counted as a scan

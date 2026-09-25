@@ -341,10 +341,45 @@ export const mealItems = pgTable(
     grams: doublePrecision().notNull(),
     /** Nutrients of this item at `grams`. */
     nutrients: jsonb().$type<NutrientAmounts>().notNull(),
+    /** The name the AI gave the item at analysis (never edited): what a correction is remembered for. */
+    aiName: text(),
+    /** The remembered food ("Your usual") the item was taken from. */
+    personalFoodId: uuid().references((): AnyPgColumn => personalFoods.id, { onDelete: 'set null' }),
     ...timestamps,
   },
   (t) => [index('meal_items_meal_id_idx').on(t.mealId)],
 );
+
+/**
+ * Personal food memory (v2.1): foods a person chose to remember after correcting them. At
+ * analysis, an item whose AI name matches one of `keys` uses this food (and the usual grams when
+ * the AI's estimate is close) before the USDA database. Numbers come from the database food, the
+ * product, `per100g` (the item's own numbers) or, without a weight, `serving`.
+ */
+export const personalFoods = pgTable(
+  'personal_foods',
+  {
+    id: uuid().primaryKey().defaultRandom(),
+    userId: text()
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
+    /** The person's name for it, e.g. "Brown rice". */
+    name: text().notNull(),
+    /** Match keys (see `foodKey`): the AI names it was corrected from, and its own name. */
+    keys: text().array().notNull(),
+    foodId: integer().references(() => foods.id, { onDelete: 'set null' }),
+    productCode: text(),
+    per100g: jsonb().$type<NutrientAmounts>(),
+    serving: jsonb().$type<NutrientAmounts>(),
+    /** Null for a serving without a weight. */
+    usualGrams: doublePrecision(),
+    uses: integer().notNull().default(0),
+    lastUsedAt: timestamp({ withTimezone: true }),
+    ...timestamps,
+  },
+  (t) => [index('personal_foods_user_id_idx').on(t.userId)],
+);
+export type PersonalFoodRow = typeof personalFoods.$inferSelect;
 
 export type FoodRow = typeof foods.$inferSelect;
 

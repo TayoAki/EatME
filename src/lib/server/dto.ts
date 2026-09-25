@@ -115,6 +115,7 @@ export function toMealItem(
     fiberG: n.fiber === undefined ? null : round(n.fiber),
     portions: food?.portions ?? [],
     product,
+    personalFoodId: item.personalFoodId,
   };
 }
 
