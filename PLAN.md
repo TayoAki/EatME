@@ -272,6 +272,20 @@ The device time zone is stored per user and used for day boundaries and streaks.
 - [ ] Ask one tap-to-answer question when it matters (portion, oil or butter, filling)
 - [ ] Split pipeline in V2: the AI lists foods and grams, the USDA database does the math (§15)
 
+**Data sources (free to start; checked September 2026)**
+- Nutrition math: USDA FoodData Central (public domain, CC0): Foundation Foods and SR
+  Legacy for ingredients, FNDDS for mixed dishes, loaded into Postgres (the API allows
+  1,000 requests an hour)
+- Limits on the AI's grams: FNDDS portion weights, Canadian Nutrient File household
+  measures, FDA reference serving sizes (21 CFR 101.12)
+- Barcodes: Open Food Facts dump (ODbL: credit it in the app, keep its data in separate
+  tables), USDA Branded Foods as the fallback
+- Restaurants: FatSecret Platform "Premier Free" for startups (US data, attribution);
+  Nutritionix has the most chains but starts around $499 a month
+- Benchmark: Nutrition5k (CC BY 4.0), January Food Benchmark (CC BY 4.0), SNAPMe (CC BY-SA)
+- Avoid: NEVO (forbids charging for its data), Spoonacular (forbids storing nutrition
+  data), non-commercial datasets (MetaFood3D, UEC-Food)
+
 ### 12 · v1.1
 - [ ] Fiber and water (7.8), decisions below
 - [ ] Log again, copy yesterday, favourites, portion control ½×–2× (8.4)
