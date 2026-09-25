@@ -577,12 +577,15 @@ added to an earlier day are stored at local noon of that day.
 - [ ] Calm mode (7.9): a Preferences switch that hides calorie and macro numbers, neutral
   colours when over a goal, and "days logged" instead of the streak that resets
 - [ ] Barcode fixes (7.9): show where a product's numbers come from; report a wrong product
+- [ ] Personal food memory (7.9): after correcting a food, "Remember this next time?"; when the
+  AI names that food again, the person's version (the food and their usual amount) is used
+  before the USDA database
 - [ ] Quick add (7.8): type calories and macros, no AI, not counted as a scan
 - [ ] Weight trend line, milestones and a weigh-in reminder (7.7): milestones never below the
   BMI 18.5 floor
 
-**v2.1 decisions** (about 21 developer-days; migrations `quick_add`, `repeat_meals`,
-`product_reports`, `meal_photos_follow_up`, all from drizzle-kit)
+**v2.1 decisions** (about 25 developer-days; migrations `quick_add`, `repeat_meals`,
+`product_reports`, `personal_foods`, `meal_photos_follow_up`, all from drizzle-kit)
 - New ways to create a meal use sources outside `ANALYZED_SOURCES` (`billing.ts`), so they
   never count as AI scans; saved meals, repeats, copies, quick adds and answers are free.
 - Repeat meals: a saved meal is a `meals` row with the new status `saved`, so `copyMeal`,
@@ -620,6 +623,22 @@ added to an earlier day are stored at local noon of that day.
   fatG, fiberG, date}}` (all optional, one above 0); calories from the macros (4/4/9) when
   empty; a gentle note when macros and calories disagree by more than 20%; shares the 300-a-day
   limit of barcode and food logs. From the Scan bar, the camera-permission screen and Home.
+- Personal food memory: `meal_items.ai_name` keeps the name the AI gave each item (set at
+  analysis, never edited) and `meal_items.personal_food_id` marks items taken from memory.
+  `personal_foods` (up to 500 a person): the person's name for it, a match key (the AI's name in
+  lower case without punctuation or a leading "a"/"the") plus other AI names later corrected to
+  it, the database food or product (or the item's own numbers per 100 g when there is none), the
+  usual grams and how often it was used. Saving is always the person's choice: after food edits,
+  `PUT /api/meals/:id/items` returns the corrections worth keeping and the meal screen asks
+  "Remember these next time?" (Rice → Brown rice, 250 g); quick adds, label scans and one-food
+  meals get "Save as my food". At analysis, `computeItems` checks the memory before the database:
+  a match uses the saved food, with the usual grams when the AI's estimate is within 0.6–1.5× of
+  them (a clearly different portion keeps the AI's grams), and skips the food-match AI call. Up to
+  30 saved names go into the meal prompt as data, so the AI reuses the same names. Items from
+  memory show "Your usual" with Edit and Forget; Profile → "Your foods" renames and deletes them.
+  Routes: `GET/POST /api/personal-foods`, `PATCH/DELETE /api/personal-foods/:id` (60 writes an
+  hour). Never a scan; deleted with the account; `legal/privacy.html` mentions saved foods and
+  the names sent to the AI. Success: fewer food edits on foods people eat often.
 - Weight: a trend line (daily moving average that handles gaps) becomes the main line, weigh-ins
   are dots. `bmiFloorKg(height)` in `src/shared/nutrition.ts` (reused by the §10 plan limits).
   Milestones every 5% of the way (at least 1 kg apart), never below BMI 18.5, reached only when
@@ -628,8 +647,8 @@ added to an earlier day are stored at local noon of that day.
   doctor. The weigh-in reminder (off by default; weekly on Monday 7:30 or daily) opens Weight.
 - Order: measure first → shared pieces (calm helpers, `bmiFloorKg`, `saveComputedItems` pulled
   out of `replaceItems`, feature flags) → calm mode → quick add → repeat meals, with barcode
-  fixes and weight alongside → steer the AI → design check against `design/` (new prompt
-  `design/prompts/12-v2-1.md` first), docs, lint, typecheck, `build:server`
+  fixes and weight alongside → personal food memory → steer the AI → design check against
+  `design/` (new prompt `design/prompts/12-v2-1.md` first), docs, lint, typecheck, `build:server`
 
 **v2.2**
 - [ ] GLP-1 mode+ (7.8), free: several medicines; "Other" takes the medicine's name as the
@@ -685,7 +704,9 @@ added to an earlier day are stored at local noon of that day.
   shows no ideas. AI ideas (`POST /api/next-meal/ai`, behind `AI_MEAL_IDEAS` and the §10
   consent screen) send only what is left, the meal slot, the diet and up to 15 recent meal names
   (never medicines, GLP-1 status, weight or notes); 3 a day free, 10 on Premium, counted in
-  `meal_ideas` (not scans); logging an idea uses Quick add, marked as an estimate.
+  `meal_ideas` (not scans); logging an idea uses Quick add, marked as an estimate. Use is
+  measured (meals logged from a suggestion, per weekly user); that number is the check for
+  "Plan tomorrow" under Later.
 - Legal and store: `legal/privacy.html` sections for medicines, measurements, progress photos
   and meal ideas, retention and deletion; the Washington health-data policy lists medicines;
   App Privacy (Health, Photos) and Play Data safety; the 1.4.2 review note ("No dose, unit or
@@ -701,6 +722,14 @@ added to an earlier day are stored at local noon of that day.
   trend and logged food; the person accepts or ignores it; same floors and weekly limit
 - [ ] Read steps, workouts and sleep from Apple Health / Health Connect (6.3); exercise
   calories count toward the goal only if the person turns that on
+- [ ] Plan tomorrow (6.1), built only once "What to eat next" is used: at least 1 in 5 weekly
+  users log a suggested meal each week for 4 weeks. In the evening or on request, EatME drafts
+  tomorrow from the person's saved meals, repeats and most-eaten meals to fit the calorie goal
+  (never below the floor) and protein (first in GLP-1 mode). The draft shows as tomorrow's
+  Planned cards (v2.1); each can be swapped or removed, and nothing is logged until tapped.
+  Optional AI ideas fill a gap (same flag, consent and limits as v2.2's AI ideas). Called "a
+  draft of tomorrow", never a diet plan; calm mode hides its numbers; `day_plans` (date, chosen
+  meals).
 - [ ] Alcohol drinks (6.0): calories from strength and volume
 
 **Research slots (built only if the check passes)**
