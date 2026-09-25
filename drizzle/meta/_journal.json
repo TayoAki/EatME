@@ -22,6 +22,13 @@
       "when": 1790310850486,
       "tag": "0002_describe_goals",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1790312335552,
+      "tag": "0003_glp1",
+      "breakpoints": true
     }
   ]
 }

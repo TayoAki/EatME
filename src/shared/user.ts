@@ -14,6 +14,7 @@ import {
   type PlanSource,
   type UnitSystem,
 } from './onboarding';
+import type { Glp1Settings } from './glp1';
 import type { MacroTargets } from './nutrition';
 
 /** Profile returned by `GET /api/me`. */
@@ -44,6 +45,8 @@ export type Profile = {
   dailyWaterMl: number;
   /** Official recommendations for this user, for "Use recommended". */
   recommended: { fiberG: number; waterMl: number };
+  /** GLP-1 mode settings, or null when it is off. */
+  glp1: Glp1Settings | null;
   planSource: PlanSource | null;
   planSummary: string | null;
   onboardingCompletedAt: string | null;

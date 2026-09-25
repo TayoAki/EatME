@@ -1,5 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
+import type { AddDoseBody, AddSymptomsBody, Glp1Response, Glp1Settings } from '@/shared/glp1';
 import type { WeeklyInsights } from '@/shared/insights';
 import type { Meal, UpdateMealBody } from '@/shared/meals';
 import type { SaveOnboardingBody } from '@/shared/onboarding';
@@ -20,6 +21,7 @@ export const queryKeys = {
   water: (userId: string | null | undefined, date: string) => ['water', userId, date] as const,
   favorites: (userId: string | null | undefined) => ['favorites', userId] as const,
   insights: (userId: string | null | undefined) => ['insights', userId] as const,
+  glp1: (userId: string | null | undefined) => ['glp1', userId] as const,
 };
 
 /** Earlier days are sent as `date`; today logs at "now". */
@@ -227,5 +229,86 @@ export function useWeeklyInsights() {
     queryKey: queryKeys.insights(userId),
     queryFn: () => api<WeeklyInsights>('/api/insights/weekly'),
     staleTime: 10 * 60_000,
+  });
+}
+
+/** GLP-1 mode: settings, recent doses and side effects, the next scheduled dose. */
+export function useGlp1(enabled = true) {
+  const { userId } = useSession();
+  const api = useApi();
+  return useQuery({
+    queryKey: queryKeys.glp1(userId),
+    queryFn: () => api<Glp1Response>('/api/glp1'),
+    enabled,
+  });
+}
+
+function useInvalidateGlp1() {
+  const { userId } = useSession();
+  const queryClient = useQueryClient();
+  return () => queryClient.invalidateQueries({ queryKey: queryKeys.glp1(userId) });
+}
+
+/** Turns GLP-1 mode on or updates it; `null` turns it off (the history is kept). */
+export function useSaveGlp1() {
+  const { userId } = useSession();
+  const api = useApi();
+  const queryClient = useQueryClient();
+  const invalidateGlp1 = useInvalidateGlp1();
+  return useMutation({
+    mutationFn: (settings: Glp1Settings | null) => api<MeResponse>('/api/glp1', { method: 'PUT', body: { settings } }),
+    onSuccess: (data) => {
+      queryClient.setQueryData(queryKeys.me(userId), data);
+      return invalidateGlp1();
+    },
+  });
+}
+
+/** Turns GLP-1 mode off and deletes every dose and side-effect entry. */
+export function useDeleteGlp1Data() {
+  const { userId } = useSession();
+  const api = useApi();
+  const queryClient = useQueryClient();
+  const invalidateGlp1 = useInvalidateGlp1();
+  return useMutation({
+    mutationFn: () => api<{ deleted: boolean }>('/api/glp1', { method: 'DELETE' }),
+    onSuccess: () =>
+      Promise.all([queryClient.invalidateQueries({ queryKey: queryKeys.me(userId) }), invalidateGlp1()]),
+  });
+}
+
+export function useLogDose() {
+  const api = useApi();
+  const invalidateGlp1 = useInvalidateGlp1();
+  return useMutation({
+    mutationFn: (body: AddDoseBody) => api('/api/glp1/doses', { method: 'POST', body }),
+    onSuccess: () => invalidateGlp1(),
+  });
+}
+
+export function useDeleteDose() {
+  const api = useApi();
+  const invalidateGlp1 = useInvalidateGlp1();
+  return useMutation({
+    mutationFn: (id: string) => api(`/api/glp1/doses/${id}`, { method: 'DELETE' }),
+    onSuccess: () => invalidateGlp1(),
+  });
+}
+
+export function useLogSymptoms() {
+  const api = useApi();
+  const invalidateGlp1 = useInvalidateGlp1();
+  return useMutation({
+    mutationFn: (body: AddSymptomsBody) => api('/api/glp1/symptoms', { method: 'POST', body }),
+    onSuccess: () => invalidateGlp1(),
+  });
+}
+
+export function useDeleteSymptom() {
+  const api = useApi();
+  const invalidateGlp1 = useInvalidateGlp1();
+  return useMutation({
+    mutationFn: (id: string) => api(`/api/glp1/symptoms/${id}`, { method: 'DELETE' }),
+    onSuccess: () => invalidateGlp1(),
   });
 }

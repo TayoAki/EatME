@@ -3,6 +3,9 @@ import { useMemo, useState } from 'react';
 import { ActivityIndicator, RefreshControl, ScrollView, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { DoseSheet } from '@/components/glp1/dose-sheet';
+import { Glp1Card } from '@/components/glp1/glp1-card';
+import { SymptomSheet } from '@/components/glp1/symptom-sheet';
 import { DateStrip } from '@/components/home/date-strip';
 import { FiberWaterRow } from '@/components/home/fiber-water-row';
 import { HomeHeader } from '@/components/home/home-header';
@@ -18,6 +21,7 @@ import { haptics } from '@/lib/haptics';
 import {
   useAddWater,
   useCopyDay,
+  useGlp1,
   useMeals,
   useProfile,
   useStreak,
@@ -41,6 +45,8 @@ function Home({ profile }: { profile: Profile }) {
   const [streakOpen, setStreakOpen] = useState(false);
   const [waterOpen, setWaterOpen] = useState(false);
   const [weeklyOpen, setWeeklyOpen] = useState(false);
+  const [doseOpen, setDoseOpen] = useState(false);
+  const [symptomsOpen, setSymptomsOpen] = useState(false);
 
   const meals = useMeals(selectedDate);
   const streak = useStreak();
@@ -50,6 +56,7 @@ function Home({ profile }: { profile: Profile }) {
   const yesterday = toIsoDate(addDays(new Date(), -1));
   const yesterdayMeals = useMeals(yesterday);
   const weekly = useWeeklyInsights();
+  const glp1 = useGlp1(!!profile.glp1);
   // Two logged days are the least that says something about a week.
   const insights = weekly.data && weekly.data.daysLogged >= 2 ? weekly.data : null;
 
@@ -99,6 +106,7 @@ function Home({ profile }: { profile: Profile }) {
               void streak.refetch();
               void water.refetch();
               void weekly.refetch();
+              if (profile.glp1) void glp1.refetch();
             }}
             tintColor={colors.ink}
           />
@@ -108,6 +116,21 @@ function Home({ profile }: { profile: Profile }) {
         <View className="mb-4 mt-2">
           <DateStrip selected={selectedDate} onSelect={setSelectedDate} loggedDates={streak.data?.loggedDates ?? []} />
         </View>
+
+        {isToday && profile.glp1 && glp1.data?.settings ? (
+          <Glp1Card
+            glp1={glp1.data}
+            proteinG={consumed.proteinG}
+            proteinGoalG={targets.proteinG}
+            fiberG={fiberG}
+            fiberGoalG={profile.dailyFiberG}
+            waterMl={water.data?.totalMl ?? 0}
+            waterGoalMl={profile.dailyWaterMl}
+            unit={profile.unitSystem}
+            onLogDose={() => setDoseOpen(true)}
+            onLogSymptoms={() => setSymptomsOpen(true)}
+          />
+        ) : null}
 
         <NutritionSummary consumed={consumed} targets={targets} />
         <FiberWaterRow
@@ -190,6 +213,19 @@ function Home({ profile }: { profile: Profile }) {
           insights={insights}
           unit={profile.unitSystem}
         />
+      ) : null}
+
+      {profile.glp1 ? (
+        <>
+          <DoseSheet
+            key={glp1.data?.doses[0]?.id ?? 'first-dose'}
+            visible={doseOpen}
+            onClose={() => setDoseOpen(false)}
+            medication={profile.glp1.medication}
+            lastLabel={glp1.data?.doses[0]?.doseLabel}
+          />
+          <SymptomSheet visible={symptomsOpen} onClose={() => setSymptomsOpen(false)} />
+        </>
       ) : null}
 
       <StreakSheet

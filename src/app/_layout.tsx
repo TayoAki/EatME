@@ -17,6 +17,7 @@ import { useSession } from '@/lib/auth-client';
 import { useOnboardingHydrated, usePendingOnboarding } from '@/lib/onboarding-store';
 import { useMe } from '@/lib/queries';
 import { queryClient } from '@/lib/query-client';
+import { clearReminders } from '@/lib/reminders';
 
 void SplashScreen.preventAutoHideAsync();
 
@@ -82,7 +83,10 @@ function RootNavigator() {
   // Runs after the signed-out screens replaced the app screens, so nothing reads the cache anymore.
   const client = useQueryClient();
   useEffect(() => {
-    if (isLoaded && !isSignedIn) client.clear();
+    if (!isLoaded || isSignedIn) return;
+    client.clear();
+    // Reminders belong to the account that set them up.
+    void clearReminders().catch(() => undefined);
   }, [client, isLoaded, isSignedIn]);
 
   if (!ready) return slowStart ? <LoadingScreen label="Connecting…" /> : null;

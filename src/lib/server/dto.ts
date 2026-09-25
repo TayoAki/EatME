@@ -1,4 +1,5 @@
-import type { MealRow, User, WaterLogRow } from '@/db/schema';
+import type { DoseLogRow, MealRow, SymptomLogRow, User, WaterLogRow } from '@/db/schema';
+import type { DoseLog, Severity, SymptomLog } from '@/shared/glp1';
 import type { Meal } from '@/shared/meals';
 import { ageFromDateOfBirth, recommendedFiberG, recommendedWaterMl } from '@/shared/nutrition';
 import type { Profile } from '@/shared/user';
@@ -32,6 +33,7 @@ export function toProfile(user: User): Profile {
     planTargets: user.planTargets,
     dailyFiberG: user.dailyFiberG ?? recommended.fiberG,
     dailyWaterMl: user.dailyWaterMl ?? recommended.waterMl,
+    glp1: user.glp1,
     recommended,
     planSource: user.planSource,
     planSummary: user.planSummary,
@@ -65,4 +67,18 @@ export async function toMeal(meal: MealRow): Promise<Meal> {
 
 export function toWaterEntry(row: WaterLogRow): WaterEntry {
   return { id: row.id, amountMl: row.amountMl, loggedAt: row.loggedAt.toISOString() };
+}
+
+export function toDoseLog(row: DoseLogRow): DoseLog {
+  return { id: row.id, takenAt: row.takenAt.toISOString(), doseLabel: row.doseLabel, site: row.site, note: row.note };
+}
+
+export function toSymptomLog(row: SymptomLogRow): SymptomLog {
+  return {
+    id: row.id,
+    loggedAt: row.loggedAt.toISOString(),
+    symptoms: row.symptoms,
+    severity: row.severity as Severity,
+    note: row.note,
+  };
 }

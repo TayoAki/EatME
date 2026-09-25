@@ -82,6 +82,9 @@ Welcome ──Get started──▶ Onboarding questions ──▶ Building your 
   logged days.
 - Horizontal date strip — scrollable back two weeks, never into the future.
 - Calories-left card with a ring, three macro cards (protein, carbs, fat) with rings.
+- GLP-1 mode (v1.3): a card above the calories with the dose status the user set up
+  ("Dose day today", "Next dose Mon, Sep 29", "Dose logged today"), protein, fiber and
+  water bars, and `Log dose` / `How do you feel?` sheets (no dosing advice anywhere).
 - Fiber ring and water card (v1.1): "+" logs a glass (250 ml / 8 fl oz); tapping the card
   opens the water sheet (quick amounts, custom amount, the day's entries with undo).
 - "Today's meals" list (selected day): thumbnail (signed bucket link), name,
@@ -124,7 +127,10 @@ Welcome ──Get started──▶ Onboarding questions ──▶ Building your 
 **Profile**
 - User card, Account section (Personal details — editable, Daily goals — calories and
   macros (your plan or your own, never under 1,200 kcal for women / 1,500 kcal for men)
-  plus fiber and water (recommended or your own), Preferences, Language,
+  plus fiber and water (recommended or your own), Reminders (breakfast, lunch, dinner,
+  water every few hours, the GLP-1 dose; local notifications scheduled on the phone),
+  GLP-1 mode (medicine, weekly or daily, dose day; dose and side-effect history; turn off
+  or delete the data), Preferences, Language,
   Upgrade to Family Plan — UI only), Support (Send feedback via Sentry — shown only
   when a Sentry DSN is set, Privacy Policy, Terms of Service), Sign out, Delete account
   (with confirmation).
@@ -156,6 +162,10 @@ a photo's note), `serving_size` (labels), `image_key` (bucket key
 
 **water_logs** — `id`, `user_id` (cascade delete), `amount_ml` (1–2,000), `logged_at`.
 
+**users.glp1** (jsonb: medicine, weekly/daily, dose weekday; empty = off), **dose_logs**
+(`taken_at`, the user's own `dose_label`, injection `site`, `note`) and **symptom_logs**
+(`logged_at`, `symptoms[]`, `severity` 1–3, `note`), both cascade-deleted.
+
 The device time zone is stored per user and used for day boundaries and streaks. Entries
 added to an earlier day are stored at local noon of that day.
 
@@ -175,6 +185,9 @@ added to an earlier day are stored at local noon of that day.
 | `GET /api/favorites` | session | Favourite meals, newest first |
 | `GET/POST /api/water` | session | A day's water entries + total / add an entry |
 | `DELETE /api/water/:id` | session | Remove a water entry |
+| `GET/PUT/DELETE /api/glp1` | session | GLP-1 mode: settings, recent doses and side effects, next dose / turn on, change or off / off + delete the history |
+| `POST /api/glp1/doses`, `DELETE /api/glp1/doses/:id` | session | Log or remove a dose |
+| `POST /api/glp1/symptoms`, `DELETE /api/glp1/symptoms/:id` | session | Log or remove side effects |
 | `GET /api/insights/weekly` | session | The last 7 complete days: totals per day, averages, goals, one suggestion |
 | `GET /api/streak` | session | Current streak + logged days |
 | `GET /api/health` | public | Railway health check |
@@ -354,9 +367,10 @@ added to an earlier day are stored at local noon of that day.
 - [x] Weekly insights card on Home: last week's averages against goals, neutral wording (7.0)
 
 ### 14 · v1.3 (needs a development build and push notifications)
-- [ ] Push notifications (reminders)
+- [x] Reminders: local notifications scheduled on the phone (meals, water, GLP-1 dose);
+  they also work in Expo Go. Server push is not needed for these.
 - [ ] Water widget and Apple Health / Health Connect sync (6.9)
-- [ ] GLP-1 mode: medication and dose day, reminders, side-effect log, protein, fiber and
+- [x] GLP-1 mode: medication and dose day, reminders, side-effect log, protein, fiber and
   water first; no dosing advice (6.6)
 
 ### 15 · V2

@@ -3,6 +3,7 @@ import { useEffect, useRef } from 'react';
 
 import { colors } from '@/constants/colors';
 import { useMe, useUpdateProfile } from '@/lib/queries';
+import { useNotificationRouting, useReminderSync } from '@/lib/reminders';
 import { deviceTimeZone } from '@/lib/time';
 
 export const unstable_settings = {
@@ -26,12 +27,16 @@ function useSyncTimeZone() {
 
 export default function AppLayout() {
   useSyncTimeZone();
+  useReminderSync();
+  useNotificationRouting();
   return (
     <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: colors.canvas } }}>
       <Stack.Screen name="(tabs)" />
       <Stack.Screen name="meal/[id]" options={{ presentation: 'modal' }} />
       <Stack.Screen name="personal-details" />
       <Stack.Screen name="daily-goals" />
+      <Stack.Screen name="reminders" />
+      <Stack.Screen name="glp1" />
       <Stack.Screen name="sentry-test" />
     </Stack>
   );

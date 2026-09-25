@@ -2,12 +2,14 @@ import * as Sentry from '@sentry/react-native';
 import Constants from 'expo-constants';
 import { router } from 'expo-router';
 import {
+  Bell,
   Bug,
   FileText,
   Globe,
   MessageSquareText,
   ShieldCheck,
   SlidersHorizontal,
+  Syringe,
   Target,
   UserRound,
   Users,
@@ -95,6 +97,13 @@ function ProfileContent({ profile }: { profile: Profile }) {
       <SettingsGroup title="Account">
         <SettingsRow icon={UserRound} label="Personal details" onPress={() => router.push('/personal-details')} />
         <SettingsRow icon={Target} label="Daily goals" onPress={() => router.push('/daily-goals')} />
+        <SettingsRow icon={Bell} label="Reminders" onPress={() => router.push('/reminders')} />
+        <SettingsRow
+          icon={Syringe}
+          label="GLP-1 mode"
+          value={profile.glp1 ? 'On' : 'Off'}
+          onPress={() => router.push('/glp1')}
+        />
         <SettingsRow icon={SlidersHorizontal} label="Preferences" onPress={() => comingSoon('Preferences')} />
         <SettingsRow icon={Globe} label="Language" value="English" onPress={() => comingSoon('Language')} />
         <SettingsRow icon={Users} label="Upgrade to Family Plan" onPress={() => comingSoon('Family Plan')} />

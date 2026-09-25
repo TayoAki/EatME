@@ -7,12 +7,14 @@ import {
   jsonb,
   pgEnum,
   pgTable,
+  smallint,
   text,
   timestamp,
   uuid,
 } from 'drizzle-orm/pg-core';
 
 import { MEAL_CONFIDENCES, MEAL_SOURCES, MEAL_STATUSES, type BaseNutrition } from '@/shared/meals';
+import { INJECTION_SITES, type Glp1Settings, type Symptom } from '@/shared/glp1';
 import type { MacroTargets } from '@/shared/nutrition';
 import { ACTIVITY_LEVELS, DIETS, GENDERS, GOALS, PLAN_SOURCES, UNIT_SYSTEMS } from '@/shared/onboarding';
 
@@ -27,6 +29,7 @@ export const planSourceEnum = pgEnum('plan_source', PLAN_SOURCES);
 export const mealStatusEnum = pgEnum('meal_status', MEAL_STATUSES);
 export const mealSourceEnum = pgEnum('meal_source', MEAL_SOURCES);
 export const mealConfidenceEnum = pgEnum('meal_confidence', MEAL_CONFIDENCES);
+export const injectionSiteEnum = pgEnum('injection_site', INJECTION_SITES);
 
 const timestamps = {
   createdAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
@@ -75,6 +78,9 @@ export const users = pgTable('users', {
   // The user's own daily goals. Empty = use the recommended value (src/shared/nutrition.ts).
   dailyFiberG: integer(),
   dailyWaterMl: integer(),
+
+  /** GLP-1 mode: the medicine and its schedule, as the user entered them. Empty = off. */
+  glp1: jsonb().$type<Glp1Settings>(),
 
   ...timestamps,
 });
@@ -188,4 +194,41 @@ export const waterLogs = pgTable(
 export type User = typeof users.$inferSelect;
 export type NewUser = typeof users.$inferInsert;
 export type MealRow = typeof meals.$inferSelect;
+
+/** GLP-1 mode: doses as the user logged them (their own label, never a suggestion). */
+export const doseLogs = pgTable(
+  'dose_logs',
+  {
+    id: uuid().primaryKey().defaultRandom(),
+    userId: text()
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
+    takenAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
+    doseLabel: text(),
+    site: injectionSiteEnum(),
+    note: text(),
+    ...timestamps,
+  },
+  (t) => [index('dose_logs_user_id_taken_at_idx').on(t.userId, t.takenAt)],
+);
+
+/** GLP-1 mode: how the user felt (side effects), with a severity from 1 (mild) to 3 (severe). */
+export const symptomLogs = pgTable(
+  'symptom_logs',
+  {
+    id: uuid().primaryKey().defaultRandom(),
+    userId: text()
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
+    loggedAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
+    symptoms: text().array().$type<Symptom[]>().notNull(),
+    severity: smallint().notNull(),
+    note: text(),
+    ...timestamps,
+  },
+  (t) => [index('symptom_logs_user_id_logged_at_idx').on(t.userId, t.loggedAt)],
+);
+
+export type DoseLogRow = typeof doseLogs.$inferSelect;
+export type SymptomLogRow = typeof symptomLogs.$inferSelect;
 export type WaterLogRow = typeof waterLogs.$inferSelect;
