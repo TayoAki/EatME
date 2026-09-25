@@ -426,6 +426,9 @@ added to an earlier day are stored at local noon of that day.
 - [ ] App Privacy labels, Play Data safety form, Play Health apps declaration, "not a
   medical device" in the Play listing
 - [ ] A one-line answer to "how is this different from Cal AI?" (Apple 4.3(b))
+- [ ] Keep health data out of the server logs: `handle()` in `src/lib/server/http.ts` logs the
+  whole error, and drizzle's query errors include the values (`params: …`), so a failed insert
+  can write weights, notes or medicine names to Railway. Log the query text and error code only.
 - [ ] Remove `ALLOW_EXPO_GO` from Railway, turn on Postgres backups, block OpenRouter
   providers that train on data
 - [ ] Before turning on payments: products in App Store Connect and Play Console, a RevenueCat
@@ -547,17 +550,70 @@ added to an earlier day are stored at local noon of that day.
 - [ ] Count testers with GLP-1 mode on (`users.glp1` not null) and ask three questions: a
   weight-loss medicine (which one), other injectables they would like to track, a weight-class
   sport. GLP-1 mode+ moves to v2.1 if at least 15% use GLP-1 mode, to "Later" if under 5%.
+  The count is one SQL query in Railway (completed onboardings, team accounts left out, the
+  total next to the percentage); the questions go in an anonymous form linked from the beta
+  notes, never in the app or Sentry (medicine answers are health data)
 
 **v2.1 (first release after launch)**
 - [ ] Repeat meals (9.1): save foods as a meal, repeat a meal on chosen days (shown as a
   suggestion to confirm, never logged silently), copy any past day or meal
 - [ ] Steer the AI (8.0): several photos of one meal, plus the tap-to-answer question from §11
 - [ ] Calm mode (7.9): a Preferences switch that hides calorie and macro numbers, neutral
-  colours when over a goal, no streaks that reset or cost money
+  colours when over a goal, and "days logged" instead of the streak that resets
 - [ ] Barcode fixes (7.9): show where a product's numbers come from; report a wrong product
 - [ ] Quick add (7.8): type calories and macros, no AI, not counted as a scan
 - [ ] Weight trend line, milestones and a weigh-in reminder (7.7): milestones never below the
   BMI 18.5 floor
+
+**v2.1 decisions** (about 21 developer-days; migrations `quick_add`, `repeat_meals`,
+`product_reports`, `meal_photos_follow_up`, all from drizzle-kit)
+- New ways to create a meal use sources outside `ANALYZED_SOURCES` (`billing.ts`), so they
+  never count as AI scans; saved meals, repeats, copies, quick adds and answers are free.
+- Repeat meals: a saved meal is a `meals` row with the new status `saved`, so `copyMeal`,
+  `replaceItems` and the meal screen are reused and day lists, streak, insights, nutrients and
+  Health sync (which already filter by status) never show it. `meals.saved_meal_id` records
+  where a logged copy came from; `meal_repeats` (weekdays, time) and `meal_repeat_responses`
+  (logged or skipped, one per repeat and day). Routes: `POST/GET /api/saved-meals`,
+  `PUT/DELETE /api/saved-meals/:id/repeat`, `GET /api/repeats?date=`,
+  `POST /api/repeats/:id/log|skip`; `POST /api/days/copy` takes `mealIds`. The meal screen gets
+  "Save as a meal" and "Copy to another day…", the Scan star sheet becomes "Saved meals"
+  (with "New meal" from food search), Home gets a "Planned" card for today (Log it / Not
+  today; nothing is logged until tapped, past days never show "missed"), and a day picker copies
+  any of the last 14 days. Up to 100 saved meals and 20 repeats.
+- Steer the AI: up to 3 photos of one meal in one raw request (`X-Photo-Lengths`, no
+  FormData), extra keys in `meals.extra_image_keys`; one meal is still one scan. The question,
+  behind `FOLLOW_UP_QUESTION`: the AI may return one `question` (cooking fat, portion or filling);
+  the server writes the wording ("What was it cooked in?", "How big was your portion?", "What
+  was inside?") and works out the options when the meal is analysed: fixed USDA items for
+  fat (olive oil 5 g or 14 g, butter 14 g), portion multipliers 0.25–3, matched foods for
+  fillings. It is asked only when the options differ by at least 60 kcal or 10%, and answered
+  through `POST /api/meals/:id/follow-up` with no second AI call. Checked on ~15 weighed meals
+  (1 photo vs 3) and the §11 benchmark before the flag is turned on.
+- Calm mode: `preferences.calmMode` hides calorie and macro numbers everywhere, screen-reader
+  labels included (fiber and water stay); rings over a goal are neutral grey; words replace
+  numbers ("Plenty left", "On your way", "Nearly there", "Goal reached"); the flame becomes
+  "{n} days logged", which never resets. The default streak copy is softened for everyone.
+- Barcode fixes: a Source card (Open Food Facts community data with the date checked and a link,
+  or USDA Branded Foods); `products.source_id`, `recheck_at`, `flagged_at`; `product_reports`
+  (wrong product / wrong numbers / missing numbers / other, a note, a snapshot without Open Food
+  Facts values). `POST/DELETE /api/products/:code/report` (20 a day). The reporter is offered the
+  label scan or food search; the next lookup re-fetches (at most once a day); three reports from
+  different people in 30 days show everyone a "scan the label to be sure" note; logged meals
+  never change. Open reports are reviewed with a documented SQL query.
+- Quick add: source `quick`; `POST /api/meals` with `{quick: {name, calories, proteinG, carbsG,
+  fatG, fiberG, date}}` (all optional, one above 0); calories from the macros (4/4/9) when
+  empty; a gentle note when macros and calories disagree by more than 20%; shares the 300-a-day
+  limit of barcode and food logs. From the Scan bar, the camera-permission screen and Home.
+- Weight: a trend line (daily moving average that handles gaps) becomes the main line, weigh-ins
+  are dots. `bmiFloorKg(height)` in `src/shared/nutrition.ts` (reused by the §10 plan limits).
+  Milestones every 5% of the way (at least 1 kg apart), never below BMI 18.5, reached only when
+  the trend crosses them, shown once on the Weight screen as a plain fact (§4: no praise around
+  weight). If the 4-week trend drops faster than 1 kg a week, a note suggests checking in with a
+  doctor. The weigh-in reminder (off by default; weekly on Monday 7:30 or daily) opens Weight.
+- Order: measure first → shared pieces (calm helpers, `bmiFloorKg`, `saveComputedItems` pulled
+  out of `replaceItems`, feature flags) → calm mode → quick add → repeat meals, with barcode
+  fixes and weight alongside → steer the AI → design check against `design/` (new prompt
+  `design/prompts/12-v2-1.md` first), docs, lint, typecheck, `build:server`
 
 **v2.2**
 - [ ] GLP-1 mode+ (7.8), free: several medicines; "Other" takes the medicine's name as the
@@ -570,6 +626,59 @@ added to an earlier day are stored at local noon of that day.
   trend, average intake, protein, doses and side effects
 - [ ] What to eat next (6.9): ideas for the calories and macros left, first from the person's
   own meals (no AI), then optional AI ideas; never below the calorie floor
+
+**v2.2 decisions** (about 28–30 developer-days; migrations `glp1_medications`,
+`body_measurements`, `meal_ideas`)
+- First: the logging fix in §10 (medicine names and notes must never reach the logs),
+  `npx expo install expo-print expo-sharing` and a new development build, and a rule in
+  AGENTS.md: no health data in logs, Sentry, URLs or AI prompts (meals excepted). Deploy the
+  server before the app; v2.1 apps keep calling today's GLP-1 routes.
+- GLP-1 mode+: a `medications` table (kind, name as on the label, form pen / vial / tablets,
+  schedule, dose weekday, order, archived) with supply columns (when counting started, unopened,
+  doses per pen or vial, doses left in the open one, opened on, use within days, low-supply
+  level); `dose_logs` gains `medication_id` and `side`. `users.glp1` stays the on/off switch and
+  mirrors the first medicine, so v2.1 apps and the §16 count keep working. Existing data moves
+  on first use: `ensureMedications(userId)` (safe to repeat, locks the user row) runs in every
+  GLP-1 route, with an optional backfill script; no hand-written SQL, nothing at boot. Doses left
+  is a count replayed from logged doses since the last count (never mg, mL or units); use-by is
+  the opened date plus the days the label gives. Routes: `POST /api/glp1/medications`,
+  `PATCH/DELETE /api/glp1/medications/:id`, `PUT/POST /api/glp1/medications/:id/supply`
+  (counts, refill, started a new one), and `medicationId` and `side` on `POST /api/glp1/doses`.
+  Screens: "Your medicines" on GLP-1, a medicine screen with a supply card, a site picker
+  (stomach, thigh, upper arm × left, right; the last site is shown, a next site is never
+  suggested), medicine chips in the dose sheet. Reminders per medicine, plus the day before
+  use-by and low supply; lock-screen texts never name a medicine. Up to 5 active medicines.
+- Body: `body_measurements` (one row a day: waist, hips, chest, arm, thigh in cm) and
+  `progress_photos` (date and pose front, side or back; key `progress/<userId>/<id>.jpg`; a
+  retake replaces). Photos are resized with location data removed, signed links last 30 minutes,
+  meal analysis refuses any key outside `meals/`, and account deletion clears both folders.
+  Profile's Weight row becomes "Weight & body", with measurements, photos and a side-by-side
+  compare (with the nearest weigh-in). Copy: "Private — only you can see them. Never used for
+  AI." No before/after labels or praise.
+- Export and report: the server gathers, the phone makes the files, nothing is stored.
+  `GET /api/export` returns one CSV (UTF-8 with BOM, formula-safe cells; meals, foods, water,
+  weight, measurements, supplements, doses, side effects). `GET /api/report` returns the last 84
+  days; the phone renders a one-page PDF with expo-print (weight trend as inline SVG, averages,
+  doses as typed, side-effect counts; US Letter or A4) and shares it with expo-sharing; on web,
+  a download and the print dialog. Switches: "Show my name", "Include GLP-1 and side effects".
+  Footer: "Made by the patient with EatME from their own entries. Meal values are estimates.
+  Not medical advice."
+- What to eat next: a Home card for today with up to three of the person's own meals that fit
+  (at most 1.1× what is left, never a pace that ends the day under the calorie floor), ranked by
+  fit and protein (protein counts double in GLP-1 mode); `GET /api/next-meal`; at the goal it
+  shows no ideas. AI ideas (`POST /api/next-meal/ai`, behind `AI_MEAL_IDEAS` and the §10
+  consent screen) send only what is left, the meal slot, the diet and up to 15 recent meal names
+  (never medicines, GLP-1 status, weight or notes); 3 a day free, 10 on Premium, counted in
+  `meal_ideas` (not scans); logging an idea uses Quick add, marked as an estimate.
+- Legal and store: `legal/privacy.html` sections for medicines, measurements, progress photos
+  and meal ideas, retention and deletion; the Washington health-data policy lists medicines;
+  App Privacy (Health, Photos) and Play Data safety; the 1.4.2 review note ("No dose, unit or
+  reconstitution calculations; doses are stored as typed; supply is a count"); camera and
+  photo permission texts in `app.json` mention progress photos.
+- Order: fixes and installs → design prompts (`design/prompts/13-v2-2.md`) → shared pieces
+  (photo helpers, a trend chart shared with Weight, `apiText()`) → GLP-1 backend (deploy, check a
+  v2.1 build) → body backend → GLP-1 screens and reminders → Weight & body screens → export and
+  report → what to eat next → AI ideas (flag off) → legal and store → QA on iOS, Android and web
 
 **Later**
 - [ ] Adaptive calorie target (6.4): a weekly check-in proposes a new target from the weight
