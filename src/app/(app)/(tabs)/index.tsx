@@ -180,7 +180,7 @@ function Home({ profile }: { profile: Profile }) {
           ) : list && list.length > 0 ? (
             <View className="gap-3">
               {list.map((meal) => (
-                <MealCard key={meal.id} meal={meal} />
+                <MealCard key={meal.id} meal={meal} showQuality={!!profile.preferences.foodQualityTag} />
               ))}
             </View>
           ) : (

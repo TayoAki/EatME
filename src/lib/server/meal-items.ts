@@ -68,6 +68,10 @@ export async function replaceItems(meal: MealRow, body: UpdateMealItemsBody) {
 
   const totals = itemTotals(items);
   const base = baseFromNutrients(totals.nutrients);
+  // The added-sugar estimate follows the calories (it has no database value to recompute from).
+  const oldCalories = (meal.baseNutrition?.calories ?? 0) * meal.portion;
+  const addedSugarG =
+    meal.addedSugarG === null ? null : oldCalories > 0 ? (meal.addedSugarG * meal.portion * base.calories) / oldCalories : meal.addedSugarG;
   const [saved] = await db
     .update(meals)
     .set({
@@ -76,6 +80,7 @@ export async function replaceItems(meal: MealRow, body: UpdateMealItemsBody) {
       portion: 1,
       nutrients: totals.nutrients,
       matchedShare: totals.matchedShare,
+      addedSugarG,
     })
     .where(eq(meals.id, meal.id))
     .returning();

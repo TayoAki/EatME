@@ -64,6 +64,13 @@
       "when": 1790321371119,
       "tag": "0008_subscriptions",
       "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1790323305458,
+      "tag": "0009_food_quality",
+      "breakpoints": true
     }
   ]
 }

@@ -10,4 +10,6 @@ export type Features = {
   payments: boolean;
   /** Free AI scans a day when payments are on. */
   freeScansPerDay: number;
+  /** Food-quality tag experiment: people can switch it on in Preferences. */
+  foodQuality: boolean;
 };

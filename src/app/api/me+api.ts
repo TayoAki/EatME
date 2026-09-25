@@ -65,14 +65,14 @@ export const PATCH = handle(async (request) => {
 
   const user = await db.query.users.findFirst({ where: eq(users.id, userId) });
   if (!user) throw new HttpError(404, 'Profile not found');
-  const { dailyCalories, dailyProteinG, dailyCarbsG, dailyFatG, ...rest } = body;
+  const { dailyCalories, dailyProteinG, dailyCarbsG, dailyFatG, preferences, ...rest } = body;
   const targets = targetChanges(user, { ...rest, dailyCalories, dailyProteinG, dailyCarbsG, dailyFatG });
 
   // A new weight in Personal details is today's weigh-in (after keeping the starting weight).
   if (rest.weightKg !== undefined) await ensureStartingWeight(user);
   const [row] = await db
     .update(users)
-    .set({ ...rest, ...targets })
+    .set({ ...rest, ...targets, ...(preferences ? { preferences: { ...user.preferences, ...preferences } } : {}) })
     .where(eq(users.id, userId))
     .returning();
   if (rest.weightKg !== undefined && row.onboardingCompletedAt) {

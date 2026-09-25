@@ -63,6 +63,7 @@ export default function AppLayout() {
         <Stack.Screen name="weight" />
         <Stack.Screen name="verify-email" />
         <Stack.Screen name="premium" />
+        <Stack.Screen name="preferences" />
         <Stack.Screen name="sentry-test" />
       </Stack>
     </>

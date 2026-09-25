@@ -139,7 +139,7 @@ function ProfileContent({ profile }: { profile: Profile }) {
           value={healthSync ? 'On' : 'Off'}
           onPress={() => router.push('/health')}
         />
-        <SettingsRow icon={SlidersHorizontal} label="Preferences" onPress={() => comingSoon('Preferences')} />
+        <SettingsRow icon={SlidersHorizontal} label="Preferences" onPress={() => router.push('/preferences')} />
         <SettingsRow icon={Globe} label="Language" value="English" onPress={() => comingSoon('Language')} />
         <SettingsRow icon={Users} label="Upgrade to Family Plan" onPress={() => comingSoon('Family Plan')} />
       </SettingsGroup>

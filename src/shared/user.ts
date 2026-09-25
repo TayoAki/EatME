@@ -17,12 +17,19 @@ import {
 import type { Glp1Settings } from './glp1';
 import type { MacroTargets } from './nutrition';
 
+/** App preferences kept on the account (all off by default). */
+export type Preferences = {
+  /** Food-quality tag on meals (V2 experiment, when the server offers it). */
+  foodQualityTag?: boolean;
+};
+
 /** Profile returned by `GET /api/me`. */
 export type Profile = {
   id: string;
   email: string;
   /** Confirmed with an emailed code (V2). */
   emailVerified: boolean;
+  preferences: Preferences;
   name: string;
   gender: Gender | null;
   dateOfBirth: string | null;
@@ -94,6 +101,8 @@ export const updateProfileSchema = z
     dailyProteinG: z.number().int().min(MACRO_LIMITS.proteinG.min).max(MACRO_LIMITS.proteinG.max).nullable(),
     dailyCarbsG: z.number().int().min(MACRO_LIMITS.carbsG.min).max(MACRO_LIMITS.carbsG.max).nullable(),
     dailyFatG: z.number().int().min(MACRO_LIMITS.fatG.min).max(MACRO_LIMITS.fatG.max).nullable(),
+    /** Merged into the stored preferences. */
+    preferences: z.object({ foodQualityTag: z.boolean() }).partial().strict(),
   })
   .partial();
 export type UpdateProfileBody = z.infer<typeof updateProfileSchema>;

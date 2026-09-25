@@ -90,6 +90,9 @@ export async function copyMeal(meal: MealRow, loggedAt: Date | SQL) {
       servingSize: meal.servingSize,
       nutrients: meal.nutrients,
       matchedShare: meal.matchedShare,
+      processing: meal.processing,
+      processingReason: meal.processingReason,
+      addedSugarG: meal.addedSugarG,
       imageKey,
       loggedAt,
     })

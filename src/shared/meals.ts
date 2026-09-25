@@ -15,6 +15,15 @@ export type MealSource = (typeof MEAL_SOURCES)[number];
 export const MEAL_CONFIDENCES = ['low', 'medium', 'high'] as const;
 export type MealConfidence = (typeof MEAL_CONFIDENCES)[number];
 
+/** Food-quality tag (V2 experiment): how processed the meal is overall. */
+export const PROCESSING_LEVELS = ['whole', 'processed', 'highly_processed'] as const;
+export type ProcessingLevel = (typeof PROCESSING_LEVELS)[number];
+export const PROCESSING_LABELS: Record<ProcessingLevel, string> = {
+  whole: 'Whole foods',
+  processed: 'Processed',
+  highly_processed: 'Highly processed',
+};
+
 /** One-tap portion sizes on the meal screen (1 = the amount that was scanned). */
 export const PORTION_OPTIONS = [0.5, 1, 1.5, 2] as const;
 
@@ -42,6 +51,11 @@ export type Meal = {
   nutrients: NutrientAmounts | null;
   /** Share of the calories from database foods (0–1); null when the meal has no food list. */
   matchedShare: number | null;
+  /** Food-quality tag (experiment; null when it was off or for older meals). */
+  processing: ProcessingLevel | null;
+  processingReason: string | null;
+  /** Estimated grams of added sugar for the logged portion. */
+  addedSugarG: number | null;
   /** The foods of the meal (only on `GET /api/meals/:id`), for the logged portion. */
   items?: MealItem[];
   /** Short-lived signed link to the photo in the storage bucket. */
@@ -115,6 +129,15 @@ export const aiMealItemSchema = z.object({
 });
 export type AiMealItem = z.infer<typeof aiMealItemSchema>;
 
+/** Food-quality fields: the AI returns them only while the experiment is on. */
+const qualitySchema = z
+  .object({
+    processing: z.enum(PROCESSING_LEVELS),
+    processingReason: z.string().max(300),
+    addedSugarG: z.number().min(0).max(300),
+  })
+  .partial();
+
 /** Totals the model returns for a meal photo, a description or a nutrition label. */
 const mealTotalsSchema = z.object({
   isFood: z.boolean(),
@@ -131,12 +154,14 @@ const mealTotalsSchema = z.object({
 /** Structured output for a meal photo or description: totals plus the foods it is made of. */
 export const mealAnalysisSchema = mealTotalsSchema.extend({
   items: z.array(aiMealItemSchema).max(20),
+  ...qualitySchema.shape,
 });
 export type MealAnalysis = z.infer<typeof mealAnalysisSchema>;
 
 /** The same for a nutrition-facts label: values for one serving as printed. */
 export const labelAnalysisSchema = mealTotalsSchema.extend({
   servingSize: z.string().max(80).nullable(),
+  ...qualitySchema.shape,
 });
 export type LabelAnalysis = z.infer<typeof labelAnalysisSchema>;
 

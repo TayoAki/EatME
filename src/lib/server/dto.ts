@@ -39,6 +39,7 @@ export function toProfile(user: User): Profile {
     recommended,
     planSource: user.planSource,
     planSummary: user.planSummary,
+    preferences: user.preferences ?? {},
     onboardingCompletedAt: user.onboardingCompletedAt?.toISOString() ?? null,
     createdAt: user.createdAt.toISOString(),
   };
@@ -62,6 +63,9 @@ export async function toMeal(meal: MealRow): Promise<Meal> {
     servingSize: meal.servingSize,
     nutrients: meal.nutrients ? scaleNutrients(meal.nutrients, meal.portion) : null,
     matchedShare: meal.matchedShare,
+    processing: meal.processing,
+    processingReason: meal.processingReason,
+    addedSugarG: meal.addedSugarG === null ? null : Math.round(meal.addedSugarG * meal.portion),
     imageUrl: meal.imageKey ? await signedGetUrl(meal.imageKey) : null,
     error: meal.error,
     loggedAt: meal.loggedAt.toISOString(),

@@ -12,7 +12,7 @@ import Animated, {
 
 import { colors } from '@/constants/colors';
 import { formatTime } from '@/lib/time';
-import type { Meal } from '@/shared/meals';
+import { PROCESSING_LABELS, type Meal } from '@/shared/meals';
 
 const THUMB = 88;
 
@@ -75,7 +75,8 @@ export function SkeletonBar({ width, height = 12 }: { width: number | `${number}
   return <Animated.View style={[{ width, height, borderRadius: height, backgroundColor: colors.track }, style]} />;
 }
 
-export function MealCard({ meal }: { meal: Meal }) {
+/** `showQuality`: the person switched the food-quality tag on (Preferences). */
+export function MealCard({ meal, showQuality = false }: { meal: Meal; showQuality?: boolean }) {
   const analyzing = meal.status === 'analyzing';
   return (
     <Pressable
@@ -108,6 +109,11 @@ export function MealCard({ meal }: { meal: Meal }) {
           <View className="flex-row items-center gap-1.5">
             <Flame size={15} color={colors.ink} fill={colors.ink} />
             <Text className="text-[14px] text-ink">{meal.calories ?? 0} calories</Text>
+            {showQuality && meal.processing ? (
+              <Text numberOfLines={1} className="flex-1 text-[13px] text-muted">
+                · {PROCESSING_LABELS[meal.processing]}
+              </Text>
+            ) : null}
           </View>
           <View className="flex-row gap-4">
             <MacroValue color={colors.protein} value={meal.proteinG} />

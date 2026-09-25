@@ -15,12 +15,13 @@ import {
 } from 'drizzle-orm/pg-core';
 import { sql } from 'drizzle-orm';
 
-import { MEAL_CONFIDENCES, MEAL_SOURCES, MEAL_STATUSES, type BaseNutrition } from '@/shared/meals';
+import { MEAL_CONFIDENCES, MEAL_SOURCES, MEAL_STATUSES, PROCESSING_LEVELS, type BaseNutrition } from '@/shared/meals';
 import { INJECTION_SITES, type Glp1Settings, type Symptom } from '@/shared/glp1';
 import type { NutrientAmounts } from '@/shared/nutrients';
 import { PRODUCT_SOURCES } from '@/shared/products';
 import { SUPPLEMENT_SCHEDULES } from '@/shared/supplements';
 import type { MacroTargets } from '@/shared/nutrition';
+import type { Preferences } from '@/shared/user';
 import { ACTIVITY_LEVELS, DIETS, GENDERS, GOALS, PLAN_SOURCES, UNIT_SYSTEMS } from '@/shared/onboarding';
 
 // Column names are generated in snake_case (see `casing` in drizzle.config.ts and src/db/index.ts).
@@ -37,6 +38,7 @@ export const mealConfidenceEnum = pgEnum('meal_confidence', MEAL_CONFIDENCES);
 export const injectionSiteEnum = pgEnum('injection_site', INJECTION_SITES);
 export const supplementScheduleEnum = pgEnum('supplement_schedule', SUPPLEMENT_SCHEDULES);
 export const productSourceEnum = pgEnum('product_source', PRODUCT_SOURCES);
+export const processingLevelEnum = pgEnum('processing_level', PROCESSING_LEVELS);
 
 const timestamps = {
   createdAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
@@ -88,6 +90,8 @@ export const users = pgTable('users', {
 
   /** GLP-1 mode: the medicine and its schedule, as the user entered them. Empty = off. */
   glp1: jsonb().$type<Glp1Settings>(),
+  /** App preferences, e.g. the food-quality tag experiment (V2). */
+  preferences: jsonb().$type<Preferences>().notNull().default({}),
 
   ...timestamps,
 });
@@ -174,6 +178,10 @@ export const meals = pgTable(
     nutrients: jsonb().$type<NutrientAmounts>(),
     /** Share of the calories that come from database foods (0–1); the rest is the AI's estimate. */
     matchedShare: doublePrecision(),
+    /** Food-quality tag (V2 experiment): processing level, the AI's one-line reason, added sugar for a portion of 1. */
+    processing: processingLevelEnum(),
+    processingReason: text(),
+    addedSugarG: doublePrecision(),
     /** Key of the photo in the storage bucket: meals/<userId>/<mealId>.jpg */
     imageKey: text(),
     /** Start of the running analysis. An old value means the server stopped mid-way: retry. */

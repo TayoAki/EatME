@@ -9,6 +9,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { SkeletonBar } from '@/components/home/meal-card';
 import { ProteinHint } from '@/components/meal/protein-hint';
+import { QualityTag } from '@/components/meal/quality-tag';
 import { ServingsStepper } from '@/components/meal/servings-stepper';
 import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/ui/logo';
@@ -270,6 +271,11 @@ export function AnalysisView({ input, onScanAnother, onEdit, onDone, bottomSpace
               {profile?.dailyProteinG ? (
                 <View className="mt-4">
                   <ProteinHint proteinG={meal.proteinG ?? 0} dailyProteinG={profile.dailyProteinG} />
+                </View>
+              ) : null}
+              {profile?.preferences.foodQualityTag && meal.processing ? (
+                <View className="mt-4">
+                  <QualityTag meal={meal} />
                 </View>
               ) : null}
               {meal.confidence === 'low' ? (

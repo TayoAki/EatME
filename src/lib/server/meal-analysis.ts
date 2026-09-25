@@ -14,14 +14,18 @@ import {
 } from '@/shared/meals';
 
 import { modelFor, structuredCompletion } from './ai';
+import { foodQualityEnabled } from './experiments';
 import { computeItems, itemTotals, type ComputedItem } from './food-match';
 import {
   LABEL_JSON_SCHEMA,
+  LABEL_QUALITY_RULES,
   LABEL_SYSTEM_PROMPT,
   MEAL_JSON_SCHEMA,
+  MEAL_QUALITY_RULES,
   MEAL_SYSTEM_PROMPT,
   MEAL_TEXT_SYSTEM_PROMPT,
   photoNoteText,
+  withQuality,
 } from './prompts';
 import { deleteObject, getObject } from './storage';
 
@@ -118,14 +122,18 @@ const userPhoto = (text: string, photo: ArrayBuffer, detail: 'low' | 'high'): Ch
 
 /** One AI call for the meal, depending on how it was logged. Labels also return the serving size. */
 async function askAi(meal: MealRow): Promise<MealAnalysis & Partial<Pick<LabelAnalysis, 'servingSize'>>> {
+  // The food-quality experiment adds three fields to the same call.
+  const quality = foodQualityEnabled();
+  const mealSchema = quality ? withQuality(MEAL_JSON_SCHEMA) : MEAL_JSON_SCHEMA;
+  const mealRules = quality ? MEAL_QUALITY_RULES : '';
   if (meal.source === 'text') {
     const { data, usage } = await structuredCompletion({
       model: modelFor('text'),
       name: 'meal_analysis',
-      jsonSchema: MEAL_JSON_SCHEMA,
+      jsonSchema: mealSchema,
       schema: mealAnalysisSchema,
       messages: [
-        { role: 'system', content: MEAL_TEXT_SYSTEM_PROMPT },
+        { role: 'system', content: MEAL_TEXT_SYSTEM_PROMPT + mealRules },
         { role: 'user', content: meal.note ?? '' },
       ],
     });
@@ -140,10 +148,10 @@ async function askAi(meal: MealRow): Promise<MealAnalysis & Partial<Pick<LabelAn
     const { data, usage } = await structuredCompletion({
       model: modelFor('vision'),
       name: 'nutrition_label',
-      jsonSchema: LABEL_JSON_SCHEMA,
+      jsonSchema: quality ? withQuality(LABEL_JSON_SCHEMA) : LABEL_JSON_SCHEMA,
       schema: labelAnalysisSchema,
       messages: [
-        { role: 'system', content: LABEL_SYSTEM_PROMPT },
+        { role: 'system', content: LABEL_SYSTEM_PROMPT + (quality ? LABEL_QUALITY_RULES : '') },
         userPhoto('Read this nutrition label.', photo, 'high'),
       ],
     });
@@ -155,10 +163,10 @@ async function askAi(meal: MealRow): Promise<MealAnalysis & Partial<Pick<LabelAn
   const { data, usage } = await structuredCompletion({
     model: modelFor('vision'),
     name: 'meal_analysis',
-    jsonSchema: MEAL_JSON_SCHEMA,
+    jsonSchema: mealSchema,
     schema: mealAnalysisSchema,
     messages: [
-      { role: 'system', content: MEAL_SYSTEM_PROMPT },
+      { role: 'system', content: MEAL_SYSTEM_PROMPT + mealRules },
       userPhoto(meal.note ? photoNoteText(meal.note) : 'Analyze this meal photo.', photo, 'low'),
     ],
   });
@@ -212,6 +220,9 @@ async function analyzeMeal(mealId: string) {
         matchedShare: totals?.matchedShare ?? null,
         confidence: analysis.confidence,
         servingSize: analysis.servingSize?.trim() || null,
+        processing: analysis.processing ?? null,
+        processingReason: analysis.processingReason?.trim() || null,
+        addedSugarG: analysis.addedSugarG ?? null,
         error: null,
         analysisStartedAt: null,
       })

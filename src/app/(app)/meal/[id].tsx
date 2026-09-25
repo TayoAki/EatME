@@ -15,6 +15,7 @@ import {
 
 import { ErrorScreen } from '@/components/full-screen-state';
 import { FoodsSection } from '@/components/meal/foods-section';
+import { QualityTag } from '@/components/meal/quality-tag';
 import { ProteinHint } from '@/components/meal/protein-hint';
 import { ServingsStepper } from '@/components/meal/servings-stepper';
 import { Button } from '@/components/ui/button';
@@ -256,6 +257,11 @@ function MealEditor({ meal }: { meal: Meal }) {
         {profile?.dailyProteinG ? (
           <View className="mt-4">
             <ProteinHint proteinG={meal.proteinG ?? 0} dailyProteinG={profile.dailyProteinG} />
+          </View>
+        ) : null}
+        {profile?.preferences.foodQualityTag && meal.processing ? (
+          <View className="mt-4">
+            <QualityTag meal={meal} />
           </View>
         ) : null}
 

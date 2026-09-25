@@ -160,6 +160,14 @@ purchases`, the auto-renewal terms, Terms + Privacy links, and for subscribers t
 tells what is free and the price before the account is made. When the free scans are used up,
 the scan result shows "That's today's free scans" with `See Premium`.
 
+**Food-quality tag** (V2 experiment: the server's `FOOD_QUALITY_TAG`, then each person opts in
+under Profile → Preferences; off by default): each new meal gets "Whole foods", "Processed" or
+"Highly processed" (what makes up most of the calories; a simplified NOVA scale), a one-line
+neutral reason and an added-sugar estimate (labels: the printed added sugars). Shown on the Home
+card, the meal screen and the scan result in the same neutral grey for every level, marked as a
+rough guide (beta) — no scores, colours or advice. Photos can't always tell homemade from
+packaged; test with beta users before going further.
+
 **Supplements** (V2, Profile): the user's list (name, dose per nutrient, every day or when
 needed). Add from presets (vitamin D3, magnesium, iron, B12, calcium, vitamin C, zinc, folic
 acid, multivitamin, fish oil, creatine) or your own with the amounts from the label; tap one
@@ -187,7 +195,8 @@ at sign-up (or a new one). Codes, not links: they work on phones without deep li
   scheduled on the phone),
   GLP-1 mode (medicine, weekly or daily, dose day; dose and side-effect history; turn off
   or delete the data), Supplements (V2), Preferences, Language,
-  Upgrade to Family Plan — UI only), Support (Send feedback via Sentry — shown only
+  Upgrade to Family Plan — UI only; Preferences holds the food-quality tag switch when the
+  experiment is on), Support (Send feedback via Sentry — shown only
   when a Sentry DSN is set, Privacy Policy, Terms of Service), Sign out, Delete account
   (with confirmation).
 - Delete account removes everything: account, sessions, password, plan, meals, photos.
@@ -229,6 +238,10 @@ arrive out of order).
 `description`, `category`, `nutrients` (33 nutrients per 100 g), `portions` (household
 measures), `version`; full-text index on the description. Loaded from `data/fndds.json.gz`
 when the server starts (`server/foods.mjs`; rebuild the file with `npm run foods:build`).
+
+**meals.processing** (`whole` / `processed` / `highly_processed`), **meals.processing_reason**,
+**meals.added_sugar_g** (for a portion of 1) — the food-quality experiment; **users.preferences**
+(jsonb, e.g. `{ foodQualityTag: true }`).
 
 **meal_items** — `meal_id` (cascade), `position`, `name`, `food_id` (→ foods, empty = the
 AI's estimate), `product_code` (a packaged product's barcode), `grams`, `nutrients`;
@@ -507,7 +520,9 @@ added to an earlier day are stored at local noon of that day.
 - [x] Payments: Apple and Google billing only, the price shown before the quiz ends, a few
   free scans a day, easy cancelling, macro goals stay free — RevenueCat (`react-native-purchases`)
   behind `PAYMENTS_ENABLED` (off by default); the server enforces the free scans (402 → Premium)
-- [ ] Food-quality tag, as an experiment (5.8)
+- [x] Food-quality tag, as an experiment (5.8): `FOOD_QUALITY_TAG` + a per-person switch in
+  Preferences; same AI call, three more fields; real-model check: salmon and rice → whole,
+  cola and crisps → highly processed (35 g added sugar), sourdough and cheddar → processed
 
 ### Not doing for now
 - AI-guessed vitamins and minerals from the photo (5.0): studies show large errors (for
