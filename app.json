@@ -10,6 +10,7 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.tayoaki.eatme",
+      "usesAppleSignIn": true,
       "config": {
         "usesNonExemptEncryption": false
       }
@@ -43,6 +44,7 @@
         }
       ],
       "expo-secure-store",
+      "expo-apple-authentication",
       "expo-localization",
       [
         "expo-camera",

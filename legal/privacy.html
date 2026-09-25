@@ -130,9 +130,17 @@
           <h3>Account information</h3>
           <p>
             You create an EatME account with your first name, your email address and a password. Sign-in is handled by
-            our own server with Better Auth, an open-source sign-in library that runs as part of our server software,
-            so no third-party sign-in service is involved. We store your name, your email address and an identifier
-            for your account.
+            our own server with Better Auth, an open-source sign-in library that runs as part of our server software.
+            We store your name, your email address and an identifier for your account.
+          </p>
+          <p>
+            Where the app offers it, you can instead continue with Apple or Google. Apple or Google then confirms who
+            you are and shares your name (Apple only the first time) and your email address — with Apple you can
+            choose to hide it behind a private relay address — together with an account identifier, which we store
+            with your account. We do not receive your Apple or Google password. For Sign in with Apple we also keep a
+            token from Apple so that, when you delete your EatME account, we can tell Apple to end EatME's access. If
+            an EatME account already uses the same email address, the two are joined only when that address has been
+            verified. Your use of Apple's and Google's sign-in is also subject to their privacy policies.
           </p>
           <p>
             We never store your password itself. Your password is sent to our server over an encrypted connection and

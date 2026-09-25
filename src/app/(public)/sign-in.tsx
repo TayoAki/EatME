@@ -3,6 +3,7 @@ import { ArrowLeft, Eye, EyeOff } from 'lucide-react-native';
 import { useRef, useState } from 'react';
 import { KeyboardAvoidingView, Platform, Pressable, ScrollView, Text, TextInput, View } from 'react-native';
 
+import { SocialSignIn } from '@/components/auth/social-sign-in';
 import { Button } from '@/components/ui/button';
 import { IconButton } from '@/components/ui/icon-button';
 import { Logo } from '@/components/ui/logo';
@@ -178,6 +179,8 @@ export default function SignInScreen() {
             disabled={!canSubmit}
             onPress={() => void submit()}
           />
+
+          <SocialSignIn onError={setError} />
 
           <Pressable accessibilityRole="button" hitSlop={8} onPress={switchMode} className="mt-5 items-center">
             <Text className="text-[15px] text-muted">

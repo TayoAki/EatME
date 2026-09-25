@@ -1,6 +1,7 @@
 import { expo } from '@better-auth/expo';
 import { betterAuth } from 'better-auth';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
+import { APIError, createAuthMiddleware } from 'better-auth/api';
 import { emailOTP } from 'better-auth/plugins/email-otp';
 
 import { db } from '@/db';
@@ -8,6 +9,7 @@ import { accounts, sessions, users, verifications } from '@/db/schema';
 
 import { codeEmail, emailConfigured, sendEmail } from './email';
 import { HttpError } from './http';
+import { socialProviders } from './social';
 
 /** Email codes (password reset, email verification) work for 10 minutes and 5 tries. */
 const CODE_MINUTES = 10;
@@ -15,8 +17,8 @@ const CODE_MINUTES = 10;
 const isProduction = process.env.NODE_ENV === 'production';
 /**
  * Inside Expo Go the app identifies itself as exp://… instead of eatme://. ALLOW_EXPO_GO=true lets
- * testers use Expo Go against the live server. Turn it off before release, and before adding
- * Google/Apple sign-in (their redirects must only go back to eatme://).
+ * testers use Expo Go against the live server. Turn it off before release. Social sign-in never
+ * returns to exp:// in production anyway (see `hooks` below).
  */
 const allowExpoGo = !isProduction || process.env.ALLOW_EXPO_GO === 'true';
 
@@ -51,6 +53,18 @@ function createAuth() {
       ...(allowExpoGo ? ['exp://'] : []),
       ...(isProduction ? [] : ['http://localhost:8081']),
     ],
+    socialProviders: socialProviders(),
+    hooks: {
+      // The browser flow hands the session to the app in the redirect back to the callback URL:
+      // in production that must be the EatME app itself, never another exp:// or web address.
+      before: createAuthMiddleware(async (ctx) => {
+        if (!isProduction || ctx.path !== '/sign-in/social') return;
+        const callbackURL = (ctx.body as { callbackURL?: unknown } | undefined)?.callbackURL;
+        if (typeof callbackURL === 'string' && !callbackURL.startsWith('eatme://') && !callbackURL.startsWith('/')) {
+          throw new APIError('FORBIDDEN', { message: 'Sign-in can only return to the EatME app.' });
+        }
+      }),
+    },
     advanced: {
       // Railway's proxy puts the caller's address in X-Real-IP (used by the sign-in rate limiter).
       ipAddress: { ipAddressHeaders: ['x-real-ip'] },

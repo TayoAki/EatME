@@ -3,13 +3,16 @@ import { eq } from 'drizzle-orm';
 import { db } from '@/db';
 import { meals, users } from '@/db/schema';
 
+import { revokeAppleTokens } from './apple';
 import { deleteObject, listKeys, userPhotosPrefix } from './storage';
 
 /**
- * Removes everything we store for a user: meal photos in the bucket, then the user row — which
- * also deletes their meals, sessions and password (ON DELETE CASCADE).
+ * Removes everything we store for a user: Apple's sign-in tokens are revoked, meal photos leave the
+ * bucket, then the user row goes — which also deletes their meals, sessions and password (ON DELETE
+ * CASCADE).
  */
 export async function deleteUserData(userId: string) {
+  await revokeAppleTokens(userId);
   const [listed, rows] = await Promise.all([
     listKeys(userPhotosPrefix(userId)),
     db.select({ key: meals.imageKey }).from(meals).where(eq(meals.userId, userId)),

@@ -157,6 +157,14 @@ acid, multivitamin, fish oil, creatine) or your own with the amounts from the la
 to change it or remove it. Removing keeps the days already ticked; a changed dose applies
 from the next tick. Not medical advice, no dose suggestions.
 
+**Sign in with Apple / Google** (V2, only when the server has them set up and in real builds, not
+Expo Go or web): under the email form, "Continue with Apple" (iPhone, Apple's own button; native
+Sign in with Apple, the ID token is checked by the server) and "Continue with Google" (the browser
+flow; on iPhone only next to Apple — App Store rule 4.8). A new account continues with onboarding
+like an email sign-up. An existing email account is joined only if its email is verified
+(protection against someone registering your email first). Deleting the account revokes Apple's
+tokens (App Store rule 5.1.1(v)).
+
 **Sign-in extras** (V2, only when the server has an email service): `Forgot password?` on the
 sign-in screen → email → a 6-digit code by email + a new password → signed in (other devices are
 signed out). Profile shows `Verify your email` until the address is confirmed with the code sent
@@ -261,7 +269,8 @@ added to an earlier day are stored at local noon of that day.
 | `POST/DELETE /api/supplements/:id/taken` | session | Tick as taken for a day (today by default, never the future) / untick |
 | `GET /api/insights/weekly` | session | The last 7 complete days: totals per day, averages, goals, one suggestion |
 | `GET /api/streak` | session | Current streak + logged days |
-| `GET /api/features` | public | Optional features the server has set up (`email`); the app hides the rest |
+| `GET /api/features` | public | Optional features the server has set up (`email`, `apple`, `google`); the app hides the rest |
+| `POST /api/apple/authorization` | session | After Sign in with Apple: exchanges the one-time code for the refresh token that account deletion revokes |
 | `GET /api/health` | public | Railway health check |
 
 ### AI in the server (`src/lib/server`)
@@ -390,6 +399,9 @@ added to an earlier day are stored at local noon of that day.
 - [ ] A one-line answer to "how is this different from Cal AI?" (Apple 4.3(b))
 - [ ] Remove `ALLOW_EXPO_GO` from Railway, turn on Postgres backups, block OpenRouter
   providers that train on data
+- [ ] Before turning on Apple / Google sign-in: Sign in with Apple capability + key (team ID, key
+  ID, .p8) and a Google "Web application" OAuth client with the redirect URI
+  `<server>/api/auth/callback/google`; set the variables in `.env.example` on Railway
 - [ ] Production builds with EAS; TestFlight and Play internal testing
 
 ### 11 · Accuracy (portion size and hidden fat limit accuracy more than the model does)
@@ -469,8 +481,10 @@ added to an earlier day are stored at local noon of that day.
 - [x] Email service (Resend): forgot password, email verification — Better Auth's email-OTP
   plugin with 6-digit codes (hashed, 10 minutes, 5 tries, 3 requests a minute); passwordless
   sign-in and sign-up by code are switched off; optional (`RESEND_API_KEY`, `EMAIL_FROM`)
-- [ ] Sign in with Apple + Google (Better Auth social providers; Apple is required once
-  Google is added)
+- [x] Sign in with Apple + Google (Better Auth social providers; Apple is required once
+  Google is added): Apple by ID token (`APPLE_BUNDLE_ID`), Google by the browser flow
+  (`GOOGLE_CLIENT_ID`/`GOOGLE_CLIENT_SECRET`), token revocation on deletion (`APPLE_TEAM_ID`,
+  `APPLE_KEY_ID`, `APPLE_PRIVATE_KEY`); in production the session only ever returns to eatme://
 - [ ] Payments: Apple and Google billing only, the price shown before the quiz ends, a few
   free scans a day, easy cancelling, macro goals stay free
 - [ ] Food-quality tag, as an experiment (5.8)
