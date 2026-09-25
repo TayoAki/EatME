@@ -19,7 +19,12 @@ import { sql } from 'drizzle-orm';
 import { MEAL_CONFIDENCES, MEAL_SOURCES, MEAL_STATUSES, PROCESSING_LEVELS, type BaseNutrition } from '@/shared/meals';
 import { INJECTION_SITES, type Glp1Settings, type Symptom } from '@/shared/glp1';
 import type { NutrientAmounts } from '@/shared/nutrients';
-import { PRODUCT_SOURCES } from '@/shared/products';
+import {
+  PRODUCT_REPORT_REASONS,
+  PRODUCT_REPORT_STATUSES,
+  PRODUCT_SOURCES,
+  type ProductReportSnapshot,
+} from '@/shared/products';
 import { REPEAT_RESPONSES } from '@/shared/saved-meals';
 import { SUPPLEMENT_SCHEDULES } from '@/shared/supplements';
 import type { MacroTargets } from '@/shared/nutrition';
@@ -42,6 +47,8 @@ export const supplementScheduleEnum = pgEnum('supplement_schedule', SUPPLEMENT_S
 export const productSourceEnum = pgEnum('product_source', PRODUCT_SOURCES);
 export const processingLevelEnum = pgEnum('processing_level', PROCESSING_LEVELS);
 export const repeatResponseEnum = pgEnum('repeat_response', REPEAT_RESPONSES);
+export const productReportReasonEnum = pgEnum('product_report_reason', PRODUCT_REPORT_REASONS);
+export const productReportStatusEnum = pgEnum('product_report_status', PRODUCT_REPORT_STATUSES);
 
 const timestamps = {
   createdAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
@@ -356,8 +363,37 @@ export const products = pgTable('products', {
   packageGrams: doublePrecision(),
   nutrients: jsonb().$type<NutrientAmounts>(),
   fetchedAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
+  /** The product's id at the source: the FoodData Central id, or the code at Open Food Facts. */
+  sourceId: text(),
+  /** After a report, the next lookup from this time fetches it again (at most once a day). */
+  recheckAt: timestamp({ withTimezone: true }),
+  /** Three people reported it within 30 days: everyone is asked to check the label. */
+  flaggedAt: timestamp({ withTimezone: true }),
 });
 export type ProductRow = typeof products.$inferSelect;
+
+/**
+ * "Report a problem" on a barcode product, one per person and product (reporting again updates
+ * it). Logged meals never change; open reports are reviewed by hand (see README).
+ */
+export const productReports = pgTable(
+  'product_reports',
+  {
+    id: uuid().primaryKey().defaultRandom(),
+    code: text()
+      .notNull()
+      .references(() => products.code, { onDelete: 'cascade' }),
+    userId: text()
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
+    reason: productReportReasonEnum().notNull(),
+    note: text(),
+    snapshot: jsonb().$type<ProductReportSnapshot>().notNull(),
+    status: productReportStatusEnum().notNull().default('open'),
+    ...timestamps,
+  },
+  (t) => [uniqueIndex('product_reports_user_id_code_idx').on(t.userId, t.code), index('product_reports_code_idx').on(t.code)],
+);
 export type MealItemRow = typeof mealItems.$inferSelect;
 
 /** GLP-1 mode: doses as the user logged them (their own label, never a suggestion). */

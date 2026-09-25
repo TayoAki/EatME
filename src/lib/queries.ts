@@ -6,7 +6,7 @@ import type { BillingStatus } from '@/shared/billing';
 import type { Features } from '@/shared/features';
 import type { FoodSummary, Meal, QuickMeal, UpdateMealBody, UpdateMealItemsBody } from '@/shared/meals';
 import type { NutrientDay } from '@/shared/nutrients';
-import type { Product } from '@/shared/products';
+import type { ProductReportBody, ProductResponse } from '@/shared/products';
 import type { CreateSavedMealBody, MealRepeat, PlannedMeal, SavedMeal } from '@/shared/saved-meals';
 import type { SupplementBody, SupplementsDay } from '@/shared/supplements';
 import type { SaveOnboardingBody } from '@/shared/onboarding';
@@ -429,9 +429,22 @@ export function useProduct(code: string) {
   const api = useApi();
   return useQuery({
     queryKey: ['product', code],
-    queryFn: ({ signal }) => api<{ product: Product }>(`/api/products/${code}`, { signal }),
+    queryFn: ({ signal }) => api<ProductResponse>(`/api/products/${code}`, { signal }),
     staleTime: 60 * 60_000,
     retry: (count, error) => !(error instanceof ApiError && error.status < 500) && count < 2,
+  });
+}
+
+/** "Report a problem" with a barcode product (`null` takes the report back). */
+export function useReportProduct(code: string) {
+  const api = useApi();
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async (report: ProductReportBody | null) => {
+      if (report) await api(`/api/products/${code}/report`, { method: 'POST', body: report });
+      else await api(`/api/products/${code}/report`, { method: 'DELETE' });
+    },
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['product', code] }),
   });
 }
 

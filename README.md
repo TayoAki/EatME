@@ -163,3 +163,19 @@ legal/              landing page, privacy policy, terms of service
 - **Optional services:** email codes for "Forgot password?" and email verification (Resend:
   `RESEND_API_KEY`, `EMAIL_FROM`) and a USDA key for barcode fallbacks (`FDC_API_KEY`). The app hides what
   the server hasn't set up (`GET /api/features`). See the roadmap in `PLAN.md`.
+- **Product reports:** "Report a problem" on a barcode product never changes logged meals; the next lookup
+  fetches the product again (at most once a day) and closes the reports if the source changed. Review the
+  open ones in the Railway database (Data → Query):
+
+  ```sql
+  select r.code, p.name, p.source, r.reason, count(*) as reports, max(r.updated_at) as latest,
+         string_agg(nullif(r.note, ''), ' | ') as notes, p.flagged_at is not null as flagged
+  from product_reports r join products p on p.code = r.code
+  where r.status = 'open'
+  group by r.code, p.name, p.source, r.reason, p.flagged_at
+  order by reports desc, latest desc;
+  ```
+
+  After fixing a product at Open Food Facts (or confirming it is right), close its reports with
+  `update product_reports set status = 'resolved' where code = '…';` and
+  `update products set flagged_at = null, recheck_at = now() where code = '…';`.

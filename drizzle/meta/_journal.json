@@ -85,6 +85,13 @@
       "when": 1790368282626,
       "tag": "0011_repeat_meals",
       "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "7",
+      "when": 1790369236307,
+      "tag": "0012_product_reports",
+      "breakpoints": true
     }
   ]
 }

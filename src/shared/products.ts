@@ -25,6 +25,49 @@ export type Product = {
   nutrients: NutrientAmounts;
   /** Calories, protein, carbs and fat are all known, so it can be logged. */
   complete: boolean;
+  /** The product's page at the source (Open Food Facts or FoodData Central). */
+  sourceUrl: string | null;
+  /** When EatME last fetched the numbers from the source. */
+  checkedAt: string;
+  /** Several people reported it lately: everyone is asked to check the label. */
+  flagged: boolean;
+};
+
+/** `GET /api/products/:code`: the product, and the signed-in person's own report of it. */
+export type ProductResponse = { product: Product; myReport: ProductReportReason | null };
+
+/** Why someone reports a product (barcode fixes). */
+export const PRODUCT_REPORT_REASONS = ['wrong_product', 'wrong_numbers', 'missing_numbers', 'other'] as const;
+export type ProductReportReason = (typeof PRODUCT_REPORT_REASONS)[number];
+export const PRODUCT_REPORT_LABELS: Record<ProductReportReason, string> = {
+  wrong_product: 'Wrong product',
+  wrong_numbers: 'Wrong numbers',
+  missing_numbers: 'Missing numbers',
+  other: 'Something else',
+};
+
+/** `open` until the product is fetched again with different data (`refetched`) or someone checks it (`resolved`). */
+export const PRODUCT_REPORT_STATUSES = ['open', 'refetched', 'resolved'] as const;
+
+/** Body of `POST /api/products/:code/report`. */
+export const productReportSchema = z
+  .object({
+    reason: z.enum(PRODUCT_REPORT_REASONS),
+    note: z.string().trim().max(300).optional(),
+  })
+  .strict();
+export type ProductReportBody = z.infer<typeof productReportSchema>;
+
+/**
+ * What the reporter saw. Open Food Facts values are never copied out of the products cache (ODbL);
+ * USDA's (public domain) are kept so a later check can compare.
+ */
+export type ProductReportSnapshot = {
+  source: ProductSource | null;
+  sourceId: string | null;
+  fetchedAt: string;
+  name?: string | null;
+  nutrients?: NutrientAmounts | null;
 };
 
 /** The brand, unless the product name already says it ("Nutella" by Nutella). */

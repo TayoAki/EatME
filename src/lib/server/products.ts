@@ -1,7 +1,7 @@
-import { inArray } from 'drizzle-orm';
+import { and, eq, inArray } from 'drizzle-orm';
 
 import { db } from '@/db';
-import { products, type ProductRow } from '@/db/schema';
+import { productReports, products, type ProductRow } from '@/db/schema';
 import { barcodeCandidates } from '@/shared/barcodes';
 import { NUTRIENTS, type NutrientAmounts, type NutrientKey } from '@/shared/nutrients';
 import type { Product, ProductSource } from '@/shared/products';
@@ -12,6 +12,8 @@ import { HttpError } from './http';
 const FOUND_TTL_MS = 30 * 24 * 60 * 60 * 1000;
 const MISSING_TTL_MS = 24 * 60 * 60 * 1000;
 const TIMEOUT_MS = 6000;
+/** How long a "scan the label to be sure" flag lasts without new reports. */
+export const FLAG_DAYS = 30;
 
 const offBaseUrl = () => process.env.OFF_BASE_URL ?? 'https://world.openfoodfacts.org';
 const fdcBaseUrl = () => process.env.FDC_BASE_URL ?? 'https://api.nal.usda.gov/fdc/v1';
@@ -20,6 +22,8 @@ const userAgent = () => process.env.OFF_USER_AGENT || 'EatME/1.0 (calorie tracke
 
 type ProductData = {
   source: ProductSource;
+  /** The product's id at the source (FoodData Central id; the code at Open Food Facts). */
+  sourceId: string | null;
   name: string;
   brand: string | null;
   servingSize: string | null;
@@ -112,6 +116,7 @@ export function parseOpenFoodFacts(product: OffProduct): ProductData | null {
   if (!name && Object.keys(nutrients).length === 0) return null;
   return {
     source: 'off',
+    sourceId: text(product.code, 20),
     name: name ?? brand ?? 'Packaged food',
     brand,
     servingSize: text(product.serving_size, 60),
@@ -138,6 +143,7 @@ async function fromOpenFoodFacts(code: string): Promise<ProductData | null> {
 
 type FdcNutrient = { nutrientNumber?: string | number; number?: string | number; value?: number; amount?: number };
 type FdcFood = {
+  fdcId?: number;
   description?: string;
   gtinUpc?: string;
   brandName?: string;
@@ -171,6 +177,7 @@ export function parseUsda(food: FdcFood): ProductData | null {
   const shownUnit = unit.startsWith('m') ? 'ml' : 'g';
   return {
     source: 'usda',
+    sourceId: food.fdcId ? String(food.fdcId) : null,
     name: tidy(name),
     brand: text(food.brandName ? tidy(food.brandName) : food.brandOwner ? tidy(food.brandOwner) : null, 60),
     servingSize: household && servingGrams ? `${household} (${Math.round(servingGrams)} ${shownUnit})` : household,
@@ -212,9 +219,25 @@ async function fetchProduct(code: string): Promise<ProductData | null> {
   return off ?? usda;
 }
 
-async function save(code: string, data: ProductData | null) {
+/** Same nutrients per 100 g (jsonb comes back with its keys in another order). */
+function sameNutrients(a: NutrientAmounts | null, b: NutrientAmounts | null) {
+  const keys = new Set([...Object.keys(a ?? {}), ...Object.keys(b ?? {})]) as Set<NutrientKey>;
+  return [...keys].every((key) => (a ?? {})[key] === (b ?? {})[key]);
+}
+
+/**
+ * Stores a fetch. When the source's data changed since reports came in (someone fixed it there),
+ * those reports are marked `refetched` and the "scan the label" flag goes away.
+ */
+async function save(code: string, data: ProductData | null, previous?: ProductRow) {
+  const changed =
+    !!previous?.source &&
+    (previous.source !== (data?.source ?? null) ||
+      previous.name !== (data?.name ?? null) ||
+      !sameNutrients(previous.nutrients, data?.nutrients ?? null));
   const values = {
     source: data?.source ?? null,
+    sourceId: data?.sourceId ?? null,
     name: data?.name ?? null,
     brand: data?.brand ?? null,
     servingSize: data?.servingSize ?? null,
@@ -222,16 +245,33 @@ async function save(code: string, data: ProductData | null) {
     packageGrams: data?.packageGrams ?? null,
     nutrients: data?.nutrients ?? null,
     fetchedAt: new Date(),
+    recheckAt: null,
+    ...(changed ? { flaggedAt: null } : {}),
   };
   const [row] = await db
     .insert(products)
     .values({ code, ...values })
     .onConflictDoUpdate({ target: products.code, set: values })
     .returning();
+  if (changed) {
+    await db
+      .update(productReports)
+      .set({ status: 'refetched' })
+      .where(and(eq(productReports.code, code), eq(productReports.status, 'open')));
+  }
   return row;
 }
 
-function toProduct(row: ProductRow): Product {
+function sourceUrl(row: ProductRow) {
+  if (row.source === 'off') return `https://world.openfoodfacts.org/product/${row.sourceId ?? row.code}`;
+  if (row.source === 'usda' && row.sourceId) return `https://fdc.nal.usda.gov/food-details/${row.sourceId}/nutrients`;
+  return null;
+}
+
+export const isFlagged = (row: Pick<ProductRow, 'flaggedAt'>) =>
+  !!row.flaggedAt && Date.now() - row.flaggedAt.getTime() < FLAG_DAYS * 24 * 60 * 60 * 1000;
+
+export function toProduct(row: ProductRow): Product {
   const nutrients = row.nutrients ?? {};
   return {
     code: row.code,
@@ -243,10 +283,16 @@ function toProduct(row: ProductRow): Product {
     packageGrams: row.packageGrams,
     nutrients,
     complete: isComplete(nutrients),
+    sourceUrl: sourceUrl(row),
+    checkedAt: row.fetchedAt.toISOString(),
+    flagged: isFlagged(row),
   };
 }
 
-const isFresh = (row: ProductRow) => Date.now() - row.fetchedAt.getTime() < (row.source ? FOUND_TTL_MS : MISSING_TTL_MS);
+/** Cached answers are used while fresh, unless a report asked for a new look (`recheck_at`). */
+const isFresh = (row: ProductRow) =>
+  Date.now() - row.fetchedAt.getTime() < (row.source ? FOUND_TTL_MS : MISSING_TTL_MS) &&
+  !(row.recheckAt && row.recheckAt.getTime() <= Date.now());
 
 /**
  * The product with this barcode, or null when nobody knows it. Answers come from the `products`
@@ -264,7 +310,7 @@ export async function lookupProduct(raw: string): Promise<Product | null> {
       continue;
     }
     try {
-      const saved = await save(code, await fetchProduct(code));
+      const saved = await save(code, await fetchProduct(code), row);
       if (saved.source) return toProduct(saved);
     } catch (error) {
       console.warn(`[products] lookup of ${code} failed`, error);

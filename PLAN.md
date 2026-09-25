@@ -576,7 +576,7 @@ added to an earlier day are stored at local noon of that day.
 - [ ] Steer the AI (8.0): several photos of one meal, plus the tap-to-answer question from §11
 - [x] Calm mode (7.9): a Preferences switch that hides calorie and macro numbers, neutral
   colours when over a goal, and "days logged" instead of the streak that resets
-- [ ] Barcode fixes (7.9): show where a product's numbers come from; report a wrong product
+- [x] Barcode fixes (7.9): show where a product's numbers come from; report a wrong product
 - [ ] Personal food memory (7.9): after correcting a food, "Remember this next time?"; when the
   AI names that food again, the person's version (the food and their usual amount) is used
   before the USDA database

@@ -1,6 +1,6 @@
-import { ArrowLeft, Flame, PackageSearch, TriangleAlert } from 'lucide-react-native';
+import { ArrowLeft, ExternalLink, Flag, Flame, PackageSearch, TriangleAlert } from 'lucide-react-native';
 import { useState, type ReactNode } from 'react';
-import { ActivityIndicator, KeyboardAvoidingView, Platform, ScrollView, Text, TextInput, View } from 'react-native';
+import { ActivityIndicator, KeyboardAvoidingView, Platform, Pressable, ScrollView, Text, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Button } from '@/components/ui/button';
@@ -10,10 +10,14 @@ import { ShowNumbers } from '@/components/ui/show-numbers';
 import { colors } from '@/constants/colors';
 import { ApiError } from '@/lib/api';
 import { useCalmMode } from '@/lib/calm';
-import { useProduct } from '@/lib/queries';
-import { distinctBrand, type Product } from '@/shared/products';
+import { notify } from '@/lib/confirm';
+import { openLink } from '@/lib/links';
+import { useProduct, useReportProduct } from '@/lib/queries';
+import { formatLongDate } from '@/lib/time';
+import { distinctBrand, PRODUCT_REPORT_LABELS, type Product, type ProductReportReason } from '@/shared/products';
 
 import { MacroBox } from './analysis-view';
+import { ReportProductSheet } from './report-product-sheet';
 
 type ProductViewProps = {
   code: string;
@@ -44,8 +48,79 @@ function Message({ icon, title, text, children }: { icon: ReactNode; title: stri
   );
 }
 
+const SOURCE_TEXT: Record<Product['source'], { name: string; kind: string; link: string }> = {
+  off: { name: 'Open Food Facts', kind: 'Community data: people add products and their labels.', link: 'See it at Open Food Facts' },
+  usda: { name: 'USDA FoodData Central', kind: 'Branded Foods: data the brand gave the USDA.', link: 'See it at FoodData Central' },
+};
+
+/** Where the numbers come from, when they were checked, and "Report a problem". */
+function SourceCard({
+  product,
+  myReport,
+  onReport,
+}: {
+  product: Product;
+  myReport: ProductReportReason | null;
+  onReport: () => void;
+}) {
+  const withdraw = useReportProduct(product.code);
+  const text = SOURCE_TEXT[product.source];
+  return (
+    <View className="mt-4 rounded-card bg-surface p-4">
+      <Text className="text-[12px] font-semibold uppercase tracking-wider text-muted">Source</Text>
+      <Text className="mt-1 text-[16px] font-semibold text-ink">{text.name}</Text>
+      <Text className="mt-0.5 text-[14px] leading-5 text-muted">
+        {text.kind} Checked {formatLongDate(new Date(product.checkedAt))}.
+      </Text>
+      {product.sourceUrl ? (
+        <Pressable
+          accessibilityRole="link"
+          onPress={() => void openLink(product.sourceUrl as string)}
+          className="mt-2 flex-row items-center gap-1.5 self-start active:opacity-60">
+          <ExternalLink size={14} color={colors.ink} />
+          <Text className="text-[14px] font-semibold text-ink underline">{text.link}</Text>
+        </Pressable>
+      ) : null}
+      <View className="mt-3 h-px bg-line" />
+      {myReport ? (
+        <View className="mt-3 flex-row items-center gap-2">
+          <Flag size={15} color={colors.muted} />
+          <Text className="flex-1 text-[14px] text-muted">You reported: {PRODUCT_REPORT_LABELS[myReport].toLowerCase()}</Text>
+          <Pressable
+            accessibilityRole="button"
+            accessibilityLabel="Withdraw your report"
+            hitSlop={8}
+            disabled={withdraw.isPending}
+            onPress={() => withdraw.mutate(null, { onError: (error) => notify("We couldn't withdraw it", error.message) })}
+            className="active:opacity-60">
+            <Text className="text-[14px] font-semibold text-ink">Withdraw</Text>
+          </Pressable>
+        </View>
+      ) : (
+        <Pressable
+          accessibilityRole="button"
+          onPress={onReport}
+          className="mt-3 flex-row items-center gap-1.5 self-start active:opacity-60">
+          <Flag size={15} color={colors.ink} />
+          <Text className="text-[14px] font-semibold text-ink">Report a problem</Text>
+        </Pressable>
+      )}
+    </View>
+  );
+}
+
+type ProductAmountProps = {
+  product: Product;
+  myReport: ProductReportReason | null;
+  bottomSpace: number;
+  onLog: (grams: number) => void;
+  onScanLabel: () => void;
+  onSearch: () => void;
+};
+
 /** How much of a found product, with its label's numbers for that amount. */
-function ProductAmount({ product, bottomSpace, onLog }: { product: Product; bottomSpace: number; onLog: (grams: number) => void }) {
+function ProductAmount({ product, myReport, bottomSpace, onLog, onScanLabel, onSearch }: ProductAmountProps) {
+  const [reporting, setReporting] = useState(false);
   const [text, setText] = useState(String(Math.round(product.servingGrams ?? 100)));
   const [revealed, setRevealed] = useState(false);
   const hideNumbers = useCalmMode() && !revealed;
@@ -68,6 +143,19 @@ function ProductAmount({ product, bottomSpace, onLog }: { product: Product; bott
         </Text>
         {distinctBrand(product) ? <Text className="mt-1 text-[16px] text-muted">{distinctBrand(product)}</Text> : null}
         {product.servingSize ? <Text className="mt-1 text-[14px] text-muted">Serving: {product.servingSize}</Text> : null}
+        {product.flagged ? (
+          <View className="mt-4 flex-row gap-3 rounded-card border border-line p-4">
+            <TriangleAlert size={18} color={colors.ink} style={{ marginTop: 1 }} />
+            <View className="flex-1">
+              <Text className="text-[15px] leading-[21px] text-ink">
+                Several people said this product&apos;s numbers look wrong. Scan the label to be sure.
+              </Text>
+              <Pressable accessibilityRole="button" onPress={onScanLabel} className="mt-2 self-start active:opacity-60">
+                <Text className="text-[15px] font-semibold text-ink underline">Scan the label</Text>
+              </Pressable>
+            </View>
+          </View>
+        ) : null}
 
         <View className="mt-5 h-20 flex-row items-center justify-center gap-2 rounded-card bg-surface px-5">
           <TextInput
@@ -112,6 +200,8 @@ function ProductAmount({ product, bottomSpace, onLog }: { product: Product; bott
           ) : null}
         </View>
 
+        <SourceCard product={product} myReport={myReport} onReport={() => setReporting(true)} />
+
         <Text className="mt-3 px-1 text-[12px] leading-4 text-muted">
           {hideNumbers
             ? ''
@@ -119,6 +209,13 @@ function ProductAmount({ product, bottomSpace, onLog }: { product: Product; bott
           {ATTRIBUTION[product.source]}
         </Text>
       </ScrollView>
+      <ReportProductSheet
+        code={product.code}
+        visible={reporting}
+        onClose={() => setReporting(false)}
+        onScanLabel={onScanLabel}
+        onSearch={onSearch}
+      />
       <View className="px-5 pt-3" style={{ paddingBottom: bottomSpace }}>
         <Button title="Log it" disabled={!valid} onPress={() => onLog(grams)} />
       </View>
@@ -181,7 +278,14 @@ export function ProductView({ code, bottomSpace, onBack, onScanLabel, onSearch, 
           </Message>
         </View>
       ) : product ? (
-        <ProductAmount product={product} bottomSpace={bottomSpace} onLog={(grams) => onLog(product, grams)} />
+        <ProductAmount
+          product={product}
+          myReport={lookup.data?.myReport ?? null}
+          bottomSpace={bottomSpace}
+          onLog={(grams) => onLog(product, grams)}
+          onScanLabel={onScanLabel}
+          onSearch={onSearch}
+        />
       ) : null}
     </KeyboardAvoidingView>
   );
