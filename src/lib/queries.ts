@@ -2,6 +2,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 import type { AddDoseBody, AddSymptomsBody, Glp1Response, Glp1Settings } from '@/shared/glp1';
 import type { WeeklyInsights } from '@/shared/insights';
+import type { Features } from '@/shared/features';
 import type { FoodSummary, Meal, UpdateMealBody, UpdateMealItemsBody } from '@/shared/meals';
 import type { NutrientDay } from '@/shared/nutrients';
 import type { Product } from '@/shared/products';
@@ -477,4 +478,10 @@ export function useDeleteWeight() {
     mutationFn: (id: string) => api(`/api/weights/${id}`, { method: 'DELETE' }),
     onSuccess: () => void invalidate(),
   });
+}
+
+/** Optional features the server has set up (email codes, …). Works signed out too. */
+export function useFeatures() {
+  const api = useApi();
+  return useQuery({ queryKey: ['features'], queryFn: () => api<Features>('/api/features'), staleTime: 10 * 60_000 });
 }

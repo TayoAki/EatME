@@ -138,5 +138,6 @@ legal/              landing page, privacy policy, terms of service
   limiter — they keep the AI bill predictable. One plan or meal analysis costs a fraction of a cent.
 - **Resilience:** AI calls are retried; a meal analysis that a restart or deploy interrupted is picked up
   again the next time the app loads meals.
-- **V2:** forgot password + email verification (needs an email service such as Resend), Sign in with Apple
-  and Google (Better Auth social providers). See the backlog in `PLAN.md`.
+- **Optional services:** email codes for "Forgot password?" and email verification (Resend:
+  `RESEND_API_KEY`, `EMAIL_FROM`) and a USDA key for barcode fallbacks (`FDC_API_KEY`). The app hides what
+  the server hasn't set up (`GET /api/features`). See the roadmap in `PLAN.md`.

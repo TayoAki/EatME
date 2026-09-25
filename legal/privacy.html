@@ -140,8 +140,12 @@
             in, we check the password you enter against the hash.
           </p>
           <p>
-            EatME does not send automated emails yet, so we do not verify your email address and cannot reset your
-            password by email. If you lose access to your account, contact us at
+            When you sign up, we email you a 6-digit code to verify your email address, and if you forget your
+            password, you can ask for a code to choose a new one. Codes are stored on our server only as a one-way hash,
+            work for 10 minutes and for a few attempts, and choosing a new password signs you out on your other
+            devices. We send these emails through Resend (see <a href="#service-providers">Section 6</a>). We only send
+            emails you ask for or need for your account, never marketing emails. If you lose access to your account,
+            you can also contact us at
             <a href="mailto:[Contact Email]"><mark class="placeholder">[Contact Email]</mark></a>.
           </p>
 
@@ -471,6 +475,16 @@
                 <strong>Data involved:</strong> onboarding answers (with your age instead of your date of birth) and
                 meal photos. The requests come from our server and do not include your name, email address, account ID
                 or IP address.
+              </dd>
+            </div>
+            <div class="provider">
+              <dt>Resend</dt>
+              <dd>
+                Sends EatME's account emails: the codes that verify your email address and reset your password. Resend,
+                Inc. is based in the United States.
+              </dd>
+              <dd>
+                <strong>Data involved:</strong> your email address and the content of the email (a one-time code).
               </dd>
             </div>
             <div class="provider">

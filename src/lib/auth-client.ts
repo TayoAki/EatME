@@ -1,4 +1,5 @@
 import { expoClient } from '@better-auth/expo/client';
+import { emailOTPClient } from 'better-auth/client/plugins';
 import { createAuthClient } from 'better-auth/react';
 import * as SecureStore from 'expo-secure-store';
 
@@ -11,7 +12,7 @@ import { API_URL } from './api-url';
 export const authClient = createAuthClient({
   // Falls back to a placeholder only while the web build is rendered on the server.
   baseURL: API_URL || 'http://localhost:8081',
-  plugins: [expoClient({ scheme: 'eatme', storagePrefix: 'eatme', storage: SecureStore })],
+  plugins: [expoClient({ scheme: 'eatme', storagePrefix: 'eatme', storage: SecureStore }), emailOTPClient()],
 });
 
 /** Sign-in state for the whole app. */
@@ -32,6 +33,9 @@ const FRIENDLY_ERRORS: Record<string, string> = {
   INVALID_EMAIL: 'Please enter a valid email address.',
   PASSWORD_TOO_SHORT: 'Your password needs at least 8 characters.',
   PASSWORD_TOO_LONG: 'That password is too long.',
+  INVALID_OTP: "That code isn't right. Check the email and try again.",
+  OTP_EXPIRED: 'That code has expired. Ask for a new one.',
+  TOO_MANY_ATTEMPTS: 'Too many wrong codes. Ask for a new one.',
 };
 
 /** Human-readable message for a Better Auth error. */

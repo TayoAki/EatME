@@ -1,11 +1,16 @@
 import { expo } from '@better-auth/expo';
 import { betterAuth } from 'better-auth';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
+import { emailOTP } from 'better-auth/plugins/email-otp';
 
 import { db } from '@/db';
 import { accounts, sessions, users, verifications } from '@/db/schema';
 
+import { codeEmail, emailConfigured, sendEmail } from './email';
 import { HttpError } from './http';
+
+/** Email codes (password reset, email verification) work for 10 minutes and 5 tries. */
+const CODE_MINUTES = 10;
 
 const isProduction = process.env.NODE_ENV === 'production';
 /**
@@ -26,13 +31,18 @@ function createAuth() {
       usePlural: true,
       schema: { users, sessions, accounts, verifications },
     }),
-    // V1: email + password only. "Forgot password" and email verification need an email service (V2).
+    // Email + password. With an email service (V2), a 6-digit code resets the password or verifies
+    // the address — codes work on phones without deep links.
     emailAndPassword: {
       enabled: true,
       minPasswordLength: 8,
       maxPasswordLength: 128,
       autoSignIn: true,
+      // A new password signs every other device out.
+      revokeSessionsOnPasswordReset: true,
     },
+    // The email-OTP plugin also offers passwordless sign-in and email changes; EatME uses neither.
+    disabledPaths: ['/sign-in/email-otp', '/email-otp/request-email-change', '/email-otp/change-email', '/forget-password/email-otp'],
     // Stay signed in for 30 days; every day of use extends the session.
     session: { expiresIn: 60 * 60 * 24 * 30, updateAge: 60 * 60 * 24 },
     // "exp://" matches every Expo Go address (exp://<host>:<port>).
@@ -45,7 +55,26 @@ function createAuth() {
       // Railway's proxy puts the caller's address in X-Real-IP (used by the sign-in rate limiter).
       ipAddress: { ipAddressHeaders: ['x-real-ip'] },
     },
-    plugins: [expo()],
+    plugins: [
+      expo(),
+      emailOTP({
+        otpLength: 6,
+        expiresIn: CODE_MINUTES * 60,
+        allowedAttempts: 5,
+        storeOTP: 'hashed',
+        disableSignUp: true,
+        sendVerificationOnSignUp: emailConfigured(),
+        async sendVerificationOTP({ email, otp, type }) {
+          if (type !== 'email-verification' && type !== 'forget-password') return;
+          try {
+            await sendEmail({ to: email, ...codeEmail(type, otp, CODE_MINUTES) });
+          } catch (error) {
+            // Never log the code itself.
+            console.error(`[auth] could not send the ${type} email`, error instanceof Error ? error.message : error);
+          }
+        },
+      }),
+    ],
   });
 }
 

@@ -15,6 +15,7 @@ export function toProfile(user: User): Profile {
   return {
     id: user.id,
     email: user.email,
+    emailVerified: user.emailVerified,
     name: user.name,
     gender: user.gender,
     dateOfBirth: user.dateOfBirth,

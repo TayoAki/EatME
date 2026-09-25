@@ -7,6 +7,7 @@ import {
   FileText,
   Globe,
   HeartPulse,
+  MailCheck,
   Pill,
   MessageSquareText,
   ShieldCheck,
@@ -28,7 +29,7 @@ import { confirm, notify } from '@/lib/confirm';
 import { healthName } from '@/lib/health';
 import { useHealthStore } from '@/lib/health-store';
 import { links, openLink } from '@/lib/links';
-import { useDeleteAccount, useProfile } from '@/lib/queries';
+import { useDeleteAccount, useFeatures, useProfile } from '@/lib/queries';
 import { sentryEnabled } from '@/lib/sentry';
 import { formatWeight } from '@/shared/units';
 import type { Profile } from '@/shared/user';
@@ -45,6 +46,7 @@ export default function ProfileScreen() {
 function ProfileContent({ profile }: { profile: Profile }) {
   const insets = useSafeAreaInsets();
   const deleteAccount = useDeleteAccount();
+  const features = useFeatures();
   const healthSync = useHealthStore((s) => s.enabled);
   const [signingOut, setSigningOut] = useState(false);
 
@@ -102,6 +104,9 @@ function ProfileContent({ profile }: { profile: Profile }) {
       </View>
 
       <SettingsGroup title="Account">
+        {features.data?.email && !profile.emailVerified ? (
+          <SettingsRow icon={MailCheck} label="Verify your email" onPress={() => router.push('/verify-email')} />
+        ) : null}
         <SettingsRow icon={UserRound} label="Personal details" onPress={() => router.push('/personal-details')} />
         <SettingsRow
           icon={Weight}

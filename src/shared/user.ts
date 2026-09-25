@@ -21,6 +21,8 @@ import type { MacroTargets } from './nutrition';
 export type Profile = {
   id: string;
   email: string;
+  /** Confirmed with an emailed code (V2). */
+  emailVerified: boolean;
   name: string;
   gender: Gender | null;
   dateOfBirth: string | null;

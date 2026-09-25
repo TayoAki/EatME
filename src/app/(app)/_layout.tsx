@@ -48,6 +48,7 @@ export default function AppLayout() {
         <Stack.Screen name="nutrients" />
         <Stack.Screen name="supplements" />
         <Stack.Screen name="weight" />
+        <Stack.Screen name="verify-email" />
         <Stack.Screen name="sentry-test" />
       </Stack>
     </>

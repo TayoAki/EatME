@@ -13,6 +13,7 @@ import { authClient, authErrorMessage } from '@/lib/auth-client';
 import { haptics } from '@/lib/haptics';
 import { links, openLink } from '@/lib/links';
 import { usePendingOnboarding } from '@/lib/onboarding-store';
+import { useFeatures } from '@/lib/queries';
 import { FIRST_STEP_HREF } from '@/lib/onboarding-steps';
 
 const MIN_PASSWORD_LENGTH = 8;
@@ -21,6 +22,7 @@ const MIN_PASSWORD_LENGTH = 8;
 export default function SignInScreen() {
   const params = useLocalSearchParams<{ mode?: 'signup' }>();
   const pending = usePendingOnboarding();
+  const features = useFeatures();
   const [mode, setMode] = useState<'signin' | 'signup'>(params.mode === 'signup' ? 'signup' : 'signin');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -152,6 +154,16 @@ export default function SignInScreen() {
               }
             />
           </View>
+
+          {!signingUp && features.data?.email ? (
+            <Pressable
+              accessibilityRole="link"
+              hitSlop={8}
+              onPress={() => router.push({ pathname: '/forgot-password', params: trimmedEmail ? { email: trimmedEmail } : {} })}
+              className="mt-3 self-end active:opacity-60">
+              <Text className="text-[15px] font-semibold text-ink">Forgot password?</Text>
+            </Pressable>
+          ) : null}
 
           {error ? (
             <Text accessibilityRole="alert" className="mt-4 text-center text-[14px] leading-5 text-danger">
