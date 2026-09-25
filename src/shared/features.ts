@@ -6,4 +6,8 @@ export type Features = {
   apple: boolean;
   /** Sign in with Google. */
   google: boolean;
+  /** Premium subscriptions (App Store / Google Play through RevenueCat). */
+  payments: boolean;
+  /** Free AI scans a day when payments are on. */
+  freeScansPerDay: number;
 };

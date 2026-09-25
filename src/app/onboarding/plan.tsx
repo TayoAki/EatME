@@ -3,6 +3,7 @@ import { Check, ClipboardList, Scale, Sparkles, Target, type LucideIcon } from '
 import { useMemo } from 'react';
 import { ScrollView, Text, View } from 'react-native';
 
+import { PricingNote } from '@/components/onboarding/pricing-note';
 import { Button } from '@/components/ui/button';
 import { ProgressRing } from '@/components/ui/progress-ring';
 import { Screen } from '@/components/ui/screen';
@@ -121,6 +122,8 @@ export default function PlanReadyScreen() {
             </View>
           ))}
         </View>
+
+        <PricingNote />
       </ScrollView>
 
       <View className="border-t border-line px-6 pt-3">

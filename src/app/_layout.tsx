@@ -18,6 +18,7 @@ import { useOnboardingHydrated, usePendingOnboarding } from '@/lib/onboarding-st
 import { useMe } from '@/lib/queries';
 import { queryClient } from '@/lib/query-client';
 import { useHealthStore } from '@/lib/health-store';
+import { forgetBillingUser } from '@/lib/billing';
 import { clearReminders } from '@/lib/reminders';
 
 void SplashScreen.preventAutoHideAsync();
@@ -48,6 +49,9 @@ function RootLayout() {
 }
 
 export default Sentry.wrap(RootLayout);
+
+/** Queries that hold no account data (see `src/lib/queries.ts`). */
+const PUBLIC_QUERIES = new Set(['features', 'premium-packages', 'foods', 'product']);
 
 /**
  * Routing rules (PLAN.md §3):
@@ -80,14 +84,16 @@ function RootNavigator() {
     Sentry.setUser(isSignedIn && userId ? { id: userId } : null);
   }, [isSignedIn, userId]);
 
-  // After sign-out (or account deletion) drop every cached response of the previous user.
-  // Runs after the signed-out screens replaced the app screens, so nothing reads the cache anymore.
+  // After sign-out (or account deletion) drop every cached response of the previous user. This
+  // runs after the signed-out screens mounted: their public queries (server features, store
+  // prices) are kept — removing a query while it loads would leave it loading forever.
   const client = useQueryClient();
   useEffect(() => {
     if (!isLoaded || isSignedIn) return;
-    client.clear();
+    client.removeQueries({ predicate: (query) => !PUBLIC_QUERIES.has(String(query.queryKey[0])) });
     // Reminders and Health sync belong to the account that set them up.
     void clearReminders().catch(() => undefined);
+    void forgetBillingUser();
     useHealthStore.getState().reset();
   }, [client, isLoaded, isSignedIn]);
 

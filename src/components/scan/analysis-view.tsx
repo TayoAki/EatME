@@ -1,7 +1,8 @@
 import * as Sentry from '@sentry/react-native';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { Image } from 'expo-image';
-import { CircleHelp, Flame, ImageOff, PenLine, ScanBarcode, Search, TriangleAlert } from 'lucide-react-native';
+import { router } from 'expo-router';
+import { CircleHelp, Crown, Flame, ImageOff, PenLine, ScanBarcode, Search, TriangleAlert } from 'lucide-react-native';
 import { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, ScrollView, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -12,7 +13,7 @@ import { ServingsStepper } from '@/components/meal/servings-stepper';
 import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/ui/logo';
 import { colors } from '@/constants/colors';
-import { useApi } from '@/lib/api';
+import { ApiError, useApi } from '@/lib/api';
 import { useSession } from '@/lib/auth-client';
 import { haptics } from '@/lib/haptics';
 import { describeMeal, logFood, logProduct, uploadMeal } from '@/lib/meal-upload';
@@ -163,6 +164,8 @@ export function AnalysisView({ input, onScanAnother, onEdit, onDone, bottomSpace
   const analyzed = result.data?.meal;
   const outcome = analyzed && analyzed.status !== 'analyzing' ? analyzed : null;
   const failed = upload.isError || outcome?.status === 'failed' || (timedOut && !outcome);
+  // Payments on and today's free AI scans used: offer Premium instead of an error.
+  const paywall = upload.error instanceof ApiError && upload.error.status === 402;
   const done = outcome?.status === 'completed' || outcome?.status === 'not_food';
 
   // Progress: time-based while waiting, then fills up when the result arrives.
@@ -287,8 +290,10 @@ export function AnalysisView({ input, onScanAnother, onEdit, onDone, bottomSpace
             </View>
           ) : failed ? (
             <View className="items-center py-2">
-              <TriangleAlert size={32} color={colors.danger} />
-              <Text className="mt-3 text-center text-[22px] font-bold tracking-tight text-ink">{copy.failed}</Text>
+              {paywall ? <Crown size={32} color={colors.ink} strokeWidth={1.8} /> : <TriangleAlert size={32} color={colors.danger} />}
+              <Text className="mt-3 text-center text-[22px] font-bold tracking-tight text-ink">
+                {paywall ? "That's today's free scans" : copy.failed}
+              </Text>
               <Text className="mt-2 text-center text-[15px] leading-[21px] text-muted">{failureMessage}</Text>
             </View>
           ) : (
@@ -330,6 +335,7 @@ export function AnalysisView({ input, onScanAnother, onEdit, onDone, bottomSpace
             <Button title={input.kind === 'photo' ? 'Retake' : 'Back'} variant="secondary" className="flex-1" onPress={onScanAnother} />
           )}
           {meal ? <Button title="Done" className="flex-1" onPress={onDone} /> : null}
+          {paywall ? <Button title="See Premium" className="flex-1" onPress={() => router.push('/premium')} /> : null}
         </View>
       ) : (
         <View style={{ height: bottomSpace }} />

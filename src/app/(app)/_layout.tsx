@@ -2,9 +2,11 @@ import { Stack } from 'expo-router';
 import { useEffect, useRef } from 'react';
 
 import { colors } from '@/constants/colors';
+import { useSession } from '@/lib/auth-client';
+import { billingSupported, identifyBillingUser } from '@/lib/billing';
 import { HealthSync } from '@/lib/health';
 import { useHealthStore } from '@/lib/health-store';
-import { useMe, useUpdateProfile } from '@/lib/queries';
+import { useFeatures, useMe, useUpdateProfile } from '@/lib/queries';
 import { useNotificationRouting, useReminderSync } from '@/lib/reminders';
 import { WaterWidgetSync, waterWidgetSupported } from '@/lib/water-widget';
 import { deviceTimeZone } from '@/lib/time';
@@ -28,8 +30,19 @@ function useSyncTimeZone() {
   }, [stored, mutate]);
 }
 
+/** Purchases belong to the EatME account: RevenueCat uses the user id (payments on, real builds). */
+function useBillingIdentity() {
+  const { userId } = useSession();
+  const payments = useFeatures().data?.payments;
+  useEffect(() => {
+    if (!payments || !userId || !billingSupported) return;
+    identifyBillingUser(userId).catch(() => undefined);
+  }, [payments, userId]);
+}
+
 export default function AppLayout() {
   useSyncTimeZone();
+  useBillingIdentity();
   useReminderSync();
   useNotificationRouting();
   const healthSync = useHealthStore((state) => state.enabled);
@@ -49,6 +62,7 @@ export default function AppLayout() {
         <Stack.Screen name="supplements" />
         <Stack.Screen name="weight" />
         <Stack.Screen name="verify-email" />
+        <Stack.Screen name="premium" />
         <Stack.Screen name="sentry-test" />
       </Stack>
     </>

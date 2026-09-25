@@ -2,6 +2,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 import type { AddDoseBody, AddSymptomsBody, Glp1Response, Glp1Settings } from '@/shared/glp1';
 import type { WeeklyInsights } from '@/shared/insights';
+import type { BillingStatus } from '@/shared/billing';
 import type { Features } from '@/shared/features';
 import type { FoodSummary, Meal, UpdateMealBody, UpdateMealItemsBody } from '@/shared/meals';
 import type { NutrientDay } from '@/shared/nutrients';
@@ -32,6 +33,7 @@ export const queryKeys = {
   supplements: (userId: string | null | undefined, date: string) => ['supplements', userId, date] as const,
   nutrients: (userId: string | null | undefined, date: string) => ['nutrients', userId, date] as const,
   weights: (userId: string | null | undefined) => ['weights', userId] as const,
+  billing: (userId: string | null | undefined) => ['billing', userId] as const,
 };
 
 /** Earlier days are sent as `date`; today logs at "now". */
@@ -484,4 +486,22 @@ export function useDeleteWeight() {
 export function useFeatures() {
   const api = useApi();
   return useQuery({ queryKey: ['features'], queryFn: () => api<Features>('/api/features'), staleTime: 10 * 60_000 });
+}
+
+/** Free or Premium, and today's free AI scans (payments on). */
+export function useBilling(enabled = true) {
+  const { userId } = useSession();
+  const api = useApi();
+  return useQuery({ queryKey: queryKeys.billing(userId), queryFn: () => api<BillingStatus>('/api/billing'), enabled });
+}
+
+/** After a purchase or restore: the server reads the new entitlement right away. */
+export function useSyncBilling() {
+  const { userId } = useSession();
+  const api = useApi();
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: () => api<BillingStatus>('/api/billing/sync', { method: 'POST' }),
+    onSuccess: (data) => queryClient.setQueryData(queryKeys.billing(userId), data),
+  });
 }

@@ -151,6 +151,15 @@ when it is within reach of the scale), `Log weight` (today or yesterday, kg or l
 weight in Personal details is today's weigh-in. The history starts with the onboarding weight.
 A note explains day-to-day swings; no streaks, colours or praise around weight.
 
+**Premium** (V2, only when payments are on — off by default): Profile → EatME Premium. Free
+plan: 3 AI scans a day (photos, labels, descriptions); barcodes, food search, macro goals, water,
+weight and supplements stay free. Premium: unlimited AI scans (fair use: 50 a day). The screen
+shows the store's prices and any free trial, `Subscribe` / `Start free trial`, `Restore
+purchases`, the auto-renewal terms, Terms + Privacy links, and for subscribers the renewal date and
+`Manage subscription` (the store's own page — cancelling takes a few taps). The plan-ready screen
+tells what is free and the price before the account is made. When the free scans are used up,
+the scan result shows "That's today's free scans" with `See Premium`.
+
 **Supplements** (V2, Profile): the user's list (name, dose per nutrient, every day or when
 needed). Add from presets (vitamin D3, magnesium, iron, B12, calcium, vitamin C, zinc, folic
 acid, multivitamin, fish oil, creatine) or your own with the amounts from the label; tap one
@@ -208,6 +217,10 @@ a photo's note), `serving_size` (labels), `image_key` (bucket key
 `created_at`, `updated_at`.
 
 **water_logs** — `id`, `user_id` (cascade delete), `amount_ml` (1–2,000), `logged_at`.
+
+**subscriptions** — one per user (cascade delete): `active`, `expires_at`, `will_renew`,
+`product_id`, `store`, `last_event_id` / `last_event_at` (RevenueCat webhook events can repeat or
+arrive out of order).
 
 **weight_logs** — `user_id` (cascade delete), `date` (local day, unique per user), `weight_kg`
 (30–300, 0.01 kg). `users.weight_kg` always equals the latest weigh-in.
@@ -270,6 +283,9 @@ added to an earlier day are stored at local noon of that day.
 | `GET /api/insights/weekly` | session | The last 7 complete days: totals per day, averages, goals, one suggestion |
 | `GET /api/streak` | session | Current streak + logged days |
 | `GET /api/features` | public | Optional features the server has set up (`email`, `apple`, `google`); the app hides the rest |
+| `GET /api/billing` | session | Free or Premium, renewal, today's free AI scans |
+| `POST /api/billing/sync` | session | Right after a purchase or restore: reads the entitlement from RevenueCat |
+| `POST /api/billing/webhook` | RevenueCat secret | Purchases, renewals, cancellations, expirations, transfers |
 | `POST /api/apple/authorization` | session | After Sign in with Apple: exchanges the one-time code for the refresh token that account deletion revokes |
 | `GET /api/health` | public | Railway health check |
 
@@ -399,6 +415,9 @@ added to an earlier day are stored at local noon of that day.
 - [ ] A one-line answer to "how is this different from Cal AI?" (Apple 4.3(b))
 - [ ] Remove `ALLOW_EXPO_GO` from Railway, turn on Postgres backups, block OpenRouter
   providers that train on data
+- [ ] Before turning on payments: products in App Store Connect and Play Console, a RevenueCat
+  project (entitlement `premium`, a current offering), its webhook to `/api/billing/webhook` with
+  the secret, the public SDK keys in `eas.json`, then `PAYMENTS_ENABLED=true`
 - [ ] Before turning on Apple / Google sign-in: Sign in with Apple capability + key (team ID, key
   ID, .p8) and a Google "Web application" OAuth client with the redirect URI
   `<server>/api/auth/callback/google`; set the variables in `.env.example` on Railway
@@ -485,8 +504,9 @@ added to an earlier day are stored at local noon of that day.
   Google is added): Apple by ID token (`APPLE_BUNDLE_ID`), Google by the browser flow
   (`GOOGLE_CLIENT_ID`/`GOOGLE_CLIENT_SECRET`), token revocation on deletion (`APPLE_TEAM_ID`,
   `APPLE_KEY_ID`, `APPLE_PRIVATE_KEY`); in production the session only ever returns to eatme://
-- [ ] Payments: Apple and Google billing only, the price shown before the quiz ends, a few
-  free scans a day, easy cancelling, macro goals stay free
+- [x] Payments: Apple and Google billing only, the price shown before the quiz ends, a few
+  free scans a day, easy cancelling, macro goals stay free — RevenueCat (`react-native-purchases`)
+  behind `PAYMENTS_ENABLED` (off by default); the server enforces the free scans (402 → Premium)
 - [ ] Food-quality tag, as an experiment (5.8)
 
 ### Not doing for now

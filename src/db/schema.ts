@@ -187,6 +187,27 @@ export const meals = pgTable(
   (t) => [index('meals_user_id_logged_at_idx').on(t.userId, t.loggedAt)],
 );
 
+/**
+ * Premium subscriptions (V2, only when payments are on), one row per user. Kept up to date by
+ * RevenueCat's webhook and by a sync right after a purchase; the store is the source of truth.
+ */
+export const subscriptions = pgTable('subscriptions', {
+  userId: text()
+    .primaryKey()
+    .references(() => users.id, { onDelete: 'cascade' }),
+  active: boolean().notNull().default(false),
+  /** End of the paid (or trial) period; null = no end (lifetime). */
+  expiresAt: timestamp({ withTimezone: true }),
+  willRenew: boolean().notNull().default(false),
+  productId: text(),
+  store: text(),
+  /** The newest webhook event applied (events can arrive twice or out of order). */
+  lastEventId: text(),
+  lastEventAt: timestamp({ withTimezone: true }),
+  ...timestamps,
+});
+export type SubscriptionRow = typeof subscriptions.$inferSelect;
+
 /** Weigh-ins: one per local day (logging again that day replaces it). */
 export const weightLogs = pgTable(
   'weight_logs',

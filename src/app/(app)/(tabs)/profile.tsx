@@ -4,6 +4,7 @@ import { router } from 'expo-router';
 import {
   Bell,
   Bug,
+  Crown,
   FileText,
   Globe,
   HeartPulse,
@@ -29,7 +30,7 @@ import { confirm, notify } from '@/lib/confirm';
 import { healthName } from '@/lib/health';
 import { useHealthStore } from '@/lib/health-store';
 import { links, openLink } from '@/lib/links';
-import { useDeleteAccount, useFeatures, useProfile } from '@/lib/queries';
+import { useBilling, useDeleteAccount, useFeatures, useProfile } from '@/lib/queries';
 import { sentryEnabled } from '@/lib/sentry';
 import { formatWeight } from '@/shared/units';
 import type { Profile } from '@/shared/user';
@@ -47,6 +48,7 @@ function ProfileContent({ profile }: { profile: Profile }) {
   const insets = useSafeAreaInsets();
   const deleteAccount = useDeleteAccount();
   const features = useFeatures();
+  const billing = useBilling(!!features.data?.payments);
   const healthSync = useHealthStore((s) => s.enabled);
   const [signingOut, setSigningOut] = useState(false);
 
@@ -115,6 +117,14 @@ function ProfileContent({ profile }: { profile: Profile }) {
           onPress={() => router.push('/weight')}
         />
         <SettingsRow icon={Target} label="Daily goals" onPress={() => router.push('/daily-goals')} />
+        {features.data?.payments ? (
+          <SettingsRow
+            icon={Crown}
+            label="EatME Premium"
+            value={billing.data ? (billing.data.premium ? 'Active' : 'Free') : undefined}
+            onPress={() => router.push('/premium')}
+          />
+        ) : null}
         <SettingsRow icon={Bell} label="Reminders" onPress={() => router.push('/reminders')} />
         <SettingsRow
           icon={Syringe}

@@ -57,6 +57,13 @@
       "when": 1790318938094,
       "tag": "0007_weight",
       "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1790321371119,
+      "tag": "0008_subscriptions",
+      "breakpoints": true
     }
   ]
 }

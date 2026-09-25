@@ -3,6 +3,7 @@ import { and, count, desc, eq, gte, inArray, lt } from 'drizzle-orm';
 import { db } from '@/db';
 import { meals, users } from '@/db/schema';
 import { requireUserId } from '@/lib/server/auth';
+import { ANALYZED_SOURCES, freeScansPerDay, isActive, paymentsEnabled, scansToday, subscriptionOf } from '@/lib/server/billing';
 import { dateParam, dayBounds, userTimeZone } from '@/lib/server/day';
 import { toMeal } from '@/lib/server/dto';
 import { handle, HttpError, readJson } from '@/lib/server/http';
@@ -23,8 +24,6 @@ import { barcodeMealSchema, foodMealSchema } from '@/shared/products';
 /** AI analyses (photos, labels, descriptions) per rolling 24 hours — keeps the AI bill predictable. */
 const DAILY_SCAN_LIMIT = 50;
 
-/** Meals that cost an AI call. Copies, favourites, barcodes and database foods are free. */
-const ANALYZED_SOURCES = ['photo', 'label', 'text'] as const;
 /** Meals logged without AI (barcodes, database foods) per 24 hours: only there to stop abuse. */
 const DAILY_INSTANT_LIMIT = 300;
 
@@ -104,7 +103,12 @@ function photoMode(request: Request): PhotoMode {
   return mode as PhotoMode;
 }
 
-async function checkAiLimit(userId: string) {
+/**
+ * AI analyses (photos, labels, descriptions; copies, barcodes and database foods are free): 50 in
+ * 24 hours for everyone; with payments on, free accounts get a few a day (402 → the app offers
+ * Premium).
+ */
+async function checkAiLimit(userId: string, timeZone: string) {
   const [{ scans }] = await db
     .select({ scans: count() })
     .from(meals)
@@ -117,6 +121,14 @@ async function checkAiLimit(userId: string) {
     );
   if (scans >= DAILY_SCAN_LIMIT) {
     throw new HttpError(429, `You can log up to ${DAILY_SCAN_LIMIT} meals with AI a day. Please try again tomorrow.`);
+  }
+  if (!paymentsEnabled() || isActive(await subscriptionOf(userId))) return;
+  const free = freeScansPerDay();
+  if ((await scansToday(userId, timeZone)) >= free) {
+    throw new HttpError(
+      402,
+      `You've used your ${free} free AI scans for today. Barcodes, food search and your goals stay free — or go Premium for unlimited scans.`,
+    );
   }
 }
 
@@ -133,7 +145,7 @@ export const POST = handle(async (request) => {
 
   const user = await db.query.users.findFirst({
     where: eq(users.id, userId),
-    columns: { onboardingCompletedAt: true },
+    columns: { onboardingCompletedAt: true, timezone: true },
   });
   if (!user?.onboardingCompletedAt) throw new HttpError(409, 'Finish onboarding before logging meals.');
 
@@ -146,14 +158,14 @@ export const POST = handle(async (request) => {
         : await logFoodMeal(userId, foodMealSchema.parse(body).food);
       return Response.json({ meal: await toMeal(meal) }, { status: 201 });
     }
-    await checkAiLimit(userId);
+    await checkAiLimit(userId, user.timezone);
     const { text } = describeMealSchema.parse(body);
     const [meal] = await db.insert(meals).values({ userId, status: 'analyzing', source: 'text', note: text }).returning();
     startMealAnalysis(meal.id);
     return Response.json({ meal: await toMeal(meal) }, { status: 201 });
   }
 
-  await checkAiLimit(userId);
+  await checkAiLimit(userId, user.timezone);
   const mode = photoMode(request);
   // Label numbers are printed on the package; a note would only compete with them.
   const note = mode === 'meal' ? photoNote(request) : null;
