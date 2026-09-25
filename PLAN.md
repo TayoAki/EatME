@@ -91,10 +91,11 @@ Welcome ──Get started──▶ Onboarding questions ──▶ Building your 
 - Ask for camera permission (`expo-camera`), then show the camera with a shutter.
 - Gallery button (`expo-image-picker`) to pick a food photo instead.
 - Preview with `Retake` / `Analyze the food`.
-- Analyze: the app resizes the photo (1280 px JPEG) and posts it to `POST /api/meals`
-  (multipart). The server stores it in the bucket, creates the meal row with the
-  `analyzing` status and starts the analysis in the background; the screen shows an
-  optimistic result card and polls `GET /api/meals/:id` every 1.5 s.
+- Analyze: the app resizes the photo (1280 px JPEG) and posts the raw JPEG bytes to
+  `POST /api/meals` (no FormData, which Expo's fetch only partly supports). The server
+  stores it in the bucket, creates the meal row with the `analyzing` status and starts the
+  analysis in the background; the screen shows an optimistic result card and polls
+  `GET /api/meals/:id` every 1.5 s. Home lists the meal as "Analyzing…" straight away.
 - Not food → "That doesn't look like food" + the AI's reason + retake (the photo is
   deleted). Failed AI calls are retried (3 attempts); an analysis interrupted by a
   server restart resumes the next time the app loads meals.
@@ -102,8 +103,9 @@ Welcome ──Get started──▶ Onboarding questions ──▶ Building your 
 
 **Profile**
 - User card, Account section (Personal details — editable, Preferences, Language,
-  Upgrade to Family Plan — UI only), Support (Send feedback via Sentry, Privacy
-  Policy, Terms of Service), Sign out, Delete account (with confirmation).
+  Upgrade to Family Plan — UI only), Support (Send feedback via Sentry — shown only
+  when a Sentry DSN is set, Privacy Policy, Terms of Service), Sign out, Delete account
+  (with confirmation).
 - Delete account removes everything: account, sessions, password, plan, meals, photos.
 - Sentry test bench (development builds only).
 
@@ -224,7 +226,100 @@ The device time zone is stored per user and used for day boundaries and streaks.
 - [x] Rate limits (plan per IP, 50 scans a day, sign-in limiter)
 - [x] Production server (API + legal pages + migrations) and `railway.json`
 
-## V2 backlog
-- Email service (Resend): forgot password, email verification
-- Sign in with Apple + Google (Better Auth social providers; Apple is required once Google is added)
-- Push notifications, weight history, payments
+## Roadmap after V1
+
+> From the September 2026 research: the competitive brief (store rules, safety limits,
+> market), the fiber, water and micronutrients plan, and the model-accuracy review.
+> Scores are out of 10 on the plan's weighted scorecard. Nothing below is built yet.
+
+### 9 · Beta testing (now)
+- [ ] Testers run the beta checklist; confirm meal scanning works on iPhone (Codespace on
+  `claude/gallant-archimedes-o2u9dy`, `npx expo start --go --tunnel --clear`)
+- [ ] Add the research tests to the checklist: weigh a meal, oily food, a drink, a mixed
+  dish, a small vs a large portion
+- [ ] Rotate the OpenRouter key (it was shared in chat), update `OPENROUTER_API_KEY` on
+  Railway, set a spending limit
+- [ ] Sentry: set `sendDefaultPii: false`, then set `EXPO_PUBLIC_SENTRY_DSN` (crash reports
+  and the Send feedback button)
+- [ ] Beta without the Codespace: EAS preview builds (Android install link; iPhone
+  TestFlight needs the Apple Developer account)
+
+### 10 · Before App Store submission (these block review)
+- [ ] AI consent screen before the plan is built and before the first scan, naming
+  OpenRouter and OpenAI (Apple 5.1.2(i))
+- [ ] Safer plan limits: 1,500 kcal floor for men (1,200 for women), at most 1 kg of loss a
+  week, no weight-loss target below a BMI of 18.5
+- [ ] Minimum age: 18 recommended (`MIN_AGE`, age rating, terms)
+- [ ] "Check with a doctor" line on the plan screen, a helpline link in Profile, no accuracy
+  claims (Apple 1.4.1)
+- [ ] Web page for account deletion requests (Google Play)
+- [ ] Legal placeholders filled in (`legal/README.md`) and a Washington health-data policy
+- [ ] Demo account with sample meals; review notes point to the consent screen
+- [ ] App Privacy labels, Play Data safety form, Play Health apps declaration, "not a
+  medical device" in the Play listing
+- [ ] A one-line answer to "how is this different from Cal AI?" (Apple 4.3(b))
+- [ ] Remove `ALLOW_EXPO_GO` from Railway, turn on Postgres backups, block OpenRouter
+  providers that train on data
+- [ ] Production builds with EAS; TestFlight and Play internal testing
+
+### 11 · Accuracy (portion size and hidden fat limit accuracy more than the model does)
+- [ ] Model benchmark: ~100 Nutrition5k dishes (public, weighed) plus weighed beta meals,
+  EatME's own prompt, 5–6 models (current `gpt-5.6-luna`, `gpt-6-luna`, …); compare error,
+  cost and speed, then pick `AI_VISION_MODEL`
+- [ ] Prompt upgrades, measured with the benchmark: portion-focused prompt, step-by-step
+  estimate, meal time as context
+- [ ] Save the AI's confidence on each meal; show "rough estimate" when it is low
+- [ ] Ask one tap-to-answer question when it matters (portion, oil or butter, filling)
+- [ ] Split pipeline in V2: the AI lists foods and grams, the USDA database does the math (§15)
+
+### 12 · v1.1
+- [ ] Fiber and water (7.8), decisions below
+- [ ] Log again, copy yesterday, favourites, portion control ½×–2× (8.4)
+
+**Fiber and water: decisions**
+- Fiber comes with each scan (`fiberG` in the meal prompt and schema, clamped to 0–carbs
+  and at most 60 g) and can be edited on the meal; older meals show "—".
+- Targets from the US/Canada DRIs: fiber 25 g for women and 38 g for men (21 / 30 g from
+  51); water from drinks 2.2 L / 3.0 L (IOM 2004); the midpoint for "other". Both can be
+  changed in Profile → Daily goals.
+- Water log: one tap adds 250 ml (8 fl oz); a sheet with 250 / 500 / 750 ml, a custom
+  amount and undo. Entries are capped at 2,000 ml; a gentle "sip, don't chug" note shows
+  above 1 L within an hour. The goal is a guide and going over it is never celebrated.
+- Data: `meals.fiber_g`, `meals.confidence`, `users.daily_fiber_g`, `users.daily_water_ml`,
+  new `water_logs` table (cascade delete); `GET/POST /api/water`, `DELETE /api/water/:id`;
+  one shared `dayRange()` helper for meals, water and streaks.
+- Home: one new row under the macro cards, Fiber (plum `#B15FB0`) and Water (teal
+  `#14B8A6`), colours checked for colourblind safety. Design references first
+  (`design/prompts/10-fiber-water.md`).
+
+### 13 · v1.2
+- [ ] Describe a meal: a text box (keyboard dictation gives voice), a note on a photo, a
+  nutrition-label photo (7.5)
+- [ ] Protein at every meal (a per-meal hint) and editable macro goals, free, with the same
+  safety floors (7.5)
+- [ ] Weekly insights card on Home: last week's averages against goals, neutral wording (7.0)
+
+### 14 · v1.3 (needs a development build and push notifications)
+- [ ] Push notifications (reminders)
+- [ ] Water widget and Apple Health / Health Connect sync (6.9)
+- [ ] GLP-1 mode: medication and dose day, reminders, side-effect log, protein, fiber and
+  water first; no dosing advice (6.6)
+
+### 15 · V2
+- [ ] Food-database pipeline (USDA FNDDS: 5,432 foods, 65 nutrients each): vitamins and
+  minerals, editable foods and grams, the same food always gives the same numbers (6.7)
+- [ ] Supplements log (6.7)
+- [ ] Barcode scanning (Open Food Facts) and food search
+- [ ] Weight history and a progress chart
+- [ ] Email service (Resend): forgot password, email verification
+- [ ] Sign in with Apple + Google (Better Auth social providers; Apple is required once
+  Google is added)
+- [ ] Payments: Apple and Google billing only, the price shown before the quiz ends, a few
+  free scans a day, easy cancelling, macro goals stay free
+- [ ] Food-quality tag, as an experiment (5.8)
+
+### Not doing for now
+- AI-guessed vitamins and minerals from the photo (5.0): studies show large errors (for
+  example vitamin D underestimated by 100%)
+- AI coach chat (4.4)
+- Depth-sensor portions and training our own model
