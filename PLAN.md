@@ -143,6 +143,14 @@ and the supplements ticked that day against the DRI targets for the user's age a
 database covers, "incl. … from supplements" per row, and a note when the supplements alone
 go above an adult upper limit (e.g. vitamin D over 100 µg, zinc over 40 mg).
 
+**Weight** (V2, Profile → Weight): the current weight (the latest weigh-in), the change since
+the first weigh-in, the goal from onboarding with a progress bar ("5.9 kg to go"; "stay around"
+for maintain), a line chart on a date scale (1M · 3M · 6M · 1Y · All, the goal as a dashed line
+when it is within reach of the scale), `Log weight` (today or yesterday, kg or lb) and the history
+(tap to remove). One weigh-in per day; the profile's weight is always the latest one, and a new
+weight in Personal details is today's weigh-in. The history starts with the onboarding weight.
+A note explains day-to-day swings; no streaks, colours or praise around weight.
+
 **Supplements** (V2, Profile): the user's list (name, dose per nutrient, every day or when
 needed). Add from presets (vitamin D3, magnesium, iron, B12, calcium, vitamin C, zinc, folic
 acid, multivitamin, fish oil, creatine) or your own with the amounts from the label; tap one
@@ -152,8 +160,9 @@ from the next tick. Not medical advice, no dose suggestions.
 **Profile**
 - User card, Account section (Personal details — editable, Daily goals — calories and
   macros (your plan or your own, never under 1,200 kcal for women / 1,500 kcal for men)
-  plus fiber and water (recommended or your own), Reminders (breakfast, lunch, dinner,
-  water every few hours, the GLP-1 dose; local notifications scheduled on the phone),
+  plus fiber and water (recommended or your own), Weight (V2: history and chart), Reminders
+  (breakfast, lunch, dinner, water every few hours, the GLP-1 dose; local notifications
+  scheduled on the phone),
   GLP-1 mode (medicine, weekly or daily, dose day; dose and side-effect history; turn off
   or delete the data), Supplements (V2), Preferences, Language,
   Upgrade to Family Plan — UI only), Support (Send feedback via Sentry — shown only
@@ -186,6 +195,9 @@ a photo's note), `serving_size` (labels), `image_key` (bucket key
 `created_at`, `updated_at`.
 
 **water_logs** — `id`, `user_id` (cascade delete), `amount_ml` (1–2,000), `logged_at`.
+
+**weight_logs** — `user_id` (cascade delete), `date` (local day, unique per user), `weight_kg`
+(30–300, 0.01 kg). `users.weight_kg` always equals the latest weigh-in.
 
 **foods** — USDA FNDDS 2021–2023 (5,432 foods): `id` (FoodData Central id), `code`,
 `description`, `category`, `nutrients` (33 nutrients per 100 g), `portions` (household
@@ -237,6 +249,8 @@ added to an earlier day are stored at local noon of that day.
 | `GET /api/foods?q=` | session | USDA food search (as you type) |
 | `PUT /api/meals/:id/items` | session | Edit a meal's foods and grams; every number is recalculated |
 | `GET /api/nutrients?date=` | session | A day's vitamins and minerals (foods + supplements), coverage, DRI targets, upper-limit warnings |
+| `GET/POST /api/weights` | session | Weigh-ins oldest first + goal / log one (today or an earlier `date`; replaces that day's) |
+| `DELETE /api/weights/:id` | session | Remove a weigh-in; the profile's weight goes back to the latest left |
 | `GET/POST /api/supplements` | session | The user's supplements with "taken" for `?date=` / add one (up to 30) |
 | `PATCH/DELETE /api/supplements/:id` | session | Change name, dose or schedule / remove it (history kept) |
 | `POST/DELETE /api/supplements/:id/taken` | session | Tick as taken for a day (today by default, never the future) / untick |
@@ -444,7 +458,8 @@ added to an earlier day are stored at local noon of that day.
 - [x] Barcode scanning (Open Food Facts, USDA Branded Foods fallback) and food search: the
   camera reads EAN/UPC codes (or type them), products are cached on the server, logging a
   product or a database food is instant and needs no AI (not counted in the daily AI limit).
-- [ ] Weight history and a progress chart
+- [x] Weight history and a progress chart: Profile → Weight, one weigh-in a day, the chart
+  with ranges and the goal, the profile's weight follows the latest weigh-in
 - [ ] Email service (Resend): forgot password, email verification
 - [ ] Sign in with Apple + Google (Better Auth social providers; Apple is required once
   Google is added)

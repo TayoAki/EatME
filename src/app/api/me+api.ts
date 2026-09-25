@@ -6,7 +6,9 @@ import { deleteUserData } from '@/lib/server/account';
 import { requireUserId } from '@/lib/server/auth';
 import { toProfile } from '@/lib/server/dto';
 import { handle, HttpError, readJson } from '@/lib/server/http';
+import { localDate } from '@/lib/server/streak';
 import { isValidTimeZone } from '@/lib/server/time-zone';
+import { ensureStartingWeight, logWeight } from '@/lib/server/weights';
 import { minimumCalories, type MacroTargets } from '@/shared/nutrition';
 import { updateProfileSchema, type UpdateProfileBody } from '@/shared/user';
 
@@ -66,11 +68,16 @@ export const PATCH = handle(async (request) => {
   const { dailyCalories, dailyProteinG, dailyCarbsG, dailyFatG, ...rest } = body;
   const targets = targetChanges(user, { ...rest, dailyCalories, dailyProteinG, dailyCarbsG, dailyFatG });
 
+  // A new weight in Personal details is today's weigh-in (after keeping the starting weight).
+  if (rest.weightKg !== undefined) await ensureStartingWeight(user);
   const [row] = await db
     .update(users)
     .set({ ...rest, ...targets })
     .where(eq(users.id, userId))
     .returning();
+  if (rest.weightKg !== undefined && row.onboardingCompletedAt) {
+    await logWeight(userId, localDate(new Date(), row.timezone), rest.weightKg);
+  }
   return Response.json({ user: toProfile(row) });
 });
 

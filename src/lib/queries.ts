@@ -9,6 +9,7 @@ import type { SupplementBody, SupplementsDay } from '@/shared/supplements';
 import type { SaveOnboardingBody } from '@/shared/onboarding';
 import type { MeResponse, StreakResponse, UpdateProfileBody } from '@/shared/user';
 import type { WaterDay, WaterEntry } from '@/shared/water';
+import type { AddWeightBody, WeightEntry, WeightHistory } from '@/shared/weight';
 
 import { ApiError, useApi } from './api';
 import { useSession } from './auth-client';
@@ -29,6 +30,7 @@ export const queryKeys = {
   supplementsAll: (userId: string | null | undefined) => ['supplements', userId] as const,
   supplements: (userId: string | null | undefined, date: string) => ['supplements', userId, date] as const,
   nutrients: (userId: string | null | undefined, date: string) => ['nutrients', userId, date] as const,
+  weights: (userId: string | null | undefined) => ['weights', userId] as const,
 };
 
 /** Earlier days are sent as `date`; today logs at "now". */
@@ -97,7 +99,11 @@ export function useUpdateProfile() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: (body: UpdateProfileBody) => api<MeResponse>('/api/me', { method: 'PATCH', body }),
-    onSuccess: (data) => queryClient.setQueryData(queryKeys.me(userId), data),
+    onSuccess: (data, body) => {
+      queryClient.setQueryData(queryKeys.me(userId), data);
+      // A new weight is also today's weigh-in.
+      if (body.weightKg !== undefined) void queryClient.invalidateQueries({ queryKey: queryKeys.weights(userId) });
+    },
   });
 }
 
@@ -435,5 +441,40 @@ export function useToggleSupplement(date: string) {
       if (context?.previous) queryClient.setQueryData(key, context.previous);
     },
     onSettled: () => invalidate(),
+  });
+}
+
+export function useWeights() {
+  const { userId } = useSession();
+  const api = useApi();
+  return useQuery({ queryKey: queryKeys.weights(userId), queryFn: () => api<WeightHistory>('/api/weights') });
+}
+
+/** Weigh-ins change the profile's weight too (it is always the latest one). */
+function useInvalidateWeights() {
+  const { userId } = useSession();
+  const queryClient = useQueryClient();
+  return () =>
+    Promise.all([
+      queryClient.invalidateQueries({ queryKey: queryKeys.weights(userId) }),
+      queryClient.invalidateQueries({ queryKey: queryKeys.me(userId) }),
+    ]);
+}
+
+export function useLogWeight() {
+  const api = useApi();
+  const invalidate = useInvalidateWeights();
+  return useMutation({
+    mutationFn: (body: AddWeightBody) => api<{ entry: WeightEntry }>('/api/weights', { method: 'POST', body }),
+    onSuccess: () => void invalidate(),
+  });
+}
+
+export function useDeleteWeight() {
+  const api = useApi();
+  const invalidate = useInvalidateWeights();
+  return useMutation({
+    mutationFn: (id: string) => api(`/api/weights/${id}`, { method: 'DELETE' }),
+    onSuccess: () => void invalidate(),
   });
 }

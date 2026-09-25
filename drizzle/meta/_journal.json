@@ -50,6 +50,13 @@
       "when": 1790317171663,
       "tag": "0006_barcodes",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1790318938094,
+      "tag": "0007_weight",
+      "breakpoints": true
     }
   ]
 }

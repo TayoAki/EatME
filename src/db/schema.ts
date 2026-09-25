@@ -187,6 +187,22 @@ export const meals = pgTable(
   (t) => [index('meals_user_id_logged_at_idx').on(t.userId, t.loggedAt)],
 );
 
+/** Weigh-ins: one per local day (logging again that day replaces it). */
+export const weightLogs = pgTable(
+  'weight_logs',
+  {
+    id: uuid().primaryKey().defaultRandom(),
+    userId: text()
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
+    date: date({ mode: 'string' }).notNull(),
+    weightKg: doublePrecision().notNull(),
+    ...timestamps,
+  },
+  (t) => [uniqueIndex('weight_logs_user_date_idx').on(t.userId, t.date)],
+);
+export type WeightLogRow = typeof weightLogs.$inferSelect;
+
 /** Water and other drinks, one row per entry. */
 export const waterLogs = pgTable(
   'water_logs',

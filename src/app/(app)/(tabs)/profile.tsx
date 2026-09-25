@@ -15,6 +15,7 @@ import {
   Target,
   UserRound,
   Users,
+  Weight,
 } from 'lucide-react-native';
 import { useState } from 'react';
 import { Platform, ScrollView, Text, View } from 'react-native';
@@ -29,6 +30,7 @@ import { useHealthStore } from '@/lib/health-store';
 import { links, openLink } from '@/lib/links';
 import { useDeleteAccount, useProfile } from '@/lib/queries';
 import { sentryEnabled } from '@/lib/sentry';
+import { formatWeight } from '@/shared/units';
 import type { Profile } from '@/shared/user';
 
 const TAB_BAR_SPACE = 110;
@@ -101,6 +103,12 @@ function ProfileContent({ profile }: { profile: Profile }) {
 
       <SettingsGroup title="Account">
         <SettingsRow icon={UserRound} label="Personal details" onPress={() => router.push('/personal-details')} />
+        <SettingsRow
+          icon={Weight}
+          label="Weight"
+          value={profile.weightKg ? formatWeight(profile.weightKg, profile.unitSystem) : undefined}
+          onPress={() => router.push('/weight')}
+        />
         <SettingsRow icon={Target} label="Daily goals" onPress={() => router.push('/daily-goals')} />
         <SettingsRow icon={Bell} label="Reminders" onPress={() => router.push('/reminders')} />
         <SettingsRow
