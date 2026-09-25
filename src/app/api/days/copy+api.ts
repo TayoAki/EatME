@@ -1,4 +1,4 @@
-import { and, asc, eq, gte, lt, sql } from 'drizzle-orm';
+import { and, asc, eq, gte, inArray, lt, sql } from 'drizzle-orm';
 
 import { db } from '@/db';
 import { meals } from '@/db/schema';
@@ -15,12 +15,13 @@ import { copyDaySchema } from '@/shared/meals';
 const MAX_MEALS = 30;
 
 /**
- * "Copy yesterday": logs every analyzed meal of `from` again on `to`, at the same local times.
+ * "Copy yesterday" and "Copy a day": logs the analyzed meals of `from` (all of them, or only
+ * `mealIds`) again on `to`, at the same local times.
  */
 export const POST = handle(async (request) => {
   const userId = await requireUserId(request);
   rateLimit(`copy-day:${userId}`, 20, 60 * 60 * 1000);
-  const { from, to } = copyDaySchema.parse(await readJson(request));
+  const { from, to, mealIds } = copyDaySchema.parse(await readJson(request));
   if (from === to) throw new HttpError(400, 'Pick two different days');
 
   const timeZone = await userTimeZone(userId);
@@ -30,7 +31,15 @@ export const POST = handle(async (request) => {
   const source = await db
     .select()
     .from(meals)
-    .where(and(eq(meals.userId, userId), eq(meals.status, 'completed'), gte(meals.loggedAt, start), lt(meals.loggedAt, end)))
+    .where(
+      and(
+        eq(meals.userId, userId),
+        eq(meals.status, 'completed'),
+        gte(meals.loggedAt, start),
+        lt(meals.loggedAt, end),
+        mealIds ? inArray(meals.id, mealIds) : undefined,
+      ),
+    )
     .orderBy(asc(meals.loggedAt))
     .limit(MAX_MEALS);
   if (source.length === 0) throw new HttpError(404, 'There are no meals on that day to copy');

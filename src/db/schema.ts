@@ -12,6 +12,7 @@ import {
   timestamp,
   uniqueIndex,
   uuid,
+  type AnyPgColumn,
 } from 'drizzle-orm/pg-core';
 import { sql } from 'drizzle-orm';
 
@@ -19,6 +20,7 @@ import { MEAL_CONFIDENCES, MEAL_SOURCES, MEAL_STATUSES, PROCESSING_LEVELS, type 
 import { INJECTION_SITES, type Glp1Settings, type Symptom } from '@/shared/glp1';
 import type { NutrientAmounts } from '@/shared/nutrients';
 import { PRODUCT_SOURCES } from '@/shared/products';
+import { REPEAT_RESPONSES } from '@/shared/saved-meals';
 import { SUPPLEMENT_SCHEDULES } from '@/shared/supplements';
 import type { MacroTargets } from '@/shared/nutrition';
 import type { Preferences } from '@/shared/user';
@@ -39,6 +41,7 @@ export const injectionSiteEnum = pgEnum('injection_site', INJECTION_SITES);
 export const supplementScheduleEnum = pgEnum('supplement_schedule', SUPPLEMENT_SCHEDULES);
 export const productSourceEnum = pgEnum('product_source', PRODUCT_SOURCES);
 export const processingLevelEnum = pgEnum('processing_level', PROCESSING_LEVELS);
+export const repeatResponseEnum = pgEnum('repeat_response', REPEAT_RESPONSES);
 
 const timestamps = {
   createdAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
@@ -184,6 +187,8 @@ export const meals = pgTable(
     addedSugarG: doublePrecision(),
     /** Key of the photo in the storage bucket: meals/<userId>/<mealId>.jpg */
     imageKey: text(),
+    /** The saved meal (status `saved`) this meal was logged from. */
+    savedMealId: uuid().references((): AnyPgColumn => meals.id, { onDelete: 'set null' }),
     /** Start of the running analysis. An old value means the server stopped mid-way: retry. */
     analysisStartedAt: timestamp({ withTimezone: true }),
     analysisAttempts: integer().notNull().default(0),
@@ -193,6 +198,47 @@ export const meals = pgTable(
     ...timestamps,
   },
   (t) => [index('meals_user_id_logged_at_idx').on(t.userId, t.loggedAt)],
+);
+
+/**
+ * Repeat meals (v2.1): a saved meal suggested on chosen weekdays at a usual time. It is only a
+ * suggestion — nothing is logged until the person taps "Log it".
+ */
+export const mealRepeats = pgTable(
+  'meal_repeats',
+  {
+    id: uuid().primaryKey().defaultRandom(),
+    userId: text()
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
+    savedMealId: uuid()
+      .notNull()
+      .references(() => meals.id, { onDelete: 'cascade' }),
+    /** 0 = Sunday … 6 = Saturday. */
+    weekdays: smallint().array().notNull(),
+    /** Usual local time, "HH:MM". */
+    time: text().notNull(),
+    ...timestamps,
+  },
+  (t) => [uniqueIndex('meal_repeats_saved_meal_id_idx').on(t.savedMealId), index('meal_repeats_user_id_idx').on(t.userId)],
+);
+export type MealRepeatRow = typeof mealRepeats.$inferSelect;
+
+/** The answer to a planned meal on one local day: logged (with the copy) or skipped. */
+export const mealRepeatResponses = pgTable(
+  'meal_repeat_responses',
+  {
+    id: uuid().primaryKey().defaultRandom(),
+    repeatId: uuid()
+      .notNull()
+      .references(() => mealRepeats.id, { onDelete: 'cascade' }),
+    date: date({ mode: 'string' }).notNull(),
+    response: repeatResponseEnum().notNull(),
+    /** The meal logged from it (cleared if that meal is deleted, which makes it planned again). */
+    mealId: uuid().references(() => meals.id, { onDelete: 'set null' }),
+    ...timestamps,
+  },
+  (t) => [uniqueIndex('meal_repeat_responses_repeat_id_date_idx').on(t.repeatId, t.date)],
 );
 
 /**

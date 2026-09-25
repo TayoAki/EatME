@@ -8,7 +8,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { QuickAddSheet } from '@/components/meal/quick-add-sheet';
 import { BarcodeEntrySheet } from '@/components/scan/barcode-entry-sheet';
-import { FavoritesSheet } from '@/components/scan/favorites-sheet';
+import { SavedMealsSheet } from '@/components/scan/saved-meals-sheet';
 import { Button } from '@/components/ui/button';
 import { IconButton } from '@/components/ui/icon-button';
 import { SegmentedControl } from '@/components/ui/segmented-control';
@@ -111,13 +111,13 @@ export function CameraCapture({ onPhoto, bottomSpace, mode, onModeChange, onDesc
   const cameraRef = useRef<CameraView>(null);
   const [flash, setFlash] = useState(false);
   const [capturing, setCapturing] = useState(false);
-  const [favoritesOpen, setFavoritesOpen] = useState(false);
+  const [savedOpen, setSavedOpen] = useState(false);
   const [typing, setTyping] = useState(false);
   const [quickOpen, setQuickOpen] = useState(false);
   const scanned = useRef(false);
   const sheets = (
     <>
-      <FavoritesSheet visible={favoritesOpen} onClose={() => setFavoritesOpen(false)} />
+      <SavedMealsSheet visible={savedOpen} onClose={() => setSavedOpen(false)} />
       <QuickAddSheet visible={quickOpen} onClose={() => setQuickOpen(false)} onLogged={() => router.navigate('/')} />
       <BarcodeEntrySheet
         visible={typing}
@@ -179,7 +179,7 @@ export function CameraCapture({ onPhoto, bottomSpace, mode, onModeChange, onDesc
             <Button title="Search foods" variant="ghost" className="flex-1" onPress={onSearch} />
           </View>
           <View className="flex-row">
-            <Button title="Favourites" variant="ghost" className="flex-1" onPress={() => setFavoritesOpen(true)} />
+            <Button title="Saved meals" variant="ghost" className="flex-1" onPress={() => setSavedOpen(true)} />
             <Button title="Quick add" variant="ghost" className="flex-1" onPress={() => setQuickOpen(true)} />
           </View>
         </View>
@@ -216,11 +216,11 @@ export function CameraCapture({ onPhoto, bottomSpace, mode, onModeChange, onDesc
       <View className="flex-row items-center justify-between px-5" style={{ paddingTop: insets.top + 8 }}>
         <View className="flex-row gap-2">
           <IconButton
-            accessibilityLabel="Favourites"
+            accessibilityLabel="Saved meals"
             variant="dark"
             size={44}
             icon={<Star size={20} color={colors.canvas} />}
-            onPress={() => setFavoritesOpen(true)}
+            onPress={() => setSavedOpen(true)}
           />
           <IconButton
             accessibilityLabel="Quick add"

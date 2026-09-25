@@ -66,6 +66,7 @@ export async function toMeal(meal: MealRow): Promise<Meal> {
     processing: meal.processing,
     processingReason: meal.processingReason,
     addedSugarG: meal.addedSugarG === null ? null : Math.round(meal.addedSugarG * meal.portion),
+    savedMealId: meal.savedMealId,
     imageUrl: meal.imageKey ? await signedGetUrl(meal.imageKey) : null,
     error: meal.error,
     loggedAt: meal.loggedAt.toISOString(),

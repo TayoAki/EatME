@@ -53,6 +53,7 @@ export default function AppLayout() {
       <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: colors.canvas } }}>
         <Stack.Screen name="(tabs)" />
         <Stack.Screen name="meal/[id]" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="saved-meal/new" options={{ presentation: 'modal' }} />
         <Stack.Screen name="personal-details" />
         <Stack.Screen name="daily-goals" />
         <Stack.Screen name="reminders" />

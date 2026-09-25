@@ -571,7 +571,7 @@ added to an earlier day are stored at local noon of that day.
   notes, never in the app or Sentry (medicine answers are health data)
 
 **v2.1 (first release after launch)**
-- [ ] Repeat meals (9.1): save foods as a meal, repeat a meal on chosen days (shown as a
+- [x] Repeat meals (9.1): save foods as a meal, repeat a meal on chosen days (shown as a
   suggestion to confirm, never logged silently), copy any past day or meal
 - [ ] Steer the AI (8.0): several photos of one meal, plus the tap-to-answer question from §11
 - [x] Calm mode (7.9): a Preferences switch that hides calorie and macro numbers, neutral

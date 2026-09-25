@@ -35,6 +35,20 @@ export function formatDay(isoDate: string) {
   return fromIsoDate(isoDate).toLocaleDateString([], { weekday: 'long', month: 'short', day: 'numeric' });
 }
 
+/** "Today", "Yesterday" or a short "Tue 23" (day chips). */
+export function formatShortDay(isoDate: string) {
+  if (isoDate === todayIso()) return 'Today';
+  if (isoDate === toIsoDate(addDays(new Date(), -1))) return 'Yesterday';
+  const date = fromIsoDate(isoDate);
+  return `${date.toLocaleDateString([], { weekday: 'short' })} ${date.getDate()}`;
+}
+
+/** The last `count` days, today first, as YYYY-MM-DD. */
+export function recentDays(count: number) {
+  const today = new Date();
+  return Array.from({ length: count }, (_, i) => toIsoDate(addDays(today, -i)));
+}
+
 export function formatLongDate(date: Date) {
   return date.toLocaleDateString([], { month: 'long', day: 'numeric', year: 'numeric' });
 }

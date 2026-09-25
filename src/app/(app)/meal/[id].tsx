@@ -1,6 +1,19 @@
 import { Image } from 'expo-image';
 import { router, useLocalSearchParams } from 'expo-router';
-import { Pencil, PenLine, Repeat, ScanBarcode, Search, SquarePlus, Star, UtensilsCrossed, X } from 'lucide-react-native';
+import {
+  BookmarkPlus,
+  CalendarPlus,
+  ChevronRight,
+  Pencil,
+  PenLine,
+  Repeat,
+  ScanBarcode,
+  Search,
+  SquarePlus,
+  Star,
+  UtensilsCrossed,
+  X,
+} from 'lucide-react-native';
 import { useState } from 'react';
 import {
   ActivityIndicator,
@@ -14,9 +27,11 @@ import {
 } from 'react-native';
 
 import { ErrorScreen } from '@/components/full-screen-state';
+import { CopyToDaySheet } from '@/components/meal/copy-to-day-sheet';
 import { FoodsSection } from '@/components/meal/foods-section';
 import { QualityTag } from '@/components/meal/quality-tag';
 import { ProteinHint } from '@/components/meal/protein-hint';
+import { RepeatSheet } from '@/components/meal/repeat-sheet';
 import { ServingsStepper } from '@/components/meal/servings-stepper';
 import { Button } from '@/components/ui/button';
 import { IconButton } from '@/components/ui/icon-button';
@@ -26,11 +41,50 @@ import { colors } from '@/constants/colors';
 import { confirm, notify } from '@/lib/confirm';
 import { haptics } from '@/lib/haptics';
 import { cn } from '@/lib/cn';
-import { useDeleteMeal, useDuplicateMeal, useMeal, useProfile, useUpdateMeal } from '@/lib/queries';
+import {
+  useCreateSavedMeal,
+  useDeleteMeal,
+  useDuplicateMeal,
+  useMeal,
+  useProfile,
+  useSavedMeals,
+  useUpdateMeal,
+} from '@/lib/queries';
+import { formatTimeOfDay } from '@/lib/reminder-plan';
 import { formatDay, formatTime, toIsoDate } from '@/lib/time';
 import { PORTION_OPTIONS, type Meal } from '@/shared/meals';
+import { repeatDaysLabel, type MealRepeat } from '@/shared/saved-meals';
 
 const PORTION_LABELS: Record<(typeof PORTION_OPTIONS)[number], string> = { 0.5: '½×', 1: '1×', 1.5: '1½×', 2: '2×' };
+
+const repeatSummary = (repeat: MealRepeat | null) =>
+  repeat
+    ? `${repeatDaysLabel(repeat.weekdays)} at ${formatTimeOfDay({ hour: Number(repeat.time.slice(0, 2)), minute: Number(repeat.time.slice(3, 5)) })}`
+    : 'Off';
+
+/** Saved meals only: which days it is planned for (opens the repeat sheet). */
+function RepeatRow({ meal }: { meal: Meal }) {
+  const savedMeals = useSavedMeals();
+  const [open, setOpen] = useState(false);
+  const repeat = savedMeals.data?.meals.find((m) => m.id === meal.id)?.repeat ?? null;
+  return (
+    <>
+      <Pressable
+        accessibilityRole="button"
+        accessibilityLabel={`Repeat: ${repeatSummary(repeat)}. Change`}
+        onPress={() => setOpen(true)}
+        className="mt-5 flex-row items-center gap-3 rounded-card border border-line px-4 py-4 active:bg-surface">
+        <Repeat size={20} color={colors.ink} />
+        <View className="flex-1">
+          <Text className="text-[16px] font-semibold text-ink">Repeat</Text>
+          <Text className="text-[14px] text-muted">{repeatSummary(repeat)}</Text>
+        </View>
+        <ChevronRight size={18} color={colors.faint} />
+      </Pressable>
+      {open ? <RepeatSheet visible savedMealId={meal.id} repeat={repeat} onClose={() => setOpen(false)} /> : null}
+    </>
+  );
+}
 
 /** One-tap portion sizes; the server rescales every number from the original estimate. */
 function PortionPicker({ meal }: { meal: Meal }) {
@@ -110,7 +164,11 @@ function MealEditor({ meal, showNumbers, onShowNumbers }: { meal: Meal; showNumb
   const update = useUpdateMeal(meal.id);
   const remove = useDeleteMeal();
   const duplicate = useDuplicateMeal();
+  const createSaved = useCreateSavedMeal();
   const profile = useProfile();
+  const [copying, setCopying] = useState(false);
+  // A saved meal (repeat meals) is a template: no day, no favourite, "Log it now" instead of "Log again".
+  const saved = meal.status === 'saved';
   const [name, setName] = useState(meal.name ?? '');
   const [calories, setCalories] = useState(String(meal.calories ?? 0));
   const [protein, setProtein] = useState(String(meal.proteinG ?? 0));
@@ -124,9 +182,26 @@ function MealEditor({ meal, showNumbers, onShowNumbers }: { meal: Meal; showNumb
       {
         onSuccess: () => {
           haptics.success();
-          notify('Logged again', `${meal.name ?? 'This meal'} was added to today.`);
+          notify(saved ? 'Logged' : 'Logged again', `${meal.name ?? 'This meal'} was added to today.`);
         },
         onError: (error) => notify("We couldn't log this meal again", error.message),
+      },
+    );
+
+  const saveAsMeal = () =>
+    createSaved.mutate(
+      { mealId: meal.id },
+      {
+        onSuccess: async ({ meal: savedMeal }) => {
+          haptics.success();
+          const repeat = await confirm({
+            title: 'Saved as a meal',
+            message: 'Find it under the star on the Scan tab. Do you want it planned on certain days?',
+            confirmLabel: 'Repeat it',
+          });
+          if (repeat) router.push({ pathname: '/meal/[id]', params: { id: savedMeal.id } });
+        },
+        onError: (error) => notify("We couldn't save this meal", error.message),
       },
     );
 
@@ -151,12 +226,21 @@ function MealEditor({ meal, showNumbers, onShowNumbers }: { meal: Meal; showNumb
     );
 
   const deleteMeal = async () => {
-    const confirmed = await confirm({
-      title: 'Delete this meal?',
-      message: 'It will be removed from your log together with its photo.',
-      confirmLabel: 'Delete',
-      destructive: true,
-    });
+    const confirmed = await confirm(
+      saved
+        ? {
+            title: 'Delete this saved meal?',
+            message: 'It stops repeating. Meals you already logged from it stay in your log.',
+            confirmLabel: 'Delete',
+            destructive: true,
+          }
+        : {
+            title: 'Delete this meal?',
+            message: 'It will be removed from your log together with its photo.',
+            confirmLabel: 'Delete',
+            destructive: true,
+          },
+    );
     if (!confirmed) return;
     remove.mutate(meal.id, {
       onSuccess: () => router.back(),
@@ -226,8 +310,9 @@ function MealEditor({ meal, showNumbers, onShowNumbers }: { meal: Meal; showNumb
           <Pencil size={20} color={colors.ink} />
         </View>
         <Text className="mt-1 text-[15px] text-muted">
-          {formatDay(toIsoDate(new Date(meal.loggedAt)))} · {formatTime(meal.loggedAt)}
+          {saved ? 'Saved meal' : `${formatDay(toIsoDate(new Date(meal.loggedAt)))} · ${formatTime(meal.loggedAt)}`}
         </Text>
+        {saved ? <RepeatRow meal={meal} /> : null}
         {meal.note && !described ? (
           <Text className="mt-2 text-[15px] leading-[21px] text-ink">
             <Text className="font-semibold">Your note: </Text>
@@ -286,21 +371,44 @@ function MealEditor({ meal, showNumbers, onShowNumbers }: { meal: Meal; showNumb
 
         <Button title="Save changes" className="mt-6" loading={update.isPending} onPress={save} />
         <Button
-          title="Log again today"
+          title={saved ? 'Log it now' : 'Log again today'}
           variant="secondary"
           className="mt-2"
           icon={<Repeat size={18} color={colors.ink} />}
           loading={duplicate.isPending}
           onPress={logAgain}
         />
+        {saved ? null : (
+          <View className="mt-2 flex-row gap-2">
+            <Button
+              title="Copy to…"
+              accessibilityLabel="Copy to another day"
+              variant="outline"
+              size="md"
+              className="flex-1 px-3"
+              icon={<CalendarPlus size={17} color={colors.ink} />}
+              onPress={() => setCopying(true)}
+            />
+            <Button
+              title="Save as a meal"
+              variant="outline"
+              size="md"
+              className="flex-1 px-3"
+              icon={<BookmarkPlus size={17} color={colors.ink} />}
+              loading={createSaved.isPending}
+              onPress={saveAsMeal}
+            />
+          </View>
+        )}
         <Button
-          title="Delete meal"
+          title={saved ? 'Delete saved meal' : 'Delete meal'}
           variant="danger"
           className="mt-2"
           loading={remove.isPending}
           onPress={() => void deleteMeal()}
         />
       </ScrollView>
+      {saved ? null : <CopyToDaySheet meal={meal} visible={copying} onClose={() => setCopying(false)} />}
     </KeyboardAvoidingView>
   );
 }
@@ -336,7 +444,7 @@ export default function MealDetailsScreen() {
     <Screen>
       <View className="h-14 flex-row items-center justify-between px-5">
         <IconButton accessibilityLabel="Close" icon={<X size={20} color={colors.ink} />} onPress={() => router.back()} />
-        <Text className="text-[17px] font-semibold text-ink">Meal</Text>
+        <Text className="text-[17px] font-semibold text-ink">{loaded?.status === 'saved' ? 'Saved meal' : 'Meal'}</Text>
         {loaded?.status === 'completed' ? <FavoriteButton meal={loaded} /> : <View className="w-10" />}
       </View>
       {meal.isPending ? (

@@ -12,15 +12,24 @@ import { HttpError } from './http';
 import { baseFromNutrients, saveItems } from './meal-analysis';
 import { lookupProduct } from './products';
 
-/** A meal whose numbers are known right away (no AI call): saved as completed with its foods. */
-async function createMeal(userId: string, source: MealSource, name: string, items: ComputedItem[]): Promise<MealRow> {
+/**
+ * A meal whose numbers are known right away (no AI call): saved as completed with its foods, or
+ * kept as a saved meal (`status: 'saved'`).
+ */
+export async function createMeal(
+  userId: string,
+  source: MealSource,
+  name: string,
+  items: ComputedItem[],
+  status: 'completed' | 'saved' = 'completed',
+): Promise<MealRow> {
   const totals = itemTotals(items);
   const base = baseFromNutrients(totals.nutrients);
   const [meal] = await db
     .insert(meals)
     .values({
       userId,
-      status: 'completed',
+      status,
       source,
       name: name.slice(0, 80),
       confidence: 'high',

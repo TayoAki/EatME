@@ -39,14 +39,15 @@ export const GET = handle<Params>(async (request, { id }) => {
   return Response.json({ meal: await toMealWithItems(meal) });
 });
 
-/** Manual corrections of the AI estimate, favourites and portion size. */
+/** Manual corrections of the AI estimate, favourites and portion size (saved meals too). */
 export const PATCH = handle<Params>(async (request, { id }) => {
   const userId = await requireUserId(request);
   const changes = updateMealSchema.parse(await readJson(request));
   if (Object.keys(changes).length === 0) throw new HttpError(400, 'Nothing to update');
 
   const meal = await findMeal(userId, id);
-  if (meal.status !== 'completed') throw new HttpError(409, 'This meal is still being analyzed');
+  if (meal.status !== 'completed' && meal.status !== 'saved') throw new HttpError(409, 'This meal is still being analyzed');
+  if (changes.isFavorite !== undefined && meal.status === 'saved') throw new HttpError(400, 'Saved meals are already kept.');
 
   const update = mealChanges(meal, changes);
   if (Object.keys(update).length === 0) return Response.json({ meal: await toMealWithItems(meal) });

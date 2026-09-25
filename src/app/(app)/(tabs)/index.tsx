@@ -10,8 +10,10 @@ import { SymptomSheet } from '@/components/glp1/symptom-sheet';
 import { DateStrip } from '@/components/home/date-strip';
 import { FiberWaterRow } from '@/components/home/fiber-water-row';
 import { HomeHeader } from '@/components/home/home-header';
+import { CopyDaySheet } from '@/components/home/copy-day-sheet';
 import { MealCard } from '@/components/home/meal-card';
 import { NutritionSummary, type Totals } from '@/components/home/nutrition-summary';
+import { PlannedCard } from '@/components/home/planned-card';
 import { StreakSheet } from '@/components/home/streak-sheet';
 import { SupplementsCard } from '@/components/home/supplements-card';
 import { WaterSheet } from '@/components/home/water-sheet';
@@ -54,6 +56,7 @@ function Home({ profile }: { profile: Profile }) {
   const [doseOpen, setDoseOpen] = useState(false);
   const [symptomsOpen, setSymptomsOpen] = useState(false);
   const [quickOpen, setQuickOpen] = useState(false);
+  const [copyOpen, setCopyOpen] = useState(false);
 
   const meals = useMeals(selectedDate);
   const streak = useStreak();
@@ -178,6 +181,14 @@ function Home({ profile }: { profile: Profile }) {
             </Text>
             <Pressable
               accessibilityRole="button"
+              accessibilityLabel="Copy meals from another day"
+              hitSlop={6}
+              onPress={() => setCopyOpen(true)}
+              className="h-9 w-9 items-center justify-center rounded-full active:bg-surface">
+              <Copy size={18} color={colors.ink} />
+            </Pressable>
+            <Pressable
+              accessibilityRole="button"
               accessibilityLabel="Quick add"
               hitSlop={10}
               onPress={() => setQuickOpen(true)}
@@ -186,6 +197,8 @@ function Home({ profile }: { profile: Profile }) {
               <Text className="text-[15px] font-semibold text-ink">Quick add</Text>
             </Pressable>
           </View>
+
+          {isToday ? <PlannedCard date={selectedDate} calm={calm} /> : null}
 
           {meals.isPending ? (
             <View className="items-center py-10">
@@ -269,6 +282,7 @@ function Home({ profile }: { profile: Profile }) {
       ) : null}
 
       <QuickAddSheet visible={quickOpen} onClose={() => setQuickOpen(false)} date={selectedDate} />
+      <CopyDaySheet visible={copyOpen} onClose={() => setCopyOpen(false)} to={selectedDate} />
 
       <StreakSheet
         visible={streakOpen}

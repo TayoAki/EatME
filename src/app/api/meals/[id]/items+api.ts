@@ -16,7 +16,7 @@ export const PUT = handle<{ id: string }>(async (request, { id }) => {
   if (!mealId.success) throw new HttpError(404, 'Meal not found');
   const meal = await db.query.meals.findFirst({ where: and(eq(meals.id, mealId.data), eq(meals.userId, userId)) });
   if (!meal) throw new HttpError(404, 'Meal not found');
-  if (meal.status !== 'completed') throw new HttpError(409, 'This meal is still being analyzed');
+  if (meal.status !== 'completed' && meal.status !== 'saved') throw new HttpError(409, 'This meal is still being analyzed');
   const saved = await replaceItems(meal, body);
   return Response.json({ meal: await toMealWithItems(saved) });
 });

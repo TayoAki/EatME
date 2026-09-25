@@ -55,9 +55,15 @@ export function mealChanges(meal: MealRow, changes: UpdateMealBody) {
 /**
  * "Log again": a completed copy of `meal` for the same user, with its own copy of the photo
  * (so deleting either meal never removes the other's picture). No AI call, so it is free and instant.
+ * `status: 'saved'` keeps the copy as a saved meal instead; logging a saved meal records where the
+ * copy came from.
  */
-export async function copyMeal(meal: MealRow, loggedAt: Date | SQL) {
-  if (meal.status !== 'completed') throw new HttpError(409, 'Only analyzed meals can be logged again');
+export async function copyMeal(
+  meal: MealRow,
+  loggedAt: Date | SQL,
+  { status = 'completed', name }: { status?: 'completed' | 'saved'; name?: string } = {},
+) {
+  if (meal.status !== 'completed' && meal.status !== 'saved') throw new HttpError(409, 'Only analyzed meals can be logged again');
   const id = crypto.randomUUID();
   let imageKey: string | null = null;
   if (meal.imageKey) {
@@ -75,8 +81,8 @@ export async function copyMeal(meal: MealRow, loggedAt: Date | SQL) {
     .values({
       id,
       userId: meal.userId,
-      status: 'completed',
-      name: meal.name,
+      status,
+      name: name ?? meal.name,
       calories: meal.calories,
       proteinG: meal.proteinG,
       carbsG: meal.carbsG,
@@ -94,6 +100,7 @@ export async function copyMeal(meal: MealRow, loggedAt: Date | SQL) {
       processingReason: meal.processingReason,
       addedSugarG: meal.addedSugarG,
       imageKey,
+      savedMealId: status === 'saved' ? null : meal.status === 'saved' ? meal.id : meal.savedMealId,
       loggedAt,
     })
     .returning();

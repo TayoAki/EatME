@@ -3,8 +3,11 @@ import { z } from 'zod';
 import type { NutrientAmounts } from './nutrients';
 import type { ProductSource } from './products';
 
-/** `not_food`: the AI decided the photo is not a meal (the photo is deleted, the row is kept). */
-export const MEAL_STATUSES = ['analyzing', 'completed', 'failed', 'not_food'] as const;
+/**
+ * `not_food`: the AI decided the photo is not a meal (the photo is deleted, the row is kept).
+ * `saved`: a saved meal (v2.1), a template that is never part of a day; logging it makes a copy.
+ */
+export const MEAL_STATUSES = ['analyzing', 'completed', 'failed', 'not_food', 'saved'] as const;
 export type MealStatus = (typeof MEAL_STATUSES)[number];
 
 /** How the meal was logged. `quick`: calories and macros typed in (quick add), no AI. */
@@ -58,6 +61,8 @@ export type Meal = {
   addedSugarG: number | null;
   /** The foods of the meal (only on `GET /api/meals/:id`), for the logged portion. */
   items?: MealItem[];
+  /** The saved meal this one was logged from (repeat meals). */
+  savedMealId: string | null;
   /** Short-lived signed link to the photo in the storage bucket. */
   imageUrl: string | null;
   /** Why the analysis failed, or why the photo is not food. */
@@ -230,10 +235,11 @@ export const quickMealSchema = z.object({
 });
 export type QuickMeal = z.infer<typeof quickMealSchema>['quick'];
 
-/** Body of `POST /api/days/copy`: copies every meal of one day to another. */
+/** Body of `POST /api/days/copy`: copies the meals of one day (all, or only `mealIds`) to another. */
 export const copyDaySchema = z.object({
   from: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
   to: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  mealIds: z.array(z.string().uuid()).min(1).max(30).optional(),
 });
 
 /** Unrounded nutrition for a portion of 1, kept so that changing the portion never drifts. */

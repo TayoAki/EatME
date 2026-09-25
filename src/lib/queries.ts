@@ -7,6 +7,7 @@ import type { Features } from '@/shared/features';
 import type { FoodSummary, Meal, QuickMeal, UpdateMealBody, UpdateMealItemsBody } from '@/shared/meals';
 import type { NutrientDay } from '@/shared/nutrients';
 import type { Product } from '@/shared/products';
+import type { CreateSavedMealBody, MealRepeat, PlannedMeal, SavedMeal } from '@/shared/saved-meals';
 import type { SupplementBody, SupplementsDay } from '@/shared/supplements';
 import type { SaveOnboardingBody } from '@/shared/onboarding';
 import type { MeResponse, StreakResponse, UpdateProfileBody } from '@/shared/user';
@@ -34,6 +35,9 @@ export const queryKeys = {
   nutrients: (userId: string | null | undefined, date: string) => ['nutrients', userId, date] as const,
   weights: (userId: string | null | undefined) => ['weights', userId] as const,
   billing: (userId: string | null | undefined) => ['billing', userId] as const,
+  savedMeals: (userId: string | null | undefined) => ['saved-meals', userId] as const,
+  plannedAll: (userId: string | null | undefined) => ['planned', userId] as const,
+  planned: (userId: string | null | undefined, date: string) => ['planned', userId, date] as const,
 };
 
 /** Earlier days are sent as `date`; today logs at "now". */
@@ -56,12 +60,13 @@ export function useProfile() {
   return data?.user ?? null;
 }
 
-export function useMeals(date: string) {
+export function useMeals(date: string, enabled = true) {
   const { userId } = useSession();
   const api = useApi();
   return useQuery({
     queryKey: queryKeys.meals(userId, date),
     queryFn: () => api<{ meals: Meal[] }>(`/api/meals?date=${date}`),
+    enabled,
     // Keep refreshing while a meal is still being analyzed in the background.
     refetchInterval: (query) =>
       query.state.data?.meals?.some((meal) => meal.status === 'analyzing') ? 3000 : false,
@@ -117,7 +122,7 @@ export function useDeleteAccount() {
   });
 }
 
-/** Refresh everything that depends on the meal list (home list, streak, favourites). */
+/** Refresh everything that depends on the meal list (home list, streak, favourites, saved and planned meals). */
 export function useInvalidateMeals() {
   const { userId } = useSession();
   const queryClient = useQueryClient();
@@ -128,6 +133,8 @@ export function useInvalidateMeals() {
       queryClient.invalidateQueries({ queryKey: queryKeys.favorites(userId) }),
       queryClient.invalidateQueries({ queryKey: queryKeys.insights(userId) }),
       queryClient.invalidateQueries({ queryKey: queryKeys.nutrientsAll(userId) }),
+      queryClient.invalidateQueries({ queryKey: queryKeys.savedMeals(userId) }),
+      queryClient.invalidateQueries({ queryKey: queryKeys.plannedAll(userId) }),
     ]);
 }
 
@@ -185,14 +192,77 @@ export function useQuickAdd() {
   });
 }
 
-/** "Copy yesterday": every meal of `from` logged again on `to`. */
+/** "Copy yesterday" / "Copy a day": the meals of `from` (all, or only `mealIds`) logged again on `to`. */
 export function useCopyDay() {
   const api = useApi();
   const invalidateMeals = useInvalidateMeals();
   return useMutation({
-    mutationFn: (body: { from: string; to: string }) =>
+    mutationFn: (body: { from: string; to: string; mealIds?: string[] }) =>
       api<{ meals: Meal[] }>('/api/days/copy', { method: 'POST', body }),
     onSuccess: () => invalidateMeals(),
+  });
+}
+
+/** Saved meals (Scan → star), the most recently used first. */
+export function useSavedMeals() {
+  const { userId } = useSession();
+  const api = useApi();
+  return useQuery({
+    queryKey: queryKeys.savedMeals(userId),
+    queryFn: () => api<{ meals: SavedMeal[] }>('/api/saved-meals'),
+  });
+}
+
+/** "Save as a meal" (a copy of a logged meal) or a new meal from database foods. */
+export function useCreateSavedMeal() {
+  const api = useApi();
+  const invalidateMeals = useInvalidateMeals();
+  return useMutation({
+    mutationFn: (body: CreateSavedMealBody) => api<{ meal: Meal }>('/api/saved-meals', { method: 'POST', body }),
+    onSuccess: () => invalidateMeals(),
+  });
+}
+
+/** Repeat a saved meal on chosen weekdays (`null` stops repeating it). */
+export function useSetRepeat(savedMealId: string) {
+  const { userId } = useSession();
+  const api = useApi();
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async (repeat: MealRepeat | null) => {
+      if (repeat) await api(`/api/saved-meals/${savedMealId}/repeat`, { method: 'PUT', body: repeat });
+      else await api(`/api/saved-meals/${savedMealId}/repeat`, { method: 'DELETE' });
+    },
+    onSuccess: () =>
+      Promise.all([
+        queryClient.invalidateQueries({ queryKey: queryKeys.savedMeals(userId) }),
+        queryClient.invalidateQueries({ queryKey: queryKeys.plannedAll(userId) }),
+      ]),
+  });
+}
+
+/** Saved meals planned for a day (Home shows today's). */
+export function usePlannedMeals(date: string, enabled = true) {
+  const { userId } = useSession();
+  const api = useApi();
+  return useQuery({
+    queryKey: queryKeys.planned(userId, date),
+    queryFn: () => api<{ planned: PlannedMeal[] }>(`/api/repeats?date=${date}`),
+    enabled,
+  });
+}
+
+/** "Log it" or "Not today" on a planned meal. */
+export function useAnswerPlanned(date: string) {
+  const { userId } = useSession();
+  const api = useApi();
+  const queryClient = useQueryClient();
+  const invalidateMeals = useInvalidateMeals();
+  return useMutation({
+    mutationFn: ({ repeatId, answer }: { repeatId: string; answer: 'log' | 'skip' }) =>
+      api<{ meal?: Meal }>(`/api/repeats/${repeatId}/${answer}`, { method: 'POST', body: { date } }),
+    onSuccess: (_, { answer }) =>
+      answer === 'log' ? invalidateMeals() : queryClient.invalidateQueries({ queryKey: queryKeys.plannedAll(userId) }),
   });
 }
 
