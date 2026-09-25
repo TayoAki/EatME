@@ -75,7 +75,11 @@ The app then uses the live Railway server (sign-in, AI, photos) and needs nothin
 `--tunnel` lets a phone reach a dev server that is not on the same Wi-Fi (e.g. GitHub Codespaces).
 Signing in from Expo Go needs `ALLOW_EXPO_GO=true` on the Railway server (already set).
 
-For the full app (its own icon, Sentry crash reports) use a **development build**:
+Everything works in Expo Go except the parts that need native code EatME brings along: **Apple
+Health / Health Connect sync** and the **iOS water widget** (Profile → Health apps explains this in
+the app). Reminders do work in Expo Go.
+
+For the full app (its own icon, Sentry crash reports, Health sync, the widget) use a **development build**:
 
 ```bash
 npx expo run:ios          # or: npx expo run:android  (or: eas build --profile development)
@@ -97,7 +101,9 @@ scanning? `npm run db:seed -- --email you@example.com` adds two weeks of sample 
 
 Before submitting to the App Store: **Delete account** is in Profile, the Privacy Policy / Terms links
 work, the placeholders in `legal/` are filled in, App Review gets a test email + password, and the
-Railway variable `ALLOW_EXPO_GO` (lets Expo Go sign in while testing) is removed.
+Railway variable `ALLOW_EXPO_GO` (lets Expo Go sign in while testing) is removed. The App ID needs the
+HealthKit, App Groups (widget) and Push Notifications capabilities (EAS sets them from the entitlements);
+Google Play needs the Health Connect declaration for writing nutrition and hydration.
 
 ## Scripts
 

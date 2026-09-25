@@ -62,6 +62,7 @@ export async function toMeal(meal: MealRow): Promise<Meal> {
     error: meal.error,
     loggedAt: meal.loggedAt.toISOString(),
     createdAt: meal.createdAt.toISOString(),
+    updatedAt: meal.updatedAt.toISOString(),
   };
 }
 

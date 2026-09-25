@@ -41,6 +41,8 @@ export type Meal = {
   error: string | null;
   loggedAt: string;
   createdAt: string;
+  /** Changes whenever the meal changes (Apple Health and Health Connect use it as a version). */
+  updatedAt: string;
 };
 
 /** Structured output the vision model must return for a meal photo. */

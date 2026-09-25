@@ -2,8 +2,11 @@ import { Stack } from 'expo-router';
 import { useEffect, useRef } from 'react';
 
 import { colors } from '@/constants/colors';
+import { HealthSync } from '@/lib/health';
+import { useHealthStore } from '@/lib/health-store';
 import { useMe, useUpdateProfile } from '@/lib/queries';
 import { useNotificationRouting, useReminderSync } from '@/lib/reminders';
+import { WaterWidgetSync, waterWidgetSupported } from '@/lib/water-widget';
 import { deviceTimeZone } from '@/lib/time';
 
 export const unstable_settings = {
@@ -29,15 +32,21 @@ export default function AppLayout() {
   useSyncTimeZone();
   useReminderSync();
   useNotificationRouting();
+  const healthSync = useHealthStore((state) => state.enabled);
   return (
-    <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: colors.canvas } }}>
-      <Stack.Screen name="(tabs)" />
-      <Stack.Screen name="meal/[id]" options={{ presentation: 'modal' }} />
-      <Stack.Screen name="personal-details" />
-      <Stack.Screen name="daily-goals" />
-      <Stack.Screen name="reminders" />
-      <Stack.Screen name="glp1" />
-      <Stack.Screen name="sentry-test" />
-    </Stack>
+    <>
+      {healthSync ? <HealthSync /> : null}
+      {waterWidgetSupported ? <WaterWidgetSync /> : null}
+      <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: colors.canvas } }}>
+        <Stack.Screen name="(tabs)" />
+        <Stack.Screen name="meal/[id]" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="personal-details" />
+        <Stack.Screen name="daily-goals" />
+        <Stack.Screen name="reminders" />
+        <Stack.Screen name="glp1" />
+        <Stack.Screen name="health" />
+        <Stack.Screen name="sentry-test" />
+      </Stack>
+    </>
   );
 }

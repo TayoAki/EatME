@@ -6,6 +6,7 @@ import {
   Bug,
   FileText,
   Globe,
+  HeartPulse,
   MessageSquareText,
   ShieldCheck,
   SlidersHorizontal,
@@ -15,13 +16,15 @@ import {
   Users,
 } from 'lucide-react-native';
 import { useState } from 'react';
-import { ScrollView, Text, View } from 'react-native';
+import { Platform, ScrollView, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { SettingsGroup, SettingsRow } from '@/components/profile/settings';
 import { Button } from '@/components/ui/button';
 import { authClient } from '@/lib/auth-client';
 import { confirm, notify } from '@/lib/confirm';
+import { healthName } from '@/lib/health';
+import { useHealthStore } from '@/lib/health-store';
 import { links, openLink } from '@/lib/links';
 import { useDeleteAccount, useProfile } from '@/lib/queries';
 import { sentryEnabled } from '@/lib/sentry';
@@ -39,6 +42,7 @@ export default function ProfileScreen() {
 function ProfileContent({ profile }: { profile: Profile }) {
   const insets = useSafeAreaInsets();
   const deleteAccount = useDeleteAccount();
+  const healthSync = useHealthStore((s) => s.enabled);
   const [signingOut, setSigningOut] = useState(false);
 
   const name = profile.name.trim() || 'EatME member';
@@ -103,6 +107,12 @@ function ProfileContent({ profile }: { profile: Profile }) {
           label="GLP-1 mode"
           value={profile.glp1 ? 'On' : 'Off'}
           onPress={() => router.push('/glp1')}
+        />
+        <SettingsRow
+          icon={HeartPulse}
+          label={Platform.OS === 'web' ? 'Health apps' : healthName}
+          value={healthSync ? 'On' : 'Off'}
+          onPress={() => router.push('/health')}
         />
         <SettingsRow icon={SlidersHorizontal} label="Preferences" onPress={() => comingSoon('Preferences')} />
         <SettingsRow icon={Globe} label="Language" value="English" onPress={() => comingSoon('Language')} />

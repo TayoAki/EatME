@@ -17,6 +17,7 @@ import { useSession } from '@/lib/auth-client';
 import { useOnboardingHydrated, usePendingOnboarding } from '@/lib/onboarding-store';
 import { useMe } from '@/lib/queries';
 import { queryClient } from '@/lib/query-client';
+import { useHealthStore } from '@/lib/health-store';
 import { clearReminders } from '@/lib/reminders';
 
 void SplashScreen.preventAutoHideAsync();
@@ -85,8 +86,9 @@ function RootNavigator() {
   useEffect(() => {
     if (!isLoaded || isSignedIn) return;
     client.clear();
-    // Reminders belong to the account that set them up.
+    // Reminders and Health sync belong to the account that set them up.
     void clearReminders().catch(() => undefined);
+    useHealthStore.getState().reset();
   }, [client, isLoaded, isSignedIn]);
 
   if (!ready) return slowStart ? <LoadingScreen label="Connecting…" /> : null;

@@ -369,7 +369,12 @@ added to an earlier day are stored at local noon of that day.
 ### 14 · v1.3 (needs a development build and push notifications)
 - [x] Reminders: local notifications scheduled on the phone (meals, water, GLP-1 dose);
   they also work in Expo Go. Server push is not needed for these.
-- [ ] Water widget and Apple Health / Health Connect sync (6.9)
+- [x] Water widget and Apple Health / Health Connect sync (6.9): Profile → Apple Health /
+  Health Connect writes each meal's calories, protein, carbs, fat and fiber and each drink
+  (today and yesterday, edits and deletions included; never reads). iOS widget (small +
+  Lock Screen): today's water and a one-tap glass, saved when the app opens. Both need a
+  development or store build (`expo-widgets`, `@kingstinct/react-native-healthkit`,
+  `react-native-health-connect`); Expo Go shows why they're unavailable.
 - [x] GLP-1 mode: medication and dose day, reminders, side-effect log, protein, fiber and
   water first; no dosing advice (6.6)
 
