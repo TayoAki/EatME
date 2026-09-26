@@ -6,7 +6,10 @@
   "build": {
     "development": {
       "developmentClient": true,
-      "distribution": "internal"
+      "distribution": "internal",
+      "env": {
+        "SENTRY_DISABLE_AUTO_UPLOAD": "true"
+      }
     },
     "development-simulator": {
       "extends": "development",
@@ -18,14 +21,16 @@
       "distribution": "internal",
       "env": {
         "EXPO_PUBLIC_API_URL": "https://api-production-174d.up.railway.app",
-        "EXPO_PUBLIC_LEGAL_URL": "https://api-production-174d.up.railway.app"
+        "EXPO_PUBLIC_LEGAL_URL": "https://api-production-174d.up.railway.app",
+        "SENTRY_DISABLE_AUTO_UPLOAD": "true"
       }
     },
     "production": {
       "autoIncrement": true,
       "env": {
         "EXPO_PUBLIC_API_URL": "https://api-production-174d.up.railway.app",
-        "EXPO_PUBLIC_LEGAL_URL": "https://api-production-174d.up.railway.app"
+        "EXPO_PUBLIC_LEGAL_URL": "https://api-production-174d.up.railway.app",
+        "SENTRY_DISABLE_AUTO_UPLOAD": "true"
       }
     }
   },
