@@ -2,7 +2,7 @@ import * as Sentry from '@sentry/react-native';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { Image } from 'expo-image';
 import { router } from 'expo-router';
-import { CircleHelp, Crown, Flame, ImageOff, PenLine, ScanBarcode, Search, TriangleAlert } from 'lucide-react-native';
+import { CircleHelp, Crown, Flame, ImageOff, PenLine, ScanBarcode, Search, Store, TriangleAlert } from 'lucide-react-native';
 import { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, ScrollView, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -12,6 +12,7 @@ import { ProteinHint } from '@/components/meal/protein-hint';
 import { SugarHint } from '@/components/meal/sugar-hint';
 import { FollowUpCard } from '@/components/meal/follow-up-card';
 import { QualityTag } from '@/components/meal/quality-tag';
+import { FatSecretCredit } from '@/components/restaurants/fatsecret-credit';
 import { ServingsStepper } from '@/components/meal/servings-stepper';
 import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/ui/logo';
@@ -20,11 +21,12 @@ import { colors } from '@/constants/colors';
 import { ApiError, useApi } from '@/lib/api';
 import { useSession } from '@/lib/auth-client';
 import { haptics } from '@/lib/haptics';
-import { describeMeal, logFood, logProduct, uploadMeal } from '@/lib/meal-upload';
+import { describeMeal, logFood, logProduct, logRestaurantPlate, uploadMeal } from '@/lib/meal-upload';
 import { queryKeys, useInvalidateMeals, useProfile } from '@/lib/queries';
 import { MEAL_ANALYSIS_STAGES, type FoodSummary, type Meal, type PhotoMode } from '@/shared/meals';
 import { sugarNote } from '@/shared/nutrition';
 import { distinctBrand, type Product } from '@/shared/products';
+import { countLabel, plateName, type PlateLine } from '@/shared/restaurants';
 
 import type { Photo } from './camera-capture';
 
@@ -39,7 +41,9 @@ export type MealInput =
   | { kind: 'photo'; photos: Photo[]; mode: PhotoMode; note?: string }
   | { kind: 'text'; text: string }
   | { kind: 'barcode'; product: Product; grams: number }
-  | { kind: 'food'; food: FoodSummary; grams: number };
+  | { kind: 'food'; food: FoodSummary; grams: number }
+  /** A plate from restaurant menus; `chain` when it was built on that chain's menu. */
+  | { kind: 'restaurant'; lines: PlateLine[]; chain?: string };
 
 const COPY = {
   photo: {
@@ -72,14 +76,22 @@ const COPY = {
     failed: "We couldn't log this food",
     retry: 'Please try again.',
   },
+  restaurant: {
+    first: 'Saving…',
+    notFood: '',
+    failed: "We couldn't log this meal",
+    retry: 'Please try again.',
+  },
 } as const;
 
 /** Name and amount of a product or database food, where a photo would be. */
-function LoggedFood({ icon, name, detail }: { icon: 'barcode' | 'food'; name: string; detail: string }) {
+function LoggedFood({ icon, name, detail }: { icon: 'barcode' | 'food' | 'restaurant'; name: string; detail: string }) {
   return (
     <View className="flex-row gap-3 rounded-card bg-surface p-4">
       {icon === 'barcode' ? (
         <ScanBarcode size={18} color={colors.muted} style={{ marginTop: 2 }} />
+      ) : icon === 'restaurant' ? (
+        <Store size={18} color={colors.muted} style={{ marginTop: 2 }} />
       ) : (
         <Search size={18} color={colors.muted} style={{ marginTop: 2 }} />
       )}
@@ -142,6 +154,8 @@ export function AnalysisView({ input, onScanAnother, onEdit, onDone, onNeedsCons
           return logProduct(api, input.product.code, input.grams);
         case 'food':
           return logFood(api, input.food.id, input.grams);
+        case 'restaurant':
+          return logRestaurantPlate(api, input.lines);
         default:
           return uploadMeal(api, input.photos, { mode: input.mode, note: input.note });
       }
@@ -265,6 +279,14 @@ export function AnalysisView({ input, onScanAnother, onEdit, onDone, onNeedsCons
           />
         ) : input.kind === 'food' ? (
           <LoggedFood icon="food" name={input.food.description} detail={`${input.grams} g · USDA food database`} />
+        ) : input.kind === 'restaurant' ? (
+          <LoggedFood
+            icon="restaurant"
+            name={plateName(input.lines)}
+            detail={input.lines
+              .map((line) => (line.count === 1 ? line.serving.description : `${countLabel(line.count)} × ${line.serving.description}`))
+              .join(' · ')}
+          />
         ) : (
           <View className="flex-row gap-3 rounded-card bg-surface p-4">
             <PenLine size={18} color={colors.muted} style={{ marginTop: 2 }} />
@@ -368,6 +390,7 @@ export function AnalysisView({ input, onScanAnother, onEdit, onDone, onNeedsCons
             </>
           )}
         </View>
+        {input.kind === 'restaurant' && meal ? <FatSecretCredit className="mt-3" /> : null}
         {meal?.followUp && meal.followUp.answer === null ? (
           <View className="mt-4">
             <FollowUpCard meal={meal} hideNumbers={hideNumbers} />

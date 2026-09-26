@@ -49,6 +49,9 @@ Photo ──▶ POST /api/meals ──▶ bucket + meal row ("analyzing") ──
   matches; grams and foods can be edited, and corrections can be **remembered** ("Your foods") so the
   next scan uses your version first. Behind a flag, the AI can ask one tap-to-answer question (cooking
   fat, portion, filling).
+- **Eating out** (behind `RESTAURANTS`, FatSecret Platform API): search US restaurant chains and menu
+  items, build a plate from a chain's menu, see it against what's left today, then log it or save it
+  for later. The server fetches the numbers; FatSecret's credit shows wherever their data does.
 - **Daily picture:** calories and macros against a plan built at onboarding (your own goals allowed,
   with safety floors), fiber and water, a protein hint per meal, weekly insights, **vitamins &
   minerals** against the DRIs, a **supplements** log with upper-limit notes, **weight** with a trend

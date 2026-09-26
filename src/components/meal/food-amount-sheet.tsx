@@ -18,6 +18,8 @@ export type FoodDraft = {
   product?: MealItem['product'];
   /** Taken from the person's remembered foods ("Your usual"). */
   personalFoodId?: string | null;
+  /** From a restaurant menu: the chain, serving and how many, as logged. */
+  restaurant?: MealItem['restaurant'];
   grams: number;
   /** Calories per gram, for the live preview. */
   kcalPerGram: number;
@@ -63,7 +65,9 @@ export function FoodAmountSheet({
       <Text className="mt-0.5 text-[14px] leading-5 text-muted">
         {draft.personalFoodId ? 'Your usual · ' : ''}
         {draft.foodName ??
-          (draft.product
+          (draft.restaurant
+            ? `From the ${draft.restaurant.chain} menu · ${draft.restaurant.serving}`
+            : draft.product
             ? ['Package label', distinctBrand({ name: draft.name, brand: draft.product.brand }), PRODUCT_SOURCE_LABELS[draft.product.source ?? 'off']]
                 .filter(Boolean)
                 .join(' · ')

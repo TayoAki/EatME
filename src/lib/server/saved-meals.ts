@@ -36,8 +36,8 @@ export async function findSavedMeal(userId: string, id: string) {
   return meal;
 }
 
-/** A logged meal kept as a saved meal (a copy, so later edits never touch the day it was logged), or a new one from database foods. */
-export async function createSavedMeal(userId: string, body: CreateSavedMealBody): Promise<MealRow> {
+/** Refuses a new saved meal once the person has the most they can keep. */
+export async function assertRoomForSavedMeal(userId: string) {
   const [{ saved }] = await db
     .select({ saved: count() })
     .from(meals)
@@ -45,6 +45,11 @@ export async function createSavedMeal(userId: string, body: CreateSavedMealBody)
   if (saved >= MAX_SAVED_MEALS) {
     throw new HttpError(409, `You can keep up to ${MAX_SAVED_MEALS} saved meals. Delete one to save another.`);
   }
+}
+
+/** A logged meal kept as a saved meal (a copy, so later edits never touch the day it was logged), or a new one from database foods. */
+export async function createSavedMeal(userId: string, body: CreateSavedMealBody): Promise<MealRow> {
+  await assertRoomForSavedMeal(userId);
 
   if ('mealId' in body) {
     const meal = await db.query.meals.findFirst({ where: and(eq(meals.id, body.mealId), eq(meals.userId, userId)) });

@@ -57,21 +57,36 @@ export async function replaceItems(meal: MealRow, body: UpdateMealItemsBody) {
     const old = input.id ? existing.get(input.id) : undefined;
     const kept = { id: old?.id, aiName: old?.aiName ?? null };
     if (input.foodId) {
+      if (input.grams < 1) throw new HttpError(400, 'Enter how many grams.');
       const food = foodMap.get(input.foodId);
       if (!food) throw new HttpError(400, 'That food is not in the database.');
       // Still the remembered food ("Your usual") unless the food itself was changed.
       const personalFoodId = old && old.foodId === food.id ? old.personalFoodId : null;
       return { ...kept, name: input.name, foodId: food.id, grams: input.grams, nutrients: foodNutrients(food, input.grams), personalFoodId };
     }
+    // A menu item without a weight can only be kept as it is (its count follows the meal's portion).
+    if (old?.restaurant && old.grams <= 0) {
+      return {
+        ...kept,
+        name: input.name,
+        foodId: null,
+        grams: 0,
+        nutrients: scaleNutrients(old.nutrients, meal.portion),
+        restaurant: { ...old.restaurant, count: old.restaurant.count * meal.portion },
+      };
+    }
     if (!old || old.grams <= 0) throw new HttpError(400, 'Pick new foods from the database.');
+    if (input.grams < 1) throw new HttpError(400, 'Enter how many grams.');
+    const factor = input.grams / old.grams;
     return {
       ...kept,
       name: input.name,
       foodId: null,
       productCode: old.productCode,
       grams: input.grams,
-      nutrients: scaleNutrients(old.nutrients, input.grams / old.grams),
+      nutrients: scaleNutrients(old.nutrients, factor),
       personalFoodId: old.personalFoodId,
+      restaurant: old.restaurant && { ...old.restaurant, count: Math.round(old.restaurant.count * factor * 100) / 100 },
     };
   });
 
@@ -149,7 +164,7 @@ export async function copyItems(fromMealId: string, toMealId: string, executor: 
   await executor
     .insert(mealItems)
     .values(
-      rows.map(({ position, name, foodId, productCode, grams, nutrients, aiName, personalFoodId }) => ({
+      rows.map(({ position, name, foodId, productCode, grams, nutrients, aiName, personalFoodId, restaurant }) => ({
         mealId: toMealId,
         position,
         name,
@@ -159,6 +174,7 @@ export async function copyItems(fromMealId: string, toMealId: string, executor: 
         nutrients,
         aiName,
         personalFoodId,
+        restaurant,
       })),
     );
 }
@@ -192,6 +208,7 @@ export async function answerFollowUp(meal: MealRow, option: number | 'skip') {
       nutrients: scaleNutrients(row.nutrients, claimed.portion),
       aiName: row.aiName,
       personalFoodId: row.personalFoodId,
+      restaurant: row.restaurant && { ...row.restaurant, count: row.restaurant.count * claimed.portion },
     }));
     const change = state.options[answer].change;
     const { meal: saved } = await saveComputedItems(claimed, applyChange(items, change), { executor: tx });

@@ -11,7 +11,7 @@ export const MEAL_STATUSES = ['analyzing', 'completed', 'failed', 'not_food', 's
 export type MealStatus = (typeof MEAL_STATUSES)[number];
 
 /** How the meal was logged. `quick`: calories and macros typed in (quick add), no AI. */
-export const MEAL_SOURCES = ['photo', 'text', 'label', 'copy', 'barcode', 'food', 'quick'] as const;
+export const MEAL_SOURCES = ['photo', 'text', 'label', 'copy', 'barcode', 'food', 'quick', 'restaurant'] as const;
 export type MealSource = (typeof MEAL_SOURCES)[number];
 
 /** How sure the AI was: "low" shows a "rough estimate" note. */
@@ -133,6 +133,8 @@ export type MealItem = {
   product: { code: string; brand: string | null; source: ProductSource | null } | null;
   /** Taken from the person's remembered foods ("Your usual"). */
   personalFoodId: string | null;
+  /** From a restaurant menu (FatSecret): the chain, the serving and how many, as logged. */
+  restaurant: { chain: string; serving: string; count: number } | null;
 };
 
 /** A food from the USDA database, as search returns it. Nutrients per 100 g. */
@@ -149,13 +151,16 @@ export type FoodSummary = {
 export const updateMealItemsSchema = z.object({
   items: z
     .array(
-      z.object({
-        /** An existing item (its AI estimate can be rescaled) — or a new food from the database. */
-        id: z.string().uuid().optional(),
-        foodId: z.number().int().positive().nullable(),
-        name: z.string().trim().min(1).max(80),
-        grams: z.number().min(1).max(3000),
-      }),
+      z
+        .object({
+          /** An existing item (its AI estimate can be rescaled) — or a new food from the database. */
+          id: z.string().uuid().optional(),
+          foodId: z.number().int().positive().nullable(),
+          name: z.string().trim().min(1).max(80),
+          /** As logged; 0 only for a kept restaurant menu item that has no weight. */
+          grams: z.number().min(0).max(3000),
+        })
+        .refine((item) => item.grams >= 1 || (!!item.id && item.grams === 0), { message: 'Enter how many grams.', path: ['grams'] }),
     )
     .min(1)
     .max(30)

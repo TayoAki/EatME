@@ -6,7 +6,8 @@ import { AiConsentView } from '@/components/ai-consent-view';
 import { AnalysisView, type MealInput } from '@/components/scan/analysis-view';
 import { CameraCapture, type Photo, type ScanMode } from '@/components/scan/camera-capture';
 import { DescribeMeal } from '@/components/scan/describe-meal';
-import { FoodSearchView } from '@/components/scan/food-search-view';
+import { RestaurantMenuView } from '@/components/restaurants/restaurant-menu-view';
+import { FoodSearchView, type SearchTab } from '@/components/scan/food-search-view';
 import { PhotoPreview } from '@/components/scan/photo-preview';
 import { ProductView } from '@/components/scan/product-view';
 import { notify } from '@/lib/confirm';
@@ -22,7 +23,8 @@ type Step =
   | { name: 'preview'; photos: Photo[]; mode: PhotoMode; note: string }
   | { name: 'describe'; text?: string }
   | { name: 'product'; code: string }
-  | { name: 'search' }
+  | { name: 'search'; tab?: SearchTab }
+  | { name: 'restaurant'; chain: string }
   | { name: 'analyzing'; input: MealInput; key: number };
 
 export default function ScanScreen() {
@@ -144,7 +146,26 @@ export default function ScanScreen() {
 
   if (step.name === 'search') {
     return (
-      <FoodSearchView bottomSpace={bottomSpace} onBack={capture} onLog={(food, grams) => analyze({ kind: 'food', food, grams })} />
+      <FoodSearchView
+        bottomSpace={bottomSpace}
+        initialTab={step.tab}
+        onBack={capture}
+        onLog={(food, grams) => analyze({ kind: 'food', food, grams })}
+        onOpenChain={(chain) => setStep({ name: 'restaurant', chain })}
+        onLogRestaurant={(lines) => analyze({ kind: 'restaurant', lines })}
+      />
+    );
+  }
+
+  if (step.name === 'restaurant') {
+    return (
+      <RestaurantMenuView
+        key={step.chain}
+        chain={step.chain}
+        bottomSpace={bottomSpace}
+        onBack={() => setStep({ name: 'search', tab: 'restaurants' })}
+        onLog={(lines) => analyze({ kind: 'restaurant', lines, chain: step.chain })}
+      />
     );
   }
 
@@ -157,7 +178,17 @@ export default function ScanScreen() {
         bottomSpace={bottomSpace}
         onNeedsConsent={() => setConsentFor(input)}
         onScanAnother={() =>
-          setStep(input.kind === 'text' ? { name: 'describe' } : input.kind === 'food' ? { name: 'search' } : { name: 'capture' })
+          setStep(
+            input.kind === 'text'
+              ? { name: 'describe' }
+              : input.kind === 'food'
+                ? { name: 'search' }
+                : input.kind === 'restaurant'
+                  ? input.chain
+                    ? { name: 'restaurant', chain: input.chain }
+                    : { name: 'search', tab: 'restaurants' }
+                  : { name: 'capture' },
+          )
         }
         onEdit={input.kind === 'text' ? () => setStep({ name: 'describe', text: input.text }) : undefined}
         onDone={() => {

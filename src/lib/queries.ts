@@ -1,4 +1,4 @@
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useInfiniteQuery, useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 import type { AddDoseBody, AddSymptomsBody, Glp1Response, Glp1Settings } from '@/shared/glp1';
 import type { WeeklyInsights } from '@/shared/insights';
@@ -8,6 +8,7 @@ import type { FoodSummary, Meal, QuickMeal, UpdateMealBody, UpdateMealItemsBody 
 import type { NutrientDay } from '@/shared/nutrients';
 import type { FoodCorrection, PersonalFood, RememberFoodsBody, UpdatePersonalFoodBody } from '@/shared/personal-foods';
 import type { ProductReportBody, ProductResponse } from '@/shared/products';
+import type { PlateLine, RestaurantItemDetail, RestaurantMenu, RestaurantSearch } from '@/shared/restaurants';
 import type { CreateSavedMealBody, MealRepeat, PlannedMeal, SavedMeal } from '@/shared/saved-meals';
 import type { SupplementBody, SupplementsDay } from '@/shared/supplements';
 import type { SaveOnboardingBody } from '@/shared/onboarding';
@@ -17,6 +18,7 @@ import type { AddWeightBody, WeightEntry, WeightHistory } from '@/shared/weight'
 
 import { ApiError, useApi } from './api';
 import { useSession } from './auth-client';
+import { logRestaurantPlate } from './meal-upload';
 import { todayIso } from './time';
 
 export const queryKeys = {
@@ -424,6 +426,55 @@ export function useFoodSearch(query: string) {
     enabled: q.length >= 2,
     staleTime: 60 * 60_000,
     placeholderData: (previous) => previous,
+  });
+}
+
+/** Restaurant chains and menu items as you type (at least 2 letters). */
+export function useRestaurantSearch(query: string) {
+  const api = useApi();
+  const q = query.trim();
+  return useQuery({
+    queryKey: ['restaurants', q],
+    queryFn: ({ signal }) => api<RestaurantSearch>(`/api/restaurants?q=${encodeURIComponent(q)}`, { signal }),
+    enabled: q.length >= 2,
+    staleTime: 10 * 60_000,
+    placeholderData: (previous) => previous,
+  });
+}
+
+/** A chain's menu, 50 items a page, optionally narrowed by `query`. */
+export function useRestaurantMenu(chain: string, query: string) {
+  const api = useApi();
+  const q = query.trim();
+  return useInfiniteQuery({
+    queryKey: ['restaurant-menu', chain, q],
+    queryFn: ({ pageParam, signal }) =>
+      api<RestaurantMenu>(`/api/restaurants/menu?chain=${encodeURIComponent(chain)}&q=${encodeURIComponent(q)}&page=${pageParam}`, { signal }),
+    initialPageParam: 0,
+    getNextPageParam: (last) => (last.more ? last.page + 1 : undefined),
+    staleTime: 10 * 60_000,
+    placeholderData: (previous) => previous,
+  });
+}
+
+/** A menu item with every serving. A 404 (gone from the menu) is not retried. */
+export function useRestaurantItem(id: string) {
+  const api = useApi();
+  return useQuery({
+    queryKey: ['restaurant-item', id],
+    queryFn: () => api<{ item: RestaurantItemDetail }>(`/api/restaurants/items/${id}`),
+    staleTime: 10 * 60_000,
+    retry: (count, error) => !(error instanceof ApiError && error.status === 404) && count < 2,
+  });
+}
+
+/** Keeps a restaurant plate in Saved meals, to log when the food arrives. */
+export function useSaveRestaurantPlate() {
+  const api = useApi();
+  const invalidateMeals = useInvalidateMeals();
+  return useMutation({
+    mutationFn: (lines: PlateLine[]) => logRestaurantPlate(api, lines, true),
+    onSuccess: () => void invalidateMeals(),
   });
 }
 

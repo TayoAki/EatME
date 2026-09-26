@@ -6,6 +6,7 @@ import { products, type FoodRow, type PersonalFoodRow } from '@/db/schema';
 import type { AiMealItem } from '@/shared/meals';
 import { addNutrients, scaleNutrients, type NutrientAmounts } from '@/shared/nutrients';
 import { foodKey, USUAL_GRAMS_RANGE } from '@/shared/personal-foods';
+import type { RestaurantRef } from '@/shared/restaurants';
 
 import { modelFor, structuredCompletion } from './ai';
 import { foodsAvailable, foodsByIds, searchFoods } from './foods';
@@ -28,6 +29,8 @@ export type ComputedItem = {
   aiName?: string | null;
   /** Taken from the person's remembered foods ("Your usual"). */
   personalFoodId?: string | null;
+  /** A restaurant menu item (FatSecret IDs, serving and how many). */
+  restaurant?: RestaurantRef | null;
 };
 
 const matchSchema = z.object({

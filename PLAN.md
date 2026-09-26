@@ -804,6 +804,62 @@ added to an earlier day are stored at local noon of that day.
   v2.1 build) → body backend → GLP-1 screens and reminders → Weight & body screens → export and
   report → what to eat next → AI ideas (flag off) → legal and store → QA on iOS, Android and web
 
+**Eating out (restaurant menus)**
+- [x] Restaurant menus from FatSecret, so people can look up and plan a meal before they eat
+  out: search chains and menu items, build a plate, see it against what's left today, then log
+  it or save it for later. Built behind `RESTAURANTS`; off in production until FatSecret confirms
+  in writing that EatME may keep the numbers of the items a person logs
+- [ ] You: a FatSecret Platform account with Premier Free (US data, free under $1M revenue and
+  $1M raised), the written answer on storing logged items, Railway Pro with Static Outbound IPs
+  (FatSecret only issues tokens to registered IP addresses), then the keys on Railway
+  (`FATSECRET_CLIENT_ID`, `FATSECRET_CLIENT_SECRET`, `RESTAURANTS=true`), the store listing and App
+  Privacy changes in `store/README.md` ("When restaurant menus go live") and FatSecret's credit in
+  the landing page footer (commented out in `legal/index.html`)
+
+**Eating out decisions** (checked September 2026; migration `restaurant_meals`)
+- Source: FatSecret Platform API, Premier Free (`premier` scope). OAuth 2.0 client credentials
+  (`https://oauth.fatsecret.com/connect/token`, a token lasts 24 hours, cached in memory);
+  `foods.search.v3` for search and menus, `food.get.v5` for an item's servings, `food_brands.get.v2`
+  (`brand_type=restaurant`) to tell restaurant items from grocery brands. Chosen over Nutritionix
+  ($499–$999+ a month, no caching on low tiers), Edamam (keeps only four macros), Spoonacular
+  (1-hour cache) and the free USDA / MenuStat chain data (last updated 2018)
+- FatSecret's rules: only IDs (`food_id`, `serving_id`) may be stored indefinitely; anything else
+  is kept at most 24 hours (search results and brand lists are cached in memory, never in
+  Postgres). A logged meal keeps its numbers like every other meal, which is why the flag stays
+  off until FatSecret says yes. If they say no: a daily job re-fetches the logged items by ID
+  (Premier Free has unlimited calls) instead of keeping a copy
+- Their terms also require "Powered by fatsecret Platform API" (linking to
+  `https://platform.fatsecret.com`) wherever their data is shown (search, menu, item, the meal
+  screen of a restaurant meal) and somewhere visible without signing in (the landing page footer);
+  "Powered by fatsecret nutrition API" in both store listings; a link to their terms in the app
+  and a line in EatME's Terms that using restaurant menus means agreeing to them; and no diet or
+  nutrition advice from their data: EatME shows the numbers and the total against what's left,
+  never "best picks", healthy labels or rankings
+- Scan → Search foods gets two tabs, Foods (USDA) and Restaurants. Restaurants: chains that match
+  what is typed (chips) and menu items with their chain, serving and calories. A chain's menu
+  (search within it, 50 items a page) builds a plate: each item's sheet picks the serving and
+  how many (½ to 4), the plate bar shows items, total calories and what's left today after it;
+  "Log it" logs one meal, "Save for later" keeps it in Saved meals to log when the food arrives
+- Calm mode hides every number (menu, item sheet, plate bar); the plate bar shows the item count
+- Logging: `POST /api/meals` with `{ restaurant: { items: [{ foodId, servingId, count }], save } }`
+  (1–12 items). The server fetches each item from FatSecret again (the phone never sends
+  numbers), then saves a meal with `source = 'restaurant'` and one food per item:
+  `meal_items.restaurant` (chain, FatSecret food and serving IDs, serving text, count) and grams
+  from the serving's metric amount (0 when FatSecret has none; such an item changes with the
+  meal's portion, not by grams). Its nutrients include sugar and sodium, so the sugar note works
+  for sodas and shakes
+- Routes: `GET /api/restaurants?q=` (chains + items), `GET /api/restaurants/menu?chain=&q=&page=`,
+  `GET /api/restaurants/items/:id`; 600 requests an hour per person; `features.restaurants` is on
+  only with `RESTAURANTS=true` and both keys. Errors from FatSecret show "Restaurant menus
+  aren't available right now" and are logged with `describeError`
+- Privacy: search words and item IDs go from EatME's server to FatSecret, never the person's
+  name, email or account; nothing new is stored beyond the meal itself. The Privacy Policy (meal log,
+  service providers), the Terms (the FatSecret terms line their §1.6 asks for) and the Washington
+  policy already say "where the app offers restaurant menus"; the store forms change when the flag
+  goes on
+- Later, measured first: match chain items in descriptions and photos ("Chipotle chicken
+  bowl"), a Planned card at a set time, non-US menus (Premier, priced per country)
+
 **Later**
 - [ ] Adaptive calorie target (6.4): a weekly check-in proposes a new target from the weight
   trend and logged food; the person accepts or ignores it; same floors and weekly limit

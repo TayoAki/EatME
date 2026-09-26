@@ -11,6 +11,9 @@ import { toIsoDate } from '@/lib/time';
 import type { FoodSummary, Meal, MealItem } from '@/shared/meals';
 import type { FoodCorrection } from '@/shared/personal-foods';
 import { distinctBrand, PRODUCT_SOURCE_LABELS } from '@/shared/products';
+import { countLabel } from '@/shared/restaurants';
+
+import { FatSecretCredit } from '../restaurants/fatsecret-credit';
 
 import { FoodAmountSheet, type FoodDraft } from './food-amount-sheet';
 import { FoodSearchSheet } from './food-search-sheet';
@@ -25,10 +28,15 @@ const draftFromItem = (item: MealItem): FoodDraft => ({
   foodName: item.foodName,
   product: item.product,
   personalFoodId: item.personalFoodId,
+  restaurant: item.restaurant,
   grams: item.grams,
   kcalPerGram: item.grams > 0 ? item.calories / item.grams : 0,
   portions: item.portions,
 });
+
+/** "McDonald's menu · 2 × 1 sandwich". */
+const menuLabel = (restaurant: NonNullable<MealItem['restaurant']>) =>
+  `${restaurant.chain} menu · ${restaurant.count === 1 ? restaurant.serving : `${countLabel(restaurant.count)} × ${restaurant.serving}`}`;
 
 const draftFromFood = (food: FoodSummary, keep?: FoodDraft): FoodDraft => ({
   id: keep?.id,
@@ -107,6 +115,8 @@ export function FoodsSection({
   if (items.length === 0) return null;
   const share = Math.round((meal.matchedShare ?? 0) * 100);
   const packaged = items.every((item) => item.product);
+  const fromMenus = items.some((item) => item.restaurant);
+  const chains = [...new Set(items.flatMap((item) => (item.restaurant ? [item.restaurant.chain] : [])))];
   const logged = toIsoDate(new Date(meal.loggedAt));
 
   return (
@@ -124,36 +134,49 @@ export function FoodsSection({
         </Pressable>
       </View>
       <View className="overflow-hidden rounded-card border border-line">
-        {items.map((item, index) => (
-          <Pressable
-            key={item.id}
-            accessibilityRole="button"
-            accessibilityLabel={
-              showNumbers ? `${item.name}, ${item.grams} grams, ${item.calories} calories. Edit` : `${item.name}, ${item.grams} grams. Edit`
-            }
-            onPress={() => setEditing(draftFromItem(item))}
-            className={`min-h-[56px] flex-row items-center gap-3 px-4 py-2.5 active:bg-surface ${index > 0 ? 'border-t border-line' : ''}`}>
-            <View className="flex-1">
-              <Text numberOfLines={1} className="text-[15px] text-ink">
-                {item.name}
-              </Text>
-              <View className="flex-row items-center gap-1.5">
-                {item.personalFoodId ? (
-                  <View className="rounded-full bg-surface px-2 py-px">
-                    <Text className="text-[11px] font-semibold text-ink">Your usual</Text>
-                  </View>
-                ) : null}
-                <Text numberOfLines={1} className="flex-1 text-[12px] text-muted">
-                  {item.foodName ?? (item.product ? packageLabel(item.name, item.product.brand) : item.personalFoodId ? 'Your numbers' : 'AI estimate')}
+        {items.map((item, index) => {
+          // A menu item without a weight is kept as logged (it follows the meal's portion): remove only.
+          const weightless = !!item.restaurant && item.grams <= 0;
+          const amount = weightless ? menuLabel(item.restaurant!) : `${item.grams} grams`;
+          return (
+            <Pressable
+              key={item.id}
+              accessibilityRole="button"
+              accessibilityLabel={`${item.name}, ${amount}${showNumbers ? `, ${item.calories} calories` : ''}${
+                weightless ? (items.length > 1 ? '. Remove' : '') : '. Edit'
+              }`}
+              disabled={weightless && items.length <= 1}
+              onPress={() => (weightless ? void remove(draftFromItem(item)) : setEditing(draftFromItem(item)))}
+              className={`min-h-[56px] flex-row items-center gap-3 px-4 py-2.5 active:bg-surface ${index > 0 ? 'border-t border-line' : ''}`}>
+              <View className="flex-1">
+                <Text numberOfLines={1} className="text-[15px] text-ink">
+                  {item.name}
                 </Text>
+                <View className="flex-row items-center gap-1.5">
+                  {item.personalFoodId ? (
+                    <View className="rounded-full bg-surface px-2 py-px">
+                      <Text className="text-[11px] font-semibold text-ink">Your usual</Text>
+                    </View>
+                  ) : null}
+                  <Text numberOfLines={1} className="flex-1 text-[12px] text-muted">
+                    {item.foodName ??
+                      (item.restaurant
+                        ? menuLabel(item.restaurant)
+                        : item.product
+                          ? packageLabel(item.name, item.product.brand)
+                          : item.personalFoodId
+                            ? 'Your numbers'
+                            : 'AI estimate')}
+                  </Text>
+                </View>
               </View>
-            </View>
-            <Text className="text-[14px] text-muted">{item.grams} g</Text>
-            {showNumbers ? (
-              <Text className="w-[64px] text-right text-[15px] font-semibold text-ink">{item.calories} kcal</Text>
-            ) : null}
-          </Pressable>
-        ))}
+              {weightless ? null : <Text className="text-[14px] text-muted">{item.grams} g</Text>}
+              {showNumbers ? (
+                <Text className="w-[64px] text-right text-[15px] font-semibold text-ink">{item.calories} kcal</Text>
+              ) : null}
+            </Pressable>
+          );
+        })}
       </View>
       <Pressable
         accessibilityRole="link"
@@ -163,11 +186,15 @@ export function FoodsSection({
         <Text className="flex-1 text-[12px] leading-4 text-muted">
           {packaged
             ? `Numbers from the package label (${PRODUCT_SOURCE_LABELS[items[0].product?.source ?? 'off']}). See the day's nutrients ›`
-            : share > 0
+            : fromMenus
+              ? `Numbers from the ${chains.join(' and ')} menu. See the day's nutrients ›`
+              : share > 0
               ? `${share}% of the calories come from the USDA food database. See the day's vitamins and minerals ›`
               : 'These are AI estimates. Pick database foods for vitamins and minerals.'}
         </Text>
       </Pressable>
+
+      {fromMenus ? <FatSecretCredit align="start" className="mt-1 px-1" /> : null}
 
       {editing && !searching ? (
         <FoodAmountSheet

@@ -12,6 +12,7 @@ import {
   Search,
   SquarePlus,
   Star,
+  Store,
   UtensilsCrossed,
   X,
 } from 'lucide-react-native';
@@ -36,6 +37,7 @@ import { ProteinHint } from '@/components/meal/protein-hint';
 import { SugarHint } from '@/components/meal/sugar-hint';
 import { RepeatSheet } from '@/components/meal/repeat-sheet';
 import { ServingsStepper } from '@/components/meal/servings-stepper';
+import { FatSecretCredit } from '@/components/restaurants/fatsecret-credit';
 import { Button } from '@/components/ui/button';
 import { IconButton } from '@/components/ui/icon-button';
 import { Screen } from '@/components/ui/screen';
@@ -337,6 +339,9 @@ function MealEditor({ meal, showNumbers, onShowNumbers, corrections, onCorrectio
   const fromDatabase = meal.source === 'food';
   const quick = meal.source === 'quick';
   const barcodes = [...new Set(items.flatMap((item) => (item.product ? [item.product.code] : [])))];
+  // From restaurant menus (FatSecret): their credit is shown wherever their numbers are.
+  const chains = [...new Set(items.flatMap((item) => (item.restaurant ? [item.restaurant.chain] : [])))];
+  const fromRestaurant = items.length > 0 && items.every((item) => item.restaurant);
 
   return (
     <KeyboardAvoidingView className="flex-1" behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
@@ -345,6 +350,14 @@ function MealEditor({ meal, showNumbers, onShowNumbers, corrections, onCorrectio
           <View className="flex-row gap-3 rounded-card bg-surface p-4">
             <PenLine size={18} color={colors.muted} style={{ marginTop: 2 }} />
             <Text className="flex-1 text-[17px] leading-6 text-ink">{meal.note}</Text>
+          </View>
+        ) : !hero && fromRestaurant ? (
+          <View className="flex-row gap-3 rounded-card bg-surface p-4">
+            <Store size={18} color={colors.muted} style={{ marginTop: 2 }} />
+            <View className="flex-1">
+              <Text className="text-[15px] leading-[21px] text-ink">From the {chains.join(' and ')} menu.</Text>
+              <FatSecretCredit align="start" className="mt-1" />
+            </View>
           </View>
         ) : !hero && (fromBarcode || fromDatabase || quick) ? (
           <View className="flex-row gap-3 rounded-card bg-surface p-4">

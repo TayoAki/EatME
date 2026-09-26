@@ -16,6 +16,8 @@ export type Features = {
   multiPhoto: boolean;
   /** The AI may ask one tap-to-answer question after a scan. */
   followUp: boolean;
+  /** Restaurant menus (FatSecret): search chains and menu items, build a plate, log or save it. */
+  restaurants: boolean;
   /** The companies that get data for AI work, named on the AI consent screen (e.g. OpenRouter, OpenAI). */
   aiProviders: string[];
 };

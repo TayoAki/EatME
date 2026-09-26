@@ -1,6 +1,6 @@
 import { Image } from 'expo-image';
 import { router } from 'expo-router';
-import { Flame, PenLine, ScanBarcode, SquarePlus, UtensilsCrossed } from 'lucide-react-native';
+import { Flame, PenLine, ScanBarcode, SquarePlus, Store, UtensilsCrossed } from 'lucide-react-native';
 import { useEffect } from 'react';
 import { ActivityIndicator, Pressable, Text, View } from 'react-native';
 import Animated, {
@@ -24,6 +24,7 @@ function Thumbnail({
   described,
   barcode,
   quick,
+  restaurant,
 }: {
   uri: string | null;
   cacheKey: string;
@@ -34,6 +35,8 @@ function Thumbnail({
   barcode?: boolean;
   /** Quick add (numbers typed in). */
   quick?: boolean;
+  /** From restaurant menus. */
+  restaurant?: boolean;
 }) {
   return (
     <View style={{ width: THUMB, height: THUMB }} className="overflow-hidden rounded-2xl bg-surface">
@@ -47,6 +50,8 @@ function Thumbnail({
             <ScanBarcode size={26} color={colors.faint} />
           ) : quick ? (
             <SquarePlus size={26} color={colors.faint} />
+          ) : restaurant ? (
+            <Store size={26} color={colors.faint} />
           ) : (
             <UtensilsCrossed size={28} color={colors.faint} />
           )}
@@ -100,6 +105,7 @@ export function MealCard({ meal, showQuality = false, calm = false }: { meal: Me
         described={!meal.imageUrl && !!meal.note}
         barcode={meal.source === 'barcode'}
         quick={meal.source === 'quick'}
+        restaurant={meal.source === 'restaurant'}
       />
       {analyzing ? (
         <View className="flex-1 justify-center gap-2.5 pr-2">

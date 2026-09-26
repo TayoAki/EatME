@@ -123,6 +123,9 @@ export function toMealItem(
     portions: food?.portions ?? [],
     product,
     personalFoodId: item.personalFoodId,
+    restaurant: item.restaurant
+      ? { chain: item.restaurant.chain, serving: item.restaurant.serving, count: Math.round(item.restaurant.count * portion * 100) / 100 }
+      : null,
   };
 }
 

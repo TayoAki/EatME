@@ -32,6 +32,7 @@ import {
   PRODUCT_SOURCES,
   type ProductReportSnapshot,
 } from '@/shared/products';
+import type { RestaurantRef } from '@/shared/restaurants';
 import { REPEAT_RESPONSES } from '@/shared/saved-meals';
 import { SUPPLEMENT_SCHEDULES } from '@/shared/supplements';
 import type { MacroTargets } from '@/shared/nutrition';
@@ -362,6 +363,8 @@ export const mealItems = pgTable(
     aiName: text(),
     /** The remembered food ("Your usual") the item was taken from. */
     personalFoodId: uuid().references((): AnyPgColumn => personalFoods.id, { onDelete: 'set null' }),
+    /** A restaurant menu item (FatSecret): chain, item and serving IDs, serving text, how many. */
+    restaurant: jsonb().$type<RestaurantRef>(),
     ...timestamps,
   },
   (t) => [index('meal_items_meal_id_idx').on(t.mealId)],

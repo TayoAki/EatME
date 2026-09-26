@@ -307,6 +307,21 @@ yet, so the reviewer's first scan shows the AI consent screen.
 Options: `--time-zone America/Los_Angeles` (the default; App Review is in California), `--days 14`,
 `--name Alex`. Meals are placed at the usual meal times, so "today" only fills up as the day goes on.
 
+## When restaurant menus go live
+
+Restaurant menus (FatSecret) are built but off (`RESTAURANTS`, PLAN.md §16, Eating out). The Privacy Policy, the
+Terms and the Washington policy already describe them. When you turn them on, also:
+
+- **Both store listings:** add the line FatSecret requires, `Powered by fatsecret nutrition API (www.fatsecret.com)`,
+  at the end of the description, and a bullet such as `• Look up US restaurant menus and plan your meal before you
+  go.` under HOW IT WORKS.
+- **App Privacy:** add **Search History**, *not linked to the user*, App Functionality: restaurant searches go from
+  EatME's server to FatSecret (without the person's name, email or account).
+- **Play Data safety:** nothing new (In-app search history is already declared, processed ephemerally; FatSecret is a
+  service provider).
+- **Landing page:** uncomment FatSecret's credit in the footer of `legal/index.html` (it must be visible without
+  signing in).
+
 ## Railway before release
 
 - **Postgres backups:** Railway → Postgres service → Backups → turn on the **Daily** schedule only (kept 6 days).
