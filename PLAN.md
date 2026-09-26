@@ -496,8 +496,8 @@ added to an earlier day are stored at local noon of that day.
 - [x] Safer plan limits: at most 1 kg of loss a week, no weight-loss target below a BMI
   of 18.5 (`MAX_WEEKLY_GOAL_KG`, `lowestGoalWeightKg`: onboarding, Personal details and the
   server; "Lose weight" is off within 0.5 kg of that weight)
-- [x] Minimum age: 18 (`MIN_AGE` in the app and server, Terms and Privacy Policy). You: pick the
-  age rating in App Store Connect
+- [x] Minimum age: 18 (`MIN_AGE` in the app and server, Terms and Privacy Policy). You: answer the
+  age rating questions in App Store Connect and override to 18+ (`store/README.md`)
 - [x] "Check with a doctor" line on the plan screen, a helpline link in Profile, no accuracy
   claims (Apple 1.4.1): the plan says "Your goal is to lose…" (not "You should"); Profile →
   Support → "Help with eating or body image" opens Find A Helpline (175+ countries); app and
@@ -509,17 +509,27 @@ added to an earlier day are stored at local noon of that day.
   its own link in the homepage footer
 - [ ] Legal placeholders filled in (`legal/README.md`): company name, address, contact email,
   jurisdiction, effective date — then a lawyer's read
-- [ ] Demo account with sample meals; review notes point to the consent screen
-- [ ] App Privacy labels, Play Data safety form, Play Health apps declaration, "not a
-  medical device" in the Play listing
-- [ ] A one-line answer to "how is this different from Cal AI?" (Apple 4.3(b))
+- [x] Demo account with sample meals; review notes point to the consent screen:
+  `npm run demo:account -- --email review@…` (with the production `DATABASE_URL`) creates it with two
+  weeks of meals, weigh-ins and water and no AI consent, so the first scan shows the consent screen;
+  `--replace` before a resubmission. You: run it right before submitting and paste the printed password
+- [x] App Privacy labels, Play Data safety form, Play Health apps declaration, "not a
+  medical device" in the Play listing: all in `store/README.md`, with the listing texts, the age rating
+  (override to 18+) and the review notes. You: paste them into App Store Connect and Play Console
+- [x] A one-line answer to "how is this different from Cal AI?" (Apple 4.3(b)): in the review notes
+- [x] iOS privacy manifests, or App Store Connect refuses the build (ITMS-91053): `ios.privacyManifests`
+  in `app.json` for the app, `plugins/with-widget-privacy-manifest.js` for the water widget extension
+  (checked with `expo prebuild`)
+- [ ] Only if Google's Health Connect review asks: a native screen that shows the Privacy Policy from
+  Health Connect's permission screen (today its privacy link opens EatME's home screen)
 - [x] Keep health data out of the server logs: every server error log goes through
   `describeError` (`src/lib/server/log.ts`): the SQL text (placeholders only) and the Postgres
   code, validation paths, no quoted JSON; info logs carry no calories
 - [x] Block AI providers that train on data: every OpenRouter request sends
   `provider: { data_collection: 'deny' }` (checked with the real model: still routed to OpenAI)
 - [ ] Remove `ALLOW_EXPO_GO` from Railway (when testers move to TestFlight builds) and turn on
-  Postgres backups with retention within 30 days
+  Postgres backups: Railway → Postgres → Backups → **Daily** only (kept 6 days; Weekly and Monthly
+  keep them longer than the 30 days the Privacy Policy promises)
 - [ ] Before turning on payments: products in App Store Connect and Play Console, a RevenueCat
   project (entitlement `premium`, a current offering), its webhook to `/api/billing/webhook` with
   the secret, the public SDK keys in `eas.json`, then `PAYMENTS_ENABLED=true`

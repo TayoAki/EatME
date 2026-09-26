@@ -94,7 +94,8 @@ real value, and also the `[Contact Email]` inside every `href="mailto:[Contact E
       by a lawyer
 - [ ] Deploy, check `/privacy`, `/terms`, `/delete-account`, `/health-data`, `/privacy.html` (redirect) and a random
       URL (404 page) on a phone, set `EXPO_PUBLIC_LEGAL_URL`, and add the Privacy Policy URL to App Store Connect and
-      Google Play Console. Your App Privacy answers must match the policy
+      Google Play Console. Your App Privacy answers must match the policy: `store/README.md` has them, written
+      against this policy (update both together)
 - [ ] Google Play Console → App content → Data safety: the account deletion URL is `<server>/delete-account`
 - [ ] If the landing page moves to its own domain, keep the separate "Consumer Health Data Privacy Policy" link on
       its homepage (Washington requires a distinct homepage link) and keep `/delete-account` on the API's domain (its

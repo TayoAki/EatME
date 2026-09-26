@@ -39,6 +39,8 @@ src/db/             Drizzle schema + client (server only)
 server/index.mjs    production server on Railway (API routes + legal pages + migrations)
 design/             AI-generated UI references
 legal/              landing page, privacy policy, terms (served by the server)
+store/              App Store and Google Play answers (listing, privacy forms, review notes)
+plugins/            local Expo config plugins
 drizzle/            generated SQL migrations — never edit by hand
 ```
 

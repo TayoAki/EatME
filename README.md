@@ -126,8 +126,10 @@ scanning? `npm run db:seed -- --email you@example.com` adds two weeks of sample 
 | App | `npx eas-cli@latest build --profile production` and `eas submit`. The `preview` and `production` profiles in `eas.json` already point the app at the Railway URL. |
 
 Before submitting to the App Store: **Delete account** is in Profile, the Privacy Policy / Terms links
-work, the placeholders in `legal/` are filled in, App Review gets a test email + password, and the
-Railway variable `ALLOW_EXPO_GO` (lets Expo Go sign in while testing) is removed. The App ID needs the
+work, the placeholders in `legal/` are filled in, App Review gets the demo account
+(`npm run demo:account`), and the Railway variable `ALLOW_EXPO_GO` (lets Expo Go sign in while testing)
+is removed. `store/README.md` has every store answer: listing texts, App Privacy and Data safety, the age
+rating, Google Play's health declarations and the review notes. The App ID needs the
 HealthKit, App Groups (widget), Sign in with Apple and Push Notifications capabilities (EAS sets them from
 the entitlements); Google Play needs the Health Connect declaration for writing nutrition and hydration.
 Optional services (email codes, Apple / Google sign-in, Premium, the food-quality experiment) each have
@@ -143,6 +145,7 @@ their variables in `.env.example` and a checklist item in `PLAN.md` §10.
 | `npm run lint` / `npm run typecheck` | ESLint / TypeScript |
 | `npm run db:generate` / `db:migrate` / `db:push` / `db:studio` | Drizzle migrations and database browser |
 | `npm run db:seed -- --email you@example.com` | Sample meals for testing |
+| `npm run demo:account -- --email review@yourdomain.com` | The App Review demo account (prints its password once) |
 
 ## Project structure
 
@@ -157,6 +160,9 @@ server/             production server for Railway
 drizzle/            SQL migrations
 design/             AI-generated UI references (and the prompts that made them)
 legal/              landing page, privacy policy, terms of service
+store/              App Store and Google Play answers (listing, privacy forms, review notes)
+plugins/            local Expo config plugins (the widget's privacy manifest)
+scripts/            seed data, the demo account, the food database build
 ```
 
 ## Notes

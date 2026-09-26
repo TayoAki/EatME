@@ -90,6 +90,7 @@
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
     "db:seed": "tsx scripts/seed.ts",
+    "demo:account": "tsx scripts/demo-account.ts",
     "foods:build": "tsx scripts/build-foods.ts",
     "db:foods": "node server/foods.mjs"
   },
