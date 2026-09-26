@@ -28,6 +28,30 @@ export function proteinPerMeal(dailyProteinG: number) {
   return Math.max(20, Math.round(dailyProteinG / 4 / 5) * 5);
 }
 
+type SugarCheck = {
+  name: string | null;
+  calories: number | null;
+  proteinG: number | null;
+  fiberG: number | null;
+  nutrients: Partial<Record<'sugars', number>> | null;
+  items?: readonly { name: string; foodName: string | null }[];
+};
+
+/**
+ * A sugary drink or food (juice, soda, sweets): at least 12 g of sugar making up half the calories
+ * or more, under 5 g of protein, and fiber under a tenth of the sugar. Sugar is known only for
+ * database foods and packaged products, so a missing value never shows the note. `juice`: the
+ * meal is (or has) a juice, compared with the whole fruit in the wording.
+ */
+export function sugarNote(meal: SugarCheck): { sugarsG: number; juice: boolean } | null {
+  const sugarsG = meal.nutrients?.sugars;
+  if (sugarsG === undefined || sugarsG < 12 || !meal.calories) return null;
+  const fromSugar = (sugarsG * 4) / meal.calories;
+  if (fromSugar < 0.5 || (meal.proteinG ?? 0) >= 5 || (meal.fiberG ?? 0) >= sugarsG * 0.1) return null;
+  const names = [meal.name, ...(meal.items ?? []).flatMap((item) => [item.name, item.foodName])];
+  return { sugarsG: Math.round(sugarsG), juice: names.some((name) => !!name && /\bjuice\b/i.test(name)) };
+}
+
 const ACTIVITY_MULTIPLIER: Record<ActivityLevel, number> = {
   sedentary: 1.2,
   light: 1.375,

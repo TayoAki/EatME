@@ -9,6 +9,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { SkeletonBar } from '@/components/home/meal-card';
 import { ProteinHint } from '@/components/meal/protein-hint';
+import { SugarHint } from '@/components/meal/sugar-hint';
 import { FollowUpCard } from '@/components/meal/follow-up-card';
 import { QualityTag } from '@/components/meal/quality-tag';
 import { ServingsStepper } from '@/components/meal/servings-stepper';
@@ -22,6 +23,7 @@ import { haptics } from '@/lib/haptics';
 import { describeMeal, logFood, logProduct, uploadMeal } from '@/lib/meal-upload';
 import { queryKeys, useInvalidateMeals, useProfile } from '@/lib/queries';
 import { MEAL_ANALYSIS_STAGES, type FoodSummary, type Meal, type PhotoMode } from '@/shared/meals';
+import { sugarNote } from '@/shared/nutrition';
 import { distinctBrand, type Product } from '@/shared/products';
 
 import type { Photo } from './camera-capture';
@@ -222,6 +224,8 @@ export function AnalysisView({ input, onScanAnother, onEdit, onDone, bottomSpace
       : [...MEAL_ANALYSIS_STAGES].reverse().find((stage) => elapsed >= stage.after)?.label;
   // The result is read from the cache, which the servings stepper updates.
   const meal = analyzed?.status === 'completed' ? analyzed : null;
+  // Sugary drinks and food get a note on quick sugar instead of the protein hint.
+  const sugar = meal ? sugarNote(meal) : null;
   const notFood = outcome?.status === 'not_food' ? outcome : null;
   const failureMessage =
     upload.error?.message ??
@@ -295,7 +299,11 @@ export function AnalysisView({ input, onScanAnother, onEdit, onDone, bottomSpace
                   <ServingsStepper meal={meal} />
                 </View>
               ) : null}
-              {profile?.dailyProteinG && !hideNumbers ? (
+              {sugar ? (
+                <View className="mt-4">
+                  <SugarHint sugar={sugar} hideNumbers={hideNumbers} />
+                </View>
+              ) : profile?.dailyProteinG && !hideNumbers ? (
                 <View className="mt-4">
                   <ProteinHint proteinG={meal.proteinG ?? 0} dailyProteinG={profile.dailyProteinG} />
                 </View>

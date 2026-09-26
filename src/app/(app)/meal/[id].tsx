@@ -33,6 +33,7 @@ import { FollowUpCard } from '@/components/meal/follow-up-card';
 import { FoodsSection } from '@/components/meal/foods-section';
 import { QualityTag } from '@/components/meal/quality-tag';
 import { ProteinHint } from '@/components/meal/protein-hint';
+import { SugarHint } from '@/components/meal/sugar-hint';
 import { RepeatSheet } from '@/components/meal/repeat-sheet';
 import { ServingsStepper } from '@/components/meal/servings-stepper';
 import { Button } from '@/components/ui/button';
@@ -56,6 +57,7 @@ import {
 import { formatTimeOfDay } from '@/lib/reminder-plan';
 import { formatDay, formatTime, toIsoDate } from '@/lib/time';
 import { PORTION_OPTIONS, type Meal } from '@/shared/meals';
+import { sugarNote } from '@/shared/nutrition';
 import type { FoodCorrection } from '@/shared/personal-foods';
 import { repeatDaysLabel, type MealRepeat } from '@/shared/saved-meals';
 
@@ -231,6 +233,8 @@ function MealEditor({ meal, showNumbers, onShowNumbers, corrections, onCorrectio
   const [copying, setCopying] = useState(false);
   // A saved meal (repeat meals) is a template: no day, no favourite, "Log it now" instead of "Log again".
   const saved = meal.status === 'saved';
+  // Sugary drinks and food get a note on quick sugar instead of the protein hint.
+  const sugar = sugarNote(meal);
   const [name, setName] = useState(meal.name ?? '');
   const [calories, setCalories] = useState(String(meal.calories ?? 0));
   const [protein, setProtein] = useState(String(meal.proteinG ?? 0));
@@ -452,7 +456,11 @@ function MealEditor({ meal, showNumbers, onShowNumbers, corrections, onCorrectio
           </View>
         )}
 
-        {profile?.dailyProteinG && showNumbers ? (
+        {sugar ? (
+          <View className="mt-4">
+            <SugarHint sugar={sugar} hideNumbers={!showNumbers} />
+          </View>
+        ) : profile?.dailyProteinG && showNumbers ? (
           <View className="mt-4">
             <ProteinHint proteinG={meal.proteinG ?? 0} dailyProteinG={profile.dailyProteinG} />
           </View>
