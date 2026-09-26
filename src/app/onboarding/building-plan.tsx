@@ -32,18 +32,19 @@ const STAGES = [
 
 export default function BuildingPlanScreen() {
   const rawAnswers = useOnboardingStore((s) => s.answers);
+  const aiConsent = useOnboardingStore((s) => s.aiConsent);
   const setPlan = useOnboardingStore((s) => s.setPlan);
   const answers = useMemo(() => completeAnswers(rawAnswers), [rawAnswers]);
 
-  // 1. Ask the server for the AI plan (takes a few seconds).
+  // 1. Ask the server for the plan (AI when allowed on the consent screen, else the formula).
   const start = useMutation({
     mutationFn: (body: OnboardingAnswers) =>
-      apiFetch<{ plan: NutritionPlan }>('/api/plan', { method: 'POST', body }),
+      apiFetch<{ plan: NutritionPlan }>('/api/plan', { method: 'POST', body: { ...body, aiConsent: !!aiConsent } }),
   });
   const started = useRef(false);
   const startedAt = useRef(0);
   useEffect(() => {
-    if (!answers || started.current) return;
+    if (!answers || aiConsent === null || started.current) return;
     started.current = true;
     startedAt.current = Date.now();
     start.mutate(answers);
@@ -80,6 +81,7 @@ export default function BuildingPlanScreen() {
   }, [displayed, result, setPlan]);
 
   if (!answers) return <Redirect href={FIRST_STEP_HREF} />;
+  if (aiConsent === null) return <Redirect href="/onboarding/ai-consent" />;
 
   const stage = [...STAGES].reverse().find((s) => displayed >= s.at)?.text;
 

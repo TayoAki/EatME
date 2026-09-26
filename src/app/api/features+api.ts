@@ -1,3 +1,4 @@
+import { aiProviders } from '@/lib/server/ai';
 import { freeScansPerDay, paymentsEnabled } from '@/lib/server/billing';
 import { emailConfigured } from '@/lib/server/email';
 import { followUpEnabled, foodQualityEnabled, multiPhotoEnabled } from '@/lib/server/experiments';
@@ -16,6 +17,7 @@ export const GET = handle(async () => {
     foodQuality: foodQualityEnabled(),
     multiPhoto: multiPhotoEnabled(),
     followUp: followUpEnabled(),
+    aiProviders: aiProviders(),
   };
   return Response.json(features, { headers: { 'Cache-Control': 'public, max-age=300' } });
 });

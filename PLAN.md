@@ -76,15 +76,20 @@ Welcome ──Get started──▶ Onboarding questions ──▶ Building your 
    7. How active are you (weekly)
    8. Weekly pace in kg per week (skipped when maintaining)
    9. Diet — classic / pescatarian / vegetarian / vegan
-3. **Building your plan** — answers are sent to `POST /api/plan`; the server asks the AI
-   and answers with the plan (a few seconds, formula fallback). The screen animates while
-   it waits.
-4. **Plan ready** — daily calories, protein, carbs, fat + tips. `Continue`.
-5. **Sign up** — name, email and password (at least 8 characters). After sign-up the app
+3. **AI consent** (Apple 5.1.2(i)) — "EatME uses AI": which answers go where (OpenRouter,
+   which passes them to OpenAI's model; the names come from `/api/features`), that later meal
+   photos and descriptions go the same way, never name or email, no training, barcodes /
+   search / quick add never use AI, change it in Preferences. `Allow` or `Continue without AI`
+   (the formula plan; scans ask again).
+4. **Building your plan** — answers are sent to `POST /api/plan` with the consent choice; the
+   server asks the AI only when allowed and answers with the plan (a few seconds, formula
+   fallback). The screen animates while it waits.
+5. **Plan ready** — daily calories, protein, carbs, fat + tips. `Continue`.
+6. **Sign up** — name, email and password (at least 8 characters). After sign-up the app
    calls `POST /api/onboarding` and the calculated plan is stored in Postgres. Returning
    users sign in with email + password. No "forgot password" in V1 (needs an email
    service — V2).
-6. **Rule:** a signed-in user without a completed onboarding is always sent to the
+7. **Rule:** a signed-in user without a completed onboarding is always sent to the
    onboarding flow (e.g. someone who taps "Sign in" on the welcome screen with a brand-new
    account). Nobody reaches the home screen without a plan.
 
@@ -253,7 +258,8 @@ at sign-up (or a new one). Codes, not links: they work on phones without deep li
 `daily_calories`, `daily_protein_g`, `daily_carbs_g`, `daily_fat_g`, `daily_fiber_g` and
 `daily_water_ml` (empty = the recommended goal), `plan_targets` (the plan's calories and
 macros, for "Use my plan"), `plan_source`
-(`ai` / `formula`), `plan_summary`, `onboarding_completed_at`, `created_at`, `updated_at`.
+(`ai` / `formula`), `plan_summary`, `onboarding_completed_at`, `created_at`, `updated_at`;
+`ai_consent_at` + `ai_consent_providers` (the AI consent and the companies it named; empty = no AI).
 
 **sessions**, **accounts** (password hash), **verifications** — Better Auth tables,
 cascade-deleted with the user.
@@ -332,7 +338,7 @@ added to an earlier day are stored at local noon of that day.
 | Route | Auth | Purpose |
 | --- | --- | --- |
 | `/api/auth/*` | — | Better Auth: sign up, sign in, sign out, session; `email-otp/*` codes (request-password-reset, reset-password, send-verification-otp, verify-email) |
-| `POST /api/plan` | public, 10/h per IP | AI plan for the onboarding answers (formula fallback) |
+| `POST /api/plan` | public, 10/h per IP | AI plan for the onboarding answers when `aiConsent: true`, else (and as fallback) the formula |
 | `POST /api/onboarding` | session | Save answers + plan on the user |
 | `GET/PATCH/DELETE /api/me` | session | Profile, edits (personal details, time zone), delete account |
 | `GET/POST /api/meals` | session | List a day's meals / log a meal + start the analysis (50 AI analyses a day): a JPEG body (`?mode=label` for labels, `X-Meal-Note` header for a note, up to 3 photos back to back with `X-Photo-Lengths`) or JSON `{ text }`; JSON `{ barcode: { code, grams } }`, `{ food: { foodId, grams } }` or `{ quick: { calories, … } }` logs at once without AI |
@@ -480,8 +486,10 @@ added to an earlier day are stored at local noon of that day.
   TestFlight needs the Apple Developer account)
 
 ### 10 · Before App Store submission (these block review)
-- [ ] AI consent screen before the plan is built and before the first scan, naming
-  OpenRouter and OpenAI (Apple 5.1.2(i))
+- [x] AI consent screen before the plan is built and before the first scan, naming
+  OpenRouter and OpenAI (Apple 5.1.2(i)): stored as `users.ai_consent_at` +
+  `ai_consent_providers`; the server refuses AI scans without it (`403 ai_consent_required`)
+  and asks again if the AI companies change; Preferences → AI meal analysis turns it off/on
 - [x] Calorie floor: 1,500 kcal for men, 1,200 for women (the plan, onboarding and Daily
   goals)
 - [ ] Safer plan limits: at most 1 kg of loss a week, no weight-loss target below a BMI

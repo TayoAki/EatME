@@ -37,7 +37,8 @@ export function stepsFor(goal: Goal | undefined) {
 export function nextStepHref(step: OnboardingStep, goal: Goal | undefined): Href {
   const steps = stepsFor(goal);
   const next = steps[steps.indexOf(step) + 1];
-  return next ? STEP_HREF[next] : '/onboarding/building-plan';
+  // After the questions: the AI consent screen, then the plan (built with AI only when allowed).
+  return next ? STEP_HREF[next] : '/onboarding/ai-consent';
 }
 
 /** 0 … 1 — the building-plan screen counts as the final step. */

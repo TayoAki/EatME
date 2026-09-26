@@ -112,6 +112,8 @@ type AnalysisViewProps = {
   /** Back to the description to change it (text meals). */
   onEdit?: () => void;
   onDone: () => void;
+  /** The server refused for lack of AI consent: show the consent screen for this meal. */
+  onNeedsConsent?: () => void;
   bottomSpace: number;
 };
 
@@ -119,7 +121,7 @@ type AnalysisViewProps = {
  * Optimistic result card: the photo (or description) shows immediately, then the card fills in when
  * the server has analyzed the meal (the app checks every 1.5 seconds).
  */
-export function AnalysisView({ input, onScanAnother, onEdit, onDone, bottomSpace }: AnalysisViewProps) {
+export function AnalysisView({ input, onScanAnother, onEdit, onDone, onNeedsConsent, bottomSpace }: AnalysisViewProps) {
   const insets = useSafeAreaInsets();
   const api = useApi();
   const { userId } = useSession();
@@ -174,6 +176,8 @@ export function AnalysisView({ input, onScanAnother, onEdit, onDone, bottomSpace
   const failed = upload.isError || outcome?.status === 'failed' || (timedOut && !outcome);
   // Payments on and today's free AI scans used: offer Premium instead of an error.
   const paywall = upload.error instanceof ApiError && upload.error.status === 402;
+  // AI consent withdrawn (or new AI companies to name): ask again instead of an error.
+  const needsConsent = upload.error instanceof ApiError && upload.error.code === 'ai_consent_required';
   const done = outcome?.status === 'completed' || outcome?.status === 'not_food';
 
   // Progress: time-based while waiting, then fills up when the result arrives.
@@ -382,6 +386,7 @@ export function AnalysisView({ input, onScanAnother, onEdit, onDone, bottomSpace
           )}
           {meal ? <Button title="Done" className="flex-1" onPress={onDone} /> : null}
           {paywall ? <Button title="See Premium" className="flex-1" onPress={() => router.push('/premium')} /> : null}
+          {needsConsent && onNeedsConsent ? <Button title="Review AI use" className="flex-1" onPress={onNeedsConsent} /> : null}
         </View>
       ) : (
         <View style={{ height: bottomSpace }} />

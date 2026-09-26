@@ -2,6 +2,7 @@ import { and, count, desc, eq, gte, inArray, lt } from 'drizzle-orm';
 
 import { db } from '@/db';
 import { meals, users } from '@/db/schema';
+import { requireAiConsent } from '@/lib/server/ai-consent';
 import { requireUserId } from '@/lib/server/auth';
 import { ANALYZED_SOURCES, freeScansPerDay, isActive, paymentsEnabled, scansToday, subscriptionOf } from '@/lib/server/billing';
 import { dateParam, dayBounds, loggedAtFor, userTimeZone } from '@/lib/server/day';
@@ -180,7 +181,7 @@ export const POST = handle(async (request) => {
 
   const user = await db.query.users.findFirst({
     where: eq(users.id, userId),
-    columns: { onboardingCompletedAt: true, timezone: true },
+    columns: { onboardingCompletedAt: true, timezone: true, aiConsentAt: true, aiConsentProviders: true },
   });
   if (!user?.onboardingCompletedAt) throw new HttpError(409, 'Finish onboarding before logging meals.');
 
@@ -199,6 +200,7 @@ export const POST = handle(async (request) => {
       }
       return Response.json({ meal: await toMeal(meal) }, { status: 201 });
     }
+    requireAiConsent(user);
     await checkAiLimit(userId, user.timezone);
     const { text } = describeMealSchema.parse(body);
     const [meal] = await db.insert(meals).values({ userId, status: 'analyzing', source: 'text', note: text }).returning();
@@ -206,6 +208,7 @@ export const POST = handle(async (request) => {
     return Response.json({ meal: await toMeal(meal) }, { status: 201 });
   }
 
+  requireAiConsent(user);
   await checkAiLimit(userId, user.timezone);
   const mode = photoMode(request);
   // Label numbers are printed on the package; a note would only compete with them.

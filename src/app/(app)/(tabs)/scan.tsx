@@ -2,13 +2,16 @@ import { router } from 'expo-router';
 import { useState } from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { AiConsentView } from '@/components/ai-consent-view';
 import { AnalysisView, type MealInput } from '@/components/scan/analysis-view';
 import { CameraCapture, type Photo, type ScanMode } from '@/components/scan/camera-capture';
 import { DescribeMeal } from '@/components/scan/describe-meal';
 import { FoodSearchView } from '@/components/scan/food-search-view';
 import { PhotoPreview } from '@/components/scan/photo-preview';
 import { ProductView } from '@/components/scan/product-view';
-import { useBilling, useFeatures } from '@/lib/queries';
+import { notify } from '@/lib/confirm';
+import { useBilling, useFeatures, useProfile, useUpdateProfile } from '@/lib/queries';
+import { DEFAULT_AI_PROVIDERS } from '@/shared/features';
 import { MAX_MEAL_PHOTOS, type PhotoMode } from '@/shared/meals';
 
 /** Height of the floating native tab bar above the home indicator. */
@@ -34,8 +37,49 @@ export default function ScanScreen() {
   const multiPhoto = !!features.data?.multiPhoto;
   const addNeedsPremium = payments && !billing.data?.premium;
   const bottomSpace = insets.bottom + TAB_BAR_SPACE;
-  const analyze = (input: MealInput) => setStep({ name: 'analyzing', input, key: Date.now() });
+  const profile = useProfile();
+  const updateProfile = useUpdateProfile();
+  // A photo, label or description waiting for AI consent (Apple 5.1.2(i)); barcodes, food search
+  // and quick add never need it.
+  const [consentFor, setConsentFor] = useState<MealInput | null>(null);
+  const startAnalysis = (input: MealInput) => setStep({ name: 'analyzing', input, key: Date.now() });
+  const analyze = (input: MealInput) => {
+    const usesAi = input.kind === 'photo' || input.kind === 'text';
+    if (usesAi && !profile?.aiConsent) setConsentFor(input);
+    else startAnalysis(input);
+  };
   const capture = () => setStep({ name: 'capture' });
+
+  if (consentFor) {
+    return (
+      <AiConsentView
+        context="scan"
+        providers={features.data?.aiProviders ?? DEFAULT_AI_PROVIDERS}
+        allowing={updateProfile.isPending}
+        bottomSpace={bottomSpace}
+        onAllow={() =>
+          updateProfile.mutate(
+            { aiConsent: true },
+            {
+              onSuccess: () => {
+                setConsentFor(null);
+                startAnalysis(consentFor);
+              },
+              onError: (error) => notify("We couldn't save that", error.message),
+            },
+          )
+        }
+        onDecline={() => {
+          // Back to the description or the photos, as they were: nothing is sent.
+          setConsentFor(null);
+          if (consentFor.kind === 'text') setStep({ name: 'describe', text: consentFor.text });
+          else if (consentFor.kind === 'photo') {
+            setStep({ name: 'preview', photos: consentFor.photos, mode: consentFor.mode, note: consentFor.note ?? '' });
+          }
+        }}
+      />
+    );
+  }
 
   if (step.name === 'preview') {
     const { photos } = step;
@@ -111,6 +155,7 @@ export default function ScanScreen() {
         key={step.key}
         input={input}
         bottomSpace={bottomSpace}
+        onNeedsConsent={() => setConsentFor(input)}
         onScanAnother={() =>
           setStep(input.kind === 'text' ? { name: 'describe' } : input.kind === 'food' ? { name: 'search' } : { name: 'capture' })
         }

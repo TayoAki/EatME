@@ -8,6 +8,7 @@ import { colors } from '@/constants/colors';
 import { notify } from '@/lib/confirm';
 import { haptics } from '@/lib/haptics';
 import { useFeatures, useProfile, useUpdateProfile } from '@/lib/queries';
+import { aiRecipients, DEFAULT_AI_PROVIDERS } from '@/shared/features';
 import type { Preferences } from '@/shared/user';
 
 function PreferenceCard({
@@ -44,7 +45,10 @@ function PreferenceCard({
   );
 }
 
-/** App preferences kept on the account: calm mode, and the food-quality tag experiment when offered. */
+/**
+ * App preferences kept on the account: AI analysis (the consent, Apple 5.1.2(i)), calm mode, and the
+ * food-quality tag experiment when offered.
+ */
 export default function PreferencesScreen() {
   const profile = useProfile();
   const features = useFeatures();
@@ -55,6 +59,11 @@ export default function PreferencesScreen() {
     haptics.selection();
     update.mutate({ preferences: change }, { onError: (error) => notify("We couldn't save that", error.message) });
   };
+  const setAiConsent = (allowed: boolean) => {
+    haptics.selection();
+    update.mutate({ aiConsent: allowed }, { onError: (error) => notify("We couldn't save that", error.message) });
+  };
+  const recipients = aiRecipients(features.data?.aiProviders ?? DEFAULT_AI_PROVIDERS, 'them');
 
   return (
     <Screen>
@@ -65,6 +74,14 @@ export default function PreferencesScreen() {
         <Text accessibilityRole="header" className="text-[32px] font-bold tracking-tight text-ink">
           Preferences
         </Text>
+        <PreferenceCard
+          title="AI meal analysis"
+          label="AI meal analysis"
+          value={!!profile?.aiConsent}
+          disabled={update.isPending}
+          onChange={setAiConsent}>
+          {`Sends the meal photos, descriptions and notes you choose to analyze to ${recipients}, without your name or email. They don't train AI models on it. When it's off, barcodes, food search and quick add still work, and a scan asks first.`}
+        </PreferenceCard>
         <PreferenceCard
           title="Calm mode"
           label="Calm mode"

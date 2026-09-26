@@ -7,6 +7,8 @@ export class ApiError extends Error {
   constructor(
     message: string,
     readonly status: number,
+    /** The server's reason, e.g. `ai_consent_required`. */
+    readonly code?: string,
   ) {
     super(message);
     this.name = 'ApiError';
@@ -60,7 +62,8 @@ export async function apiFetch<T>(
       (data && typeof data === 'object' && 'error' in data && typeof data.error === 'string'
         ? data.error
         : null) ?? `Request failed (${res.status})`;
-    throw new ApiError(message, res.status);
+    const code = data && typeof data === 'object' && 'code' in data && typeof data.code === 'string' ? data.code : undefined;
+    throw new ApiError(message, res.status, code);
   }
   return data as T;
 }

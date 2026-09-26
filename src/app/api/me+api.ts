@@ -2,6 +2,7 @@ import { eq } from 'drizzle-orm';
 
 import { db } from '@/db';
 import { users } from '@/db/schema';
+import { aiConsentValues } from '@/lib/server/ai-consent';
 import { deleteUserData } from '@/lib/server/account';
 import { requireUserId } from '@/lib/server/auth';
 import { toProfile } from '@/lib/server/dto';
@@ -65,14 +66,19 @@ export const PATCH = handle(async (request) => {
 
   const user = await db.query.users.findFirst({ where: eq(users.id, userId) });
   if (!user) throw new HttpError(404, 'Profile not found');
-  const { dailyCalories, dailyProteinG, dailyCarbsG, dailyFatG, preferences, ...rest } = body;
+  const { dailyCalories, dailyProteinG, dailyCarbsG, dailyFatG, preferences, aiConsent, ...rest } = body;
   const targets = targetChanges(user, { ...rest, dailyCalories, dailyProteinG, dailyCarbsG, dailyFatG });
 
   // A new weight in Personal details is today's weigh-in (after keeping the starting weight).
   if (rest.weightKg !== undefined) await ensureStartingWeight(user);
   const [row] = await db
     .update(users)
-    .set({ ...rest, ...targets, ...(preferences ? { preferences: { ...user.preferences, ...preferences } } : {}) })
+    .set({
+      ...rest,
+      ...targets,
+      ...(preferences ? { preferences: { ...user.preferences, ...preferences } } : {}),
+      ...(aiConsent !== undefined ? aiConsentValues(aiConsent) : {}),
+    })
     .where(eq(users.id, userId))
     .returning();
   if (rest.weightKg !== undefined && row.onboardingCompletedAt) {

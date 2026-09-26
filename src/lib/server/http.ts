@@ -1,10 +1,14 @@
 import { ZodError } from 'zod';
 
-/** Error with an HTTP status that `handle()` turns into a JSON response. */
+/**
+ * Error with an HTTP status that `handle()` turns into a JSON response. `code` tells the app what
+ * to do about it (e.g. `ai_consent_required`: ask for AI consent, then try again).
+ */
 export class HttpError extends Error {
   constructor(
     readonly status: number,
     message: string,
+    readonly code?: string,
   ) {
     super(message);
   }
@@ -19,7 +23,7 @@ export function handle<P = Record<string, string>>(handler: Handler<P>): Handler
       return await handler(request, params);
     } catch (error) {
       if (error instanceof HttpError) {
-        return Response.json({ error: error.message }, { status: error.status });
+        return Response.json({ error: error.message, ...(error.code ? { code: error.code } : {}) }, { status: error.status });
       }
       if (error instanceof ZodError) {
         return Response.json(

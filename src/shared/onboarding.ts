@@ -59,11 +59,15 @@ export const nutritionPlanSchema = z.object({
 });
 export type NutritionPlan = z.infer<typeof nutritionPlanSchema>;
 
-/** Body of `POST /api/onboarding`. */
+/** Body of `POST /api/plan`: the answers, and whether the person allowed AI (else the formula plan). */
+export const planRequestSchema = onboardingAnswersSchema.extend({ aiConsent: z.boolean().optional() });
+
+/** Body of `POST /api/onboarding`. `aiConsent`: the choice on the AI consent screen. */
 export const saveOnboardingSchema = z.object({
   answers: onboardingAnswersSchema,
   plan: nutritionPlanSchema,
   timezone: z.string().min(1).max(100),
+  aiConsent: z.boolean().optional(),
 });
 export type SaveOnboardingBody = z.infer<typeof saveOnboardingSchema>;
 

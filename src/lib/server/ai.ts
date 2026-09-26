@@ -33,6 +33,34 @@ export function ai() {
   return client;
 }
 
+/** Model makers by OpenRouter's model prefix, named on the AI consent screen. */
+const MAKERS: Record<string, string> = {
+  openai: 'OpenAI',
+  anthropic: 'Anthropic',
+  google: 'Google',
+  'meta-llama': 'Meta',
+  mistralai: 'Mistral AI',
+  'x-ai': 'xAI',
+  deepseek: 'DeepSeek',
+  qwen: 'Alibaba Cloud',
+  amazon: 'Amazon',
+  cohere: 'Cohere',
+};
+
+/**
+ * The companies that receive people's data for AI work: OpenRouter (when used) and the makers of
+ * the configured models. The AI consent screen names them (Apple 5.1.2(i)); consent covers only the
+ * names it showed, so switching to another maker's model asks everyone again.
+ */
+export function aiProviders(): string[] {
+  if (!usingOpenRouter()) return ['OpenAI'];
+  const makers = [process.env.AI_MODEL || DEFAULT_MODEL, process.env.AI_VISION_MODEL || DEFAULT_MODEL].map((model) => {
+    const prefix = model.split('/')[0];
+    return MAKERS[prefix] ?? prefix;
+  });
+  return [...new Set(['OpenRouter', ...makers])];
+}
+
 /** Model id from env. OpenAI itself does not use OpenRouter's "openai/" prefix. */
 export function modelFor(kind: 'text' | 'vision') {
   const model = (kind === 'vision' ? process.env.AI_VISION_MODEL : process.env.AI_MODEL) || DEFAULT_MODEL;

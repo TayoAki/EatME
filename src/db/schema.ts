@@ -109,6 +109,12 @@ export const users = pgTable('users', {
   glp1: jsonb().$type<Glp1Settings>(),
   /** App preferences, e.g. the food-quality tag experiment (V2). */
   preferences: jsonb().$type<Preferences>().notNull().default({}),
+  /**
+   * AI consent (Apple 5.1.2(i)): when the person allowed their answers, meal photos and
+   * descriptions to go to AI, and the companies the consent screen named. Empty = not allowed.
+   */
+  aiConsentAt: timestamp({ withTimezone: true }),
+  aiConsentProviders: text().array(),
 
   ...timestamps,
 });

@@ -32,6 +32,8 @@ export type Profile = {
   /** Confirmed with an emailed code (V2). */
   emailVerified: boolean;
   preferences: Preferences;
+  /** Allowed AI processing of their answers, meal photos and descriptions (Apple 5.1.2(i)). */
+  aiConsent: boolean;
   name: string;
   gender: Gender | null;
   dateOfBirth: string | null;
@@ -107,6 +109,8 @@ export const updateProfileSchema = z
     dailyFatG: z.number().int().min(MACRO_LIMITS.fatG.min).max(MACRO_LIMITS.fatG.max).nullable(),
     /** Merged into the stored preferences. */
     preferences: z.object({ foodQualityTag: z.boolean(), calmMode: z.boolean() }).partial().strict(),
+    /** Allow (true) or stop (false) AI analysis of meal photos and descriptions. */
+    aiConsent: z.boolean(),
   })
   .partial();
 export type UpdateProfileBody = z.infer<typeof updateProfileSchema>;

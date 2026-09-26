@@ -16,4 +16,21 @@ export type Features = {
   multiPhoto: boolean;
   /** The AI may ask one tap-to-answer question after a scan. */
   followUp: boolean;
+  /** The companies that get data for AI work, named on the AI consent screen (e.g. OpenRouter, OpenAI). */
+  aiProviders: string[];
 };
+
+/** Shown on the AI consent screen until the server's list has loaded (the server's own setup). */
+export const DEFAULT_AI_PROVIDERS = ['OpenRouter', 'OpenAI'];
+
+/**
+ * Who gets the data, in words: "OpenRouter, which passes it to OpenAI's AI model" (or the model
+ * makers alone when the server talks to them directly). `them` for plural data (answers, photos).
+ */
+export function aiRecipients(providers: readonly string[], pronoun: 'it' | 'them' = 'it') {
+  const makers = providers.filter((provider) => provider !== 'OpenRouter');
+  const owners = makers.map((maker) => `${maker}'s`);
+  const joined = owners.length > 1 ? `${owners.slice(0, -1).join(', ')} and ${owners.at(-1)}` : (owners[0] ?? 'an');
+  const models = `${joined} AI model${makers.length > 1 ? 's' : ''}`;
+  return providers.includes('OpenRouter') ? `OpenRouter, which passes ${pronoun} to ${models}` : models;
+}
