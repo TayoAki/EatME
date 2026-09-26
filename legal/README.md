@@ -1,7 +1,9 @@
 # EatME website: landing page + legal pages
 
-Static site for EatME: the landing page, the Privacy Policy and the Terms of Service that the app links to.
-Plain HTML and one stylesheet: no build step, no JavaScript, no cookies, no analytics, no external requests.
+Static site for EatME: the landing page, the Privacy Policy and the Terms of Service that the app links to, the
+account deletion page and the Consumer Health Data Privacy Policy. Plain HTML and one stylesheet: no build step, no
+cookies, no analytics, no external requests; the only JavaScript is the deletion form on `delete-account.html`, which
+posts to `/api/account/delete` on the same server.
 It is served by the EatME server on Railway (`server/index.mjs`), the same server that runs the API.
 
 | File | What it is |
@@ -9,6 +11,8 @@ It is served by the EatME server on Railway (`server/index.mjs`), the same serve
 | `index.html` | Landing page (`/`) |
 | `privacy.html` | Privacy Policy (`/privacy`) |
 | `terms.html` | Terms of Service (`/terms`) |
+| `delete-account.html` | Delete your account (`/delete-account`): in the app, with email + password on the page, or by email (Google Play's deletion link) |
+| `health-data.html` | Consumer Health Data Privacy Policy (`/health-data`, Washington My Health My Data Act), linked on its own from the homepage footer |
 | `404.html` | Not-found page, served for unknown URLs (uses root-relative paths) |
 | `style.css` | All styles, using the app's colors and radii |
 | `images/` | Logo, app icon (also the favicon), phone mockups |
@@ -17,7 +21,8 @@ It is served by the EatME server on Railway (`server/index.mjs`), the same serve
 
 `server/index.mjs` serves this folder next to the API routes (`/api/*`):
 
-- `/` → `index.html`, `/privacy` → `privacy.html`, `/terms` → `terms.html`
+- `/` → `index.html`, `/privacy` → `privacy.html`, `/terms` → `terms.html`, `/delete-account` →
+  `delete-account.html`, `/health-data` → `health-data.html`
 - `/style.css` and `/images/<file>` as they are (files directly inside `images/`, no subfolders)
 - old links such as `/privacy.html`, `/terms.html` and `/index.html` redirect (301) to the clean URLs, so the
   `privacy.html` / `terms.html` links between the pages keep working
@@ -66,7 +71,8 @@ real value, and also the `[Contact Email]` inside every `href="mailto:[Contact E
 - [ ] `[Contact Email]`: an inbox you monitor for privacy, deletion, lost-password and support requests (EatME sends no
       emails of its own yet, so this inbox is the only way users can reach you)
 - [ ] `[Governing Law Jurisdiction]`: the country or state whose law governs the Terms
-- [ ] `[Effective Date]`: the date the documents take effect (on both pages)
+- [ ] `[Effective Date]`: the date the documents take effect (Privacy Policy, Terms, Consumer Health Data Privacy
+      Policy)
 - [ ] `[EU Representative, if applicable]`: name and address of your Article 27 GDPR representative if you have
       no establishment in the EU but offer the app there; otherwise delete that line from `privacy.html`
 - [ ] Nothing is left: `grep -rn 'class="placeholder"\|\[[A-Z]' legal/*.html` prints nothing
@@ -86,6 +92,10 @@ real value, and also the `[Contact Email]` inside every `href="mailto:[Contact E
     documents first
 - [ ] Accept each provider's data processing agreement (Railway, OpenRouter, Sentry), and have the documents reviewed
       by a lawyer
-- [ ] Deploy, check `/privacy`, `/terms`, `/privacy.html` (redirect) and a random URL (404 page) on a phone, set
-      `EXPO_PUBLIC_LEGAL_URL`, and add the Privacy Policy URL to App Store Connect and Google Play Console. Your App
-      Privacy answers must match the policy
+- [ ] Deploy, check `/privacy`, `/terms`, `/delete-account`, `/health-data`, `/privacy.html` (redirect) and a random
+      URL (404 page) on a phone, set `EXPO_PUBLIC_LEGAL_URL`, and add the Privacy Policy URL to App Store Connect and
+      Google Play Console. Your App Privacy answers must match the policy
+- [ ] Google Play Console → App content → Data safety: the account deletion URL is `<server>/delete-account`
+- [ ] If the landing page moves to its own domain, keep the separate "Consumer Health Data Privacy Policy" link on
+      its homepage (Washington requires a distinct homepage link) and keep `/delete-account` on the API's domain (its
+      form posts to `/api/account/delete`)

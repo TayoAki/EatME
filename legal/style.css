@@ -1135,3 +1135,79 @@ mark.placeholder {
     border: 0;
   }
 }
+
+/* ---------- Delete account: the form ---------- */
+
+.form {
+  display: grid;
+  gap: 16px;
+  margin: 20px 0 8px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-box);
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.field label {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.field input {
+  min-height: 48px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--canvas);
+  color: var(--ink);
+  font: inherit;
+}
+
+.field input:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 1px;
+}
+
+.check {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 0.95rem;
+}
+
+.check input {
+  margin-top: 4px;
+}
+
+.btn--danger {
+  border: 0;
+  background: #c4320a;
+  cursor: pointer;
+}
+
+.btn--danger:hover {
+  background: #a02a08;
+}
+
+.btn[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.form-status {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.form-status.error {
+  color: #b42318;
+}
+
+.form-status.done {
+  color: #067647;
+  font-weight: 600;
+}

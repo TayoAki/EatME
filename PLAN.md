@@ -340,7 +340,8 @@ added to an earlier day are stored at local noon of that day.
 | `/api/auth/*` | — | Better Auth: sign up, sign in, sign out, session; `email-otp/*` codes (request-password-reset, reset-password, send-verification-otp, verify-email) |
 | `POST /api/plan` | public, 10/h per IP | AI plan for the onboarding answers when `aiConsent: true`, else (and as fallback) the formula |
 | `POST /api/onboarding` | session | Save answers + plan on the user |
-| `GET/PATCH/DELETE /api/me` | session | Profile, edits (personal details, time zone), delete account |
+| `GET/PATCH/DELETE /api/me` | session | Profile, edits (personal details, time zone, `aiConsent`), delete account |
+| `POST /api/account/delete` | public, 10/h per IP | Delete an account from the web page with its email + password (no session) |
 | `GET/POST /api/meals` | session | List a day's meals / log a meal + start the analysis (50 AI analyses a day): a JPEG body (`?mode=label` for labels, `X-Meal-Note` header for a note, up to 3 photos back to back with `X-Photo-Lengths`) or JSON `{ text }`; JSON `{ barcode: { code, grams } }`, `{ food: { foodId, grams } }` or `{ quick: { calories, … } }` logs at once without AI |
 | `POST /api/meals/:id/follow-up` | session | The answer to the meal's one question (`{ option }` or `"skip"`); no AI call |
 | `GET/POST /api/saved-meals` | session, 60 writes/h | Saved meals (up to 100) with their repeats / save a logged meal (`{ mealId }`) or build one from foods |
@@ -501,8 +502,13 @@ added to an earlier day are stored at local noon of that day.
   claims (Apple 1.4.1): the plan says "Your goal is to lose…" (not "You should"); Profile →
   Support → "Help with eating or body image" opens Find A Helpline (175+ countries); app and
   landing page call the numbers estimates
-- [ ] Web page for account deletion requests (Google Play)
-- [ ] Legal placeholders filled in (`legal/README.md`) and a Washington health-data policy
+- [x] Web page for account deletion requests (Google Play): `/delete-account` deletes an account
+  with its email + password (`POST /api/account/delete`, 10 tries an hour per IP), or by email;
+  lists what is deleted and kept. Add its URL in Play Console → Data safety
+- [x] A Washington health-data policy: `/health-data` (Consumer Health Data Privacy Policy),
+  its own link in the homepage footer
+- [ ] Legal placeholders filled in (`legal/README.md`): company name, address, contact email,
+  jurisdiction, effective date — then a lawyer's read
 - [ ] Demo account with sample meals; review notes point to the consent screen
 - [ ] App Privacy labels, Play Data safety form, Play Health apps declaration, "not a
   medical device" in the Play listing

@@ -50,7 +50,14 @@ const CONTENT_TYPES = {
   '.svg': 'image/svg+xml',
   '.ico': 'image/x-icon',
 };
-const PAGES = { '/': 'index.html', '/privacy': 'privacy.html', '/terms': 'terms.html' };
+const PAGES = {
+  '/': 'index.html',
+  '/privacy': 'privacy.html',
+  '/terms': 'terms.html',
+  // Google Play: a web way to delete an account. Washington (My Health My Data): its own policy page.
+  '/delete-account': 'delete-account.html',
+  '/health-data': 'health-data.html',
+};
 
 async function sendFile(res, file, status, method) {
   const body = await readFile(path.join(legalDir, file));
