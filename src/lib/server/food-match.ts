@@ -154,7 +154,7 @@ export async function computeItems(items: readonly AiMealItem[], memory: readonl
     // Only the items the memory didn't answer are sent for matching (numbered as in the meal).
     const asked = items.flatMap((item, i) => (open[i] ? [{ item, i }] : []));
     try {
-      const { data } = await structuredCompletion({
+      const { data, usage } = await structuredCompletion({
         model: modelFor('text'),
         name: 'food_match',
         jsonSchema: FOOD_MATCH_JSON_SCHEMA,
@@ -167,6 +167,8 @@ export async function computeItems(items: readonly AiMealItem[], memory: readonl
       asked.forEach(({ i }, n) => {
         picks[i] = data.matches.find((m) => m.item === n + 1)?.fdcId ?? null;
       });
+      // Like the other AI calls: the tokens and cost (OpenRouter's `usage.cost`) for the running-cost numbers.
+      console.info('[meals] matched', JSON.stringify({ items: asked.length, picked: picks.filter((id) => id !== null).length, usage }));
     } catch (error) {
       // Matching is an improvement, never a requirement: keep the AI's estimates.
       console.warn(`[meals] food matching failed: ${describeError(error)}`);
