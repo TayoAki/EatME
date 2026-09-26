@@ -200,10 +200,10 @@ export function AnalysisView({ input, onScanAnother, onEdit, onDone, onNeedsCons
     notified.current = true;
     if (outcome.status === 'completed') {
       haptics.success();
+      // No meal numbers in diagnostics: they are health data.
       Sentry.logger.info('Meal analyzed', {
         kind,
         mealId: outcome.id,
-        calories: outcome.calories ?? 0,
         seconds: Math.round((Date.now() - startedAt.current) / 1000),
       });
     } else if (outcome.status === 'not_food') {

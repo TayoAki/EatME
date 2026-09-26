@@ -7,6 +7,7 @@ import { NUTRIENTS, type NutrientAmounts, type NutrientKey } from '@/shared/nutr
 import type { Product, ProductSource } from '@/shared/products';
 
 import { HttpError } from './http';
+import { describeError } from './log';
 
 /** Found products are refreshed after a month; unknown barcodes are asked about again the next day. */
 const FOUND_TTL_MS = 30 * 24 * 60 * 60 * 1000;
@@ -313,7 +314,7 @@ export async function lookupProduct(raw: string): Promise<Product | null> {
       const saved = await save(code, await fetchProduct(code), row);
       if (saved.source) return toProduct(saved);
     } catch (error) {
-      console.warn(`[products] lookup of ${code} failed`, error);
+      console.warn(`[products] lookup of ${code} failed: ${describeError(error)}`);
       if (row?.source) return toProduct(row);
       throw new HttpError(502, "We couldn't reach the product database. Please try again in a moment.");
     }

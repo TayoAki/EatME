@@ -5,6 +5,7 @@ import { meals, type MealRow } from '@/db/schema';
 import { scaleNutrition, type BaseNutrition, type UpdateMealBody } from '@/shared/meals';
 
 import { HttpError } from './http';
+import { describeError } from './log';
 import { copyItems } from './meal-items';
 import { getObject, mealPhotoKey, putObject } from './storage';
 
@@ -61,7 +62,7 @@ export async function copyPhoto(meal: MealRow, id: string) {
     return imageKey;
   } catch (error) {
     // The copy is still useful without a picture.
-    console.warn(`[meals] could not copy the photo of ${meal.id}`, error);
+    console.warn(`[meals] could not copy the photo of ${meal.id}: ${describeError(error)}`);
     return null;
   }
 }

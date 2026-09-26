@@ -16,7 +16,8 @@ Sentry.init({
   dsn,
   enabled: sentryEnabled,
   environment: __DEV__ ? 'development' : 'production',
-  sendDefaultPii: true,
+  // No IP addresses, user details or request bodies: EatME handles health data.
+  sendDefaultPii: false,
 
   // Structured logs (Sentry.logger.*) — searchable in Sentry → Explore → Logs.
   enableLogs: true,

@@ -2,6 +2,7 @@ import { ageFromDateOfBirth, formulaPlan, sanitizePlan } from '@/shared/nutritio
 import { nutritionPlanSchema, type NutritionPlan, type OnboardingAnswers } from '@/shared/onboarding';
 
 import { modelFor, structuredCompletion } from './ai';
+import { describeError } from './log';
 import { PLAN_JSON_SCHEMA, PLAN_SYSTEM_PROMPT } from './prompts';
 
 const ATTEMPTS = 2;
@@ -40,13 +41,13 @@ export async function generatePlan(answers: OnboardingAnswers): Promise<Nutritio
 
       const plan = sanitizePlan({ ...data, source: 'ai' }, answers);
       if (plan) {
-        console.info('[plan] AI plan generated', JSON.stringify({ calories: plan.calories, usage }));
+        console.info('[plan] AI plan generated', JSON.stringify({ usage }));
         return plan;
       }
-      console.warn('[plan] AI plan failed the sanity check, using the formula', JSON.stringify(data));
+      console.warn('[plan] AI plan failed the sanity check, using the formula');
       break;
     } catch (error) {
-      console.error(`[plan] attempt ${attempt} of ${ATTEMPTS} failed`, error);
+      console.error(`[plan] attempt ${attempt} of ${ATTEMPTS} failed: ${describeError(error)}`);
     }
   }
   return formulaPlan(answers);

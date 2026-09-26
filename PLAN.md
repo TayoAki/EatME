@@ -481,8 +481,8 @@ added to an earlier day are stored at local noon of that day.
   dish, a small vs a large portion
 - [ ] Rotate the OpenRouter key (it was shared in chat), update `OPENROUTER_API_KEY` on
   Railway, set a spending limit
-- [ ] Sentry: set `sendDefaultPii: false`, then set `EXPO_PUBLIC_SENTRY_DSN` (crash reports
-  and the Send feedback button)
+- [ ] Sentry: `sendDefaultPii: false` is set (and app diagnostics carry no meal numbers); you:
+  set `EXPO_PUBLIC_SENTRY_DSN` (crash reports and the Send feedback button)
 - [ ] Beta without the Codespace: EAS preview builds (Android install link; iPhone
   TestFlight needs the Apple Developer account)
 
@@ -513,11 +513,13 @@ added to an earlier day are stored at local noon of that day.
 - [ ] App Privacy labels, Play Data safety form, Play Health apps declaration, "not a
   medical device" in the Play listing
 - [ ] A one-line answer to "how is this different from Cal AI?" (Apple 4.3(b))
-- [ ] Keep health data out of the server logs: `handle()` in `src/lib/server/http.ts` logs the
-  whole error, and drizzle's query errors include the values (`params: …`), so a failed insert
-  can write weights, notes or medicine names to Railway. Log the query text and error code only.
-- [ ] Remove `ALLOW_EXPO_GO` from Railway, turn on Postgres backups, block OpenRouter
-  providers that train on data
+- [x] Keep health data out of the server logs: every server error log goes through
+  `describeError` (`src/lib/server/log.ts`): the SQL text (placeholders only) and the Postgres
+  code, validation paths, no quoted JSON; info logs carry no calories
+- [x] Block AI providers that train on data: every OpenRouter request sends
+  `provider: { data_collection: 'deny' }` (checked with the real model: still routed to OpenAI)
+- [ ] Remove `ALLOW_EXPO_GO` from Railway (when testers move to TestFlight builds) and turn on
+  Postgres backups with retention within 30 days
 - [ ] Before turning on payments: products in App Store Connect and Play Console, a RevenueCat
   project (entitlement `premium`, a current offering), its webhook to `/api/billing/webhook` with
   the secret, the public SDK keys in `eas.json`, then `PAYMENTS_ENABLED=true`

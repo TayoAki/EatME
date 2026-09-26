@@ -5,6 +5,7 @@ import { meals, subscriptions, users, type SubscriptionRow } from '@/db/schema';
 import { PREMIUM_ENTITLEMENT, type BillingStatus } from '@/shared/billing';
 
 import { dayBounds } from './day';
+import { describeError } from './log';
 import { localDate } from './streak';
 
 /**
@@ -102,7 +103,7 @@ export async function applyWebhookEvent(event: RevenueCatEvent) {
     }
     for (const id of event.transferred_to ?? []) {
       const to = await eventUser([id]);
-      if (to) await syncFromRevenueCat(to).catch((error: unknown) => console.error('[billing] sync after transfer failed', error));
+      if (to) await syncFromRevenueCat(to).catch((error: unknown) => console.error(`[billing] sync after transfer failed: ${describeError(error)}`));
     }
     return 'transferred';
   }

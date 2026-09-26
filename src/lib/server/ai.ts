@@ -85,7 +85,7 @@ export async function structuredCompletion<T extends z.ZodType>({
   schema,
   messages,
 }: StructuredRequest<T>): Promise<{ data: z.infer<T>; usage: OpenAI.CompletionUsage | undefined }> {
-  const response = await ai().chat.completions.create({
+  const body: OpenAI.ChatCompletionCreateParamsNonStreaming & { provider?: { data_collection: 'deny' } } = {
     model,
     messages,
     reasoning_effort: 'low',
@@ -93,7 +93,11 @@ export async function structuredCompletion<T extends z.ZodType>({
       type: 'json_schema',
       json_schema: { name, strict: true, schema: jsonSchema },
     },
-  });
+    // OpenRouter routes only to providers that don't collect the data or train on it (as the
+    // privacy policy promises), whatever the account settings say.
+    ...(usingOpenRouter() ? { provider: { data_collection: 'deny' as const } } : {}),
+  };
+  const response = await ai().chat.completions.create(body);
 
   const content = response.choices[0]?.message?.content;
   if (!content) throw new Error(`Empty response from ${model}`);

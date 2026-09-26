@@ -6,6 +6,7 @@ import { meals } from '@/db/schema';
 import { requireUserId } from '@/lib/server/auth';
 import { toMeal } from '@/lib/server/dto';
 import { closedQuestion } from '@/lib/server/follow-up';
+import { describeError } from '@/lib/server/log';
 import { toMealWithItems } from '@/lib/server/meal-items';
 import { handle, HttpError, readJson } from '@/lib/server/http';
 import { resumeStalledAnalyses } from '@/lib/server/meal-analysis';
@@ -34,7 +35,7 @@ export const GET = handle<Params>(async (request, { id }) => {
   const userId = await requireUserId(request);
   const meal = await findMeal(userId, id);
   if (meal.status === 'analyzing') {
-    void resumeStalledAnalyses(userId).catch((error: unknown) => console.error('[meals] resume failed', error));
+    void resumeStalledAnalyses(userId).catch((error: unknown) => console.error(`[meals] resume failed: ${describeError(error)}`));
     return Response.json({ meal: await toMeal(meal) });
   }
   return Response.json({ meal: await toMealWithItems(meal) });
@@ -69,7 +70,7 @@ export const DELETE = handle<Params>(async (request, { id }) => {
   const keys = [meal.imageKey, ...(meal.extraImageKeys ?? [])].filter((key): key is string => !!key);
   await Promise.all(
     keys.map((key) =>
-      deleteObject(key).catch((error: unknown) => console.error('[meals] could not delete a photo from the bucket', error)),
+      deleteObject(key).catch((error: unknown) => console.error(`[meals] could not delete a photo from the bucket: ${describeError(error)}`)),
     ),
   );
   return Response.json({ deleted: true });

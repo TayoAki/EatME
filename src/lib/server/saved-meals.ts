@@ -19,6 +19,7 @@ import { foodNutrients, type ComputedItem } from './food-match';
 import { foodsByIds } from './foods';
 import { HttpError } from './http';
 import { createMeal } from './instant-meals';
+import { describeError } from './log';
 import { copyMeal, copyPhoto } from './meal-values';
 import { deleteObject } from './storage';
 import { localDate } from './streak';
@@ -220,7 +221,7 @@ export async function logPlanned(userId: string, repeatId: string, date: string)
   } finally {
     // The first tap's copy was found (or nothing was saved): this photo copy isn't needed.
     if (!created && photo.imageKey) {
-      await deleteObject(photo.imageKey).catch((error: unknown) => console.warn('[saved-meals] could not delete a spare photo', error));
+      await deleteObject(photo.imageKey).catch((error: unknown) => console.warn(`[saved-meals] could not delete a spare photo: ${describeError(error)}`));
     }
   }
 }

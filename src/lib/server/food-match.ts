@@ -9,6 +9,7 @@ import { foodKey, USUAL_GRAMS_RANGE } from '@/shared/personal-foods';
 
 import { modelFor, structuredCompletion } from './ai';
 import { foodsAvailable, foodsByIds, searchFoods } from './foods';
+import { describeError } from './log';
 import { FOOD_MATCH_JSON_SCHEMA, FOOD_MATCH_SYSTEM_PROMPT } from './prompts';
 
 const CANDIDATES = 10;
@@ -165,7 +166,7 @@ export async function computeItems(items: readonly AiMealItem[], memory: readonl
       });
     } catch (error) {
       // Matching is an improvement, never a requirement: keep the AI's estimates.
-      console.warn('[meals] food matching failed', error);
+      console.warn(`[meals] food matching failed: ${describeError(error)}`);
       picks = items.map(() => null);
     }
   }

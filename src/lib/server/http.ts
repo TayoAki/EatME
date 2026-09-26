@@ -1,5 +1,7 @@
 import { ZodError } from 'zod';
 
+import { describeError } from './log';
+
 /**
  * Error with an HTTP status that `handle()` turns into a JSON response. `code` tells the app what
  * to do about it (e.g. `ai_consent_required`: ask for AI consent, then try again).
@@ -31,7 +33,8 @@ export function handle<P = Record<string, string>>(handler: Handler<P>): Handler
           { status: 400 },
         );
       }
-      console.error(`[api] ${request.method} ${new URL(request.url).pathname} failed`, error);
+      // Never the whole error: a failed query carries the values it tried to write.
+      console.error(`[api] ${request.method} ${new URL(request.url).pathname} failed: ${describeError(error)}`);
       return Response.json({ error: 'Something went wrong. Please try again.' }, { status: 500 });
     }
   };

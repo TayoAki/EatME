@@ -10,6 +10,7 @@ import { multiPhotoEnabled } from '@/lib/server/experiments';
 import { toMeal } from '@/lib/server/dto';
 import { handle, HttpError, readJson } from '@/lib/server/http';
 import { logFoodMeal, logProductMeal, logQuickMeal } from '@/lib/server/instant-meals';
+import { describeError } from '@/lib/server/log';
 import { resumeStalledAnalyses, startMealAnalysis } from '@/lib/server/meal-analysis';
 import { rateLimit } from '@/lib/server/rate-limit';
 import { deleteObject, extraPhotoKey, mealPhotoKey, putObject } from '@/lib/server/storage';
@@ -39,7 +40,7 @@ export const GET = handle(async (request) => {
   const userId = await requireUserId(request);
   const date = dateParam(request);
 
-  void resumeStalledAnalyses(userId).catch((error: unknown) => console.error('[meals] resume failed', error));
+  void resumeStalledAnalyses(userId).catch((error: unknown) => console.error(`[meals] resume failed: ${describeError(error)}`));
 
   const { start: dayStart, end: dayEnd } = dayBounds(date, await userTimeZone(userId));
 

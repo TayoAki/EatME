@@ -73,7 +73,6 @@ export default function BuildingPlanScreen() {
     const log = plan.source === 'ai' ? Sentry.logger.info : Sentry.logger.warn;
     log(plan.source === 'ai' ? 'Onboarding plan generated' : 'Onboarding plan used the formula fallback', {
       planSource: plan.source,
-      calories: plan.calories,
     });
     haptics.success();
     setPlan(plan);

@@ -99,12 +99,15 @@ const handleApi = createRequestHandler({ build: path.join(root, 'dist', 'server'
 
 await runMigrations();
 
+/** An error's name and code only: the API routes log their own errors without the data inside them. */
+const errorLine = (error) => (error instanceof Error ? `${error.name}${error.code ? ` ${error.code}` : ''}` : typeof error);
+
 createServer((req, res) => {
   const pathname = (req.url ?? '/').split('?')[0];
 
   if (pathname === '/api' || pathname.startsWith('/api/')) {
     handleApi(req, res, (error) => {
-      if (error) console.error('[server] API error', error);
+      if (error) console.error(`[server] API error: ${errorLine(error)}`);
       if (res.headersSent) return;
       res.writeHead(error ? 500 : 404, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify({ error: error ? 'Something went wrong. Please try again.' : 'Not found' }));
@@ -118,7 +121,7 @@ createServer((req, res) => {
     return;
   }
   serveSite(req, res).catch((error) => {
-    console.error('[server] page error', error);
+    console.error(`[server] page error: ${errorLine(error)}`);
     if (!res.headersSent) res.writeHead(500);
     res.end();
   });

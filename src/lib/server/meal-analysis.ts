@@ -17,6 +17,7 @@ import { modelFor, structuredCompletion } from './ai';
 import { followUpEnabled, foodQualityEnabled } from './experiments';
 import { buildFollowUp } from './follow-up';
 import { computeItems, itemTotals, type ComputedItem } from './food-match';
+import { describeError } from './log';
 import { markUsed, personalFoodsFor, promptNames } from './personal-foods';
 import {
   FOLLOW_UP_RULES,
@@ -47,7 +48,7 @@ const stale = () =>
  * (the request that created the meal has already answered). The app polls `GET /api/meals/:id`.
  */
 export function startMealAnalysis(mealId: string) {
-  void analyzeMeal(mealId).catch((error: unknown) => console.error(`[meals] analysis of ${mealId} crashed`, error));
+  void analyzeMeal(mealId).catch((error: unknown) => console.error(`[meals] analysis of ${mealId} crashed: ${describeError(error)}`));
 }
 
 /** Restarts analyses that a restart or deploy interrupted. Called whenever the app loads meals. */
@@ -164,7 +165,7 @@ async function askAi(
         { role: 'user', content: meal.note ?? '' },
       ],
     });
-    console.info('[meals] described', JSON.stringify({ mealId: meal.id, isFood: data.isFood, calories: data.calories, usage }));
+    console.info('[meals] described', JSON.stringify({ mealId: meal.id, isFood: data.isFood, usage }));
     return data;
   }
 
@@ -183,7 +184,7 @@ async function askAi(
         userPhotos('Read this nutrition label.', [photo], 'high'),
       ],
     });
-    console.info('[meals] label read', JSON.stringify({ mealId: meal.id, isFood: data.isFood, calories: data.calories, usage }));
+    console.info('[meals] label read', JSON.stringify({ mealId: meal.id, isFood: data.isFood, usage }));
     // A label is one product: its printed numbers are the answer, no foods to match.
     return { ...data, items: [] };
   }
@@ -208,14 +209,14 @@ async function askAi(
       ),
     ],
   });
-  console.info('[meals] analyzed', JSON.stringify({ mealId: meal.id, isFood: data.isFood, calories: data.calories, usage }));
+  console.info('[meals] analyzed', JSON.stringify({ mealId: meal.id, isFood: data.isFood, usage }));
   return data;
 }
 
 async function deletePhoto(meal: MealRow) {
   await Promise.all(
     photoKeys(meal).map((key) =>
-      deleteObject(key).catch((error: unknown) => console.warn(`[meals] could not delete a photo of ${meal.id}`, error)),
+      deleteObject(key).catch((error: unknown) => console.warn(`[meals] could not delete a photo of ${meal.id}: ${describeError(error)}`)),
     ),
   );
 }
@@ -262,7 +263,7 @@ async function analyzeMeal(mealId: string) {
     const followUp =
       followUpEnabled() && analysis.question && items.length > 0
         ? await buildFollowUp(analysis.question, analysis.items, items).catch((error: unknown) => {
-            console.warn(`[meals] follow-up question for ${mealId} failed`, error);
+            console.warn(`[meals] follow-up question for ${mealId} failed: ${describeError(error)}`);
             return null;
           })
         : null;
@@ -299,7 +300,7 @@ async function analyzeMeal(mealId: string) {
     }
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
-    console.error(`[meals] attempt ${meal.analysisAttempts} of ${MAX_ATTEMPTS} for ${mealId} failed`, error);
+    console.error(`[meals] attempt ${meal.analysisAttempts} of ${MAX_ATTEMPTS} for ${mealId} failed: ${describeError(error)}`);
 
     if (meal.analysisAttempts >= MAX_ATTEMPTS) {
       // Failed meals are hidden in the app, so their photo is of no use: delete it.
