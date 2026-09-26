@@ -3,14 +3,15 @@ import Constants from 'expo-constants';
 import { router } from 'expo-router';
 import {
   Bell,
-  Bug,
   Brain,
+  Bug,
   Crown,
   FileText,
   HeartPulse,
+  LifeBuoy,
   MailCheck,
-  Pill,
   MessageSquareText,
+  Pill,
   ShieldCheck,
   SlidersHorizontal,
   Syringe,
@@ -145,6 +146,11 @@ function ProfileContent({ profile }: { profile: Profile }) {
         {sentryEnabled ? (
           <SettingsRow icon={MessageSquareText} label="Send feedback" onPress={() => Sentry.showFeedbackWidget()} />
         ) : null}
+        <SettingsRow
+          icon={LifeBuoy}
+          label="Help with eating or body image"
+          onPress={() => void openLink(links.helpline)}
+        />
         <SettingsRow icon={ShieldCheck} label="Privacy Policy" onPress={() => void openLink(links.privacy)} />
         <SettingsRow icon={FileText} label="Terms of Service" onPress={() => void openLink(links.terms)} />
       </SettingsGroup>

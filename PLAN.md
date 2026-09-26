@@ -497,8 +497,10 @@ added to an earlier day are stored at local noon of that day.
   server; "Lose weight" is off within 0.5 kg of that weight)
 - [x] Minimum age: 18 (`MIN_AGE` in the app and server, Terms and Privacy Policy). You: pick the
   age rating in App Store Connect
-- [ ] "Check with a doctor" line on the plan screen, a helpline link in Profile, no accuracy
-  claims (Apple 1.4.1)
+- [x] "Check with a doctor" line on the plan screen, a helpline link in Profile, no accuracy
+  claims (Apple 1.4.1): the plan says "Your goal is to lose…" (not "You should"); Profile →
+  Support → "Help with eating or body image" opens Find A Helpline (175+ countries); app and
+  landing page call the numbers estimates
 - [ ] Web page for account deletion requests (Google Play)
 - [ ] Legal placeholders filled in (`legal/README.md`) and a Washington health-data policy
 - [ ] Demo account with sample meals; review notes point to the consent screen

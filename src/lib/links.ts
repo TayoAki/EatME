@@ -7,6 +7,8 @@ export const links = {
   website: LEGAL_URL,
   privacy: `${LEGAL_URL}/privacy`,
   terms: `${LEGAL_URL}/terms`,
+  /** Find A Helpline (ThroughLine): free, confidential helplines for eating and body image in 175+ countries. */
+  helpline: 'https://findahelpline.com/topics/eating-body-image',
 };
 
 export function openLink(url: string) {

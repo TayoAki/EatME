@@ -1,5 +1,5 @@
 import { Redirect, router } from 'expo-router';
-import { Check, ClipboardList, Scale, Sparkles, Target, type LucideIcon } from 'lucide-react-native';
+import { Check, ClipboardList, Scale, Sparkles, Stethoscope, Target, type LucideIcon } from 'lucide-react-native';
 import { useMemo } from 'react';
 import { ScrollView, Text, View } from 'react-native';
 
@@ -76,7 +76,7 @@ export default function PlanReadyScreen() {
           ) : (
             <>
               <Text className="mt-4 text-[16px] text-muted">
-                You should {answers.goal === 'gain' ? 'gain' : 'lose'}:
+                Your goal is to {answers.goal === 'gain' ? 'gain' : 'lose'}:
               </Text>
               <View className="mt-2 rounded-full bg-surface px-4 py-2">
                 <Text className="text-[17px] font-semibold text-ink">
@@ -121,6 +121,16 @@ export default function PlanReadyScreen() {
               <Text className="text-[15px] text-ink">{text}</Text>
             </View>
           ))}
+        </View>
+
+        {/* General estimate, not medical advice (Apple 1.4.1). */}
+        <View className="mt-5 flex-row gap-3 rounded-2xl border border-line p-3.5">
+          <Stethoscope size={18} color={colors.ink} strokeWidth={1.8} style={{ marginTop: 1 }} />
+          <Text className="flex-1 text-[14px] leading-5 text-ink">
+            This plan is a general estimate, not medical advice. Check with a doctor before big changes to how you eat,
+            especially if you&apos;re pregnant or breastfeeding, have a health condition such as diabetes, take medicine
+            such as a GLP-1, or have had an eating disorder.
+          </Text>
         </View>
 
         <PricingNote />
