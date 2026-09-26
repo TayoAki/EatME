@@ -148,7 +148,12 @@ Welcome ──Get started──▶ Onboarding questions ──▶ Building your 
   server restart resumes the next time the app loads meals.
 - Result: name, calories, protein, carbs, fat, fiber, the protein-per-meal hint (the daily
   protein goal spread over about four meals), servings for labels, and "rough estimate"
-  when the AI's confidence is low → `Log another` or `Done`.
+  when the AI's confidence is low → `Log another` or `Done`. Sugary drinks and food (at least
+  12 g of sugar giving half the calories or more, under 5 g protein, fiber under a tenth of the
+  sugar; sugar known from the database or the label only) show a sugar note instead of the
+  protein hint: "About 21 g of sugar with little fiber, so it's absorbed quickly and can raise
+  blood sugar faster than whole fruit. Having it with a meal slows that down." (juice wording;
+  calm mode drops the grams). Same on the meal screen.
 - Saved meals (v2.1, the star button on the camera or on the permission screen): saved meals
   first (one tap logs a copy now, the arrow opens it to edit or repeat it), then favourites;
   `New meal` builds one from database foods. `Quick add` (v2.1) types calories and macros.
@@ -231,9 +236,10 @@ at sign-up (or a new one). Codes, not links: they work on phones without deep li
   scheduled on the phone),
   GLP-1 mode (medicine, weekly or daily, dose day; dose and side-effect history; turn off
   or delete the data), Supplements (V2), Your foods (v2.1: remembered foods to rename, change
-  the usual amount or forget), Preferences (v2.1: calm mode), Language,
-  Upgrade to Family Plan — UI only; Preferences holds the food-quality tag switch when the
-  experiment is on), Support (Send feedback via Sentry — shown only
+  the usual amount or forget), Preferences (v2.1: calm mode; the food-quality tag switch when the
+  experiment is on). Language and Family Plan rows were removed before launch (placeholders
+  fail Apple 2.1; family access later = Family Sharing on the subscription). Support (Send
+  feedback via Sentry — shown only
   when a Sentry DSN is set, Privacy Policy, Terms of Service), Sign out, Delete account
   (with confirmation).
 - Delete account removes everything: account, sessions, password, plan, meals, photos.

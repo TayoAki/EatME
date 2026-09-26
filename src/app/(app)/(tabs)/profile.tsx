@@ -7,7 +7,6 @@ import {
   Brain,
   Crown,
   FileText,
-  Globe,
   HeartPulse,
   MailCheck,
   Pill,
@@ -17,7 +16,6 @@ import {
   Syringe,
   Target,
   UserRound,
-  Users,
   Weight,
 } from 'lucide-react-native';
 import { useState } from 'react';
@@ -37,8 +35,6 @@ import { formatWeight } from '@/shared/units';
 import type { Profile } from '@/shared/user';
 
 const TAB_BAR_SPACE = 110;
-
-const comingSoon = (feature: string) => notify(feature, 'This option is coming soon.');
 
 export default function ProfileScreen() {
   const profile = useProfile();
@@ -142,8 +138,6 @@ function ProfileContent({ profile }: { profile: Profile }) {
         />
         <SettingsRow icon={Brain} label="Your foods" onPress={() => router.push('/personal-foods')} />
         <SettingsRow icon={SlidersHorizontal} label="Preferences" onPress={() => router.push('/preferences')} />
-        <SettingsRow icon={Globe} label="Language" value="English" onPress={() => comingSoon('Language')} />
-        <SettingsRow icon={Users} label="Upgrade to Family Plan" onPress={() => comingSoon('Family Plan')} />
       </SettingsGroup>
 
       <SettingsGroup title="Support">
