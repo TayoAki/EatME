@@ -1,8 +1,9 @@
 /**
  * FatSecret Platform API client (restaurant menus). Server only. OAuth 2.0 client credentials with
- * the `premier` scope (Premier Free): FatSecret only issues tokens to the IP addresses registered
- * with the key, so the server needs a static outbound IP. Their terms: only IDs may be stored
- * indefinitely; everything else here is cached in memory for at most 24 hours (much less below).
+ * the `premier` scope (Premier Free): FatSecret only answers calls from the IP addresses registered
+ * with the key (error 21 otherwise), so the server needs a static outbound IP. Their terms: only IDs
+ * may be stored indefinitely; everything else here is cached in memory for at most 24 hours (much
+ * less below).
  */
 import type { NutrientAmounts } from '@/shared/nutrients';
 import type { RestaurantServing } from '@/shared/restaurants';
@@ -89,8 +90,12 @@ async function requestToken(): Promise<string> {
     body: new URLSearchParams({ grant_type: 'client_credentials', scope: 'premier' }).toString(),
     signal: AbortSignal.timeout(TIMEOUT_MS),
   });
-  // 400/401 here usually means wrong keys, the scope isn't enabled, or this server's IP isn't registered.
-  if (!res.ok) throw new Error(`FatSecret token request answered ${res.status}`);
+  // The reason goes to the log: `invalid_scope` means Premier isn't enabled on the key yet,
+  // `invalid_client` means wrong keys.
+  if (!res.ok) {
+    const reason = ((await res.json().catch(() => null)) as { error?: unknown } | null)?.error;
+    throw new Error(`FatSecret token request answered ${res.status}${typeof reason === 'string' ? ` (${reason})` : ''}`);
+  }
   const body = (await res.json()) as { access_token?: string; expires_in?: number };
   if (!body.access_token) throw new Error('FatSecret token response had no access token');
   shared.token = { value: body.access_token, expiresAt: Date.now() + (body.expires_in ?? 86_400) * 1000 };

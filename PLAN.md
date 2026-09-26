@@ -809,12 +809,14 @@ added to an earlier day are stored at local noon of that day.
   out: search chains and menu items, build a plate, see it against what's left today, then log
   it or save it for later. Built behind `RESTAURANTS`; off in production until FatSecret confirms
   in writing that EatME may keep the numbers of the items a person logs
-- [ ] You: a FatSecret Platform account with Premier Free (US data, free under $1M revenue and
-  $1M raised), the written answer on storing logged items, Railway Pro with Static Outbound IPs
-  (FatSecret only issues tokens to registered IP addresses), then the keys on Railway
-  (`FATSECRET_CLIENT_ID`, `FATSECRET_CLIENT_SECRET`, `RESTAURANTS=true`), the store listing and App
-  Privacy changes in `store/README.md` ("When restaurant menus go live") and FatSecret's credit in
-  the landing page footer (commented out in `legal/index.html`)
+- [x] FatSecret Platform account and API keys; `FATSECRET_CLIENT_ID` and `FATSECRET_CLIENT_SECRET`
+  are set on Railway (`RESTAURANTS` is not)
+- [ ] You: Premier Free on the key (US data, free under $1M revenue and $1M raised; until then a
+  token for the `premier` scope answers `invalid_scope`), the written answer on storing logged items,
+  Railway Pro with Static Outbound IPs added to the key's allowed IP addresses (FatSecret only
+  answers calls from registered addresses, error 21 otherwise), then `RESTAURANTS=true` on Railway,
+  the store listing and App Privacy changes in `store/README.md` ("When restaurant menus go live")
+  and FatSecret's credit in the landing page footer (commented out in `legal/index.html`)
 
 **Eating out decisions** (checked September 2026; migration `restaurant_meals`)
 - Source: FatSecret Platform API, Premier Free (`premier` scope). OAuth 2.0 client credentials
