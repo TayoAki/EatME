@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { ageFromDateOfBirth } from './nutrition';
+import { ageFromDateOfBirth, bmiFloorKg } from './nutrition';
 
 /**
  * Onboarding answers and the AI-generated nutrition plan.
@@ -22,11 +22,25 @@ export type UnitSystem = (typeof UNIT_SYSTEMS)[number];
 export type PlanSource = (typeof PLAN_SOURCES)[number];
 
 export const MIN_WEEKLY_GOAL_KG = 0.1;
-export const MAX_WEEKLY_GOAL_KG = 1.5;
+/** At most 1 kg a week (the safer-limits rule before launch). */
+export const MAX_WEEKLY_GOAL_KG = 1;
 export const DEFAULT_WEEKLY_GOAL_KG = 0.5;
 
 /** Minimum age in the Terms of Service; the birthday pickers stop at these ages too. */
-export const MIN_AGE = 13;
+export const MIN_AGE = 18;
+
+/** The lowest goal weight for weight loss: a BMI of 18.5 for this height, rounded up to 0.1 kg. */
+export function lowestGoalWeightKg(heightCm: number) {
+  return Math.ceil(bmiFloorKg(heightCm) * 10) / 10;
+}
+
+/** Whether a weight-loss goal is possible at all: at least 0.5 kg above the lowest goal weight. */
+export function canLoseWeight(weightKg: number, heightCm: number) {
+  return weightKg - 0.5 >= lowestGoalWeightKg(heightCm);
+}
+
+export const lowGoalMessage = (heightCm: number) =>
+  `For your height, EatME keeps weight-loss goals at ${lowestGoalWeightKg(heightCm)} kg or more (a BMI of 18.5).`;
 export const MAX_AGE = 100;
 
 const isoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Expected a YYYY-MM-DD date');
@@ -35,7 +49,7 @@ export const dateOfBirthSchema = isoDate
   .refine((value) => ageFromDateOfBirth(value) >= MIN_AGE, `You must be at least ${MIN_AGE} years old to use EatME`)
   .refine((value) => ageFromDateOfBirth(value) <= MAX_AGE, 'Enter a valid date of birth');
 
-export const onboardingAnswersSchema = z.object({
+const onboardingAnswersObject = z.object({
   gender: z.enum(GENDERS),
   dateOfBirth: dateOfBirthSchema,
   heightCm: z.number().min(100).max(250),
@@ -47,6 +61,15 @@ export const onboardingAnswersSchema = z.object({
   diet: z.enum(DIETS),
   unitSystem: z.enum(UNIT_SYSTEMS),
 });
+
+/** No weight-loss goal below a BMI of 18.5 (the safer-limits rule before launch). */
+function safeGoal(answers: { goal: Goal; targetWeightKg: number; heightCm: number }, ctx: z.RefinementCtx) {
+  if (answers.goal === 'lose' && answers.targetWeightKg < lowestGoalWeightKg(answers.heightCm)) {
+    ctx.addIssue({ code: 'custom', path: ['targetWeightKg'], message: lowGoalMessage(answers.heightCm) });
+  }
+}
+
+export const onboardingAnswersSchema = onboardingAnswersObject.superRefine(safeGoal);
 export type OnboardingAnswers = z.infer<typeof onboardingAnswersSchema>;
 
 export const nutritionPlanSchema = z.object({
@@ -60,7 +83,7 @@ export const nutritionPlanSchema = z.object({
 export type NutritionPlan = z.infer<typeof nutritionPlanSchema>;
 
 /** Body of `POST /api/plan`: the answers, and whether the person allowed AI (else the formula plan). */
-export const planRequestSchema = onboardingAnswersSchema.extend({ aiConsent: z.boolean().optional() });
+export const planRequestSchema = onboardingAnswersObject.extend({ aiConsent: z.boolean().optional() }).superRefine(safeGoal);
 
 /** Body of `POST /api/onboarding`. `aiConsent`: the choice on the AI consent screen. */
 export const saveOnboardingSchema = z.object({

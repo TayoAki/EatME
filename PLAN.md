@@ -68,13 +68,13 @@ Welcome ──Get started──▶ Onboarding questions ──▶ Building your 
 1. **Welcome** — logo, headline, phone demo image, `Get started`, `Sign in` link.
 2. **Onboarding questions** (before auth, answers kept on device):
    1. Gender
-   2. Birthday (13 or older, matching the Terms of Service)
+   2. Birthday (18 or older, matching the Terms of Service)
    3. Height
    4. Current weight
-   5. Goal — lose / maintain / gain
-   6. Desired weight (skipped when maintaining)
+   5. Goal — lose / maintain / gain ("Lose weight" is off within 0.5 kg of a BMI of 18.5)
+   6. Desired weight (skipped when maintaining; a loss goal never below a BMI of 18.5)
    7. How active are you (weekly)
-   8. Weekly pace in kg per week (skipped when maintaining)
+   8. Weekly pace in kg per week (skipped when maintaining; at most 1 kg a week)
    9. Diet — classic / pescatarian / vegetarian / vegan
 3. **AI consent** (Apple 5.1.2(i)) — "EatME uses AI": which answers go where (OpenRouter,
    which passes them to OpenAI's model; the names come from `/api/features`), that later meal
@@ -492,9 +492,11 @@ added to an earlier day are stored at local noon of that day.
   and asks again if the AI companies change; Preferences → AI meal analysis turns it off/on
 - [x] Calorie floor: 1,500 kcal for men, 1,200 for women (the plan, onboarding and Daily
   goals)
-- [ ] Safer plan limits: at most 1 kg of loss a week, no weight-loss target below a BMI
-  of 18.5
-- [ ] Minimum age: 18 recommended (`MIN_AGE`, age rating, terms)
+- [x] Safer plan limits: at most 1 kg of loss a week, no weight-loss target below a BMI
+  of 18.5 (`MAX_WEEKLY_GOAL_KG`, `lowestGoalWeightKg`: onboarding, Personal details and the
+  server; "Lose weight" is off within 0.5 kg of that weight)
+- [x] Minimum age: 18 (`MIN_AGE` in the app and server, Terms and Privacy Policy). You: pick the
+  age rating in App Store Connect
 - [ ] "Check with a doctor" line on the plan screen, a helpline link in Profile, no accuracy
   claims (Apple 1.4.1)
 - [ ] Web page for account deletion requests (Google Play)

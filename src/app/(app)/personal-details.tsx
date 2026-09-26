@@ -18,7 +18,7 @@ import { haptics } from '@/lib/haptics';
 import { useProfile, useUpdateProfile } from '@/lib/queries';
 import { formatLongDate, fromIsoDate } from '@/lib/time';
 import { ageFromDateOfBirth } from '@/shared/nutrition';
-import { GENDER_LABELS, GENDERS, MIN_AGE, type Gender } from '@/shared/onboarding';
+import { GENDER_LABELS, GENDERS, lowestGoalWeightKg, MIN_AGE, type Gender } from '@/shared/onboarding';
 import type { Profile, UpdateProfileBody } from '@/shared/user';
 import { formatHeight, formatWeight } from '@/shared/units';
 
@@ -73,6 +73,9 @@ function EditDetailSheet({
   const [dateOfBirth, setDateOfBirth] = useState(profile.dateOfBirth ?? '2000-01-01');
   const [gender, setGender] = useState<Gender | undefined>(profile.gender ?? undefined);
   const tooYoung = field === 'dateOfBirth' && ageFromDateOfBirth(dateOfBirth) < MIN_AGE;
+  // A weight-loss goal never goes below a BMI of 18.5.
+  const lowest = profile.goal === 'lose' && profile.heightCm ? lowestGoalWeightKg(profile.heightCm) : null;
+  const tooLow = field === 'targetWeightKg' && lowest !== null && weight < lowest;
 
   const save = () => {
     if (field === 'targetWeightKg') onSave({ targetWeightKg: weight });
@@ -86,7 +89,14 @@ function EditDetailSheet({
     <BottomSheet visible onClose={onClose}>
       <Text className="mb-4 text-center text-[22px] font-bold tracking-tight text-ink">{TITLES[field]}</Text>
       {field === 'targetWeightKg' || field === 'weightKg' ? (
-        <WeightWheel weightKg={weight} unit={profile.unitSystem} onChange={setWeight} label={TITLES[field]} />
+        <>
+          <WeightWheel weightKg={weight} unit={profile.unitSystem} onChange={setWeight} label={TITLES[field]} />
+          {tooLow && lowest !== null ? (
+            <Text className="mt-3 text-center text-[14px] leading-5 text-muted">
+              {`For your height, EatME keeps weight-loss goals at ${formatWeight(lowest, profile.unitSystem, 1)} or more (a BMI of 18.5).`}
+            </Text>
+          ) : null}
+        </>
       ) : field === 'heightCm' ? (
         <HeightWheels heightCm={height} unit={profile.unitSystem} onChange={setHeight} />
       ) : field === 'dateOfBirth' ? (
@@ -113,7 +123,7 @@ function EditDetailSheet({
       )}
       <View className="mt-6 flex-row gap-3">
         <Button title="Cancel" variant="secondary" className="flex-1" onPress={onClose} />
-        <Button title="Save" className="flex-1" loading={saving} disabled={tooYoung} onPress={save} />
+        <Button title="Save" className="flex-1" loading={saving} disabled={tooYoung || tooLow} onPress={save} />
       </View>
     </BottomSheet>
   );

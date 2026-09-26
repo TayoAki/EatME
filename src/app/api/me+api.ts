@@ -11,6 +11,7 @@ import { localDate } from '@/lib/server/streak';
 import { isValidTimeZone } from '@/lib/server/time-zone';
 import { ensureStartingWeight, logWeight } from '@/lib/server/weights';
 import { minimumCalories, type MacroTargets } from '@/shared/nutrition';
+import { lowestGoalWeightKg, lowGoalMessage } from '@/shared/onboarding';
 import { updateProfileSchema, type UpdateProfileBody } from '@/shared/user';
 
 const TARGET_FIELDS = {
@@ -66,6 +67,11 @@ export const PATCH = handle(async (request) => {
 
   const user = await db.query.users.findFirst({ where: eq(users.id, userId) });
   if (!user) throw new HttpError(404, 'Profile not found');
+  // A weight-loss goal never goes below a BMI of 18.5.
+  const heightCm = body.heightCm ?? user.heightCm;
+  if (body.targetWeightKg !== undefined && (body.goal ?? user.goal) === 'lose' && heightCm && body.targetWeightKg < lowestGoalWeightKg(heightCm)) {
+    throw new HttpError(400, lowGoalMessage(heightCm));
+  }
   const { dailyCalories, dailyProteinG, dailyCarbsG, dailyFatG, preferences, aiConsent, ...rest } = body;
   const targets = targetChanges(user, { ...rest, dailyCalories, dailyProteinG, dailyCarbsG, dailyFatG });
 

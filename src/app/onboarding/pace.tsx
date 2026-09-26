@@ -18,12 +18,12 @@ const SPEEDS: { key: Speed; icon: LucideIcon; label: string }[] = [
   { key: 'fast', icon: Zap, label: 'Fast' },
 ];
 
-const speedFor = (kg: number): Speed => (kg <= 0.4 ? 'slow' : kg <= 0.9 ? 'recommended' : 'fast');
+const speedFor = (kg: number): Speed => (kg <= 0.3 ? 'slow' : kg <= 0.7 ? 'recommended' : 'fast');
 
 const HINTS: Record<Speed, string> = {
   slow: 'Slow and steady — the easiest pace to stick with.',
   recommended: 'Recommended pace — a good balance of progress and comfort.',
-  fast: 'Aggressive pace — you may feel hungrier and need more discipline.',
+  fast: 'Faster pace — you may feel hungrier. EatME keeps it to 1 kg (2.2 lb) a week at most.',
 };
 
 export default function PaceStep() {
@@ -83,7 +83,7 @@ export default function PaceStep() {
         />
         <View className="w-full flex-row justify-between">
           <Text className="text-[14px] text-muted">{display(MIN_WEEKLY_GOAL_KG)} {metric ? 'kg' : 'lb'}</Text>
-          <Text className="text-[14px] text-muted">{display(0.8)} {metric ? 'kg' : 'lb'}</Text>
+          <Text className="text-[14px] text-muted">{display(DEFAULT_WEEKLY_GOAL_KG)} {metric ? 'kg' : 'lb'}</Text>
           <Text className="text-[14px] text-muted">{display(MAX_WEEKLY_GOAL_KG)} {metric ? 'kg' : 'lb'}</Text>
         </View>
 
