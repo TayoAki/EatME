@@ -541,10 +541,12 @@ added to an earlier day are stored at local noon of that day.
   notes; the App Store Connect API key and In-App Purchase key are in RevenueCat and valid
 - [x] Apple's Paid Apps agreement signed; `REVENUECAT_SECRET_KEY` (v1 secret key) set on Railway; the
   webhook's Authorization header `Bearer <REVENUECAT_WEBHOOK_SECRET>` entered in RevenueCat
-- [ ] Turn on payments: `PAYMENTS_ENABLED=true` on Railway once testers have a build with the
-  RevenueCat keys (it limits every free account, Expo Go included, to 3 AI scans a day). Then check
-  RevenueCat's "Send test event" reaches the webhook with 200 (401 means the header is wrong) and
-  make one TestFlight sandbox purchase
+- [x] Turned on in production on 2026-09-27 for the TestFlight beta: `PAYMENTS_ENABLED=true` (free
+  accounts, Expo Go included, get 3 AI scans a day), `FOLLOW_UP_QUESTION=true` (the tap-to-answer
+  question after a scan) and `FOOD_QUALITY_TAG=true` (each person still opts in under Preferences).
+  The weighed-meal check for the question happens in the beta instead of before it
+- [ ] Check payments end to end: RevenueCat's "Send test event" reaches the webhook with 200 (401
+  means the Authorization header is wrong), then one TestFlight sandbox purchase unlocks Premium
 - [ ] Before App Review: a screenshot of the Premium screen as each subscription's review screenshot
   (a blank placeholder is there now); the first subscriptions go to review with the first App Store
   version. Google Play later (service account key; Google wants a build uploaded first)
