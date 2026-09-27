@@ -1,6 +1,18 @@
 import { useInfiniteQuery, useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
-import type { AddDoseBody, AddSymptomsBody, Glp1Response, Glp1Settings } from '@/shared/glp1';
+import type {
+  AddDoseBody,
+  AddSymptomsBody,
+  DoseLog,
+  Glp1Medicine,
+  Glp1Response,
+  Glp1Settings,
+  MedicineDetails,
+  SupplyBody,
+  SupplyStatus,
+  SwitchMedicineBody,
+  UpdateMedicineBody,
+} from '@/shared/glp1';
 import type { WeeklyInsights } from '@/shared/insights';
 import type { BillingStatus } from '@/shared/billing';
 import type { Features } from '@/shared/features';
@@ -346,24 +358,84 @@ export function useGlp1(enabled = true) {
   });
 }
 
+/** GLP-1 data changes the weight chart too (it marks when medicines started). */
 function useInvalidateGlp1() {
   const { userId } = useSession();
   const queryClient = useQueryClient();
-  return () => queryClient.invalidateQueries({ queryKey: queryKeys.glp1(userId) });
+  return () =>
+    Promise.all([
+      queryClient.invalidateQueries({ queryKey: queryKeys.glp1(userId) }),
+      queryClient.invalidateQueries({ queryKey: queryKeys.weights(userId) }),
+    ]);
 }
 
-/** Turns GLP-1 mode on or updates it; `null` turns it off (the history is kept). */
+/**
+ * Turns GLP-1 mode on or updates the schedule; `settings: null` turns it off (the history is
+ * kept). `medicine` carries the name (Other) and the form when it is turned on.
+ */
 export function useSaveGlp1() {
   const { userId } = useSession();
   const api = useApi();
   const queryClient = useQueryClient();
   const invalidateGlp1 = useInvalidateGlp1();
   return useMutation({
-    mutationFn: (settings: Glp1Settings | null) => api<MeResponse>('/api/glp1', { method: 'PUT', body: { settings } }),
+    mutationFn: ({ settings, medicine }: { settings: Glp1Settings | null; medicine?: MedicineDetails }) =>
+      api<MeResponse>('/api/glp1', { method: 'PUT', body: { settings, medicine } }),
     onSuccess: (data) => {
       queryClient.setQueryData(queryKeys.me(userId), data);
       return invalidateGlp1();
     },
+  });
+}
+
+/** Switch medicine: the current one moves to the history from `startsOn`. */
+export function useSwitchMedicine() {
+  const { userId } = useSession();
+  const api = useApi();
+  const queryClient = useQueryClient();
+  const invalidateGlp1 = useInvalidateGlp1();
+  return useMutation({
+    mutationFn: (body: SwitchMedicineBody) =>
+      api<{ medicine: Glp1Medicine; user: MeResponse['user'] }>('/api/glp1/switch', { method: 'POST', body }),
+    onSuccess: (data) => {
+      queryClient.setQueryData(queryKeys.me(userId), { user: data.user });
+      return invalidateGlp1();
+    },
+  });
+}
+
+/** Fixes a medicine's name (Other), form or dates. */
+export function useUpdateMedicine() {
+  const api = useApi();
+  const invalidateGlp1 = useInvalidateGlp1();
+  return useMutation({
+    mutationFn: ({ id, body }: { id: string; body: UpdateMedicineBody }) =>
+      api<{ medicine: Glp1Medicine }>(`/api/glp1/medications/${id}`, { method: 'PATCH', body }),
+    onSuccess: () => invalidateGlp1(),
+  });
+}
+
+/** Pens & vials: set up or fix the counts (`null` stops tracking). */
+export function useSaveSupply() {
+  const api = useApi();
+  const invalidateGlp1 = useInvalidateGlp1();
+  return useMutation({
+    mutationFn: async (body: SupplyBody | null) => {
+      if (body) await api<{ supply: SupplyStatus }>('/api/glp1/supply', { method: 'PUT', body });
+      else await api('/api/glp1/supply', { method: 'DELETE' });
+    },
+    onSuccess: () => invalidateGlp1(),
+  });
+}
+
+/** Refill: unopened pens, vials or packs added. */
+export function useRefillSupply() {
+  const api = useApi();
+  const invalidateGlp1 = useInvalidateGlp1();
+  return useMutation({
+    mutationFn: (containers: number) =>
+      api<{ supply: SupplyStatus }>('/api/glp1/supply/refill', { method: 'POST', body: { containers } }),
+    onSuccess: () => invalidateGlp1(),
   });
 }
 
@@ -384,7 +456,7 @@ export function useLogDose() {
   const api = useApi();
   const invalidateGlp1 = useInvalidateGlp1();
   return useMutation({
-    mutationFn: (body: AddDoseBody) => api('/api/glp1/doses', { method: 'POST', body }),
+    mutationFn: (body: AddDoseBody) => api<{ dose: DoseLog }>('/api/glp1/doses', { method: 'POST', body }),
     onSuccess: () => invalidateGlp1(),
   });
 }

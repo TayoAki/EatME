@@ -13,6 +13,8 @@ type WeightChartProps = {
   /** Goal weight in the same unit, drawn as a dashed line when it is near enough to the weigh-ins. */
   goal: number | null;
   unit: 'kg' | 'lb';
+  /** Dated notes (a medicine started), drawn as thin vertical lines where they fall in the range. */
+  markers?: { date: string; text: string }[];
 };
 
 const HEIGHT = 210;
@@ -35,7 +37,7 @@ function ticks(min: number, max: number, count = 4) {
 }
 
 /** The trend line over time on a date scale, the weigh-ins as dots, and the goal weight. */
-export function WeightChart({ points, goal, unit }: WeightChartProps) {
+export function WeightChart({ points, goal, unit, markers = [] }: WeightChartProps) {
   const [width, setWidth] = useState(0);
   if (points.length === 0) return null;
 
@@ -65,6 +67,7 @@ export function WeightChart({ points, goal, unit }: WeightChartProps) {
   const end = points[points.length - 1];
   const summary = `Weight trend from ${points[0].trend.toFixed(1)} ${unit} on ${shortDate(points[0].date)} to ${end.trend.toFixed(1)} ${unit} on ${shortDate(end.date)}, ${points.length} ${points.length === 1 ? 'weigh-in' : 'weigh-ins'}${goal !== null ? `, goal ${goal.toFixed(1)} ${unit}` : ''}`;
   const xLabels = last === first ? [points[0].date] : [points[0].date, end.date];
+  const shownMarkers = last === first ? [] : markers.filter((m) => m.date >= points[0].date && m.date <= end.date);
 
   return (
     <View
@@ -99,6 +102,18 @@ export function WeightChart({ points, goal, unit }: WeightChartProps) {
               </SvgText>
             </>
           ) : null}
+          {shownMarkers.map((m) => (
+            <Line
+              key={`m-${m.date}-${m.text}`}
+              x1={x(m.date)}
+              x2={x(m.date)}
+              y1={PAD.top}
+              y2={HEIGHT - PAD.bottom}
+              stroke={colors.muted}
+              strokeWidth={1}
+              strokeDasharray="3 4"
+            />
+          ))}
           {points.map((p) => (
             <Circle key={`w-${p.date}`} cx={x(p.date)} cy={y(p.value)} r={points.length > 60 ? 2 : 3} fill={colors.faint} />
           ))}

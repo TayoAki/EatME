@@ -24,7 +24,15 @@ import {
   type BaseNutrition,
   type FollowUpState,
 } from '@/shared/meals';
-import { INJECTION_SITES, type Glp1Settings, type Symptom } from '@/shared/glp1';
+import {
+  BODY_SIDES,
+  GLP1_MEDICATIONS,
+  GLP1_SCHEDULES,
+  INJECTION_SITES,
+  MEDICINE_FORMS,
+  type Glp1Settings,
+  type Symptom,
+} from '@/shared/glp1';
 import type { NutrientAmounts } from '@/shared/nutrients';
 import {
   PRODUCT_REPORT_REASONS,
@@ -51,6 +59,10 @@ export const mealStatusEnum = pgEnum('meal_status', MEAL_STATUSES);
 export const mealSourceEnum = pgEnum('meal_source', MEAL_SOURCES);
 export const mealConfidenceEnum = pgEnum('meal_confidence', MEAL_CONFIDENCES);
 export const injectionSiteEnum = pgEnum('injection_site', INJECTION_SITES);
+export const bodySideEnum = pgEnum('body_side', BODY_SIDES);
+export const glp1MedicationEnum = pgEnum('glp1_medication', GLP1_MEDICATIONS);
+export const glp1ScheduleEnum = pgEnum('glp1_schedule', GLP1_SCHEDULES);
+export const medicineFormEnum = pgEnum('medicine_form', MEDICINE_FORMS);
 export const supplementScheduleEnum = pgEnum('supplement_schedule', SUPPLEMENT_SCHEDULES);
 export const productSourceEnum = pgEnum('product_source', PRODUCT_SOURCES);
 export const processingLevelEnum = pgEnum('processing_level', PROCESSING_LEVELS);
@@ -451,6 +463,51 @@ export const productReports = pgTable(
 );
 export type MealItemRow = typeof mealItems.$inferSelect;
 
+/**
+ * GLP-1 mode (v2.2): one current medicine (`ended_on` empty) and the ones before it, so doses stay
+ * with the medicine they were for. `users.glp1` stays the on/off switch and mirrors the current one.
+ * The supply columns are Pens & vials: counts the person entered, replayed with the doses logged
+ * since `count_started_at` (never an amount of medicine).
+ */
+export const glp1Medications = pgTable(
+  'glp1_medications',
+  {
+    id: uuid().primaryKey().defaultRandom(),
+    userId: text()
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
+    medication: glp1MedicationEnum().notNull(),
+    /** Other only: the name as written on the prescription label. */
+    name: text(),
+    form: medicineFormEnum().notNull(),
+    schedule: glp1ScheduleEnum().notNull(),
+    /** 0 = Sunday … 6 = Saturday; weekly medicines only. */
+    doseWeekday: smallint(),
+    startedOn: date({ mode: 'string' }).notNull(),
+    /** Empty = the current medicine. */
+    endedOn: date({ mode: 'string' }),
+
+    // Pens & vials (empty until the person sets it up).
+    dosesPerContainer: smallint(),
+    countStartedAt: timestamp({ withTimezone: true }),
+    dosesLeftAtCount: smallint(),
+    unopenedAtCount: smallint(),
+    /** When the one in use at `count_started_at` was opened. */
+    openedOn: date({ mode: 'string' }),
+    /** "Use within … days of opening", from the label; empty = no use-by date. */
+    useWithinDays: smallint(),
+    lowSupplyAt: smallint().notNull().default(2),
+    remindUseBy: boolean().notNull().default(true),
+    remindLow: boolean().notNull().default(true),
+    ...timestamps,
+  },
+  (t) => [
+    index('glp1_medications_user_id_idx').on(t.userId),
+    uniqueIndex('glp1_medications_current_idx').on(t.userId).where(sql`${t.endedOn} is null`),
+  ],
+);
+export type Glp1MedicationRow = typeof glp1Medications.$inferSelect;
+
 /** GLP-1 mode: doses as the user logged them (their own label, never a suggestion). */
 export const doseLogs = pgTable(
   'dose_logs',
@@ -462,6 +519,10 @@ export const doseLogs = pgTable(
     takenAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
     doseLabel: text(),
     site: injectionSiteEnum(),
+    /** Left or right (v2.2); empty for older doses. */
+    side: bodySideEnum(),
+    /** The medicine it was taken for (v2.2). */
+    medicationId: uuid().references(() => glp1Medications.id, { onDelete: 'set null' }),
     note: text(),
     ...timestamps,
   },

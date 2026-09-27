@@ -87,7 +87,15 @@ export function toWaterEntry(row: WaterLogRow): WaterEntry {
 }
 
 export function toDoseLog(row: DoseLogRow): DoseLog {
-  return { id: row.id, takenAt: row.takenAt.toISOString(), doseLabel: row.doseLabel, site: row.site, note: row.note };
+  return {
+    id: row.id,
+    takenAt: row.takenAt.toISOString(),
+    doseLabel: row.doseLabel,
+    site: row.site,
+    side: row.side,
+    medicationId: row.medicationId,
+    note: row.note,
+  };
 }
 
 export function toSymptomLog(row: SymptomLogRow): SymptomLog {

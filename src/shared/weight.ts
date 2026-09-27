@@ -19,11 +19,16 @@ export type AddWeightBody = z.infer<typeof addWeightSchema>;
 
 export type WeightEntry = { id: string; date: string; weightKg: number };
 
+/** A dated note on the weight chart, e.g. when a GLP-1 medicine started. It claims no cause. */
+export type WeightMarker = { date: string; text: string };
+
 /** `GET /api/weights`: every weigh-in, oldest first, and the goal from onboarding. */
 export type WeightHistory = {
   entries: WeightEntry[];
   goal: Goal | null;
   targetWeightKg: number | null;
+  /** v2.2: GLP-1 medicine starts ("Started Tirzepatide"), oldest first. */
+  markers?: WeightMarker[];
 };
 
 /** Chart ranges on the Weight screen (null = everything). */

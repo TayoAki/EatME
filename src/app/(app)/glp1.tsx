@@ -1,102 +1,59 @@
-import { router } from 'expo-router';
-import { ArrowLeft, Bell, ChevronRight, X } from 'lucide-react-native';
+import { router, useLocalSearchParams } from 'expo-router';
+import { ArrowLeft, Bell, ChevronRight, Repeat, X } from 'lucide-react-native';
 import { useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, Text, View } from 'react-native';
 
+import { MedicineHistory, medicinePeriod } from '@/components/glp1/medicine-history';
+import { choiceBody, choiceReady, emptyChoice, MedicineFields, type MedicineChoice } from '@/components/glp1/medicine-fields';
+import { RecentSites } from '@/components/glp1/sites';
+import { RefillSheet, SupplyCard, SupplySheet } from '@/components/glp1/supply';
+import { SwitchSheet } from '@/components/glp1/switch-sheet';
 import { Button } from '@/components/ui/button';
-import { Chip } from '@/components/ui/chip';
 import { IconButton } from '@/components/ui/icon-button';
-import { OptionRow } from '@/components/ui/option-row';
 import { Screen } from '@/components/ui/screen';
-import { SegmentedControl } from '@/components/ui/segmented-control';
 import { colors } from '@/constants/colors';
 import { confirm, notify } from '@/lib/confirm';
 import { haptics } from '@/lib/haptics';
 import { useDeleteDose, useDeleteGlp1Data, useDeleteSymptom, useGlp1, useProfile, useSaveGlp1 } from '@/lib/queries';
 import {
-  DEFAULT_SCHEDULE,
-  GLP1_MEDICATION_LABELS,
-  GLP1_MEDICATIONS,
-  INJECTION_SITE_LABELS,
+  MEDICINE_FORM_LABELS,
+  medicineTitle,
   SEVERITY_LABELS,
+  siteName,
   SYMPTOM_LABELS,
-  type Glp1Medication,
-  type Glp1Schedule,
-  type Glp1Settings,
+  type Glp1Medicine,
+  type Glp1Response,
 } from '@/shared/glp1';
 
-const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const WEEKDAY_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-const SCHEDULE_OPTIONS = [
-  { label: 'Once a week', value: 'weekly' },
-  { label: 'Every day', value: 'daily' },
-] as const;
 
 const when = (iso: string) =>
   new Date(iso).toLocaleDateString([], { weekday: 'short', month: 'short', day: 'numeric' });
 
-function scheduleText(settings: Glp1Settings) {
-  return settings.schedule === 'weekly' && settings.doseWeekday !== null
-    ? `Once a week, on ${WEEKDAY_NAMES[settings.doseWeekday]}s`
+function scheduleText(medicine: Pick<Glp1Medicine, 'schedule' | 'doseWeekday'>) {
+  return medicine.schedule === 'weekly' && medicine.doseWeekday !== null
+    ? `Once a week, on ${WEEKDAY_NAMES[medicine.doseWeekday]}s`
     : 'Every day';
 }
 
-function SettingsForm({ initial, onSaved }: { initial: Glp1Settings | null; onSaved: () => void }) {
+/** Turning GLP-1 mode on: the medicine, its name (Other), pens or vials, and when it is taken. */
+function TurnOnForm() {
   const save = useSaveGlp1();
-  const [medication, setMedication] = useState<Glp1Medication | null>(initial?.medication ?? null);
-  const [schedule, setSchedule] = useState<Glp1Schedule>(initial?.schedule ?? 'weekly');
-  const [weekday, setWeekday] = useState<number | null>(initial?.doseWeekday ?? null);
-  const ready = medication !== null && (schedule === 'daily' || weekday !== null);
-
-  const pick = (value: Glp1Medication) => {
-    setMedication(value);
-    if (!initial) setSchedule(DEFAULT_SCHEDULE[value]);
-  };
-
+  const [choice, setChoice] = useState<MedicineChoice>(emptyChoice);
   return (
     <View className="gap-5">
-      <View>
-        <Text className="mb-2 ml-1 text-[15px] font-medium text-muted">Your medicine</Text>
-        <View className="gap-2">
-          {GLP1_MEDICATIONS.map((value) => (
-            <OptionRow
-              key={value}
-              title={GLP1_MEDICATION_LABELS[value].title}
-              description={GLP1_MEDICATION_LABELS[value].description}
-              selected={medication === value}
-              onPress={() => pick(value)}
-            />
-          ))}
-        </View>
-      </View>
-      <View>
-        <Text className="mb-2 ml-1 text-[15px] font-medium text-muted">How often you take it</Text>
-        <SegmentedControl options={SCHEDULE_OPTIONS} value={schedule} onChange={setSchedule} />
-      </View>
-      {schedule === 'weekly' ? (
-        <View>
-          <Text className="mb-2 ml-1 text-[15px] font-medium text-muted">Dose day</Text>
-          <View className="flex-row flex-wrap gap-2">
-            {WEEKDAYS.map((label, index) => (
-              <Chip key={label} label={label} selected={weekday === index} onPress={() => setWeekday(index)} />
-            ))}
-          </View>
-        </View>
-      ) : null}
+      <MedicineFields value={choice} onChange={setChoice} />
       <Button
-        title={initial ? 'Save' : 'Turn on GLP-1 mode'}
-        disabled={!ready}
+        title="Turn on GLP-1 mode"
+        disabled={!choiceReady(choice)}
         loading={save.isPending}
         onPress={() => {
-          if (!medication) return;
+          const { name, form, ...settings } = choiceBody(choice);
           save.mutate(
-            { medication, schedule, doseWeekday: schedule === 'weekly' ? weekday : null },
+            { settings, medicine: { name, form } },
             {
-              onSuccess: () => {
-                haptics.success();
-                onSaved();
-              },
-              onError: (error) => notify("We couldn't save GLP-1 mode", error.message),
+              onSuccess: () => haptics.success(),
+              onError: (error) => notify("We couldn't turn on GLP-1 mode", error.message),
             },
           );
         }}
@@ -105,13 +62,53 @@ function SettingsForm({ initial, onSaved }: { initial: Glp1Settings | null; onSa
   );
 }
 
-function History() {
-  const glp1 = useGlp1();
+/** The current medicine's schedule, form and name (switching to another medicine is separate). */
+function ChangeForm({ current, onDone }: { current: Glp1Medicine; onDone: () => void }) {
+  const save = useSaveGlp1();
+  const [choice, setChoice] = useState<MedicineChoice>({
+    medication: current.medication,
+    name: current.name ?? '',
+    form: current.form,
+    schedule: current.schedule,
+    weekday: current.doseWeekday,
+  });
+  return (
+    <View className="gap-5">
+      <Text className="text-[17px] font-semibold text-ink">{medicineTitle(current)}</Text>
+      <MedicineFields value={choice} onChange={setChoice} lockMedication />
+      <View className="flex-row gap-2">
+        <Button title="Cancel" variant="secondary" className="flex-1" onPress={onDone} />
+        <Button
+          title="Save"
+          className="flex-1"
+          disabled={!choiceReady(choice)}
+          loading={save.isPending}
+          onPress={() => {
+            const { name, form, ...settings } = choiceBody(choice);
+            save.mutate(
+              { settings, medicine: { name: current.medication === 'other' ? (name ?? '') : undefined, form } },
+              {
+                onSuccess: () => {
+                  haptics.success();
+                  onDone();
+                },
+                onError: (error) => notify("We couldn't save it", error.message),
+              },
+            );
+          }}
+        />
+      </View>
+    </View>
+  );
+}
+
+function History({ glp1 }: { glp1: Glp1Response }) {
   const deleteDose = useDeleteDose();
   const deleteSymptom = useDeleteSymptom();
-  if (glp1.isPending) return <ActivityIndicator color={colors.ink} />;
-  const doses = glp1.data?.doses ?? [];
-  const symptoms = glp1.data?.symptoms ?? [];
+  const { doses, symptoms } = glp1;
+  // With more than one medicine, each dose says which one it was for.
+  const medicines = new Map([...(glp1.current ? [glp1.current] : []), ...glp1.history].map((m) => [m.id, medicineTitle(m)]));
+  const showMedicine = glp1.history.length > 0;
 
   const remove = async (kind: 'dose' | 'symptom', id: string) => {
     const ok = await confirm({ title: 'Remove this entry?', message: 'It will be deleted from your history.', confirmLabel: 'Remove', destructive: true });
@@ -133,7 +130,14 @@ function History() {
                 <View className="flex-1">
                   <Text className="text-[15px] text-ink">{when(dose.takenAt)}</Text>
                   <Text className="text-[13px] text-muted">
-                    {[dose.doseLabel, dose.site ? INJECTION_SITE_LABELS[dose.site] : null, dose.note].filter(Boolean).join(' · ') || 'Dose taken'}
+                    {[
+                      showMedicine && dose.medicationId ? medicines.get(dose.medicationId) : null,
+                      dose.doseLabel,
+                      dose.site ? siteName(dose.site, dose.side) : null,
+                      dose.note,
+                    ]
+                      .filter(Boolean)
+                      .join(' · ') || 'Dose taken'}
                   </Text>
                 </View>
                 <Pressable accessibilityRole="button" accessibilityLabel={`Remove the dose of ${when(dose.takenAt)}`} hitSlop={10} onPress={() => void remove('dose', dose.id)}>
@@ -175,25 +179,33 @@ function History() {
 
 export default function Glp1Screen() {
   const profile = useProfile();
+  const glp1 = useGlp1(!!profile);
+  const params = useLocalSearchParams<{ supply?: string }>();
   const save = useSaveGlp1();
   const deleteData = useDeleteGlp1Data();
   const [editing, setEditing] = useState(false);
+  const [switching, setSwitching] = useState(false);
+  // A dose that opened a new pen asks "Started a new one?"; "No" comes here to fix the counts.
+  const [supplyOpen, setSupplyOpen] = useState(params.supply === 'fix');
+  const [refillOpen, setRefillOpen] = useState(false);
   if (!profile) return null;
-  const settings = profile.glp1;
+  const data = glp1.data;
+  const current = data?.current ?? null;
+  const on = !!profile.glp1;
 
   const turnOff = async () => {
     const ok = await confirm({
       title: 'Turn off GLP-1 mode?',
-      message: 'Your dose and side-effect history is kept. You can turn it on again any time.',
+      message: 'Your medicines, doses and side effects are kept. You can turn it on again any time.',
       confirmLabel: 'Turn off',
     });
-    if (ok) save.mutate(null, { onError: (error) => notify("We couldn't turn it off", error.message) });
+    if (ok) save.mutate({ settings: null }, { onError: (error) => notify("We couldn't turn it off", error.message) });
   };
 
   const deleteAll = async () => {
     const ok = await confirm({
       title: 'Delete your GLP-1 data?',
-      message: 'This turns GLP-1 mode off and permanently deletes every dose and side-effect entry.',
+      message: 'This turns GLP-1 mode off and permanently deletes your medicines, doses, supply counts and side effects.',
       confirmLabel: 'Delete',
       destructive: true,
     });
@@ -211,7 +223,7 @@ export default function Glp1Screen() {
             GLP-1 mode
           </Text>
           <Text className="mt-1 text-[15px] leading-[21px] text-muted">
-            For people taking a GLP-1 medicine. Track your doses and how you feel, with protein, fiber and water
+            For people taking a GLP-1 medicine. Track your doses, supply and how you feel, with protein, fiber and water
             first — they help protect muscle and keep digestion comfortable while your appetite is lower.
           </Text>
         </View>
@@ -222,21 +234,42 @@ export default function Glp1Screen() {
           </Text>
         </View>
 
-        {!settings || editing ? (
-          <SettingsForm initial={settings} onSaved={() => setEditing(false)} />
+        {!on ? (
+          <>
+            <TurnOnForm />
+            {data ? <MedicineHistory history={data.history} /> : null}
+          </>
+        ) : glp1.isPending || !data ? (
+          <ActivityIndicator color={colors.ink} />
+        ) : !current ? (
+          <Text className="text-[15px] text-muted">We couldn&apos;t load your medicine. Pull to refresh or try again later.</Text>
+        ) : editing ? (
+          <ChangeForm current={current} onDone={() => setEditing(false)} />
         ) : (
           <>
             <View className="overflow-hidden rounded-[20px] border border-line">
               <Pressable
                 accessibilityRole="button"
-                accessibilityLabel="Change your medicine or schedule"
+                accessibilityLabel="Change the schedule"
                 onPress={() => setEditing(true)}
                 className="min-h-[64px] flex-row items-center gap-3 px-4 py-3 active:bg-surface">
                 <View className="flex-1">
-                  <Text className="text-[16px] font-semibold text-ink">{GLP1_MEDICATION_LABELS[settings.medication].title}</Text>
-                  <Text className="text-[14px] text-muted">{scheduleText(settings)}</Text>
+                  <Text className="text-[16px] font-semibold text-ink">{medicineTitle(current)}</Text>
+                  <Text className="text-[14px] text-muted">
+                    {scheduleText(current)}
+                    {current.form !== 'tablet' ? ` · ${MEDICINE_FORM_LABELS[current.form].title}` : ''}
+                  </Text>
+                  <Text className="text-[13px] text-muted">{medicinePeriod(current)}</Text>
                 </View>
                 <Text className="text-[15px] text-muted">Change</Text>
+              </Pressable>
+              <Pressable
+                accessibilityRole="button"
+                onPress={() => setSwitching(true)}
+                className="min-h-[56px] flex-row items-center gap-3 border-t border-line px-4 active:bg-surface">
+                <Repeat size={20} color={colors.ink} strokeWidth={1.6} />
+                <Text className="flex-1 text-[16px] text-ink">Switch medicine</Text>
+                <ChevronRight size={18} color={colors.faint} />
               </Pressable>
               <Pressable
                 accessibilityRole="button"
@@ -248,7 +281,13 @@ export default function Glp1Screen() {
               </Pressable>
             </View>
 
-            <History />
+            <SupplyCard medicine={current} supply={data.supply} onSetUp={() => setSupplyOpen(true)} onRefill={() => setRefillOpen(true)} />
+
+            {current.form !== 'tablet' ? <RecentSites doses={data.doses} /> : null}
+
+            <History glp1={data} />
+
+            <MedicineHistory history={data.history} />
 
             <View className="gap-2">
               <Button title="Turn off GLP-1 mode" variant="secondary" loading={save.isPending} onPress={() => void turnOff()} />
@@ -257,6 +296,10 @@ export default function Glp1Screen() {
           </>
         )}
       </ScrollView>
+
+      {switching && current ? <SwitchSheet current={current} doses={data?.doses ?? []} onClose={() => setSwitching(false)} /> : null}
+      {supplyOpen && current ? <SupplySheet medicine={current} supply={data?.supply ?? null} onClose={() => setSupplyOpen(false)} /> : null}
+      {refillOpen && data?.supply ? <RefillSheet supply={data.supply} onClose={() => setRefillOpen(false)} /> : null}
     </Screen>
   );
 }

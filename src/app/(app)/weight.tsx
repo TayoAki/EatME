@@ -99,6 +99,8 @@ export default function WeightScreen() {
     chasing ? reachedMilestone(milestones, trendNow, goal) : null,
     goal,
   );
+  // When a GLP-1 medicine started, inside the range shown. A fact, no claim about cause.
+  const markers = (weights.data?.markers ?? []).filter((m) => points.length > 1 && m.date >= points[0].date && m.date <= points[points.length - 1].date);
   const perWeek = trendPerWeek(trend);
   const fastLoss = perWeek !== null && perWeek < -FAST_LOSS_KG_PER_WEEK;
   const weighIn = useReminderStore((state) => state.settings.weighIn);
@@ -198,7 +200,12 @@ export default function WeightScreen() {
 
             <SegmentedControl options={WEIGHT_RANGES} value={range} onChange={setRange} />
             <View>
-              <WeightChart points={points} goal={target !== null && goal !== 'maintain' ? shown(target) : null} unit={unit === 'metric' ? 'kg' : 'lb'} />
+              <WeightChart
+                points={points}
+                goal={target !== null && goal !== 'maintain' ? shown(target) : null}
+                unit={unit === 'metric' ? 'kg' : 'lb'}
+                markers={markers}
+              />
               <View className="mt-2 flex-row items-center justify-center gap-5">
                 <View className="flex-row items-center gap-1.5">
                   <View className="h-[3px] w-4 rounded-full bg-ink" />
@@ -209,6 +216,18 @@ export default function WeightScreen() {
                   <Text className="text-[13px] text-muted">Weigh-ins</Text>
                 </View>
               </View>
+              {markers.length > 0 ? (
+                <View className="mt-3 gap-1 px-1">
+                  {markers.map((m) => (
+                    <View key={`${m.date}-${m.text}`} className="flex-row items-center gap-2">
+                      <View className="h-3 w-px bg-muted" />
+                      <Text className="text-[13px] text-muted">
+                        {shortDate(m.date)} · {m.text}
+                      </Text>
+                    </View>
+                  ))}
+                </View>
+              ) : null}
             </View>
           </>
         )}

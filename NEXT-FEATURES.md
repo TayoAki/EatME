@@ -19,7 +19,7 @@
 10. [Plan tomorrow](#8-plan-tomorrow)
 11. [Store, privacy and legal changes](#store-privacy-and-legal-changes)
 12. [Build order](#build-order)
-13. [Open decisions](#open-decisions)
+13. [Decisions](#decisions)
 14. [Also decided: sign-in and password resets](#also-decided-sign-in-and-password-resets)
 
 ---
@@ -158,8 +158,8 @@ doses under Ozempic, new doses under Mounjaro, and a marker on the weight chart.
 
 - [ ] Built
 
-**Name and scope (please decide; see Open decisions).** In the app and the store listing, call
-this **Pens & vials** (a Supply card inside GLP-1 mode), not "peptides".
+**Name and scope (decided).** In the app and the store listing, this is **Pens & vials** (a Supply
+card inside GLP-1 mode), not "peptides".
 - **App Review risk:** Apple looks hard at apps that track injections (1.4.1 physical harm,
   1.4.2 dose calculators), and "peptides" invites research-peptide use.
 - **What it still covers:** any injectable the person was prescribed. They can pick Other and
@@ -344,7 +344,7 @@ month's, compare two dates side by side, and delete everything.
 - **Nothing is added to the calorie goal in this version.** The activity level chosen in
   onboarding already counts workouts ("Lightly active: 1–3 workouts per week"), so adding them
   again would double-count. The adaptive target (feature 6) follows real activity instead. See
-  Open decisions.
+  Decisions.
 
 **Data stays on the phone.** Activity and sleep are read on demand from Apple Health or Health
 Connect and shown in the app. They aren't stored on the server and are never sent to the AI.
@@ -511,8 +511,9 @@ history.
 - **Photos and descriptions** keep working through the AI ("2 IPAs"), and so do barcodes on
   cans.
 - **Calm mode**: the drink card shows the name and count ("2 × beer") with no calories.
-- **Tone**: no judgment, no tips about drinking less, no "healthy" claims. (Whether Support
-  should also list an alcohol helpline is an open decision.)
+- **Tone**: no judgment, no tips about drinking less, no "healthy" claims. Profile → Support
+  lists "Help with alcohol" (Find A Helpline), next to the eating and body-image one; the Drinks
+  tab itself never mentions it.
 
 **The maths** (plain functions in `src/shared/drinks.ts`)
 - Alcohol (g) = volume (ml) × ABV ÷ 100 × 0.789.
@@ -651,22 +652,24 @@ in `PLAN.md`.
 
 ---
 
-## Open decisions
+## Decisions
 
-1. **Peptide mode name and scope.** Recommended: **Pens & vials** supply tracking inside GLP-1
-   mode. It works for any prescribed injectable through Other; there's no separate multi-peptide
-   mode, and "peptides" isn't used in the app or the listing.
-2. **Free or Premium.** Proposed in the table at the top:
+Decided on 27 September 2026 (the recommendations, all of them):
+
+1. **Peptide mode name and scope.** **Pens & vials** supply tracking inside GLP-1 mode. It works
+   for any prescribed injectable through Other; there's no separate multi-peptide mode, and
+   "peptides" isn't used in the app or the listing.
+2. **Free or Premium.**
    - Free: GLP-1 and supply, body, activity, drinks.
-   - Premium: the adjusting target and Plan tomorrow.
-3. **Exercise calories added to the goal.** Recommended: not in v2.3, because the plan's
-   activity level already counts workouts. If you want it anyway, the base target would switch
-   to "sedentary" and half of each day's workout calories would be added.
-4. **Adjusting target defaults.** Recommended:
-   - Opt-in, with the check-in on Mondays.
+   - Premium: the adjusting target and Plan tomorrow (free for everyone while payments are off).
+3. **Exercise calories added to the goal.** Not in v2.3: the plan's activity level already counts
+   workouts.
+4. **Adjusting target defaults.**
+   - Opt-in, with the check-in on Mondays (another day can be picked).
    - At most ±150 kcal a week.
    - Never lower in GLP-1 mode.
-5. **Drinks.** Use the US standard drink (14 g). Should Support also list an alcohol helpline?
+5. **Drinks.** The US standard drink (14 g of alcohol). Support lists an alcohol helpline (Find A
+   Helpline), never the Drinks tab.
 6. **Progress photos** are kept until the person deletes them, with no automatic expiry.
 
 ---

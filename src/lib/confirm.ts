@@ -4,11 +4,13 @@ type ConfirmOptions = {
   title: string;
   message: string;
   confirmLabel: string;
+  /** The other answer ("Cancel" when left out). */
+  cancelLabel?: string;
   destructive?: boolean;
 };
 
 /** Native confirmation dialog (window.confirm on web). Resolves to true when confirmed. */
-export function confirm({ title, message, confirmLabel, destructive }: ConfirmOptions): Promise<boolean> {
+export function confirm({ title, message, confirmLabel, cancelLabel = 'Cancel', destructive }: ConfirmOptions): Promise<boolean> {
   if (Platform.OS === 'web') {
     return Promise.resolve(window.confirm(`${title}\n\n${message}`));
   }
@@ -17,7 +19,7 @@ export function confirm({ title, message, confirmLabel, destructive }: ConfirmOp
       title,
       message,
       [
-        { text: 'Cancel', style: 'cancel', onPress: () => resolve(false) },
+        { text: cancelLabel, style: 'cancel', onPress: () => resolve(false) },
         { text: confirmLabel, style: destructive ? 'destructive' : 'default', onPress: () => resolve(true) },
       ],
       { cancelable: true, onDismiss: () => resolve(false) },

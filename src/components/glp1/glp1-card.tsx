@@ -1,10 +1,11 @@
-import { Check, Pill, Syringe } from 'lucide-react-native';
-import { Text, View } from 'react-native';
+import { router } from 'expo-router';
+import { Check, ChevronRight, Package, Pill, Syringe } from 'lucide-react-native';
+import { Pressable, Text, View } from 'react-native';
 
 import { Button } from '@/components/ui/button';
 import { colors } from '@/constants/colors';
 import { fromIsoDate } from '@/lib/time';
-import type { Glp1Response } from '@/shared/glp1';
+import { defaultForm, MEDICINE_FORM_LABELS, type Glp1Response } from '@/shared/glp1';
 import type { UnitSystem } from '@/shared/onboarding';
 import { calmProgressWord } from '@/shared/calm';
 import { formatVolume } from '@/shared/units';
@@ -44,7 +45,9 @@ type Glp1CardProps = {
 export function Glp1Card({ glp1, proteinG, proteinGoalG, fiberG, fiberGoalG, waterMl, waterGoalMl, unit, onLogDose, onLogSymptoms, calm = false }: Glp1CardProps) {
   const settings = glp1.settings;
   if (!settings) return null;
-  const Icon = settings.medication === 'semaglutide_tablet' ? Pill : Syringe;
+  const Icon = (glp1.current?.form ?? defaultForm(settings.medication)) === 'tablet' ? Pill : Syringe;
+  const supply = glp1.supply;
+  const doses = supply ? MEDICINE_FORM_LABELS[supply.form].doses : 'doses';
   const status = glp1.takenToday
     ? 'Dose logged today'
     : glp1.nextDose === glp1.today
@@ -78,6 +81,18 @@ export function Glp1Card({ glp1, proteinG, proteinGoalG, fiberG, fiberGoalG, wat
           text={`${formatVolume(waterMl, unit)}`}
         />
       </View>
+      {supply && (supply.low || supply.overdrawn) ? (
+        <Pressable
+          accessibilityRole="link"
+          onPress={() => router.push('/glp1')}
+          className="mt-3 flex-row items-center gap-2 rounded-2xl bg-surface px-3 py-2.5 active:opacity-70">
+          <Package size={16} color={colors.ink} strokeWidth={1.8} />
+          <Text className="flex-1 text-[14px] text-ink">
+            {supply.overdrawn ? 'Your supply counts need fixing' : `Time to refill: ${supply.totalLeft} ${supply.totalLeft === 1 ? doses.replace(/s$/, '') : doses} left`}
+          </Text>
+          <ChevronRight size={16} color={colors.faint} />
+        </Pressable>
+      ) : null}
       <View className="mt-4 flex-row gap-2">
         <Button title={glp1.takenToday ? 'Log another dose' : 'Log dose'} size="md" variant="secondary" className="flex-1 px-3" onPress={onLogDose} />
         <Button title="How do you feel?" size="md" variant="outline" className="flex-1 px-3" onPress={onLogSymptoms} />

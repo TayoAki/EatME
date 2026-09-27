@@ -275,7 +275,7 @@ function Home({ profile }: { profile: Profile }) {
             visible={doseOpen}
             onClose={() => setDoseOpen(false)}
             medication={profile.glp1.medication}
-            lastLabel={glp1.data?.doses[0]?.doseLabel}
+            glp1={glp1.data}
           />
           <SymptomSheet visible={symptomsOpen} onClose={() => setSymptomsOpen(false)} />
         </>

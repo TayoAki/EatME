@@ -4,7 +4,7 @@ import { router } from 'expo-router';
 import { useEffect } from 'react';
 import { Platform } from 'react-native';
 
-import { useProfile } from './queries';
+import { useGlp1, useProfile } from './queries';
 import { planReminders, REMINDER_PREFIX, type PlannedReminder } from './reminder-plan';
 import { useReminderStore } from './reminder-store';
 
@@ -77,13 +77,15 @@ async function scheduleReminders(planned: PlannedReminder[]) {
               minute: trigger.minute,
               channelId: CHANNEL_ID,
             }
-          : {
-              type: Notifications.SchedulableTriggerInputTypes.WEEKLY,
-              weekday: trigger.weekday,
-              hour: trigger.hour,
-              minute: trigger.minute,
-              channelId: CHANNEL_ID,
-            },
+          : trigger.type === 'weekly'
+            ? {
+                type: Notifications.SchedulableTriggerInputTypes.WEEKLY,
+                weekday: trigger.weekday,
+                hour: trigger.hour,
+                minute: trigger.minute,
+                channelId: CHANNEL_ID,
+              }
+            : { type: Notifications.SchedulableTriggerInputTypes.DATE, date: new Date(trigger.date), channelId: CHANNEL_ID },
     });
   }
 }
@@ -95,7 +97,8 @@ async function scheduleReminders(planned: PlannedReminder[]) {
 export function useReminderSync() {
   const settings = useReminderStore((s) => s.settings);
   const glp1 = useProfile()?.glp1 ?? null;
-  const plan = JSON.stringify(planReminders(settings, glp1));
+  const supply = useGlp1(!!glp1).data?.supply ?? null;
+  const plan = JSON.stringify(planReminders(settings, glp1, { supply }));
 
   useEffect(() => {
     if (!remindersSupported) return;
