@@ -539,14 +539,15 @@ added to an earlier day are stored at local noon of that day.
   `com.tayoaki.eatme.premium.monthly` $7.99 and `.yearly` $39.99, a one-month free trial on both, all
   175 territories (Apple's equalized prices from the US price), the privacy policy URL and review
   notes; the App Store Connect API key and In-App Purchase key are in RevenueCat and valid
-- [ ] Before turning on payments. You: Apple's Paid Apps agreement (bank and tax; sandbox purchases
-  need it too); the webhook's Authorization header `Bearer <REVENUECAT_WEBHOOK_SECRET>` in
-  RevenueCat; a RevenueCat secret API key (v1) as `REVENUECAT_SECRET_KEY` on Railway; a screenshot of
-  the Premium screen as each subscription's review screenshot (a blank placeholder is there now);
-  Play Console later (service account key; Google wants a build uploaded first). Then
-  `PAYMENTS_ENABLED=true` once testers have a build with the RevenueCat keys (it limits every free
-  account, Expo Go included, to 3 AI scans a day). The first subscriptions go to App Review with the
-  first App Store version
+- [x] Apple's Paid Apps agreement signed; `REVENUECAT_SECRET_KEY` (v1 secret key) set on Railway; the
+  webhook's Authorization header `Bearer <REVENUECAT_WEBHOOK_SECRET>` entered in RevenueCat
+- [ ] Turn on payments: `PAYMENTS_ENABLED=true` on Railway once testers have a build with the
+  RevenueCat keys (it limits every free account, Expo Go included, to 3 AI scans a day). Then check
+  RevenueCat's "Send test event" reaches the webhook with 200 (401 means the header is wrong) and
+  make one TestFlight sandbox purchase
+- [ ] Before App Review: a screenshot of the Premium screen as each subscription's review screenshot
+  (a blank placeholder is there now); the first subscriptions go to review with the first App Store
+  version. Google Play later (service account key; Google wants a build uploaded first)
 - [ ] Before turning on Apple / Google sign-in: Sign in with Apple capability + key (team ID, key
   ID, .p8) and a Google "Web application" OAuth client with the redirect URI
   `<server>/api/auth/callback/google`; set the variables in `.env.example` on Railway
