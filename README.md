@@ -9,6 +9,7 @@ onboarding.
 </p>
 
 - **Product plan & every decision:** [`PLAN.md`](./PLAN.md)
+- **Next features (v2.2–v2.4), planned but not built:** [`NEXT-FEATURES.md`](./NEXT-FEATURES.md)
 - **Agent / contributor instructions:** [`AGENTS.md`](./AGENTS.md) (`CLAUDE.md` imports it)
 - **Design references + prompts:** [`design/`](./design)
 - **Landing page, privacy policy, terms:** [`legal/`](./legal)

@@ -754,72 +754,22 @@ added to an earlier day are stored at local noon of that day.
   fixes and weight alongside → personal food memory → steer the AI → design check against
   `design/` (new prompt `design/prompts/12-v2-1.md` first), docs, lint, typecheck, `build:server`
 
-**v2.2**
-- [ ] GLP-1 mode+ (7.8), free: several medicines; "Other" takes the medicine's name as the
-  prescription label shows it (free text, no suggestions, no list of research peptides); pens
-  or vials left and a use-by reminder (counts only, never mg → mL → units maths); injection
-  sites with left and right, the last one shown; doses stay exactly as the label says
-- [ ] Body measurements and private progress photos (7.5): photos in the private bucket, signed
-  links, never sent to the AI
-- [ ] Export and a doctor report (7.3): a CSV of everything; a one-page PDF with the weight
-  trend, average intake, protein, doses and side effects
-- [ ] What to eat next (6.9): ideas for the calories and macros left, first from the person's
-  own meals (no AI), then optional AI ideas; never below the calorie floor
-
-**v2.2 decisions** (about 28–30 developer-days; migrations `glp1_medications`,
-`body_measurements`, `meal_ideas`)
-- First: the logging fix in §10 (medicine names and notes must never reach the logs),
-  `npx expo install expo-print expo-sharing` and a new development build, and a rule in
-  AGENTS.md: no health data in logs, Sentry, URLs or AI prompts (meals excepted). Deploy the
-  server before the app; v2.1 apps keep calling today's GLP-1 routes.
-- GLP-1 mode+: a `medications` table (kind, name as on the label, form pen / vial / tablets,
-  schedule, dose weekday, order, archived) with supply columns (when counting started, unopened,
-  doses per pen or vial, doses left in the open one, opened on, use within days, low-supply
-  level); `dose_logs` gains `medication_id` and `side`. `users.glp1` stays the on/off switch and
-  mirrors the first medicine, so v2.1 apps and the §16 count keep working. Existing data moves
-  on first use: `ensureMedications(userId)` (safe to repeat, locks the user row) runs in every
-  GLP-1 route, with an optional backfill script; no hand-written SQL, nothing at boot. Doses left
-  is a count replayed from logged doses since the last count (never mg, mL or units); use-by is
-  the opened date plus the days the label gives. Routes: `POST /api/glp1/medications`,
-  `PATCH/DELETE /api/glp1/medications/:id`, `PUT/POST /api/glp1/medications/:id/supply`
-  (counts, refill, started a new one), and `medicationId` and `side` on `POST /api/glp1/doses`.
-  Screens: "Your medicines" on GLP-1, a medicine screen with a supply card, a site picker
-  (stomach, thigh, upper arm × left, right; the last site is shown, a next site is never
-  suggested), medicine chips in the dose sheet. Reminders per medicine, plus the day before
-  use-by and low supply; lock-screen texts never name a medicine. Up to 5 active medicines.
-- Body: `body_measurements` (one row a day: waist, hips, chest, arm, thigh in cm) and
-  `progress_photos` (date and pose front, side or back; key `progress/<userId>/<id>.jpg`; a
-  retake replaces). Photos are resized with location data removed, signed links last 30 minutes,
-  meal analysis refuses any key outside `meals/`, and account deletion clears both folders.
-  Profile's Weight row becomes "Weight & body", with measurements, photos and a side-by-side
-  compare (with the nearest weigh-in). Copy: "Private — only you can see them. Never used for
-  AI." No before/after labels or praise.
-- Export and report: the server gathers, the phone makes the files, nothing is stored.
-  `GET /api/export` returns one CSV (UTF-8 with BOM, formula-safe cells; meals, foods, water,
-  weight, measurements, supplements, doses, side effects). `GET /api/report` returns the last 84
-  days; the phone renders a one-page PDF with expo-print (weight trend as inline SVG, averages,
-  doses as typed, side-effect counts; US Letter or A4) and shares it with expo-sharing; on web,
-  a download and the print dialog. Switches: "Show my name", "Include GLP-1 and side effects".
-  Footer: "Made by the patient with EatME from their own entries. Meal values are estimates.
-  Not medical advice."
-- What to eat next: a Home card for today with up to three of the person's own meals that fit
-  (at most 1.1× what is left, never a pace that ends the day under the calorie floor), ranked by
-  fit and protein (protein counts double in GLP-1 mode); `GET /api/next-meal`; at the goal it
-  shows no ideas. AI ideas (`POST /api/next-meal/ai`, behind `AI_MEAL_IDEAS` and the §10
-  consent screen) send only what is left, the meal slot, the diet and up to 15 recent meal names
-  (never medicines, GLP-1 status, weight or notes); 3 a day free, 10 on Premium, counted in
-  `meal_ideas` (not scans); logging an idea uses Quick add, marked as an estimate. Use is
-  measured (meals logged from a suggestion, per weekly user); that number is the check for
-  "Plan tomorrow" under Later.
-- Legal and store: `legal/privacy.html` sections for medicines, measurements, progress photos
-  and meal ideas, retention and deletion; the Washington health-data policy lists medicines;
-  App Privacy (Health, Photos) and Play Data safety; the 1.4.2 review note ("No dose, unit or
-  reconstitution calculations; doses are stored as typed; supply is a count"); camera and
-  photo permission texts in `app.json` mention progress photos.
-- Order: fixes and installs → design prompts (`design/prompts/13-v2-2.md`) → shared pieces
-  (photo helpers, a trend chart shared with Weight, `apiText()`) → GLP-1 backend (deploy, check a
-  v2.1 build) → body backend → GLP-1 screens and reminders → Weight & body screens → export and
-  report → what to eat next → AI ideas (flag off) → legal and store → QA on iOS, Android and web
+**v2.2 – v2.4: planned in [`NEXT-FEATURES.md`](./NEXT-FEATURES.md)** (27 September 2026, nothing
+built yet). That file has the screens, data, routes, rules, tests and build order for each item and
+replaces the old v2.2 list and the "Later" list; tick a box there and here when it ships.
+- [ ] v2.2 · GLP-1: one current medicine with a history of switches (not several at once)
+- [ ] v2.2 · Pens & vials: supply left, use-by and refill reminders (counts the person enters;
+  never dose, unit or reconstitution maths)
+- [ ] v2.2 · Injection sites with left and right, the last one shown (a next site is never
+  suggested)
+- [ ] v2.2 · Body measurements and private progress photos (never sent to the AI)
+- [ ] v2.3 · Steps, workouts and sleep read from Apple Health / Health Connect (kept on the phone;
+  nothing added to the calorie goal)
+- [ ] v2.3 · A calorie target that adjusts to the weight trend (an opt-in weekly check-in)
+- [ ] v2.4 · Alcoholic drinks
+- [ ] v2.4 · Plan tomorrow (a draft from the person's own meals, no AI)
+- Skipped: export and the doctor report. Parked: "What to eat next" (Plan tomorrow no longer
+  waits for it).
 
 **Eating out (restaurant menus)**
 - [x] Restaurant menus from FatSecret, so people can look up and plan a meal before they eat
@@ -878,21 +828,6 @@ added to an earlier day are stored at local noon of that day.
   goes on
 - Later, measured first: match chain items in descriptions and photos ("Chipotle chicken
   bowl"), a Planned card at a set time, non-US menus (Premier, priced per country)
-
-**Later**
-- [ ] Adaptive calorie target (6.4): a weekly check-in proposes a new target from the weight
-  trend and logged food; the person accepts or ignores it; same floors and weekly limit
-- [ ] Read steps, workouts and sleep from Apple Health / Health Connect (6.3); exercise
-  calories count toward the goal only if the person turns that on
-- [ ] Plan tomorrow (6.1), built only once "What to eat next" is used: at least 1 in 5 weekly
-  users log a suggested meal each week for 4 weeks. In the evening or on request, EatME drafts
-  tomorrow from the person's saved meals, repeats and most-eaten meals to fit the calorie goal
-  (never below the floor) and protein (first in GLP-1 mode). The draft shows as tomorrow's
-  Planned cards (v2.1); each can be swapped or removed, and nothing is logged until tapped.
-  Optional AI ideas fill a gap (same flag, consent and limits as v2.2's AI ideas). Called "a
-  draft of tomorrow", never a diet plan; calm mode hides its numbers; `day_plans` (date, chosen
-  meals).
-- [ ] Alcohol drinks (6.0): calories from strength and volume
 
 **Research slots (built only if the check passes)**
 - Estimated medicine-level chart (5.9), approved GLP-1s only: Shotsy users call theirs "a game

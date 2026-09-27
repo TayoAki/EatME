@@ -6,7 +6,8 @@ EatME is a Cal AI–style calorie tracker: onboarding → AI plan → snap a mea
 calories and macros. **Read `PLAN.md` before building a feature** — every product decision
 (screens, flow, data model, routes, tasks) is written there. Never guess a requirement that
 PLAN.md already answers; if something is missing, ask. Tick the checkbox in PLAN.md when a
-feature is done.
+feature is done. The next features (v2.2–v2.4) are specified in `NEXT-FEATURES.md`: build them
+from it and tick them there too.
 
 ## Workflow
 
