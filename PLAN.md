@@ -530,9 +530,19 @@ added to an earlier day are stored at local noon of that day.
 - [ ] Remove `ALLOW_EXPO_GO` from Railway (when testers move to TestFlight builds) and turn on
   Postgres backups: Railway → Postgres → Backups → **Daily** only (kept 6 days; Weekly and Monthly
   keep them longer than the 30 days the Privacy Policy promises)
-- [ ] Before turning on payments: products in App Store Connect and Play Console, a RevenueCat
-  project (entitlement `premium`, a current offering), its webhook to `/api/billing/webhook` with
-  the secret, the public SDK keys in `eas.json`, then `PAYMENTS_ENABLED=true`
+- [x] RevenueCat project "EatME" (set up with the RevenueCat MCP): iOS app `com.tayoaki.eatme`,
+  Android app `com.tayoaki.eatme`, entitlement `premium` with four products
+  (`com.tayoaki.eatme.premium.monthly` / `.yearly`; Play `premium:monthly` / `premium:yearly`), the
+  current offering `default` with `$rc_annual` and `$rc_monthly`, a webhook to
+  `/api/billing/webhook`, the public SDK keys in `eas.json`, `REVENUECAT_WEBHOOK_SECRET` on Railway
+- [ ] Before turning on payments. You: Apple's Paid Apps agreement (bank and tax); the App Store
+  Connect API key and In-App Purchase key uploaded to the iOS app in RevenueCat; the webhook's
+  Authorization header `Bearer <REVENUECAT_WEBHOOK_SECRET>` in RevenueCat; a RevenueCat secret API
+  key as `REVENUECAT_SECRET_KEY` on Railway. Then the subscriptions in App Store Connect (the MCP can
+  create them once the key is in: $7.99 a month and $39.99 a year, a one-month free trial on both),
+  Play Console later (service account key; Google wants a build uploaded first), and
+  `PAYMENTS_ENABLED=true` only once testers have a build that can buy (it limits every free account,
+  Expo Go included, to 3 AI scans a day)
 - [ ] Before turning on Apple / Google sign-in: Sign in with Apple capability + key (team ID, key
   ID, .p8) and a Google "Web application" OAuth client with the redirect URI
   `<server>/api/auth/callback/google`; set the variables in `.env.example` on Railway
