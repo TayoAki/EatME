@@ -535,14 +535,18 @@ added to an earlier day are stored at local noon of that day.
   (`com.tayoaki.eatme.premium.monthly` / `.yearly`; Play `premium:monthly` / `premium:yearly`), the
   current offering `default` with `$rc_annual` and `$rc_monthly`, a webhook to
   `/api/billing/webhook`, the public SDK keys in `eas.json`, `REVENUECAT_WEBHOOK_SECRET` on Railway
-- [ ] Before turning on payments. You: Apple's Paid Apps agreement (bank and tax); the App Store
-  Connect API key and In-App Purchase key uploaded to the iOS app in RevenueCat; the webhook's
-  Authorization header `Bearer <REVENUECAT_WEBHOOK_SECRET>` in RevenueCat; a RevenueCat secret API
-  key as `REVENUECAT_SECRET_KEY` on Railway. Then the subscriptions in App Store Connect (the MCP can
-  create them once the key is in: $7.99 a month and $39.99 a year, a one-month free trial on both),
-  Play Console later (service account key; Google wants a build uploaded first), and
-  `PAYMENTS_ENABLED=true` only once testers have a build that can buy (it limits every free account,
-  Expo Go included, to 3 AI scans a day)
+- [x] App Store subscriptions, created from RevenueCat (Ready to Submit): group "EatME Premium",
+  `com.tayoaki.eatme.premium.monthly` $7.99 and `.yearly` $39.99, a one-month free trial on both, all
+  175 territories (Apple's equalized prices from the US price), the privacy policy URL and review
+  notes; the App Store Connect API key and In-App Purchase key are in RevenueCat and valid
+- [ ] Before turning on payments. You: Apple's Paid Apps agreement (bank and tax; sandbox purchases
+  need it too); the webhook's Authorization header `Bearer <REVENUECAT_WEBHOOK_SECRET>` in
+  RevenueCat; a RevenueCat secret API key (v1) as `REVENUECAT_SECRET_KEY` on Railway; a screenshot of
+  the Premium screen as each subscription's review screenshot (a blank placeholder is there now);
+  Play Console later (service account key; Google wants a build uploaded first). Then
+  `PAYMENTS_ENABLED=true` once testers have a build with the RevenueCat keys (it limits every free
+  account, Expo Go included, to 3 AI scans a day). The first subscriptions go to App Review with the
+  first App Store version
 - [ ] Before turning on Apple / Google sign-in: Sign in with Apple capability + key (team ID, key
   ID, .p8) and a Google "Web application" OAuth client with the redirect URI
   `<server>/api/auth/callback/google`; set the variables in `.env.example` on Railway
