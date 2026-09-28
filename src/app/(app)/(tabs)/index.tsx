@@ -94,9 +94,10 @@ function Home({ profile }: { profile: Profile }) {
   const fiberG = (list ?? []).reduce((sum, m) => sum + (m.status === 'completed' ? (m.fiberG ?? 0) : 0), 0);
 
   const isToday = selectedDate === todayIso();
-  // Vitamins and minerals come from database foods and from supplements ticked that day.
+  // Vitamins and minerals come from database foods and from supplements ticked that day; the same
+  // screen shows the day's alcohol.
   const hasNutrients =
-    (list ?? []).some((m) => m.status === 'completed' && (m.matchedShare ?? 0) > 0) ||
+    (list ?? []).some((m) => m.status === 'completed' && ((m.matchedShare ?? 0) > 0 || m.source === 'drink')) ||
     (supplements.data?.supplements.some((s) => s.taken) ?? false);
   const canCopyYesterday =
     isToday && list?.length === 0 && (yesterdayMeals.data?.meals.some((m) => m.status === 'completed') ?? false);

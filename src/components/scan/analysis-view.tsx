@@ -2,7 +2,7 @@ import * as Sentry from '@sentry/react-native';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { Image } from 'expo-image';
 import { router } from 'expo-router';
-import { CircleHelp, Crown, Flame, ImageOff, PenLine, ScanBarcode, Search, Store, TriangleAlert } from 'lucide-react-native';
+import { CircleHelp, Crown, Flame, ImageOff, PenLine, ScanBarcode, Search, Store, TriangleAlert, Wine } from 'lucide-react-native';
 import { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, ScrollView, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -21,8 +21,9 @@ import { colors } from '@/constants/colors';
 import { ApiError, useApi } from '@/lib/api';
 import { useSession } from '@/lib/auth-client';
 import { haptics } from '@/lib/haptics';
-import { describeMeal, logFood, logProduct, logRestaurantPlate, uploadMeal } from '@/lib/meal-upload';
+import { describeMeal, logDrink, logFood, logProduct, logRestaurantPlate, uploadMeal } from '@/lib/meal-upload';
 import { queryKeys, useInvalidateMeals, useProfile } from '@/lib/queries';
+import { drinkName, standardDrinks, standardDrinksText, type DrinkBody } from '@/shared/drinks';
 import { MEAL_ANALYSIS_STAGES, type FoodSummary, type Meal, type PhotoMode } from '@/shared/meals';
 import { sugarNote } from '@/shared/nutrition';
 import { distinctBrand, type Product } from '@/shared/products';
@@ -35,7 +36,7 @@ const GIVE_UP_AFTER_SECONDS = 90;
 
 /**
  * What the user sent: a photo of a meal or label (with an optional note), a description, or —
- * logged right away without AI — a packaged product by its barcode or a database food.
+ * logged right away without AI — a packaged product by its barcode, a database food or a drink.
  */
 export type MealInput =
   | { kind: 'photo'; photos: Photo[]; mode: PhotoMode; note?: string }
@@ -43,7 +44,9 @@ export type MealInput =
   | { kind: 'barcode'; product: Product; grams: number }
   | { kind: 'food'; food: FoodSummary; grams: number }
   /** A plate from restaurant menus; `chain` when it was built on that chain's menu. */
-  | { kind: 'restaurant'; lines: PlateLine[]; chain?: string };
+  | { kind: 'restaurant'; lines: PlateLine[]; chain?: string }
+  /** An alcoholic drink; `detail` describes the size and strength ("Can · 12 oz · 5% ABV"). */
+  | { kind: 'drink'; drink: DrinkBody; detail: string };
 
 const COPY = {
   photo: {
@@ -82,16 +85,24 @@ const COPY = {
     failed: "We couldn't log this meal",
     retry: 'Please try again.',
   },
+  drink: {
+    first: 'Saving…',
+    notFood: '',
+    failed: "We couldn't log this drink",
+    retry: 'Please try again.',
+  },
 } as const;
 
-/** Name and amount of a product or database food, where a photo would be. */
-function LoggedFood({ icon, name, detail }: { icon: 'barcode' | 'food' | 'restaurant'; name: string; detail: string }) {
+/** Name and amount of a product, database food or drink, where a photo would be. */
+function LoggedFood({ icon, name, detail }: { icon: 'barcode' | 'food' | 'restaurant' | 'drink'; name: string; detail: string }) {
   return (
     <View className="flex-row gap-3 rounded-card bg-surface p-4">
       {icon === 'barcode' ? (
         <ScanBarcode size={18} color={colors.muted} style={{ marginTop: 2 }} />
       ) : icon === 'restaurant' ? (
         <Store size={18} color={colors.muted} style={{ marginTop: 2 }} />
+      ) : icon === 'drink' ? (
+        <Wine size={18} color={colors.muted} style={{ marginTop: 2 }} />
       ) : (
         <Search size={18} color={colors.muted} style={{ marginTop: 2 }} />
       )}
@@ -156,6 +167,8 @@ export function AnalysisView({ input, onScanAnother, onEdit, onDone, onNeedsCons
           return logFood(api, input.food.id, input.grams);
         case 'restaurant':
           return logRestaurantPlate(api, input.lines);
+        case 'drink':
+          return logDrink(api, input.drink);
         default:
           return uploadMeal(api, input.photos, { mode: input.mode, note: input.note });
       }
@@ -242,8 +255,10 @@ export function AnalysisView({ input, onScanAnother, onEdit, onDone, onNeedsCons
       : [...MEAL_ANALYSIS_STAGES].reverse().find((stage) => elapsed >= stage.after)?.label;
   // The result is read from the cache, which the servings stepper updates.
   const meal = analyzed?.status === 'completed' ? analyzed : null;
-  // Sugary drinks and food get a note on quick sugar instead of the protein hint.
-  const sugar = meal ? sugarNote(meal) : null;
+  // Sugary drinks and food get a note on quick sugar instead of the protein hint; alcoholic drinks
+  // get neither (no tips about drinks).
+  const alcoholic = meal?.source === 'drink';
+  const sugar = meal && !alcoholic ? sugarNote(meal) : null;
   const notFood = outcome?.status === 'not_food' ? outcome : null;
   const failureMessage =
     upload.error?.message ??
@@ -279,6 +294,8 @@ export function AnalysisView({ input, onScanAnother, onEdit, onDone, onNeedsCons
           />
         ) : input.kind === 'food' ? (
           <LoggedFood icon="food" name={input.food.description} detail={`${input.grams} g · USDA food database`} />
+        ) : input.kind === 'drink' ? (
+          <LoggedFood icon="drink" name={drinkName(input.drink)} detail={input.detail} />
         ) : input.kind === 'restaurant' ? (
           <LoggedFood
             icon="restaurant"
@@ -316,10 +333,20 @@ export function AnalysisView({ input, onScanAnother, onEdit, onDone, onNeedsCons
                   </View>
                 </>
               )}
-              <View className="mt-4 flex-row items-center gap-2">
-                <View style={{ backgroundColor: colors.fiber }} className="h-2.5 w-2.5 rounded-full" />
-                <Text className="text-[15px] text-ink">Fiber {meal.fiberG ?? 0} g</Text>
-              </View>
+              {alcoholic ? (
+                // Standard drinks (US: 14 g of alcohol each) instead of fiber, which drinks don't have.
+                <View className="mt-4 flex-row items-center gap-2">
+                  <Wine size={16} color={colors.ink} />
+                  <Text className="text-[15px] text-ink">
+                    {standardDrinksText(standardDrinks(meal.nutrients?.alcohol ?? 0))} · {Math.round(meal.nutrients?.alcohol ?? 0)} g alcohol
+                  </Text>
+                </View>
+              ) : (
+                <View className="mt-4 flex-row items-center gap-2">
+                  <View style={{ backgroundColor: colors.fiber }} className="h-2.5 w-2.5 rounded-full" />
+                  <Text className="text-[15px] text-ink">Fiber {meal.fiberG ?? 0} g</Text>
+                </View>
+              )}
               {meal.servingSize ? (
                 <View className="mt-4">
                   <ServingsStepper meal={meal} />
@@ -329,7 +356,7 @@ export function AnalysisView({ input, onScanAnother, onEdit, onDone, onNeedsCons
                 <View className="mt-4">
                   <SugarHint sugar={sugar} hideNumbers={hideNumbers} />
                 </View>
-              ) : profile?.dailyProteinG && !hideNumbers ? (
+              ) : profile?.dailyProteinG && !hideNumbers && !alcoholic ? (
                 <View className="mt-4">
                   <ProteinHint proteinG={meal.proteinG ?? 0} dailyProteinG={profile.dailyProteinG} />
                 </View>

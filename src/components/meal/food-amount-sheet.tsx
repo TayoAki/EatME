@@ -4,6 +4,7 @@ import { ScrollView, Text, TextInput, View } from 'react-native';
 import { BottomSheet } from '@/components/ui/bottom-sheet';
 import { Button } from '@/components/ui/button';
 import { Chip } from '@/components/ui/chip';
+import { countText } from '@/shared/drinks';
 import type { MealItem } from '@/shared/meals';
 import { distinctBrand, PRODUCT_SOURCE_LABELS } from '@/shared/products';
 
@@ -20,6 +21,8 @@ export type FoodDraft = {
   personalFoodId?: string | null;
   /** From a restaurant menu: the chain, serving and how many, as logged. */
   restaurant?: MealItem['restaurant'];
+  /** An alcoholic drink: its amount is in ml, and the count follows it. */
+  drink?: MealItem['drink'];
   grams: number;
   /** Calories per gram, for the live preview. */
   kcalPerGram: number;
@@ -41,7 +44,7 @@ type FoodAmountSheetProps = {
   hideCalories?: boolean;
 };
 
-/** How much of a food: grams, or one of the database's household measures. */
+/** How much of a food: grams, or one of the database's household measures (a drink: ml, or 1–3 drinks). */
 export function FoodAmountSheet({
   draft,
   saving,
@@ -56,6 +59,7 @@ export function FoodAmountSheet({
   const [text, setText] = useState(String(Math.round(draft.grams)));
   const grams = Number(text);
   const valid = Number.isFinite(grams) && grams >= 1 && grams <= 3000;
+  const unit = draft.drink ? 'ml' : 'g';
 
   return (
     <BottomSheet visible onClose={onClose}>
@@ -65,7 +69,9 @@ export function FoodAmountSheet({
       <Text className="mt-0.5 text-[14px] leading-5 text-muted">
         {draft.personalFoodId ? 'Your usual · ' : ''}
         {draft.foodName ??
-          (draft.restaurant
+          (draft.drink
+            ? `${draft.drink.abv}% ABV · ${countText(draft.drink.count)} ${draft.drink.count === 1 ? 'drink' : 'drinks'} as logged`
+            : draft.restaurant
             ? `From the ${draft.restaurant.chain} menu · ${draft.restaurant.serving}`
             : draft.product
             ? ['Package label', distinctBrand({ name: draft.name, brand: draft.product.brand }), PRODUCT_SOURCE_LABELS[draft.product.source ?? 'off']]
@@ -76,18 +82,18 @@ export function FoodAmountSheet({
 
       <View className="mt-4 h-20 flex-row items-center justify-center gap-2 rounded-card bg-surface px-5">
         <TextInput
-          accessibilityLabel="Grams"
+          accessibilityLabel={draft.drink ? 'Millilitres' : 'Grams'}
           value={text}
           onChangeText={(next) => setText(next.replace(/[^0-9]/g, '').slice(0, 4))}
           keyboardType="number-pad"
           selectTextOnFocus
           className="min-w-[80px] text-center text-[40px] font-bold tracking-tight text-ink"
         />
-        <Text className="text-[20px] font-semibold text-muted">g</Text>
+        <Text className="text-[20px] font-semibold text-muted">{unit}</Text>
       </View>
       {valid && hideCalories ? null : (
         <Text className="mt-2 text-center text-[14px] text-muted">
-          {valid ? `${Math.round(grams * draft.kcalPerGram)} kcal` : 'Between 1 and 3,000 g'}
+          {valid ? `${Math.round(grams * draft.kcalPerGram)} kcal` : `Between 1 and 3,000 ${unit}`}
         </Text>
       )}
 
@@ -96,7 +102,7 @@ export function FoodAmountSheet({
           {draft.portions.map(([label, portionGrams]) => (
             <Chip
               key={label}
-              label={`${label} · ${Math.round(portionGrams)} g`}
+              label={`${label} · ${Math.round(portionGrams)} ${unit}`}
               selected={Math.round(portionGrams) === grams}
               onPress={() => setText(String(Math.round(portionGrams)))}
             />

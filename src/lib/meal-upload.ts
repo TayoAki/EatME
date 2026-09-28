@@ -2,6 +2,7 @@ import { File } from 'expo-file-system';
 import { ImageManipulator, SaveFormat } from 'expo-image-manipulator';
 import { Platform } from 'react-native';
 
+import type { DrinkBody } from '@/shared/drinks';
 import type { Meal, PhotoMode } from '@/shared/meals';
 import { toPlateItem, type PlateLine } from '@/shared/restaurants';
 
@@ -95,5 +96,11 @@ export async function logRestaurantPlate(api: ApiClient, lines: readonly PlateLi
 /** A food from the USDA database search: saved right away (no AI). */
 export async function logFood(api: ApiClient, foodId: number, grams: number) {
   const { meal } = await api<{ meal: Meal }>('/api/meals', { method: 'POST', body: { food: { foodId, grams } } });
+  return meal;
+}
+
+/** An alcoholic drink: the server works out the numbers from the type, size, strength and count (no AI). */
+export async function logDrink(api: ApiClient, drink: DrinkBody) {
+  const { meal } = await api<{ meal: Meal }>('/api/meals', { method: 'POST', body: { drink } });
   return meal;
 }

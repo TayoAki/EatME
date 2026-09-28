@@ -206,7 +206,8 @@ export default function HealthScreen() {
           <Text className="text-[15px] font-semibold text-ink">What is shared</Text>
           <Text className="text-[14px] leading-5 text-muted">
             • Each meal: calories, protein, carbs, fat and fiber, at the time you logged it{'\n'}•
-            Each drink: the amount of water
+            Water: the amount of each drink{'\n'}• Alcoholic drinks: their calories and carbs like a meal
+            {Platform.OS === 'android' ? '' : ', and on iPhone the number of standard drinks'}
           </Text>
           <Text className="mt-2 text-[14px] leading-5 text-muted">
             Today and yesterday stay in step while EatME is open, including changes and deletions.

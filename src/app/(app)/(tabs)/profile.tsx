@@ -151,6 +151,7 @@ function ProfileContent({ profile }: { profile: Profile }) {
           label="Help with eating or body image"
           onPress={() => void openLink(links.helpline)}
         />
+        <SettingsRow icon={LifeBuoy} label="Help with alcohol" onPress={() => void openLink(links.alcoholHelpline)} />
         <SettingsRow icon={ShieldCheck} label="Privacy Policy" onPress={() => void openLink(links.privacy)} />
         <SettingsRow icon={FileText} label="Terms of Service" onPress={() => void openLink(links.terms)} />
       </SettingsGroup>

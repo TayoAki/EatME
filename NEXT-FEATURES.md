@@ -82,7 +82,7 @@ These add to `AGENTS.md`; every item below follows them.
 
 ## 1. GLP-1: one medicine at a time, with a history
 
-- [ ] Built
+- [x] Built
 
 **Why this shape.** People take one GLP-1 medicine at a time; prescribers don't combine two.
 What does happen is switching (for example Ozempic → Mounjaro), dose changes and pauses. So
@@ -156,7 +156,7 @@ doses under Ozempic, new doses under Mounjaro, and a marker on the weight chart.
 
 ## 2. Peptide mode: pens and vials left, use-by and refill reminders
 
-- [ ] Built
+- [x] Built
 
 **Name and scope (decided).** In the app and the store listing, this is **Pens & vials** (a Supply
 card inside GLP-1 mode), not "peptides".
@@ -254,7 +254,7 @@ reminder is planned when total doses reach 2.
 
 ## 3. Injection sites: left and right, the last one shown
 
-- [ ] Built
+- [x] Built
 
 - **Six sites**: stomach, thigh and upper arm, each left or right.
   - A new `dose_logs.side` column holds `left` or `right`. It's nullable, because old logs have
@@ -275,7 +275,7 @@ reminder is planned when total doses reach 2.
 
 ## 4. Body measurements and progress photos
 
-- [ ] Built
+- [x] Built
 
 **What the person sees**
 - **Profile → Weight & body** (was "Weight"), with three tabs: **Weight | Measurements | Photos**.
@@ -332,7 +332,7 @@ month's, compare two dates side by side, and delete everything.
 
 ## 5. Steps, workouts and sleep from Apple Health / Health Connect
 
-- [ ] Built
+- [x] Built
 
 **What the person sees**
 - **Health screen**: a second switch, **Read activity and sleep**, separate from today's "Save
@@ -401,7 +401,7 @@ on Home, and the last 7 days on the Activity screen, with nothing sent to the se
 
 ## 6. A calorie target that adjusts to your weight trend
 
-- [ ] Built
+- [x] Built
 
 **What the person sees**
 - **Daily goals**: a switch, **Adjust my calorie target each week** (off by default). After 14
@@ -493,7 +493,7 @@ history.
 
 ## 7. Alcoholic drinks
 
-- [ ] Built
+- [x] Built
 
 **What the person sees**
 - **Scan → Search foods** gets a third tab, **Drinks**: pick the type, the size, the strength

@@ -9,6 +9,7 @@ import { haptics } from '@/lib/haptics';
 import { useForgetPersonalFood, useUpdateMealItems } from '@/lib/queries';
 import { toIsoDate } from '@/lib/time';
 import type { FoodSummary, Meal, MealItem } from '@/shared/meals';
+import { standardDrinksText } from '@/shared/drinks';
 import type { FoodCorrection } from '@/shared/personal-foods';
 import { distinctBrand, PRODUCT_SOURCE_LABELS } from '@/shared/products';
 import { countLabel } from '@/shared/restaurants';
@@ -21,6 +22,12 @@ import { FoodSearchSheet } from './food-search-sheet';
 const packageLabel = (name: string, brand: string | null) =>
   ['Package label', distinctBrand({ name, brand })].filter(Boolean).join(' · ');
 
+/** A drink's amount picks: 1, 2 or 3 drinks of the size logged (ml). */
+const drinkPortions = (item: MealItem): [string, number][] => {
+  const perDrink = item.drink && item.drink.count > 0 ? item.grams / item.drink.count : 0;
+  return perDrink > 0 ? [1, 2, 3].map((n) => [`${n} ${n === 1 ? 'drink' : 'drinks'}`, perDrink * n]) : [];
+};
+
 const draftFromItem = (item: MealItem): FoodDraft => ({
   id: item.id,
   foodId: item.foodId,
@@ -29,10 +36,14 @@ const draftFromItem = (item: MealItem): FoodDraft => ({
   product: item.product,
   personalFoodId: item.personalFoodId,
   restaurant: item.restaurant,
+  drink: item.drink,
   grams: item.grams,
   kcalPerGram: item.grams > 0 ? item.calories / item.grams : 0,
-  portions: item.portions,
+  portions: item.drink ? drinkPortions(item) : item.portions,
 });
+
+/** "5% ABV · 2 standard drinks". */
+const drinkLabel = (drink: NonNullable<MealItem['drink']>) => `${drink.abv}% ABV · ${standardDrinksText(drink.standardDrinks)}`;
 
 /** "McDonald's menu · 2 × 1 sandwich". */
 const menuLabel = (restaurant: NonNullable<MealItem['restaurant']>) =>
@@ -116,6 +127,7 @@ export function FoodsSection({
   const share = Math.round((meal.matchedShare ?? 0) * 100);
   const packaged = items.every((item) => item.product);
   const fromMenus = items.some((item) => item.restaurant);
+  const drinks = items.every((item) => item.drink);
   const chains = [...new Set(items.flatMap((item) => (item.restaurant ? [item.restaurant.chain] : [])))];
   const logged = toIsoDate(new Date(meal.loggedAt));
 
@@ -137,7 +149,7 @@ export function FoodsSection({
         {items.map((item, index) => {
           // A menu item without a weight is kept as logged (it follows the meal's portion): remove only.
           const weightless = !!item.restaurant && item.grams <= 0;
-          const amount = weightless ? menuLabel(item.restaurant!) : `${item.grams} grams`;
+          const amount = weightless ? menuLabel(item.restaurant!) : item.drink ? `${item.grams} millilitres` : `${item.grams} grams`;
           return (
             <Pressable
               key={item.id}
@@ -160,7 +172,9 @@ export function FoodsSection({
                   ) : null}
                   <Text numberOfLines={1} className="flex-1 text-[12px] text-muted">
                     {item.foodName ??
-                      (item.restaurant
+                      (item.drink
+                        ? drinkLabel(item.drink)
+                        : item.restaurant
                         ? menuLabel(item.restaurant)
                         : item.product
                           ? packageLabel(item.name, item.product.brand)
@@ -170,7 +184,7 @@ export function FoodsSection({
                   </Text>
                 </View>
               </View>
-              {weightless ? null : <Text className="text-[14px] text-muted">{item.grams} g</Text>}
+              {weightless ? null : <Text className="text-[14px] text-muted">{item.grams} {item.drink ? 'ml' : 'g'}</Text>}
               {showNumbers ? (
                 <Text className="w-[64px] text-right text-[15px] font-semibold text-ink">{item.calories} kcal</Text>
               ) : null}
@@ -186,6 +200,8 @@ export function FoodsSection({
         <Text className="flex-1 text-[12px] leading-4 text-muted">
           {packaged
             ? `Numbers from the package label (${PRODUCT_SOURCE_LABELS[items[0].product?.source ?? 'off']}). See the day's nutrients ›`
+            : drinks
+            ? "Alcohol from the size and strength; carbs from the USDA food database. See the day's nutrients ›"
             : fromMenus
               ? `Numbers from the ${chains.join(' and ')} menu. See the day's nutrients ›`
               : share > 0
@@ -204,7 +220,7 @@ export function FoodsSection({
           saving={update.isPending}
           onClose={() => setEditing(null)}
           onSave={(grams) => saveDraft(editing, grams)}
-          onChangeFood={editing.id ? () => setSearching({ replace: editing }) : undefined}
+          onChangeFood={editing.id && !editing.drink ? () => setSearching({ replace: editing }) : undefined}
           onRemove={editing.id && items.length > 1 ? () => void remove(editing) : undefined}
           onForget={editing.personalFoodId ? () => void forgetFood(editing) : undefined}
         />

@@ -11,6 +11,7 @@ import { FoodSearchView, type SearchTab } from '@/components/scan/food-search-vi
 import { PhotoPreview } from '@/components/scan/photo-preview';
 import { ProductView } from '@/components/scan/product-view';
 import { notify } from '@/lib/confirm';
+import { allowDrinksInHealth } from '@/lib/health';
 import { useBilling, useFeatures, useProfile, useUpdateProfile } from '@/lib/queries';
 import { DEFAULT_AI_PROVIDERS } from '@/shared/features';
 import { MAX_MEAL_PHOTOS, type PhotoMode } from '@/shared/meals';
@@ -153,6 +154,10 @@ export default function ScanScreen() {
         onLog={(food, grams) => analyze({ kind: 'food', food, grams })}
         onOpenChain={(chain) => setStep({ name: 'restaurant', chain })}
         onLogRestaurant={(lines) => analyze({ kind: 'restaurant', lines })}
+        onLogDrink={(drink, detail) => {
+          void allowDrinksInHealth();
+          analyze({ kind: 'drink', drink, detail });
+        }}
       />
     );
   }
@@ -183,6 +188,8 @@ export default function ScanScreen() {
               ? { name: 'describe' }
               : input.kind === 'food'
                 ? { name: 'search' }
+                : input.kind === 'drink'
+                ? { name: 'search', tab: 'drinks' }
                 : input.kind === 'restaurant'
                   ? input.chain
                     ? { name: 'restaurant', chain: input.chain }

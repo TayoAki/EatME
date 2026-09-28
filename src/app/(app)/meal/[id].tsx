@@ -14,6 +14,7 @@ import {
   Star,
   Store,
   UtensilsCrossed,
+  Wine,
   X,
 } from 'lucide-react-native';
 import { useState } from 'react';
@@ -58,6 +59,7 @@ import {
 } from '@/lib/queries';
 import { formatTimeOfDay } from '@/lib/reminder-plan';
 import { formatDay, formatTime, toIsoDate } from '@/lib/time';
+import { standardDrinks, standardDrinksText } from '@/shared/drinks';
 import { PORTION_OPTIONS, type Meal } from '@/shared/meals';
 import { sugarNote } from '@/shared/nutrition';
 import type { FoodCorrection } from '@/shared/personal-foods';
@@ -235,8 +237,10 @@ function MealEditor({ meal, showNumbers, onShowNumbers, corrections, onCorrectio
   const [copying, setCopying] = useState(false);
   // A saved meal (repeat meals) is a template: no day, no favourite, "Log it now" instead of "Log again".
   const saved = meal.status === 'saved';
-  // Sugary drinks and food get a note on quick sugar instead of the protein hint.
-  const sugar = sugarNote(meal);
+  // Sugary drinks and food get a note on quick sugar instead of the protein hint; alcoholic drinks
+  // get neither (no tips about drinks).
+  const alcoholic = meal.source === 'drink';
+  const sugar = alcoholic ? null : sugarNote(meal);
   const [name, setName] = useState(meal.name ?? '');
   const [calories, setCalories] = useState(String(meal.calories ?? 0));
   const [protein, setProtein] = useState(String(meal.proteinG ?? 0));
@@ -350,6 +354,14 @@ function MealEditor({ meal, showNumbers, onShowNumbers, corrections, onCorrectio
           <View className="flex-row gap-3 rounded-card bg-surface p-4">
             <PenLine size={18} color={colors.muted} style={{ marginTop: 2 }} />
             <Text className="flex-1 text-[17px] leading-6 text-ink">{meal.note}</Text>
+          </View>
+        ) : !hero && alcoholic ? (
+          <View className="flex-row gap-3 rounded-card bg-surface p-4">
+            <Wine size={18} color={colors.muted} style={{ marginTop: 2 }} />
+            <Text className="flex-1 text-[15px] leading-[21px] text-ink">
+              {standardDrinksText(standardDrinks(meal.nutrients?.alcohol ?? 0))} ({Math.round(meal.nutrients?.alcohol ?? 0)} g
+              alcohol). Alcohol from the size and strength; carbs from the USDA food database.
+            </Text>
           </View>
         ) : !hero && fromRestaurant ? (
           <View className="flex-row gap-3 rounded-card bg-surface p-4">
@@ -473,7 +485,7 @@ function MealEditor({ meal, showNumbers, onShowNumbers, corrections, onCorrectio
           <View className="mt-4">
             <SugarHint sugar={sugar} hideNumbers={!showNumbers} />
           </View>
-        ) : profile?.dailyProteinG && showNumbers ? (
+        ) : profile?.dailyProteinG && showNumbers && !alcoholic ? (
           <View className="mt-4">
             <ProteinHint proteinG={meal.proteinG ?? 0} dailyProteinG={profile.dailyProteinG} />
           </View>

@@ -2,6 +2,7 @@ import { and, asc, eq, sql } from 'drizzle-orm';
 
 import { db, type Executor } from '@/db';
 import { foods, mealItems, meals, products, type MealItemRow, type MealRow } from '@/db/schema';
+import { drinkName, type DrinkRef } from '@/shared/drinks';
 import { scaleNutrition, type Meal, type MealItem, type UpdateMealItemsBody } from '@/shared/meals';
 import { scaleNutrients } from '@/shared/nutrients';
 import { foodKey, type FoodCorrection } from '@/shared/personal-foods';
@@ -41,6 +42,15 @@ export async function loadItems(meal: MealRow): Promise<MealItem[]> {
 
 export async function toMealWithItems(meal: MealRow): Promise<Meal> {
   return { ...(await toMeal(meal)), items: await loadItems(meal) };
+}
+
+/**
+ * A drink still called what EatME named it ("2 × Beer") is renamed for its new count ("3 × Beer");
+ * a name the person typed stays. Undefined: keep the name.
+ */
+export function followDrinkName(name: string | null, before: DrinkRef | null | undefined, beforeCount: number, after: DrinkRef | null | undefined, afterCount: number) {
+  if (!before || !after || name !== drinkName({ ...before, count: beforeCount })) return undefined;
+  return drinkName({ ...after, count: afterCount });
 }
 
 /**
@@ -87,10 +97,18 @@ export async function replaceItems(meal: MealRow, body: UpdateMealItemsBody) {
       nutrients: scaleNutrients(old.nutrients, factor),
       personalFoodId: old.personalFoodId,
       restaurant: old.restaurant && { ...old.restaurant, count: Math.round(old.restaurant.count * factor * 100) / 100 },
+      // A drink's count follows the amount (ml), e.g. 710 ml of beer → 355 ml is one can.
+      drink: old.drink && { ...old.drink, count: Math.round(old.drink.count * factor * 100) / 100 },
     };
   });
 
-  const { meal: saved, itemIds } = await saveComputedItems(meal, items, { closeQuestion: true });
+  // One drink edited (e.g. 710 → 355 ml): "2 × Beer" becomes "Beer".
+  const [only] = existing.values();
+  const name =
+    existing.size === 1 && items.length === 1 && items[0].id === only.id && items[0].drink
+      ? followDrinkName(meal.name, only.drink, (only.drink?.count ?? 0) * meal.portion, items[0].drink, items[0].drink.count)
+      : undefined;
+  const { meal: saved, itemIds } = await saveComputedItems(meal, items, { closeQuestion: true, name });
   const describe = (foodId: number | null) => (foodId ? (foodMap.get(foodId)?.description ?? null) : null);
   return { meal: saved, corrections: correctionsOf(meal, body, existing, items, itemIds, describe) };
 }
@@ -129,7 +147,7 @@ function correctionsOf(
 export async function saveComputedItems(
   meal: MealRow,
   items: readonly ComputedItem[],
-  { closeQuestion = false, executor }: { closeQuestion?: boolean; executor?: Executor } = {},
+  { closeQuestion = false, executor, name }: { closeQuestion?: boolean; executor?: Executor; name?: string } = {},
 ) {
   const totals = itemTotals(items);
   const base = baseFromNutrients(totals.nutrients);
@@ -148,6 +166,7 @@ export async function saveComputedItems(
         matchedShare: totals.matchedShare,
         addedSugarG,
         ...(closeQuestion ? { followUp: closedQuestion } : {}),
+        ...(name ? { name } : {}),
       })
       .where(eq(meals.id, meal.id))
       .returning();
@@ -164,7 +183,7 @@ export async function copyItems(fromMealId: string, toMealId: string, executor: 
   await executor
     .insert(mealItems)
     .values(
-      rows.map(({ position, name, foodId, productCode, grams, nutrients, aiName, personalFoodId, restaurant }) => ({
+      rows.map(({ position, name, foodId, productCode, grams, nutrients, aiName, personalFoodId, restaurant, drink }) => ({
         mealId: toMealId,
         position,
         name,
@@ -175,6 +194,7 @@ export async function copyItems(fromMealId: string, toMealId: string, executor: 
         aiName,
         personalFoodId,
         restaurant,
+        drink,
       })),
     );
 }
@@ -209,6 +229,7 @@ export async function answerFollowUp(meal: MealRow, option: number | 'skip') {
       aiName: row.aiName,
       personalFoodId: row.personalFoodId,
       restaurant: row.restaurant && { ...row.restaurant, count: row.restaurant.count * claimed.portion },
+      drink: row.drink && { ...row.drink, count: row.drink.count * claimed.portion },
     }));
     const change = state.options[answer].change;
     const { meal: saved } = await saveComputedItems(claimed, applyChange(items, change), { executor: tx });

@@ -124,9 +124,12 @@ export function nutrientTargets(gender: Gender | null | undefined, age: number, 
 /** `GET /api/nutrients?date=`: the day's vitamins and minerals against the targets. */
 export type NutrientDay = {
   date: string;
-  /** Totals from the meals' database foods (AI estimates add no vitamins or minerals). */
+  /** Totals from the meals' database foods (AI estimates add no vitamins or minerals) and drinks' alcohol. */
   totals: NutrientAmounts;
-  /** Calories logged that day, and how many of them come from database foods. */
+  /**
+   * Calories of the food logged that day, how many of them come from database foods, and how many
+   * meals: alcoholic drinks are left out (they bring no vitamins or minerals).
+   */
   calories: number;
   coveredCalories: number;
   meals: number;

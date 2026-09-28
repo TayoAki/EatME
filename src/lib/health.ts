@@ -4,6 +4,8 @@ import { useEffect, useRef } from 'react';
 import { Platform } from 'react-native';
 
 import {
+  drinkQuantity,
+  HEALTHKIT_DRINKS,
   HEALTHKIT_NUTRIENTS,
   HEALTHKIT_WATER,
   healthChanges,
@@ -27,6 +29,9 @@ export const healthName = Platform.OS === 'android' ? 'Health Connect' : 'Apple 
 
 /** NSComparisonPredicate.Operator.equalTo, for "metadata key equals value". */
 const EQUAL_TO = 4;
+/** HKAuthorizationStatus: not asked yet, and allowed to write. */
+const NOT_DETERMINED = 0;
+const SHARING_AUTHORIZED = 2;
 const SYNC_ID = 'HKSyncIdentifier';
 const SYNC_VERSION = 'HKSyncVersion';
 
@@ -81,12 +86,14 @@ export async function healthSupport(): Promise<HealthSupport> {
   return 'unsupported';
 }
 
-/** Asks for write access to nutrition and water. EatME never reads health data. */
+/** Asks for write access to nutrition, water and (iPhone) alcoholic drinks. */
 export async function connectHealth(): Promise<boolean> {
   if (Platform.OS === 'ios') {
     const hk = loadHealthKit();
     if (!hk) return false;
-    await hk.requestAuthorization({ toShare: [...HEALTHKIT_NUTRIENTS.map((n) => n.type), HEALTHKIT_WATER.type] });
+    await hk.requestAuthorization({
+      toShare: [...HEALTHKIT_NUTRIENTS.map((n) => n.type), HEALTHKIT_WATER.type, HEALTHKIT_DRINKS.type],
+    });
     // HealthKit tells apps whether writing was allowed (only reading stays hidden).
     return hk.authorizationStatusFor('HKQuantityTypeIdentifierDietaryEnergyConsumed') === 2;
   }
@@ -98,6 +105,23 @@ export async function connectHealth(): Promise<boolean> {
   ]);
   return granted.some((p) => 'recordType' in p && p.recordType === 'Nutrition');
 }
+
+/**
+ * Drinks in Apple Health came after sync: someone who turned sync on earlier is asked once, when
+ * they log a drink (the moment it matters). Nothing happens when sync is off or they already answered.
+ */
+export async function allowDrinksInHealth() {
+  if (Platform.OS !== 'ios' || !useHealthStore.getState().enabled) return;
+  try {
+    const hk = loadHealthKit();
+    if (!hk || hk.authorizationStatusFor(HEALTHKIT_DRINKS.type) !== NOT_DETERMINED) return;
+    await hk.requestAuthorization({ toShare: [HEALTHKIT_DRINKS.type] });
+  } catch (error) {
+    Sentry.logger.warn('Health drinks permission failed', { error: String(error) });
+  }
+}
+
+const canWriteDrinks = (hk: HealthKit) => hk.authorizationStatusFor(HEALTHKIT_DRINKS.type) === SHARING_AUTHORIZED;
 
 async function writeHealthKit(hk: HealthKit, item: HealthItem) {
   if (item.kind === 'water') {
@@ -117,6 +141,14 @@ async function writeHealthKit(hk: HealthKit, item: HealthItem) {
       HKFoodType: item.meal.name ?? 'Meal',
     });
   }
+  // The drink count is extra: without that permission the meal's nutrition still syncs.
+  const drinks = drinkQuantity(item.meal);
+  if (drinks && canWriteDrinks(hk)) {
+    await hk.saveQuantitySample(drinks.type, drinks.unit, drinks.value, at, at, {
+      [SYNC_ID]: `${item.id}-${drinks.key}`,
+      [SYNC_VERSION]: item.version,
+    });
+  }
 }
 
 async function removeHealthKit(hk: HealthKit, id: string) {
@@ -126,6 +158,7 @@ async function removeHealthKit(hk: HealthKit, id: string) {
     return;
   }
   for (const n of HEALTHKIT_NUTRIENTS) await hk.deleteObjects(n.type, byId(`${id}-${n.key}`));
+  if (canWriteDrinks(hk)) await hk.deleteObjects(HEALTHKIT_DRINKS.type, byId(`${id}-${HEALTHKIT_DRINKS.key}`));
 }
 
 function healthConnectRecord(item: HealthItem) {

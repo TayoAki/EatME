@@ -42,6 +42,7 @@ import {
   PRODUCT_SOURCES,
   type ProductReportSnapshot,
 } from '@/shared/products';
+import type { DrinkRef } from '@/shared/drinks';
 import type { RestaurantRef } from '@/shared/restaurants';
 import { REPEAT_RESPONSES } from '@/shared/saved-meals';
 import { SUPPLEMENT_SCHEDULES } from '@/shared/supplements';
@@ -452,6 +453,8 @@ export const mealItems = pgTable(
     personalFoodId: uuid().references((): AnyPgColumn => personalFoods.id, { onDelete: 'set null' }),
     /** A restaurant menu item (FatSecret): chain, item and serving IDs, serving text, how many. */
     restaurant: jsonb().$type<RestaurantRef>(),
+    /** An alcoholic drink (v2.4): type, one drink's volume, strength, how many (and a cocktail's shots and mixer). */
+    drink: jsonb().$type<DrinkRef>(),
     ...timestamps,
   },
   (t) => [index('meal_items_meal_id_idx').on(t.mealId)],

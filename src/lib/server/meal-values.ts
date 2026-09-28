@@ -102,7 +102,8 @@ export async function copyMeal(
       fatG: meal.fatG,
       fiberG: meal.fiberG,
       confidence: meal.confidence,
-      source: 'copy',
+      // A drink stays a drink (its glass on Home, its count in Apple Health).
+      source: meal.source === 'drink' ? 'drink' : 'copy',
       portion: meal.portion,
       baseNutrition: currentBase(meal),
       note: meal.note,

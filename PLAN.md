@@ -754,19 +754,19 @@ added to an earlier day are stored at local noon of that day.
   fixes and weight alongside → personal food memory → steer the AI → design check against
   `design/` (new prompt `design/prompts/12-v2-1.md` first), docs, lint, typecheck, `build:server`
 
-**v2.2 – v2.4: planned in [`NEXT-FEATURES.md`](./NEXT-FEATURES.md)** (27 September 2026, nothing
-built yet). That file has the screens, data, routes, rules, tests and build order for each item and
-replaces the old v2.2 list and the "Later" list; tick a box there and here when it ships.
-- [ ] v2.2 · GLP-1: one current medicine with a history of switches (not several at once)
-- [ ] v2.2 · Pens & vials: supply left, use-by and refill reminders (counts the person enters;
+**v2.2 – v2.4: planned in [`NEXT-FEATURES.md`](./NEXT-FEATURES.md)** (27 September 2026; built
+from 28 September). That file has the screens, data, routes, rules, tests and build order for each
+item and replaces the old v2.2 list and the "Later" list; tick a box there and here when it ships.
+- [x] v2.2 · GLP-1: one current medicine with a history of switches (not several at once)
+- [x] v2.2 · Pens & vials: supply left, use-by and refill reminders (counts the person enters;
   never dose, unit or reconstitution maths)
-- [ ] v2.2 · Injection sites with left and right, the last one shown (a next site is never
+- [x] v2.2 · Injection sites with left and right, the last one shown (a next site is never
   suggested)
-- [ ] v2.2 · Body measurements and private progress photos (never sent to the AI)
-- [ ] v2.3 · Steps, workouts and sleep read from Apple Health / Health Connect (kept on the phone;
+- [x] v2.2 · Body measurements and private progress photos (never sent to the AI)
+- [x] v2.3 · Steps, workouts and sleep read from Apple Health / Health Connect (kept on the phone;
   nothing added to the calorie goal)
-- [ ] v2.3 · A calorie target that adjusts to the weight trend (an opt-in weekly check-in)
-- [ ] v2.4 · Alcoholic drinks
+- [x] v2.3 · A calorie target that adjusts to the weight trend (an opt-in weekly check-in)
+- [x] v2.4 · Alcoholic drinks
 - [ ] v2.4 · Plan tomorrow (a draft from the person's own meals, no AI)
 - Skipped: export and the doctor report. Parked: "What to eat next" (Plan tomorrow no longer
   waits for it).

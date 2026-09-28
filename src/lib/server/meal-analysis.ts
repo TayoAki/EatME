@@ -101,6 +101,7 @@ export async function saveItems(mealId: string, items: readonly ComputedItem[], 
         aiName: item.aiName ?? null,
         personalFoodId: item.personalFoodId ?? null,
         restaurant: item.restaurant ?? null,
+        drink: item.drink ?? null,
       })),
     )
     .returning({ id: mealItems.id, position: mealItems.position });

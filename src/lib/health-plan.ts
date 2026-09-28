@@ -1,3 +1,4 @@
+import { standardDrinks } from '@/shared/drinks';
 import type { Meal } from '@/shared/meals';
 import type { WaterEntry } from '@/shared/water';
 
@@ -15,6 +16,8 @@ export const HEALTHKIT_NUTRIENTS = [
   { key: 'fiberG', type: 'HKQuantityTypeIdentifierDietaryFiber', unit: 'g' },
 ] as const;
 export const HEALTHKIT_WATER = { type: 'HKQuantityTypeIdentifierDietaryWater', unit: 'mL' } as const;
+/** Alcoholic drinks (iPhone only; Health Connect has no such type), as standard drinks. */
+export const HEALTHKIT_DRINKS = { key: 'drinks', type: 'HKQuantityTypeIdentifierNumberOfAlcoholicBeverages', unit: 'count' } as const;
 
 export type HealthItem =
   | { kind: 'meal'; id: string; version: number; meal: Meal }
@@ -58,6 +61,16 @@ export function mealQuantities(meal: Meal) {
     const value = meal[key];
     return value === null || value === undefined ? [] : [{ key, type, unit, value }];
   });
+}
+
+/**
+ * A drink logged in EatME (Scan → Drinks) as Apple Health's "Alcoholic Beverages": the number of US
+ * standard drinks (14 g of alcohol each), which is how Apple counts them. Other meals: none.
+ */
+export function drinkQuantity(meal: Meal) {
+  const alcohol = meal.nutrients?.alcohol ?? 0;
+  if (meal.source !== 'drink' || alcohol <= 0) return null;
+  return { ...HEALTHKIT_DRINKS, value: standardDrinks(alcohol) };
 }
 
 /** Health Connect meal type from the local time: breakfast, lunch, dinner or a snack. */

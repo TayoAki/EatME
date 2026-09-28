@@ -17,12 +17,14 @@ export const GET = handle(async (request) => {
   const { start, end } = dayBounds(date, user.timezone);
 
   const rows = await db
-    .select({ calories: meals.calories, nutrients: meals.nutrients, matchedShare: meals.matchedShare, portion: meals.portion })
+    .select({ calories: meals.calories, nutrients: meals.nutrients, matchedShare: meals.matchedShare, portion: meals.portion, source: meals.source })
     .from(meals)
     .where(and(eq(meals.userId, userId), eq(meals.status, 'completed'), gte(meals.loggedAt, start), lt(meals.loggedAt, end)));
 
-  const calories = rows.reduce((sum, r) => sum + (r.calories ?? 0), 0);
-  const coveredCalories = Math.round(rows.reduce((sum, r) => sum + (r.calories ?? 0) * (r.matchedShare ?? 0), 0));
+  // Coverage is about vitamins and minerals, which alcoholic drinks don't bring: food only.
+  const food = rows.filter((r) => r.source !== 'drink');
+  const calories = food.reduce((sum, r) => sum + (r.calories ?? 0), 0);
+  const coveredCalories = Math.round(food.reduce((sum, r) => sum + (r.calories ?? 0) * (r.matchedShare ?? 0), 0));
   const totals = addNutrients(rows.flatMap((r) => (r.nutrients ? [scaleNutrients(r.nutrients, r.portion)] : [])));
   const age = user.dateOfBirth ? ageFromDateOfBirth(user.dateOfBirth) : 30;
 
@@ -38,7 +40,7 @@ export const GET = handle(async (request) => {
     totals,
     calories,
     coveredCalories,
-    meals: rows.length,
+    meals: food.length,
     supplements: fromSupplements,
     supplementNames: taken.map((t) => t.name),
     overLimit: overUpperLimits(fromSupplements),

@@ -2,12 +2,12 @@ import { and, eq } from 'drizzle-orm';
 import { z } from 'zod';
 
 import { db } from '@/db';
-import { meals } from '@/db/schema';
+import { mealItems, meals } from '@/db/schema';
 import { requireUserId } from '@/lib/server/auth';
 import { toMeal } from '@/lib/server/dto';
 import { closedQuestion } from '@/lib/server/follow-up';
 import { describeError } from '@/lib/server/log';
-import { toMealWithItems } from '@/lib/server/meal-items';
+import { followDrinkName, toMealWithItems } from '@/lib/server/meal-items';
 import { handle, HttpError, readJson } from '@/lib/server/http';
 import { resumeStalledAnalyses } from '@/lib/server/meal-analysis';
 import { mealChanges } from '@/lib/server/meal-values';
@@ -52,6 +52,13 @@ export const PATCH = handle<Params>(async (request, { id }) => {
   if (changes.isFavorite !== undefined && meal.status === 'saved') throw new HttpError(400, 'Saved meals are already kept.');
 
   const update = mealChanges(meal, changes);
+  if (meal.source === 'drink' && update.portion !== undefined && changes.name === undefined) {
+    // "2 × Beer" at 1½× is "3 × Beer" (a name the person typed stays).
+    const rows = await db.select({ drink: mealItems.drink }).from(mealItems).where(eq(mealItems.mealId, meal.id));
+    const drink = rows.length === 1 ? rows[0].drink : null;
+    const name = drink ? followDrinkName(meal.name, drink, drink.count * meal.portion, drink, drink.count * update.portion) : undefined;
+    if (name) update.name = name;
+  }
   if (Object.keys(update).length === 0) return Response.json({ meal: await toMealWithItems(meal) });
   // New numbers or a new portion close the AI's question: its answers were for the meal as analyzed.
   const [saved] = await db

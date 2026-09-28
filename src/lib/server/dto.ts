@@ -1,6 +1,7 @@
 import type { DoseLogRow, FoodRow, MealItemRow, MealRow, SymptomLogRow, User, WaterLogRow } from '@/db/schema';
 import type { DoseLog, Severity, SymptomLog } from '@/shared/glp1';
 import type { FoodSummary, Meal, MealItem } from '@/shared/meals';
+import { DRINKS, standardDrinks } from '@/shared/drinks';
 import { scaleNutrients } from '@/shared/nutrients';
 import { ageFromDateOfBirth, recommendedFiberG, recommendedWaterMl } from '@/shared/nutrition';
 import type { Profile } from '@/shared/user';
@@ -133,6 +134,15 @@ export function toMealItem(
     personalFoodId: item.personalFoodId,
     restaurant: item.restaurant
       ? { chain: item.restaurant.chain, serving: item.restaurant.serving, count: Math.round(item.restaurant.count * portion * 100) / 100 }
+      : null,
+    drink: item.drink
+      ? {
+          title: DRINKS[item.drink.type].title,
+          count: Math.round(item.drink.count * portion * 100) / 100,
+          volumeMl: item.drink.volumeMl,
+          abv: item.drink.abv,
+          standardDrinks: standardDrinks(n.alcohol ?? 0),
+        }
       : null,
   };
 }
