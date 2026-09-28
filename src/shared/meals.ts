@@ -303,6 +303,11 @@ export const quickMealSchema = z.object({
         .string()
         .regex(/^\d{4}-\d{2}-\d{2}$/)
         .optional(),
+      /** With an earlier `date`: the local time it was eaten (HH:MM), noon when left out. */
+      time: z
+        .string()
+        .regex(/^([01]\d|2[0-3]):[0-5]\d$/)
+        .optional(),
     })
     .strict()
     .refine((q) => [q.calories, q.proteinG, q.carbsG, q.fatG, q.fiberG].some((value) => (value ?? 0) > 0), {

@@ -10,7 +10,7 @@ screenshots in `store/screenshots/`. Update this file when the app changes.
 
 | Rule | Where | How it's met |
 | --- | --- | --- |
-| 2.1 demo account | `scripts/demo-account.ts` (`npm run demo:account -- --email ...`) | Two weeks of sample meals, weigh-ins and water; AI not yet allowed, so the reviewer sees the consent screen; `--replace` recreates it before a resubmission |
+| 2.1 demo account | `scripts/demo-account-remote.ts` (`npm run demo:account:remote -- --email ...`, through the live API: the production database is private), or `scripts/demo-account.ts` for a reachable database | Two weeks of sample meals, weigh-ins and water; AI not yet allowed, so the reviewer sees the consent screen; `--replace` recreates it before a resubmission |
 | 2.1 / 2.3.1(a) flags in their final state | `src/app/api/features+api.ts` (`GET <server>/api/features`) | Check the live values before submitting. Restaurant menus (`RESTAURANTS`) are in the binary but off: the review notes disclose it, and they go live only with a new reviewed version (`store/README.md` → When restaurant menus go live) |
 | 2.1 time- and data-dependent features | Home's week strip (`src/components/home/date-strip.tsx`), `scripts/demo-account.ts` | Plan tomorrow: the evening card only shows after 5 pm, so the notes send reviewers to tomorrow in the week strip (any time); the demo account's two weeks of meals give Plan tomorrow, the check-in and the weight trend enough history |
 | 1.4.1 estimates, doctor, sources | Profile → Daily goals (`src/app/(app)/daily-goals.tsx`: doctor note + "How EatME works out your numbers") for the demo account; the onboarding plan screen (`src/app/onboarding/plan.tsx`) for new accounts; `legal/support.html#sources` | "Estimate" wording everywhere; formulas and databases cited on the support page, also reachable from Profile → Help and support |
@@ -47,7 +47,7 @@ screenshots in `store/screenshots/`. Update this file when the app changes.
    credit.
 5. App Store Connect: subscriptions (multiseat off) added to the same submission as the version; Paid Apps
    Agreement active; age rating override 18+; medical device = No; DSA trader status; App Privacy published.
-6. A fresh demo account (`npm run demo:account -- --email review@<domain> --replace`), its credentials in App
+6. A fresh demo account (`npm run demo:account:remote -- --email review@<domain>` after deleting the old one), its credentials in App
    Review Information, and the notes from `store/README.md`.
 7. Screenshots from `store/screenshots/ios-6.9/` still match the app as the store build shows it: taken with the
    production flag values (compare `/api/features`), Premium marked wherever a Premium card appears. Re-take them

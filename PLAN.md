@@ -507,12 +507,15 @@ added to an earlier day are stored at local noon of that day.
   lists what is deleted and kept. Add its URL in Play Console → Data safety
 - [x] A Washington health-data policy: `/health-data` (Consumer Health Data Privacy Policy),
   its own link in the homepage footer
-- [ ] Legal placeholders filled in (`legal/README.md`): company name, address, contact email,
-  jurisdiction, effective date — then a lawyer's read
+- [x] Legal placeholders filled in (`legal/README.md`): UGC Mediakits, 1025 Veterans Memorial Highway SE,
+  Mableton, GA 30126, support@ugcmediakits.com, Georgia law, effective September 28, 2026; no EU representative
+  (leave the EU/EEA and UK out of availability until one is appointed)
+- [ ] A lawyer's read of the Privacy Policy, Terms and Washington policy
 - [x] Demo account with sample meals; review notes point to the consent screen:
-  `npm run demo:account -- --email review@…` (with the production `DATABASE_URL`) creates it with two
-  weeks of meals, weigh-ins and water and no AI consent, so the first scan shows the consent screen;
-  `--replace` before a resubmission. You: run it right before submitting and paste the printed password
+  `review@ugcmediakits.com` made on 2026-09-28 through the live API (`npm run demo:account:remote`; the
+  production database has no public address): three weeks of meals at the usual times, weigh-ins and water, no
+  AI consent, so the first scan shows the consent screen. Refresh it before App Review (delete, then run again).
+  `npm run demo:account` does the same straight in a reachable database
 - [x] App Privacy labels, Play Data safety form, Play Health apps declaration, "not a
   medical device" in the Play listing: all in `store/README.md`, with the listing texts, the age rating
   (override to 18+) and the review notes. You: paste them into App Store Connect and Play Console

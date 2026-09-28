@@ -48,6 +48,7 @@ Policy if it says so.
 | License agreement | Apple's standard EULA (the description links our Terms of Use, as 3.1.2 asks) |
 | Regulated medical device | App Store Regulations & Permits → Declare Regulated Medical Device → **No** (required for Health & Fitness apps in the EEA, UK and US; Account Holder or Admin only) |
 | Digital Services Act | Business → Agreements → Compliance → Digital Services Act → **trader** (a company selling apps is a trader). Apple verifies the address, phone and email and shows them on EU product pages. Required even if you don't sell in the EU |
+| Availability | Leave out the EU/EEA and the UK until you appoint GDPR representatives there (EatME handles health data, so GDPR Article 27 and UK GDPR need a representative for a company with no office there); the Privacy Policy names none. Everywhere else: all countries |
 
 ### Version page
 
@@ -60,7 +61,7 @@ Policy if it says so.
 | Marketing URL | Leave empty for 1.0 (the landing page still says "beta" and "Android coming soon"); add `<server>/` once it links the App Store |
 | Description | [App Store description](#app-store-description) |
 | What's New | Not shown for version 1.0 (the field is hidden). From 1.1 on, list what changed |
-| Copyright | `2026 [Company Legal Name]` (Apple adds the ©) |
+| Copyright | `2026 UGC Mediakits` (Apple adds the ©; use the exact legal name on your Apple developer account) |
 | App Review contact | your name, email and phone in international form (`+1 415 555 0100`) |
 | Sign-in required | Yes: the demo account's email and password |
 | Review notes | [App Review notes](#app-review-notes) |
@@ -246,7 +247,7 @@ TestFlight → Test Information (needed before external testers; Beta App Review
 | Field | Answer |
 | --- | --- |
 | Beta App Description | the text below |
-| Feedback Email | the `[Contact Email]` from the legal pages |
+| Feedback Email | `support@ugcmediakits.com` |
 | Marketing URL · Privacy Policy URL | `<server>/` · `<server>/privacy` |
 | Beta App Review contact | your name, email and phone (`+1 ...`) |
 | Sign-in required | Yes: the demo account's email and password |
@@ -286,7 +287,7 @@ Found a bug? Take a screenshot and tap Share Beta Feedback, or email us. In Test
 | Feature graphic | 1024 × 500 PNG or JPG |
 | Phone screenshots | 2 to 8, portrait (9:16), from an Android phone |
 | App category | Health & Fitness |
-| Contact email | the `[Contact Email]` from the legal pages |
+| Contact email | `support@ugcmediakits.com` |
 | Website | `<server>/` |
 | Privacy policy | `<server>/privacy` |
 
@@ -397,24 +398,26 @@ the phone (never sent to EatME's server), so they aren't "collected" in Google's
 
 ## Demo account
 
-Both stores need a working sign-in. `scripts/demo-account.ts` creates one on the production database: signed
-up, onboarded (a formula plan), with two weeks of sample meals, weigh-ins and water. AI analysis is not allowed
-yet, so the reviewer's first scan shows the AI consent screen.
+Both stores need a working sign-in: EatME can't be used without an account. The demo account is
+**`review@ugcmediakits.com`**, created on 2026-09-28 through the live server's API (`scripts/demo-account-remote.ts`):
+signed up and onboarded with the formula plan, three weeks of meals at the usual meal times, weigh-ins every other
+day and water every day. AI analysis is not allowed yet, so the reviewer's first scan shows the AI consent screen.
+Its password was handed over once; paste the email and password into App Store Connect (App Review Information →
+Sign-in required) and Play Console (App content → App access).
 
-1. Use an address you own that no real account uses, for example `review@yourdomain.com`.
-2. Right before you submit, run from your computer (`.env` needs the Railway Postgres public `DATABASE_URL`):
+To create one again (the production database has no public address, so this goes through the API):
 
-   ```bash
-   npm run demo:account -- --email review@yourdomain.com
-   ```
+```bash
+npm run demo:account:remote -- --email review@ugcmediakits.com
+```
 
-3. It prints the email and a new password **once**. Paste them into App Store Connect (App Review Information →
-   Sign-in required) and Play Console (App content → App access). Only the password's hash is stored.
-4. Before a resubmission (or if a reviewer deleted the account), run it again with `--replace`: it deletes that
-   account like Profile → Delete account and creates it again with fresh sample data and a new password.
+It prints a new password once. The account's history ends the day it's made, so refresh it within a week or two
+of submitting: first delete the old one (sign in as it → Profile → Delete account, or `<server>/delete-account`),
+then run the command again. Options: `--days 21` (7 to 60), `--name Alex`, `--time-zone America/Los_Angeles` (the
+default; App Review is in California), `--server <url>` (default: the production API URL in `eas.json`).
 
-Options: `--time-zone America/Los_Angeles` (the default; App Review is in California), `--days 14`,
-`--name Alex`. Meals are placed at the usual meal times, so "today" only fills up as the day goes on.
+`npm run demo:account` (`scripts/demo-account.ts`) does the same straight in the database, with `--replace`, for a
+database you can reach (a local one, or production through a Railway TCP proxy).
 
 ## When restaurant menus go live
 

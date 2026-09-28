@@ -67,14 +67,14 @@ Every placeholder is written in square brackets and highlighted in yellow on the
 (`<mark class="placeholder">[…]</mark>`). Replace each whole `<mark class="placeholder">[…]</mark>` element with the
 real value, and also the `[Contact Email]` inside every `href="mailto:[Contact Email]"`.
 
-- [ ] `[Company Legal Name]`: the legal name of the person or company that publishes the app
-- [ ] `[Registered Address]`: postal address of that person or company
-- [ ] `[Contact Email]`: an inbox you monitor for privacy, deletion, lost-password and support requests (EatME sends no
+- [x] `[Company Legal Name]`: UGC Mediakits (make sure it matches the registered name, e.g. with "LLC", and the seller on your Apple developer account)
+- [x] `[Registered Address]`: 1025 Veterans Memorial Highway SE, Mableton, GA 30126, USA
+- [x] `[Contact Email]` (support@ugcmediakits.com): an inbox you monitor for privacy, deletion, lost-password and support requests (EatME sends no
       emails of its own yet, so this inbox is the only way users can reach you)
-- [ ] `[Governing Law Jurisdiction]`: the country or state whose law governs the Terms
-- [ ] `[Effective Date]`: the date the documents take effect (Privacy Policy, Terms, Consumer Health Data Privacy
+- [x] `[Governing Law Jurisdiction]`: the State of Georgia, United States (where the company is)
+- [x] `[Effective Date]` (September 28, 2026): the date the documents take effect (Privacy Policy, Terms, Consumer Health Data Privacy
       Policy)
-- [ ] `[EU Representative, if applicable]`: name and address of your Article 27 GDPR representative if you have
+- [x] `[EU Representative, if applicable]`: removed, none is appointed. Until you appoint EU and UK representatives, leave the EU/EEA and UK out of the App Store and Play availability (`store/README.md`). Was: name and address of your Article 27 GDPR representative if you have
       no establishment in the EU but offer the app there; otherwise delete that line from `privacy.html`
 - [ ] Nothing is left: `grep -rn 'class="placeholder"\|\[[A-Z]' legal/*.html` prints nothing
 - [ ] Optional: refresh the phone mockups (`images/phone-*.png`) and `images/og.png` if the screens change. They

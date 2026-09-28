@@ -68,8 +68,9 @@ App Store Connect → EatME → TestFlight.
 Before the first external testers:
 
 - [ ] Legal placeholders filled in and deployed (`legal/README.md`): Beta App Review opens the privacy policy.
-- [ ] A demo account for Beta App Review: `npm run demo:account -- --email review@<your domain>` (see
-      [`README.md` → Demo account](README.md#demo-account)). EatME can't be used without signing in, so Apple needs
+- [x] A demo account for Beta App Review: `review@ugcmediakits.com`, made on 2026-09-28 (see
+      [`README.md` → Demo account](README.md#demo-account); refresh it with `npm run demo:account:remote` before
+      App Review). EatME can't be used without signing in, so Apple needs
       working login details; the account's two weeks of sample data is what lets a reviewer see the weight trend,
       the weekly check-in and Plan tomorrow.
 - [ ] RevenueCat: the four products are attached to the `premium` entitlement and the offering, and Sandbox Testing

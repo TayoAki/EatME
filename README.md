@@ -157,7 +157,7 @@ their variables in `.env.example` and a checklist item in `PLAN.md` §10.
 | `npm run lint` / `npm run typecheck` | ESLint / TypeScript |
 | `npm run db:generate` / `db:migrate` / `db:push` / `db:studio` | Drizzle migrations and database browser |
 | `npm run db:seed -- --email you@example.com` | Sample meals for testing |
-| `npm run demo:account -- --email review@yourdomain.com` | The App Review demo account (prints its password once) |
+| `npm run demo:account:remote -- --email review@yourdomain.com` | The App Review demo account, made through the live API (prints its password once); `npm run demo:account` does it straight in a database you can reach |
 
 ## Project structure
 

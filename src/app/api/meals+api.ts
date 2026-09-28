@@ -198,7 +198,7 @@ export const POST = handle(async (request) => {
       let meal;
       if (has(body, 'quick')) {
         const { quick } = quickMealSchema.parse(body);
-        meal = await logQuickMeal(userId, quick, loggedAtFor(quick.date, user.timezone));
+        meal = await logQuickMeal(userId, quick, loggedAtFor(quick.date, user.timezone, quick.time));
       } else if (has(body, 'drink')) {
         const { drink } = drinkMealSchema.parse(body);
         meal = await logDrinkMeal(userId, drink, loggedAtFor(drink.date, user.timezone));

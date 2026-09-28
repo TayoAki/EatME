@@ -32,13 +32,13 @@ export function dayBounds(date: string, timeZone: string) {
 }
 
 /**
- * When to log something the user adds for `date`: now for today, noon (local) for an earlier day.
- * Future days are refused.
+ * When to log something the user adds for `date`: now for today; for an earlier day at `time`
+ * (local HH:MM), noon when left out. Future days are refused.
  */
-export function loggedAtFor(date: string | undefined, timeZone: string) {
+export function loggedAtFor(date: string | undefined, timeZone: string, time?: string) {
   if (!date) return new Date();
   const today = localDate(new Date(), timeZone);
   if (date > today) throw new HttpError(400, "You can't log things in the future.");
   if (date === today) return new Date();
-  return sql`((${date}::date + time '12:00')::timestamp at time zone ${timeZone})`;
+  return sql`((${date}::date + ${time ?? '12:00'}::time)::timestamp at time zone ${timeZone})`;
 }
