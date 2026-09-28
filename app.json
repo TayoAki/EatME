@@ -135,7 +135,7 @@
       [
         "@kingstinct/react-native-healthkit",
         {
-          "NSHealthShareUsageDescription": "EatME can read your steps, workouts and sleep to show them next to your meals, if you turn this on. They stay on your phone.",
+          "NSHealthShareUsageDescription": "EatME can read your steps, active energy, workouts and sleep to show them next to your meals, if you turn this on. They stay on your phone.",
           "NSHealthUpdateUsageDescription": "EatME saves the calories, protein, carbs, fat, fiber, water and drinks you log to Apple Health, if you turn this on.",
           "background": false
         }

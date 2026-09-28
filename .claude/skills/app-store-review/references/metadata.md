@@ -42,7 +42,7 @@ Checked 2026-09-28 on Apple's help pages (links below). Limits are characters un
 | Promotional text | up to 170; editable any time without review; not used for search |
 | Description | up to 4,000, plain text. Name Apple Health (2.5.1); no accuracy claims (1.4.1); state the subscription and link the Terms of Use (3.1.2) |
 | Keywords | up to **100 bytes**, comma-separated, no spaces needed; no other apps' or companies' names (2.3.7) |
-| Support URL | required; must "lead to actual contact information (legal address, email address, telephone number), as may be required by local law". Include `https://` |
+| Support URL | required; must "lead to actual contact information (legal address, email address, telephone number), as may be required by local law". Include `https://`. In practice a real email and postal address are enough unless your local law requires a phone; EU traders' phone numbers are shown on EU product pages through the DSA declaration anyway |
 | Marketing URL | optional |
 | Copyright | required, e.g. `2026 Example Inc.` (Apple adds the ©) |
 | What's New | up to 4,000; not shown for the first version |

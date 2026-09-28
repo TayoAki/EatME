@@ -562,7 +562,11 @@ added to an earlier day are stored at local noon of that day.
   (`premiumOptions`, 3.1.2); no Sentry session replay in store builds (2.5.14); the unused Face ID purpose
   string removed; "How EatME works out your numbers" on the plan screen → `/support#sources` with the formulas
   and their sources (1.4.1); deleting an account tells a subscriber it doesn't cancel Premium (5.1.1(v)); a
-  Support page with contact details for the Support URL
+  Support page with contact details for the Support URL. After an independent run of the skill's audit: the
+  doctor note and sources link also on Daily goals (the demo account never sees onboarding), the review notes
+  send reviewers to tomorrow in the week strip (any time of day) and disclose the switched-off restaurant menus
+  (on only with a later reviewed version, 2.3.1(a)), the Apple Health read string names active energy, and the
+  screenshots were re-taken with production's flags (no Restaurants tab, no unmarked Premium card)
 - [x] App Store screenshots (`store/screenshots/ios-6.9`, 1320 × 2868, Premium badge on Plan tomorrow),
   the landing page refreshed for the beta (features, pricing, FAQ, TestFlight) with new phone mockups and a
   social preview image, and the App Store Connect / TestFlight texts in `store/README.md`

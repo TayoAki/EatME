@@ -69,7 +69,11 @@ Before the first external testers:
 
 - [ ] Legal placeholders filled in and deployed (`legal/README.md`): Beta App Review opens the privacy policy.
 - [ ] A demo account for Beta App Review: `npm run demo:account -- --email review@<your domain>` (see
-      [`README.md` → Demo account](README.md#demo-account)).
+      [`README.md` → Demo account](README.md#demo-account)). EatME can't be used without signing in, so Apple needs
+      working login details; the account's two weeks of sample data is what lets a reviewer see the weight trend,
+      the weekly check-in and Plan tomorrow.
+- [ ] RevenueCat: the four products are attached to the `premium` entitlement and the offering, and Sandbox Testing
+      Access is "Anybody"; Railway has `REVENUECAT_SECRET_KEY` and `PAYMENTS_ENABLED=true`.
 - [ ] When every tester is on TestFlight instead of Expo Go: delete `ALLOW_EXPO_GO` on Railway.
 - [ ] Put the public TestFlight link on the landing page (`legal/index.html`, the comment in the download section).
 
@@ -77,8 +81,9 @@ Before the first external testers:
 
 App Store Connect → EatME → the iOS version (1.0) → fill it from [`README.md`](README.md):
 
-1. **Screenshots:** iPhone 6.9" display → drag in `screenshots/ios-6.9/01-home.png` to `07-calm.png` in order.
-2. **Texts:** promotional text, description, keywords, support URL (`<server>/support`), marketing URL, copyright.
+1. **Screenshots:** iPhone 6.9" display → drag in `screenshots/ios-6.9/01-home.png` to `07-search.png` in order.
+2. **Texts:** promotional text, description, keywords, support URL (`<server>/support`), copyright (leave the
+   marketing URL empty until the landing page links the App Store).
 3. **Build:** pick the TestFlight build you tested.
 4. **App Review Information:** your name, email and phone (`+1 ...` format), "Sign-in required" with the demo
    account's email and password, and the review notes.

@@ -1,6 +1,6 @@
 import * as Sentry from '@sentry/react-native';
 import { router } from 'expo-router';
-import { ArrowLeft, Pencil } from 'lucide-react-native';
+import { ArrowLeft, Pencil, Stethoscope } from 'lucide-react-native';
 import { useState } from 'react';
 import { Pressable, ScrollView, Text, TextInput, View } from 'react-native';
 
@@ -12,6 +12,7 @@ import { Screen } from '@/components/ui/screen';
 import { colors } from '@/constants/colors';
 import { notify } from '@/lib/confirm';
 import { haptics } from '@/lib/haptics';
+import { links, openLink } from '@/lib/links';
 import { useProfile, useUpdateProfile } from '@/lib/queries';
 import { caloriesFromMacros, minimumCalories } from '@/shared/nutrition';
 import type { UnitSystem } from '@/shared/onboarding';
@@ -317,6 +318,23 @@ function DailyGoals({ profile }: { profile: Profile }) {
           Goals are a guide, not a quota. Fiber is best raised slowly with plenty to drink; for water, thirst is a
           good signal too.
         </Text>
+
+        {/* General estimates, not medical advice, with the methods and sources (Apple 1.4.1). */}
+        <View className="flex-row gap-3 rounded-2xl border border-line p-3.5">
+          <Stethoscope size={18} color={colors.ink} strokeWidth={1.8} style={{ marginTop: 1 }} />
+          <View className="flex-1">
+            <Text className="text-[14px] leading-5 text-ink">
+              These goals are general estimates, not medical advice. Check with a doctor before big changes to how you
+              eat, especially if you take medicine such as a GLP-1, are pregnant or have had an eating disorder.
+            </Text>
+            <Text
+              accessibilityRole="link"
+              className="mt-2 text-[14px] font-semibold text-ink underline"
+              onPress={() => void openLink(links.sources)}>
+              How EatME works out your numbers
+            </Text>
+          </View>
+        </View>
       </ScrollView>
 
       {editing ? (

@@ -53,11 +53,11 @@ Policy if it says so.
 
 | Field | Answer |
 | --- | --- |
-| Screenshots | iPhone 6.9" display: `screenshots/ios-6.9/01-home.png` to `07-calm.png`, in that order (1320 × 2868, no alpha; captions and rules in `screenshots/README.md`). EatME is iPhone-only (`supportsTablet: false`), so no iPad screenshots |
+| Screenshots | iPhone 6.9" display: `screenshots/ios-6.9/01-home.png` to `07-search.png`, in that order (1320 × 2868, no alpha; captions and rules in `screenshots/README.md`). EatME is iPhone-only (`supportsTablet: false`), so no iPad screenshots |
 | Promotional text (170) | `Take a photo, describe your meal or scan a barcode. EatME estimates the calories, protein, carbs, fat and fiber, and keeps your day on track.` |
 | Keywords (100) | `calorie counter,macro tracker,food diary,nutrition,protein,fiber,diet,weight loss,glp-1,meal photo` (never another app's name: Apple 2.3.7) |
 | Support URL | `<server>/support` (contact details, Premium, cancelling and refunds, how the numbers are worked out) |
-| Marketing URL | `<server>/` |
+| Marketing URL | Leave empty for 1.0 (the landing page still says "beta" and "Android coming soon"); add `<server>/` once it links the App Store |
 | Description | [App Store description](#app-store-description) |
 | What's New | Not shown for version 1.0 (the field is hidden). From 1.1 on, list what changed |
 | Copyright | `2026 [Company Legal Name]` (Apple adds the ©) |
@@ -170,34 +170,37 @@ SIGNING IN
 Tap "Sign in" on the welcome screen and use the demo account above. It has two weeks of sample meals, weigh-ins and water.
 
 AI CONSENT (5.1.2(i))
-Before any photo or description is sent to AI, EatME asks for permission and names who receives it: OpenRouter, which passes it to OpenAI's model. The demo account hasn't allowed AI yet, so the first scan shows this screen. New accounts see it during onboarding, before the plan is made ("Continue without AI" makes a plan with a standard formula). It can be switched off any time in Profile → Preferences → AI meal analysis. Barcodes, food search, drinks and quick add never use AI.
+Before any photo or description is sent to AI, EatME asks for permission and names who receives it: OpenRouter, which passes it to OpenAI's model. The demo account hasn't allowed AI yet, so the first scan shows this screen; new accounts see it in onboarding, before the plan is made. It can be switched off in Profile → Preferences → AI meal analysis. Barcodes, food search, drinks and quick add never use AI.
 
 TESTING WITHOUT FOOD
-Scan tab → "Describe a meal" (for example "two eggs on toast"), choose a food photo from the photo library, or scan the barcode of any packaged food.
+Scan → "Describe a meal" (e.g. "two eggs on toast"), a food photo from the library, or any packaged food's barcode.
 
 EATME PREMIUM (IN-APP PURCHASE)
-The demo account is on the free plan: 3 AI scans a day. Profile → EatME Premium shows the two auto-renewable subscriptions (monthly and yearly, one group) with their prices, the free trial when the Apple Account can get it, Restore purchases, and the Terms of Use and Privacy Policy links. A sandbox purchase unlocks unlimited AI scans, several photos of one meal, the weekly check-in (Profile → Daily goals → "Adjust my calorie target each week") and Plan tomorrow (Home in the evening → "Draft tomorrow"). Nothing changes the user's target or logs a meal without their tap.
+The demo account is on the free plan (3 AI scans a day). Profile → EatME Premium shows both auto-renewable subscriptions (monthly, yearly; one group) with prices, the free trial when the account can get it, Restore purchases, and Terms and Privacy links. A sandbox purchase unlocks unlimited scans, several photos per meal, the weekly check-in (Profile → Daily goals) and Plan tomorrow: on Home, tap tomorrow's date in the week strip (any time of day). Nothing changes the target or logs a meal without the user's tap.
 
 HEALTH AND SAFETY (1.4.1)
-All numbers are shown as estimates. The plan screen tells people to check with a doctor and links "How EatME works out your numbers" (the formulas and their sources, also at <server>/support#sources). Profile → "Help with eating or body image" and "Help with alcohol" open Find A Helpline. Users must be 18 or older. Weight-loss goals stop at a BMI of 18.5 and at 1 kg (2.2 lb) a week, and daily calories never go below 1,200 (women) or 1,500 (men).
+Numbers are shown as estimates. Profile → Daily goals ends with "check with a doctor" and "How EatME works out your numbers" (formulas and sources: <server>/support#sources); new accounts see the same on the plan screen. Profile → "Help with eating or body image" and "Help with alcohol" open Find A Helpline. Users must be 18+. Weight-loss goals stop at a BMI of 18.5 and 1 kg (2.2 lb) a week; calories never go below 1,200 (women) or 1,500 (men).
 
 GLP-1 MODE
-Profile → GLP-1 mode is an optional log of the user's own medicine, doses, injection sites and side effects. It gives no dosing advice. No dose, unit or reconstitution calculations; supply is a count of pens or vials the person enters.
+Profile → GLP-1 mode logs the user's own medicine, doses, injection sites and side effects. No dosing advice and no dose, unit or reconstitution calculations; supply is a count of pens or vials the user enters.
 
 BODY AND PROGRESS PHOTOS
-Profile → Weight & body: measurements and progress photos (camera or library). Photos are private to the user, shown through short-lived links, and never sent to the AI.
+Profile → Weight & body: measurements and progress photos, private to the user and never sent to AI.
 
 DRINKS
-Scan → Search foods → Drinks logs alcoholic drinks (type, size, strength, how many) with their calories. The app is 18+, gives no tips about drinking, and Profile → "Help with alcohol" lists alcohol helplines.
+Scan → Search foods → Drinks logs alcoholic drinks with their calories. No drinking tips; Profile → "Help with alcohol" lists helplines.
 
 APPLE HEALTH
-Optional, in Profile → Apple Health. EatME writes the calories, macros, fiber, water and alcoholic drinks the user logs. A second switch reads steps, active energy, workouts and sleep to show them in the app; that data stays on the phone and is never sent to our server or the AI.
+Optional, Profile → Apple Health: writes the calories, macros, fiber, water and drinks the user logs; a second switch reads steps, active energy, workouts and sleep to show in the app. That data stays on the phone.
+
+RESTAURANT MENUS
+The build contains a restaurant-menu search that is switched off on our server and can't be reached in this version. We will only turn it on with a later version submitted for review.
 
 ACCOUNT DELETION
-Profile → Delete account deletes the account and all its data (also on the web: <server>/delete-account). A subscriber is told that deleting the account doesn't cancel the subscription.
+Profile → Delete account deletes everything (also <server>/delete-account) and tells subscribers it doesn't cancel the subscription.
 
-HOW IS EATME DIFFERENT FROM OTHER AI CALORIE APPS? (4.3(b))
-The AI only names the foods and portions; the numbers come from the USDA food database wherever a food matches, with the method and sources published. EatME remembers each person's own foods and portions, lets them add photos and a note to steer the estimate, drafts tomorrow from their own meals, has a calm mode that hides the numbers and a GLP-1 mode for people on those medicines.
+HOW IS EATME DIFFERENT? (4.3(b))
+The AI only names foods and portions; the numbers come from the USDA database where a food matches, with our methods and sources published. EatME remembers each person's foods, takes extra photos and notes to steer the estimate, drafts tomorrow from their own meals, and has a calm mode without numbers and a GLP-1 mode.
 ```
 
 When Apple or Google sign-in is on: Google sign-in must never be shown without Sign in with Apple next to it
@@ -263,7 +266,7 @@ The numbers are estimates, not medical advice. EatME is for adults (18+).
 Thanks for testing EatME! Please try:
 1. Sign up and answer the questions. Allow or skip AI, then look at your plan.
 2. Log a day of meals: a photo, "Describe a meal", a barcode, Search foods and a drink. Open a meal and fix anything that looks off.
-3. Premium: Profile → EatME Premium. Start the free trial or subscribe (free in TestFlight). Check unlimited scans, the weekly check-in (Profile → Daily goals) and, in the evening, Plan tomorrow on Home. Try Restore purchases, then cancel in Settings → your name → Subscriptions.
+3. Premium: Profile → EatME Premium. Start the free trial or subscribe (free in TestFlight). Check unlimited scans, the weekly check-in (Profile → Daily goals) and Plan tomorrow (tap tomorrow in the week strip on Home). Try Restore purchases, then cancel in Settings → your name → Subscriptions.
 4. Apple Health: Profile → Apple Health. Log a meal and find it in the Health app.
 5. Whatever else you use: GLP-1 mode, weight and body, water and the widget, reminders, calm mode.
 
@@ -416,7 +419,10 @@ Options: `--time-zone America/Los_Angeles` (the default; App Review is in Califo
 ## When restaurant menus go live
 
 Restaurant menus (FatSecret) are built but off (`RESTAURANTS`, PLAN.md §16, Eating out). The Privacy Policy, the
-Terms and the Washington policy already describe them. When you turn them on, also:
+Terms and the Washington policy already describe them. The 1.0 review notes tell Apple they're in the build but off,
+and that they'll only be switched on with a later version submitted for review (a feature switched on from the
+server after approval counts as a hidden feature, 2.3.1(a)). So turn `RESTAURANTS` on together with a new app
+version: say so in its What's New and review notes, and wait for approval. Also:
 
 - **Both store listings:** add the line FatSecret requires, `Powered by fatsecret nutrition API (www.fatsecret.com)`,
   at the end of the description, and a bullet such as `• Look up US restaurant menus and plan your meal before you

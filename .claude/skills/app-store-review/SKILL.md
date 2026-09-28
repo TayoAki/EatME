@@ -20,7 +20,7 @@ reference if it moved.
 
 | The user wants to... | Do this | Read |
 | --- | --- | --- |
-| Know if the app is ready / audit before submitting | Run the [pre-submission audit](#pre-submission-audit) and report a table | `references/guidelines.md`, `references/eatme.md` |
+| Know if the app is ready / audit before submitting | Run the [pre-submission audit](#pre-submission-audit) and report a table | all of `references/` (checks 2-3 need `subscriptions.md`, 6 and 8 `metadata.md`, 9 `testflight-eas.md`), starting with `eatme.md` |
 | Build and upload, get it on TestFlight | Follow [Build and ship](#build-and-ship) | `references/testflight-eas.md` |
 | Fill in App Store Connect, make screenshots | Follow [Listing and metadata](#listing-and-metadata) | `references/metadata.md` |
 | Add or check a paywall / subscription | Follow [Paywalls](#paywalls-and-subscriptions) | `references/subscriptions.md` |
@@ -32,16 +32,26 @@ changes.
 
 ## Pre-submission audit
 
-Go through the app as a reviewer would, then report one table: **check - status (pass / fix / owner action) -
-evidence (file:line, URL or screen) - what to do**. "Owner action" is anything only the account holder can do in
-Apple's or a vendor's dashboard; say exactly where to click. Fix what's in the code; never guess a value that
-lives in a dashboard you can't see.
+Go through the app as a reviewer would, then report one table sorted by severity: **check - severity (blocker /
+risk / nice to have) - status (pass / fix / owner action / can't verify) - evidence (file:line, URL or screen) -
+what to do**. Cite the guideline number in the check column; put links in a short sources list under the table.
+"Owner action" is anything only the account holder can do in Apple's or a vendor's dashboard; say exactly where
+to click. "Can't verify" is for things you can't see from here (a dashboard, a device): say how to check. Fix
+what's in the code; never guess a value that lives in a dashboard you can't see.
+
+Look at the app through **the demo account's eyes**: a reviewer signs in to an account that already finished
+onboarding, at whatever time of day it is in California, on an iPhone or an iPad. A rule met only on an onboarding
+screen, only in the evening or only after a week of data isn't met for the reviewer. Map each rule to a screen the
+demo account reaches, and give time- or data-dependent features a path that works any time (and say it in the
+notes).
 
 Check, in this order (most rejections come from the top of the list):
 
 1. **The reviewer can use everything (2.1).** A demo account that never expires, with realistic data, whose
    credentials go in App Review Information. Backend and AI live during review. Every server feature flag in its
-   final state (a flag that turns a feature on after approval is a hidden feature, 2.3.1(a)). No placeholder text
+   final state: a feature that's in the binary but switched off on the server must be disclosed in the review
+   notes and switched on only together with a new reviewed version (turning it on after approval makes it a hidden
+   feature, 2.3.1(a)). No placeholder text
    (`[Company Name]`, lorem ipsum, "coming soon") anywhere a reviewer can reach, including the privacy policy and
    support page. Free-plan limits must not stop the reviewer from testing: say in the notes how to reach the
    limited feature (a sandbox purchase is fine).
@@ -58,8 +68,10 @@ Check, in this order (most rejections come from the top of the list):
 5. **Health claims are careful (1.4.1, 1.4.2, 5.1.3).** "Estimate", never "accurate" or "precise"; methods or
    sources for the numbers are available; a "check with a doctor" reminder; no dose calculators; HealthKit data
    never used for ads or stored in iCloud; the Apple Health integration named in the UI and the description (2.5.1).
-6. **The listing matches the app (2.3).** Screenshots show the real app in use, suit a 4+ audience (no alcohol,
-   needles or body photos), mark paid features, contain no prices, no other platforms, no Health app imagery.
+6. **The listing matches the app (2.3).** Screenshots show the real app in use **with the production feature
+   flags** (a tab or card that only exists behind a flag the store build doesn't have is a mismatch), suit a 4+
+   audience (no alcohol, needles or body photos), mark every paid feature visible anywhere in them (a Premium card
+   on the home screen counts), contain no prices, no other platforms, no Health app imagery.
    Description names Apple Health, the subscription, and links the Terms of Use. No competitor or drug brand names
    in the name, subtitle or keywords (2.3.7, 4.1(c)).
 7. **It isn't "one more of the same" (4.2, 4.3).** Say in the review notes what makes the app different, and make
@@ -130,8 +142,8 @@ and say exactly where in the app the reviewer can see the fix. Never argue that 
 ## Working style
 
 - Lead with what blocks submission, then risks, then nice-to-haves.
-- Quote the guideline number and a short phrase from it, with the link, for every finding: people trust a
-  rule they can read.
+- Give the guideline number for every finding and quote a short phrase from it where it helps: people trust a
+  rule they can read. Links go in a sources list under the table.
 - Keep the user's secrets out of the conversation, commits and logs. Dashboard steps are for the user to do;
   write them as exact click paths.
 - When a rule and the app disagree, prefer changing the app over arguing with the reviewer.
