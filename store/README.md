@@ -9,8 +9,11 @@ answer into App Store Connect or Play Console.
 `EXPO_PUBLIC_API_URL` / `EXPO_PUBLIC_LEGAL_URL` in `eas.json` and rebuild).
 
 The answers match the app as it is configured now (`<server>/api/features`): meal photos with extra photos
-and a note, no follow-up question, no payments, no email codes and no Apple or Google sign-in. **When you
-turn one of those on, update the rows marked "when …" below**, and the Privacy Policy if it says so.
+and a note, the follow-up question, payments (EatME Premium), no email codes and no Apple or Google sign-in,
+plus the v2.2–v2.4 features (GLP-1 medicines and Pens & vials, body measurements and progress photos, steps,
+workouts and sleep read from Apple Health / Health Connect, the weekly check-in, alcoholic drinks and Plan
+tomorrow). **When you turn something on or off, update the rows marked "when …" below**, and the Privacy
+Policy if it says so.
 
 ## Before you start
 
@@ -75,11 +78,14 @@ A PLAN THAT FITS YOU
 • Fiber and water goals, vitamins and minerals, and your supplements.
 • A weight trend that smooths out the daily ups and downs.
 • Calm mode hides the numbers when counting feels like too much.
-• GLP-1 mode: log your own doses and side effects and see your dose day. EatME never gives dosing advice.
+• GLP-1 mode: log your own medicine, doses, injection sites and side effects, see your dose day, and keep count of your pens and vials. EatME never gives dosing advice.
+• Body measurements and private progress photos next to your weight trend.
+• A weekly check-in that can fine-tune your calorie target from your real results, and Plan tomorrow, which drafts your day from your own meals (EatME Premium).
+• Log drinks like beer, wine and cocktails and see their calories.
 • A water widget for your Home Screen and Lock Screen.
 
 WORKS WITH APPLE HEALTH
-Turn on Apple Health in Profile to save the calories, macros, fiber and water you log. EatME only writes to Apple Health; it doesn't read your health data.
+Turn on Apple Health in Profile to save the calories, macros, fiber, water and drinks you log. If you like, EatME can also read your steps, workouts and sleep from Apple Health to show them next to your meals; that data stays on your iPhone.
 
 YOUR DATA
 Before a photo or description goes to AI, EatME asks for your permission and names the companies involved. You can delete any meal, or your whole account, at any time.
@@ -106,8 +112,8 @@ app whose terms set a higher minimum age than the calculated rating **must overr
 | User-generated content · Social media · Messaging and chat | No · No · No (nothing a user adds is shown to anyone else) |
 | Advertising | No |
 | Profanity · Horror · Mature themes | None |
-| Alcohol, tobacco or drug use or references | Infrequent (the describe-a-meal example mentions a glass of wine, and people log drinks) |
-| Medical or treatment information | None (GLP-1 mode is the person's own log; EatME gives no medical or dosing guidance) |
+| Alcohol, tobacco or drug use or references | Infrequent/Mild (Scan → Drinks logs beer, wine and cocktails; no tips or promotion; the app is 18+). Keep alcohol out of the screenshots |
+| Medical or treatment information | None (GLP-1 mode is the person's own log and supply count; EatME gives no medical or dosing guidance and does no dose maths) |
 | Health or wellness topics | Frequent (calorie tracking and diet targets) |
 | Sexual content · Violence · Gambling · Contests · Loot boxes | None |
 | **Age Categories and Override** | **Override to Higher Age Rating → 18+** |
@@ -122,21 +128,22 @@ process data for EatME as service providers, so nothing is "shared" for tracking
 | --- | --- | --- |
 | Contact Info → Name | first name at sign-up | always |
 | Contact Info → Email Address | the account's email | always |
-| Health & Fitness → Health | sex, date of birth, height, weight and weigh-ins, goal, meals and their nutrients, water, supplements, GLP-1 doses and side effects | always |
+| Health & Fitness → Health | sex, date of birth, height, weight and weigh-ins, body measurements, goal, meals and drinks and their nutrients, water, supplements, GLP-1 medicines, doses, injection sites, pen and vial counts and side effects, weekly check-ins | always |
 | Health & Fitness → Fitness | activity level | always |
-| User Content → Photos or Videos | meal and nutrition-label photos (and a feedback screenshot, if Sentry is on) | always |
-| User Content → Other User Content | meal descriptions and notes, saved meals, your foods, product reports | always |
+| User Content → Photos or Videos | meal and nutrition-label photos, progress photos (and a feedback screenshot, if Sentry is on) | always |
+| User Content → Other User Content | meal descriptions and notes, saved meals, your foods, day drafts, product reports | always |
 | Identifiers → User ID | the EatME account ID | always |
 | User Content → Customer Support | messages sent with Send feedback | when `EXPO_PUBLIC_SENTRY_DSN` is set |
 | Diagnostics → Crash Data, Performance Data, Other Diagnostic Data | Sentry crash reports, performance samples, diagnostic logs | when `EXPO_PUBLIC_SENTRY_DSN` is set |
 | Usage Data → Product Interaction | Sentry session replays (screens and taps; text and images masked) | when `EXPO_PUBLIC_SENTRY_DSN` is set |
-| Purchases → Purchase History | subscriptions, through RevenueCat | when payments are on |
+| Purchases → Purchase History | subscriptions, through RevenueCat | always (payments are on) |
 | Contact Info, Identifiers → used for Apple / Google sign-in | Apple or Google account ID (Apple may give a relay email) | when Apple or Google sign-in is on (already covered by Email Address and User ID) |
 
 Not collected: location (the device time zone is stored only to know where your day starts and ends), contacts,
 browsing or search history (food searches are answered and not stored), financial info, sensitive info, audio,
-body scans, device IDs and advertising data. Apple Health: EatME writes to it on the device and never reads it,
-so nothing from Apple Health reaches EatME.
+body scans, device IDs and advertising data. Apple Health: EatME writes to it on the device and, when the person
+turns on "Read activity and sleep", reads steps, active energy, workouts and sleep to show them in the app. That
+data never leaves the phone (it isn't sent to EatME's server or the AI), so it isn't "collected" in Apple's sense.
 
 ### App Review notes
 
@@ -155,13 +162,22 @@ TESTING WITHOUT FOOD
 Scan tab → "Describe a meal" (for example "two eggs on toast"), choose a food photo from the photo library, or scan the barcode of any packaged food.
 
 HEALTH AND SAFETY (1.4.1)
-All numbers are shown as estimates. The plan screen tells people to check with a doctor, and Profile → Support → "Help with eating or body image" opens Find A Helpline. Users must be 18 or older. Weight-loss goals stop at a BMI of 18.5 and at 1 kg (2.2 lb) a week, and daily calories never go below 1,200 (women) or 1,500 (men).
+All numbers are shown as estimates. The plan screen tells people to check with a doctor, and Profile → Support → "Help with eating or body image" and "Help with alcohol" open Find A Helpline. Users must be 18 or older. Weight-loss goals stop at a BMI of 18.5 and at 1 kg (2.2 lb) a week, and daily calories never go below 1,200 (women) or 1,500 (men).
 
 GLP-1 MODE
-Profile → GLP-1 mode is an optional log of the user's own medicine, doses and side effects. It gives no dosing advice.
+Profile → GLP-1 mode is an optional log of the user's own medicine, doses, injection sites and side effects. It gives no dosing advice. No dose, unit or reconstitution calculations; supply is a count of pens or vials the person enters.
+
+BODY AND PROGRESS PHOTOS
+Profile → Weight & body: measurements and progress photos (camera or library). Photos are private to the user, shown through short-lived links, and never sent to the AI.
+
+DRINKS
+Scan → Search foods → Drinks logs alcoholic drinks (type, size, strength, how many) with their calories. The app is 18+, gives no tips about drinking, and Profile → Support lists an alcohol helpline.
+
+PREMIUM
+The weekly check-in (Profile → Daily goals → "Adjust my calorie target each week") and Plan tomorrow (Home in the evening) are part of EatME Premium; a sandbox purchase unlocks them. Nothing changes the user's target or logs a meal without their tap.
 
 APPLE HEALTH
-Optional, in Profile → Apple Health. EatME only writes the calories, macros, fiber and water the user logs; it reads nothing.
+Optional, in Profile → Apple Health. EatME writes the calories, macros, fiber, water and alcoholic drinks the user logs. A second switch reads steps, active energy, workouts and sleep to show them in the app; that data stays on the phone and is never sent to our server or the AI.
 
 ACCOUNT DELETION
 Profile → Delete account (also on the web: <server>/delete-account).
@@ -211,10 +227,13 @@ A PLAN THAT FITS YOU
 • Fiber and water goals, vitamins and minerals, and your supplements.
 • A weight trend that smooths out the daily ups and downs.
 • Calm mode hides the numbers when counting feels like too much.
-• GLP-1 mode: log your own doses and side effects and see your dose day. EatME never gives dosing advice.
+• GLP-1 mode: log your own medicine, doses, injection sites and side effects, see your dose day, and keep count of your pens and vials. EatME never gives dosing advice.
+• Body measurements and private progress photos next to your weight trend.
+• A weekly check-in that can fine-tune your calorie target from your real results, and Plan tomorrow, which drafts your day from your own meals (EatME Premium).
+• Log drinks like beer, wine and cocktails and see their calories.
 
 WORKS WITH HEALTH CONNECT
-Turn on Health Connect in Profile to save the calories, macros, fiber and water you log. EatME only writes to Health Connect; it doesn't read your health data.
+Turn on Health Connect in Profile to save the calories, macros, fiber and water you log. If you like, EatME can also read your steps, workouts and sleep from Health Connect to show them next to your meals; that data stays on your phone.
 
 YOUR DATA
 Before a photo or description goes to AI, EatME asks for your permission and names the companies involved. You can delete any meal, or your whole account, at any time.
@@ -245,15 +264,18 @@ Play Console → Policy → App content.
 
 | Question | Answer |
 | --- | --- |
-| Health features | **Nutrition and weight management** (food log, calorie and macro targets, weight trend) and **Medication and treatment management** (GLP-1 mode: the person's own medicine, dose day, doses and side effects) |
+| Health features | **Nutrition and weight management** (food log, calorie and macro targets, weight trend, body measurements), **Medication and treatment management** (GLP-1 mode: the person's own medicine, dose day, doses, injection sites, side effects and a count of their pens and vials) and **Activity and fitness** / **Sleep** (steps, workouts and sleep read from Health Connect and shown in the app only) |
 | Medical device | No: EatME is not a medical device (the description says so) |
-| Health Connect | Declare the two permissions EatME asks for, with these reasons: |
-| → `WRITE_NUTRITION` | `When the user turns on Health Connect in Profile, EatME writes the calories, protein, carbohydrates, fat and fiber of each meal they log, so their other health apps can use their food log. EatME doesn't read any Health Connect data.` |
-| → `WRITE_HYDRATION` | `When the user turns on Health Connect in Profile, EatME writes the water they log. EatME doesn't read any Health Connect data.` |
+| Health Connect | Declare the six permissions EatME asks for, with these reasons: |
+| → `WRITE_NUTRITION` | `When the user turns on Health Connect in Profile, EatME writes the calories, protein, carbohydrates, fat and fiber of each meal they log, so their other health apps can use their food log.` |
+| → `WRITE_HYDRATION` | `When the user turns on Health Connect in Profile, EatME writes the water they log.` |
+| → `READ_STEPS` | `When the user turns on "Read activity and sleep", EatME shows their steps per day next to their meals (Home and the Activity screen). The data stays on the phone and is never sent to EatME's server.` |
+| → `READ_ACTIVE_CALORIES_BURNED` | `When the user turns on "Read activity and sleep", EatME shows the active calories of each day and workout next to their meals. It stays on the phone and is never added to their calorie goal.` |
+| → `READ_EXERCISE` | `When the user turns on "Read activity and sleep", EatME lists their workouts (type, time and calories) on the Activity screen. It stays on the phone.` |
+| → `READ_SLEEP` | `When the user turns on "Read activity and sleep", EatME shows how long they slept each night on the Activity screen. It stays on the phone.` |
 
-Known gap: when someone taps the privacy-policy link on Health Connect's permission screen, Android opens
-EatME's home screen instead of the Privacy Policy. If Google's Health Connect review asks for it, EatME needs a
-small native screen for that link (it needs a development build to test).
+The privacy-policy link on Health Connect's permission screen opens `<server>/privacy` (a small activity added
+by `plugins/with-health-connect-rationale.js`, for Android 13 and 14+).
 
 ### Data safety
 
@@ -266,17 +288,18 @@ send only the barcode number to Open Food Facts and USDA.
 | Personal info → Name | Yes | No | Required | App functionality, Account management |
 | Personal info → Email address | Yes | No | Required | App functionality, Account management |
 | Personal info → User IDs | Yes | No | Required | App functionality, Account management |
-| Health and fitness → Health info | Yes | No | Required | App functionality |
+| Health and fitness → Health info | Yes | No | Required | App functionality (includes body measurements, GLP-1 medicines and pen and vial counts, drinks) |
 | Health and fitness → Fitness info | Yes | No | Required | App functionality |
-| Photos and videos → Photos | Yes | No | Optional | App functionality |
+| Photos and videos → Photos | Yes | No | Optional | App functionality (meal and label photos, private progress photos) |
 | App activity → Other user-generated content | Yes | No | Optional | App functionality |
 | App activity → In-app search history | Yes | **Yes** (food searches are answered and not stored) | Optional | App functionality |
 | App info and performance → Crash logs, Diagnostics | when `EXPO_PUBLIC_SENTRY_DSN` is set | No | Required | App functionality |
 | App activity → App interactions | when `EXPO_PUBLIC_SENTRY_DSN` is set (session replays) | No | Required | App functionality |
-| Financial info → Purchase history | when payments are on | No | Optional | App functionality |
+| Financial info → Purchase history | Yes (payments are on) | No | Optional | App functionality |
 
 Not collected: location, messages, audio, files, calendar, contacts, web browsing, installed apps, device or
-other IDs, payment details (Google Play handles them).
+other IDs, payment details (Google Play handles them). Steps, workouts and sleep read from Health Connect stay on
+the phone (never sent to EatME's server), so they aren't "collected" in Google's sense.
 
 | Security question | Answer |
 | --- | --- |
@@ -284,7 +307,7 @@ other IDs, payment details (Google Play handles them).
 | Can users ask for their data to be deleted? | Yes |
 | Account creation | Username (email) and password; add OAuth when Apple or Google sign-in is on |
 | Delete account URL | `<server>/delete-account` |
-| Delete some data without deleting the account? | Yes: any meal, weigh-in, drink or remembered food can be deleted in the app, and GLP-1 mode has "Delete my GLP-1 data" |
+| Delete some data without deleting the account? | Yes: any meal, drink, weigh-in, measurement, progress photo (or all of them), remembered food or day draft can be deleted in the app, and GLP-1 mode has "Delete my GLP-1 data" |
 
 ## Demo account
 

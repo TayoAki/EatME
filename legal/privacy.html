@@ -74,6 +74,10 @@
             </li>
             <li>Nutrition values are AI estimates, not medical advice.</li>
             <li>
+              Your progress photos, your medicine details and the activity and sleep the app reads from Apple Health or
+              Health Connect are never sent to AI providers.
+            </li>
+            <li>
               You can permanently delete your account, meals and photos at any time in the app: Profile → Delete
               account.
             </li>
@@ -199,7 +203,9 @@
             barcode and the amount you choose. Where the app offers restaurant menus, you can also pick items from the
             menus of US restaurant chains; we store each item, its serving, how many you had and its nutrition facts from
             fatsecret with the meal. You can also add a meal by typing its calories and macros yourself (quick
-            add), which does not use AI. When
+            add), which does not use AI. You can also log an alcoholic drink by picking its type, size, strength and how
+            many (and, for a cocktail, its shots and mixer); we store those choices with the meal, and our server works
+            out its alcohol, carbohydrates, sugars and calories without AI. When
             you log a meal again or copy a day, we store a copy of those meals, including a copy of their photos. If
             you switch on the food-quality tag in Preferences (a test feature), the AI also estimates how processed each
             meal is and how much added sugar it has, and we store that with the meal. If a photo does not show food or cannot be
@@ -219,6 +225,16 @@
             meals you already logged keep their numbers.
           </p>
 
+          <h3>Plan tomorrow and the weekly check-in</h3>
+          <p>
+            If you use Plan tomorrow, our server drafts a day from your own meal log and saved meals, without AI. We
+            store the draft: the meals it picked, their times and numbers, and whether you logged or removed each one.
+            Nothing is logged unless you tap "Log it", and you can clear a draft at any time. If you turn on the weekly
+            check-in that adjusts your calorie target, our server works it out from your meal log and weight history,
+            without AI, and we store each week's result: the estimate, the proposed target and whether you used it or
+            kept your own. Your target changes only when you choose it.
+          </p>
+
           <h3>Reports about products</h3>
           <p>
             If you report a problem with a product you scanned by its barcode, we store your report: the reason you
@@ -236,12 +252,17 @@
 
           <h3>GLP-1 mode</h3>
           <p>
-            If you turn on GLP-1 mode, we store the medicine you pick, how often you take it and your dose day. When you
-            log a dose, we store the time, the dose and injection site you enter and your note. When you log how you
-            feel, we store the side effects you pick, how strong they were, your note and the time. This is health
-            information: we use it only to show you your schedule and history, we never use it for advertising or share
-            it with AI providers, and EatME never gives dosing advice. Turning GLP-1 mode off keeps your history; "Delete
-            my GLP-1 data" in the app, or deleting your account, removes it permanently.
+            If you turn on GLP-1 mode, we store the medicine you pick, its form (pen, vial or other), how often you take
+            it and your dose day, and, when you switch medicine, each earlier medicine with the dates you took it. When
+            you log a dose, we store the time, the dose, the injection site and side you enter and your note. If you
+            track pens and vials, we store the counts you enter (doses per pen, vial or pack, doses left in the open
+            one, unopened ones and how many days one can be used once opened), updated when you refill; the app counts
+            down from the doses you log and never calculates doses or units. When you log how you feel, we store the side effects
+            you pick, how strong they were, your note and the time. This is health information: we use it only to show
+            you your schedule, supply and history, we never use it for advertising or share it with AI providers, and
+            EatME never gives dosing advice. Supply reminders are scheduled on your device and never name your
+            medicine. Turning GLP-1 mode off keeps your history; "Delete my GLP-1 data" in the app, or deleting your
+            account, removes it permanently.
           </p>
 
           <h3>Weight history</h3>
@@ -249,6 +270,16 @@
             Your weight history starts with the weight you entered during onboarding. Each time you log your weight, or
             change it in Personal details, we store the weight and the day. We use it to show your history and progress
             chart, and your latest weight becomes your current weight in your profile. You can remove any entry, and
+            deleting your account removes all of them.
+          </p>
+
+          <h3>Body measurements and progress photos</h3>
+          <p>
+            If you log body measurements, we store each one (waist, hips, chest, arm, thigh or neck) and its day. If you
+            take progress photos, we store each photo (front, side or back) and its day in private storage; the app
+            removes a photo's metadata, such as its location, before uploading it. Your progress photos are shown only
+            to you, through links that expire after 30 minutes. They are never sent to AI providers or used to identify
+            people, and we keep them until you delete them. You can delete one photo or all of them in the app, and
             deleting your account removes all of them.
           </p>
 
@@ -263,11 +294,14 @@
 
           <h3>Apple Health and Health Connect</h3>
           <p>
-            If you turn on Apple Health (iPhone) or Health Connect (Android) in the app, the app writes the calories,
-            protein, carbohydrates, fat and fiber of the meals you log, and the drinks you log, to that app on your
-            device. EatME only writes this data: it does not read anything from Apple Health or Health Connect, and our
-            servers never receive data from them. What is stored there is managed by Apple or Google under their
-            terms; you can delete it in those apps. Turning sync off stops new writes.
+            If you turn on sync with Apple Health (iPhone) or Health Connect (Android), the app writes the calories,
+            protein, carbohydrates, fat and fiber of the meals you log, the water you log and, on iPhone, the number of
+            alcoholic drinks you log (as standard drinks) to that app on your device. If you also turn on "Read activity
+            and sleep", the app reads your steps, active calories, workouts and sleep from that app to show them next to
+            your meals. This data stays on your phone: our servers never receive it, it is never sent to AI providers,
+            and nothing is added to your calorie goal. What is stored in Apple Health or Health Connect is managed by
+            Apple or Google under their terms; you can delete it in those apps. Turning a switch off stops new writes or
+            reads.
           </p>
 
           <h3>Reminders</h3>
@@ -325,8 +359,8 @@
           <h3>What we do not collect</h3>
           <p>
             We do not collect your precise location, your contacts, audio recordings, advertising identifiers or payment
-            details, and we do not read data from other health or fitness apps. We do not use your photos to identify
-            people.
+            details, and our servers do not receive data from Apple Health, Health Connect or other health or fitness
+            apps. We do not use your photos to identify people.
           </p>
         </section>
 
@@ -337,7 +371,8 @@
             <li>
               <strong>To provide the Service:</strong> to create and manage your account, generate your plan, analyze
               your meal photos, descriptions and nutrition labels, show your meals, daily totals, weekly summaries,
-              history and streaks, and let you edit your details, goals and meals.
+              history and streaks, work out the day drafts and weekly check-ins you ask for, and let you edit your
+              details, goals and meals.
             </li>
             <li>
               <strong>To keep the Service secure and working:</strong> to authenticate requests, keep you signed in,
@@ -365,8 +400,8 @@
             or meal log to train AI models.
           </p>
           <p>
-            Your plan and meal estimates are produced automatically, but they are suggestions that you can review and
-            change at any time. We do not make decisions based solely on automated processing that have legal or
+            Your plan, meal estimates, day drafts and check-in proposals are produced automatically, but they are
+            suggestions that you can review and change at any time. We do not make decisions based solely on automated processing that have legal or
             similarly significant effects on you.
           </p>
         </section>
@@ -649,6 +684,18 @@
             </li>
             <li><strong>Meals and nutrition values:</strong> until you delete the meal or your account.</li>
             <li>
+              <strong>Body measurements and progress photos:</strong> until you delete them or your account. Progress
+              photos never expire on their own.
+            </li>
+            <li>
+              <strong>GLP-1 data</strong> (medicines, doses, supply counts and side effects): until you delete it in the
+              app ("Delete my GLP-1 data") or delete your account.
+            </li>
+            <li>
+              <strong>Day drafts and weekly check-ins:</strong> a draft until you clear it or delete your account; the
+              check-ins until you delete your account.
+            </li>
+            <li>
               <strong>Meal photos:</strong> until you delete the meal or your account. Photos that do not show food,
               and photos that could not be analyzed, are deleted automatically right after the analysis.
             </li>
@@ -785,8 +832,8 @@
               session replays;
             </li>
             <li>
-              <strong>Audio, electronic or visual information</strong>, such as your meal photos and any screenshots you
-              attach to feedback;
+              <strong>Audio, electronic or visual information</strong>, such as your meal photos, your progress photos
+              and any screenshots you attach to feedback;
             </li>
             <li>
               <strong>Inferences</strong>, such as the daily calorie and macro targets derived from your answers; and
@@ -794,7 +841,7 @@
             <li>
               <strong>Sensitive personal information</strong>, namely your account log-in (your email address together
               with your password, which we store only as a hash) and information concerning your health, such as your
-              height, weight, goals, diet and meal log.
+              height, weight, body measurements, progress photos, goals, diet, medicines, doses and meal log.
             </li>
           </ul>
           <p>
@@ -868,8 +915,8 @@
           <h3>Consumer health data</h3>
           <p>
             Some laws, such as Washington's My Health My Data Act and Nevada's consumer health data law, protect
-            "consumer health data". Information such as your body measurements, goals, diet and meal log may fall into
-            this category. We collect it from you to provide the features you ask for (your plan, meal estimates,
+            "consumer health data". Information such as your body measurements, progress photos, goals, diet, medicines,
+            doses, alcohol intake and meal log may fall into this category. We collect it from you to provide the features you ask for (your plan, meal estimates,
             history and streaks) and use it only for the purposes described in this policy. We share it only with the
             service providers in <a href="#service-providers">Section 6</a> to provide the Service, we never sell it,
             and you can access or delete it, or withdraw your consent, at any time as described in this policy.

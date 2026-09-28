@@ -9,7 +9,7 @@ onboarding.
 </p>
 
 - **Product plan & every decision:** [`PLAN.md`](./PLAN.md)
-- **Next features (v2.2–v2.4), planned but not built:** [`NEXT-FEATURES.md`](./NEXT-FEATURES.md)
+- **v2.2–v2.4 features (built), with their screens, data and rules:** [`NEXT-FEATURES.md`](./NEXT-FEATURES.md)
 - **Agent / contributor instructions:** [`AGENTS.md`](./AGENTS.md) (`CLAUDE.md` imports it)
 - **Design references + prompts:** [`design/`](./design)
 - **Landing page, privacy policy, terms:** [`legal/`](./legal)
@@ -45,23 +45,31 @@ Photo ──▶ POST /api/meals ──▶ bucket + meal row ("analyzing") ──
 - **Log a meal** by photo (up to 3 angles of one meal, still one scan), nutrition-label photo, a typed
   or dictated description, a **barcode** (Open Food Facts, USDA Branded Foods fallback; the source is
   shown and a wrong product can be reported), a **USDA food search** or **quick add** (type calories and
-  macros) — the last three need no AI. Photos and descriptions are split into foods matched to the USDA
-  FNDDS database, so the numbers (and vitamins and minerals) come from the database where a food
-  matches; grams and foods can be edited, and corrections can be **remembered** ("Your foods") so the
-  next scan uses your version first. Behind a flag, the AI can ask one tap-to-answer question (cooking
-  fat, portion, filling).
+  macros) — the last three need no AI — or an **alcoholic drink** (Scan → Search foods → Drinks: type,
+  size, strength and how many; the server works out alcohol, carbs and calories and shows standard
+  drinks). Photos and descriptions are split into foods matched to the USDA FNDDS database, so the
+  numbers (and vitamins and minerals) come from the database where a food matches; grams and foods can
+  be edited, and corrections can be **remembered** ("Your foods") so the next scan uses your version
+  first. Behind a flag, the AI can ask one tap-to-answer question (cooking fat, portion, filling).
 - **Eating out** (behind `RESTAURANTS`, FatSecret Platform API): search US restaurant chains and menu
   items, build a plate from a chain's menu, see it against what's left today, then log it or save it
   for later. The server fetches the numbers; FatSecret's credit shows wherever their data does.
 - **Daily picture:** calories and macros against a plan built at onboarding (your own goals allowed,
   with safety floors), fiber and water, a protein hint per meal, weekly insights, **vitamins &
   minerals** against the DRIs, a **supplements** log with upper-limit notes, **weight** with a trend
-  line, milestones (never below BMI 18.5) and a weigh-in reminder. **Calm mode** hides calorie and
-  macro numbers and counts days logged instead of a streak.
+  line, milestones (never below BMI 18.5) and a weigh-in reminder, **body measurements and private
+  progress photos** (never sent to the AI), and steps, workouts and sleep **read from Apple Health /
+  Health Connect** (kept on the phone). **Calm mode** hides calorie and macro numbers and counts days
+  logged instead of a streak.
+- **Premium planning** (open to all while payments are off): a **weekly check-in** that proposes a
+  calorie target from the weight trend and what was logged (opt-in, ±150 kcal a week at most, never
+  lower in GLP-1 mode, nothing changes without a tap) and **Plan tomorrow**, a draft of the next day
+  from the person's own meals (no AI; swap, shuffle, log each meal with one tap on the day).
 - **Habits:** log again, copy any of the last 14 days (all meals or some), favourites, **saved meals**
   that can repeat on chosen days (suggested on Home, never logged without a tap), portions, reminders
-  (local notifications), GLP-1 mode (dose day, side effects; no dosing advice), Apple Health / Health
-  Connect sync (write only) and an iOS water widget.
+  (local notifications), GLP-1 mode (one medicine at a time with its history, dose day, left/right
+  injection sites, side effects and **Pens & vials** supply counts with use-by and low-supply reminders;
+  no dosing advice or dose maths), Apple Health / Health Connect sync and an iOS water widget.
 - **Account:** email + password with optional email codes (forgot password, verification), optional
   Sign in with Apple / Google, and optional EatME Premium (store billing through RevenueCat; free
   users keep a few AI scans a day and everything else). An opt-in food-quality tag is available as

@@ -1,6 +1,6 @@
 # EatME — next features plan (v2.2 to v2.4)
 
-> Written 27 September 2026 so we can build from it later. **Nothing here is built yet.**
+> Written 27 September 2026 and **built on 28 September 2026** (all eight features, ticked below).
 > Read it together with `PLAN.md` (the app as it is: rules, data model, routes) and `AGENTS.md`
 > (how we build). This file replaces the v2.2 list and the "Later" list that were in `PLAN.md`.
 > When a feature ships, tick its box here and add it to `PLAN.md`.
