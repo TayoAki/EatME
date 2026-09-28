@@ -134,6 +134,13 @@
       "when": 1790553210552,
       "tag": "0018_body_tracking",
       "breakpoints": true
+    },
+    {
+      "idx": 19,
+      "version": "7",
+      "when": 1790554938362,
+      "tag": "0019_adaptive_target",
+      "breakpoints": true
     }
   ]
 }

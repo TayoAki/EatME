@@ -4,6 +4,7 @@ import { ArrowLeft, Pencil } from 'lucide-react-native';
 import { useState } from 'react';
 import { Pressable, ScrollView, Text, TextInput, View } from 'react-native';
 
+import { AdaptiveTargetSection } from '@/components/goals/adaptive-section';
 import { BottomSheet } from '@/components/ui/bottom-sheet';
 import { Button } from '@/components/ui/button';
 import { IconButton } from '@/components/ui/icon-button';
@@ -307,6 +308,8 @@ function DailyGoals({ profile }: { profile: Profile }) {
             {dailyCalories.toLocaleString('en-US')}. That&apos;s fine — Home tracks each goal on its own.
           </Text>
         ) : null}
+
+        <AdaptiveTargetSection profile={profile} />
 
         <GoalGroup title="Fiber and water" settings={EXTRAS} profile={profile} onEdit={setEditing} />
 

@@ -35,6 +35,7 @@ import {
 } from '@/shared/glp1';
 import type { NutrientAmounts } from '@/shared/nutrients';
 import { PHOTO_POSES } from '@/shared/body';
+import { CHECKIN_REASONS, CHECKIN_STATUSES } from '@/shared/adaptive';
 import {
   PRODUCT_REPORT_REASONS,
   PRODUCT_REPORT_STATUSES,
@@ -65,6 +66,8 @@ export const glp1MedicationEnum = pgEnum('glp1_medication', GLP1_MEDICATIONS);
 export const glp1ScheduleEnum = pgEnum('glp1_schedule', GLP1_SCHEDULES);
 export const medicineFormEnum = pgEnum('medicine_form', MEDICINE_FORMS);
 export const photoPoseEnum = pgEnum('photo_pose', PHOTO_POSES);
+export const checkinStatusEnum = pgEnum('checkin_status', CHECKIN_STATUSES);
+export const checkinReasonEnum = pgEnum('checkin_reason', CHECKIN_REASONS);
 export const supplementScheduleEnum = pgEnum('supplement_schedule', SUPPLEMENT_SCHEDULES);
 export const productSourceEnum = pgEnum('product_source', PRODUCT_SOURCES);
 export const processingLevelEnum = pgEnum('processing_level', PROCESSING_LEVELS);
@@ -359,6 +362,33 @@ export const progressPhotos = pgTable(
   (t) => [uniqueIndex('progress_photos_user_date_pose_idx').on(t.userId, t.date, t.pose)],
 );
 export type ProgressPhotoRow = typeof progressPhotos.$inferSelect;
+
+/**
+ * The adjusting calorie target (v2.3, Premium): one check-in a week, worked out the first time the
+ * app asks that week. The person uses the proposal or keeps their target.
+ */
+export const targetCheckins = pgTable(
+  'target_checkins',
+  {
+    id: uuid().primaryKey().defaultRandom(),
+    userId: text()
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
+    weekStart: date({ mode: 'string' }).notNull(),
+    /** Estimated energy used a day. */
+    estimatedKcal: integer(),
+    averageIntake: integer(),
+    dataDays: integer().notNull(),
+    trendPerWeekKg: doublePrecision(),
+    previousKcal: integer().notNull(),
+    proposedKcal: integer(),
+    status: checkinStatusEnum().notNull().default('proposed'),
+    reason: checkinReasonEnum().notNull(),
+    ...timestamps,
+  },
+  (t) => [uniqueIndex('target_checkins_user_week_idx').on(t.userId, t.weekStart)],
+);
+export type TargetCheckinRow = typeof targetCheckins.$inferSelect;
 
 /** Water and other drinks, one row per entry. */
 export const waterLogs = pgTable(

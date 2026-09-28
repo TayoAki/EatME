@@ -11,6 +11,7 @@ import { DateStrip } from '@/components/home/date-strip';
 import { FiberWaterRow } from '@/components/home/fiber-water-row';
 import { HomeHeader } from '@/components/home/home-header';
 import { ActivityRow } from '@/components/home/activity-row';
+import { CheckInArea } from '@/components/home/checkin-card';
 import { CopyDaySheet } from '@/components/home/copy-day-sheet';
 import { MealCard } from '@/components/home/meal-card';
 import { NutritionSummary, type Totals } from '@/components/home/nutrition-summary';
@@ -153,6 +154,8 @@ function Home({ profile }: { profile: Profile }) {
             calm={calm}
           />
         ) : null}
+
+        {isToday ? <CheckInArea userId={profile.id} unit={profile.unitSystem} calm={calm} /> : null}
 
         <NutritionSummary consumed={consumed} targets={targets} calm={calm} />
         <FiberWaterRow

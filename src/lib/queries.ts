@@ -15,6 +15,7 @@ import type {
 } from '@/shared/glp1';
 import type { WeeklyInsights } from '@/shared/insights';
 import type { BodyMeasurement, BodyResponse, MeasurementsBody, PhotoPose, ProgressPhoto } from '@/shared/body';
+import type { CheckIn, CheckInResponse, CheckInSettingsBody } from '@/shared/adaptive';
 import type { BillingStatus } from '@/shared/billing';
 import type { Features } from '@/shared/features';
 import type { FoodSummary, Meal, QuickMeal, UpdateMealBody, UpdateMealItemsBody } from '@/shared/meals';
@@ -57,6 +58,7 @@ export const queryKeys = {
   plannedAll: (userId: string | null | undefined) => ['planned', userId] as const,
   planned: (userId: string | null | undefined, date: string) => ['planned', userId, date] as const,
   body: (userId: string | null | undefined) => ['body', userId] as const,
+  checkIn: (userId: string | null | undefined) => ['checkin', userId] as const,
 };
 
 /** Earlier days are sent as `date`; today logs at "now". */
@@ -861,5 +863,50 @@ export function useDeleteProgressPhoto() {
   return useMutation({
     mutationFn: (id: string | 'all') => api(id === 'all' ? '/api/body/photos' : `/api/body/photos/${id}`, { method: 'DELETE' }),
     onSuccess: () => invalidate(),
+  });
+}
+
+/** The adjusting calorie target: on or off, this week's check-in and the earlier ones. */
+export function useCheckIn(enabled = true) {
+  const { userId } = useSession();
+  const api = useApi();
+  return useQuery({
+    queryKey: queryKeys.checkIn(userId),
+    queryFn: () => api<CheckInResponse>('/api/checkin'),
+    enabled,
+    staleTime: 10 * 60_000,
+  });
+}
+
+/** Turns the weekly check-in on (Premium: a 402 means "show Premium") or off, and sets its day. */
+export function useCheckInSettings() {
+  const { userId } = useSession();
+  const api = useApi();
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (body: CheckInSettingsBody) => api<CheckInResponse>('/api/checkin/settings', { method: 'PUT', body }),
+    onSuccess: (data) => {
+      queryClient.setQueryData(queryKeys.checkIn(userId), data);
+      return queryClient.invalidateQueries({ queryKey: queryKeys.me(userId) });
+    },
+  });
+}
+
+/** "Use …" (the new target) or "Keep …" this week's check-in. */
+export function useAnswerCheckIn() {
+  const { userId } = useSession();
+  const api = useApi();
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async (answer: 'accept' | 'keep') => {
+      const result = await api<{ checkIn: CheckIn; user?: MeResponse['user'] }>(`/api/checkin/${answer}`, { method: 'POST' });
+      if (result.user) queryClient.setQueryData(queryKeys.me(userId), { user: result.user });
+      return result.checkIn;
+    },
+    onSuccess: () =>
+      Promise.all([
+        queryClient.invalidateQueries({ queryKey: queryKeys.checkIn(userId) }),
+        queryClient.invalidateQueries({ queryKey: queryKeys.insights(userId) }),
+      ]),
   });
 }

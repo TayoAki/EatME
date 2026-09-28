@@ -5,6 +5,7 @@ import { meals, subscriptions, users, type SubscriptionRow } from '@/db/schema';
 import { PREMIUM_ENTITLEMENT, type BillingStatus } from '@/shared/billing';
 
 import { dayBounds } from './day';
+import { HttpError } from './http';
 import { describeError } from './log';
 import { localDate } from './streak';
 
@@ -29,6 +30,16 @@ export const isActive = (row: SubscriptionRow | null | undefined) =>
 
 export async function subscriptionOf(userId: string) {
   return (await db.query.subscriptions.findFirst({ where: eq(subscriptions.userId, userId) })) ?? null;
+}
+
+/** Premium features are open to everyone while payments are off. */
+export async function hasPremiumAccess(userId: string) {
+  return !paymentsEnabled() || isActive(await subscriptionOf(userId));
+}
+
+/** Throws the 402 the app answers with the Premium screen (`code: premium_required`). */
+export async function requirePremium(userId: string, feature: string) {
+  if (!(await hasPremiumAccess(userId))) throw new HttpError(402, `${feature} is part of EatME Premium.`, 'premium_required');
 }
 
 /** AI analyses logged today in the user's time zone. */

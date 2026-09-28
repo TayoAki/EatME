@@ -23,6 +23,10 @@ export type Preferences = {
   foodQualityTag?: boolean;
   /** Calm mode (v2.1): calorie and macro numbers hidden, neutral colours, days logged instead of a streak. */
   calmMode?: boolean;
+  /** v2.3 (Premium): a weekly check-in proposes a calorie target from the weight trend. */
+  adaptiveTarget?: boolean;
+  /** The check-in day, 0 = Sunday … 6 = Saturday (Monday when not set). */
+  checkInWeekday?: number;
 };
 
 /** Profile returned by `GET /api/me`. */
