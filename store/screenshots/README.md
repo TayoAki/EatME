@@ -1,8 +1,5 @@
 # App Store screenshots
 
-> **Take them again before App Review:** these still show the old name, EatME, in the app's header (and the
-> 02-meal caption). Re-take them once the new Weight Class logo is in, so the name and the logo change together.
-
 `ios-6.9/` is the iPhone 6.9" set for App Store Connect: 1320 × 2868 px, portrait, PNG without an alpha channel
 (App Store Connect refuses transparency). Upload them in this order; smaller iPhones are scaled from this set, and
 Weight Class is iPhone-only, so there's no iPad set.

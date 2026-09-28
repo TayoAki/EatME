@@ -17,7 +17,22 @@ Other directions (swap them in for the sentence that starts "The mark is"):
 Keep "pointer", never "needle": the app has a GLP-1 mode, and a needle in the icon would read as an injection
 (App Store images should suit a 4+ audience).
 
-From the chosen image (black on white, 1024 × 1024): the iOS icon (white mark on #111111, no transparency, plus
-dark and tinted versions), `assets/images/logo-dark.png` (the mark in the app), the splash, Android's adaptive
+From the chosen image (black on white, 1024 × 1024): the iOS icon (white mark on #111111, no transparency;
+iOS makes the dark and tinted versions itself), `assets/images/logo-dark.png` (the mark in the app), the splash, Android's adaptive
 icon and notification icon, the website's `legal/images/logo.png` and `app-icon.png`, then the App Store
 screenshots, the landing-page phones and `og.png` again.
+
+## The chosen logo (2026-09-28)
+
+The first direction won: `design/logo/weight-class-source.png` is the generated image. It was redrawn as clean
+vector in `design/logo/weight-class-mark.svg` (same bowl, rim, pivot, pointer at 130° and five ticks, without
+the generator's glitches such as the notch at the pointer's base), and every icon was rendered from that file:
+
+| File | What |
+| --- | --- |
+| `assets/images/icon.png`, `legal/images/app-icon.png` | 1024 px, white mark (56% wide) on #111111, no transparency |
+| `assets/images/android-icon-foreground.png`, `android-icon-monochrome.png` | white mark (42% wide) on transparent, inside the adaptive-icon safe zone |
+| `assets/images/splash-icon.png` | black mark (90% wide) on transparent (the splash is white) |
+| `assets/images/logo-dark.png`, `legal/images/logo.png` · `logo-light.png` | 512 px, black · white mark (92% wide) on transparent: the logo in the app and on the website |
+| `assets/images/logo.png`, `favicon.png` | the icon as a rounded square (512 px and 48 px) |
+| `assets/images/notification-icon.png` | 96 px, white mark on transparent (Android notifications) |

@@ -58,7 +58,7 @@ Policy if it says so.
 
 | Field | Answer |
 | --- | --- |
-| Screenshots | iPhone 6.9" display: `screenshots/ios-6.9/01-home.png` to `07-search.png`, in that order (1320 × 2868, no alpha; captions and rules in `screenshots/README.md`). **They still show the old EatME name in the app's header: take them again once the new logo is in.** Weight Class is iPhone-only (`supportsTablet: false`), so no iPad screenshots |
+| Screenshots | iPhone 6.9" display: `screenshots/ios-6.9/01-home.png` to `07-search.png`, in that order (1320 × 2868, no alpha; captions and rules in `screenshots/README.md`). Weight Class is iPhone-only (`supportsTablet: false`), so no iPad screenshots |
 | Promotional text (170) | `Take a photo, describe your meal or scan a barcode. Weight Class estimates the calories, protein, carbs, fat and fiber, and keeps your day on track.` |
 | Keywords (100) | `loss,lose,diet,deficit,photo,scanner,protein,meal,planner,cut,cutting,glp-1,nutrition,barcode,diary` (99). No word from the name or subtitle: Apple combines the three, so `loss` + "Weight" already makes "weight loss". Never another app's or a medicine's brand name (Apple 2.3.7) |
 | Keywords, Spanish (Mexico) (100) | `semaglutide,tirzepatide,injection,dose,water,fiber,carb,drink,kcal,log,intake,portion,healthy,lean` (98). The US App Store also searches the Spanish (Mexico) listing, which doubles the keyword space: add that localization with the same English name, subtitle, description and screenshots, and these keywords. They combine with the name and subtitle, not with the English keywords |

@@ -496,11 +496,12 @@ added to an earlier day are stored at local noon of that day.
   name and permission texts (`app.json`), screens, notifications, emails, API error messages, legal pages,
   landing page and store texts (`store/README.md`: name, subtitle, keywords and a Spanish (Mexico) keyword
   list). Bundle ID, product IDs, `eatme://`, storage keys, code and servers keep the old name
-- [ ] New logo for Weight Class (prompt: `design/prompts/16-weight-class-logo.md`), then: app icon (+ dark and
-  tinted), `assets/images/logo-dark.png`, splash, Android adaptive icon, notification icon, the site's
-  `legal/images/logo.png` and `app-icon.png`
-- [ ] After the logo: take the App Store screenshots, the landing-page phones and `og.png` again (they show
-  EatME in the app's header; 2.3.3 wants them to match the app)
+- [x] New logo for Weight Class: a bowl whose top half is a scale dial (prompt and files:
+  `design/prompts/16-weight-class-logo.md`, vector master `design/logo/weight-class-mark.svg`). App icon,
+  splash, Android adaptive and notification icons, the in-app logo, favicon and the site's logo, all
+  rendered from the vector
+- [x] App Store screenshots, the landing-page phones and `og.png` taken again with the new name and logo
+  (2.3.3: they match the app)
 - [ ] You, App Store Connect: App Information → Name `Weight Class: Calorie Counter`, subtitle, keywords, a
   Spanish (Mexico) localization for the second keyword list, and the subscription group's display name
   `Weight Class Premium` (`store/README.md`)
