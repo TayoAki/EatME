@@ -146,10 +146,10 @@ async function fill(call: Call, timeZone: string, days: number, email: string, p
     }
     await call('POST', '/api/water', { amountMl: 1250 + (daysAgo % 4) * 250, date });
   }
-  // A weigh-in every other day, drifting down to 80.4 kg (about 177 lb) yesterday.
+  // A weigh-in every other day, drifting down to today's weight from onboarding (82 kg, about 181 lb).
   let weighIns = 0;
   for (let daysAgo = days; daysAgo >= 1; daysAgo -= 2) {
-    const kg = 80.4 + (daysAgo - 1) * 0.075 + (daysAgo % 4 === 0 ? 0.3 : 0);
+    const kg = ANSWERS.weightKg + daysAgo * 0.075 + (daysAgo % 4 === 0 ? 0.3 : 0);
     await call('POST', '/api/weights', { date: zonedDate(daysAgo, timeZone), weightKg: Math.round(kg * 10) / 10 });
     weighIns++;
   }
