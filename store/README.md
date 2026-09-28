@@ -63,7 +63,7 @@ Policy if it says so.
 | Keywords (100) | `loss,lose,diet,deficit,photo,scanner,protein,meal,planner,cut,cutting,glp-1,nutrition,barcode,diary` (99). No word from the name or subtitle: Apple combines the three, so `loss` + "Weight" already makes "weight loss". Never another app's or a medicine's brand name (Apple 2.3.7) |
 | Keywords, Spanish (Mexico) (100) | `semaglutide,tirzepatide,injection,dose,water,fiber,carb,drink,kcal,log,intake,portion,healthy,lean` (98). The US App Store also searches the Spanish (Mexico) listing, which doubles the keyword space: add that localization with the same English name, subtitle, description and screenshots, and these keywords. They combine with the name and subtitle, not with the English keywords |
 | Support URL | `<server>/support` (contact details, Premium, cancelling and refunds, how the numbers are worked out) |
-| Marketing URL | Leave empty for 1.0 (the landing page still says "beta" and "Android coming soon"); add `<server>/` once it links the App Store |
+| Marketing URL | Leave empty until the app is live and the landing page links the App Store (it says "on its way to the App Store" until then); then add `<server>/` |
 | Description | [App Store description](#app-store-description) |
 | What's New | Not shown for version 1.0 (the field is hidden). From 1.1 on, list what changed |
 | Copyright | `2026 UGC Mediakits` (Apple adds the ©; use the exact legal name on your Apple developer account) |

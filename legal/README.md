@@ -81,7 +81,7 @@ real value, and also the `[Contact Email]` inside every `href="mailto:[Contact E
       are real app screens in a phone frame: transparent PNG, 600 × 1258 px, no shadow (the same demo data as the
       App Store screenshots in `store/screenshots/`). Keep the `width`/`height` attributes in `index.html` in sync
 - [ ] With a custom domain: update the `og:image` URL in `index.html` (social previews need an absolute URL)
-- [ ] When TestFlight has a public link, add it to the download section of `index.html` (there's a comment)
+- [ ] When the app is live, add Apple's App Store badge to the download section of `index.html` (there's a comment)
 - [ ] Re-read both documents against the app you ship: features, service providers (Railway, OpenRouter and OpenAI,
       Sentry) and the statements that depend on your settings:
   - OpenRouter privacy settings: training by providers and logging of your requests are turned off (the Privacy

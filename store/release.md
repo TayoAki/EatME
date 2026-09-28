@@ -76,7 +76,8 @@ Before the first external testers:
 - [ ] RevenueCat: the four products are attached to the `premium` entitlement and the offering, and Sandbox Testing
       Access is "Anybody"; Railway has `REVENUECAT_SECRET_KEY` and `PAYMENTS_ENABLED=true`.
 - [ ] When every tester is on TestFlight instead of Expo Go: delete `ALLOW_EXPO_GO` on Railway.
-- [ ] Put the public TestFlight link on the landing page (`legal/index.html`, the comment in the download section).
+- [ ] When the app is live: Apple's App Store badge on the landing page (`legal/index.html`, the comment in the
+      download section) and the Marketing URL in App Store Connect.
 
 ## App Review (the App Store release)
 
