@@ -35,7 +35,7 @@ let healthConnect: HealthConnect | null | undefined;
 
 // Loaded on first use (and never on web or in Expo Go), so a missing native module can't crash
 // the app at startup.
-function loadHealthKit() {
+export function loadHealthKit() {
   if (healthKit !== undefined) return healthKit;
   healthKit = null;
   if (Platform.OS === 'ios' && !inExpoGo) {
@@ -49,7 +49,7 @@ function loadHealthKit() {
   return healthKit;
 }
 
-function loadHealthConnect() {
+export function loadHealthConnect() {
   if (healthConnect !== undefined) return healthConnect;
   healthConnect = null;
   if (Platform.OS === 'android' && !inExpoGo) {

@@ -58,7 +58,11 @@
       "permissions": [
         "android.permission.health.WRITE_NUTRITION",
         "android.permission.health.WRITE_HYDRATION",
-        "android.permission.CAMERA"
+        "android.permission.CAMERA",
+        "android.permission.health.READ_STEPS",
+        "android.permission.health.READ_ACTIVE_CALORIES_BURNED",
+        "android.permission.health.READ_EXERCISE",
+        "android.permission.health.READ_SLEEP"
       ]
     },
     "web": {
@@ -82,7 +86,7 @@
       [
         "expo-camera",
         {
-          "cameraPermission": "EatME uses the camera to scan your meals, nutrition labels and barcodes to estimate their calories and macros.",
+          "cameraPermission": "EatME uses the camera to scan your meals, nutrition labels and barcodes to estimate their calories and macros, and for the progress photos you choose to take. Progress photos stay private.",
           "microphonePermission": false,
           "recordAudioAndroid": false,
           "barcodeScannerEnabled": true
@@ -91,8 +95,8 @@
       [
         "expo-image-picker",
         {
-          "photosPermission": "EatME needs access to your photos so you can analyze a meal from your gallery.",
-          "cameraPermission": "EatME uses the camera to scan your meals and estimate their calories and macros.",
+          "photosPermission": "EatME opens your photos so you can analyze a meal or add a progress photo from your gallery. Progress photos stay private.",
+          "cameraPermission": "EatME uses the camera to scan your meals and estimate their calories and macros, and for the progress photos you choose to take.",
           "microphonePermission": false
         }
       ],
@@ -131,11 +135,12 @@
       [
         "@kingstinct/react-native-healthkit",
         {
-          "NSHealthShareUsageDescription": "EatME only writes to Apple Health: it does not read your health data.",
-          "NSHealthUpdateUsageDescription": "EatME saves the calories, protein, carbs, fat, fiber and water you log to Apple Health, if you turn this on.",
+          "NSHealthShareUsageDescription": "EatME can read your steps, workouts and sleep to show them next to your meals, if you turn this on. They stay on your phone.",
+          "NSHealthUpdateUsageDescription": "EatME saves the calories, protein, carbs, fat, fiber, water and drinks you log to Apple Health, if you turn this on.",
           "background": false
         }
       ],
+      "./plugins/with-health-connect-rationale",
       "react-native-health-connect",
       [
         "expo-build-properties",

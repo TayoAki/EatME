@@ -10,6 +10,7 @@ import { SymptomSheet } from '@/components/glp1/symptom-sheet';
 import { DateStrip } from '@/components/home/date-strip';
 import { FiberWaterRow } from '@/components/home/fiber-water-row';
 import { HomeHeader } from '@/components/home/home-header';
+import { ActivityRow } from '@/components/home/activity-row';
 import { CopyDaySheet } from '@/components/home/copy-day-sheet';
 import { MealCard } from '@/components/home/meal-card';
 import { NutritionSummary, type Totals } from '@/components/home/nutrition-summary';
@@ -163,6 +164,7 @@ function Home({ profile }: { profile: Profile }) {
           onAddWater={(ml) => addWater.mutate(ml, { onError: (error) => notify("We couldn't log that drink", error.message) })}
           onOpenWater={() => setWaterOpen(true)}
         />
+        <ActivityRow date={selectedDate} />
         {isToday ? <SupplementsCard date={selectedDate} /> : null}
         {hasNutrients ? (
           <Pressable
