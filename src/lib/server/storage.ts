@@ -47,6 +47,11 @@ export const mealPhotoKey = (userId: string, mealId: string) => `meals/${userId}
 /** The 2nd and 3rd photo of a meal (steer the AI). */
 export const extraPhotoKey = (userId: string, mealId: string, n: number) => `meals/${userId}/${mealId}-${n}.jpg`;
 export const userPhotosPrefix = (userId: string) => `meals/${userId}/`;
+/** Progress photos (v2.2): private, never analysed. */
+export const progressPhotoKey = (userId: string, photoId: string) => `progress/${userId}/${photoId}.jpg`;
+export const progressPhotosPrefix = (userId: string) => `progress/${userId}/`;
+/** Only meal photos may be sent to the AI. */
+export const isMealPhotoKey = (key: string) => key.startsWith('meals/');
 
 export async function putObject(key: string, body: ArrayBuffer, contentType: string) {
   const res = await getBucket().client.fetch(objectUrl(key), {

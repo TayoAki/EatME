@@ -15,7 +15,7 @@ import { colors } from '@/constants/colors';
 import { notify } from '@/lib/confirm';
 import { haptics } from '@/lib/haptics';
 import { useProfile } from '@/lib/queries';
-import { formatTimeOfDay, MEAL_SLOTS, type MealSlot, type ReminderSettings, type TimeOfDay } from '@/lib/reminder-plan';
+import { firstPhotoDay, formatTimeOfDay, MEAL_SLOTS, type MealSlot, type ReminderSettings, type TimeOfDay } from '@/lib/reminder-plan';
 import { useReminderStore } from '@/lib/reminder-store';
 import {
   getNotificationPermission,
@@ -180,7 +180,53 @@ function WeighInSheet({
   );
 }
 
-type Editing = { kind: 'time'; key: MealSlot | 'dose'; title: string } | { kind: 'water' } | { kind: 'weighIn' } | null;
+/** Progress photo: every 4 weeks on a weekday, at a time. */
+function PhotoSheet({
+  value,
+  onClose,
+  onSave,
+}: {
+  value: ReminderSettings['progressPhoto'];
+  onClose: () => void;
+  onSave: (value: ReminderSettings['progressPhoto']) => void;
+}) {
+  const [weekday, setWeekday] = useState(value.weekday);
+  const [hour, setHour] = useState(value.hour);
+  const [minute, setMinute] = useState(value.minute - (value.minute % 5));
+  const hours = useMemo(() => Array.from({ length: 24 }, (_, h) => ({ label: hourLabel(h), value: h })), []);
+  const minutes = useMemo(() => Array.from({ length: 12 }, (_, i) => ({ label: pad(i * 5), value: i * 5 })), []);
+  return (
+    <BottomSheet visible onClose={onClose}>
+      <Text className="mb-1 text-center text-[22px] font-bold tracking-tight text-ink">Progress photo</Text>
+      <Text className="mb-4 text-center text-[14px] text-muted">Every 4 weeks</Text>
+      <View className="flex-row flex-wrap justify-center gap-2">
+        {[1, 2, 3, 4, 5, 6, 0].map((day) => (
+          <Chip key={day} label={SHORT_WEEKDAYS[day]} selected={weekday === day} onPress={() => setWeekday(day)} className="px-3" />
+        ))}
+      </View>
+      <View className="relative mt-3 flex-row">
+        <View pointerEvents="none" style={{ top: 44, height: 44 }} className="absolute left-0 right-0 rounded-xl bg-surface" />
+        <WheelPicker accessibilityLabel="Hour" className="flex-1" showBand={false} visibleCount={3} items={hours} value={hour} onChange={setHour} />
+        <WheelPicker accessibilityLabel="Minute" className="flex-1" showBand={false} visibleCount={3} items={minutes} value={minute} onChange={setMinute} />
+      </View>
+      <View className="mt-5 flex-row gap-3">
+        <Button title="Cancel" variant="secondary" className="flex-1" onPress={onClose} />
+        <Button
+          title="Save"
+          className="flex-1"
+          onPress={() => onSave({ ...value, weekday, hour, minute, startDate: firstPhotoDay(weekday, hour, minute) })}
+        />
+      </View>
+    </BottomSheet>
+  );
+}
+
+type Editing =
+  | { kind: 'time'; key: MealSlot | 'dose' | 'planTomorrow'; title: string }
+  | { kind: 'water' }
+  | { kind: 'weighIn' }
+  | { kind: 'photo' }
+  | null;
 
 export default function RemindersScreen() {
   const profile = useProfile();
@@ -294,6 +340,34 @@ export default function RemindersScreen() {
           </Text>
         </View>
 
+        <View>
+          <Text className="mb-2 ml-1 text-[15px] font-medium text-muted">Body</Text>
+          <View className="overflow-hidden rounded-[20px] border border-line">
+            <ReminderRow
+              first
+              title="Progress photo"
+              subtitle={`Every 4 weeks, ${WEEKDAYS[settings.progressPhoto.weekday]} at ${formatTimeOfDay(settings.progressPhoto)}`}
+              enabled={settings.progressPhoto.enabled}
+              disabled={disabled}
+              onToggle={(on) =>
+                void toggle(
+                  {
+                    progressPhoto: {
+                      ...settings.progressPhoto,
+                      enabled: on,
+                      // The 4-week rhythm starts from the next of these days.
+                      startDate: on ? firstPhotoDay(settings.progressPhoto.weekday, settings.progressPhoto.hour, settings.progressPhoto.minute) : null,
+                    },
+                  },
+                  on,
+                )
+              }
+              onPressDetail={() => setEditing({ kind: 'photo' })}
+            />
+          </View>
+          <Text className="ml-1 mt-2 text-[13px] leading-[18px] text-muted">Opens your photos. They stay private and are never used for AI.</Text>
+        </View>
+
         {glp1 ? (
           <View>
             <Text className="mb-2 ml-1 text-[15px] font-medium text-muted">GLP-1</Text>
@@ -322,6 +396,15 @@ export default function RemindersScreen() {
           onClose={() => setEditing(null)}
           onSave={(time: TimeOfDay) => {
             update({ [editing.key]: { ...settings[editing.key], ...time } });
+            setEditing(null);
+          }}
+        />
+      ) : editing?.kind === 'photo' ? (
+        <PhotoSheet
+          value={settings.progressPhoto}
+          onClose={() => setEditing(null)}
+          onSave={(next) => {
+            update({ progressPhoto: { ...next, startDate: settings.progressPhoto.enabled ? next.startDate : null } });
             setEditing(null);
           }}
         />

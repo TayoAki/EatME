@@ -10,20 +10,24 @@ import type { ApiClient } from './api';
 /** The vision model looks at a small copy anyway; 1280 px keeps uploads fast on mobile data. */
 const MAX_UPLOAD_SIZE = 1280;
 
-/** Resize + compress to JPEG before uploading. */
-async function prepare(uri: string, width?: number, height?: number) {
+/**
+ * Resize + compress to JPEG before uploading. Re-encoding also leaves the photo's metadata
+ * (location included) behind.
+ */
+export async function prepareJpeg(uri: string, width?: number, height?: number, { maxSize = MAX_UPLOAD_SIZE, compress = 0.75 } = {}) {
   const longest = Math.max(width ?? 0, height ?? 0);
   const context = ImageManipulator.manipulate(uri);
-  if (longest > MAX_UPLOAD_SIZE) {
-    context.resize(width && height && width >= height ? { width: MAX_UPLOAD_SIZE } : { height: MAX_UPLOAD_SIZE });
+  if (longest > maxSize) {
+    context.resize(width && height && width >= height ? { width: maxSize } : { height: maxSize });
   }
   const image = await context.renderAsync();
-  const result = await image.saveAsync({ compress: 0.75, format: SaveFormat.JPEG });
+  const result = await image.saveAsync({ compress, format: SaveFormat.JPEG });
   return result.uri;
 }
+const prepare = (uri: string, width?: number, height?: number) => prepareJpeg(uri, width, height);
 
 /** The JPEG's bytes: read from the phone's file system, or from the browser's blob on web. */
-async function readBytes(uri: string): Promise<Uint8Array | ArrayBuffer> {
+export async function readBytes(uri: string): Promise<Uint8Array | ArrayBuffer> {
   if (Platform.OS === 'web') return (await fetch(uri)).arrayBuffer();
   return new File(uri).bytes();
 }

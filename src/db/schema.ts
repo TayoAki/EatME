@@ -34,6 +34,7 @@ import {
   type Symptom,
 } from '@/shared/glp1';
 import type { NutrientAmounts } from '@/shared/nutrients';
+import { PHOTO_POSES } from '@/shared/body';
 import {
   PRODUCT_REPORT_REASONS,
   PRODUCT_REPORT_STATUSES,
@@ -63,6 +64,7 @@ export const bodySideEnum = pgEnum('body_side', BODY_SIDES);
 export const glp1MedicationEnum = pgEnum('glp1_medication', GLP1_MEDICATIONS);
 export const glp1ScheduleEnum = pgEnum('glp1_schedule', GLP1_SCHEDULES);
 export const medicineFormEnum = pgEnum('medicine_form', MEDICINE_FORMS);
+export const photoPoseEnum = pgEnum('photo_pose', PHOTO_POSES);
 export const supplementScheduleEnum = pgEnum('supplement_schedule', SUPPLEMENT_SCHEDULES);
 export const productSourceEnum = pgEnum('product_source', PRODUCT_SOURCES);
 export const processingLevelEnum = pgEnum('processing_level', PROCESSING_LEVELS);
@@ -314,6 +316,49 @@ export const weightLogs = pgTable(
   (t) => [uniqueIndex('weight_logs_user_date_idx').on(t.userId, t.date)],
 );
 export type WeightLogRow = typeof weightLogs.$inferSelect;
+
+/** Body measurements (v2.2), in cm: one entry a day (saving again that day replaces it). */
+export const bodyMeasurements = pgTable(
+  'body_measurements',
+  {
+    id: uuid().primaryKey().defaultRandom(),
+    userId: text()
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
+    date: date({ mode: 'string' }).notNull(),
+    waistCm: doublePrecision(),
+    hipsCm: doublePrecision(),
+    chestCm: doublePrecision(),
+    armCm: doublePrecision(),
+    thighCm: doublePrecision(),
+    neckCm: doublePrecision(),
+    ...timestamps,
+  },
+  (t) => [uniqueIndex('body_measurements_user_date_idx').on(t.userId, t.date)],
+);
+export type BodyMeasurementRow = typeof bodyMeasurements.$inferSelect;
+
+/**
+ * Progress photos (v2.2): front, side or back for a day, in the private bucket at
+ * progress/<userId>/<id>.jpg. Only the person sees them (signed links), never the AI.
+ */
+export const progressPhotos = pgTable(
+  'progress_photos',
+  {
+    id: uuid().primaryKey().defaultRandom(),
+    userId: text()
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
+    date: date({ mode: 'string' }).notNull(),
+    pose: photoPoseEnum().notNull(),
+    key: text().notNull(),
+    width: integer().notNull(),
+    height: integer().notNull(),
+    ...timestamps,
+  },
+  (t) => [uniqueIndex('progress_photos_user_date_pose_idx').on(t.userId, t.date, t.pose)],
+);
+export type ProgressPhotoRow = typeof progressPhotos.$inferSelect;
 
 /** Water and other drinks, one row per entry. */
 export const waterLogs = pgTable(

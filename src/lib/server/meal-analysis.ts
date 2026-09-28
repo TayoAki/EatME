@@ -34,7 +34,7 @@ import {
   withFollowUp,
   withQuality,
 } from './prompts';
-import { deleteObject, getObject } from './storage';
+import { deleteObject, getObject, isMealPhotoKey } from './storage';
 
 /** An attempt older than this is considered dead (server restarted mid-way) and is retried. */
 const LEASE_MS = 150_000;
@@ -171,6 +171,8 @@ async function askAi(
   }
 
   if (!meal.imageKey) throw new Error('This meal has no photo');
+  // Progress photos and anything else outside meals/ never go to the AI.
+  if (!photoKeys(meal).every(isMealPhotoKey)) throw new Error('Only meal photos can be analyzed');
   const photos = await Promise.all(photoKeys(meal).map((key) => getObject(key)));
   const photo = photos[0];
   if (meal.source === 'label') {
@@ -216,7 +218,8 @@ async function askAi(
 
 async function deletePhoto(meal: MealRow) {
   await Promise.all(
-    photoKeys(meal).map((key) =>
+    // Only a meal's own photos: never anything outside meals/ (progress photos).
+    photoKeys(meal).filter(isMealPhotoKey).map((key) =>
       deleteObject(key).catch((error: unknown) => console.warn(`[meals] could not delete a photo of ${meal.id}: ${describeError(error)}`)),
     ),
   );

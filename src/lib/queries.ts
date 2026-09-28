@@ -14,6 +14,7 @@ import type {
   UpdateMedicineBody,
 } from '@/shared/glp1';
 import type { WeeklyInsights } from '@/shared/insights';
+import type { BodyMeasurement, BodyResponse, MeasurementsBody, PhotoPose, ProgressPhoto } from '@/shared/body';
 import type { BillingStatus } from '@/shared/billing';
 import type { Features } from '@/shared/features';
 import type { FoodSummary, Meal, QuickMeal, UpdateMealBody, UpdateMealItemsBody } from '@/shared/meals';
@@ -30,7 +31,7 @@ import type { AddWeightBody, WeightEntry, WeightHistory } from '@/shared/weight'
 
 import { ApiError, useApi } from './api';
 import { useSession } from './auth-client';
-import { logRestaurantPlate } from './meal-upload';
+import { logRestaurantPlate, prepareJpeg, readBytes } from './meal-upload';
 import { todayIso } from './time';
 
 export const queryKeys = {
@@ -55,6 +56,7 @@ export const queryKeys = {
   mealsDetail: (userId: string | null | undefined) => ['meal', userId] as const,
   plannedAll: (userId: string | null | undefined) => ['planned', userId] as const,
   planned: (userId: string | null | undefined, date: string) => ['planned', userId, date] as const,
+  body: (userId: string | null | undefined) => ['body', userId] as const,
 };
 
 /** Earlier days are sent as `date`; today logs at "now". */
@@ -798,5 +800,66 @@ export function useSyncBilling() {
   return useMutation({
     mutationFn: () => api<BillingStatus>('/api/billing/sync', { method: 'POST' }),
     onSuccess: (data) => queryClient.setQueryData(queryKeys.billing(userId), data),
+  });
+}
+
+/** Body measurements and progress photos (the photo links last 30 minutes). */
+export function useBody(enabled = true) {
+  const { userId } = useSession();
+  const api = useApi();
+  return useQuery({
+    queryKey: queryKeys.body(userId),
+    queryFn: () => api<BodyResponse>('/api/body'),
+    enabled,
+    // Signed photo links expire after 30 minutes: fetch fresh ones well before.
+    staleTime: 10 * 60_000,
+    refetchInterval: 20 * 60_000,
+  });
+}
+
+function useInvalidateBody() {
+  const { userId } = useSession();
+  const queryClient = useQueryClient();
+  return () => queryClient.invalidateQueries({ queryKey: queryKeys.body(userId) });
+}
+
+/** Saves a day's measurements (cm), replacing that day's entry; `null` deletes the day. */
+export function useSaveMeasurements() {
+  const api = useApi();
+  const invalidate = useInvalidateBody();
+  return useMutation({
+    mutationFn: async ({ date, values }: { date: string; values: MeasurementsBody | null }) => {
+      if (values) return (await api<{ measurement: BodyMeasurement }>(`/api/body/measurements/${date}`, { method: 'PUT', body: values })).measurement;
+      await api(`/api/body/measurements/${date}`, { method: 'DELETE' });
+      return null;
+    },
+    onSuccess: () => invalidate(),
+  });
+}
+
+/** Largest side of a progress photo, and its JPEG quality. */
+const PROGRESS_UPLOAD = { maxSize: 1600, compress: 0.8 };
+
+/** Uploads a progress photo (resized; re-encoding drops the location). A retake replaces that day's pose. */
+export function useUploadProgressPhoto() {
+  const api = useApi();
+  const invalidate = useInvalidateBody();
+  return useMutation({
+    mutationFn: async ({ photo, date, pose }: { photo: { uri: string; width?: number; height?: number }; date: string; pose: PhotoPose }) => {
+      const uri = await prepareJpeg(photo.uri, photo.width, photo.height, PROGRESS_UPLOAD);
+      const data = await readBytes(uri);
+      return (await api<{ photo: ProgressPhoto }>(`/api/body/photos?date=${date}&pose=${pose}`, { method: 'POST', binary: { data, type: 'image/jpeg' } })).photo;
+    },
+    onSuccess: () => invalidate(),
+  });
+}
+
+/** Deletes one progress photo, or every one (`'all'`). */
+export function useDeleteProgressPhoto() {
+  const api = useApi();
+  const invalidate = useInvalidateBody();
+  return useMutation({
+    mutationFn: (id: string | 'all') => api(id === 'all' ? '/api/body/photos' : `/api/body/photos/${id}`, { method: 'DELETE' }),
+    onSuccess: () => invalidate(),
   });
 }

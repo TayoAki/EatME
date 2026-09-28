@@ -1,9 +1,11 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { router } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
 import { ArrowLeft, Bell, ChevronRight, Flag, Plus } from 'lucide-react-native';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, Text, View } from 'react-native';
 
+import { MeasurementsTab } from '@/components/body/measurements-tab';
+import { PhotosTab } from '@/components/body/photos-tab';
 import { Button } from '@/components/ui/button';
 import { IconButton } from '@/components/ui/icon-button';
 import { Screen } from '@/components/ui/screen';
@@ -31,8 +33,17 @@ import {
   type WeightRange,
 } from '@/shared/weight';
 
-const shortDate = (iso: string) => fromIsoDate(iso).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-const WEEKDAY_NAMES = ['Sundays', 'Mondays', 'Tuesdays', 'Wednesdays', 'Thursdays', 'Fridays', 'Saturdays'];
+const shortDate = (iso: string) =>
+  fromIsoDate(iso).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+const WEEKDAY_NAMES = [
+  'Sundays',
+  'Mondays',
+  'Tuesdays',
+  'Wednesdays',
+  'Thursdays',
+  'Fridays',
+  'Saturdays',
+];
 
 /**
  * A milestone the trend just crossed, shown once (this phone remembers the furthest one shown).
@@ -47,7 +58,10 @@ function useNewMilestone(userId: string | undefined, reached: number | null, goa
     void (async () => {
       const stored = await AsyncStorage.getItem(key).catch(() => null);
       const last = stored === null ? null : Number(stored);
-      const isNew = last === null || !Number.isFinite(last) || (goal === 'lose' ? reached < last : reached > last);
+      const isNew =
+        last === null ||
+        !Number.isFinite(last) ||
+        (goal === 'lose' ? reached < last : reached > last);
       if (!isNew || !active) return;
       setMilestone(reached);
       await AsyncStorage.setItem(key, String(reached)).catch(() => undefined);
@@ -59,7 +73,51 @@ function useNewMilestone(userId: string | undefined, reached: number | null, goa
   return [milestone, () => setMilestone(null)] as const;
 }
 
-export default function WeightScreen() {
+const TABS = [
+  { label: 'Weight', value: 'weight' },
+  { label: 'Measurements', value: 'measurements' },
+  { label: 'Photos', value: 'photos' },
+] as const;
+type BodyTab = (typeof TABS)[number]['value'];
+
+/** Profile → Weight & body: weigh-ins, measurements and progress photos. */
+export default function WeightAndBodyScreen() {
+  const params = useLocalSearchParams<{ tab?: string }>();
+  const [tab, setTab] = useState<BodyTab>(
+    TABS.some((t) => t.value === params.tab) ? (params.tab as BodyTab) : 'weight',
+  );
+  const unit = useProfile()?.unitSystem ?? 'metric';
+  return (
+    <Screen>
+      <View className="h-14 justify-center px-5">
+        <IconButton
+          accessibilityLabel="Go back"
+          icon={<ArrowLeft size={20} color={colors.ink} />}
+          onPress={() => router.back()}
+        />
+      </View>
+      <ScrollView
+        contentContainerClassName="gap-5 px-5 pb-10"
+        showsVerticalScrollIndicator={false}
+        keyboardShouldPersistTaps="handled"
+      >
+        <Text accessibilityRole="header" className="text-[32px] font-bold tracking-tight text-ink">
+          Weight & body
+        </Text>
+        <SegmentedControl options={TABS} value={tab} onChange={setTab} />
+        {tab === 'weight' ? (
+          <WeightTab />
+        ) : tab === 'measurements' ? (
+          <MeasurementsTab unit={unit} />
+        ) : (
+          <PhotosTab unit={unit} />
+        )}
+      </ScrollView>
+    </Screen>
+  );
+}
+
+function WeightTab() {
   const profile = useProfile();
   const weights = useWeights();
   const log = useLogWeight();
@@ -90,17 +148,28 @@ export default function WeightScreen() {
 
   const goal = weights.data?.goal ?? null;
   const target = weights.data?.targetWeightKg ?? null;
-  const chasing = !!latest && !!start && trendNow !== null && target !== null && (goal === 'lose' || goal === 'gain');
-  const reached = chasing && (goal === 'lose' ? latest.weightKg <= target : latest.weightKg >= target);
+  const chasing =
+    !!latest &&
+    !!start &&
+    trendNow !== null &&
+    target !== null &&
+    (goal === 'lose' || goal === 'gain');
+  const reached =
+    chasing && (goal === 'lose' ? latest.weightKg <= target : latest.weightKg >= target);
   // Milestones are only reached when the trend crosses them (one low weigh-in doesn't count).
-  const milestones = chasing ? weightMilestones(start.weightKg, target, goal, profile?.heightCm ?? null) : [];
+  const milestones = chasing
+    ? weightMilestones(start.weightKg, target, goal, profile?.heightCm ?? null)
+    : [];
   const [milestone, dismissMilestone] = useNewMilestone(
     profile?.id,
     chasing ? reachedMilestone(milestones, trendNow, goal) : null,
     goal,
   );
   // When a GLP-1 medicine started, inside the range shown. A fact, no claim about cause.
-  const markers = (weights.data?.markers ?? []).filter((m) => points.length > 1 && m.date >= points[0].date && m.date <= points[points.length - 1].date);
+  const markers = (weights.data?.markers ?? []).filter(
+    (m) =>
+      points.length > 1 && m.date >= points[0].date && m.date <= points[points.length - 1].date,
+  );
   const perWeek = trendPerWeek(trend);
   const fastLoss = perWeek !== null && perWeek < -FAST_LOSS_KG_PER_WEEK;
   const weighIn = useReminderStore((state) => state.settings.weighIn);
@@ -121,171 +190,202 @@ export default function WeightScreen() {
       confirmLabel: 'Remove',
       destructive: true,
     });
-    if (ok) remove.mutate(entry.id, { onError: (error) => notify("We couldn't remove it", error.message) });
+    if (ok)
+      remove.mutate(entry.id, {
+        onError: (error) => notify("We couldn't remove it", error.message),
+      });
   };
 
   return (
-    <Screen>
-      <View className="h-14 justify-center px-5">
-        <IconButton accessibilityLabel="Go back" icon={<ArrowLeft size={20} color={colors.ink} />} onPress={() => router.back()} />
-      </View>
-      <ScrollView contentContainerClassName="gap-5 px-5 pb-10" showsVerticalScrollIndicator={false}>
-        <Text accessibilityRole="header" className="text-[32px] font-bold tracking-tight text-ink">
-          Weight
-        </Text>
-
-        {weights.isPending ? (
-          <ActivityIndicator color={colors.ink} />
-        ) : weights.isError ? (
-          <Text className="text-[15px] text-muted">We couldn&apos;t load your weight history.</Text>
-        ) : !latest || !start ? (
-          <Text className="text-[15px] text-muted">No weigh-ins yet.</Text>
-        ) : (
-          <>
-            <View className="rounded-card border border-line p-5">
-              <Text className="text-[40px] font-bold tracking-tighter text-ink">{formatWeight(latest.weightKg, unit)}</Text>
-              <Text className="mt-0.5 text-[15px] text-muted">
-                {entries.length > 1
-                  ? `${signed(latest.weightKg - start.weightKg)} since ${shortDate(start.date)}`
-                  : `Starting weight · ${formatDay(latest.date)}`}
+    <>
+      {weights.isPending ? (
+        <ActivityIndicator color={colors.ink} />
+      ) : weights.isError ? (
+        <Text className="text-[15px] text-muted">We couldn&apos;t load your weight history.</Text>
+      ) : !latest || !start ? (
+        <Text className="text-[15px] text-muted">No weigh-ins yet.</Text>
+      ) : (
+        <>
+          <View className="rounded-card border border-line p-5">
+            <Text className="text-[40px] font-bold tracking-tighter text-ink">
+              {formatWeight(latest.weightKg, unit)}
+            </Text>
+            <Text className="mt-0.5 text-[15px] text-muted">
+              {entries.length > 1
+                ? `${signed(latest.weightKg - start.weightKg)} since ${shortDate(start.date)}`
+                : `Starting weight · ${formatDay(latest.date)}`}
+            </Text>
+            {entries.length > 1 && trendNow !== null ? (
+              <Text className="mt-0.5 text-[15px] text-ink">
+                Trend {formatWeight(trendNow, unit)}
+                {perWeek !== null ? (
+                  <Text className="text-muted"> · {signed(perWeek)} a week</Text>
+                ) : null}
               </Text>
-              {entries.length > 1 && trendNow !== null ? (
-                <Text className="mt-0.5 text-[15px] text-ink">
-                  Trend {formatWeight(trendNow, unit)}
-                  {perWeek !== null ? <Text className="text-muted"> · {signed(perWeek)} a week</Text> : null}
-                </Text>
-              ) : null}
-              {chasing && target !== null ? (
-                <View className="mt-4">
-                  <View className="flex-row justify-between">
-                    <Text className="text-[14px] font-medium text-ink">Goal {formatWeight(target, unit)}</Text>
-                    <Text className="text-[14px] text-muted">
-                      {reached ? 'Goal reached' : `${formatWeight(Math.abs(latest.weightKg - target), unit)} to go`}
+            ) : null}
+            {chasing && target !== null ? (
+              <View className="mt-4">
+                <View className="flex-row justify-between">
+                  <Text className="text-[14px] font-medium text-ink">
+                    Goal {formatWeight(target, unit)}
+                  </Text>
+                  <Text className="text-[14px] text-muted">
+                    {reached
+                      ? 'Goal reached'
+                      : `${formatWeight(Math.abs(latest.weightKg - target), unit)} to go`}
+                  </Text>
+                </View>
+                <View className="mt-2 h-2 overflow-hidden rounded-full bg-surface">
+                  <View
+                    style={{
+                      width: `${goalProgress(start.weightKg, latest.weightKg, target) * 100}%`,
+                    }}
+                    className="h-full rounded-full bg-ink"
+                  />
+                </View>
+              </View>
+            ) : goal === 'maintain' ? (
+              <Text className="mt-3 text-[14px] text-ink">
+                Goal: stay around {formatWeight(target ?? start.weightKg, unit)}
+              </Text>
+            ) : null}
+          </View>
+
+          {milestone !== null && target !== null ? (
+            <View className="flex-row gap-3 rounded-card bg-surface p-4">
+              <Flag size={18} color={colors.ink} style={{ marginTop: 2 }} />
+              <Text className="flex-1 text-[15px] leading-[21px] text-ink">
+                {milestone === target
+                  ? `Your trend reached your goal of ${formatWeight(target, unit)}.`
+                  : `Milestone: your trend is ${goal === 'lose' ? 'below' : 'above'} ${formatWeight(milestone, unit)} for the first time. ${formatWeight(Math.abs(target - milestone), unit)} from there to your goal.`}
+              </Text>
+              <Pressable
+                accessibilityRole="button"
+                accessibilityLabel="Dismiss"
+                hitSlop={8}
+                onPress={dismissMilestone}
+              >
+                <Text className="text-[14px] font-semibold text-ink">OK</Text>
+              </Pressable>
+            </View>
+          ) : null}
+
+          {fastLoss && perWeek !== null ? (
+            <View className="rounded-card border border-line p-4">
+              <Text className="text-[15px] leading-[21px] text-ink">
+                Over the last 4 weeks your trend went down about{' '}
+                {formatWeight(Math.abs(perWeek), unit)} a week. Losing more than{' '}
+                {unit === 'metric' ? '1 kg' : '2 lb'} a week is fast — it&apos;s worth checking in
+                with your doctor.
+              </Text>
+            </View>
+          ) : null}
+
+          <SegmentedControl options={WEIGHT_RANGES} value={range} onChange={setRange} />
+          <View>
+            <WeightChart
+              points={points}
+              goal={target !== null && goal !== 'maintain' ? shown(target) : null}
+              unit={unit === 'metric' ? 'kg' : 'lb'}
+              markers={markers}
+            />
+            <View className="mt-2 flex-row items-center justify-center gap-5">
+              <View className="flex-row items-center gap-1.5">
+                <View className="h-[3px] w-4 rounded-full bg-ink" />
+                <Text className="text-[13px] text-muted">Trend</Text>
+              </View>
+              <View className="flex-row items-center gap-1.5">
+                <View className="h-2 w-2 rounded-full bg-faint" />
+                <Text className="text-[13px] text-muted">Weigh-ins</Text>
+              </View>
+            </View>
+            {markers.length > 0 ? (
+              <View className="mt-3 gap-1 px-1">
+                {markers.map((m) => (
+                  <View key={`${m.date}-${m.text}`} className="flex-row items-center gap-2">
+                    <View className="h-3 w-px bg-muted" />
+                    <Text className="text-[13px] text-muted">
+                      {shortDate(m.date)} · {m.text}
                     </Text>
                   </View>
-                  <View className="mt-2 h-2 overflow-hidden rounded-full bg-surface">
-                    <View
-                      style={{ width: `${goalProgress(start.weightKg, latest.weightKg, target) * 100}%` }}
-                      className="h-full rounded-full bg-ink"
-                    />
-                  </View>
-                </View>
-              ) : goal === 'maintain' ? (
-                <Text className="mt-3 text-[14px] text-ink">Goal: stay around {formatWeight(target ?? start.weightKg, unit)}</Text>
-              ) : null}
-            </View>
+                ))}
+              </View>
+            ) : null}
+          </View>
+        </>
+      )}
 
-            {milestone !== null && target !== null ? (
-              <View className="flex-row gap-3 rounded-card bg-surface p-4">
-                <Flag size={18} color={colors.ink} style={{ marginTop: 2 }} />
-                <Text className="flex-1 text-[15px] leading-[21px] text-ink">
-                  {milestone === target
-                    ? `Your trend reached your goal of ${formatWeight(target, unit)}.`
-                    : `Milestone: your trend is ${goal === 'lose' ? 'below' : 'above'} ${formatWeight(milestone, unit)} for the first time. ${formatWeight(Math.abs(target - milestone), unit)} from there to your goal.`}
-                </Text>
-                <Pressable accessibilityRole="button" accessibilityLabel="Dismiss" hitSlop={8} onPress={dismissMilestone}>
-                  <Text className="text-[14px] font-semibold text-ink">OK</Text>
+      <Button
+        title="Log weight"
+        icon={<Plus size={18} color={colors.canvas} />}
+        onPress={() => setLogging(true)}
+      />
+      <Pressable
+        accessibilityRole="button"
+        accessibilityLabel={`Weigh-in reminder: ${weighIn.enabled ? `${weighIn.weekday === null ? 'every day' : WEEKDAY_NAMES[weighIn.weekday]} at ${formatTimeOfDay(weighIn)}` : 'off'}. Change`}
+        onPress={() => router.push('/reminders')}
+        className="-mt-2 flex-row items-center gap-3 rounded-[20px] border border-line px-4 py-3 active:bg-surface"
+      >
+        <Bell size={18} color={colors.ink} />
+        <View className="flex-1">
+          <Text className="text-[15px] text-ink">Weigh-in reminder</Text>
+          <Text className="text-[13px] text-muted">
+            {weighIn.enabled
+              ? `${weighIn.weekday === null ? 'Every day' : WEEKDAY_NAMES[weighIn.weekday]} at ${formatTimeOfDay(weighIn)}`
+              : 'Off'}
+          </Text>
+        </View>
+        <ChevronRight size={18} color={colors.faint} />
+      </Pressable>
+
+      {entries.length > 0 ? (
+        <View>
+          <Text className="mb-2 ml-1 text-[15px] font-medium text-muted">History</Text>
+          <View className="overflow-hidden rounded-[20px] border border-line">
+            {[...entries].reverse().map((entry, index, list) => {
+              const previous = list[index + 1];
+              return (
+                <Pressable
+                  key={entry.id}
+                  accessibilityRole="button"
+                  accessibilityLabel={`${formatWeight(entry.weightKg, unit)} on ${formatDay(entry.date)}. Remove`}
+                  onPress={() => void onRemove(entry)}
+                  className={`min-h-[52px] flex-row items-center px-4 active:bg-surface ${index > 0 ? 'border-t border-line' : ''}`}
+                >
+                  <Text className="flex-1 text-[15px] text-ink">{formatDay(entry.date)}</Text>
+                  {previous ? (
+                    <Text className="mr-3 text-[13px] text-muted">
+                      {signed(entry.weightKg - previous.weightKg)}
+                    </Text>
+                  ) : null}
+                  <Text className="text-[15px] font-semibold text-ink">
+                    {formatWeight(entry.weightKg, unit)}
+                  </Text>
                 </Pressable>
-              </View>
-            ) : null}
-
-            {fastLoss && perWeek !== null ? (
-              <View className="rounded-card border border-line p-4">
-                <Text className="text-[15px] leading-[21px] text-ink">
-                  Over the last 4 weeks your trend went down about {formatWeight(Math.abs(perWeek), unit)} a week. Losing more
-                  than {unit === 'metric' ? '1 kg' : '2 lb'} a week is fast — it&apos;s worth checking in with your doctor.
-                </Text>
-              </View>
-            ) : null}
-
-            <SegmentedControl options={WEIGHT_RANGES} value={range} onChange={setRange} />
-            <View>
-              <WeightChart
-                points={points}
-                goal={target !== null && goal !== 'maintain' ? shown(target) : null}
-                unit={unit === 'metric' ? 'kg' : 'lb'}
-                markers={markers}
-              />
-              <View className="mt-2 flex-row items-center justify-center gap-5">
-                <View className="flex-row items-center gap-1.5">
-                  <View className="h-[3px] w-4 rounded-full bg-ink" />
-                  <Text className="text-[13px] text-muted">Trend</Text>
-                </View>
-                <View className="flex-row items-center gap-1.5">
-                  <View className="h-2 w-2 rounded-full bg-faint" />
-                  <Text className="text-[13px] text-muted">Weigh-ins</Text>
-                </View>
-              </View>
-              {markers.length > 0 ? (
-                <View className="mt-3 gap-1 px-1">
-                  {markers.map((m) => (
-                    <View key={`${m.date}-${m.text}`} className="flex-row items-center gap-2">
-                      <View className="h-3 w-px bg-muted" />
-                      <Text className="text-[13px] text-muted">
-                        {shortDate(m.date)} · {m.text}
-                      </Text>
-                    </View>
-                  ))}
-                </View>
-              ) : null}
-            </View>
-          </>
-        )}
-
-        <Button title="Log weight" icon={<Plus size={18} color={colors.canvas} />} onPress={() => setLogging(true)} />
-        <Pressable
-          accessibilityRole="button"
-          accessibilityLabel={`Weigh-in reminder: ${weighIn.enabled ? `${weighIn.weekday === null ? 'every day' : WEEKDAY_NAMES[weighIn.weekday]} at ${formatTimeOfDay(weighIn)}` : 'off'}. Change`}
-          onPress={() => router.push('/reminders')}
-          className="-mt-2 flex-row items-center gap-3 rounded-[20px] border border-line px-4 py-3 active:bg-surface">
-          <Bell size={18} color={colors.ink} />
-          <View className="flex-1">
-            <Text className="text-[15px] text-ink">Weigh-in reminder</Text>
-            <Text className="text-[13px] text-muted">
-              {weighIn.enabled
-                ? `${weighIn.weekday === null ? 'Every day' : WEEKDAY_NAMES[weighIn.weekday]} at ${formatTimeOfDay(weighIn)}`
-                : 'Off'}
-            </Text>
+              );
+            })}
           </View>
-          <ChevronRight size={18} color={colors.faint} />
-        </Pressable>
+          <Text className="mt-2 px-1 text-[13px] leading-[18px] text-muted">
+            Tap a weigh-in to remove it.
+          </Text>
+        </View>
+      ) : null}
 
-        {entries.length > 0 ? (
-          <View>
-            <Text className="mb-2 ml-1 text-[15px] font-medium text-muted">History</Text>
-            <View className="overflow-hidden rounded-[20px] border border-line">
-              {[...entries].reverse().map((entry, index, list) => {
-                const previous = list[index + 1];
-                return (
-                  <Pressable
-                    key={entry.id}
-                    accessibilityRole="button"
-                    accessibilityLabel={`${formatWeight(entry.weightKg, unit)} on ${formatDay(entry.date)}. Remove`}
-                    onPress={() => void onRemove(entry)}
-                    className={`min-h-[52px] flex-row items-center px-4 active:bg-surface ${index > 0 ? 'border-t border-line' : ''}`}>
-                    <Text className="flex-1 text-[15px] text-ink">{formatDay(entry.date)}</Text>
-                    {previous ? (
-                      <Text className="mr-3 text-[13px] text-muted">{signed(entry.weightKg - previous.weightKg)}</Text>
-                    ) : null}
-                    <Text className="text-[15px] font-semibold text-ink">{formatWeight(entry.weightKg, unit)}</Text>
-                  </Pressable>
-                );
-              })}
-            </View>
-            <Text className="mt-2 px-1 text-[13px] leading-[18px] text-muted">Tap a weigh-in to remove it.</Text>
-          </View>
-        ) : null}
-
-        <Text className="px-1 text-[12px] leading-4 text-muted">
-          Your weight goes up and down by {unit === 'metric' ? '1–2 kg' : '2–4 lb'} from day to day with water, salt and
-          digestion. The trend line smooths that out: each day it moves a tenth of the way toward your weigh-in, so it
-          shows where you are heading.
-        </Text>
-      </ScrollView>
+      <Text className="px-1 text-[12px] leading-4 text-muted">
+        Your weight goes up and down by {unit === 'metric' ? '1–2 kg' : '2–4 lb'} from day to day
+        with water, salt and digestion. The trend line smooths that out: each day it moves a tenth
+        of the way toward your weigh-in, so it shows where you are heading.
+      </Text>
 
       {logging ? (
-        <WeightSheet unit={unit} initialKg={latest?.weightKg ?? profile?.weightKg ?? null} saving={log.isPending} onClose={() => setLogging(false)} onSave={onSave} />
+        <WeightSheet
+          unit={unit}
+          initialKg={latest?.weightKg ?? profile?.weightKg ?? null}
+          saving={log.isPending}
+          onClose={() => setLogging(false)}
+          onSave={onSave}
+        />
       ) : null}
-    </Screen>
+    </>
   );
 }

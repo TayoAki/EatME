@@ -110,7 +110,7 @@ function ProfileContent({ profile }: { profile: Profile }) {
         <SettingsRow icon={UserRound} label="Personal details" onPress={() => router.push('/personal-details')} />
         <SettingsRow
           icon={Weight}
-          label="Weight"
+          label="Weight & body"
           value={profile.weightKg ? formatWeight(profile.weightKg, profile.unitSystem) : undefined}
           onPress={() => router.push('/weight')}
         />

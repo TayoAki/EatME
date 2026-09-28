@@ -12,9 +12,13 @@ type WeightChartProps = {
   points: ChartPoint[];
   /** Goal weight in the same unit, drawn as a dashed line when it is near enough to the weigh-ins. */
   goal: number | null;
-  unit: 'kg' | 'lb';
+  unit: string;
   /** Dated notes (a medicine started), drawn as thin vertical lines where they fall in the range. */
   markers?: { date: string; text: string }[];
+  /** What the line is, for screen readers ("Weight trend", "Waist"). */
+  label?: string;
+  /** What each dot is, one and many, for screen readers. */
+  pointName?: readonly [string, string];
 };
 
 const HEIGHT = 210;
@@ -37,7 +41,7 @@ function ticks(min: number, max: number, count = 4) {
 }
 
 /** The trend line over time on a date scale, the weigh-ins as dots, and the goal weight. */
-export function WeightChart({ points, goal, unit, markers = [] }: WeightChartProps) {
+export function WeightChart({ points, goal, unit, markers = [], label = 'Weight trend', pointName = ['weigh-in', 'weigh-ins'] }: WeightChartProps) {
   const [width, setWidth] = useState(0);
   if (points.length === 0) return null;
 
@@ -45,7 +49,7 @@ export function WeightChart({ points, goal, unit, markers = [] }: WeightChartPro
   const dataLow = Math.min(...values);
   const dataHigh = Math.max(...values);
   // A far-away goal would flatten the line: it is drawn when within ~10 kg or the data's own spread.
-  const reach = Math.max(unit === 'lb' ? 22 : 10, 3 * (dataHigh - dataLow));
+  const reach = Math.max(unit === 'lb' ? 22 : unit === 'kg' ? 10 : 0, 3 * (dataHigh - dataLow));
   const goalShown = goal !== null && goal >= dataLow - reach && goal <= dataHigh + reach ? goal : null;
   let low = Math.min(dataLow, goalShown ?? Infinity);
   let high = Math.max(dataHigh, goalShown ?? -Infinity);
@@ -65,7 +69,7 @@ export function WeightChart({ points, goal, unit, markers = [] }: WeightChartPro
   const y = (value: number) => PAD.top + (1 - (value - yMin) / (yMax - yMin)) * innerH;
   const line = points.map((p, i) => `${i === 0 ? 'M' : 'L'}${x(p.date).toFixed(1)},${y(p.trend).toFixed(1)}`).join(' ');
   const end = points[points.length - 1];
-  const summary = `Weight trend from ${points[0].trend.toFixed(1)} ${unit} on ${shortDate(points[0].date)} to ${end.trend.toFixed(1)} ${unit} on ${shortDate(end.date)}, ${points.length} ${points.length === 1 ? 'weigh-in' : 'weigh-ins'}${goal !== null ? `, goal ${goal.toFixed(1)} ${unit}` : ''}`;
+  const summary = `${label} from ${points[0].trend.toFixed(1)} ${unit} on ${shortDate(points[0].date)} to ${end.trend.toFixed(1)} ${unit} on ${shortDate(end.date)}, ${points.length} ${points.length === 1 ? pointName[0] : pointName[1]}${goal !== null ? `, goal ${goal.toFixed(1)} ${unit}` : ''}`;
   const xLabels = last === first ? [points[0].date] : [points[0].date, end.date];
   const shownMarkers = last === first ? [] : markers.filter((m) => m.date >= points[0].date && m.date <= end.date);
 
