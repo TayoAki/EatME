@@ -67,17 +67,17 @@ const COPY: Record<ScanMode, { title: string; hint: string; permission: string }
   meal: {
     title: 'Scan food',
     hint: 'Center your meal in the frame',
-    permission: 'EatME uses your camera to scan meals and estimate their calories and macros.',
+    permission: 'Weight Class uses your camera to scan meals and estimate their calories and macros.',
   },
   label: {
     title: 'Scan label',
     hint: 'Fit the nutrition facts in the frame',
-    permission: 'EatME uses your camera to read nutrition labels on food packaging.',
+    permission: 'Weight Class uses your camera to read nutrition labels on food packaging.',
   },
   barcode: {
     title: 'Scan barcode',
     hint: 'Point the camera at the barcode',
-    permission: 'EatME uses your camera to read barcodes on food packaging.',
+    permission: 'Weight Class uses your camera to read barcodes on food packaging.',
   },
 };
 

@@ -55,7 +55,7 @@ export function planItem(n: string) {
   if (!/^\d{1,2}$/.test(n) || !Number.isInteger(index)) throw new HttpError(404, 'That meal is not in the draft.');
   return index;
 }
-const NOT_ENOUGH = 'Log a few more meals and EatME can draft your day.';
+const NOT_ENOUGH = 'Log a few more meals and Weight Class can draft your day.';
 
 const addDay = (date: string, days: number) => {
   const d = new Date(`${date}T12:00:00Z`);

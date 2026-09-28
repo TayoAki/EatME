@@ -92,7 +92,7 @@ export default function SupplementsScreen() {
           <Text className="px-1 text-[13px] leading-[18px] text-muted">Tap a supplement to change its dose or remove it.</Text>
         ) : null}
         <Text className="px-1 text-[12px] leading-4 text-muted">
-          EatME shows a note when a supplement alone goes above the adult upper limit. It is not medical advice — ask
+          Weight Class shows a note when a supplement alone goes above the adult upper limit. It is not medical advice — ask
           your doctor or pharmacist about doses.
         </Text>
       </ScrollView>

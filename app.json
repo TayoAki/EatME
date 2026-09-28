@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "EatME",
+    "name": "Weight Class",
     "slug": "eatme",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -86,7 +86,7 @@
       [
         "expo-camera",
         {
-          "cameraPermission": "EatME uses the camera to scan your meals, nutrition labels and barcodes to estimate their calories and macros, and for the progress photos you choose to take. Progress photos stay private.",
+          "cameraPermission": "Weight Class uses the camera to scan your meals, nutrition labels and barcodes to estimate their calories and macros, and for the progress photos you choose to take. Progress photos stay private.",
           "microphonePermission": false,
           "recordAudioAndroid": false,
           "barcodeScannerEnabled": true
@@ -95,8 +95,8 @@
       [
         "expo-image-picker",
         {
-          "photosPermission": "EatME opens your photos so you can analyze a meal or add a progress photo from your gallery. Progress photos stay private.",
-          "cameraPermission": "EatME uses the camera to scan your meals and estimate their calories and macros, and for the progress photos you choose to take.",
+          "photosPermission": "Weight Class opens your photos so you can analyze a meal or add a progress photo from your gallery. Progress photos stay private.",
+          "cameraPermission": "Weight Class uses the camera to scan your meals and estimate their calories and macros, and for the progress photos you choose to take.",
           "microphonePermission": false
         }
       ],
@@ -135,8 +135,8 @@
       [
         "@kingstinct/react-native-healthkit",
         {
-          "NSHealthShareUsageDescription": "EatME can read your steps, active energy, workouts and sleep to show them next to your meals, if you turn this on. They stay on your phone.",
-          "NSHealthUpdateUsageDescription": "EatME saves the calories, protein, carbs, fat, fiber, water and drinks you log to Apple Health, if you turn this on.",
+          "NSHealthShareUsageDescription": "Weight Class can read your steps, active energy, workouts and sleep to show them next to your meals, if you turn this on. They stay on your phone.",
+          "NSHealthUpdateUsageDescription": "Weight Class saves the calories, protein, carbs, fat, fiber, water and drinks you log to Apple Health, if you turn this on.",
           "background": false
         }
       ],

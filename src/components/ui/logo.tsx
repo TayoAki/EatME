@@ -15,7 +15,7 @@ export function Logo({ size = 40, withWordmark = false, stacked = false, classNa
   return (
     <View
       accessibilityRole="image"
-      accessibilityLabel="EatME"
+      accessibilityLabel="Weight Class"
       className={cn('items-center', stacked ? 'gap-1' : 'flex-row gap-2', className)}>
       <Image
         source={require('@/assets/images/logo-dark.png')}
@@ -26,7 +26,7 @@ export function Logo({ size = 40, withWordmark = false, stacked = false, classNa
         <Text
           className="font-bold tracking-tight text-ink"
           style={{ fontSize: Math.round(size * (stacked ? 0.75 : 0.72)) }}>
-          EatME
+          Weight Class
         </Text>
       ) : null}
     </View>

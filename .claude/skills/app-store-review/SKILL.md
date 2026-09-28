@@ -26,7 +26,7 @@ reference if it moved.
 | Add or check a paywall / subscription | Follow [Paywalls](#paywalls-and-subscriptions) | `references/subscriptions.md` |
 | Answer a rejection | Follow [When Apple rejects](#when-apple-rejects) | `references/rejections.md` |
 
-For this repository (EatME), `references/eatme.md` maps every rule to the file that satisfies it, and
+For this repository (EatME, sold as Weight Class), `references/eatme.md` maps every rule to the file that satisfies it, and
 `store/README.md` holds the filled-in answers to paste into App Store Connect. Keep both in step when the app
 changes.
 

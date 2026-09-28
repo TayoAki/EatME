@@ -239,7 +239,7 @@ export function SupplySheet({ medicine, supply, onClose }: SupplySheetProps) {
             </View>
           ) : null}
           <Text className="px-1 text-[13px] leading-[18px] text-muted">
-            EatME never works out amounts, units or doses. Reminders never name your medicine.
+            Weight Class never works out amounts, units or doses. Reminders never name your medicine.
           </Text>
           {supply ? <Button title="Stop tracking" variant="danger" size="md" onPress={() => void stop()} /> : null}
         </View>

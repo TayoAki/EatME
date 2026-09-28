@@ -26,9 +26,9 @@ const HEALTH_CONNECT_STORE =
   'https://play.google.com/store/apps/details?id=com.google.android.apps.healthdata';
 
 const SUPPORT_TEXT: Record<Exclude<HealthSupport, 'available'>, string> = {
-  'expo-go': `${healthName} sync needs the EatME app from the App Store or Google Play — it isn't available in Expo Go.`,
+  'expo-go': `${healthName} sync needs the Weight Class app from the App Store or Google Play — it isn't available in Expo Go.`,
   'needs-app': 'Install or update Health Connect from Google Play, then come back here.',
-  unsupported: 'Health sync is available in the EatME app on iPhone and Android.',
+  unsupported: 'Health sync is available in the Weight Class app on iPhone and Android.',
 };
 
 export default function HealthScreen() {
@@ -58,8 +58,8 @@ export default function HealthScreen() {
       const granted = await connectHealth();
       if (!granted) {
         notify(
-          `${healthName} is off for EatME`,
-          `Allow EatME to write nutrition and water in ${healthName}, then try again.`,
+          `${healthName} is off for Weight Class`,
+          `Allow Weight Class to write nutrition and water in ${healthName}, then try again.`,
         );
         return;
       }
@@ -84,8 +84,8 @@ export default function HealthScreen() {
     try {
       if (!(await requestActivityRead())) {
         notify(
-          `${healthName} is off for EatME`,
-          `Allow EatME to read steps, workouts and sleep in ${healthName}, then try again.`,
+          `${healthName} is off for Weight Class`,
+          `Allow Weight Class to read steps, workouts and sleep in ${healthName}, then try again.`,
         );
         return;
       }
@@ -210,7 +210,7 @@ export default function HealthScreen() {
             {Platform.OS === 'android' ? '' : ', and on iPhone the number of standard drinks'}
           </Text>
           <Text className="mt-2 text-[14px] leading-5 text-muted">
-            Today and yesterday stay in step while EatME is open, including changes and deletions.
+            Today and yesterday stay in step while Weight Class is open, including changes and deletions.
             Turning sync off keeps what was already sent; you can delete it in{' '}
             {Platform.OS === 'web' ? 'the health app' : healthName}.
           </Text>
@@ -220,7 +220,7 @@ export default function HealthScreen() {
             Sleep: time asleep each night
           </Text>
           <Text className="mt-2 text-[14px] leading-5 text-muted">
-            It stays on your phone: EatME shows it next to your meals and never sends it to its
+            It stays on your phone: Weight Class shows it next to your meals and never sends it to its
             server or the AI. Nothing is added to your calorie goal — your activity level in the
             plan already counts your workouts.
           </Text>

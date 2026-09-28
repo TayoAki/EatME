@@ -128,7 +128,7 @@ export function RecentSites({ doses }: { doses: DoseLog[] }) {
         </View>
       </View>
       <Text className="ml-1 mt-2 text-[13px] leading-[18px] text-muted">
-        Follow your medicine&apos;s leaflet or your prescriber on where to inject. EatME only shows where you logged.
+        Follow your medicine&apos;s leaflet or your prescriber on where to inject. Weight Class only shows where you logged.
       </Text>
     </View>
   );

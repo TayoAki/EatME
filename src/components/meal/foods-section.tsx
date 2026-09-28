@@ -109,7 +109,7 @@ export function FoodsSection({
     if (!draft.personalFoodId) return;
     const ok = await confirm({
       title: `Forget ${draft.name}?`,
-      message: 'EatME stops using your version next time. This meal stays as it is.',
+      message: 'Weight Class stops using your version next time. This meal stays as it is.',
       confirmLabel: 'Forget',
       destructive: true,
     });

@@ -230,7 +230,7 @@ export default function Glp1Screen() {
 
         <View className="rounded-2xl bg-surface p-4">
           <Text className="text-[14px] leading-5 text-ink">
-            EatME doesn&apos;t give medical or dosing advice. Always follow your prescriber&apos;s instructions.
+            Weight Class doesn&apos;t give medical or dosing advice. Always follow your prescriber&apos;s instructions.
           </Text>
         </View>
 

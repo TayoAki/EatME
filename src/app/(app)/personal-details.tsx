@@ -93,7 +93,7 @@ function EditDetailSheet({
           <WeightWheel weightKg={weight} unit={profile.unitSystem} onChange={setWeight} label={TITLES[field]} />
           {tooLow && lowest !== null ? (
             <Text className="mt-3 text-center text-[14px] leading-5 text-muted">
-              {`For your height, EatME keeps weight-loss goals at ${formatWeight(lowest, profile.unitSystem, 1)} or more (a BMI of 18.5).`}
+              {`For your height, Weight Class keeps weight-loss goals at ${formatWeight(lowest, profile.unitSystem, 1)} or more (a BMI of 18.5).`}
             </Text>
           ) : null}
         </>
@@ -104,7 +104,7 @@ function EditDetailSheet({
           <DateWheels value={dateOfBirth} onChange={setDateOfBirth} />
           {tooYoung ? (
             <Text className="mt-3 text-center text-[14px] text-muted">
-              You need to be at least {MIN_AGE} to use EatME.
+              You need to be at least {MIN_AGE} to use Weight Class.
             </Text>
           ) : null}
         </>

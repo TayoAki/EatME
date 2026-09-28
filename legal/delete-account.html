@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Delete your account — EatME</title>
+    <title>Delete your account — Weight Class</title>
     <meta
       name="description"
-      content="How to delete your EatME account and all of its data: in the app, on this page with your email and password, or by email."
+      content="How to delete your Weight Class account and all of its data: in the app, on this page with your email and password, or by email."
     />
     <meta name="color-scheme" content="light" />
     <meta name="theme-color" content="#FFFFFF" />
@@ -22,7 +22,7 @@
       <div class="container nav">
         <a class="brand" href="index.html">
           <img src="images/logo.png" width="32" height="32" alt="" />
-          <span>EatME</span>
+          <span>Weight Class</span>
         </a>
         <nav aria-label="Legal">
           <ul class="nav-links">
@@ -36,22 +36,22 @@
     <main id="main" class="legal">
       <article class="doc">
         <p class="eyebrow">Your account</p>
-        <h1>Delete your EatME account</h1>
+        <h1>Delete your Weight Class account</h1>
 
         <p class="intro">
-          EatME is made by UGC Mediakits. You can delete your EatME account and
+          Weight Class is made by UGC Mediakits. You can delete your Weight Class account and
           everything in it at any time: in the app, on this page, or by email. Deleting your account can't be undone.
         </p>
 
         <section id="in-the-app">
           <h2>In the app</h2>
-          <p>Open EatME, go to <strong>Profile</strong>, tap <strong>Delete account</strong> and confirm.</p>
+          <p>Open Weight Class, go to <strong>Profile</strong>, tap <strong>Delete account</strong> and confirm.</p>
         </section>
 
         <section id="on-this-page">
           <h2>On this page</h2>
           <p>
-            Enter the email address and password you use for EatME. Your account is deleted right away; you don't
+            Enter the email address and password you use for Weight Class. Your account is deleted right away; you don't
             need the app.
           </p>
           <form id="delete-form" class="form" novalidate>
@@ -101,12 +101,12 @@
               <a href="privacy.html#retention">How long we keep information</a>.
             </li>
             <li>
-              If you bought EatME Premium: Apple or Google, and our payment provider RevenueCat, keep records of the
+              If you bought Weight Class Premium: Apple or Google, and our payment provider RevenueCat, keep records of the
               purchase as the law requires. Deleting your account doesn't cancel a subscription, so cancel it first in
               your App Store or Google Play settings.
             </li>
             <li>
-              Anything EatME saved to Apple Health or Health Connect stays there. You can delete it in those apps.
+              Anything Weight Class saved to Apple Health or Health Connect stays there. You can delete it in those apps.
             </li>
           </ul>
         </section>
@@ -119,7 +119,7 @@
           <div>
             <a class="footer-brand" href="index.html">
               <img src="images/logo.png" width="30" height="30" alt="" />
-              <span>EatME</span>
+              <span>Weight Class</span>
             </a>
             <p class="footer-tagline">AI calorie tracking, made effortless.</p>
           </div>
@@ -182,7 +182,7 @@
                     Array.prototype.forEach.call(form.querySelectorAll('input, button'), function (el) {
                       el.disabled = true;
                     });
-                    show('Your EatME account and all of its data have been deleted.', 'done');
+                    show('Your Weight Class account and all of its data have been deleted.', 'done');
                   } else if (res.status === 429) {
                     show('Too many tries. Please wait an hour and try again, or email us.', 'error');
                     button.disabled = !confirmBox.checked;
@@ -193,7 +193,7 @@
                 });
             })
             .catch(function () {
-              show("We couldn't reach EatME. Check your connection and try again.", 'error');
+              show("We couldn't reach Weight Class. Check your connection and try again.", 'error');
               button.disabled = !confirmBox.checked;
             });
         });

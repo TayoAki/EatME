@@ -54,7 +54,7 @@ export function ReportProductSheet({ code, visible, onClose, onScanLabel, onSear
             Thanks for telling us
           </Text>
           <Text className="mt-1 text-[15px] leading-[21px] text-muted">
-            EatME checks the product again. Meals you already logged stay as they are. To log it correctly now, read the
+            Weight Class checks the product again. Meals you already logged stay as they are. To log it correctly now, read the
             numbers from the package or pick a similar food.
           </Text>
           <View className="mt-5 gap-2">

@@ -87,8 +87,8 @@ export function AdaptiveTargetSection({ profile }: { profile: Profile }) {
       </View>
       <Text className="mt-2 px-1 text-[13px] leading-[18px] text-muted">
         {calm
-          ? 'Once a week EatME compares what you logged with your weight trend and suggests a target. Nothing changes unless you choose it.'
-          : 'Once a week EatME compares what you logged with your weight trend and suggests a target, at most 150 kcal from the one you have and never below your safety floor. Nothing changes unless you choose it.'}
+          ? 'Once a week Weight Class compares what you logged with your weight trend and suggests a target. Nothing changes unless you choose it.'
+          : 'Once a week Weight Class compares what you logged with your weight trend and suggests a target, at most 150 kcal from the one you have and never below your safety floor. Nothing changes unless you choose it.'}
       </Text>
       {enabled && checkIn && MISSING_DATA.includes(checkIn.reason) ? (
         <View className="mt-3 rounded-2xl bg-surface p-3">

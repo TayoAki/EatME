@@ -101,7 +101,7 @@ export function SocialSignIn({ onError }: SocialSignInProps) {
       const session = await authClient.getSession();
       if (!session.data) {
         onError(
-          "Google sign-in didn't finish. If this email already has an EatME account, sign in with your password first.",
+          "Google sign-in didn't finish. If this email already has a Weight Class account, sign in with your password first.",
         );
       }
     } catch (e) {

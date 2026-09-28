@@ -121,7 +121,7 @@ export function planReminders(settings: ReminderSettings, glp1: Glp1Settings | n
         ? {
             identifier: `${REMINDER_PREFIX}dose`,
             title: 'Dose day',
-            body: "Today is your dose day. Log it in EatME once you've taken it.",
+            body: "Today is your dose day. Log it in Weight Class once you've taken it.",
             url: '/',
             // Notifications count weekdays from 1 = Sunday; the app stores 0 = Sunday.
             trigger: { type: 'weekly', weekday: glp1.doseWeekday + 1, hour, minute },
@@ -129,7 +129,7 @@ export function planReminders(settings: ReminderSettings, glp1: Glp1Settings | n
         : {
             identifier: `${REMINDER_PREFIX}dose`,
             title: 'Your GLP-1 medicine',
-            body: "Log today's dose in EatME once you've taken it.",
+            body: "Log today's dose in Weight Class once you've taken it.",
             url: '/',
             trigger: { type: 'daily', hour, minute },
           },

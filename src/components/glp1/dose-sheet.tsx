@@ -78,7 +78,7 @@ export function DoseSheet({ visible, onClose, medication, glp1 }: DoseSheetProps
       <Text className="text-[22px] font-bold tracking-tight text-ink">Log your dose</Text>
       <Text className="mt-1 text-[14px] leading-5 text-muted">
         {current ? <Text className="font-semibold text-ink">{medicineTitle(current)}</Text> : null}
-        {current ? ' · ' : ''}Taken just now. EatME only records what you enter.
+        {current ? ' · ' : ''}Taken just now. Weight Class only records what you enter.
       </Text>
 
       <ScrollView style={{ maxHeight: 420 }} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>

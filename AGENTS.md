@@ -3,7 +3,10 @@ This is an Expo/React Native mobile application. Prioritize mobile-first pattern
 # EatME — agent instructions
 
 EatME is a Cal AI–style calorie tracker: onboarding → AI plan → snap a meal → AI estimates
-calories and macros. **Read `PLAN.md` before building a feature** — every product decision
+calories and macros. **Customers know it as Weight Class** (renamed 2026-09-28): use "Weight Class" in
+everything a person can see (screens, permission texts, notifications, emails, API error messages, legal pages,
+store texts) and "Weight Class Premium" for the subscription. The repo, code, comments, bundle ID
+(`com.tayoaki.eatme`), `eatme://` scheme, storage keys, product IDs and servers keep "EatME"; don't rename them. **Read `PLAN.md` before building a feature** — every product decision
 (screens, flow, data model, routes, tasks) is written there. Never guess a requirement that
 PLAN.md already answers; if something is missing, ask. Tick the checkbox in PLAN.md when a
 feature is done. The v2.2–v2.4 features (GLP-1 medicines and supply, body tracking, activity reads,
@@ -122,7 +125,7 @@ Run lint and typecheck before declaring any task done.
 Use EAS to build, sign, and submit the app in the cloud (`eas build`, `eas submit`) and to ship over-the-air updates (`eas update`) — no local Xcode or Android Studio required. Run EAS CLI as `bunx eas-cli <command>` in Bun projects, or `npx eas-cli@latest <command>` otherwise; substitute that for bare `eas` in docs examples.
 Docs: https://docs.expo.dev/eas/index.md
 
-For EatME: `npm run testflight` builds the iPhone app and uploads it to TestFlight; the first run, TestFlight and
+For this app: `npm run testflight` builds the iPhone app and uploads it to TestFlight; the first run, TestFlight and
 the App Review steps are in `store/release.md`. Before anything that touches App Review (payments, sign-in, AI,
 health data, the store listing, screenshots, a rejection), use the `app-store-review` skill in
 `.claude/skills/app-store-review/` and keep its `references/eatme.md` in step with the app.

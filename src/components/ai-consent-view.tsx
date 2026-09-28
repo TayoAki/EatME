@@ -36,8 +36,8 @@ function Point({ icon: Icon, children }: { icon: LucideIcon; children: string })
 export function AiConsentView({ providers, context, onAllow, onDecline, onBack, allowing = false, bottomSpace = 24 }: AiConsentViewProps) {
   const what =
     context === 'plan'
-      ? `To build your plan, EatME sends your answers (sex, age, height, weight, goal, pace, activity and diet) to ${aiRecipients(providers, 'them')}. Later, the meal photos, descriptions and notes you choose to analyze go the same way.`
-      : `To estimate a meal, EatME sends the photo, description or note you choose to analyze to ${aiRecipients(providers)}.`;
+      ? `To build your plan, Weight Class sends your answers (sex, age, height, weight, goal, pace, activity and diet) to ${aiRecipients(providers, 'them')}. Later, the meal photos, descriptions and notes you choose to analyze go the same way.`
+      : `To estimate a meal, Weight Class sends the photo, description or note you choose to analyze to ${aiRecipients(providers)}.`;
   return (
     <Screen>
       <View className="h-14 justify-center px-5">
@@ -50,7 +50,7 @@ export function AiConsentView({ providers, context, onAllow, onDecline, onBack, 
           <Sparkles size={26} color={colors.ink} strokeWidth={1.8} />
         </View>
         <Text accessibilityRole="header" className="mt-5 text-[32px] font-bold leading-[38px] tracking-tight text-ink">
-          {context === 'plan' ? 'EatME uses AI' : 'Allow AI analysis?'}
+          {context === 'plan' ? 'Weight Class uses AI' : 'Allow AI analysis?'}
         </Text>
         <Text className="mt-3 text-[16px] leading-[23px] text-ink">{what}</Text>
         <View className="mt-6 gap-4">

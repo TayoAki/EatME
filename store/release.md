@@ -1,4 +1,4 @@
-# Releasing EatME: EAS builds, TestFlight and App Review
+# Releasing Weight Class: EAS builds, TestFlight and App Review
 
 The step-by-step for getting a build onto testers' phones and then into the App Store. The answers to paste into
 App Store Connect are in [`README.md`](README.md); the screenshots in [`screenshots/`](screenshots/). The rules
@@ -41,16 +41,16 @@ To upload a build that's already finished: `npx eas-cli@latest submit -p ios --l
    identifier in the developer portal, delete its profile in `npx eas-cli@latest credentials -p ios`, and build
    again.
 4. **First upload, interactive:** `npx eas-cli@latest submit -p ios --latest`. Sign in when asked, let EAS create an
-   **App Store Connect API key** (it's stored on EAS, so later uploads need no Apple sign-in), and pick the EatME app
-   in App Store Connect (it already exists: the subscriptions were created in it). From then on
+   **App Store Connect API key** (it's stored on EAS, so later uploads need no Apple sign-in), and pick the app
+   in App Store Connect (listed as EatME until you rename it to Weight Class) (it already exists: the subscriptions were created in it). From then on
    `npm run testflight` works without questions.
 
 ## TestFlight
 
-App Store Connect → EatME → TestFlight.
+App Store Connect → the app → TestFlight.
 
 - **Your team (internal testing):** up to 100 people who are users of your App Store Connect team. Internal
-  Testing → **+** → a group (e.g. "EatME team") → add the testers and the build. No review: they get each new build
+  Testing → **+** → a group (e.g. "Weight Class team") → add the testers and the build. No review: they get each new build
   as soon as it's processed, in the TestFlight app.
 - **Everyone else (external testing):** up to 10,000 people by email or a public link. External Testing → **+** →
   a group (e.g. "Beta testers") → add the build → fill in **Test Information** (texts in
@@ -70,7 +70,7 @@ Before the first external testers:
 - [ ] Legal placeholders filled in and deployed (`legal/README.md`): Beta App Review opens the privacy policy.
 - [x] A demo account for Beta App Review: `review@ugcmediakits.com`, made on 2026-09-28 (see
       [`README.md` → Demo account](README.md#demo-account); refresh it with `npm run demo:account:remote` before
-      App Review). EatME can't be used without signing in, so Apple needs
+      App Review). Weight Class can't be used without signing in, so Apple needs
       working login details; the account's two weeks of sample data is what lets a reviewer see the weight trend,
       the weekly check-in and Plan tomorrow.
 - [ ] RevenueCat: the four products are attached to the `premium` entitlement and the offering, and Sandbox Testing
@@ -80,18 +80,23 @@ Before the first external testers:
 
 ## App Review (the App Store release)
 
-App Store Connect → EatME → the iOS version (1.0) → fill it from [`README.md`](README.md):
+App Store Connect → the app → the iOS version (1.0) → fill it from [`README.md`](README.md):
+
+0. **Name (do this first; it reserves the name):** App Information → Name `Weight Class: Calorie Counter`, and on
+   the version the subtitle `AI Food Scan & Macro Tracker`. The app record still says EatME until you change it.
 
 1. **Screenshots:** iPhone 6.9" display → drag in `screenshots/ios-6.9/01-home.png` to `07-search.png` in order.
-2. **Texts:** promotional text, description, keywords, support URL (`<server>/support`), copyright (leave the
+2. **Texts:** promotional text, description, keywords (plus a Spanish (Mexico) localization for the second keyword
+   list), support URL (`<server>/support`), copyright (leave the
    marketing URL empty until the landing page links the App Store).
 3. **Build:** pick the TestFlight build you tested.
 4. **App Review Information:** your name, email and phone (`+1 ...` format), "Sign-in required" with the demo
    account's email and password, and the review notes.
 5. **App Information / Age Rating / App Privacy / Pricing:** as in [`README.md`](README.md), including the age
    rating override to 18+, **Regulated Medical Device: No** and the Digital Services Act trader status.
-6. **Subscriptions (they go to review with this version):** Monetization → Subscriptions → EatME Premium → each
-   subscription: replace the placeholder **review screenshot** with a screenshot of Profile → EatME Premium taken on
+6. **Subscriptions (they go to review with this version):** Monetization → Subscriptions → EatME Premium (the group's internal
+   name; set its display name to `Weight Class Premium`) → each subscription: replace the placeholder **review
+   screenshot** with a screenshot of Profile → Weight Class Premium taken on
    a TestFlight build (1320 × 2868 or 1290 × 2796), set **multiseat purchases to No**, then **Add for Review** into
    the same draft submission as version 1.0.
 7. **Version Release:** "Manually release this version" (products can take a few hours to be buyable after

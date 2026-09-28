@@ -45,7 +45,7 @@ function targetChanges(user: User, body: UpdateProfileBody) {
   if (changes.dailyCalories !== undefined && changes.dailyCalories !== null && changes.dailyCalories < floor) {
     throw new HttpError(
       400,
-      `For safety, EatME keeps the calorie goal at ${floor.toLocaleString('en-US')} kcal a day or more. A doctor or dietitian can guide you below that.`,
+      `For safety, Weight Class keeps the calorie goal at ${floor.toLocaleString('en-US')} kcal a day or more. A doctor or dietitian can guide you below that.`,
     );
   }
   return changes;

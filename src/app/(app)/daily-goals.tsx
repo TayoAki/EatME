@@ -331,7 +331,7 @@ function DailyGoals({ profile }: { profile: Profile }) {
               accessibilityRole="link"
               className="mt-2 text-[14px] font-semibold text-ink underline"
               onPress={() => void openLink(links.sources)}>
-              How EatME works out your numbers
+              How Weight Class works out your numbers
             </Text>
           </View>
         </View>

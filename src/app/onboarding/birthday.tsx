@@ -19,7 +19,7 @@ export default function BirthdayStep() {
       canContinue={!tooYoung}>
       <DateWheels value={dateOfBirth} onChange={(value) => setAnswers({ dateOfBirth: value })} />
       {tooYoung ? (
-        <Text className="mt-4 text-center text-[14px] text-muted">You need to be at least {MIN_AGE} to use EatME.</Text>
+        <Text className="mt-4 text-center text-[14px] text-muted">You need to be at least {MIN_AGE} to use Weight Class.</Text>
       ) : null}
     </OnboardingScreen>
   );

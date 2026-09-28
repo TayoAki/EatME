@@ -26,8 +26,8 @@ function trendText(kgPerWeek: number, unit: UnitSystem) {
 
 /** Why the proposal is what it is, when a safety limit shaped it. */
 const REASON_NOTES: Partial<Record<CheckIn['reason'], string>> = {
-  calorie_floor: 'For safety, EatME keeps your target at this floor or above.',
-  bmi_floor: "You're at the lowest weight EatME plans for (a BMI of 18.5), so this target is to stay there. A doctor can guide you below it.",
+  calorie_floor: 'For safety, Weight Class keeps your target at this floor or above.',
+  bmi_floor: "You're at the lowest weight the app plans for (a BMI of 18.5), so this target is to stay there. A doctor can guide you below it.",
   goal_reached: "You've reached your goal weight. This target is to stay there; using it switches your goal to maintaining.",
 };
 
@@ -40,7 +40,7 @@ export function HowSheet({ checkIn, unit, onClose }: { checkIn: CheckIn; unit: U
       </Text>
       <View className="mt-3 gap-2.5">
         <Text className="text-[15px] leading-[21px] text-ink">
-          EatME looks at the last 4 weeks: the days you logged fully (800 kcal or more){checkIn.averageIntake !== null ? `, about ${kcal(checkIn.averageIntake)} kcal a day on average,` : ''} and the line through your weigh-ins
+          Weight Class looks at the last 4 weeks: the days you logged fully (800 kcal or more){checkIn.averageIntake !== null ? `, about ${kcal(checkIn.averageIntake)} kcal a day on average,` : ''} and the line through your weigh-ins
           {checkIn.trendPerWeekKg !== null ? ` (${trendText(checkIn.trendPerWeekKg, unit)})` : ''}.
         </Text>
         <Text className="text-[15px] leading-[21px] text-ink">
@@ -127,7 +127,7 @@ function OfferCard({ onDismiss }: { onDismiss: () => void }) {
       <View className="flex-row items-start gap-2">
         <TrendingUp size={18} color={colors.ink} strokeWidth={1.8} style={{ marginTop: 2 }} />
         <Text className="flex-1 text-[16px] font-semibold leading-[22px] text-ink">
-          Want EatME to fine-tune your target from your real results?
+          Want Weight Class to fine-tune your target from your real results?
         </Text>
         <Pressable accessibilityRole="button" accessibilityLabel="Not now" hitSlop={10} onPress={onDismiss}>
           <X size={18} color={colors.muted} />

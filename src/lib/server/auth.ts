@@ -24,7 +24,7 @@ const allowExpoGo = !isProduction || process.env.ALLOW_EXPO_GO === 'true';
 
 function createAuth() {
   return betterAuth({
-    appName: 'EatME',
+    appName: 'Weight Class',
     baseURL: process.env.BETTER_AUTH_URL,
     secret: process.env.BETTER_AUTH_SECRET,
     basePath: '/api/auth',
@@ -61,7 +61,7 @@ function createAuth() {
         if (!isProduction || ctx.path !== '/sign-in/social') return;
         const callbackURL = (ctx.body as { callbackURL?: unknown } | undefined)?.callbackURL;
         if (typeof callbackURL === 'string' && !callbackURL.startsWith('eatme://') && !callbackURL.startsWith('/')) {
-          throw new APIError('FORBIDDEN', { message: 'Sign-in can only return to the EatME app.' });
+          throw new APIError('FORBIDDEN', { message: 'Sign-in can only return to the Weight Class app.' });
         }
       }),
     },

@@ -18,7 +18,7 @@ const RESEND_AFTER_SECONDS = 30;
 const message = (e: unknown) =>
   e && typeof e === 'object' && ('status' in e || 'code' in e)
     ? authErrorMessage(e as { code?: string; message?: string; status?: number })
-    : "We couldn't reach EatME. Check your connection and try again.";
+    : "We couldn't reach Weight Class. Check your connection and try again.";
 
 /** Confirm the account's email with a 6-digit code (sent at sign-up, or a new one from here). */
 export default function VerifyEmailScreen() {

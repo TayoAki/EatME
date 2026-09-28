@@ -39,7 +39,7 @@ export async function hasPremiumAccess(userId: string) {
 
 /** Throws the 402 the app answers with the Premium screen (`code: premium_required`). */
 export async function requirePremium(userId: string, feature: string) {
-  if (!(await hasPremiumAccess(userId))) throw new HttpError(402, `${feature} is part of EatME Premium.`, 'premium_required');
+  if (!(await hasPremiumAccess(userId))) throw new HttpError(402, `${feature} is part of Weight Class Premium.`, 'premium_required');
 }
 
 /** AI analyses logged today in the user's time zone. */

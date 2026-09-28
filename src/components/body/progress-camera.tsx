@@ -52,7 +52,7 @@ export function ProgressCamera({ pose, ghostUrl, onPhoto, onClose }: ProgressCam
         ) : !permission.granted ? (
           <View className="flex-1 justify-center gap-4 px-8">
             <Text className="text-center text-[17px] leading-6 text-white">
-              EatME needs the camera for progress photos. They stay private and are never used for AI.
+              Weight Class needs the camera for progress photos. They stay private and are never used for AI.
             </Text>
             {permission.canAskAgain ? (
               <Button title="Allow camera" variant="secondary" onPress={() => void requestPermission()} />

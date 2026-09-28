@@ -51,7 +51,7 @@ function ProfileContent({ profile }: { profile: Profile }) {
   const healthSync = useHealthStore((s) => s.enabled);
   const [signingOut, setSigningOut] = useState(false);
 
-  const name = profile.name.trim() || 'EatME member';
+  const name = profile.name.trim() || 'Weight Class member';
   const email = profile.email;
 
   const handleSignOut = async () => {
@@ -71,7 +71,7 @@ function ProfileContent({ profile }: { profile: Profile }) {
     const confirmed = await confirm({
       title: 'Delete your account?',
       message: `This permanently deletes your account, your plan, every logged meal and your photos. This cannot be undone.${
-        renewing ? ` It doesn't cancel EatME Premium: cancel it in your ${store} subscriptions, or it will keep renewing.` : ''
+        renewing ? ` It doesn't cancel Weight Class Premium: cancel it in your ${store} subscriptions, or it will keep renewing.` : ''
       }`,
       confirmLabel: 'Delete',
       destructive: true,
@@ -124,7 +124,7 @@ function ProfileContent({ profile }: { profile: Profile }) {
         {features.data?.payments ? (
           <SettingsRow
             icon={Crown}
-            label="EatME Premium"
+            label="Weight Class Premium"
             value={billing.data ? (billing.data.premium ? 'Active' : 'Free') : undefined}
             onPress={() => router.push('/premium')}
           />
@@ -179,7 +179,7 @@ function ProfileContent({ profile }: { profile: Profile }) {
         />
       </View>
 
-      <Text className="text-center text-[13px] text-muted">EatME v{Constants.expoConfig?.version ?? '1.0.0'}</Text>
+      <Text className="text-center text-[13px] text-muted">Weight Class v{Constants.expoConfig?.version ?? '1.0.0'}</Text>
     </ScrollView>
   );
 }

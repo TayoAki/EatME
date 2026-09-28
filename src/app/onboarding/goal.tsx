@@ -49,7 +49,7 @@ export default function GoalStep() {
         ))}
         {canLose ? null : (
           <Text className="mt-1 text-center text-[14px] leading-5 text-muted">
-            Your weight is already at the low end of the healthy range for your height, so EatME doesn&apos;t set
+            Your weight is already at the low end of the healthy range for your height, so Weight Class doesn&apos;t set
             weight-loss goals. Maintaining or gaining works.
           </Text>
         )}

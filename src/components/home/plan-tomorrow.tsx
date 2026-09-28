@@ -17,7 +17,7 @@ import { draftSummary, SLOT_LABELS, type DayPlanItem } from '@/shared/day-draft'
 export const timeLabel = (time: string) => formatTimeOfDay({ hour: Number(time.slice(0, 2)), minute: Number(time.slice(3, 5)) });
 const numbers = (n: { calories: number; proteinG: number }) => `${n.calories.toLocaleString('en-US')} kcal · ${n.proteinG} g protein`;
 
-const NOT_ENOUGH = 'Log a few more meals and EatME can draft your day.';
+const NOT_ENOUGH = 'Log a few more meals and Weight Class can draft your day.';
 
 /** Draft (or Shuffle) the day; a 402 opens Premium. */
 function useDraft(date: string, onDone?: () => void) {

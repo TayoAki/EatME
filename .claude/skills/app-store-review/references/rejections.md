@@ -50,7 +50,7 @@ Hello, and thank you for the review.
 Guideline <number> - <short title>:
 <One sentence: what we changed, or why the app already complies.>
 
-Where to see it: <exact path, e.g. Profile → EatME Premium>. <Screenshot / screen recording attached.>
+Where to see it: <exact path, e.g. Profile → Weight Class Premium>. <Screenshot / screen recording attached.>
 Demo account: the one in App Review Information (unchanged).
 
 <Only if a new build:> Build <number> includes this change.

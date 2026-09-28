@@ -53,7 +53,7 @@ function EditFoodSheet({ food, onClose }: { food: PersonalFood; onClose: () => v
   const remove = async () => {
     const ok = await confirm({
       title: `Forget ${food.name}?`,
-      message: 'EatME stops using it. Meals you already logged keep their numbers.',
+      message: 'Weight Class stops using it. Meals you already logged keep their numbers.',
       confirmLabel: 'Forget',
       destructive: true,
     });
@@ -124,7 +124,7 @@ export default function PersonalFoodsScreen() {
             Your foods
           </Text>
           <Text className="mt-1 text-[15px] leading-[21px] text-muted">
-            Foods you asked EatME to remember. When the AI sees one again, EatME uses your version and your usual amount
+            Foods you asked Weight Class to remember. When the AI sees one again, Weight Class uses your version and your usual amount
             before the food database. Their names go along with your meal photos so the AI names them the same way.
           </Text>
         </View>
@@ -138,7 +138,7 @@ export default function PersonalFoodsScreen() {
             <Brain size={24} color={colors.ink} />
             <Text className="mt-3 text-center text-[16px] font-semibold text-ink">Nothing remembered yet</Text>
             <Text className="mt-1 text-center text-[14px] leading-5 text-muted">
-              When you correct a food in a meal, EatME asks whether to remember it. Quick adds and one-food meals have
+              When you correct a food in a meal, Weight Class asks whether to remember it. Quick adds and one-food meals have
               “Save as my food”.
             </Text>
           </View>

@@ -79,7 +79,7 @@ function Content({ day }: { day: NutrientDay }) {
         <View className="rounded-2xl bg-surface p-4">
           <Text className="text-[14px] leading-5 text-ink">
             {day.meals > 0
-              ? `From the foods EatME matched in the USDA database: ${coverage}. Foods the AI only estimated add no vitamins or minerals, so your real intake is likely higher.`
+              ? `From the foods Weight Class matched in the USDA database: ${coverage}. Foods the AI only estimated add no vitamins or minerals, so your real intake is likely higher.`
               : 'No meals logged on this day yet — these numbers are your supplements only.'}
             {day.supplementNames.length > 0 ? ` Supplements included: ${day.supplementNames.join(', ')}.` : ''}
           </Text>

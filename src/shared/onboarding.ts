@@ -40,13 +40,13 @@ export function canLoseWeight(weightKg: number, heightCm: number) {
 }
 
 export const lowGoalMessage = (heightCm: number) =>
-  `For your height, EatME keeps weight-loss goals at ${lowestGoalWeightKg(heightCm)} kg or more (a BMI of 18.5).`;
+  `For your height, Weight Class keeps weight-loss goals at ${lowestGoalWeightKg(heightCm)} kg or more (a BMI of 18.5).`;
 export const MAX_AGE = 100;
 
 const isoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Expected a YYYY-MM-DD date');
 
 export const dateOfBirthSchema = isoDate
-  .refine((value) => ageFromDateOfBirth(value) >= MIN_AGE, `You must be at least ${MIN_AGE} years old to use EatME`)
+  .refine((value) => ageFromDateOfBirth(value) >= MIN_AGE, `You must be at least ${MIN_AGE} years old to use Weight Class`)
   .refine((value) => ageFromDateOfBirth(value) <= MAX_AGE, 'Enter a valid date of birth');
 
 const onboardingAnswersObject = z.object({

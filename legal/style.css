@@ -1,5 +1,5 @@
 /*
- * EatME — landing page + legal pages.
+ * Weight Class — landing page + legal pages.
  * Same look as the app: white, minimal, near-black ink, soft gray surfaces, black pill buttons.
  * Light theme only. No frameworks, no JavaScript, no external requests.
  */
@@ -227,7 +227,35 @@ mark.placeholder {
   }
 
   .nav-links a {
-    padding: 8px 12px;
+    padding: 8px 10px;
+    font-size: 0.875rem;
+  }
+
+  .brand {
+    gap: 8px;
+    font-size: 1.1875rem;
+  }
+
+  .brand img {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* The landing page's third header link; the footer has it too. */
+@media (max-width: 420px) {
+  .nav-links .nav-extra {
+    display: none;
+  }
+}
+
+@media (max-width: 360px) {
+  .brand {
+    font-size: 1.0625rem;
+  }
+
+  .nav-links a {
+    padding: 8px;
   }
 }
 

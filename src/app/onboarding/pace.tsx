@@ -23,7 +23,7 @@ const speedFor = (kg: number): Speed => (kg <= 0.3 ? 'slow' : kg <= 0.7 ? 'recom
 const HINTS: Record<Speed, string> = {
   slow: 'Slow and steady — the easiest pace to stick with.',
   recommended: 'Recommended pace — a good balance of progress and comfort.',
-  fast: 'Faster pace — you may feel hungrier. EatME keeps it to 1 kg (2.2 lb) a week at most.',
+  fast: 'Faster pace — you may feel hungrier. Weight Class keeps it to 1 kg (2.2 lb) a week at most.',
 };
 
 export default function PaceStep() {

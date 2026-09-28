@@ -1,10 +1,10 @@
-# EatME website: landing page + legal pages
+# Weight Class website: landing page + legal pages
 
-Static site for EatME: the landing page, the Privacy Policy and the Terms of Service that the app links to, the
+Static site for Weight Class (the app was called EatME until 2026-09-28): the landing page, the Privacy Policy and the Terms of Service that the app links to, the
 account deletion page and the Consumer Health Data Privacy Policy. Plain HTML and one stylesheet: no build step, no
 cookies, no analytics, no external requests; the only JavaScript is the deletion form on `delete-account.html`, which
 posts to `/api/account/delete` on the same server.
-It is served by the EatME server on Railway (`server/index.mjs`), the same server that runs the API.
+It is served by the app's server on Railway (`server/index.mjs`), the same server that runs the API.
 
 | File | What it is |
 | --- | --- |
@@ -13,7 +13,7 @@ It is served by the EatME server on Railway (`server/index.mjs`), the same serve
 | `terms.html` | Terms of Service (`/terms`) |
 | `delete-account.html` | Delete your account (`/delete-account`): in the app, with email + password on the page, or by email (Google Play's deletion link) |
 | `health-data.html` | Consumer Health Data Privacy Policy (`/health-data`, Washington My Health My Data Act), linked on its own from the homepage footer |
-| `support.html` | Support (`/support`): contact details (Apple wants them behind the App Store Support URL), EatME Premium, cancelling, refunds and restoring, account, Apple Health, how the estimates work, and the methods and sources behind the numbers (`/support#sources`, linked from the app's plan screen) |
+| `support.html` | Support (`/support`): contact details (Apple wants them behind the App Store Support URL), Weight Class Premium, cancelling, refunds and restoring, account, Apple Health, how the estimates work, and the methods and sources behind the numbers (`/support#sources`, linked from the app's plan screen) |
 | `404.html` | Not-found page, served for unknown URLs (uses root-relative paths) |
 | `style.css` | All styles, using the app's colors and radii |
 | `images/` | Logo, app icon (also the favicon), phone mockups (`phone-*.png`) and the social preview (`og.png`, 1200 × 630) |
@@ -52,7 +52,7 @@ above: if you add a page, add it to `PAGES` in `server/index.mjs` as well.
 
 ## Deploy
 
-There is no separate deploy: the site ships with every Railway deploy of the EatME server. Railway runs
+There is no separate deploy: the site ships with every Railway deploy of the server. Railway runs
 `npm run build:server` and `npm run start:server` (see `railway.json`), and the server serves this folder, so a change
 to `legal/` goes live with the next deploy of the branch Railway builds from.
 
@@ -69,7 +69,7 @@ real value, and also the `[Contact Email]` inside every `href="mailto:[Contact E
 
 - [x] `[Company Legal Name]`: UGC Mediakits (make sure it matches the registered name, e.g. with "LLC", and the seller on your Apple developer account)
 - [x] `[Registered Address]`: 1025 Veterans Memorial Highway SE, Mableton, GA 30126, USA
-- [x] `[Contact Email]` (support@ugcmediakits.com): an inbox you monitor for privacy, deletion, lost-password and support requests (EatME sends no
+- [x] `[Contact Email]` (support@ugcmediakits.com): an inbox you monitor for privacy, deletion, lost-password and support requests (Weight Class sends no
       emails of its own yet, so this inbox is the only way users can reach you)
 - [x] `[Governing Law Jurisdiction]`: the State of Georgia, United States (where the company is)
 - [x] `[Effective Date]` (September 28, 2026): the date the documents take effect (Privacy Policy, Terms, Consumer Health Data Privacy

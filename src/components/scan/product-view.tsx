@@ -273,7 +273,7 @@ export function ProductView({ code, bottomSpace, onBack, onScanLabel, onSearch, 
           <Message
             icon={<PackageSearch size={36} color={colors.ink} strokeWidth={1.6} />}
             title={product.name}
-            text="This product has no nutrition facts yet. Photograph its label and EatME reads the numbers.">
+            text="This product has no nutrition facts yet. Photograph its label and Weight Class reads the numbers.">
             {actions}
           </Message>
         </View>

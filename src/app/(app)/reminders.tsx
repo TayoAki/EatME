@@ -244,7 +244,7 @@ export default function RemindersScreen() {
       const next = await requestNotificationPermission();
       setPermission(next);
       if (next !== 'granted') {
-        notify('Notifications are off', 'Turn on notifications for EatME in your phone settings to get reminders.');
+        notify('Notifications are off', 'Turn on notifications for Weight Class in your phone settings to get reminders.');
         return;
       }
     }
@@ -275,14 +275,14 @@ export default function RemindersScreen() {
         {disabled ? (
           <View className="flex-row gap-3 rounded-2xl bg-surface p-4">
             <BellOff size={20} color={colors.ink} />
-            <Text className="flex-1 text-[14px] leading-5 text-ink">Reminders work in the EatME app on iPhone and Android.</Text>
+            <Text className="flex-1 text-[14px] leading-5 text-ink">Reminders work in the Weight Class app on iPhone and Android.</Text>
           </View>
         ) : blocked ? (
           <View className="gap-3 rounded-2xl bg-surface p-4">
             <View className="flex-row gap-3">
               <BellOff size={20} color={colors.ink} />
               <Text className="flex-1 text-[14px] leading-5 text-ink">
-                Notifications are turned off for EatME. Turn them on in your phone settings to get reminders.
+                Notifications are turned off for Weight Class. Turn them on in your phone settings to get reminders.
               </Text>
             </View>
             <Button title="Open Settings" size="md" variant="outline" onPress={() => void Linking.openSettings()} />

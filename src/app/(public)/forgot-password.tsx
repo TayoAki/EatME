@@ -18,7 +18,7 @@ const RESEND_AFTER_SECONDS = 30;
 const message = (e: unknown) =>
   e && typeof e === 'object' && ('status' in e || 'code' in e)
     ? authErrorMessage(e as { code?: string; message?: string; status?: number })
-    : "We couldn't reach EatME. Check your connection and try again.";
+    : "We couldn't reach Weight Class. Check your connection and try again.";
 
 /** Forgot password: a 6-digit code by email, then a new password (no links to open on the phone). */
 export default function ForgotPasswordScreen() {
@@ -94,7 +94,7 @@ export default function ForgotPasswordScreen() {
           <Text className="mt-2 text-[17px] leading-6 text-muted">
             {step === 'email'
               ? "Enter your account's email and we'll send you a 6-digit code."
-              : `If ${trimmedEmail} has an EatME account, a 6-digit code is on its way. It works for 10 minutes.`}
+              : `If ${trimmedEmail} has a Weight Class account, a 6-digit code is on its way. It works for 10 minutes.`}
           </Text>
 
           <View className="mt-8 gap-4">

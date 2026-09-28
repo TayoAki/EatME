@@ -21,7 +21,7 @@ export default function WelcomeScreen() {
           source={require('@/assets/images/welcome-screen-demo-image.png')}
           style={{ height: '100%', aspectRatio: DEMO_ASPECT_RATIO }}
           contentFit="contain"
-          accessibilityLabel="The EatME camera scanning a plate of salmon, rice and avocado"
+          accessibilityLabel="The Weight Class camera scanning a plate of salmon, rice and avocado"
         />
       </View>
 

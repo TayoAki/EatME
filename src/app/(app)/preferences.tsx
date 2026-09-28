@@ -89,7 +89,7 @@ export default function PreferencesScreen() {
           disabled={update.isPending}
           onChange={(value) => set({ calmMode: value })}>
           Hides calorie and macro numbers on Home, meals and scans. Rings and words stay, nothing turns red when you go
-          over, and there is no streak to keep: EatME counts the days you logged instead. Fiber and water keep their
+          over, and there is no streak to keep: Weight Class counts the days you logged instead. Fiber and water keep their
           numbers, Daily goals still shows your targets, and “Show numbers” on a meal reveals them.
         </PreferenceCard>
         {features.data?.foodQuality ? (

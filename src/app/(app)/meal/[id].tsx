@@ -85,7 +85,7 @@ function RememberCard({ corrections, onDone }: { corrections: FoodCorrection[]; 
         <Text className="text-[16px] font-semibold text-ink">Remember these next time?</Text>
       </View>
       <Text className="mt-1 text-[14px] leading-5 text-muted">
-        When EatME sees them again, it uses your version and amount first.
+        When Weight Class sees them again, it uses your version and amount first.
       </Text>
       <View className="mt-2 gap-1">
         {corrections.map((c) => (
@@ -329,7 +329,7 @@ function MealEditor({ meal, showNumbers, onShowNumbers, corrections, onCorrectio
     rememberFood.mutate(canRememberMeal ? { mealId: meal.id } : { itemIds: [mealItems[0].id] }, {
       onSuccess: ({ remembered }) => {
         haptics.success();
-        notify('Saved to Your foods', `EatME uses ${remembered[0]?.name ?? 'it'} first when it sees it again.`);
+        notify('Saved to Your foods', `Weight Class uses ${remembered[0]?.name ?? 'it'} first when it sees it again.`);
       },
       onError: (error) => notify("We couldn't save it", error.message),
     });

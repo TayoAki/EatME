@@ -75,7 +75,7 @@ export default function PremiumScreen() {
     try {
       const found = await restorePurchases(userId);
       await sync.mutateAsync();
-      if (!found) notify('Nothing to restore', `No EatME Premium subscription was found for this ${STORE} account.`);
+      if (!found) notify('Nothing to restore', `No Weight Class Premium subscription was found for this ${STORE} account.`);
     } catch (error) {
       notify("We couldn't restore purchases", error instanceof Error ? error.message : 'Please try again.');
     } finally {
@@ -91,8 +91,8 @@ export default function PremiumScreen() {
       <ScrollView contentContainerClassName="gap-5 px-5 pb-10" showsVerticalScrollIndicator={false}>
         <View className="flex-row items-center gap-3">
           <Crown size={28} color={colors.ink} strokeWidth={1.8} />
-          <Text accessibilityRole="header" className="text-[32px] font-bold tracking-tight text-ink">
-            EatME Premium
+          <Text accessibilityRole="header" className="flex-1 text-[32px] font-bold tracking-tight text-ink">
+            Weight Class Premium
           </Text>
         </View>
 
@@ -136,7 +136,7 @@ export default function PremiumScreen() {
 
             {!billingSupported ? (
               <Text className="text-[15px] leading-[21px] text-muted">
-                Subscriptions are available in the EatME app for iPhone and Android.
+                Subscriptions are available in the Weight Class app for iPhone and Android.
               </Text>
             ) : options.isPending ? (
               <ActivityIndicator color={colors.ink} />

@@ -58,7 +58,7 @@ export default function SignInScreen() {
       haptics.success();
     } catch {
       haptics.error();
-      setError("We couldn't reach EatME. Check your connection and try again.");
+      setError("We couldn't reach Weight Class. Check your connection and try again.");
       setSubmitting(false);
     }
   };
@@ -184,7 +184,7 @@ export default function SignInScreen() {
 
           <Pressable accessibilityRole="button" hitSlop={8} onPress={switchMode} className="mt-5 items-center">
             <Text className="text-[15px] text-muted">
-              {signingUp ? 'Already have an account? ' : 'New to EatME? '}
+              {signingUp ? 'Already have an account? ' : 'New to Weight Class? '}
               <Text className="font-semibold text-ink">{signingUp ? 'Sign in' : 'Get started'}</Text>
             </Text>
           </Pressable>

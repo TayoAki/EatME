@@ -34,7 +34,7 @@ export const POST = handle(async (request) => {
   if (!user || !matches) {
     // Same wait either way, so the answer doesn't tell which emails have an account.
     if (!account?.password) await context.password.hash(password);
-    throw new HttpError(401, "That email and password don't match an EatME account.");
+    throw new HttpError(401, "That email and password don't match a Weight Class account.");
   }
 
   await deleteUserData(user.id);

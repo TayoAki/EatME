@@ -340,7 +340,7 @@ export async function refillSupply(userId: string, containers: number, timeZone:
   if (!current) throw new HttpError(409, 'Turn on GLP-1 mode first.');
   const supply = await supplyOf(current, timeZone);
   if (!supply) throw new HttpError(409, 'Set up Pens & vials first.');
-  if (supply.unopened + containers > MAX_UNOPENED) throw new HttpError(400, `EatME counts up to ${MAX_UNOPENED} unopened.`);
+  if (supply.unopened + containers > MAX_UNOPENED) throw new HttpError(400, `Weight Class counts up to ${MAX_UNOPENED} unopened.`);
   const [row] = await db
     .update(glp1Medications)
     .set({

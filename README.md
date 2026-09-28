@@ -1,5 +1,8 @@
 # EatME
 
+Customers know the app as **Weight Class** (`Weight Class: Calorie Counter` in the App Store; renamed on
+2026-09-28, see PLAN.md → Rebrand). The code, bundle ID, `eatme://` scheme and servers keep the name EatME.
+
 **AI calorie tracker built with Expo (React Native).** Snap a photo of your meal — an AI agent estimates
 the calories, protein, carbs and fat — and track it against a daily plan that AI builds for you during
 onboarding.
@@ -71,7 +74,7 @@ Photo ──▶ POST /api/meals ──▶ bucket + meal row ("analyzing") ──
   injection sites, side effects and **Pens & vials** supply counts with use-by and low-supply reminders;
   no dosing advice or dose maths), Apple Health / Health Connect sync and an iOS water widget.
 - **Account:** email + password with optional email codes (forgot password, verification), optional
-  Sign in with Apple / Google, and optional EatME Premium (store billing through RevenueCat; free
+  Sign in with Apple / Google, and optional Weight Class Premium (store billing through RevenueCat; free
   users keep a few AI scans a day and everything else). An opt-in food-quality tag is available as
   an experiment. Everything optional is off until configured (`GET /api/features`).
 

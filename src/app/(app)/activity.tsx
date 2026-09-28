@@ -96,8 +96,8 @@ export default function ActivityScreen() {
           <View className="gap-3 rounded-2xl bg-surface p-4">
             <Text className="text-[14px] leading-5 text-ink">
               {Platform.OS === 'android'
-                ? 'No data yet. If you turned access off, allow EatME to read steps, exercise and sleep in Health Connect.'
-                : 'No data yet — if you turned this off, change it in Settings → Health → Data Access & Devices → EatME.'}
+                ? 'No data yet. If you turned access off, allow Weight Class to read steps, exercise and sleep in Health Connect.'
+                : 'No data yet — if you turned this off, change it in Settings → Health → Data Access & Devices → Weight Class.'}
             </Text>
             {Platform.OS === 'android' ? (
               <Button title="Open Health Connect" size="md" variant="outline" onPress={() => loadHealthConnect()?.openHealthConnectSettings()} />

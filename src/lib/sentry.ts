@@ -39,7 +39,7 @@ Sentry.init({
       messageLabel: 'Your feedback',
       messagePlaceholder: 'Found a bug or missing a feature? Tell us about it.',
       submitButtonLabel: 'Send',
-      successMessageText: 'Thanks for helping us improve EatME!',
+      successMessageText: 'Thanks for helping us improve Weight Class!',
       showBranding: false,
       showName: false,
       isEmailRequired: false,

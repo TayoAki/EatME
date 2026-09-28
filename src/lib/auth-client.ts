@@ -38,7 +38,7 @@ const FRIENDLY_ERRORS: Record<string, string> = {
   TOO_MANY_ATTEMPTS: 'Too many wrong codes. Ask for a new one.',
   // Linking a new sign-in method needs the existing account's email to be verified.
   OAUTH_LINK_ERROR:
-    'This email already has an EatME account. Sign in with your password and verify your email in Profile — then this works too.',
+    'This email already has a Weight Class account. Sign in with your password and verify your email in Profile — then this works too.',
 };
 
 /** Human-readable message for a Better Auth error. */
