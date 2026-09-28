@@ -552,7 +552,7 @@ alcohol), appears on Home and in the nutrients screen, and syncs to Apple Health
 
 ## 8. Plan tomorrow
 
-- [ ] Built
+- [x] Built
 
 **What the person sees**
 - **In the evening** (after 5 pm), Home shows a **Plan tomorrow** card; it's also on tomorrow in

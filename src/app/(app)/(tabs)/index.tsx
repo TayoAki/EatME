@@ -15,6 +15,7 @@ import { CheckInArea } from '@/components/home/checkin-card';
 import { CopyDaySheet } from '@/components/home/copy-day-sheet';
 import { MealCard } from '@/components/home/meal-card';
 import { NutritionSummary, type Totals } from '@/components/home/nutrition-summary';
+import { DraftDay, PlanTomorrowCard } from '@/components/home/plan-tomorrow';
 import { PlannedCard } from '@/components/home/planned-card';
 import { StreakSheet } from '@/components/home/streak-sheet';
 import { SupplementsCard } from '@/components/home/supplements-card';
@@ -94,6 +95,10 @@ function Home({ profile }: { profile: Profile }) {
   const fiberG = (list ?? []).reduce((sum, m) => sum + (m.status === 'completed' ? (m.fiberG ?? 0) : 0), 0);
 
   const isToday = selectedDate === todayIso();
+  // Plan tomorrow: tomorrow can be picked in the date strip, and the evening brings the card.
+  const tomorrow = toIsoDate(addDays(new Date(), 1));
+  const isTomorrow = selectedDate === tomorrow;
+  const evening = new Date().getHours() >= 17;
   // Vitamins and minerals come from database foods and from supplements ticked that day; the same
   // screen shows the day's alcohol.
   const hasNutrients =
@@ -137,123 +142,135 @@ function Home({ profile }: { profile: Profile }) {
         />
 
         <View className="mb-4 mt-2">
-          <DateStrip selected={selectedDate} onSelect={setSelectedDate} loggedDates={streak.data?.loggedDates ?? []} />
-        </View>
-
-        {isToday && profile.glp1 && glp1.data?.settings ? (
-          <Glp1Card
-            glp1={glp1.data}
-            proteinG={consumed.proteinG}
-            proteinGoalG={targets.proteinG}
-            fiberG={fiberG}
-            fiberGoalG={profile.dailyFiberG}
-            waterMl={water.data?.totalMl ?? 0}
-            waterGoalMl={profile.dailyWaterMl}
-            unit={profile.unitSystem}
-            onLogDose={() => setDoseOpen(true)}
-            onLogSymptoms={() => setSymptomsOpen(true)}
-            calm={calm}
+          <DateStrip
+            selected={selectedDate}
+            onSelect={setSelectedDate}
+            loggedDates={streak.data?.loggedDates ?? []}
+            plannable={tomorrow}
           />
-        ) : null}
-
-        {isToday ? <CheckInArea userId={profile.id} unit={profile.unitSystem} calm={calm} /> : null}
-
-        <NutritionSummary consumed={consumed} targets={targets} calm={calm} />
-        <FiberWaterRow
-          fiberG={fiberG}
-          fiberGoalG={profile.dailyFiberG}
-          waterMl={water.data?.totalMl ?? 0}
-          waterGoalMl={profile.dailyWaterMl}
-          unit={profile.unitSystem}
-          onAddWater={(ml) => addWater.mutate(ml, { onError: (error) => notify("We couldn't log that drink", error.message) })}
-          onOpenWater={() => setWaterOpen(true)}
-        />
-        <ActivityRow date={selectedDate} />
-        {isToday ? <SupplementsCard date={selectedDate} /> : null}
-        {hasNutrients ? (
-          <Pressable
-            accessibilityRole="link"
-            onPress={() => router.push({ pathname: '/nutrients', params: { date: selectedDate } })}
-            className="mx-5 mt-3 flex-row items-center justify-between rounded-[20px] border border-line px-4 py-3 active:bg-surface">
-            <Text className="text-[15px] font-semibold text-ink">Vitamins & minerals</Text>
-            <ChevronRight size={18} color={colors.faint} />
-          </Pressable>
-        ) : null}
-
-        <View className="mt-7 px-5">
-          <View className="mb-3 flex-row items-center justify-between gap-3">
-            <Text accessibilityRole="header" className="flex-1 text-[20px] font-bold tracking-tight text-ink">
-              {isToday ? "Today's meals" : `Meals · ${formatDay(selectedDate)}`}
-            </Text>
-            <Pressable
-              accessibilityRole="button"
-              accessibilityLabel="Copy meals from another day"
-              hitSlop={6}
-              onPress={() => setCopyOpen(true)}
-              className="h-9 w-9 items-center justify-center rounded-full active:bg-surface">
-              <Copy size={18} color={colors.ink} />
-            </Pressable>
-            <Pressable
-              accessibilityRole="button"
-              accessibilityLabel="Quick add"
-              hitSlop={10}
-              onPress={() => setQuickOpen(true)}
-              className="flex-row items-center gap-1 active:opacity-60">
-              <Plus size={17} color={colors.ink} strokeWidth={2.4} />
-              <Text className="text-[15px] font-semibold text-ink">Quick add</Text>
-            </Pressable>
-          </View>
-
-          {isToday ? <PlannedCard date={selectedDate} calm={calm} /> : null}
-
-          {meals.isPending ? (
-            <View className="items-center py-10">
-              <ActivityIndicator color={colors.ink} />
-            </View>
-          ) : meals.isError ? (
-            <View className="items-center rounded-card bg-surface px-6 py-8">
-              <Text className="text-center text-[15px] text-muted">We couldn&apos;t load your meals.</Text>
-              <Text className="mt-2 text-[15px] font-semibold text-ink" onPress={() => void meals.refetch()}>
-                Try again
-              </Text>
-            </View>
-          ) : list && list.length > 0 ? (
-            <View className="gap-3">
-              {list.map((meal) => (
-                <MealCard key={meal.id} meal={meal} showQuality={!!profile.preferences.foodQualityTag} calm={calm} />
-              ))}
-            </View>
-          ) : (
-            <View className="items-center rounded-card bg-surface px-6 py-9">
-              <View className="h-12 w-12 items-center justify-center rounded-full bg-canvas">
-                <Camera size={22} color={colors.ink} />
-              </View>
-              <Text className="mt-3 text-center text-[16px] font-semibold text-ink">
-                {isToday ? "You haven't logged any meals yet" : 'No meals logged on this day'}
-              </Text>
-              <Text className="mt-1 text-center text-[14px] leading-5 text-muted">
-                {isToday ? 'Open the Scan tab and snap a photo of your food.' : 'Pick another day or scan a meal today.'}
-              </Text>
-              {canCopyYesterday ? (
-                <Button
-                  title="Copy yesterday's meals"
-                  variant="outline"
-                  size="md"
-                  className="mt-4"
-                  icon={<Copy size={16} color={colors.ink} />}
-                  loading={copyDay.isPending}
-                  onPress={copyYesterday}
-                />
-              ) : null}
-            </View>
-          )}
         </View>
 
-        {isToday && insights ? (
-          <View className="mt-7 px-5">
-            <WeeklyCard insights={insights} onPress={() => setWeeklyOpen(true)} calm={calm} />
-          </View>
-        ) : null}
+        {isTomorrow ? (
+          <DraftDay date={tomorrow} calm={calm} />
+        ) : (
+          <>
+            {isToday && profile.glp1 && glp1.data?.settings ? (
+              <Glp1Card
+                glp1={glp1.data}
+                proteinG={consumed.proteinG}
+                proteinGoalG={targets.proteinG}
+                fiberG={fiberG}
+                fiberGoalG={profile.dailyFiberG}
+                waterMl={water.data?.totalMl ?? 0}
+                waterGoalMl={profile.dailyWaterMl}
+                unit={profile.unitSystem}
+                onLogDose={() => setDoseOpen(true)}
+                onLogSymptoms={() => setSymptomsOpen(true)}
+                calm={calm}
+              />
+            ) : null}
+
+            {isToday ? <CheckInArea userId={profile.id} unit={profile.unitSystem} calm={calm} /> : null}
+
+            <NutritionSummary consumed={consumed} targets={targets} calm={calm} />
+            <FiberWaterRow
+              fiberG={fiberG}
+              fiberGoalG={profile.dailyFiberG}
+              waterMl={water.data?.totalMl ?? 0}
+              waterGoalMl={profile.dailyWaterMl}
+              unit={profile.unitSystem}
+              onAddWater={(ml) => addWater.mutate(ml, { onError: (error) => notify("We couldn't log that drink", error.message) })}
+              onOpenWater={() => setWaterOpen(true)}
+            />
+            <ActivityRow date={selectedDate} />
+            {isToday ? <SupplementsCard date={selectedDate} /> : null}
+            {hasNutrients ? (
+              <Pressable
+                accessibilityRole="link"
+                onPress={() => router.push({ pathname: '/nutrients', params: { date: selectedDate } })}
+                className="mx-5 mt-3 flex-row items-center justify-between rounded-[20px] border border-line px-4 py-3 active:bg-surface">
+                <Text className="text-[15px] font-semibold text-ink">Vitamins & minerals</Text>
+                <ChevronRight size={18} color={colors.faint} />
+              </Pressable>
+            ) : null}
+            {isToday && evening ? <PlanTomorrowCard tomorrow={tomorrow} calm={calm} onOpen={() => setSelectedDate(tomorrow)} /> : null}
+
+            <View className="mt-7 px-5">
+              <View className="mb-3 flex-row items-center justify-between gap-3">
+                <Text accessibilityRole="header" className="flex-1 text-[20px] font-bold tracking-tight text-ink">
+                  {isToday ? "Today's meals" : `Meals · ${formatDay(selectedDate)}`}
+                </Text>
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel="Copy meals from another day"
+                  hitSlop={6}
+                  onPress={() => setCopyOpen(true)}
+                  className="h-9 w-9 items-center justify-center rounded-full active:bg-surface">
+                  <Copy size={18} color={colors.ink} />
+                </Pressable>
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel="Quick add"
+                  hitSlop={10}
+                  onPress={() => setQuickOpen(true)}
+                  className="flex-row items-center gap-1 active:opacity-60">
+                  <Plus size={17} color={colors.ink} strokeWidth={2.4} />
+                  <Text className="text-[15px] font-semibold text-ink">Quick add</Text>
+                </Pressable>
+              </View>
+
+              {isToday ? <PlannedCard date={selectedDate} calm={calm} /> : null}
+
+              {meals.isPending ? (
+                <View className="items-center py-10">
+                  <ActivityIndicator color={colors.ink} />
+                </View>
+              ) : meals.isError ? (
+                <View className="items-center rounded-card bg-surface px-6 py-8">
+                  <Text className="text-center text-[15px] text-muted">We couldn&apos;t load your meals.</Text>
+                  <Text className="mt-2 text-[15px] font-semibold text-ink" onPress={() => void meals.refetch()}>
+                    Try again
+                  </Text>
+                </View>
+              ) : list && list.length > 0 ? (
+                <View className="gap-3">
+                  {list.map((meal) => (
+                    <MealCard key={meal.id} meal={meal} showQuality={!!profile.preferences.foodQualityTag} calm={calm} />
+                  ))}
+                </View>
+              ) : (
+                <View className="items-center rounded-card bg-surface px-6 py-9">
+                  <View className="h-12 w-12 items-center justify-center rounded-full bg-canvas">
+                    <Camera size={22} color={colors.ink} />
+                  </View>
+                  <Text className="mt-3 text-center text-[16px] font-semibold text-ink">
+                    {isToday ? "You haven't logged any meals yet" : 'No meals logged on this day'}
+                  </Text>
+                  <Text className="mt-1 text-center text-[14px] leading-5 text-muted">
+                    {isToday ? 'Open the Scan tab and snap a photo of your food.' : 'Pick another day or scan a meal today.'}
+                  </Text>
+                  {canCopyYesterday ? (
+                    <Button
+                      title="Copy yesterday's meals"
+                      variant="outline"
+                      size="md"
+                      className="mt-4"
+                      icon={<Copy size={16} color={colors.ink} />}
+                      loading={copyDay.isPending}
+                      onPress={copyYesterday}
+                    />
+                  ) : null}
+                </View>
+              )}
+            </View>
+
+            {isToday && insights ? (
+              <View className="mt-7 px-5">
+                <WeeklyCard insights={insights} onPress={() => setWeeklyOpen(true)} calm={calm} />
+              </View>
+            ) : null}
+          </>
+        )}
       </ScrollView>
 
       <WaterSheet

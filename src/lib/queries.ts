@@ -16,6 +16,7 @@ import type {
 import type { WeeklyInsights } from '@/shared/insights';
 import type { BodyMeasurement, BodyResponse, MeasurementsBody, PhotoPose, ProgressPhoto } from '@/shared/body';
 import type { CheckIn, CheckInResponse, CheckInSettingsBody } from '@/shared/adaptive';
+import type { DayPlanResponse } from '@/shared/day-draft';
 import type { BillingStatus } from '@/shared/billing';
 import type { Features } from '@/shared/features';
 import type { FoodSummary, Meal, QuickMeal, UpdateMealBody, UpdateMealItemsBody } from '@/shared/meals';
@@ -59,6 +60,8 @@ export const queryKeys = {
   planned: (userId: string | null | undefined, date: string) => ['planned', userId, date] as const,
   body: (userId: string | null | undefined) => ['body', userId] as const,
   checkIn: (userId: string | null | undefined) => ['checkin', userId] as const,
+  dayPlanAll: (userId: string | null | undefined) => ['day-plan', userId] as const,
+  dayPlan: (userId: string | null | undefined, date: string) => ['day-plan', userId, date] as const,
 };
 
 /** Earlier days are sent as `date`; today logs at "now". */
@@ -908,5 +911,65 @@ export function useAnswerCheckIn() {
         queryClient.invalidateQueries({ queryKey: queryKeys.checkIn(userId) }),
         queryClient.invalidateQueries({ queryKey: queryKeys.insights(userId) }),
       ]),
+  });
+}
+
+/** Plan tomorrow: the draft of a day (`plan: null` when there is none), eligibility and Premium. */
+export function useDayPlan(date: string, enabled = true) {
+  const { userId } = useSession();
+  const api = useApi();
+  return useQuery({
+    queryKey: queryKeys.dayPlan(userId, date),
+    queryFn: () => api<DayPlanResponse>(`/api/day-plan/${date}`),
+    enabled,
+    staleTime: 60_000,
+  });
+}
+
+/** Drafts the day (Premium: a 402 means "show Premium"); `shuffle` shows the next-best day. */
+export function useDraftDay(date: string) {
+  const { userId } = useSession();
+  const api = useApi();
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (shuffle: boolean) =>
+      api<DayPlanResponse>(`/api/day-plan/${date}/draft`, { method: 'POST', body: shuffle ? { shuffle: true } : {} }),
+    onSuccess: (data) => queryClient.setQueryData(queryKeys.dayPlan(userId, date), data),
+  });
+}
+
+/** Swap a drafted meal for another choice (`key`) or take it out. */
+export function useUpdateDraftItem(date: string) {
+  const { userId } = useSession();
+  const api = useApi();
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ n, change }: { n: number; change: { key: string } | { status: 'removed' } }) =>
+      api<DayPlanResponse>(`/api/day-plan/${date}/items/${n}`, { method: 'PATCH', body: change }),
+    onSuccess: (data) => queryClient.setQueryData(queryKeys.dayPlan(userId, date), data),
+  });
+}
+
+/** "Log it" on a drafted meal, on its day. */
+export function useLogDraftItem(date: string) {
+  const { userId } = useSession();
+  const api = useApi();
+  const queryClient = useQueryClient();
+  const invalidateMeals = useInvalidateMeals();
+  return useMutation({
+    mutationFn: (n: number) => api<{ meal: Meal }>(`/api/day-plan/${date}/items/${n}/log`, { method: 'POST' }),
+    onSuccess: () =>
+      Promise.all([invalidateMeals(), queryClient.invalidateQueries({ queryKey: queryKeys.dayPlan(userId, date) })]),
+  });
+}
+
+/** "Clear draft". */
+export function useClearDayPlan(date: string) {
+  const { userId } = useSession();
+  const api = useApi();
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: () => api(`/api/day-plan/${date}`, { method: 'DELETE' }),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: queryKeys.dayPlan(userId, date) }),
   });
 }

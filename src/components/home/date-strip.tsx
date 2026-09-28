@@ -1,4 +1,4 @@
-import { useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { FlatList, Pressable, Text, useWindowDimensions, View } from 'react-native';
 
 import { cn } from '@/lib/cn';
@@ -14,10 +14,11 @@ type Day = { iso: string; weekday: string; day: number; isFuture: boolean };
 function buildDays(): Day[] {
   const today = new Date();
   const todayIso = toIsoDate(today);
-  // Weeks start on Monday.
+  // Weeks start on Monday. On Sundays next week comes too, so tomorrow is there to plan.
   const mondayOffset = (today.getDay() + 6) % 7;
   const firstDay = addDays(today, -mondayOffset - WEEKS_BACK * 7);
-  return Array.from({ length: (WEEKS_BACK + 1) * 7 }, (_, i) => {
+  const weeks = WEEKS_BACK + (today.getDay() === 0 ? 2 : 1);
+  return Array.from({ length: weeks * 7 }, (_, i) => {
     const date = addDays(firstDay, i);
     const iso = toIsoDate(date);
     return {
@@ -33,10 +34,15 @@ type DateStripProps = {
   selected: string;
   onSelect: (iso: string) => void;
   loggedDates: readonly string[];
+  /** A future day that can be picked anyway: tomorrow, to plan it. */
+  plannable?: string;
 };
 
-/** Horizontal week strip. Scroll back up to two weeks; future days are shown but not selectable. */
-export function DateStrip({ selected, onSelect, loggedDates }: DateStripProps) {
+/**
+ * Horizontal week strip. Scroll back up to two weeks; future days are shown but not selectable,
+ * except `plannable` (tomorrow).
+ */
+export function DateStrip({ selected, onSelect, loggedDates, plannable }: DateStripProps) {
   const { width } = useWindowDimensions();
   const listRef = useRef<FlatList<Day>>(null);
   const days = useMemo(() => buildDays(), []);
@@ -45,6 +51,12 @@ export function DateStrip({ selected, onSelect, loggedDates }: DateStripProps) {
 
   const weekWidth = width - H_PADDING * 2;
   const dayWidth = weekWidth / 7;
+
+  // Picking a day in another week (tomorrow on a Sunday) brings that week into view.
+  useEffect(() => {
+    const index = days.findIndex((d) => d.iso === selected);
+    if (index >= 0) listRef.current?.scrollToIndex({ index: Math.floor(index / 7) * 7, animated: true });
+  }, [days, selected]);
 
   return (
     <FlatList
@@ -62,12 +74,13 @@ export function DateStrip({ selected, onSelect, loggedDates }: DateStripProps) {
       renderItem={({ item }) => {
         const isSelected = item.iso === selected;
         const isToday = item.iso === todayIso;
+        const locked = item.isFuture && item.iso !== plannable;
         return (
           <Pressable
             accessibilityRole="button"
-            accessibilityState={{ selected: isSelected, disabled: item.isFuture }}
-            accessibilityLabel={item.iso}
-            disabled={item.isFuture}
+            accessibilityState={{ selected: isSelected, disabled: locked }}
+            accessibilityLabel={item.iso === plannable ? `${item.iso}, plan tomorrow` : item.iso}
+            disabled={locked}
             onPress={() => {
               haptics.selection();
               onSelect(item.iso);
@@ -78,7 +91,7 @@ export function DateStrip({ selected, onSelect, loggedDates }: DateStripProps) {
               className={cn(
                 'text-[12px]',
                 isSelected || isToday ? 'font-semibold text-ink' : 'text-muted',
-                item.isFuture && 'text-faint',
+                locked && 'text-faint',
               )}>
               {item.weekday}
             </Text>
@@ -86,12 +99,13 @@ export function DateStrip({ selected, onSelect, loggedDates }: DateStripProps) {
               className={cn(
                 'h-10 w-10 items-center justify-center rounded-full',
                 isSelected ? 'bg-ink' : 'border border-line',
-                item.isFuture && 'border-dashed',
+                item.isFuture && !isSelected && 'border-dashed',
+                item.iso === plannable && !isSelected && 'border-muted',
               )}>
               <Text
                 className={cn(
                   'text-[15px] font-medium',
-                  isSelected ? 'text-white' : item.isFuture ? 'text-faint' : 'text-ink',
+                  isSelected ? 'text-white' : locked ? 'text-faint' : 'text-ink',
                 )}>
                 {item.day}
               </Text>

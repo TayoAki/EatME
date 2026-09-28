@@ -308,6 +308,24 @@ export default function RemindersScreen() {
         </View>
 
         <View>
+          <Text className="mb-2 ml-1 text-[15px] font-medium text-muted">Planning</Text>
+          <View className="overflow-hidden rounded-[20px] border border-line">
+            <ReminderRow
+              first
+              title="Plan tomorrow"
+              subtitle={`Every evening at ${formatTimeOfDay(settings.planTomorrow)}`}
+              enabled={settings.planTomorrow.enabled}
+              disabled={disabled}
+              onToggle={(on) => void toggle({ planTomorrow: { ...settings.planTomorrow, enabled: on } }, on)}
+              onPressDetail={() => setEditing({ kind: 'time', key: 'planTomorrow', title: 'Plan tomorrow' })}
+            />
+          </View>
+          <Text className="ml-1 mt-2 text-[13px] leading-[18px] text-muted">
+            A nudge to draft tomorrow from your own meals. Nothing is logged until you tap.
+          </Text>
+        </View>
+
+        <View>
           <Text className="mb-2 ml-1 text-[15px] font-medium text-muted">Water</Text>
           <View className="overflow-hidden rounded-[20px] border border-line">
             <ReminderRow

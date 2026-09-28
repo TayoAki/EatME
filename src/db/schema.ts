@@ -36,6 +36,7 @@ import {
 import type { NutrientAmounts } from '@/shared/nutrients';
 import { PHOTO_POSES } from '@/shared/body';
 import { CHECKIN_REASONS, CHECKIN_STATUSES } from '@/shared/adaptive';
+import type { DraftItem, DraftSlotChoices } from '@/shared/day-draft';
 import {
   PRODUCT_REPORT_REASONS,
   PRODUCT_REPORT_STATUSES,
@@ -390,6 +391,32 @@ export const targetCheckins = pgTable(
   (t) => [uniqueIndex('target_checkins_user_week_idx').on(t.userId, t.weekStart)],
 );
 export type TargetCheckinRow = typeof targetCheckins.$inferSelect;
+
+/**
+ * Plan tomorrow (v2.4): one draft of a day per person and date, built from their own meals. Nothing
+ * is logged until they tap Log on the day.
+ */
+export const dayPlans = pgTable(
+  'day_plans',
+  {
+    id: uuid().primaryKey().defaultRandom(),
+    userId: text()
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
+    date: date({ mode: 'string' }).notNull(),
+    /** The day's meals: slot, time, the saved or earlier meal to log, its numbers and status. */
+    items: jsonb().$type<DraftItem[]>().notNull(),
+    /** Each slot's choices when it was drafted (Swap picks from these). */
+    choices: jsonb().$type<DraftSlotChoices[]>().notNull(),
+    /** Shuffles so far: the draft is the next-best day each time. */
+    shuffle: integer().notNull().default(0),
+    /** Even the biggest day of the person's meals is under their minimum. */
+    belowFloor: boolean().notNull().default(false),
+    ...timestamps,
+  },
+  (t) => [uniqueIndex('day_plans_user_date_idx').on(t.userId, t.date)],
+);
+export type DayPlanRow = typeof dayPlans.$inferSelect;
 
 /** Water and other drinks, one row per entry. */
 export const waterLogs = pgTable(

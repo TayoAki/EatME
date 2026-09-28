@@ -767,7 +767,7 @@ item and replaces the old v2.2 list and the "Later" list; tick a box there and h
   nothing added to the calorie goal)
 - [x] v2.3 · A calorie target that adjusts to the weight trend (an opt-in weekly check-in)
 - [x] v2.4 · Alcoholic drinks
-- [ ] v2.4 · Plan tomorrow (a draft from the person's own meals, no AI)
+- [x] v2.4 · Plan tomorrow (a draft from the person's own meals, no AI)
 - Skipped: export and the doctor report. Parked: "What to eat next" (Plan tomorrow no longer
   waits for it).
 
