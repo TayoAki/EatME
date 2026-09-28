@@ -58,7 +58,7 @@ Policy if it says so.
 
 | Field | Answer |
 | --- | --- |
-| Screenshots | iPhone 6.9" display: `screenshots/ios-6.9/01-home.png` to `07-search.png`, in that order (1320 × 2868, no alpha; captions and rules in `screenshots/README.md`). Weight Class is iPhone-only (`supportsTablet: false`), so no iPad screenshots |
+| Screenshots | The iPhone 6.5" display slot on the version page: `screenshots/ios-6.5/01-home.png` to `07-search.png`, in that order (1284 × 2778), or the 6.9" slot in Media Manager: `screenshots/ios-6.9/` (1320 × 2868). One set is enough (no alpha; captions and rules in `screenshots/README.md`). Weight Class is iPhone-only (`supportsTablet: false`), so no iPad screenshots |
 | Promotional text (170) | `Take a photo, describe your meal or scan a barcode. Weight Class estimates the calories, protein, carbs, fat and fiber, and keeps your day on track.` |
 | Keywords (100) | `loss,lose,diet,deficit,photo,scanner,protein,meal,planner,cut,cutting,glp-1,nutrition,barcode,diary` (99). No word from the name or subtitle: Apple combines the three, so `loss` + "Weight" already makes "weight loss". Never another app's or a medicine's brand name (Apple 2.3.7) |
 | Keywords, Spanish (Mexico) (100) | `semaglutide,tirzepatide,injection,dose,water,fiber,carb,drink,kcal,log,intake,portion,healthy,lean` (98). The US App Store also searches the Spanish (Mexico) listing, which doubles the keyword space: add that localization with the same English name, subtitle, description and screenshots, and these keywords. They combine with the name and subtitle, not with the English keywords |
@@ -173,7 +173,7 @@ Paste into App Review Information → Notes, together with the demo account's em
 Weight Class estimates calories and macros from meal photos, written descriptions, nutrition-label photos and barcodes, and tracks them against a daily plan.
 
 SIGNING IN
-Tap "Sign in" on the welcome screen and use the demo account above. It has two weeks of sample meals, weigh-ins and water.
+Tap "Sign in" on the welcome screen and use the demo account above. It has three weeks of sample meals, weigh-ins and water.
 
 AI CONSENT (5.1.2(i))
 Before any photo or description is sent to AI, Weight Class asks for permission and names who receives it: OpenRouter, which passes it to OpenAI's model. The demo account hasn't allowed AI yet, so the first scan shows this screen; new accounts see it in onboarding, before the plan is made. It can be switched off in Profile → Preferences → AI meal analysis. Barcodes, food search, drinks and quick add never use AI.

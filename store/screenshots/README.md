@@ -1,8 +1,10 @@
 # App Store screenshots
 
 `ios-6.9/` is the iPhone 6.9" set for App Store Connect: 1320 × 2868 px, portrait, PNG without an alpha channel
-(App Store Connect refuses transparency). Upload them in this order; smaller iPhones are scaled from this set, and
-Weight Class is iPhone-only, so there's no iPad set.
+(App Store Connect refuses transparency). `ios-6.5/` is the same set at 1284 × 2778 px for the 6.5" slot, the one
+the version page shows first. One set is enough (Apple scales it for the other iPhones): upload `ios-6.5/` into the
+slot on the page, or `ios-6.9/` through View All Sizes in Media Manager. Upload them in this order; Weight Class
+is iPhone-only, so there's no iPad set.
 
 | File | Headline | Line under it |
 | --- | --- | --- |

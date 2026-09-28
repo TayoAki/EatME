@@ -85,7 +85,8 @@ App Store Connect → the app → the iOS version (1.0) → fill it from [`READM
 0. **Name (do this first; it reserves the name):** App Information → Name `Weight Class: Calorie Counter`, and on
    the version the subtitle `AI Food Scan & Macro Tracker`. The app record still says EatME until you change it.
 
-1. **Screenshots:** iPhone 6.9" display → drag in `screenshots/ios-6.9/01-home.png` to `07-search.png` in order.
+1. **Screenshots:** the iPhone 6.5" display slot → drag in `screenshots/ios-6.5/01-home.png` to `07-search.png` in
+   order (or the 6.9" set from `screenshots/ios-6.9/` through View All Sizes in Media Manager).
 2. **Texts:** promotional text, description, keywords (plus a Spanish (Mexico) localization for the second keyword
    list), support URL (`<server>/support`), copyright (leave the
    marketing URL empty until the landing page links the App Store).
