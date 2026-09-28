@@ -57,6 +57,7 @@ const PAGES = {
   // Google Play: a web way to delete an account. Washington (My Health My Data): its own policy page.
   '/delete-account': 'delete-account.html',
   '/health-data': 'health-data.html',
+  '/support': 'support.html',
 };
 
 async function sendFile(res, file, status, method) {

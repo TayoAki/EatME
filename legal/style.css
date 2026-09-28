@@ -740,6 +740,107 @@ mark.placeholder {
   color: var(--ink);
 }
 
+/* Screens gallery: four phones in a row, two on small screens. */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(16px, 2.6vw, 32px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gallery figure {
+  margin: 0;
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+.gallery figcaption {
+  margin-top: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+
+.gallery figcaption .sub {
+  display: block;
+  margin-top: 2px;
+  color: var(--text-2);
+  font-size: 0.9375rem;
+  font-weight: 400;
+}
+
+/* "Premium" label next to a feature name. */
+.tag {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 2px 9px;
+  border-radius: var(--pill);
+  background: var(--ink);
+  color: #ffffff;
+  font-family: var(--font);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  vertical-align: 0.2em;
+}
+
+/* Pricing: two cards (free, Premium) in the features grid. */
+
+.card .price {
+  margin-top: 8px;
+  color: var(--ink);
+  font-size: 1.0625rem;
+  font-weight: 600;
+}
+
+.includes {
+  display: grid;
+  gap: 10px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.includes li {
+  display: flex;
+  gap: 12px;
+}
+
+.includes li::before {
+  content: "";
+  flex: none;
+  width: 6px;
+  height: 11px;
+  margin: 6px 4px 0 3px;
+  border: solid var(--ink);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.card .fine {
+  margin-top: auto;
+  padding-top: 22px;
+  font-size: 0.875rem;
+}
+
+.card .fine a {
+  color: var(--ink);
+}
+
+@media (max-width: 760px) {
+  .gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 /* ---------- Legal pages ---------- */
 
 .legal {

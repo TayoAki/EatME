@@ -9,6 +9,7 @@ import { ProgressRing } from '@/components/ui/progress-ring';
 import { Screen } from '@/components/ui/screen';
 import { colors } from '@/constants/colors';
 import { useSession } from '@/lib/auth-client';
+import { links, openLink } from '@/lib/links';
 import { completeAnswers, useOnboardingStore } from '@/lib/onboarding-store';
 import { FIRST_STEP_HREF } from '@/lib/onboarding-steps';
 import { formatLongDate } from '@/lib/time';
@@ -126,11 +127,19 @@ export default function PlanReadyScreen() {
         {/* General estimate, not medical advice (Apple 1.4.1). */}
         <View className="mt-5 flex-row gap-3 rounded-2xl border border-line p-3.5">
           <Stethoscope size={18} color={colors.ink} strokeWidth={1.8} style={{ marginTop: 1 }} />
-          <Text className="flex-1 text-[14px] leading-5 text-ink">
-            This plan is a general estimate, not medical advice. Check with a doctor before big changes to how you eat,
-            especially if you&apos;re pregnant or breastfeeding, have a health condition such as diabetes, take medicine
-            such as a GLP-1, or have had an eating disorder.
-          </Text>
+          <View className="flex-1">
+            <Text className="text-[14px] leading-5 text-ink">
+              This plan is a general estimate, not medical advice. Check with a doctor before big changes to how you
+              eat, especially if you&apos;re pregnant or breastfeeding, have a health condition such as diabetes, take
+              medicine such as a GLP-1, or have had an eating disorder.
+            </Text>
+            <Text
+              accessibilityRole="link"
+              className="mt-2 text-[14px] font-semibold text-ink underline"
+              onPress={() => void openLink(links.sources)}>
+              How EatME works out your numbers
+            </Text>
+          </View>
         </View>
 
         <PricingNote />

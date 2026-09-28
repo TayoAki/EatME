@@ -5,6 +5,7 @@ import {
   Bell,
   Brain,
   Bug,
+  CircleHelp,
   Crown,
   FileText,
   HeartPulse,
@@ -64,9 +65,14 @@ function ProfileContent({ profile }: { profile: Profile }) {
   };
 
   const handleDeleteAccount = async () => {
+    // Apple and Google bill subscriptions: deleting the account doesn't stop them (Apple 5.1.1(v)).
+    const renewing = billing.data?.premium && billing.data.willRenew;
+    const store = billing.data?.store === 'PLAY_STORE' ? 'Google Play' : 'App Store';
     const confirmed = await confirm({
       title: 'Delete your account?',
-      message: 'This permanently deletes your account, your plan, every logged meal and your photos. This cannot be undone.',
+      message: `This permanently deletes your account, your plan, every logged meal and your photos. This cannot be undone.${
+        renewing ? ` It doesn't cancel EatME Premium: cancel it in your ${store} subscriptions, or it will keep renewing.` : ''
+      }`,
       confirmLabel: 'Delete',
       destructive: true,
     });
@@ -146,6 +152,7 @@ function ProfileContent({ profile }: { profile: Profile }) {
         {sentryEnabled ? (
           <SettingsRow icon={MessageSquareText} label="Send feedback" onPress={() => Sentry.showFeedbackWidget()} />
         ) : null}
+        <SettingsRow icon={CircleHelp} label="Help and support" onPress={() => void openLink(links.support)} />
         <SettingsRow
           icon={LifeBuoy}
           label="Help with eating or body image"

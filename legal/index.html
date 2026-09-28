@@ -6,7 +6,7 @@
     <title>EatME — AI calorie tracker</title>
     <meta
       name="description"
-      content="Snap a photo of your meal. EatME's AI estimates calories, protein, carbs and fat in seconds — and tracks them against a plan built just for you."
+      content="Snap a meal, describe it or scan a barcode. EatME estimates the calories, protein, carbs, fat and fiber, and tracks them against a plan made for you. Now in beta on iPhone."
     />
     <meta name="color-scheme" content="light" />
     <meta name="theme-color" content="#FFFFFF" />
@@ -15,8 +15,17 @@
     <meta property="og:title" content="EatME — Calorie tracking made effortless" />
     <meta
       property="og:description"
-      content="Snap a photo of your meal. EatME's AI estimates calories, protein, carbs and fat in seconds — and tracks them against a plan built just for you."
+      content="Snap a meal, scan a barcode or search. See your calories and macros against a plan made for you."
     />
+    <!-- Absolute URL of the server that serves this site: update it with a custom domain. -->
+    <meta property="og:image" content="https://api-production-174d.up.railway.app/images/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="EatME on two iPhones: a Chicken Caesar salad with its estimated calories and macros, and the home screen with 821 calories left"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/png" href="images/app-icon.png" />
     <link rel="apple-touch-icon" href="images/app-icon.png" />
     <link rel="stylesheet" href="style.css" />
@@ -32,6 +41,7 @@
         </a>
         <nav aria-label="Legal">
           <ul class="nav-links">
+            <li><a href="support.html">Support</a></li>
             <li><a href="privacy.html">Privacy<span class="long"> Policy</span></a></li>
             <li><a href="terms.html">Terms<span class="long"> of Service</span></a></li>
           </ul>
@@ -42,18 +52,17 @@
     <main id="main">
       <section class="hero" aria-labelledby="hero-title">
         <div class="container">
-          <p class="hero-badge"><span class="hero-badge-dot" aria-hidden="true"></span>AI calorie tracker</p>
+          <p class="hero-badge"><span class="hero-badge-dot" aria-hidden="true"></span>Now in beta on iPhone</p>
           <h1 id="hero-title"><span>Calorie tracking</span> <span>made effortless</span></h1>
           <p class="lead">
-            Snap a photo of your meal. EatME's AI estimates calories, protein, carbs and fat in seconds — and tracks
-            them against a plan built just for you.
+            Snap a meal, describe it in a few words or scan a barcode. EatME estimates the calories, protein, carbs, fat
+            and fiber, and keeps your day on track against a plan made for you.
           </p>
           <div class="hero-actions">
-            <a class="btn" href="#download">Coming soon on iOS</a>
-            <a class="btn" href="#download">Coming soon on Android</a>
+            <a class="btn" href="#download">Join the beta</a>
           </div>
           <ul class="hero-points" role="list">
-            <li>Free to use</li>
+            <li>Free to start</li>
             <li>No ads</li>
             <li>Your data is never sold</li>
           </ul>
@@ -63,24 +72,24 @@
           <div class="phones">
             <img
               class="phone phone--side"
-              src="images/phone-plan.png"
+              src="images/phone-meal.png"
               width="600"
               height="1258"
-              alt="EatME plan screen with personal daily targets for calories, protein, carbs and fat"
+              alt="A Chicken Caesar salad in EatME: the photo, 539 calories, 49 g protein, 19 g carbs, 29 g fat and 3 g fiber, each with an edit button"
             />
             <img
               class="phone phone--center"
               src="images/phone-home.png"
               width="600"
               height="1258"
-              alt="EatME home screen with calories left, protein, carbs and fat rings, and today's meals"
+              alt="EatME's home screen: 821 calories left, protein, carbs and fat left, fiber, water and tomorrow's draft"
             />
             <img
               class="phone phone--side"
-              src="images/phone-scan.png"
+              src="images/phone-weight.png"
               width="600"
               height="1258"
-              alt="EatME scan result with the estimated calories, protein, carbs and fat of a meal"
+              alt="EatME's weight screen: 179.9 lb, a smoothed trend going down about 0.7 lb a week, and the goal line"
             />
           </div>
         </div>
@@ -103,10 +112,10 @@
                   <circle cx="12" cy="13.25" r="3.6" />
                 </svg>
               </span>
-              <h3>Snap your meal</h3>
+              <h3>Snap, describe or scan</h3>
               <p>
-                Point your camera at your plate or pick a photo from your gallery. No searching food lists, no weighing,
-                no typing.
+                Take a photo of your plate, describe it in a few words, photograph a nutrition label or scan a barcode.
+                Add a second photo or a note like &ldquo;cooked in butter&rdquo; for a closer estimate.
               </p>
             </li>
 
@@ -119,15 +128,15 @@
                   <path d="M18.5 3v4M16.5 5h4" />
                 </svg>
               </span>
-              <h3>AI does the math</h3>
+              <h3>Numbers you can check</h3>
               <p>
-                In a few seconds, EatME estimates the calories, protein, carbs and fat on your plate. Something looks
-                off? Tap the meal and adjust any number.
+                AI names the foods and portions, and the numbers come from the USDA food database wherever a food
+                matches. Change any number in a tap: EatME remembers your foods and portions for next time.
               </p>
               <div class="card-detail" aria-hidden="true">
-                <span class="chip"><span class="dot dot--protein"></span>Protein <b>28g</b></span>
-                <span class="chip"><span class="dot dot--carbs"></span>Carbs <b>82g</b></span>
-                <span class="chip"><span class="dot dot--fat"></span>Fats <b>21g</b></span>
+                <span class="chip"><span class="dot dot--protein"></span>Protein <b>49g</b></span>
+                <span class="chip"><span class="dot dot--carbs"></span>Carbs <b>19g</b></span>
+                <span class="chip"><span class="dot dot--fat"></span>Fats <b>29g</b></span>
               </div>
             </li>
 
@@ -141,8 +150,64 @@
               </span>
               <h3>A plan made for you</h3>
               <p>
-                Answer a few quick questions about your body, activity and goal. EatME turns them into daily calorie
-                and macro targets built around you, not an average person.
+                Answer a few questions about your body, activity and goal, and get daily targets for calories, protein,
+                carbs, fat, fiber and water. <a href="support.html#sources">See how they're worked out</a>.
+              </p>
+            </li>
+
+            <li class="card">
+              <span class="card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M4 18.5l5-6 3.5 3.5L20 7.5" />
+                  <path d="M15 7.5h5v5" />
+                </svg>
+              </span>
+              <h3>See the trend, not the noise</h3>
+              <p>
+                A smoothed weight trend shows where you're really heading, with your goal line, milestones, body
+                measurements and private progress photos.
+              </p>
+            </li>
+
+            <li class="card">
+              <span class="card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <rect x="7.5" y="2.5" width="9" height="19" rx="4.5" transform="rotate(45 12 12)" />
+                  <path d="M8.8 8.8l6.4 6.4" />
+                </svg>
+              </span>
+              <h3>Made for GLP-1 medicines too</h3>
+              <p>
+                Log your doses and injection sites, keep count of your pens or vials, and put protein, fiber and water
+                first while your appetite is lower. EatME never gives dosing advice.
+              </p>
+            </li>
+
+            <li class="card">
+              <span class="card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <rect x="3.5" y="5" width="17" height="15.5" rx="3.5" />
+                  <path d="M3.5 10h17M8 3v4M16 3v4" />
+                </svg>
+              </span>
+              <h3>Plan tomorrow <span class="tag">Premium</span></h3>
+              <p>
+                In the evening, tap Draft tomorrow and EatME plans your day from meals you already eat, sized to your
+                target. Swap or shuffle anything; nothing is logged until you tap Log it.
+              </p>
+            </li>
+
+            <li class="card">
+              <span class="card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M6.5 17.5C6.5 10 11 5.5 19 5c-.5 8-5 12.5-12.5 12.5z" />
+                  <path d="M5 19l6.5-6.5" />
+                </svg>
+              </span>
+              <h3>Calm mode</h3>
+              <p>
+                When counting feels like too much, calm mode swaps calorie numbers for simple words, and you still see
+                how your day is going.
               </p>
             </li>
 
@@ -150,31 +215,81 @@
               <span class="card-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24">
                   <path
-                    class="flame"
-                    d="M12 22c-4 0-7-2.9-7-6.8 0-2.7 1.4-4.6 2.9-6.2.4-.4 1.1-.2 1.2.4.2 1.2.8 2.1 1.6 2.6-.2-3.1 1.1-6.3 4-8.6.4-.3 1-.1 1 .4.3 2.6 1.4 4.3 2.6 5.9 1.1 1.5 1.7 3 1.7 4.5 0 4.9-3 7.8-8 7.8z"
+                    d="M12 20s-7.5-4.4-7.5-10.1A4.2 4.2 0 0 1 12 7.3a4.2 4.2 0 0 1 7.5 2.6C19.5 15.6 12 20 12 20z"
                   />
                 </svg>
               </span>
-              <h3>Stay on track with streaks</h3>
+              <h3>Works with Apple Health</h3>
               <p>
-                Log a meal every day to keep your streak alive, and look back through earlier days to see how your week
-                really went.
+                Save your calories, macros, fiber and water to Apple Health, or to Health Connect on Android, and see
+                your steps, workouts and sleep next to your meals. That activity data stays on your phone.
               </p>
-              <div class="card-detail week" aria-hidden="true">
-                <span class="day day--done">M<i></i></span>
-                <span class="day day--done">T<i></i></span>
-                <span class="day day--done">W<i></i></span>
-                <span class="day day--done">T<i></i></span>
-                <span class="day day--done">F<i></i></span>
-                <span class="day">S<i></i></span>
-                <span class="day">S<i></i></span>
-              </div>
             </li>
           </ul>
         </div>
       </section>
 
-      <section class="section section--band" id="how-it-works" aria-labelledby="how-title">
+      <section class="section section--band" id="screens" aria-labelledby="screens-title">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">A closer look</p>
+            <h2 id="screens-title">Everything in one place</h2>
+          </div>
+
+          <ul class="gallery" role="list">
+            <li>
+              <figure>
+                <img
+                  src="images/phone-search.png"
+                  width="600"
+                  height="1258"
+                  loading="lazy"
+                  alt="Food search in EatME: chicken breast, rotisserie, 150 g, 216 kcal, with a Log it button"
+                />
+                <figcaption>Search and barcodes<span class="sub">Everyday foods, no AI needed</span></figcaption>
+              </figure>
+            </li>
+            <li>
+              <figure>
+                <img
+                  src="images/phone-tomorrow.png"
+                  width="600"
+                  height="1258"
+                  loading="lazy"
+                  alt="Plan tomorrow in EatME: breakfast, lunch, a snack and dinner from the person's own meals, about 1,870 kcal and 145 g protein"
+                />
+                <figcaption>Plan tomorrow <span class="tag">Premium</span><span class="sub">A draft of your day</span></figcaption>
+              </figure>
+            </li>
+            <li>
+              <figure>
+                <img
+                  src="images/phone-glp1.png"
+                  width="600"
+                  height="1258"
+                  loading="lazy"
+                  alt="GLP-1 mode in EatME: a weekly semaglutide injection, pens left and the next use-by date, and recent injection sites"
+                />
+                <figcaption>GLP-1 mode<span class="sub">Doses, pens and sites</span></figcaption>
+              </figure>
+            </li>
+            <li>
+              <figure>
+                <img
+                  src="images/phone-calm.png"
+                  width="600"
+                  height="1258"
+                  loading="lazy"
+                  alt="EatME's home screen in calm mode: words such as On your way and Plenty left instead of calorie numbers"
+                />
+                <figcaption>Calm mode<span class="sub">Words instead of numbers</span></figcaption>
+              </figure>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="how-it-works" aria-labelledby="how-title">
         <div class="container">
           <div class="section-head">
             <p class="eyebrow">How it works</p>
@@ -190,18 +305,58 @@
             <li class="step">
               <span class="step-num">2</span>
               <h3>Get your personal plan</h3>
-              <p>EatME's AI turns your answers into daily targets for calories, protein, carbs and fat.</p>
+              <p>Daily targets for calories, protein, carbs and fat, with fiber and water goals to match.</p>
             </li>
             <li class="step">
               <span class="step-num">3</span>
-              <h3>Snap every meal</h3>
-              <p>Take a photo, check the estimate, and watch your day fill up against your plan.</p>
+              <h3>Snap, scan or search</h3>
+              <p>Log each meal in seconds, check the estimate, and watch your day fill up against your plan.</p>
             </li>
           </ol>
         </div>
       </section>
 
-      <section class="section" id="faq" aria-labelledby="faq-title">
+      <section class="section section--flush-top" id="pricing" aria-labelledby="pricing-title">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Pricing</p>
+            <h2 id="pricing-title">Free to use, Premium if you want more</h2>
+          </div>
+
+          <ul class="features" role="list">
+            <li class="card">
+              <h3>Free</h3>
+              <p class="price">$0, no time limit</p>
+              <ul class="includes" role="list">
+                <li>3 AI meal scans a day</li>
+                <li>Barcodes, food search and quick add</li>
+                <li>Your plan, fiber and water goals, vitamins and minerals</li>
+                <li>Weight trend, body measurements and progress photos</li>
+                <li>GLP-1 mode, drinks and supplements</li>
+                <li>Apple Health and Health Connect, calm mode, reminders</li>
+              </ul>
+            </li>
+
+            <li class="card">
+              <h3>EatME Premium</h3>
+              <p class="price">$7.99 a month or $39.99 a year</p>
+              <ul class="includes" role="list">
+                <li>Unlimited AI scans of meals, labels and descriptions (fair use: 50 a day)</li>
+                <li>Up to 3 photos of one meal for a closer estimate</li>
+                <li>A weekly check-in that suggests a calorie target from your weight trend (you decide)</li>
+                <li>Plan tomorrow: a draft of your day from your own meals</li>
+              </ul>
+              <p class="fine">
+                US prices; the app shows the price for your country, and any free trial you can get, before you
+                subscribe. Renews automatically until you cancel in your App Store or Google Play settings, at least 24
+                hours before the end of the period. <a href="support.html#cancel">How to cancel</a>.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section section--band" id="faq" aria-labelledby="faq-title">
         <div class="container">
           <div class="section-head">
             <p class="eyebrow">FAQ</p>
@@ -213,9 +368,21 @@
               <summary>Is EatME free?</summary>
               <div class="faq-answer">
                 <p>
-                  Yes. EatME is free to use, with no ads. We may offer optional paid features in the future. If we do,
-                  you'll see the price in the app before you buy anything, and you'll never be charged without agreeing
-                  to it first.
+                  Yes. Barcodes, food search, drinks, your goals, water, weight, body measurements, GLP-1 mode,
+                  supplements and 3 AI meal scans a day are free, with no ads. EatME Premium is optional: it adds
+                  unlimited AI scans, several photos of one meal, the weekly check-in and Plan tomorrow. You'll see the
+                  price in the app before you pay, and you're never charged without agreeing first.
+                </p>
+              </div>
+            </details>
+
+            <details>
+              <summary>How do I cancel Premium?</summary>
+              <div class="faq-answer">
+                <p>
+                  On iPhone: in EatME, Profile → EatME Premium → Manage subscription, or Settings → your name →
+                  Subscriptions. On Android: Google Play → Payments &amp; subscriptions → Subscriptions. Premium stays on
+                  until the end of the period you paid for. More in <a href="support.html#cancel">Support</a>.
                 </p>
               </div>
             </details>
@@ -224,13 +391,36 @@
               <summary>Is EatME medical advice?</summary>
               <div class="faq-answer">
                 <p>
-                  No. EatME's calorie and macro numbers are AI estimates meant to help you stay aware of what you eat,
+                  No. EatME's calorie and nutrient numbers are estimates meant to help you stay aware of what you eat,
                   and they can be wrong. EatME is not a medical device and doesn't replace a doctor or registered
-                  dietitian.
+                  dietitian. <a href="support.html#sources">Here's how EatME works out your numbers</a>.
                 </p>
                 <p>
-                  If you have a medical condition, are pregnant or breastfeeding, or have a history of disordered
-                  eating, please talk to a professional before changing how you eat.
+                  If you have a medical condition, take medication such as a GLP-1, are pregnant or breastfeeding, or
+                  have a history of disordered eating, please talk to a professional before changing how you eat.
+                </p>
+              </div>
+            </details>
+
+            <details>
+              <summary>Does EatME use AI, and where does my data go?</summary>
+              <div class="faq-answer">
+                <p>
+                  Only when you allow it. Before a photo or description goes to AI, EatME asks for your permission and
+                  names the companies involved, and you can turn it off at any time. Barcodes, food search, drinks and
+                  quick add never use AI. We never sell your data and show no ads. The
+                  <a href="privacy.html">Privacy Policy</a> has the details.
+                </p>
+              </div>
+            </details>
+
+            <details>
+              <summary>Does EatME work with Apple Health?</summary>
+              <div class="faq-answer">
+                <p>
+                  Yes. Turn it on in Profile → Apple Health (or Health Connect on Android) to save the calories, macros,
+                  fiber and water you log. You can also let EatME read your steps, workouts and sleep to show them next
+                  to your meals; that data stays on your phone.
                 </p>
               </div>
             </details>
@@ -240,7 +430,7 @@
               <div class="faq-answer">
                 <p>
                   Open the app, go to Profile and tap Delete account. After you confirm, we permanently delete your
-                  account, your profile and plan, every meal you've logged and all of your meal photos.
+                  account, your profile and plan, every meal you've logged and all of your photos.
                 </p>
                 <p>
                   Can't access the app? Use our <a href="delete-account.html">account deletion page</a> or email us at
@@ -254,7 +444,7 @@
               <summary>Which devices does EatME work on?</summary>
               <div class="faq-answer">
                 <p>
-                  EatME is being built for iOS and Android phones. It isn't available for download yet, but it's coming
+                  iPhone and Android phones. EatME is in beta on iPhone through TestFlight right now; Android is coming
                   soon.
                 </p>
               </div>
@@ -263,18 +453,24 @@
         </div>
       </section>
 
-      <section class="section section--flush-top" id="download" aria-labelledby="download-title">
+      <section class="section" id="download" aria-labelledby="download-title">
         <div class="container">
           <div class="download">
             <img class="download-icon" src="images/app-icon.png" width="80" height="80" alt="" />
-            <h2 id="download-title">EatME is coming soon</h2>
-            <p>We're putting the finishing touches on the app. EatME will launch on iOS and Android soon.</p>
+            <h2 id="download-title">Try the EatME beta</h2>
+            <p>
+              EatME is in beta on iPhone through TestFlight, Apple's app for testing new apps. Email us and we'll send
+              you an invite. In the beta, purchases use Apple's test system, so you can try EatME Premium without being
+              charged.
+            </p>
+            <!-- When TestFlight has a public link (TestFlight → External Testing → your group → Public Link), add it
+                 here as <a class="btn" href="https://testflight.apple.com/join/...">Join on TestFlight</a>. -->
             <ul class="platforms" role="list">
-              <li class="platform">iOS <span>Coming soon</span></li>
+              <li class="platform">iPhone <span>Beta on TestFlight</span></li>
               <li class="platform">Android <span>Coming soon</span></li>
             </ul>
             <p class="download-contact">
-              Questions? Email us at
+              Ask for an invite or send feedback:
               <a href="mailto:[Contact Email]"><mark class="placeholder">[Contact Email]</mark></a>
             </p>
           </div>
@@ -294,6 +490,7 @@
           </div>
           <nav aria-label="Footer">
             <ul class="footer-links" role="list">
+              <li><a href="support.html">Support</a></li>
               <li><a href="privacy.html">Privacy Policy</a></li>
               <li><a href="terms.html">Terms of Service</a></li>
               <li><a href="health-data.html">Consumer Health Data Privacy Policy</a></li>

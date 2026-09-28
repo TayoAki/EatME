@@ -7,6 +7,10 @@ export const links = {
   website: LEGAL_URL,
   privacy: `${LEGAL_URL}/privacy`,
   terms: `${LEGAL_URL}/terms`,
+  /** Help: contact, EatME Premium (cancel, refunds, restore), account, Health. */
+  support: `${LEGAL_URL}/support`,
+  /** How the plan, targets and nutrition numbers are worked out, with sources (Apple 1.4.1). */
+  sources: `${LEGAL_URL}/support#sources`,
   /** Find A Helpline (ThroughLine): free, confidential helplines for eating and body image in 175+ countries. */
   helpline: 'https://findahelpline.com/topics/eating-body-image',
   /** Find A Helpline: free, confidential helplines for alcohol and other substance use. */

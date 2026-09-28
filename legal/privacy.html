@@ -337,12 +337,6 @@
               <strong>Performance data:</strong> how long screens and network requests take, collected for a sample of
               sessions.
             </li>
-            <li>
-              <strong>Session replays:</strong> for a sample of sessions, and for sessions in which an error occurs, a
-              visual reconstruction of the screens you used and how you interacted with them. In the production app,
-              all text and images are masked in replays, so they do not show your meals, photos, numbers or other
-              on-screen content.
-            </li>
           </ul>
           <p>Diagnostic data is linked to your EatME account ID and may include your IP address.</p>
           <p>
@@ -606,12 +600,12 @@
             <div class="provider">
               <dt>Sentry</dt>
               <dd>
-                Error monitoring: crash reports, diagnostic logs, performance tracing, session replays and in-app
-                feedback. Used only when crash reporting is enabled in the version of the app you use.
+                Error monitoring: crash reports, diagnostic logs, performance tracing and in-app feedback. Used only
+                when crash reporting is enabled in the version of the app you use.
               </dd>
               <dd>
                 <strong>Data involved:</strong> device and app details, IP address, EatME account ID, diagnostic data,
-                masked session replays, and any feedback, email address or screenshot you choose to send.
+                and any feedback, email address or screenshot you choose to send.
               </dd>
             </div>
           </dl>
@@ -717,8 +711,8 @@
               and never written to our database.
             </li>
             <li>
-              <strong>Diagnostic data:</strong> if crash reporting is enabled, Sentry keeps crash reports, logs, traces,
-              replays and feedback for a limited period, typically no longer than 90 days, after which they are deleted
+              <strong>Diagnostic data:</strong> if crash reporting is enabled, Sentry keeps crash reports, logs, traces
+              and feedback for a limited period, typically no longer than 90 days, after which they are deleted
               automatically.
             </li>
             <li>
@@ -749,7 +743,7 @@
             <li>limits on repeated sign-in attempts and other requests, to slow down password guessing and abuse;</li>
             <li>meal photos kept in a private storage bucket that is encrypted at rest and is never made public;</li>
             <li>keeping secret keys on our server, never in the app, and limiting who can access production systems;</li>
-            <li>masking all text and images in session replays in the production app.</li>
+            <li>no recordings of your screens or taps (session replays) in the production app.</li>
           </ul>
           <p>
             The app shows your meal photos through signed links that our server creates only for your account and that
@@ -828,8 +822,7 @@
             </li>
             <li>
               <strong>Internet or other electronic network activity</strong>, such as sign-in session details (IP
-              address and user agent), server request logs, crash reports, diagnostic logs, performance data and masked
-              session replays;
+              address and user agent), server request logs, crash reports, diagnostic logs and performance data;
             </li>
             <li>
               <strong>Audio, electronic or visual information</strong>, such as your meal photos, your progress photos
@@ -1055,6 +1048,7 @@
           </div>
           <nav aria-label="Footer">
             <ul class="footer-links" role="list">
+              <li><a href="support.html">Support</a></li>
               <li><a href="privacy.html" aria-current="page">Privacy Policy</a></li>
               <li><a href="terms.html">Terms of Service</a></li>
               <li><a href="health-data.html">Consumer Health Data Privacy Policy</a></li>

@@ -26,7 +26,7 @@ The whole backend is **one Railway project + OpenRouter** — no other accounts.
 | Database | Railway Postgres + Drizzle ORM |
 | Photos | Railway storage bucket (private, S3-compatible; the app gets signed links) |
 | AI | `openai/gpt-5.6-luna` via OpenRouter (OpenAI SDK) — runs inside the server |
-| Monitoring | Sentry, optional (errors, logs, tracing, session replay, user feedback) |
+| Monitoring | Sentry, optional (errors, logs, tracing, user feedback; session replay in development builds only) |
 | Legal site | Static HTML in `legal/`, served by the same Railway server |
 
 ## How it works
@@ -135,7 +135,7 @@ scanning? `npm run db:seed -- --email you@example.com` adds two weeks of sample 
 | Piece | How |
 | --- | --- |
 | Server, database, photos, legal pages | Push the branch — Railway builds (`npm run build:server`), runs migrations and starts `server/index.mjs` (`railway.json`). Health check: `/api/health`. |
-| App | Once: `npx eas-cli@latest init` (adds the EAS project ID to `app.json`; commit it). iPhone beta: `npx eas-cli@latest build -p ios --profile production`, then `npx eas-cli@latest submit -p ios --latest` (TestFlight). Android beta: `npx eas-cli@latest build -p android --profile preview` (an APK install link). The `preview` and `production` profiles in `eas.json` already point the app at the Railway URL; builds skip the Sentry source map upload until it's set up (`.env.example`). |
+| App | Once: `npx eas-cli@latest init` (adds the EAS project ID to `app.json`; commit it). iPhone beta: `npm run testflight` (lint, typecheck, then `eas build -p ios --profile production --auto-submit` to TestFlight); the first run and the App Review steps are in `store/release.md`. Android beta: `npx eas-cli@latest build -p android --profile preview` (an APK install link). The `preview` and `production` profiles in `eas.json` already point the app at the Railway URL; builds skip the Sentry source map upload until it's set up (`.env.example`). |
 
 Before submitting to the App Store: **Delete account** is in Profile, the Privacy Policy / Terms links
 work, the placeholders in `legal/` are filled in, App Review gets the demo account

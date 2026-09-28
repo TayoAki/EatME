@@ -13,16 +13,17 @@ It is served by the EatME server on Railway (`server/index.mjs`), the same serve
 | `terms.html` | Terms of Service (`/terms`) |
 | `delete-account.html` | Delete your account (`/delete-account`): in the app, with email + password on the page, or by email (Google Play's deletion link) |
 | `health-data.html` | Consumer Health Data Privacy Policy (`/health-data`, Washington My Health My Data Act), linked on its own from the homepage footer |
+| `support.html` | Support (`/support`): contact details (Apple wants them behind the App Store Support URL), EatME Premium, cancelling, refunds and restoring, account, Apple Health, how the estimates work, and the methods and sources behind the numbers (`/support#sources`, linked from the app's plan screen) |
 | `404.html` | Not-found page, served for unknown URLs (uses root-relative paths) |
 | `style.css` | All styles, using the app's colors and radii |
-| `images/` | Logo, app icon (also the favicon), phone mockups |
+| `images/` | Logo, app icon (also the favicon), phone mockups (`phone-*.png`) and the social preview (`og.png`, 1200 × 630) |
 
 ## How it is served
 
 `server/index.mjs` serves this folder next to the API routes (`/api/*`):
 
 - `/` → `index.html`, `/privacy` → `privacy.html`, `/terms` → `terms.html`, `/delete-account` →
-  `delete-account.html`, `/health-data` → `health-data.html`
+  `delete-account.html`, `/health-data` → `health-data.html`, `/support` → `support.html`
 - `/style.css` and `/images/<file>` as they are (files directly inside `images/`, no subfolders)
 - old links such as `/privacy.html`, `/terms.html` and `/index.html` redirect (301) to the clean URLs, so the
   `privacy.html` / `terms.html` links between the pages keep working
@@ -76,9 +77,11 @@ real value, and also the `[Contact Email]` inside every `href="mailto:[Contact E
 - [ ] `[EU Representative, if applicable]`: name and address of your Article 27 GDPR representative if you have
       no establishment in the EU but offer the app there; otherwise delete that line from `privacy.html`
 - [ ] Nothing is left: `grep -rn 'class="placeholder"\|\[[A-Z]' legal/*.html` prints nothing
-- [ ] Optional: refresh the phone mockups (`images/phone-plan.png`, `images/phone-home.png`,
-      `images/phone-scan.png`) if the screens change. They are real app screens in a phone frame: transparent
-      PNG, 600 × 1258 px, no shadow. Keep the `width`/`height` attributes in `index.html` in sync
+- [ ] Optional: refresh the phone mockups (`images/phone-*.png`) and `images/og.png` if the screens change. They
+      are real app screens in a phone frame: transparent PNG, 600 × 1258 px, no shadow (the same demo data as the
+      App Store screenshots in `store/screenshots/`). Keep the `width`/`height` attributes in `index.html` in sync
+- [ ] With a custom domain: update the `og:image` URL in `index.html` (social previews need an absolute URL)
+- [ ] When TestFlight has a public link, add it to the download section of `index.html` (there's a comment)
 - [ ] Re-read both documents against the app you ship: features, service providers (Railway, OpenRouter and OpenAI,
       Sentry) and the statements that depend on your settings:
   - OpenRouter privacy settings: training by providers and logging of your requests are turned off (the Privacy

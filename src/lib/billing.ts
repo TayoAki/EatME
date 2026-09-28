@@ -1,7 +1,7 @@
 import * as Sentry from '@sentry/react-native';
 import Constants, { ExecutionEnvironment } from 'expo-constants';
 import { Linking, Platform } from 'react-native';
-import type { CustomerInfo, PurchasesPackage } from 'react-native-purchases';
+import type { CustomerInfo, IntroEligibility, PurchasesPackage } from 'react-native-purchases';
 
 import { PREMIUM_ENTITLEMENT } from '@/shared/billing';
 
@@ -69,6 +69,31 @@ export async function premiumPackages(userId: string | null): Promise<PurchasesP
   if (!sdk) return [];
   const offerings = await sdk.getOfferings();
   return offerings.current?.availablePackages ?? [];
+}
+
+/** A paywall option: the package, and its free trial when this person can still get it. */
+export type PremiumOption = { pkg: PurchasesPackage; trial: string | null };
+
+/**
+ * The paywall's options. A free trial is only shown when the store will give it (Apple 3.1.2):
+ * Google Play only returns offers the person can get, and on iOS the App Store is asked. An
+ * unknown answer shows the normal price, so the paywall never promises a trial that turns into a
+ * charge.
+ */
+export async function premiumOptions(userId: string | null): Promise<PremiumOption[]> {
+  const sdk = await ready(userId);
+  if (!sdk) return [];
+  const packages = (await sdk.getOfferings()).current?.availablePackages ?? [];
+  const withTrial = packages.filter((pkg) => trialText(pkg)).map((pkg) => pkg.product.identifier);
+  let eligible = new Set(withTrial);
+  if (Platform.OS === 'ios' && withTrial.length > 0) {
+    const answers: Partial<Record<string, IntroEligibility>> = await sdk
+      .checkTrialOrIntroductoryPriceEligibility(withTrial)
+      .catch(() => ({}));
+    const yes = sdk.INTRO_ELIGIBILITY_STATUS.INTRO_ELIGIBILITY_STATUS_ELIGIBLE;
+    eligible = new Set(withTrial.filter((id) => answers[id]?.status === yes));
+  }
+  return packages.map((pkg) => ({ pkg, trial: eligible.has(pkg.product.identifier) ? trialText(pkg) : null }));
 }
 
 const hasPremium = (info: CustomerInfo) => !!info.entitlements.active[PREMIUM_ENTITLEMENT];

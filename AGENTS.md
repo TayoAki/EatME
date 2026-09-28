@@ -41,7 +41,7 @@ src/db/             Drizzle schema + client (server only)
 server/index.mjs    production server on Railway (API routes + legal pages + migrations)
 design/             AI-generated UI references
 legal/              landing page, privacy policy, terms (served by the server)
-store/              App Store and Google Play answers (listing, privacy forms, review notes)
+store/              App Store and Google Play answers (listing, privacy forms, review notes), release.md, screenshots/
 plugins/            local Expo config plugins
 drizzle/            generated SQL migrations — never edit by hand
 ```
@@ -121,6 +121,11 @@ Run lint and typecheck before declaring any task done.
 
 Use EAS to build, sign, and submit the app in the cloud (`eas build`, `eas submit`) and to ship over-the-air updates (`eas update`) — no local Xcode or Android Studio required. Run EAS CLI as `bunx eas-cli <command>` in Bun projects, or `npx eas-cli@latest <command>` otherwise; substitute that for bare `eas` in docs examples.
 Docs: https://docs.expo.dev/eas/index.md
+
+For EatME: `npm run testflight` builds the iPhone app and uploads it to TestFlight; the first run, TestFlight and
+the App Review steps are in `store/release.md`. Before anything that touches App Review (payments, sign-in, AI,
+health data, the store listing, screenshots, a rejection), use the `app-store-review` skill in
+`.claude/skills/app-store-review/` and keep its `references/eatme.md` in step with the app.
 
 ## Expo rules
 

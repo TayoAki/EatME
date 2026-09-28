@@ -25,7 +25,7 @@ export function PricingNote() {
       <Text className="text-[18px] font-semibold text-ink">Free to use</Text>
       <Text className="mt-1 text-[15px] leading-[21px] text-muted">
         {features.data?.freeScansPerDay ?? 3} AI scans a day, plus barcodes, food search and all your goals — free, for
-        good. Premium adds unlimited AI scans
+        good. Premium adds unlimited AI scans, the weekly check-in and Plan tomorrow
         {monthly ? ` for ${packagePrice(monthly)}` : ' (the store shows the price before you pay)'}. It&apos;s optional,
         and you can cancel any time.
       </Text>

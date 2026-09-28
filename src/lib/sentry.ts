@@ -26,19 +26,14 @@ Sentry.init({
   tracesSampleRate: __DEV__ ? 1.0 : 0.2,
   enableNativeFramesTracking: true,
 
-  // Session replay: always record the session that had an error.
-  replaysSessionSampleRate: __DEV__ ? 1.0 : 0.1,
-  replaysOnErrorSampleRate: 1.0,
+  // Session replay only while developing. Store builds record no replays: Apple 2.5.14 wants explicit
+  // consent and a visible indicator for any record of user activity.
+  replaysSessionSampleRate: __DEV__ ? 1.0 : 0,
+  replaysOnErrorSampleRate: __DEV__ ? 1.0 : 0,
 
   integrations: [
     navigationIntegration,
-    Sentry.mobileReplayIntegration({
-      // Sentry masks everything by default for privacy. Unmask only while developing so the
-      // replays show exactly what happened; production builds keep text and images masked.
-      maskAllText: !__DEV__,
-      maskAllImages: !__DEV__,
-      maskAllVectors: !__DEV__,
-    }),
+    ...(__DEV__ ? [Sentry.mobileReplayIntegration({ maskAllText: false, maskAllImages: false, maskAllVectors: false })] : []),
     Sentry.feedbackIntegration({
       formTitle: 'Send feedback',
       messageLabel: 'Your feedback',

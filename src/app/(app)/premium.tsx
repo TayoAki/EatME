@@ -9,12 +9,12 @@ import { IconButton } from '@/components/ui/icon-button';
 import { Screen } from '@/components/ui/screen';
 import { colors } from '@/constants/colors';
 import { useSession } from '@/lib/auth-client';
-import { billingSupported, buyPackage, manageSubscription, packagePrice, premiumPackages, restorePurchases, trialText } from '@/lib/billing';
+import { billingSupported, buyPackage, manageSubscription, packagePrice, premiumOptions, restorePurchases } from '@/lib/billing';
 import { cn } from '@/lib/cn';
 import { notify } from '@/lib/confirm';
 import { haptics } from '@/lib/haptics';
 import { links, openLink } from '@/lib/links';
-import { useBilling, useSyncBilling } from '@/lib/queries';
+import { useBilling, useFeatures, useSyncBilling } from '@/lib/queries';
 import { formatLongDate } from '@/lib/time';
 
 const STORE = Platform.OS === 'ios' ? 'App Store' : Platform.OS === 'android' ? 'Google Play' : 'app store';
@@ -31,22 +31,28 @@ function Benefit({ text }: { text: string }) {
   );
 }
 
-/** EatME Premium: unlimited AI scans. Store prices, subscribe, restore, and cancel in the store. */
+/**
+ * EatME Premium: unlimited AI scans, several photos of one meal, the weekly check-in and Plan
+ * tomorrow. Store prices, subscribe, restore, and cancel in the store.
+ */
 export default function PremiumScreen() {
   const { userId } = useSession();
   const billing = useBilling();
+  const multiPhoto = !!useFeatures().data?.multiPhoto;
   const sync = useSyncBilling();
-  const packages = useQuery({
-    queryKey: ['premium-packages', userId],
-    queryFn: () => premiumPackages(userId),
+  const options = useQuery({
+    queryKey: ['premium-options', userId],
+    queryFn: () => premiumOptions(userId),
     enabled: billingSupported && !!userId,
     staleTime: 10 * 60_000,
   });
   const [selected, setSelected] = useState<string | null>(null);
   const [busy, setBusy] = useState<'buy' | 'restore' | null>(null);
   const status = billing.data;
-  const list = packages.data ?? [];
-  const pkg = list.find((p) => p.identifier === selected) ?? list[0];
+  const list = options.data ?? [];
+  const chosen = list.find((option) => option.pkg.identifier === selected) ?? list[0];
+  const pkg = chosen?.pkg;
+  const trial = chosen?.trial ?? null;
 
   const buy = async () => {
     if (!userId || !pkg) return;
@@ -114,7 +120,10 @@ export default function PremiumScreen() {
           <>
             <View className="gap-3">
               <Benefit text="Unlimited AI scans of meals, labels and descriptions (fair use: 50 a day)" />
-              <Benefit text="Everything else stays free: barcodes, food search, macro goals, water, weight and supplements" />
+              {multiPhoto ? <Benefit text="Up to 3 photos of one meal for a closer estimate" /> : null}
+              <Benefit text="A weekly check-in that suggests a calorie target from your weight trend (you decide)" />
+              <Benefit text="Plan tomorrow: a draft of your day from your own meals" />
+              <Benefit text="Everything else stays free: barcodes, food search, drinks, goals, water, weight, body, GLP-1 mode and supplements" />
             </View>
             {status ? (
               <View className="rounded-2xl bg-surface p-4">
@@ -129,7 +138,7 @@ export default function PremiumScreen() {
               <Text className="text-[15px] leading-[21px] text-muted">
                 Subscriptions are available in the EatME app for iPhone and Android.
               </Text>
-            ) : packages.isPending ? (
+            ) : options.isPending ? (
               <ActivityIndicator color={colors.ink} />
             ) : list.length === 0 ? (
               <Text className="text-[15px] leading-[21px] text-muted">
@@ -139,30 +148,33 @@ export default function PremiumScreen() {
               <>
                 <View className="gap-2">
                   {list.map((option) => {
-                    const active = option.identifier === pkg?.identifier;
-                    const trial = trialText(option);
+                    const active = option.pkg.identifier === pkg?.identifier;
                     return (
                       <Pressable
-                        key={option.identifier}
+                        key={option.pkg.identifier}
                         accessibilityRole="radio"
                         accessibilityState={{ selected: active }}
-                        onPress={() => setSelected(option.identifier)}
+                        onPress={() => setSelected(option.pkg.identifier)}
                         className={cn('rounded-2xl border px-4 py-3.5', active ? 'border-ink bg-surface' : 'border-line')}>
-                        <Text className="text-[17px] font-semibold text-ink">{packagePrice(option)}</Text>
-                        {trial ? <Text className="mt-0.5 text-[14px] text-muted">{trial}, then {packagePrice(option)}</Text> : null}
+                        <Text className="text-[17px] font-semibold text-ink">{packagePrice(option.pkg)}</Text>
+                        {option.trial ? (
+                          <Text className="mt-0.5 text-[14px] text-muted">
+                            {option.trial}, then {packagePrice(option.pkg)}
+                          </Text>
+                        ) : null}
                       </Pressable>
                     );
                   })}
                 </View>
                 <Button
-                  title={pkg && trialText(pkg) ? 'Start free trial' : 'Subscribe'}
+                  title={trial ? 'Start free trial' : 'Subscribe'}
                   loading={busy === 'buy'}
                   disabled={busy !== null || !pkg}
                   onPress={() => void buy()}
                 />
                 <Text className="text-[12px] leading-4 text-muted">
                   Payment is charged to your {STORE} account. The subscription renews automatically unless you cancel at
-                  least 24 hours before the end of the period{pkg && trialText(pkg) ? ' or the free trial' : ''}. Manage or
+                  least 24 hours before the end of the period{trial ? ' or the free trial' : ''}. Manage or
                   cancel it any time in your {STORE} settings.
                 </Text>
               </>
