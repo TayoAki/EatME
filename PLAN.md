@@ -508,7 +508,13 @@ added to an earlier day are stored at local noon of that day.
 - [ ] You: USPTO search for "WEIGHT CLASS" / "WEIGHTCLASS" (classes 9, 42, 44); buy weightclass.app. Later,
   point it at Railway and update `EXPO_PUBLIC_API_URL` / `EXPO_PUBLIC_LEGAL_URL` (eas.json), the og:image URL
   in `legal/index.html` and `<server>` in `store/README.md`
-- [ ] You, when email codes go on: `EMAIL_FROM` on Railway reads `Weight Class <…>`
+- [ ] **Forgot password in production, before App Review.** Built (Sign in → Forgot password?, a 6-digit
+  email code; verifying the address stays optional in Profile), but hidden until the server can send email.
+  No new build needed. You: Resend account, verify `ugcmediakits.com` (its DNS records), an API key → Railway
+  `RESEND_API_KEY` and `EMAIL_FROM=Weight Class <support@ugcmediakits.com>`. Then: the Terms ("cannot reset
+  passwords by email yet"), the Privacy Policy (drop "no password reset emails", which contradicts the codes
+  paragraph), the support and delete-account pages and the review notes; `/api/features` shows `email: true`;
+  test a reset on a real phone
 - [x] AI consent screen before the plan is built and before the first scan, naming
   OpenRouter and OpenAI (Apple 5.1.2(i)): stored as `users.ai_consent_at` +
   `ai_consent_providers`; the server refuses AI scans without it (`403 ai_consent_required`)
