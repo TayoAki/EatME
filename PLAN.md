@@ -580,7 +580,9 @@ added to an earlier day are stored at local noon of that day.
   means the Authorization header is wrong), then one TestFlight sandbox purchase unlocks Premium
 - [ ] Before App Review: a screenshot of the Premium screen as each subscription's review screenshot
   (a blank placeholder is there now); the first subscriptions go to review with the first App Store
-  version. Google Play later (service account key; Google wants a build uploaded first)
+  version. Version 1.0 was rejected on 16 October 2026 (2.1(b)) because they weren't added to its
+  submission: steps in `store/README.md` → Subscriptions. Google Play later (service account key; Google
+  wants a build uploaded first)
 - [ ] Before turning on Apple / Google sign-in: Sign in with Apple capability + key (team ID, key
   ID, .p8) and a Google "Web application" OAuth client with the redirect URI
   `<server>/api/auth/callback/google`; set the variables in `.env.example` on Railway

@@ -227,12 +227,42 @@ never see). The products were created from RevenueCat (PLAN.md §10); check each
 | Display name (2-30) | `Premium Monthly` | `Premium Yearly` |
 | Description (up to 45) | `Unlimited AI scans, check-ins, Plan tomorrow` | `Unlimited AI scans, check-ins, Plan tomorrow` |
 | Review screenshot | Profile → Weight Class Premium on a TestFlight build (replaces the blank placeholder) | the same |
-| Review notes | `Unlocks unlimited AI scans, several photos per meal, the weekly check-in and Plan tomorrow. Buy it in Profile → Weight Class Premium; Restore purchases is on the same screen.` | the same |
+| Review notes | `Weight Class Premium unlocks unlimited AI scans (fair use: 50 a day), up to 3 photos of one meal, the weekly check-in and Plan tomorrow. Free accounts get 3 AI scans a day; barcodes, food search, drinks, goals, water, weight and GLP-1 mode stay free. Buy it in Profile → Weight Class Premium; when the day's free scans are used up, the scan screen also offers it. Restore purchases is on the same screen. New subscribers get the first month free.` | the same |
 | Multiseat purchases | **No** (on by default since Sep 2026; our server counts one subscription per account) | **No** |
 
 Group localization (customers see it): display name **`Weight Class Premium`**. It was `EatME Premium`, so change it
 in the group's App Store Localization; keep "app name" as the app's name. **The first subscriptions go to review
 with version 1.0:** on each one tap **Add for Review** and add it to the same draft submission as the version.
+
+**Rejected on 16 October 2026, Guideline 2.1(b) (App Completeness):** version 1.0 went to review without its
+subscriptions ("one or more of the In-App Purchase products have not been submitted for review"). Both were
+complete (Ready to Submit) but never added to the submission, and their review screenshot was still the blank
+placeholder. To resubmit:
+
+1. The names, the group's display name and the review notes as in the table above (a RevenueCat change plan, applied
+   in RevenueCat → Product catalog, or typed in App Store Connect).
+2. Each subscription → Review Information → Screenshot: the Premium screen (Profile → Weight Class Premium) taken on
+   a TestFlight build, replacing the placeholder; and Multiseat purchases → No.
+3. A new build: `npm run testflight` (the build number goes up by itself), then select it on the 1.0 version page.
+4. Each subscription → **Add for Review** → the same draft submission as version 1.0 → Resubmit to App Review.
+5. Reply to the App Review message:
+
+```text
+Hello, and thank you for the review.
+
+Guideline 2.1(b) - Performance - App Completeness:
+Both auto-renewable subscriptions in the group Weight Class Premium (Premium Monthly and Premium Yearly) are now
+submitted with this version, each with an App Review screenshot, and we uploaded a new build.
+
+Where to see them: Profile → Weight Class Premium. A sandbox purchase unlocks unlimited AI scans, up to 3 photos of
+one meal, the weekly check-in and Plan tomorrow; Restore purchases is on the same screen.
+Demo account: the one in App Review Information (unchanged).
+
+Build <number> includes this change.
+
+Kind regards,
+<Name>, UGC Mediakits
+```
 
 RevenueCat, before the first review (Apple reviews in the sandbox against the production server):
 

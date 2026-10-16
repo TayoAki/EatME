@@ -22,7 +22,9 @@ and news reports; treat single reports as signals, not rules.
 Also frequent: 5.1.1(ix) health apps from an individual account ("submitted by incorrect entity"), broken
 privacy or support links, placeholder text in legal pages, a demo account that expired or was deleted, a backend
 feature flag that was off during review, and 2.1(b) purchases that couldn't be completed because of a sandbox
-outage (reply and ask for a re-review).
+outage (reply and ask for a re-review). And 2.1(b) "one or more of the In-App Purchase products have not been
+submitted for review" (Weight Class, Oct 2026): the version went to review without its subscriptions. Fix: a real
+review screenshot on each subscription, **Add for Review** into the version's submission, a new build, resubmit.
 
 ## How to answer
 
