@@ -14,13 +14,14 @@ your own terminal or dashboard only: never paste them into a chat or commit them
 npm run testflight
 ```
 
-That runs lint and the typecheck, builds the production app on EAS (the build number goes up by itself), and
+That runs lint and the typecheck (after refreshing the route types Expo Router generates into `.expo/types`, which
+go stale on a machine that hasn't run the dev server since screens were added), builds the production app on EAS (the build number goes up by itself), and
 uploads it to App Store Connect. About 20-30 minutes on EAS, then 5-15 minutes of processing at Apple; Apple emails
 you when the build is ready in TestFlight (or refused, with an ITMS code: see the skill's
 `references/testflight-eas.md`). Without the script:
 
 ```bash
-npx expo lint && npx tsc --noEmit
+npx expo lint && npx expo customize tsconfig.json && npx tsc --noEmit
 npx eas-cli@latest build -p ios --profile production --auto-submit
 ```
 
