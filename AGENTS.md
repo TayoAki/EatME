@@ -11,7 +11,7 @@ store texts) and "Weight Class Premium" for the subscription. The repo, code, co
 PLAN.md already answers; if something is missing, ask. Tick the checkbox in PLAN.md when a
 feature is done. The v2.2–v2.4 features (GLP-1 medicines and supply, body tracking, activity reads,
 the weekly check-in, drinks, Plan tomorrow) are specified in `NEXT-FEATURES.md`: change them from it
-and keep it and PLAN.md in step.
+and keep it and PLAN.md in step. What to order (v2.5, planned) is specified in `WHAT-TO-ORDER.md`.
 
 ## Workflow
 

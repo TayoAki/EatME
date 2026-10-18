@@ -837,6 +837,10 @@ item and replaces the old v2.2 list and the "Later" list; tick a box there and h
   the store listing and App Privacy changes in `store/README.md` ("When restaurant menus go live")
   and FatSecret's credit in the landing page footer (commented out in `legal/index.html`)
 
+- [ ] **What to order** (v2.5, planned 18 October 2026): at any restaurant, the menu items that fit what's left
+  today, ranked by our code, with chain numbers or estimates from a menu photo, logged in one tap. Specified in
+  `WHAT-TO-ORDER.md`, which also records why rankings can't use FatSecret data and why Nutritionix waits
+
 **Eating out decisions** (checked September 2026; migration `restaurant_meals`)
 - Source: FatSecret Platform API, Premier Free (`premier` scope). OAuth 2.0 client credentials
   (`https://oauth.fatsecret.com/connect/token`, a token lasts 24 hours, cached in memory);
