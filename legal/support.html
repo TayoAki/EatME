@@ -156,38 +156,52 @@
           <h2>6. How Weight Class works out your numbers</h2>
           <p>
             Your plan and goals are general estimates for healthy adults, not medical advice. These are the methods and
-            sources behind them.
+            sources behind them; the app shows the same list, with links, in Profile &rarr; Sources and citations and
+            under &ldquo;Sources&rdquo; next to each number.
           </p>
           <ul>
             <li>
               <strong>Daily calories:</strong> your resting energy use from the Mifflin-St Jeor equation
-              (<a href="https://doi.org/10.1093/ajcn/51.2.241">Mifflin et al., American Journal of Clinical Nutrition,
-              1990</a>), times a standard activity factor (1.2 if you mostly sit, up to 1.725 if you're very active),
-              then less or more by about 7,700 kcal for each kilogram of your weekly goal. That last figure is a rule of
-              thumb: real weight change slows over time, which is why the weekly check-in looks at your actual trend. If
-              you allowed AI, it suggests a plan from the same answers, and Weight Class uses the formula instead whenever the
-              AI's number is more than 35% away from it or below the limits below.
+              (<a href="https://pubmed.ncbi.nlm.nih.gov/2305711/">Mifflin et al., 1990</a>), the most reliable for
+              healthy adults in a <a href="https://pubmed.ncbi.nlm.nih.gov/15883556/">systematic review</a>, times an
+              activity factor from 1.2 (mostly sitting) to 1.725 (very active), as in the
+              <a href="https://www.fao.org/4/y5686e/y5686e00.htm">FAO/WHO/UNU report on human energy requirements</a>.
+              About 7,700 kcal per kilogram of your weekly goal is taken away or added
+              (<a href="https://pubmed.ncbi.nlm.nih.gov/13594881/">Wishnofsky, 1958</a>); real weight change slows over
+              time (<a href="https://pubmed.ncbi.nlm.nih.gov/21872751/">Hall et al., 2011</a>), which is why the weekly
+              check-in looks at your actual trend. If you allowed AI, it suggests a plan from the same answers, and
+              Weight Class uses the formula instead whenever the AI's number is more than 35% away from it or below the
+              limits below.
             </li>
             <li>
               <strong>Limits:</strong> daily calories never go below 1,200 for women or 1,500 for men, the lower ends of
-              the ranges in the
-              <a href="https://www.ahajournals.org/doi/10.1161/01.cir.0000437739.71477.ee">2013 AHA/ACC/TOS guideline
-              for the management of overweight and obesity in adults</a>. Weight loss is planned at 1 kg (2.2 lb) a week
-              at most, and goals stay at or above a BMI of 18.5.
+              the ranges in the <a href="https://pubmed.ncbi.nlm.nih.gov/24222017/">2013 AHA/ACC/TOS guideline for the
+              management of overweight and obesity in adults</a>. Weight loss is planned at 1 kg (2.2 lb) a week at
+              most, and goals stay at or above a BMI of 18.5
+              (<a href="https://www.who.int/data/gho/data/themes/topics/topic-details/GHO/body-mass-index">WHO</a>).
             </li>
             <li>
               <strong>Protein, fat and carbs:</strong> protein is 2.0 g per kilogram of body weight while losing weight,
               1.6 g to maintain and 1.8 g to gain, within the 1.4 to 2.0 g range of the
-              <a href="https://doi.org/10.1186/s12970-017-0177-8">International Society of Sports Nutrition position
-              stand on protein and exercise</a> (J&auml;ger et al., 2017). Fat is 25 to 28% of calories, depending on
-              your diet, and carbs make up the rest.
+              <a href="https://pubmed.ncbi.nlm.nih.gov/28642676/">International Society of Sports Nutrition position
+              stand on protein and exercise</a> (J&auml;ger et al., 2017). Fat is 25 to 28% of calories, inside the
+              20 to 35% range of the <a href="https://nap.nationalacademies.org/catalog/10490">Dietary Reference
+              Intakes</a>, and carbs make up the rest; protein and carbs count 4 kcal a gram and fat 9
+              (<a href="https://www.fao.org/4/y5022e/y5022e00.htm">FAO</a>).
             </li>
             <li>
               <strong>Fiber and water:</strong> fiber goals are the Adequate Intakes of the US and Canadian
               <a href="https://nap.nationalacademies.org/catalog/10490">Dietary Reference Intakes</a> (for example 38 g a
               day for men and 25 g for women aged 19 to 50). Water goals are about 80% of the
-              <a href="https://nap.nationalacademies.org/catalog/10925">Adequate Intake for total water</a>, because
-              the rest usually comes from food.
+              <a href="https://www.nationalacademies.org/projects/HMD-FNB-19-P-139/publication/10925">Adequate Intake for
+              total water</a>, because the rest usually comes from food.
+            </li>
+            <li>
+              <strong>Vitamins and minerals:</strong> the Recommended Dietary Allowances or Adequate Intakes for your age
+              and sex (<a href="https://nap.nationalacademies.org/catalog/11537">Dietary Reference Intakes</a>), saturated
+              fat under 10% of calories as in the
+              <a href="https://www.dietaryguidelines.gov/sites/default/files/2020-12/Dietary_Guidelines_for_Americans_2020-2025.pdf">Dietary
+              Guidelines for Americans</a>, and the adult Tolerable Upper Intake Levels for supplements.
             </li>
             <li>
               <strong>Food and drink numbers:</strong> the USDA Food and Nutrient Database for Dietary Studies
@@ -197,20 +211,31 @@
               matches.
             </li>
             <li>
+              <strong>Sugar notes:</strong> shown for food or drink with at least 12 g of sugar making up half its
+              calories or more. Juice raises blood sugar faster than whole fruit
+              (<a href="https://pubmed.ncbi.nlm.nih.gov/6259919/">Bolton et al., 1981</a>), having carbs with or after a
+              meal slows the rise (<a href="https://pubmed.ncbi.nlm.nih.gov/26106234/">Shukla et al., 2015</a>), and the
+              <a href="https://www.who.int/publications/i/item/9789241549028">WHO</a> advises keeping free sugars under
+              10% of calories. The optional food-quality tag follows the
+              <a href="https://pubmed.ncbi.nlm.nih.gov/30744710/">NOVA classification</a> of processing.
+            </li>
+            <li>
+              <strong>Weight trend and check-in:</strong> the trend is an exponentially smoothed average: each day it
+              moves a tenth of the way toward your weigh-in, as in
+              <a href="https://www.fourmilab.ch/hackdiet/www/subsubsection1_4_1_0_8_3.html">The Hacker's Diet</a>. The
+              weekly check-in estimates the energy you used from what you logged and how the trend moved over 2 to 4
+              weeks, and moves a target by 150 kcal a week at most, within the limits above.
+            </li>
+            <li>
               <strong>Alcoholic drinks:</strong> grams of alcohol = volume &times; strength (ABV) &times; 0.789, the
-              density of alcohol; alcohol counts 7 kcal a gram; one US standard drink is 14 g of alcohol
-              (<a href="https://rethinkingdrinking.niaaa.nih.gov/how-much-too-much/whats-standard-drink">NIAAA</a>).
+              density of alcohol (<a href="https://pubchem.ncbi.nlm.nih.gov/compound/Ethanol">PubChem</a>); alcohol counts
+              7 kcal a gram; one US standard drink is 14 g of alcohol
+              (<a href="https://www.niaaa.nih.gov/alcohols-effects-health/what-standard-drink">NIAAA</a>).
             </li>
             <li>
               <strong>GLP-1 mode:</strong> the focus on protein, fiber and water follows the
-              <a href="https://ajcn.nutrition.org/article/S0002-9165(25)00240-0/fulltext">joint advisory on nutritional
-              priorities to support GLP-1 therapy</a> (Mozaffarian et al., 2025). Weight Class doesn't give dosing advice.
-            </li>
-            <li>
-              <strong>Weight trend:</strong> an exponentially smoothed average: each day the trend moves a tenth of the
-              way toward your weigh-in, as in
-              <a href="https://www.fourmilab.ch/hackdiet/www/subsubsection1_4_1_0_8_3.html">The Hacker's Diet</a>, so one
-              day of water or salt doesn't hide the direction you're heading.
+              <a href="https://pubmed.ncbi.nlm.nih.gov/40450457/">joint advisory on nutritional priorities to support
+              GLP-1 therapy</a> (Mozaffarian et al., 2025). Weight Class doesn't give dosing advice.
             </li>
           </ul>
         </section>

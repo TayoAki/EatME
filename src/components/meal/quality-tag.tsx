@@ -1,5 +1,6 @@
 import { Text, View } from 'react-native';
 
+import { SourcesLink } from '@/components/sources';
 import { PROCESSING_LABELS, type Meal } from '@/shared/meals';
 
 /**
@@ -27,6 +28,7 @@ export function QualityTag({
       </View>
       {meal.processingReason ? <Text className="text-[14px] leading-5 text-ink">{meal.processingReason}</Text> : null}
       <Text className="text-[12px] leading-4 text-muted">A rough guide from the photo or description (beta).</Text>
+      <SourcesLink topic="quality" />
     </View>
   );
 }

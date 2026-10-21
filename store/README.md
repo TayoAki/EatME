@@ -185,7 +185,10 @@ WEIGHT CLASS PREMIUM (IN-APP PURCHASE)
 The demo account is on the free plan (3 AI scans a day). Profile → Weight Class Premium shows both auto-renewable subscriptions (monthly, yearly; one group) with prices, the free trial when the account can get it, Restore purchases, and Terms and Privacy links. A sandbox purchase unlocks unlimited scans, several photos per meal, the weekly check-in (Profile → Daily goals) and Plan tomorrow: on Home, tap tomorrow's date in the week strip (any time of day). Nothing changes the target or logs a meal without the user's tap.
 
 HEALTH AND SAFETY (1.4.1)
-Numbers are shown as estimates. Profile → Daily goals ends with "check with a doctor" and "How Weight Class works out your numbers" (formulas and sources: <server>/support#sources); new accounts see the same on the plan screen. Profile → "Help with eating or body image" and "Help with alcohol" open Find A Helpline. Users must be 18+. Weight-loss goals stop at a BMI of 18.5 and 1 kg (2.2 lb) a week; calories never go below 1,200 (women) or 1,500 (men).
+Every number Weight Class works out cites its sources inside the app, with links. Profile → "Sources and citations" lists each calculation (calorie target, safety limits, protein, carbs and fat, fiber and water, vitamins and minerals, food numbers, sugar notes, weight trend, weekly check-in, weekly summary, Plan tomorrow, drinks, GLP-1 mode) with its method and links to the studies, guidelines and databases behind it (PubMed, WHO, NIH, USDA, National Academies). A "Sources" link also sits next to the numbers where they appear: Home under the day's goals, Daily goals, the plan screen, the weekly check-in and summary, Vitamins & minerals, Weight & body, each meal, drinks and GLP-1 mode. Numbers are shown as estimates, with "check with a doctor" on the plan, Daily goals and Sources screens. Profile → "Help with eating or body image" and "Help with alcohol" open Find A Helpline. Users must be 18+. Weight-loss goals stop at a BMI of 18.5 and 1 kg (2.2 lb) a week; calories never go below 1,200 (women) or 1,500 (men).
+
+CAMERA (5.1.1(iv))
+Scan asks for the camera with the system alert only; there is no screen of ours before it. If the camera is turned down, Scan says the camera is off and offers Open Settings, plus ways to log without it (choose a photo, describe a meal, search foods).
 
 GLP-1 MODE
 Profile → GLP-1 mode logs the user's own medicine, doses, injection sites and side effects. No dosing advice and no dose, unit or reconstitution calculations; supply is a count of pens or vials the user enters.
@@ -198,9 +201,6 @@ Scan → Search foods → Drinks logs alcoholic drinks with their calories. No d
 
 APPLE HEALTH
 Optional, Profile → Apple Health: writes the calories, macros, fiber, water and drinks the user logs; a second switch reads steps, active energy, workouts and sleep to show in the app. That data stays on the phone.
-
-RESTAURANT MENUS
-The build contains a restaurant-menu search that is switched off on our server and can't be reached in this version. We will only turn it on with a later version submitted for review.
 
 ACCOUNT DELETION
 Profile → Delete account deletes everything (also <server>/delete-account) and tells subscribers it doesn't cancel the subscription.
@@ -259,6 +259,50 @@ one meal, the weekly check-in and Plan tomorrow; Restore purchases is on the sam
 Demo account: the one in App Review Information (unchanged).
 
 Build <number> includes this change.
+
+Kind regards,
+<Name>, UGC Mediakits
+```
+
+**Rejected again on 21 October 2026 (build 3), three guidelines.** 2.1(b) again: the subscriptions still weren't
+in the submission (RevenueCat showed both as Ready to Submit, never added). 1.4.1: "health calculations, references,
+and wellness reports ... without citations, such as links to sources"; the sources lived on the support website, and
+Apple wants them in the app, easy to find. 5.1.1(iv): our screen before the camera alert had "Allow camera" and
+"Choose from gallery"; Apple's rule is one neutral button ("Continue") or none. Build 4 fixes both in the app (PLAN.md
+§10): Profile → Sources and citations with links, a "Sources" link next to every calculation, the system camera alert
+with nothing in front of it, and Open Settings only after a no. To resubmit:
+
+1. Each subscription → Review Information → the Premium screen screenshot (replacing the placeholder) and Multiseat
+   purchases → No; names and review notes as in the table above.
+2. `git pull && npm run testflight`, wait for the build to finish processing, then select it on the 1.0 version page.
+3. Put the subscriptions in the submission: each subscription → **Add for Review** → the draft submission that holds
+   version 1.0, with the subscription group too ("the app version, subscription group, and every subscription must
+   all be added to the same draft submission"). If that menu doesn't offer it: 1.0 version page → In-App Purchases and
+   Subscriptions → Select In-App Purchases or Subscriptions → tick both → Done. Before you press Resubmit, the
+   submission must list the version, the group and both subscriptions.
+4. Resubmit and reply to the App Review message:
+
+```text
+Hello, and thank you for the review.
+
+Guideline 2.1(b) - Performance - App Completeness:
+Both auto-renewable subscriptions in the group Weight Class Premium (Premium Monthly and Premium Yearly) are now
+submitted together with this version, each with an App Review screenshot of the Premium screen.
+
+Guideline 1.4.1 - Safety - Physical Harm:
+The app now cites the sources of its health calculations inside the app, with links. Profile → Sources and
+citations lists each method (calorie target, safety limits, macros, fiber and water, vitamins and minerals, food
+numbers, weight trend, weekly check-in and summary, drinks, GLP-1 mode) with links to the studies, guidelines and
+databases behind it (PubMed, WHO, NIH, USDA, National Academies). A "Sources" link also sits next to each
+calculation where it appears: on Home under the day's goals, in Daily goals, the plan, the weekly check-in and
+summary, Vitamins & minerals, Weight & body, each meal, drinks and GLP-1 mode.
+
+Guideline 5.1.1(iv) - Legal - Privacy - Data Collection and Storage:
+We removed the screen that appeared before the camera permission request. Opening Scan now shows the system
+permission alert directly. If the camera is declined, Scan says the camera is off and offers a button that opens
+Settings, along with ways to log a meal without the camera.
+
+Build <number> includes these changes. Demo account: the one in App Review Information (unchanged).
 
 Kind regards,
 <Name>, UGC Mediakits
@@ -453,24 +497,6 @@ default; App Review is in California), `--server <url>` (default: the production
 
 `npm run demo:account` (`scripts/demo-account.ts`) does the same straight in the database, with `--replace`, for a
 database you can reach (a local one, or production through a Railway TCP proxy).
-
-## When restaurant menus go live
-
-Restaurant menus (FatSecret) are built but off (`RESTAURANTS`, PLAN.md §16, Eating out). The Privacy Policy, the
-Terms and the Washington policy already describe them. The 1.0 review notes tell Apple they're in the build but off,
-and that they'll only be switched on with a later version submitted for review (a feature switched on from the
-server after approval counts as a hidden feature, 2.3.1(a)). So turn `RESTAURANTS` on together with a new app
-version: say so in its What's New and review notes, and wait for approval. Also:
-
-- **Both store listings:** add the line FatSecret requires, `Powered by fatsecret nutrition API (www.fatsecret.com)`,
-  at the end of the description, and a bullet such as `• Look up US restaurant menus and plan your meal before you
-  go.` under HOW IT WORKS.
-- **App Privacy:** add **Search History**, *not linked to the user*, App Functionality: restaurant searches go from
-  our server to FatSecret (without the person's name, email or account).
-- **Play Data safety:** nothing new (In-app search history is already declared, processed ephemerally; FatSecret is a
-  service provider).
-- **Landing page:** uncomment FatSecret's credit in the footer of `legal/index.html` (it must be visible without
-  signing in).
 
 ## Railway before release
 

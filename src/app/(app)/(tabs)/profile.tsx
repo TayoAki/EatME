@@ -3,6 +3,7 @@ import Constants from 'expo-constants';
 import { router } from 'expo-router';
 import {
   Bell,
+  BookOpen,
   Brain,
   Bug,
   CircleHelp,
@@ -25,6 +26,7 @@ import { Platform, ScrollView, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { SettingsGroup, SettingsRow } from '@/components/profile/settings';
+import { openSources } from '@/components/sources';
 import { Button } from '@/components/ui/button';
 import { authClient } from '@/lib/auth-client';
 import { confirm, notify } from '@/lib/confirm';
@@ -121,6 +123,7 @@ function ProfileContent({ profile }: { profile: Profile }) {
           onPress={() => router.push('/weight')}
         />
         <SettingsRow icon={Target} label="Daily goals" onPress={() => router.push('/daily-goals')} />
+        <SettingsRow icon={BookOpen} label="Sources and citations" onPress={() => openSources()} />
         {features.data?.payments ? (
           <SettingsRow
             icon={Crown}

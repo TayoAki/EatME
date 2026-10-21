@@ -1,6 +1,7 @@
 import { Drumstick } from 'lucide-react-native';
 import { Text, View } from 'react-native';
 
+import { SourcesLink } from '@/components/sources';
 import { colors } from '@/constants/colors';
 import { proteinPerMeal } from '@/shared/nutrition';
 
@@ -14,11 +15,14 @@ export function ProteinHint({ proteinG, dailyProteinG }: { proteinG: number; dai
   return (
     <View className="flex-row items-start gap-2.5 rounded-2xl bg-surface p-3.5">
       <Drumstick size={18} color={colors.protein} strokeWidth={1.8} style={{ marginTop: 1 }} />
-      <Text className="flex-1 text-[14px] leading-5 text-ink">
-        {enough
-          ? `${proteinG} g protein — a solid share of your ${dailyProteinG} g for the day.`
-          : `${proteinG} g protein. About ${target} g a meal keeps you on pace for ${dailyProteinG} g a day.`}
-      </Text>
+      <View className="flex-1">
+        <Text className="text-[14px] leading-5 text-ink">
+          {enough
+            ? `${proteinG} g protein — a solid share of your ${dailyProteinG} g for the day.`
+            : `${proteinG} g protein. About ${target} g a meal keeps you on pace for ${dailyProteinG} g a day.`}
+        </Text>
+        <SourcesLink topic="macros" className="mt-1" />
+      </View>
     </View>
   );
 }

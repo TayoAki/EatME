@@ -3,6 +3,7 @@ import { Info, Rabbit, Turtle, Zap, type LucideIcon } from 'lucide-react-native'
 import { Text, View } from 'react-native';
 
 import { OnboardingScreen } from '@/components/onboarding/onboarding-screen';
+import { SourcesLink } from '@/components/sources';
 import { colors } from '@/constants/colors';
 import { cn } from '@/lib/cn';
 import { haptics } from '@/lib/haptics';
@@ -91,6 +92,7 @@ export default function PaceStep() {
           <Info size={18} color={colors.muted} />
           <Text className="flex-1 text-[14px] leading-5 text-ink">{HINTS[speed]}</Text>
         </View>
+        <SourcesLink topic="limits" className="mt-3 self-center" />
       </View>
     </OnboardingScreen>
   );

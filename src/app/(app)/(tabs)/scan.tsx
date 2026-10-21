@@ -6,7 +6,6 @@ import { AiConsentView } from '@/components/ai-consent-view';
 import { AnalysisView, type MealInput } from '@/components/scan/analysis-view';
 import { CameraCapture, type Photo, type ScanMode } from '@/components/scan/camera-capture';
 import { DescribeMeal } from '@/components/scan/describe-meal';
-import { RestaurantMenuView } from '@/components/restaurants/restaurant-menu-view';
 import { FoodSearchView, type SearchTab } from '@/components/scan/food-search-view';
 import { PhotoPreview } from '@/components/scan/photo-preview';
 import { ProductView } from '@/components/scan/product-view';
@@ -25,7 +24,6 @@ type Step =
   | { name: 'describe'; text?: string }
   | { name: 'product'; code: string }
   | { name: 'search'; tab?: SearchTab }
-  | { name: 'restaurant'; chain: string }
   | { name: 'analyzing'; input: MealInput; key: number };
 
 export default function ScanScreen() {
@@ -152,24 +150,10 @@ export default function ScanScreen() {
         initialTab={step.tab}
         onBack={capture}
         onLog={(food, grams) => analyze({ kind: 'food', food, grams })}
-        onOpenChain={(chain) => setStep({ name: 'restaurant', chain })}
-        onLogRestaurant={(lines) => analyze({ kind: 'restaurant', lines })}
         onLogDrink={(drink, detail) => {
           void allowDrinksInHealth();
           analyze({ kind: 'drink', drink, detail });
         }}
-      />
-    );
-  }
-
-  if (step.name === 'restaurant') {
-    return (
-      <RestaurantMenuView
-        key={step.chain}
-        chain={step.chain}
-        bottomSpace={bottomSpace}
-        onBack={() => setStep({ name: 'search', tab: 'restaurants' })}
-        onLog={(lines) => analyze({ kind: 'restaurant', lines, chain: step.chain })}
       />
     );
   }
@@ -190,11 +174,7 @@ export default function ScanScreen() {
                 ? { name: 'search' }
                 : input.kind === 'drink'
                 ? { name: 'search', tab: 'drinks' }
-                : input.kind === 'restaurant'
-                  ? input.chain
-                    ? { name: 'restaurant', chain: input.chain }
-                    : { name: 'search', tab: 'restaurants' }
-                  : { name: 'capture' },
+                : { name: 'capture' },
           )
         }
         onEdit={input.kind === 'text' ? () => setStep({ name: 'describe', text: input.text }) : undefined}

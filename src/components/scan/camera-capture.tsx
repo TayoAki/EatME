@@ -1,13 +1,8 @@
-import {
-  CameraView,
-  useCameraPermissions,
-  type BarcodeScanningResult,
-  type BarcodeType,
-} from 'expo-camera';
+import { CameraView, type BarcodeScanningResult, type BarcodeType } from 'expo-camera';
 import { router, useIsFocused } from 'expo-router';
 import * as ImagePicker from 'expo-image-picker';
 import {
-  Camera,
+  CameraOff,
   Image as ImageIcon,
   Keyboard,
   PenLine,
@@ -28,6 +23,7 @@ import { Button } from '@/components/ui/button';
 import { IconButton } from '@/components/ui/icon-button';
 import { SegmentedControl } from '@/components/ui/segmented-control';
 import { colors } from '@/constants/colors';
+import { useCameraAccess } from '@/lib/camera-access';
 import { cn } from '@/lib/cn';
 import { haptics } from '@/lib/haptics';
 import { barcodeCandidates } from '@/shared/barcodes';
@@ -63,21 +59,22 @@ const MODE_OPTIONS = [
 /** Barcodes on food packaging. */
 const BARCODE_TYPES: BarcodeType[] = ['ean13', 'ean8', 'upc_a', 'upc_e'];
 
-const COPY: Record<ScanMode, { title: string; hint: string; permission: string }> = {
+/** `off` is shown only after someone turned the camera down: the system alert itself asks first. */
+const COPY: Record<ScanMode, { title: string; hint: string; off: string }> = {
   meal: {
     title: 'Scan food',
     hint: 'Center your meal in the frame',
-    permission: 'Weight Class uses your camera to scan meals and estimate their calories and macros.',
+    off: 'Turn on Camera for Weight Class in Settings to scan meals. You can still choose a photo, describe a meal or search foods.',
   },
   label: {
     title: 'Scan label',
     hint: 'Fit the nutrition facts in the frame',
-    permission: 'Weight Class uses your camera to read nutrition labels on food packaging.',
+    off: 'Turn on Camera for Weight Class in Settings to read nutrition labels. You can still choose a photo of a label.',
   },
   barcode: {
     title: 'Scan barcode',
     hint: 'Point the camera at the barcode',
-    permission: 'Weight Class uses your camera to read barcodes on food packaging.',
+    off: 'Turn on Camera for Weight Class in Settings to scan barcodes. You can still type the barcode.',
   },
 };
 
@@ -173,7 +170,7 @@ export function CameraCapture({
 }: CameraCaptureProps) {
   const insets = useSafeAreaInsets();
   const isFocused = useIsFocused();
-  const [permission, requestPermission] = useCameraPermissions();
+  const [permission, requestPermission] = useCameraAccess(isFocused);
   const cameraRef = useRef<CameraView>(null);
   const [flash, setFlash] = useState(false);
   const [capturing, setCapturing] = useState(false);
@@ -214,10 +211,11 @@ export function CameraCapture({
     if (photo) onPhoto(photo);
   };
 
-  if (!permission) {
+  // Checking, or the system alert is asking (no screen of ours in front of it, 5.1.1(iv)).
+  if (!permission || permission.status === 'undetermined') {
     return (
-      <View className="flex-1 items-center justify-center bg-canvas">
-        <ActivityIndicator color={colors.ink} />
+      <View className="flex-1 items-center justify-center bg-black">
+        <ActivityIndicator color={colors.canvas} />
       </View>
     );
   }
@@ -235,18 +233,19 @@ export function CameraCapture({
         )}
         <View className="flex-1 items-center justify-center">
           <View className="h-20 w-20 items-center justify-center rounded-full bg-surface">
-            <Camera size={34} color={colors.ink} strokeWidth={1.6} />
+            <CameraOff size={34} color={colors.ink} strokeWidth={1.6} />
           </View>
           <Text className="mt-6 text-center text-[26px] font-bold tracking-tight text-ink">
-            Allow camera access
+            Camera is off
           </Text>
           <Text className="mt-2 text-center text-[16px] leading-[22px] text-muted">
-            {COPY[mode].permission}
+            {COPY[mode].off}
           </Text>
         </View>
         <View className="gap-2">
           {permission.canAskAgain ? (
-            <Button title="Allow camera" onPress={() => void requestPermission()} />
+            // Android may ask once more; on iPhone only Settings can turn it back on.
+            <Button title="Use the camera" onPress={() => void requestPermission()} />
           ) : (
             <Button title="Open Settings" onPress={() => void Linking.openSettings()} />
           )}
@@ -254,7 +253,7 @@ export function CameraCapture({
             <Button title="Type the barcode" variant="secondary" onPress={() => setTyping(true)} />
           ) : (
             <Button
-              title="Choose from gallery"
+              title="Choose a photo"
               variant="secondary"
               onPress={() => void openGallery()}
             />

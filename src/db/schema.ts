@@ -478,7 +478,7 @@ export const mealItems = pgTable(
     aiName: text(),
     /** The remembered food ("Your usual") the item was taken from. */
     personalFoodId: uuid().references((): AnyPgColumn => personalFoods.id, { onDelete: 'set null' }),
-    /** A restaurant menu item (FatSecret): chain, item and serving IDs, serving text, how many. */
+    /** A restaurant menu item logged while FatSecret menus were tried (retired): chain, IDs, serving, how many. */
     restaurant: jsonb().$type<RestaurantRef>(),
     /** An alcoholic drink (v2.4): type, one drink's volume, strength, how many (and a cocktail's shots and mixer). */
     drink: jsonb().$type<DrinkRef>(),

@@ -63,10 +63,13 @@ Check, in this order (most rejections come from the top of the list):
 4. **Data goes nowhere without consent (5.1.1, 5.1.2).** Personal data sent to a third-party AI needs an explicit
    "allow" first, naming what is sent and to whom, with a way to turn it off (5.1.2(i)). No recording of user
    activity (session replay, screen recording) without explicit consent and a visible indicator (2.5.14).
-   Purpose strings say specifically why each permission is needed; unused permission strings removed. Account
+   Purpose strings say specifically why each permission is needed; unused permission strings removed. No screen of
+   your own in front of a system permission alert with "Allow" on it or a second button (5.1.1(iv)): show the alert
+   directly, or one "Continue" button that opens it; after a no, a way to Settings. Account
    deletion in the app (5.1.1(v)), and with Sign in with Apple, tokens revoked on deletion.
-5. **Health claims are careful (1.4.1, 1.4.2, 5.1.3).** "Estimate", never "accurate" or "precise"; methods or
-   sources for the numbers are available; a "check with a doctor" reminder; no dose calculators; HealthKit data
+5. **Health claims are careful (1.4.1, 1.4.2, 5.1.3).** "Estimate", never "accurate" or "precise"; every
+   calculation, report and health reference cites its sources **inside the app**, with links, one tap from where the
+   number is shown (a page on the website isn't enough); a "check with a doctor" reminder; no dose calculators; HealthKit data
    never used for ads or stored in iCloud; the Apple Health integration named in the UI and the description (2.5.1).
 6. **The listing matches the app (2.3).** Screenshots show the real app in use **with the production feature
    flags** (a tab or card that only exists behind a flag the store build doesn't have is a mismatch), suit a 4+

@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from 'react';
 import { ScrollView, Text, TextInput, View } from 'react-native';
 
+import { SourcesLink } from '@/components/sources';
 import { Button } from '@/components/ui/button';
 import { Chip } from '@/components/ui/chip';
 import { NumberStepper } from '@/components/ui/number-stepper';
@@ -191,9 +192,12 @@ export function DrinkForm({ onLog }: DrinkFormProps) {
 
       <View className="gap-3 border-t border-line pt-3">
         {numbers ? (
-          <Text accessibilityLiveRegion="polite" className="text-center text-[15px] text-ink">
-            {calm ? standardDrinksText(numbers.standardDrinks) : `${numbers.calories} kcal · ${standardDrinksText(numbers.standardDrinks)}`}
-          </Text>
+          <View className="items-center">
+            <Text accessibilityLiveRegion="polite" className="text-center text-[15px] text-ink">
+              {calm ? standardDrinksText(numbers.standardDrinks) : `${numbers.calories} kcal · ${standardDrinksText(numbers.standardDrinks)}`}
+            </Text>
+            <SourcesLink topic="drinks" label="How this is worked out" className="self-center" />
+          </View>
         ) : null}
         <Button
           title="Log it"

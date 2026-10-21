@@ -125,6 +125,8 @@ function RootNavigator() {
       <Stack.Protected guard={!signedIn || !onboarded}>
         <Stack.Screen name="onboarding" />
       </Stack.Protected>
+      {/* Sources and citations: for everyone, onboarding included (Apple 1.4.1). */}
+      <Stack.Screen name="sources" />
     </Stack>
   );
 }

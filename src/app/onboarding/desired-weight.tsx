@@ -1,6 +1,7 @@
 import { Text, View } from 'react-native';
 
 import { OnboardingScreen } from '@/components/onboarding/onboarding-screen';
+import { SourcesLink } from '@/components/sources';
 import { RulerPicker } from '@/components/ui/ruler-picker';
 import { useOnboardingStore } from '@/lib/onboarding-store';
 import { GOAL_LABELS, lowestGoalWeightKg } from '@/shared/onboarding';
@@ -48,9 +49,12 @@ export default function DesiredWeightStep() {
           <Text className="mb-3 ml-2 text-[20px] font-semibold text-ink">{metric ? 'kg' : 'lb'}</Text>
         </View>
         {goal === 'lose' ? (
-          <Text className="-mt-4 mb-6 px-6 text-center text-[14px] leading-5 text-muted">
-            {`Goals stay at ${metric ? min.toFixed(1) : Math.round(min)} ${metric ? 'kg' : 'lb'} or more: a BMI of 18.5 for your height.`}
-          </Text>
+          <View className="-mt-4 mb-6 items-center px-6">
+            <Text className="text-center text-[14px] leading-5 text-muted">
+              {`Goals stay at ${metric ? min.toFixed(1) : Math.round(min)} ${metric ? 'kg' : 'lb'} or more: a BMI of 18.5 for your height.`}
+            </Text>
+            <SourcesLink topic="limits" className="mt-1 self-center" />
+          </View>
         ) : null}
         <RulerPicker
           key={`${unit}-${goal}`}

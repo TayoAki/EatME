@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { Pressable, ScrollView, Text, TextInput, View } from 'react-native';
 
 import { AdaptiveTargetSection } from '@/components/goals/adaptive-section';
+import { openSources } from '@/components/sources';
 import { BottomSheet } from '@/components/ui/bottom-sheet';
 import { Button } from '@/components/ui/button';
 import { IconButton } from '@/components/ui/icon-button';
@@ -12,7 +13,6 @@ import { Screen } from '@/components/ui/screen';
 import { colors } from '@/constants/colors';
 import { notify } from '@/lib/confirm';
 import { haptics } from '@/lib/haptics';
-import { links, openLink } from '@/lib/links';
 import { useProfile, useUpdateProfile } from '@/lib/queries';
 import { caloriesFromMacros, minimumCalories } from '@/shared/nutrition';
 import type { UnitSystem } from '@/shared/onboarding';
@@ -330,8 +330,8 @@ function DailyGoals({ profile }: { profile: Profile }) {
             <Text
               accessibilityRole="link"
               className="mt-2 text-[14px] font-semibold text-ink underline"
-              onPress={() => void openLink(links.sources)}>
-              How Weight Class works out your numbers
+              onPress={() => openSources()}>
+              Sources: how Weight Class works out your numbers
             </Text>
           </View>
         </View>

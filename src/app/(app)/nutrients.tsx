@@ -2,6 +2,7 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { ArrowLeft, ChevronLeft, ChevronRight, Wine } from 'lucide-react-native';
 import { ActivityIndicator, ScrollView, Text, View } from 'react-native';
 
+import { SourcesLink } from '@/components/sources';
 import { IconButton } from '@/components/ui/icon-button';
 import { Screen } from '@/components/ui/screen';
 import { colors } from '@/constants/colors';
@@ -150,9 +151,12 @@ export default function NutrientsScreen() {
         </View>
       </View>
       <ScrollView contentContainerClassName="gap-5 px-5 pb-10" showsVerticalScrollIndicator={false}>
-        <Text accessibilityRole="header" className="text-[32px] font-bold tracking-tight text-ink">
-          Vitamins & minerals
-        </Text>
+        <View>
+          <Text accessibilityRole="header" className="text-[32px] font-bold tracking-tight text-ink">
+            Vitamins & minerals
+          </Text>
+          <SourcesLink topic="nutrients" label="Sources for the daily amounts" className="mt-1" />
+        </View>
         {nutrients.isPending ? (
           <ActivityIndicator color={colors.ink} />
         ) : nutrients.isError ? (

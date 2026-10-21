@@ -6,6 +6,7 @@ import { Pressable, ScrollView, Text, View } from 'react-native';
 
 import { DateWheels } from '@/components/pickers/date-wheels';
 import { HeightWheels, WeightWheel } from '@/components/pickers/body-wheels';
+import { SourcesLink } from '@/components/sources';
 import { BottomSheet } from '@/components/ui/bottom-sheet';
 import { Button } from '@/components/ui/button';
 import { IconButton } from '@/components/ui/icon-button';
@@ -92,9 +93,12 @@ function EditDetailSheet({
         <>
           <WeightWheel weightKg={weight} unit={profile.unitSystem} onChange={setWeight} label={TITLES[field]} />
           {tooLow && lowest !== null ? (
-            <Text className="mt-3 text-center text-[14px] leading-5 text-muted">
-              {`For your height, Weight Class keeps weight-loss goals at ${formatWeight(lowest, profile.unitSystem, 1)} or more (a BMI of 18.5).`}
-            </Text>
+            <View className="mt-3 items-center">
+              <Text className="text-center text-[14px] leading-5 text-muted">
+                {`For your height, Weight Class keeps weight-loss goals at ${formatWeight(lowest, profile.unitSystem, 1)} or more (a BMI of 18.5).`}
+              </Text>
+              <SourcesLink topic="limits" className="mt-1 self-center" />
+            </View>
           ) : null}
         </>
       ) : field === 'heightCm' ? (

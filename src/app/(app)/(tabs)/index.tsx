@@ -22,6 +22,7 @@ import { SupplementsCard } from '@/components/home/supplements-card';
 import { WaterSheet } from '@/components/home/water-sheet';
 import { WeeklyCard, WeeklySheet } from '@/components/home/weekly-card';
 import { QuickAddSheet } from '@/components/meal/quick-add-sheet';
+import { SourcesScreenLink } from '@/components/sources';
 import { Button } from '@/components/ui/button';
 import { colors } from '@/constants/colors';
 import { notify } from '@/lib/confirm';
@@ -193,6 +194,7 @@ function Home({ profile }: { profile: Profile }) {
                 <ChevronRight size={18} color={colors.faint} />
               </Pressable>
             ) : null}
+            <SourcesScreenLink label="Sources: how your goals are worked out" className="mx-5 mt-2" />
             {isToday && evening ? <PlanTomorrowCard tomorrow={tomorrow} calm={calm} onOpen={() => setSelectedDate(tomorrow)} /> : null}
 
             <View className="mt-7 px-5">

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, Switch, Text, View } from 'react-native';
 
 import { HowSheet } from '@/components/home/checkin-card';
+import { SourcesLink } from '@/components/sources';
 import { Chip } from '@/components/ui/chip';
 import { colors } from '@/constants/colors';
 import { ApiError } from '@/lib/api';
@@ -90,6 +91,7 @@ export function AdaptiveTargetSection({ profile }: { profile: Profile }) {
           ? 'Once a week Weight Class compares what you logged with your weight trend and suggests a target. Nothing changes unless you choose it.'
           : 'Once a week Weight Class compares what you logged with your weight trend and suggests a target, at most 150 kcal from the one you have and never below your safety floor. Nothing changes unless you choose it.'}
       </Text>
+      <SourcesLink topic="checkin" className="ml-1 mt-1" />
       {enabled && checkIn && MISSING_DATA.includes(checkIn.reason) ? (
         <View className="mt-3 rounded-2xl bg-surface p-3">
           <Text className="text-[14px] leading-5 text-ink">{MISSING_TEXT[checkIn.reason]}</Text>

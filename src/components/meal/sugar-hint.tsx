@@ -1,6 +1,7 @@
 import { Candy } from 'lucide-react-native';
 import { Text, View } from 'react-native';
 
+import { SourcesLink } from '@/components/sources';
 import { colors } from '@/constants/colors';
 
 type SugarHintProps = {
@@ -21,7 +22,10 @@ export function SugarHint({ sugar, hideNumbers = false }: SugarHintProps) {
   return (
     <View className="flex-row items-start gap-2.5 rounded-2xl bg-surface p-3.5">
       <Candy size={18} color={colors.carbs} strokeWidth={1.8} style={{ marginTop: 1 }} />
-      <Text className="flex-1 text-[14px] leading-5 text-ink">{text}</Text>
+      <View className="flex-1">
+        <Text className="text-[14px] leading-5 text-ink">{text}</Text>
+        <SourcesLink topic="sugar" className="mt-1" />
+      </View>
     </View>
   );
 }

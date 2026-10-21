@@ -581,8 +581,21 @@ added to an earlier day are stored at local noon of that day.
 - [ ] Before App Review: a screenshot of the Premium screen as each subscription's review screenshot
   (a blank placeholder is there now); the first subscriptions go to review with the first App Store
   version. Version 1.0 was rejected on 16 October 2026 (2.1(b)) because they weren't added to its
-  submission: steps in `store/README.md` → Subscriptions. Google Play later (service account key; Google
-  wants a build uploaded first)
+  submission, and again on 21 October (still not added): steps in `store/README.md` → Subscriptions. Google
+  Play later (service account key; Google wants a build uploaded first)
+- [x] Fixes for the 21 October 2026 rejection (build 3), in build 4. **1.4.1** ("health calculations, references,
+  and wellness reports ... without citations, such as links to sources", easy to find): Profile → Sources and
+  citations (`src/app/sources.tsx`, open to everyone, onboarding included), one section per calculation with its
+  method and links (PubMed for papers, then WHO, NIH, USDA and the National Academies; the list and the code each
+  method describes are in `src/lib/sources.ts`, every link opened on 21 October), and a "Sources" link next to the
+  numbers (`SourcesLink` in `src/components/sources.tsx`, a sheet that works inside modals): Home, Daily goals,
+  the plan, pace and goal-weight screens, Personal details, the check-in, the weekly summary, Plan tomorrow,
+  Vitamins & minerals, Supplements, Weight & body, each meal and scan result, the sugar, protein and food-quality
+  notes, drinks and GLP-1 mode. **5.1.1(iv)** (a custom screen with "Allow camera" and "Choose from gallery"
+  before the camera alert): the system alert now comes first with nothing of ours in front of it
+  (`useCameraAccess` in `src/lib/camera-access.ts`, for Scan and progress photos); after a no, "Camera is off"
+  with Open Settings and the ways to log without it, and it re-checks when the app comes back from Settings.
+  **2.3.1(a)**: the switched-off FatSecret restaurant menus were removed from the app (see Eating out)
 - [ ] Before turning on Apple / Google sign-in: Sign in with Apple capability + key (team ID, key
   ID, .p8) and a Google "Web application" OAuth client with the redirect URI
   `<server>/api/auth/callback/google`; set the variables in `.env.example` on Railway
@@ -629,8 +642,8 @@ added to an earlier day are stored at local noon of that day.
   measures, FDA reference serving sizes (21 CFR 101.12)
 - Barcodes: Open Food Facts dump (ODbL: credit it in the app, keep its data in separate
   tables), USDA Branded Foods as the fallback
-- Restaurants: FatSecret Platform "Premier Free" for startups (US data, attribution);
-  Nutritionix has the most chains but starts around $499 a month
+- Restaurants: FatSecret was tried and retired (October 2026, see Eating out); What to order uses our own
+  chain table (`WHAT-TO-ORDER.md`); Nutritionix has the most chains but starts around $499 a month
 - Benchmark: Nutrition5k (CC BY 4.0), January Food Benchmark (CC BY 4.0), SNAPMe (CC BY-SA)
 - Avoid: NEVO (forbids charging for its data), Spoonacular (forbids storing nutrition
   data), non-commercial datasets (MetaFood3D, UEC-Food)
@@ -823,25 +836,23 @@ item and replaces the old v2.2 list and the "Later" list; tick a box there and h
 - Skipped: export and the doctor report. Parked: "What to eat next" (Plan tomorrow no longer
   waits for it).
 
-**Eating out (restaurant menus)**
-- [x] Restaurant menus from FatSecret, so people can look up and plan a meal before they eat
-  out: search chains and menu items, build a plate, see it against what's left today, then log
-  it or save it for later. Built behind `RESTAURANTS`; off in production until FatSecret confirms
-  in writing that EatME may keep the numbers of the items a person logs
-- [x] FatSecret Platform account and API keys; `FATSECRET_CLIENT_ID` and `FATSECRET_CLIENT_SECRET`
-  are set on Railway (`RESTAURANTS` is not)
-- [ ] You: Premier Free on the key (US data, free under $1M revenue and $1M raised; until then a
-  token for the `premier` scope answers `invalid_scope`), the written answer on storing logged items,
-  Railway Pro with Static Outbound IPs added to the key's allowed IP addresses (FatSecret only
-  answers calls from registered addresses, error 21 otherwise), then `RESTAURANTS=true` on Railway,
-  the store listing and App Privacy changes in `store/README.md` ("When restaurant menus go live")
-  and FatSecret's credit in the landing page footer (commented out in `legal/index.html`)
+**Eating out (restaurant menus): retired 21 October 2026**
+- [x] Restaurant menus from FatSecret were built behind `RESTAURANTS` and never turned on in production.
+  Retired on 21 October 2026, decided with the owner: a feature switched off in the binary is a dormant
+  feature to App Review (2.3.1(a)), FatSecret's terms forbid ranking or advice from their numbers (§1.7(iii)),
+  which What to order needs, and keeping logged numbers needed their written yes. Removed: the Restaurants tab,
+  the chain menu and plate builder, `/api/restaurants*`, the FatSecret client, `features.restaurants` and the
+  FatSecret lines in the Privacy Policy, Terms, Washington policy and landing page. Kept: `meal_items.restaurant`
+  and the `restaurant` meal source, so meals logged while testing still read (no migration)
+- [ ] You: delete `FATSECRET_CLIENT_ID`, `FATSECRET_CLIENT_SECRET` (and `RESTAURANTS`, if set) on Railway, and
+  close the key in the FatSecret Platform account
 
 - [ ] **What to order** (v2.5, planned 18 October 2026): at any restaurant, the menu items that fit what's left
   today, ranked by our code, with chain numbers or estimates from a menu photo, logged in one tap. Specified in
   `WHAT-TO-ORDER.md`, which also records why rankings can't use FatSecret data and why Nutritionix waits
 
-**Eating out decisions** (checked September 2026; migration `restaurant_meals`)
+**Eating out decisions** (checked September 2026; migration `restaurant_meals`; kept for the record, the
+feature was retired on 21 October 2026)
 - Source: FatSecret Platform API, Premier Free (`premier` scope). OAuth 2.0 client credentials
   (`https://oauth.fatsecret.com/connect/token`, a token lasts 24 hours, cached in memory);
   `foods.search.v3` for search and menus, `food.get.v5` for an item's servings, `food_brands.get.v2`

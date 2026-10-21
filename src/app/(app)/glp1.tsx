@@ -8,6 +8,7 @@ import { choiceBody, choiceReady, emptyChoice, MedicineFields, type MedicineChoi
 import { RecentSites } from '@/components/glp1/sites';
 import { RefillSheet, SupplyCard, SupplySheet } from '@/components/glp1/supply';
 import { SwitchSheet } from '@/components/glp1/switch-sheet';
+import { SourcesLink } from '@/components/sources';
 import { Button } from '@/components/ui/button';
 import { IconButton } from '@/components/ui/icon-button';
 import { Screen } from '@/components/ui/screen';
@@ -226,6 +227,7 @@ export default function Glp1Screen() {
             For people taking a GLP-1 medicine. Track your doses, supply and how you feel, with protein, fiber and water
             first — they help protect muscle and keep digestion comfortable while your appetite is lower.
           </Text>
+          <SourcesLink topic="glp1" className="mt-1" />
         </View>
 
         <View className="rounded-2xl bg-surface p-4">

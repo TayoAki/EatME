@@ -3,6 +3,7 @@ import { ArrowLeft, Pill, Plus } from 'lucide-react-native';
 import { useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, Text, View } from 'react-native';
 
+import { SourcesLink } from '@/components/sources';
 import { SupplementSheet } from '@/components/supplements/supplement-sheet';
 import { Button } from '@/components/ui/button';
 import { IconButton } from '@/components/ui/icon-button';
@@ -59,6 +60,7 @@ export default function SupplementsScreen() {
           <Text className="mt-1 text-[15px] leading-[21px] text-muted">
             Tick them on Home when you take them. Their vitamins and minerals count toward your day.
           </Text>
+          <SourcesLink topic="nutrients" className="mt-1" />
         </View>
 
         {list.isPending ? (

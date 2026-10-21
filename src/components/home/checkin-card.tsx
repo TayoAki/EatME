@@ -4,6 +4,7 @@ import { TrendingUp, X } from 'lucide-react-native';
 import { useEffect, useState } from 'react';
 import { Pressable, Text, View } from 'react-native';
 
+import { SourcesLink } from '@/components/sources';
 import { BottomSheet } from '@/components/ui/bottom-sheet';
 import { Button } from '@/components/ui/button';
 import { colors } from '@/constants/colors';
@@ -53,6 +54,7 @@ export function HowSheet({ checkIn, unit, onClose }: { checkIn: CheckIn; unit: U
           your safety floor, never lower while you&apos;re losing more than 1 kg a week, and never lower in GLP-1 mode.
         </Text>
         <Text className="text-[13px] leading-[18px] text-muted">An estimate from what you logged, not a measurement. It never changes without your tap.</Text>
+        <SourcesLink topic="checkin" />
       </View>
       <Button title="Got it" className="mt-5" onPress={onClose} />
     </BottomSheet>

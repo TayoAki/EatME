@@ -7,14 +7,12 @@ import { requireUserId } from '@/lib/server/auth';
 import { ANALYZED_SOURCES, freeScansPerDay, isActive, paymentsEnabled, scansToday, subscriptionOf } from '@/lib/server/billing';
 import { dateParam, dayBounds, loggedAtFor, userTimeZone } from '@/lib/server/day';
 import { multiPhotoEnabled } from '@/lib/server/experiments';
-import { restaurantsEnabled } from '@/lib/server/fatsecret';
 import { toMeal } from '@/lib/server/dto';
 import { handle, HttpError, readJson } from '@/lib/server/http';
 import { logDrinkMeal, logFoodMeal, logProductMeal, logQuickMeal } from '@/lib/server/instant-meals';
 import { describeError } from '@/lib/server/log';
 import { resumeStalledAnalyses, startMealAnalysis } from '@/lib/server/meal-analysis';
 import { rateLimit } from '@/lib/server/rate-limit';
-import { logRestaurantMeal } from '@/lib/server/restaurants';
 import { deleteObject, extraPhotoKey, mealPhotoKey, putObject } from '@/lib/server/storage';
 import {
   describeMealSchema,
@@ -28,12 +26,11 @@ import {
 } from '@/shared/meals';
 import { drinkMealSchema } from '@/shared/drinks';
 import { barcodeMealSchema, foodMealSchema } from '@/shared/products';
-import { restaurantMealSchema } from '@/shared/restaurants';
 
 /** AI analyses (photos, labels, descriptions) per rolling 24 hours — keeps the AI bill predictable. */
 const DAILY_SCAN_LIMIT = 50;
 
-/** Meals logged without AI (barcodes, database foods, quick adds, restaurant plates, drinks) per 24 hours: only there to stop abuse. */
+/** Meals logged without AI (barcodes, database foods, quick adds, drinks) per 24 hours: only there to stop abuse. */
 const DAILY_INSTANT_LIMIT = 300;
 
 type UploadedFile = { size: number; type: string; arrayBuffer(): Promise<ArrayBuffer> };
@@ -193,7 +190,7 @@ export const POST = handle(async (request) => {
 
   if ((request.headers.get('content-type') ?? '').startsWith('application/json')) {
     const body = await readJson(request);
-    if (has(body, 'barcode') || has(body, 'food') || has(body, 'quick') || has(body, 'restaurant') || has(body, 'drink')) {
+    if (has(body, 'barcode') || has(body, 'food') || has(body, 'quick') || has(body, 'drink')) {
       rateLimit(`instant-meals:${userId}`, DAILY_INSTANT_LIMIT, 24 * 60 * 60 * 1000);
       let meal;
       if (has(body, 'quick')) {
@@ -202,9 +199,6 @@ export const POST = handle(async (request) => {
       } else if (has(body, 'drink')) {
         const { drink } = drinkMealSchema.parse(body);
         meal = await logDrinkMeal(userId, drink, loggedAtFor(drink.date, user.timezone));
-      } else if (has(body, 'restaurant')) {
-        if (!restaurantsEnabled()) throw new HttpError(404, "Restaurant menus aren't available yet.");
-        meal = await logRestaurantMeal(userId, restaurantMealSchema.parse(body).restaurant);
       } else if (has(body, 'barcode')) {
         meal = await logProductMeal(userId, barcodeMealSchema.parse(body).barcode);
       } else {

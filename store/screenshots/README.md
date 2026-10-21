@@ -22,7 +22,7 @@ you can check, and GLP-1 mode.
 ## How they were made
 
 Real screens of the app (the web build of this repo, at the iPhone 16 Pro Max size, 440 × 956 points at 3×)
-running with **the same feature flags as production** (`/api/features`: payments on, restaurant menus off) and a
+running with **the same feature flags as production** (`/api/features`: payments on) and a
 fictional demo person, "Alex", who subscribed to Premium: two weeks of logged meals, a falling weight trend, GLP-1
 mode with a weekly pen, and a drafted tomorrow. Everyday screens are taken at 3:45 pm, before Home shows the
 evening Plan tomorrow card, so no Premium feature appears unmarked; only the Plan tomorrow shot is at 6:40 pm. The

@@ -1,4 +1,4 @@
-import { CameraView, useCameraPermissions, type CameraType } from 'expo-camera';
+import { CameraView, type CameraType } from 'expo-camera';
 import { Image } from 'expo-image';
 import { RefreshCw, X } from 'lucide-react-native';
 import { useRef, useState } from 'react';
@@ -8,6 +8,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Button } from '@/components/ui/button';
 import { IconButton } from '@/components/ui/icon-button';
 import { colors } from '@/constants/colors';
+import { useCameraAccess } from '@/lib/camera-access';
 import { haptics } from '@/lib/haptics';
 import { PHOTO_POSE_LABELS, type PhotoPose } from '@/shared/body';
 
@@ -28,7 +29,7 @@ type ProgressCameraProps = {
 export function ProgressCamera({ pose, ghostUrl, onPhoto, onClose }: ProgressCameraProps) {
   const insets = useSafeAreaInsets();
   const cameraRef = useRef<CameraView>(null);
-  const [permission, requestPermission] = useCameraPermissions();
+  const [permission, requestPermission] = useCameraAccess(true);
   const [facing, setFacing] = useState<CameraType>('back');
   const [capturing, setCapturing] = useState(false);
 
@@ -47,15 +48,17 @@ export function ProgressCamera({ pose, ghostUrl, onPhoto, onClose }: ProgressCam
   return (
     <Modal visible animationType="slide" presentationStyle="fullScreen" onRequestClose={onClose}>
       <View className="flex-1 bg-black">
-        {!permission ? (
+        {!permission || permission.status === 'undetermined' ? (
+          // Checking, or the system alert is asking (no screen of ours in front of it, 5.1.1(iv)).
           <ActivityIndicator color={colors.canvas} className="flex-1" />
         ) : !permission.granted ? (
           <View className="flex-1 justify-center gap-4 px-8">
+            <Text className="text-center text-[24px] font-bold text-white">Camera is off</Text>
             <Text className="text-center text-[17px] leading-6 text-white">
-              Weight Class needs the camera for progress photos. They stay private and are never used for AI.
+              Turn on Camera for Weight Class in Settings to take progress photos. They stay private and are never used for AI.
             </Text>
             {permission.canAskAgain ? (
-              <Button title="Allow camera" variant="secondary" onPress={() => void requestPermission()} />
+              <Button title="Use the camera" variant="secondary" onPress={() => void requestPermission()} />
             ) : (
               <Button title="Open Settings" variant="secondary" onPress={() => void Linking.openSettings()} />
             )}

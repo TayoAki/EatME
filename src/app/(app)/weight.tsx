@@ -6,6 +6,7 @@ import { ActivityIndicator, Pressable, ScrollView, Text, View } from 'react-nati
 
 import { MeasurementsTab } from '@/components/body/measurements-tab';
 import { PhotosTab } from '@/components/body/photos-tab';
+import { SourcesLink } from '@/components/sources';
 import { Button } from '@/components/ui/button';
 import { IconButton } from '@/components/ui/icon-button';
 import { Screen } from '@/components/ui/screen';
@@ -299,6 +300,7 @@ function WeightTab() {
                 <Text className="text-[13px] text-muted">Weigh-ins</Text>
               </View>
             </View>
+            <SourcesLink topic="trend" label="How the trend works" className="mt-1 self-center" />
             {markers.length > 0 ? (
               <View className="mt-3 gap-1 px-1">
                 {markers.map((m) => (

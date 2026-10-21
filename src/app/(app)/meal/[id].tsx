@@ -38,7 +38,7 @@ import { ProteinHint } from '@/components/meal/protein-hint';
 import { SugarHint } from '@/components/meal/sugar-hint';
 import { RepeatSheet } from '@/components/meal/repeat-sheet';
 import { ServingsStepper } from '@/components/meal/servings-stepper';
-import { FatSecretCredit } from '@/components/restaurants/fatsecret-credit';
+import { SourcesLink } from '@/components/sources';
 import { Button } from '@/components/ui/button';
 import { IconButton } from '@/components/ui/icon-button';
 import { Screen } from '@/components/ui/screen';
@@ -343,7 +343,7 @@ function MealEditor({ meal, showNumbers, onShowNumbers, corrections, onCorrectio
   const fromDatabase = meal.source === 'food';
   const quick = meal.source === 'quick';
   const barcodes = [...new Set(items.flatMap((item) => (item.product ? [item.product.code] : [])))];
-  // From restaurant menus (FatSecret): their credit is shown wherever their numbers are.
+  // Logged from restaurant menus while they were tested (retired October 2026): the chain's name stays.
   const chains = [...new Set(items.flatMap((item) => (item.restaurant ? [item.restaurant.chain] : [])))];
   const fromRestaurant = items.length > 0 && items.every((item) => item.restaurant);
 
@@ -366,10 +366,7 @@ function MealEditor({ meal, showNumbers, onShowNumbers, corrections, onCorrectio
         ) : !hero && fromRestaurant ? (
           <View className="flex-row gap-3 rounded-card bg-surface p-4">
             <Store size={18} color={colors.muted} style={{ marginTop: 2 }} />
-            <View className="flex-1">
-              <Text className="text-[15px] leading-[21px] text-ink">From the {chains.join(' and ')} menu.</Text>
-              <FatSecretCredit align="start" className="mt-1" />
-            </View>
+            <Text className="flex-1 text-[15px] leading-[21px] text-ink">From the {chains.join(' and ')} menu.</Text>
           </View>
         ) : !hero && (fromBarcode || fromDatabase || quick) ? (
           <View className="flex-row gap-3 rounded-card bg-surface p-4">
@@ -480,6 +477,7 @@ function MealEditor({ meal, showNumbers, onShowNumbers, corrections, onCorrectio
             </View>
           </View>
         )}
+        <SourcesLink topic={alcoholic ? 'drinks' : 'foods'} label="Where these numbers come from" className="mt-2" />
 
         {sugar ? (
           <View className="mt-4">

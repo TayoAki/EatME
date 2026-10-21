@@ -14,7 +14,6 @@ import type { FoodCorrection } from '@/shared/personal-foods';
 import { distinctBrand, PRODUCT_SOURCE_LABELS } from '@/shared/products';
 import { countLabel } from '@/shared/restaurants';
 
-import { FatSecretCredit } from '../restaurants/fatsecret-credit';
 
 import { FoodAmountSheet, type FoodDraft } from './food-amount-sheet';
 import { FoodSearchSheet } from './food-search-sheet';
@@ -210,7 +209,6 @@ export function FoodsSection({
         </Text>
       </Pressable>
 
-      {fromMenus ? <FatSecretCredit align="start" className="mt-1 px-1" /> : null}
 
       {editing && !searching ? (
         <FoodAmountSheet

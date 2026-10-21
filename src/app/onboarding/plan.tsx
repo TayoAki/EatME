@@ -4,12 +4,12 @@ import { useMemo } from 'react';
 import { ScrollView, Text, View } from 'react-native';
 
 import { PricingNote } from '@/components/onboarding/pricing-note';
+import { openSources, SourcesScreenLink } from '@/components/sources';
 import { Button } from '@/components/ui/button';
 import { ProgressRing } from '@/components/ui/progress-ring';
 import { Screen } from '@/components/ui/screen';
 import { colors } from '@/constants/colors';
 import { useSession } from '@/lib/auth-client';
-import { links, openLink } from '@/lib/links';
 import { completeAnswers, useOnboardingStore } from '@/lib/onboarding-store';
 import { FIRST_STEP_HREF } from '@/lib/onboarding-steps';
 import { formatLongDate } from '@/lib/time';
@@ -91,11 +91,12 @@ export default function PlanReadyScreen() {
 
         <View className="mt-7 rounded-card border border-line p-4">
           <Text className="text-[18px] font-semibold text-ink">Daily recommendation</Text>
-          <Text className="mb-4 mt-0.5 text-[14px] text-muted">
+          <Text className="mt-0.5 text-[14px] text-muted">
             {plan.source === 'ai'
-              ? 'Calculated by AI from your answers'
-              : 'Calculated with the Mifflin-St Jeor formula'}
+              ? 'Estimated by AI from your answers, checked against the Mifflin-St Jeor formula'
+              : 'Estimated with the Mifflin-St Jeor formula'}
           </Text>
+          <SourcesScreenLink topic="calories" className="mb-3" />
           <View className="gap-3">
             <View className="flex-row gap-3">
               <TargetCard label="Calories" value={plan.calories} color={colors.ink} />
@@ -136,8 +137,8 @@ export default function PlanReadyScreen() {
             <Text
               accessibilityRole="link"
               className="mt-2 text-[14px] font-semibold text-ink underline"
-              onPress={() => void openLink(links.sources)}>
-              How Weight Class works out your numbers
+              onPress={() => openSources('calories')}>
+              Sources: how Weight Class works out your numbers
             </Text>
           </View>
         </View>

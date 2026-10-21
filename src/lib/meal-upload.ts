@@ -4,7 +4,6 @@ import { Platform } from 'react-native';
 
 import type { DrinkBody } from '@/shared/drinks';
 import type { Meal, PhotoMode } from '@/shared/meals';
-import { toPlateItem, type PlateLine } from '@/shared/restaurants';
 
 import type { ApiClient } from './api';
 
@@ -81,15 +80,6 @@ export async function describeMeal(api: ApiClient, text: string) {
 /** A packaged product by its barcode: saved right away with the label's numbers (no AI). */
 export async function logProduct(api: ApiClient, code: string, grams: number) {
   const { meal } = await api<{ meal: Meal }>('/api/meals', { method: 'POST', body: { barcode: { code, grams } } });
-  return meal;
-}
-
-/** A plate from restaurant menus: the server fetches the numbers (no AI). `save` keeps it in Saved meals. */
-export async function logRestaurantPlate(api: ApiClient, lines: readonly PlateLine[], save = false) {
-  const { meal } = await api<{ meal: Meal }>('/api/meals', {
-    method: 'POST',
-    body: { restaurant: { items: lines.map(toPlateItem), ...(save ? { save: true } : {}) } },
-  });
   return meal;
 }
 

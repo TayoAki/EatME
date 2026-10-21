@@ -193,7 +193,7 @@ our code computed. Our server never sends the AI the person's targets, what's le
 | Chains, ranked and logged | **Our chain table**: the top 25 US chains first (then 50), entered from each chain's own nutrition guide, all 11 required nutrients, with the source link and the date checked; a "report a wrong item" button (like product reports) | Facts carry no copyright; the only source we may rank, label and keep indefinitely for free (F11). It is also the test set for our AI estimates |
 | Any other restaurant | Menu photo → USDA FoodData Central via `computeItems` | Public domain; already our database (F12) |
 | Chains beyond the table | Name search falls back to the menu photo route | Keeps the ranked list on numbers we may rank |
-| FatSecret | Not in What to order. Its Eating out screens (plain search, plates, logging) stay off; the letter to FatSecret about keeping logged items decides whether they ever ship or get retired | It forbids advice and ranking (F8) and needs static IPs |
+| FatSecret | Not used. Its Eating out screens were retired on 21 October 2026 and the code removed (section 13) | It forbids advice and ranking (F8) and needs static IPs |
 | Nutritionix | Not now; reopen when restaurant use justifies about $22,000 a year, with written terms on storage, ranking and derived data | F9 |
 | Edamam | Not used | Keeps only four numbers per logged item (F10) |
 | Finding restaurants nearby (v2.6) | Apple Maps (MapKit) with approximate location and stored Place IDs, or a self-hosted US subset of Overture's open places data | Google's and Yelp's terms rule them out (F13) |
@@ -239,9 +239,9 @@ own PDF. Each item is rechecked every six months or when a report comes in.
 
 ## 9. Premium, limits and costs
 
-- **Proposed**: What to order is **Premium**, like Plan tomorrow, with one free try so people see it before the
-  Premium screen (unlike MenuFit's quiz-then-paywall). Menu scans count against the AI scan limits we have (3 a
-  day free, 50 a day Premium). Chain menus by name cost no AI. Owner decision (section 13).
+- **Decided (21 October 2026)**: What to order is **Premium**, like Plan tomorrow, with one free try so people see
+  it before the Premium screen (unlike MenuFit's quiz-then-paywall). Menu scans count against the AI scan limits we
+  have (3 a day free, 50 a day Premium). Chain menus by name cost no AI.
 - **Costs**: no licence fees. A menu scan is text only (cheaper than a photo scan) plus pricing up to eight
   dishes, measured in the pilot. The chain table is staff time.
 - **Server switch**: `WHAT_TO_ORDER`, for outages only. It is on in the build Apple reviews and is never turned on
@@ -309,12 +309,14 @@ people use it.
 
 ## 13. Decisions for the owner
 
-1. **Premium**: What to order as Premium with one free try (proposed), or free within the scan limits.
+1. **Premium**: **decided 21 October 2026: Premium with one free try** (the first list free for every account,
+   then Premium; section 9).
 2. **The first chains**: which ten, then which 25 (proposed: the most visited US chains in the Circana top 50,
-   plus the ones our testers log most).
-3. **FatSecret**: send the letter about keeping logged items and ship its plain Eating out screens, or retire them
-   (proposed: retire, since the chain table covers the chains that matter).
-4. **Name**: "What to order" (proposed), or another plain name. Not "healthy menu".
+   plus the ones our testers log most). Open.
+3. **FatSecret**: **decided 21 October 2026: retired.** Its Eating out screens were switched off in the binary
+   (a dormant feature to App Review, 2.3.1(a)) and its terms forbid the ranking this feature needs; the code was
+   removed in build 4 (PLAN.md §16, Eating out). The chain table covers the chains that matter.
+4. **Name**: "What to order" (proposed), or another plain name. Not "healthy menu". Open.
 
 ---
 

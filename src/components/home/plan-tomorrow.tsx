@@ -3,6 +3,7 @@ import { CalendarDays, Crown, Repeat, Shuffle } from 'lucide-react-native';
 import { useState } from 'react';
 import { ActivityIndicator, Pressable, Text, View } from 'react-native';
 
+import { SourcesLink } from '@/components/sources';
 import { BottomSheet } from '@/components/ui/bottom-sheet';
 import { Button } from '@/components/ui/button';
 import { colors } from '@/constants/colors';
@@ -229,7 +230,8 @@ export function DraftDay({ date, calm }: { date: string; calm: boolean }) {
           <Text className="mt-1 text-[14px] leading-5 text-muted">
             A draft of tomorrow from your own meals. Nothing is logged until you tap Log on the day.
           </Text>
-          {calm ? null : <Text className="mt-3 text-[17px] font-semibold text-ink">{draftSummary(plan.totals)}</Text>}
+          <SourcesLink topic="plan-tomorrow" className="mt-1" />
+          {calm ? null : <Text className="mt-2 text-[17px] font-semibold text-ink">{draftSummary(plan.totals)}</Text>}
           {plan.belowFloor ? (
             <View className="mt-3 rounded-2xl bg-surface p-3.5">
               <Text className="text-[14px] leading-5 text-ink">Add a snack to reach your minimum.</Text>
