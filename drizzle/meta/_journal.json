@@ -162,6 +162,13 @@
       "when": 1792624290582,
       "tag": "0022_chain_items",
       "breakpoints": true
+    },
+    {
+      "idx": 23,
+      "version": "7",
+      "when": 1792626718760,
+      "tag": "0023_chain_items_trans_fat",
+      "breakpoints": true
     }
   ]
 }

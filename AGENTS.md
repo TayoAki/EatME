@@ -46,7 +46,7 @@ design/             AI-generated UI references
 legal/              landing page, privacy policy, terms (served by the server)
 store/              App Store and Google Play answers (listing, privacy forms, review notes), release.md, screenshots/
 plugins/            local Expo config plugins
-data/               USDA foods (fndds.json.gz) and What to order's chain menus (chains/*.csv → chains.json)
+data/               USDA foods (fndds.json.gz) and What to order's chain menus (chains/menus/*.csv → chains.json)
 drizzle/            generated SQL migrations — never edit by hand
 ```
 
@@ -109,7 +109,8 @@ npx expo install --fix      # fix incompatible package versions
 npm run db:generate         # create a migration from src/db/schema.ts
 npm run db:migrate          # apply migrations to DATABASE_URL
 npm run db:studio           # browse the database
-npm run chains:build        # check data/chains/*.csv and write data/chains.json (the server loads it)
+npm run chains:draft        # draft chain menus from their own guides (two AI drafts, see data/chains/README.md)
+npm run chains:build        # check data/chains/menus/*.csv and write data/chains.json (the server loads it)
 npm run build:server        # export the API routes for the production server
 npm run start:server        # run the production server (as on Railway)
 ```

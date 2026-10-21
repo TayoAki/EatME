@@ -113,6 +113,20 @@ Type: **O** observed in a primary source · **R** reported by someone else (pres
 For GLP-1 mode (F7): protein first, and smaller-portion ideas (a starter as a main, a half portion) when a full
 dish is too much for what's left.
 
+**Coverage.** MenuFit doesn't publish how many chains it has numbers for. Its site claims "any restaurant in the world
+with 22.3 Million+ locations" (a list of places, not menus); its chain numbers come from Nutritionix, which lists
+202,837 items from 860 restaurants (both read 21 October 2026). So: at most about 860 chains with real numbers,
+everything else an AI estimate. We match "any restaurant" with the menu photo and grow our own table as far as it
+goes: 100 chains at launch, then on down the ranking (section 7).
+
+**From MenuFit's recorded screens** (screensdesign.com, owner's reference, 21 October 2026): a quiz with food
+favourites and a "how healthy" slider; Nearby Restaurants with chain logos; Suggested Meals as cards with a food photo,
+a one-line reason, calories, protein, carbs, fat, a 0-100 score and "Order Now"; "Healthify" to swap parts of an order
+with a before/after total; an AI chat per restaurant; a paywall with a 3-day trial on the yearly plan. We take the
+card's shape (dish, reason, the four numbers, one action) and the before/after total for tweaks. We leave out the
+score (section 5's wording), chain logos and food photos (section 10), "Order Now" until we link to a chain's own
+ordering page, and the chat (not in v2.5).
+
 ---
 
 ## 5. What the person sees
@@ -190,11 +204,11 @@ our code computed. Our server never sends the AI the person's targets, what's le
 
 | Need | Choice | Why |
 | --- | --- | --- |
-| Chains, ranked and logged | **Our chain table**: the top 25 US chains first (then 50), entered from each chain's own nutrition guide, all 11 required nutrients, with the source link and the date checked; a "report a wrong item" button (like product reports) | Facts carry no copyright; the only source we may rank, label and keep indefinitely for free (F11). It is also the test set for our AI estimates |
+| Chains, ranked and logged | **Our chain table**, as many chains as we can: the 100 biggest by US sales for launch (the Technomic Top 500 order, `data/chains/ranking.csv`), then on down the list. Each chain's own nutrition guide, found and read by Firecrawl, copied by two AI models from different makers; only lines where both drafts agree go in unchecked, a person checks every disagreement and a sample (`data/chains/README.md`). All the FDA's nutrients, the source link and the date checked; a "report a wrong item" button (like product reports) | Facts carry no copyright; the only source we may rank, label and keep indefinitely for free (F11). It is also the test set for our AI estimates. Two independent drafts make hundreds of chains possible without a person re-typing every line |
 | Any other restaurant | Menu photo → USDA FoodData Central via `computeItems` | Public domain; already our database (F12) |
 | Chains beyond the table | Name search falls back to the menu photo route | Keeps the ranked list on numbers we may rank |
 | FatSecret | Not used. Its Eating out screens were retired on 21 October 2026 and the code removed (section 13) | It forbids advice and ranking (F8) and needs static IPs |
-| Nutritionix | Not now; reopen when restaurant use justifies about $22,000 a year, with written terms on storage, ranking and derived data | F9 |
+| Nutritionix | Later (decided 21 October 2026): reopen when What to order earns about $22,000 a year, with written terms on storage, ranking and derived data; it would take us to about 860 chains at once | F9 |
 | Edamam | Not used | Keeps only four numbers per logged item (F10) |
 | Finding restaurants nearby (v2.6) | Apple Maps (MapKit) with approximate location and stored Place IDs, or a self-hosted US subset of Overture's open places data | Google's and Yelp's terms rule them out (F13) |
 
@@ -265,6 +279,9 @@ own PDF. Each item is rechecked every six months or when a report comes in.
   sent to the AI; name search works without it (5.1.1(iv)).
 - **Washington health data policy and Privacy Policy**: add menu scans (what's read, kept 30 days, sent to the AI
   providers, never sold) and the chain table's sources.
+- **No chain photos or logos (5.2.1)**: food photos are the chains' copyright and logos their trademarks; Apple
+  rejects apps that use "protected third-party material" without permission. Chain names appear as text. If the
+  list needs pictures, they are our own (generic, unbranded dish illustrations), never copied.
 - **App Review**: on in the reviewed build and in the review notes, with a test menu image on the support page a
   reviewer can photograph from a second screen, so it can be tried without a restaurant (2.1, 2.5.19).
   Screenshots show it with the Premium badge.
@@ -283,8 +300,12 @@ changes before any app code.
   sugars and fiber within carbs, fats within fat, the energy sum, https source, the check date, duplicates) and
   writes `data/chains.json`, which the server loads when it starts (`server/chains.mjs`; items left out are retired,
   never deleted). Types and checks in `src/shared/chains.ts`.
-- [ ] **First ten chains**: entered and checked (about 600 items), once the owner confirms the list (section 13).
-  This is the ground truth for the next check.
+- [x] **The drafting pipeline** (21 October 2026): `npm run chains:draft` finds each chain's guide on its own site
+  with Firecrawl, reads it, has two models copy it and keeps the lines they agree on; the rest wait for a person
+  (`data/chains/README.md`). The order: `data/chains/ranking.csv`, ranks 1-250. Tested on the compare step; the first
+  real run (Chick-fil-A, guide read) waits for OpenRouter credit and `FIRECRAWL_API_KEY`.
+- [ ] **First ten chains** drafted and their review lists checked: the ground truth for the next check. Then on to
+  100 before launch.
 - [ ] **Accuracy pilot** (like the week-1 pilot run for ChartME): 60 dishes from those ten chains, their menu text
   through our pipeline (read → foods and portions → USDA) against the chains' published numbers. Pass: median
   calorie error 20% or less, the published top five and ours share at least three dishes, and no underestimate on
@@ -302,12 +323,12 @@ changes before any app code.
 | 2 | Ranking (`menu-fit.ts`) with its tests, foods to skip, calm mode words | 2 |
 | 3 | Server: chain menu routes, menu reading and two-pass pricing, `menu_scans`, logging, limits, reports | 4 |
 | 4 | App: chain search and What fits, Menu scan mode, the reading module, confirm step, list, dish sheet, log and save | 5 |
-| 5 | Chain table to 25 chains | 3 |
+| 5 | Chain table to 100 chains (the pipeline drafts; a person checks the review lists) | 4 |
 | 6 | Consent, Privacy Policy, Washington policy, sources page, test menu, store text, review notes | 1.5 |
 | 7 | Tests: server end-to-end, UI suite, device checklist (camera, Vision) | 2 |
-| | **Total** | **≈ 21.5** |
+| | **Total** | **≈ 22.5** |
 
-Release as v2.5 with one EAS build. Then 50 chains, "near me" (Apple Maps or Overture) and a Home card in v2.6, if
+Release as v2.5 with one EAS build. Then 250 chains and beyond, "near me" (Apple Maps or Overture) and a Home card in v2.6, if
 people use it.
 
 ---
@@ -316,8 +337,9 @@ people use it.
 
 1. **Premium**: **decided 21 October 2026: Premium with one free try** (the first list free for every account,
    then Premium; section 9).
-2. **The first chains**: which ten, then which 25 (proposed: the most visited US chains in the Circana top 50,
-   plus the ones our testers log most). Open.
+2. **The first chains**: **decided 21 October 2026: as many as possible**, by US sales (the Technomic Top 500
+   order): 100 for launch, then keep going. Checked by two AI drafts that must agree, plus a person for every
+   disagreement and a sample (not a person on every line), fetched with Firecrawl. Nutritionix later.
 3. **FatSecret**: **decided 21 October 2026: retired.** Its Eating out screens were switched off in the binary
    (a dormant feature to App Review, 2.3.1(a)) and its terms forbid the ranking this feature needs; the code was
    removed in build 4 (PLAN.md §16, Eating out). The chain table covers the chains that matter.

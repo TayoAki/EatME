@@ -854,8 +854,10 @@ item and replaces the old v2.2 list and the "Later" list; tick a box there and h
 - [ ] **What to order** (v2.5, planned 18 October 2026): at any restaurant, the menu items that fit what's left
   today, ranked by our code, with chain numbers or estimates from a menu photo, logged in one tap. Specified in
   `WHAT-TO-ORDER.md`, which also records why rankings can't use FatSecret data and why Nutritionix waits. Decided
-  21 October 2026: Premium with one free try; FatSecret retired. Step 1 started: the chain table and its load
-  script (`data/chains/`, `npm run chains:build`); the first ten chains wait for the owner's list
+  21 October 2026: Premium with one free try; FatSecret retired; as many chains as possible by US sales (100 for
+  launch), checked by two AI drafts that must agree plus a person for disagreements and a sample; Nutritionix later;
+  no chain photos or logos. Built: the chain table, its load script and the drafting pipeline (`data/chains/`,
+  `npm run chains:draft`, `npm run chains:build`). Waiting on OpenRouter credit and `FIRECRAWL_API_KEY`
 
 **Eating out decisions** (checked September 2026; migration `restaurant_meals`; kept for the record, the
 feature was retired on 21 October 2026)

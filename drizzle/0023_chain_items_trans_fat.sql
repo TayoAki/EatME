@@ -1,0 +1,1 @@
+ALTER TABLE "chain_items" ALTER COLUMN "trans_fat_g" DROP NOT NULL;

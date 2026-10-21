@@ -1,10 +1,11 @@
 /**
- * Checks the chain menus in data/chains/*.csv (one file per chain, entered by hand from the chain's own
- * nutrition guide, see data/chains/README.md) and builds data/chains.json for the server.
+ * Checks the chain menus in data/chains/menus/*.csv (one file per chain, from the chain's own nutrition
+ * guide, see data/chains/README.md) and builds data/chains.json for the server.
  * Usage: npm run chains:build              (check and write)
  *        npm run chains:build -- --check   (check only, writes nothing)
- * Errors stop the build; warnings are listed for a person to look at. The server loads the file into
- * the `chain_items` table when it starts (server/chains.mjs).
+ * Errors stop the build; warnings are listed for a person to look at; `pending` lines (the two drafts
+ * disagreed) are left out until a person checks them. The server loads the file into the
+ * `chain_items` table when it starts (server/chains.mjs).
  */
 import { createHash } from 'node:crypto';
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
@@ -18,40 +19,11 @@ import {
   checkChainItem,
   type ChainItemsFile,
 } from '../src/shared/chains';
+import { parseCsv } from './csv';
 
-const DIR = path.join(__dirname, '..', 'data', 'chains');
+const DIR = path.join(__dirname, '..', 'data', 'chains', 'menus');
 const OUT = path.join(__dirname, '..', 'data', 'chains.json');
-
-/** Minimal RFC 4180 CSV parser (quoted fields, doubled quotes), as in build-foods.ts. */
-function parseCsv(text: string): string[][] {
-  const rows: string[][] = [];
-  let row: string[] = [];
-  let field = '';
-  let quoted = false;
-  for (let i = 0; i < text.length; i++) {
-    const c = text[i];
-    if (quoted) {
-      if (c === '"' && text[i + 1] === '"') {
-        field += '"';
-        i++;
-      } else if (c === '"') quoted = false;
-      else field += c;
-    } else if (c === '"') quoted = true;
-    else if (c === ',') {
-      row.push(field);
-      field = '';
-    } else if (c === '\n' || c === '\r') {
-      if (c === '\r' && text[i + 1] === '\n') i++;
-      row.push(field);
-      if (row.some((value) => value.trim() !== '')) rows.push(row);
-      row = [];
-      field = '';
-    } else field += c;
-  }
-  row.push(field);
-  if (row.some((value) => value.trim() !== '')) rows.push(row);
-  return rows;
-}
+const CHECK_COLUMN = CHAIN_CSV_COLUMNS.indexOf('check');
 
 const checkOnly = process.argv.includes('--check');
 const today = new Date().toISOString().slice(0, 10);
@@ -63,6 +35,7 @@ const items: ChainItemsFile['items'] = [];
 const seen = new Map<string, string>();
 let errorCount = 0;
 let warningCount = 0;
+let pendingCount = 0;
 
 for (const file of files) {
   const [header, ...lines] = parseCsv(readFileSync(path.join(DIR, file), 'utf8'));
@@ -75,6 +48,11 @@ for (const file of files) {
   let fileItems = 0;
   lines.forEach((values, index) => {
     const where = `${file}:${index + 2}`;
+    // The two drafts disagreed: a person fixes the numbers and sets check to "person".
+    if (values[CHECK_COLUMN]?.trim() === 'pending') {
+      pendingCount++;
+      return;
+    }
     const parsed = chainCsvRowSchema.safeParse(Object.fromEntries(CHAIN_CSV_COLUMNS.map((column, i) => [column, values[i] ?? ''])));
     if (!parsed.success) {
       for (const issue of parsed.error.issues) console.error(`${where} ${issue.path.join('.')}: ${issue.message}`);
@@ -121,7 +99,10 @@ for (const file of files) {
 }
 
 const count = (n: number, word: string) => `${n} ${word}${n === 1 ? '' : 's'}`;
-console.log(`${count(items.length, 'item')} from ${count(files.length, 'chain')}, ${count(errorCount, 'error')}, ${count(warningCount, 'warning')}`);
+console.log(
+  `${count(items.length, 'item')} from ${count(files.length, 'chain')}, ${count(errorCount, 'error')}, ` +
+    `${count(warningCount, 'warning')}, ${count(pendingCount, 'pending line')} left out until a person checks them`,
+);
 if (errorCount > 0) {
   console.error('Fix the errors above; nothing was written.');
   process.exit(1);

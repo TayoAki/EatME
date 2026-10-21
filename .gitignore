@@ -37,6 +37,9 @@ yarn-error.*
 # typescript
 *.tsbuildinfo
 
+# chain nutrition guides fetched by npm run chains:draft (never committed: only the numbers are kept)
+data/chains/.cache/
+
 example
 
 # generated native folders

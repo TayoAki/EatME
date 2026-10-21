@@ -18,6 +18,14 @@ export type ChainItemKind = (typeof CHAIN_ITEM_KINDS)[number];
 export const CHAIN_ITEM_STATUSES = ['live', 'retired'] as const;
 export type ChainItemStatus = (typeof CHAIN_ITEM_STATUSES)[number];
 
+/**
+ * How a line was checked against the chain's guide: two AI drafts from different models agreed on every
+ * number (`two-drafts`, then `npm run chains:draft` picks a sample for a person), a person checked it
+ * (`person`), or the drafts disagreed and it waits for a person (`pending`: never loaded).
+ */
+export const CHAIN_CHECKS = ['two-drafts', 'person', 'pending'] as const;
+export type ChainCheck = (typeof CHAIN_CHECKS)[number];
+
 /** The columns of `data/chains/<chain>.csv`, in order (units in the names). */
 export const CHAIN_CSV_COLUMNS = [
   'chain',
@@ -38,6 +46,7 @@ export const CHAIN_CSV_COLUMNS = [
   'protein_g',
   'source_url',
   'checked_on',
+  'check',
 ] as const;
 
 /** An item is rechecked against the chain's guide this often (or when someone reports it). */
@@ -68,8 +77,9 @@ export const chainCsvRowSchema = z.object({
   calories: amount(5000).pipe(z.number().int('whole kcal, as the guide prints it')),
   fat_g: amount(500),
   saturated_fat_g: amount(300),
-  trans_fat_g: amount(100),
-  cholesterol_mg: amount(3000),
+  // Some guides leave these two out; the rest of the FDA's list is required.
+  trans_fat_g: optionalAmount(100),
+  cholesterol_mg: optionalAmount(3000),
   sodium_mg: amount(20000),
   carbs_g: amount(1000),
   fiber_g: amount(200),
@@ -77,6 +87,7 @@ export const chainCsvRowSchema = z.object({
   protein_g: amount(500),
   source_url: z.url({ protocol: /^https$/, error: "an https:// link to the chain's own page or PDF" }),
   checked_on: z.iso.date(),
+  check: z.enum(CHAIN_CHECKS),
 });
 export type ChainCsvRow = z.infer<typeof chainCsvRowSchema>;
 
@@ -102,8 +113,8 @@ export function chainItemNutrients(row: ChainCsvRow): NutrientAmounts {
     fiber: row.fiber_g,
     sugars: row.sugars_g,
     saturatedFat: row.saturated_fat_g,
-    cholesterol: row.cholesterol_mg,
     sodium: row.sodium_mg,
+    ...(row.cholesterol_mg === null ? {} : { cholesterol: row.cholesterol_mg }),
   };
 }
 
@@ -117,9 +128,8 @@ export function checkChainItem(row: ChainCsvRow, today: string) {
   const slack = 1;
   if (row.sugars_g > row.carbs_g + slack) errors.push(`sugars (${row.sugars_g} g) above carbs (${row.carbs_g} g)`);
   if (row.fiber_g > row.carbs_g + slack) errors.push(`fiber (${row.fiber_g} g) above carbs (${row.carbs_g} g)`);
-  if (row.saturated_fat_g + row.trans_fat_g > row.fat_g + slack) {
-    errors.push(`saturated + trans fat (${row.saturated_fat_g + row.trans_fat_g} g) above fat (${row.fat_g} g)`);
-  }
+  const fats = row.saturated_fat_g + (row.trans_fat_g ?? 0);
+  if (fats > row.fat_g + slack) errors.push(`saturated + trans fat (${fats} g) above fat (${row.fat_g} g)`);
   if (row.checked_on > today) errors.push(`checked_on ${row.checked_on} is in the future`);
   const fromMacros = row.protein_g * 4 + row.carbs_g * 4 + row.fat_g * 9;
   if (Math.abs(fromMacros - row.calories) > Math.max(25, row.calories * 0.15)) {
@@ -144,7 +154,7 @@ export type ChainItemsFile = {
     kind: ChainItemKind;
     calories: number;
     nutrients: NutrientAmounts;
-    transFatG: number;
+    transFatG: number | null;
     sourceUrl: string;
     checkedOn: string;
   }[];

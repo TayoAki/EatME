@@ -592,7 +592,8 @@ export const chainItems = pgTable(
     kind: chainItemKindEnum().notNull(),
     calories: integer().notNull(),
     nutrients: jsonb().$type<NutrientAmounts>().notNull(),
-    transFatG: doublePrecision().notNull(),
+    /** Empty when the guide leaves it out. */
+    transFatG: doublePrecision(),
     /** The chain's own page or PDF with these numbers, and the day a person checked them. */
     sourceUrl: text().notNull(),
     checkedOn: date({ mode: 'string' }).notNull(),
