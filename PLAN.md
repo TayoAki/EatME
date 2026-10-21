@@ -849,7 +849,9 @@ item and replaces the old v2.2 list and the "Later" list; tick a box there and h
 
 - [ ] **What to order** (v2.5, planned 18 October 2026): at any restaurant, the menu items that fit what's left
   today, ranked by our code, with chain numbers or estimates from a menu photo, logged in one tap. Specified in
-  `WHAT-TO-ORDER.md`, which also records why rankings can't use FatSecret data and why Nutritionix waits
+  `WHAT-TO-ORDER.md`, which also records why rankings can't use FatSecret data and why Nutritionix waits. Decided
+  21 October 2026: Premium with one free try; FatSecret retired. Step 1 started: the chain table and its load
+  script (`data/chains/`, `npm run chains:build`); the first ten chains wait for the owner's list
 
 **Eating out decisions** (checked September 2026; migration `restaurant_meals`; kept for the record, the
 feature was retired on 21 October 2026)

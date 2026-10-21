@@ -36,6 +36,7 @@ import {
 import type { NutrientAmounts } from '@/shared/nutrients';
 import { PHOTO_POSES } from '@/shared/body';
 import { CHECKIN_REASONS, CHECKIN_STATUSES } from '@/shared/adaptive';
+import { CHAIN_ITEM_KINDS, CHAIN_ITEM_STATUSES } from '@/shared/chains';
 import type { DraftItem, DraftSlotChoices } from '@/shared/day-draft';
 import {
   PRODUCT_REPORT_REASONS,
@@ -76,6 +77,8 @@ export const processingLevelEnum = pgEnum('processing_level', PROCESSING_LEVELS)
 export const repeatResponseEnum = pgEnum('repeat_response', REPEAT_RESPONSES);
 export const productReportReasonEnum = pgEnum('product_report_reason', PRODUCT_REPORT_REASONS);
 export const productReportStatusEnum = pgEnum('product_report_status', PRODUCT_REPORT_STATUSES);
+export const chainItemKindEnum = pgEnum('chain_item_kind', CHAIN_ITEM_KINDS);
+export const chainItemStatusEnum = pgEnum('chain_item_status', CHAIN_ITEM_STATUSES);
 
 const timestamps = {
   createdAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
@@ -567,6 +570,43 @@ export const productReports = pgTable(
   (t) => [uniqueIndex('product_reports_user_id_code_idx').on(t.userId, t.code), index('product_reports_code_idx').on(t.code)],
 );
 export type MealItemRow = typeof mealItems.$inferSelect;
+
+/**
+ * What to order (v2.5): items of US restaurant chains, from each chain's own nutrition guide
+ * (data/chains/*.csv, built into data/chains.json and loaded by server/chains.mjs). Nutrients are for
+ * one `serving` as the chain sells it. Items leave the menu as `retired`, never deleted.
+ */
+export const chainItems = pgTable(
+  'chain_items',
+  {
+    id: uuid().primaryKey().defaultRandom(),
+    /** "chick-fil-a": the chain in URLs. */
+    chainSlug: text().notNull(),
+    /** "Chick-fil-A": the chain as customers know it. */
+    chain: text().notNull(),
+    section: text().notNull(),
+    name: text().notNull(),
+    /** As the guide gives it: "1 burrito", "Medium (21 fl oz)". */
+    serving: text().notNull(),
+    servingGrams: doublePrecision(),
+    kind: chainItemKindEnum().notNull(),
+    calories: integer().notNull(),
+    nutrients: jsonb().$type<NutrientAmounts>().notNull(),
+    transFatG: doublePrecision().notNull(),
+    /** The chain's own page or PDF with these numbers, and the day a person checked them. */
+    sourceUrl: text().notNull(),
+    checkedOn: date({ mode: 'string' }).notNull(),
+    status: chainItemStatusEnum().notNull().default('live'),
+    /** The data/chains.json version that last wrote the row. */
+    version: text().notNull(),
+    ...timestamps,
+  },
+  (t) => [
+    uniqueIndex('chain_items_chain_slug_name_serving_idx').on(t.chainSlug, t.name, t.serving),
+    index('chain_items_name_search_idx').using('gin', sql`to_tsvector('english', ${t.name})`),
+  ],
+);
+export type ChainItemRow = typeof chainItems.$inferSelect;
 
 /**
  * GLP-1 mode (v2.2): one current medicine (`ended_on` empty) and the ones before it, so doses stay

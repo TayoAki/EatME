@@ -12,6 +12,7 @@ import { drizzle } from 'drizzle-orm/node-postgres';
 import { migrate } from 'drizzle-orm/node-postgres/migrator';
 import pg from 'pg';
 
+import { loadChainItems } from './chains.mjs';
 import { loadFoods } from './foods.mjs';
 
 // expo-server's ESM build uses extensionless imports that Node cannot load; its CommonJS build works.
@@ -36,6 +37,15 @@ async function runMigrations() {
       console.log(`[server] foods ${foods.loaded ? 'loaded' : 'up to date'}: ${foods.count} (${foods.version})`);
     } catch (error) {
       console.error('[server] could not load the food database', error);
+    }
+    // What to order's chain menus (data/chains.json); a failure keeps the menus loaded before.
+    try {
+      const chains = await loadChainItems(pool);
+      if (chains.version) {
+        console.log(`[server] chain menus ${chains.loaded ? 'loaded' : 'up to date'}: ${chains.count} (${chains.version})`);
+      }
+    } catch (error) {
+      console.error('[server] could not load the chain menus', error);
     }
   } finally {
     await pool.end();

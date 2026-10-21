@@ -94,7 +94,9 @@
     "demo:account": "tsx scripts/demo-account.ts",
     "demo:account:remote": "tsx scripts/demo-account-remote.ts",
     "foods:build": "tsx scripts/build-foods.ts",
-    "db:foods": "node server/foods.mjs"
+    "db:foods": "node server/foods.mjs",
+    "chains:build": "tsx scripts/build-chains.ts",
+    "db:chains": "node server/chains.mjs"
   },
   "private": true
 }

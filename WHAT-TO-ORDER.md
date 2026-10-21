@@ -278,8 +278,13 @@ own PDF. Each item is rechecked every six months or when a report comes in.
 The REA method corroborates before building on a finding. Each check has a pass line; if one fails, the plan
 changes before any app code.
 
-- [ ] **Chain table, first ten chains**: entered and checked (about 600 items), with the load script. This is
-  the ground truth for the next check.
+- [x] **Chain table and its load script** (21 October 2026): `chain_items` (migration `0022_chain_items`), one CSV
+  per chain in `data/chains/` (columns and rules in its README), `npm run chains:build` checks every line (numbers,
+  sugars and fiber within carbs, fats within fat, the energy sum, https source, the check date, duplicates) and
+  writes `data/chains.json`, which the server loads when it starts (`server/chains.mjs`; items left out are retired,
+  never deleted). Types and checks in `src/shared/chains.ts`.
+- [ ] **First ten chains**: entered and checked (about 600 items), once the owner confirms the list (section 13).
+  This is the ground truth for the next check.
 - [ ] **Accuracy pilot** (like the week-1 pilot run for ChartME): 60 dishes from those ten chains, their menu text
   through our pipeline (read → foods and portions → USDA) against the chains' published numbers. Pass: median
   calorie error 20% or less, the published top five and ours share at least three dishes, and no underestimate on
