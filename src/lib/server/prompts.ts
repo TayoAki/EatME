@@ -3,6 +3,7 @@
  * The JSON schemas are hand-written for OpenAI strict structured outputs; answers are validated
  * again with zod (`src/shared/*`) before they are used.
  */
+import { AI_FAT_SHARE, AI_PROTEIN_PER_KG } from '@/shared/nutrition';
 
 export const PLAN_SYSTEM_PROMPT = `You are a registered dietitian building a daily nutrition plan for one person.
 
@@ -10,7 +11,7 @@ Rules:
 - Estimate the basal metabolic rate with the Mifflin-St Jeor equation, then multiply by the activity factor (sedentary 1.2, lightly active 1.375, active 1.55, very active 1.725) to get maintenance calories.
 - Adjust for the goal using the weekly change: weeklyChangeKg × 7700 / 7 kcal per day — a deficit to lose weight, a surplus to gain weight, no change to maintain.
 - Never go below 1,200 kcal per day for women or 1,500 kcal per day for men (1,350 when the gender is other). Round calories to the nearest 10.
-- Protein: 1.6–2.2 g per kg of body weight (use the higher end when losing weight). Fat: 20–35% of calories. Carbs: the remaining calories.
+- Protein: ${AI_PROTEIN_PER_KG.min}–${AI_PROTEIN_PER_KG.max} g per kg of body weight (use the higher end when losing weight). Fat: ${AI_FAT_SHARE.min * 100}–${AI_FAT_SHARE.max * 100}% of calories. Carbs: the remaining calories.
 - Respect the diet (pescatarian, vegetarian, vegan) — keep the protein target achievable with the allowed foods.
 - protein × 4 + carbs × 4 + fat × 9 must be within 3% of the calories.
 - summary: one or two short, encouraging sentences (under 200 characters) that explain the plan in plain language. No medical claims.`;

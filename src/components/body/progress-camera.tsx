@@ -29,7 +29,7 @@ type ProgressCameraProps = {
 export function ProgressCamera({ pose, ghostUrl, onPhoto, onClose }: ProgressCameraProps) {
   const insets = useSafeAreaInsets();
   const cameraRef = useRef<CameraView>(null);
-  const [permission, requestPermission] = useCameraAccess(true);
+  const { permission, asking, requestPermission } = useCameraAccess(true);
   const [facing, setFacing] = useState<CameraType>('back');
   const [capturing, setCapturing] = useState(false);
 
@@ -48,14 +48,19 @@ export function ProgressCamera({ pose, ghostUrl, onPhoto, onClose }: ProgressCam
   return (
     <Modal visible animationType="slide" presentationStyle="fullScreen" onRequestClose={onClose}>
       <View className="flex-1 bg-black">
-        {!permission || permission.status === 'undetermined' ? (
+        {!permission || asking ? (
           // Checking, or the system alert is asking (no screen of ours in front of it, 5.1.1(iv)).
-          <ActivityIndicator color={colors.canvas} className="flex-1" />
+          <View className="flex-1">
+            <View className="px-5" style={{ paddingTop: insets.top + 8 }}>
+              <IconButton accessibilityLabel="Close" variant="dark" icon={<X size={20} color={colors.canvas} />} onPress={onClose} />
+            </View>
+            <ActivityIndicator color={colors.canvas} className="flex-1" />
+          </View>
         ) : !permission.granted ? (
           <View className="flex-1 justify-center gap-4 px-8">
             <Text className="text-center text-[24px] font-bold text-white">Camera is off</Text>
             <Text className="text-center text-[17px] leading-6 text-white">
-              Turn on Camera for Weight Class in Settings to take progress photos. They stay private and are never used for AI.
+              Turn on the camera for Weight Class to take progress photos. They stay private and are never used for AI.
             </Text>
             {permission.canAskAgain ? (
               <Button title="Use the camera" variant="secondary" onPress={() => void requestPermission()} />

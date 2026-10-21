@@ -1,7 +1,6 @@
 import { ChevronRight } from 'lucide-react-native';
 import { Pressable, Text, View } from 'react-native';
 
-import { SourcesLink } from '@/components/sources';
 import { BottomSheet } from '@/components/ui/bottom-sheet';
 import { colors } from '@/constants/colors';
 import { fromIsoDate } from '@/lib/time';
@@ -182,7 +181,6 @@ export function WeeklySheet({
       <Text className="mt-3 text-[12px] leading-4 text-muted">
         Averages count only the days you logged. Water counts the days you logged drinks.
       </Text>
-      <SourcesLink topic="weekly" className="mt-1" />
     </BottomSheet>
   );
 }

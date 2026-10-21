@@ -352,7 +352,7 @@ export function AnalysisView({ input, onScanAnother, onEdit, onDone, onNeedsCons
                     : "Rough estimate — the photo didn't show everything clearly. You can adjust it on the meal screen."}
                 </Text>
               ) : null}
-              <SourcesLink topic="foods" label="Where these numbers come from" className="mt-3" />
+              <SourcesLink topic={input.kind === 'drink' ? 'drinks' : 'foods'} label="Where these numbers come from" className="mt-3" />
             </>
           ) : notFood ? (
             <View className="items-center py-2">

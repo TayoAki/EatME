@@ -26,7 +26,7 @@ export default function SourcesScreen() {
         <IconButton
           accessibilityLabel="Go back"
           icon={<ArrowLeft size={20} color={colors.ink} />}
-          onPress={() => router.back()}
+          onPress={() => (router.canGoBack() ? router.back() : router.replace('/'))}
         />
       </View>
       <ScrollView ref={scrollRef} contentContainerClassName="gap-8 px-5 pb-10" showsVerticalScrollIndicator={false}>

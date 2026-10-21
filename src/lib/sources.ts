@@ -175,11 +175,11 @@ export const SOURCES: SourceSection[] = [
     citations: [OBESITY_GUIDELINE, WHO_BMI],
   },
   {
-    // src/shared/nutrition.ts: PROTEIN_PER_KG, FAT_SHARE, macrosForCalories, proteinPerMeal, caloriesFromMacros
+    // src/shared/nutrition.ts: PROTEIN_PER_KG, FAT_SHARE, AI_PROTEIN_PER_KG, AI_FAT_SHARE, sanitizePlan, proteinPerMeal
     topic: 'macros',
     title: 'Protein, carbs and fat',
     method:
-      'Protein is 2.0 g per kilogram of body weight while losing weight, 1.6 g to maintain and 1.8 g to gain, within the 1.4 to 2.0 g range of the International Society of Sports Nutrition. The protein worth aiming for at each meal is your daily goal spread over about four meals, at least 20 g. Fat is 25 to 28% of calories, depending on your diet, inside the 20 to 35% range of the Dietary Reference Intakes, and carbs make up the rest. Protein and carbs count 4 kcal a gram, fat 9.',
+      "The formula sets protein at 2.0 g per kilogram of body weight while losing weight, 1.6 g to maintain and 1.8 g to gain; a plan from AI is kept between 1.6 and 2.2 g. The International Society of Sports Nutrition puts most active people at 1.4 to 2.0 g a kilogram, and more (2.3 to 3.1 g per kilogram of lean mass) for strength-trained people losing weight. The protein worth aiming for at each meal is your daily goal spread over about four meals, at least 20 g. Fat is 25 to 28% of calories with the formula and 20 to 35% in a plan from AI, the range of the Dietary Reference Intakes; carbs make up the rest. Protein and carbs count 4 kcal a gram, fat 9.",
     citations: [ISSN_PROTEIN, DRI_MACROS, FAO_CONVERSION],
   },
   {
@@ -191,11 +191,11 @@ export const SOURCES: SourceSection[] = [
     citations: [DRI_MACROS, DRI_WATER],
   },
   {
-    // src/shared/nutrients.ts: nutrientTargets, SUPPLEMENT_UPPER_LIMITS
+    // src/shared/nutrients.ts: nutrientTargets, SUPPLEMENT_UPPER_LIMITS; src/app/api/nutrients+api.ts
     topic: 'nutrients',
     title: 'Vitamins and minerals',
     method:
-      "Daily amounts are the Recommended Dietary Allowances or Adequate Intakes for your age and sex from the Dietary Reference Intakes. Saturated fat is kept under 10% of calories, as in the Dietary Guidelines for Americans. Supplements are compared with the adult Tolerable Upper Intake Levels. Vitamins and minerals only come from foods matched in the USDA database, never from an AI's guess.",
+      "Daily amounts are the Recommended Dietary Allowances or Adequate Intakes for your age and sex from the Dietary Reference Intakes. Saturated fat is kept under 10% of calories, as in the Dietary Guidelines for Americans. Supplements are compared with the adult Tolerable Upper Intake Levels. Vitamins and minerals come from foods matched in the USDA database, package labels and the supplements you log, never from an AI's guess.",
     citations: [DRI_GUIDE, DRI_TABLES, DIETARY_GUIDELINES],
   },
   {
@@ -251,7 +251,7 @@ export const SOURCES: SourceSection[] = [
     topic: 'plan-tomorrow',
     title: 'Plan tomorrow',
     method:
-      'Plan tomorrow picks meals you already eat, one for each part of the day, so the day lands near your calorie goal with enough protein. It uses your own goals (sources above) and the numbers of your own meals. No AI is involved.',
+      'Plan tomorrow picks meals you already eat, one for each part of the day, so the day lands near your calorie goal with enough protein. It uses your own goals and the numbers of your own meals, and no AI. How the goals are worked out is under Daily calories and Protein, carbs and fat on the Sources screen.',
     citations: [ISSN_PROTEIN],
   },
   {

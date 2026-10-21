@@ -64,17 +64,17 @@ const COPY: Record<ScanMode, { title: string; hint: string; off: string }> = {
   meal: {
     title: 'Scan food',
     hint: 'Center your meal in the frame',
-    off: 'Turn on Camera for Weight Class in Settings to scan meals. You can still choose a photo, describe a meal or search foods.',
+    off: 'Turn on the camera for Weight Class to scan meals. You can still choose a photo, describe a meal or search foods.',
   },
   label: {
     title: 'Scan label',
     hint: 'Fit the nutrition facts in the frame',
-    off: 'Turn on Camera for Weight Class in Settings to read nutrition labels. You can still choose a photo of a label.',
+    off: 'Turn on the camera for Weight Class to read nutrition labels. You can still choose a photo of a label.',
   },
   barcode: {
     title: 'Scan barcode',
     hint: 'Point the camera at the barcode',
-    off: 'Turn on Camera for Weight Class in Settings to scan barcodes. You can still type the barcode.',
+    off: 'Turn on the camera for Weight Class to scan barcodes. You can still type the barcode.',
   },
 };
 
@@ -170,7 +170,7 @@ export function CameraCapture({
 }: CameraCaptureProps) {
   const insets = useSafeAreaInsets();
   const isFocused = useIsFocused();
-  const [permission, requestPermission] = useCameraAccess(isFocused);
+  const { permission, asking, requestPermission } = useCameraAccess(isFocused);
   const cameraRef = useRef<CameraView>(null);
   const [flash, setFlash] = useState(false);
   const [capturing, setCapturing] = useState(false);
@@ -212,7 +212,7 @@ export function CameraCapture({
   };
 
   // Checking, or the system alert is asking (no screen of ours in front of it, 5.1.1(iv)).
-  if (!permission || permission.status === 'undetermined') {
+  if (!permission || asking) {
     return (
       <View className="flex-1 items-center justify-center bg-black">
         <ActivityIndicator color={colors.canvas} />
@@ -244,7 +244,7 @@ export function CameraCapture({
         </View>
         <View className="gap-2">
           {permission.canAskAgain ? (
-            // Android may ask once more; on iPhone only Settings can turn it back on.
+            // Android (and a dismissed browser prompt) may ask again; on iPhone only Settings can.
             <Button title="Use the camera" onPress={() => void requestPermission()} />
           ) : (
             <Button title="Open Settings" onPress={() => void Linking.openSettings()} />

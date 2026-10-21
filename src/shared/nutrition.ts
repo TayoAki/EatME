@@ -66,6 +66,13 @@ const PROTEIN_PER_KG: Record<Goal, number> = {
   gain: 1.8,
 };
 
+/**
+ * The ranges an AI plan is asked for (`PLAN_SYSTEM_PROMPT`) and kept to (`sanitizePlan`): protein per kg
+ * of body weight and the share of calories from fat. The Sources screen cites them.
+ */
+export const AI_PROTEIN_PER_KG = { min: 1.6, max: 2.2 } as const;
+export const AI_FAT_SHARE = { min: 0.2, max: 0.35 } as const;
+
 /** Share of calories from fat. */
 const FAT_SHARE: Record<Diet, number> = {
   classic: 0.28,
@@ -141,15 +148,17 @@ export function macrosDisagree(calories: number, m: { proteinG: number; carbsG: 
 
 /**
  * Validate an AI plan against the formula. Returns `null` when the plan is unsafe or wildly off,
- * otherwise the plan with carbs adjusted so the macros add up to the calories.
+ * otherwise the plan with protein and fat kept inside `AI_PROTEIN_PER_KG` and `AI_FAT_SHARE`, and
+ * carbs adjusted so the macros add up to the calories.
  */
 export function sanitizePlan(plan: NutritionPlan, answers: OnboardingAnswers): NutritionPlan | null {
   const reference = formulaPlan(answers).calories;
   if (plan.calories < minimumCalories(answers.gender)) return null;
   if (Math.abs(plan.calories - reference) / reference > 0.35) return null;
 
-  const proteinG = Math.round(plan.proteinG);
-  const fatG = Math.round(plan.fatG);
+  const within = (value: number, low: number, high: number) => Math.round(Math.min(Math.max(value, low), high));
+  const proteinG = within(plan.proteinG, answers.weightKg * AI_PROTEIN_PER_KG.min, answers.weightKg * AI_PROTEIN_PER_KG.max);
+  const fatG = within(plan.fatG, (plan.calories * AI_FAT_SHARE.min) / 9, (plan.calories * AI_FAT_SHARE.max) / 9);
   const macroCalories = caloriesFromMacros({ proteinG, carbsG: plan.carbsG, fatG });
   const carbsG =
     Math.abs(macroCalories - plan.calories) / plan.calories > 0.05

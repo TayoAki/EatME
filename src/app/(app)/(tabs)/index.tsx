@@ -22,7 +22,7 @@ import { SupplementsCard } from '@/components/home/supplements-card';
 import { WaterSheet } from '@/components/home/water-sheet';
 import { WeeklyCard, WeeklySheet } from '@/components/home/weekly-card';
 import { QuickAddSheet } from '@/components/meal/quick-add-sheet';
-import { SourcesScreenLink } from '@/components/sources';
+import { SourcesLink, SourcesScreenLink } from '@/components/sources';
 import { Button } from '@/components/ui/button';
 import { colors } from '@/constants/colors';
 import { notify } from '@/lib/confirm';
@@ -269,6 +269,7 @@ function Home({ profile }: { profile: Profile }) {
             {isToday && insights ? (
               <View className="mt-7 px-5">
                 <WeeklyCard insights={insights} onPress={() => setWeeklyOpen(true)} calm={calm} />
+                <SourcesLink topic="weekly" className="mt-2" />
               </View>
             ) : null}
           </>

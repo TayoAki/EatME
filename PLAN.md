@@ -595,7 +595,11 @@ added to an earlier day are stored at local noon of that day.
   before the camera alert): the system alert now comes first with nothing of ours in front of it
   (`useCameraAccess` in `src/lib/camera-access.ts`, for Scan and progress photos); after a no, "Camera is off"
   with Open Settings and the ways to log without it, and it re-checks when the app comes back from Settings.
-  **2.3.1(a)**: the switched-off FatSecret restaurant menus were removed from the app (see Eating out)
+  **2.3.1(a)**: the switched-off FatSecret restaurant menus were removed from the app (see Eating out).
+  After an independent review: an AI plan's protein and fat are now kept to the ranges the Sources screen cites
+  (1.6–2.2 g/kg, 20–35% of calories: `AI_PROTEIN_PER_KG`, `AI_FAT_SHARE` in `sanitizePlan`), the camera never
+  stays on its spinner (a dismissed or failed request shows "Camera is off"), and no Sources sheet opens on top
+  of another sheet
 - [ ] Before turning on Apple / Google sign-in: Sign in with Apple capability + key (team ID, key
   ID, .p8) and a Google "Web application" OAuth client with the redirect URI
   `<server>/api/auth/callback/google`; set the variables in `.env.example` on Railway

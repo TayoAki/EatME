@@ -54,7 +54,6 @@ export function HowSheet({ checkIn, unit, onClose }: { checkIn: CheckIn; unit: U
           your safety floor, never lower while you&apos;re losing more than 1 kg a week, and never lower in GLP-1 mode.
         </Text>
         <Text className="text-[13px] leading-[18px] text-muted">An estimate from what you logged, not a measurement. It never changes without your tap.</Text>
-        <SourcesLink topic="checkin" />
       </View>
       <Button title="Got it" className="mt-5" onPress={onClose} />
     </BottomSheet>
@@ -99,9 +98,12 @@ function ProposalCard({ checkIn, unit }: { checkIn: CheckIn; unit: UnitSystem })
         <Button title={`Use ${kcal(proposed)}`} size="md" className="flex-1 px-3" loading={answer.isPending && answer.variables === 'accept'} onPress={() => reply('accept')} />
         <Button title={`Keep ${kcal(checkIn.previousKcal)}`} size="md" variant="secondary" className="flex-1 px-3" loading={answer.isPending && answer.variables === 'keep'} onPress={() => reply('keep')} />
       </View>
-      <Pressable accessibilityRole="button" onPress={() => setHow(true)} hitSlop={8} className="mt-3 self-start">
-        <Text className="text-[14px] font-semibold text-ink underline">How this is worked out</Text>
-      </Pressable>
+      <View className="mt-3 flex-row items-center gap-5">
+        <Pressable accessibilityRole="button" onPress={() => setHow(true)} hitSlop={8}>
+          <Text className="text-[14px] font-semibold text-ink underline">How this is worked out</Text>
+        </Pressable>
+        <SourcesLink topic="checkin" />
+      </View>
       {how ? <HowSheet checkIn={checkIn} unit={unit} onClose={() => setHow(false)} /> : null}
     </View>
   );

@@ -477,7 +477,10 @@ function MealEditor({ meal, showNumbers, onShowNumbers, corrections, onCorrectio
             </View>
           </View>
         )}
-        <SourcesLink topic={alcoholic ? 'drinks' : 'foods'} label="Where these numbers come from" className="mt-2" />
+        {/* Quick add: the person typed the numbers. */}
+        {quick ? null : (
+          <SourcesLink topic={alcoholic ? 'drinks' : 'foods'} label="Where these numbers come from" className="mt-2" />
+        )}
 
         {sugar ? (
           <View className="mt-4">

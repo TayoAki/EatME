@@ -56,7 +56,9 @@ type SourcesLinkProps = {
 
 /**
  * "Sources" next to a number the app works out (Apple 1.4.1: citations easy to find). Opens a sheet
- * rather than a screen, so it works inside modals and other sheets too.
+ * rather than a screen, so it also works on modal screens (a meal). Never put it inside another sheet:
+ * if the outer sheet unmounts while this one is open, iOS can leave an invisible layer that blocks
+ * touches. Put it on the screen next to the sheet's button instead.
  */
 export function SourcesLink({ topic, label = 'Sources', className }: SourcesLinkProps) {
   const [open, setOpen] = useState(false);

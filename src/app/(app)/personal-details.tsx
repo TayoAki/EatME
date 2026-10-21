@@ -93,12 +93,9 @@ function EditDetailSheet({
         <>
           <WeightWheel weightKg={weight} unit={profile.unitSystem} onChange={setWeight} label={TITLES[field]} />
           {tooLow && lowest !== null ? (
-            <View className="mt-3 items-center">
-              <Text className="text-center text-[14px] leading-5 text-muted">
-                {`For your height, Weight Class keeps weight-loss goals at ${formatWeight(lowest, profile.unitSystem, 1)} or more (a BMI of 18.5).`}
-              </Text>
-              <SourcesLink topic="limits" className="mt-1 self-center" />
-            </View>
+            <Text className="mt-3 text-center text-[14px] leading-5 text-muted">
+              {`For your height, Weight Class keeps weight-loss goals at ${formatWeight(lowest, profile.unitSystem, 1)} or more (a BMI of 18.5).`}
+            </Text>
           ) : null}
         </>
       ) : field === 'heightCm' ? (
@@ -189,9 +186,10 @@ function PersonalDetails({ profile }: { profile: Profile }) {
           ))}
         </View>
 
-        <Text className="px-1 text-[14px] leading-5 text-muted">
-          Changing these values does not change your daily targets.
-        </Text>
+        <View className="gap-1 px-1">
+          <Text className="text-[14px] leading-5 text-muted">Changing these values does not change your daily targets.</Text>
+          <SourcesLink topic="limits" label="Sources: goal weight and safety limits" />
+        </View>
       </ScrollView>
 
       {editing ? (

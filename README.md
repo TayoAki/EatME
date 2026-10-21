@@ -54,9 +54,9 @@ Photo ──▶ POST /api/meals ──▶ bucket + meal row ("analyzing") ──
   numbers (and vitamins and minerals) come from the database where a food matches; grams and foods can
   be edited, and corrections can be **remembered** ("Your foods") so the next scan uses your version
   first. Behind a flag, the AI can ask one tap-to-answer question (cooking fat, portion, filling).
-- **Eating out** (behind `RESTAURANTS`, FatSecret Platform API): search US restaurant chains and menu
-  items, build a plate from a chain's menu, see it against what's left today, then log it or save it
-  for later. The server fetches the numbers; FatSecret's credit shows wherever their data does.
+- **What to order** (v2.5, planned in `WHAT-TO-ORDER.md`): the dishes on a menu that fit what's left
+  today, from our own table of chain menus (`data/chains/`) or a photo of any menu. The earlier FatSecret
+  restaurant menus were never switched on and were removed in October 2026.
 - **Daily picture:** calories and macros against a plan built at onboarding (your own goals allowed,
   with safety floors), fiber and water, a protein hint per meal, weekly insights, **vitamins &
   minerals** against the DRIs, a **supplements** log with upper-limit notes, **weight** with a trend
