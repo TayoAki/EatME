@@ -117,6 +117,9 @@ Welcome ──Get started──▶ Onboarding questions ──▶ Building your 
 - "Today's meals" list (selected day): thumbnail (signed bucket link), name,
   time, calories, macros. Meals still analyzing show a live "Analyzing…" card.
   Non-food scans never appear. Tap a meal to edit its values (manual corrections).
+  A meal without a photo (typed, barcode, quick add, a drink) shows a small food picture picked from its
+  name (`src/shared/food-pictures.ts`; 77 pictures in `assets/foods`, Microsoft's Fluent Emoji under the MIT
+  licence, credited at the end of Profile → Sources), as do saved meals (22 October 2026).
 - An empty today with meals yesterday offers "Copy yesterday's meals".
 - v2.1: "+ Quick add" and a copy button next to the meals heading (copy chosen meals from any of
   the last 14 days to the selected day); a "Planned for today" card for repeat meals (`Log it` /

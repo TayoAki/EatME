@@ -1,15 +1,17 @@
 import { Image } from 'expo-image';
 import { router } from 'expo-router';
-import { ChevronRight, Plus, Repeat, Star, UtensilsCrossed } from 'lucide-react-native';
+import { ChevronRight, Plus, Repeat, Star } from 'lucide-react-native';
 import { ActivityIndicator, Pressable, ScrollView, Text, View } from 'react-native';
 
 import { BottomSheet } from '@/components/ui/bottom-sheet';
+import { FoodPicture } from '@/components/ui/food-picture';
 import { colors } from '@/constants/colors';
 import { useCalmMode } from '@/lib/calm';
 import { notify } from '@/lib/confirm';
 import { haptics } from '@/lib/haptics';
 import { formatTimeOfDay } from '@/lib/reminder-plan';
 import { useDuplicateMeal, useFavorites, useSavedMeals } from '@/lib/queries';
+import { foodPictureFor } from '@/shared/food-pictures';
 import type { Meal } from '@/shared/meals';
 import { repeatDaysLabel, type SavedMeal } from '@/shared/saved-meals';
 
@@ -25,7 +27,7 @@ function Thumb({ meal }: { meal: Meal }) {
         <Image source={{ uri: meal.imageUrl, cacheKey: meal.id }} style={{ width: 56, height: 56 }} contentFit="cover" />
       ) : (
         <View className="flex-1 items-center justify-center">
-          <UtensilsCrossed size={20} color={colors.faint} />
+          <FoodPicture picture={foodPictureFor(meal.name, meal.source)} size={36} />
         </View>
       )}
     </View>

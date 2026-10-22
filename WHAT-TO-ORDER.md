@@ -138,7 +138,7 @@ ordering page, and the chat (not in v2.5).
   works. An optional field for the restaurant's name.
 - [ ] **The list**: a header with what's left today ("About 850 kcal and 60 g protein left"), then **Fits well**
   (up to five, shown as a group when their ranges overlap, not a false first-second-third) and **Everything
-  else**. Each row: the dish, calories (a range for estimates), protein, the source ("From Chick-fil-A" for a
+  else**. Each row: a small food picture (section 10), the dish, calories (a range for estimates), protein, the source ("From Chick-fil-A" for a
   chain item, "Estimate" for a scanned menu) and one reason ("Leaves about 500 kcal for dinner", "45 g protein").
   Items over what's left are listed last, never hidden. Under a chain's list: "Numbers from Chick-fil-A's nutrition
   information, checked 22 Oct 2026" with a link to its guide (see **Citing the source** below).
@@ -294,13 +294,16 @@ own PDF. Each item is rechecked every six months or when a report comes in.
 - **Washington health data policy and Privacy Policy**: add menu scans (what's read, kept 30 days, sent to the AI
   providers, never sold) and the chain table's sources.
 - **No chain photos or logos (5.2.1)**: food photos are the chains' copyright and logos their trademarks; Apple
-  rejects apps that use "protected third-party material" without permission. Chain names appear as text. If the
-  list needs pictures, they are our own (generic, unbranded dish illustrations), never copied.
+  rejects apps that use "protected third-party material" without permission. Chain names appear as text. Each
+  row shows a small generic food picture instead (`FoodPicture`, picked from the dish's name: a burger, a bowl,
+  a cup with a straw), from the app's own set in `assets/foods` (Microsoft's Fluent Emoji, MIT licence, free to
+  use in a paid app and credited in Profile → Sources).
 - **Nutritionix's pictures, if we license it later**: its API returns small (150 px) and large (1080 px) photos,
   which its FAQ describes as thumbnails of "CPG products and common foods", not each chain's dish. A paid licence
   would let us show them inside the app, loaded from Nutritionix with its attribution visible (caching is allowed
   only for a person's own food log, so no copying them to our storage), and only while we pay. It can't license
-  the chains' logos or photos, which stay the chains' property. Not a reason to buy it.
+  the chains' logos or photos, which stay the chains' property. Not a reason to buy it: our own free set
+  (`assets/foods`, above) covers the same need (decided 22 October 2026).
 - **App Review**: on in the reviewed build and in the review notes, with a test menu image on the support page a
   reviewer can photograph from a second screen, so it can be tried without a restaurant (2.1, 2.5.19).
   Screenshots show it with the Premium badge.
