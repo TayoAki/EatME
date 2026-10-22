@@ -48,6 +48,24 @@ when it changed. An item left out of the CSV is **retired**, never deleted.
    A wrong sample line means the whole chain gets a closer look. Re-running a draft never overwrites `person` lines.
 5. `npm run chains:build` checks everything again before anything ships.
 
+## Chains that publish nutrition item by item
+
+Some chains (McDonald's, Starbucks) have no single guide: each item's page shows its own nutrition panel. Their
+`guide_url` is `items:` followed by the address every item page starts with, and options
+(`scripts/item-pages.ts`):
+
+```
+items:https://www.mcdonalds.com/us/en-us/product/ menu=https://www.mcdonalds.com/us/en-us/full-menu.html
+items:https://www.starbucks.com/menu/product/ segments=2 suffix=/nutrition skip=whole-bean
+```
+
+`menu=` takes the items from the links on the chain's menu page (the current menu, about 120 for McDonald's);
+without it Firecrawl's map of the site lists every item page it knows, retired ones too (429 for McDonald's).
+`segments=` keeps that many parts of the address after the prefix, `suffix=` adds the nutrition page's ending, and
+`skip=` leaves out addresses that match. Listing costs one Firecrawl credit and each item page one more
+(`--max-pages`, default 250, caps a chain). Each page is cut down to its nutrition panel; the drafts copy one
+numbered section per page and must agree on the page too, so every line's `source_url` is its own item page.
+
 ## What the notes in `ranking.csv` mean
 
 | Note | What to do |

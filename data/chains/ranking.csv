@@ -1,6 +1,6 @@
 rank,chain,site,guide_url,notes
-1,McDonald's,mcdonalds.com,https://www.mcdonalds.com/us/en-us/about-our-food/nutrition-calculator.html,no nutrition numbers found in the guide: set guide_url to the PDF or full table
-2,Starbucks,starbucks.com,https://www.starbucks.com/menu/product/407/hot/nutrition,no nutrition numbers found in the guide: set guide_url to the PDF or full table
+1,McDonald's,mcdonalds.com,items:https://www.mcdonalds.com/us/en-us/product/ menu=https://www.mcdonalds.com/us/en-us/full-menu.html,"item pages read 2026-10-22: 119 with nutrition, ready to draft"
+2,Starbucks,starbucks.com,items:https://www.starbucks.com/menu/product/ segments=2 suffix=/nutrition skip=whole-bean,"item pages read 2026-10-22: 165 with nutrition, ready to draft"
 3,Chick-fil-A,chick-fil-a.com,https://www.chick-fil-a.com/nutrition-allergens,"drafted 2026-10-21: 303 agreed, 24 for a person"
 4,Taco Bell,tacobell.com,https://www.tacobell.com/nutrition/info,guide is run by Nutritionix: set guide_url to the chain’s own PDF
 5,Dunkin',dunkindonuts.com,https://assets.ctfassets.net/ubkcphxhphh0/3qEP8wMU2IFmLsLyEeWLuc/7bdae361f785d1611d25c4d859f8c721/DD_W7_nutrition_guide.pdf,guide read 2026-10-22: ready to draft
@@ -20,7 +20,7 @@ rank,chain,site,guide_url,notes
 19,Pizza Hut,pizzahut.com,https://www.pizzahut.com/c/content/nutrition,guide is run by Nutritionix: set guide_url to the chain’s own PDF
 20,Dairy Queen,dairyqueen.com,https://www.dairyqueen.com/en-us/nutrition/food-treats/,guide read 2026-10-22: ready to draft
 21,Wingstop,wingstop.com,https://s3.amazonaws.com/wingstop.com/assets/static/WSR18-0009-Corporate-NutritionalGuide-JumboWings-HR_OFFICAL.pdf,guide read 2026-10-22: ready to draft
-22,KFC,www.kfc.com,,no nutrition page found on www.kfc.com: set guide_url by hand
+22,KFC,www.kfc.com,https://www.kfc.com/full-nutrition-guide,guide is run by Nutritionix: set guide_url to the chain’s own PDF
 23,Little Caesars,littlecaesars.com,https://littlecaesars.com/static/usnutritionguide.pdf,guide read 2026-10-22: ready to draft
 24,Culver's,culvers.com,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,guide read 2026-10-22: ready to draft
 25,Whataburger,whataburger.com,https://wbimageserver.whataburger.com/Nutrition.pdf,guide read 2026-10-22: ready to draft

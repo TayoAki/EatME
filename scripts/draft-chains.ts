@@ -15,7 +15,10 @@
  *          --redraft (ask the models again even when a draft of the same guide and prompt is cached),
  *          --parallel <n> (chains at once, default 3),
  *          --guides-only (find, read and check each guide without drafting: no AI; links and problems
- *          go in ranking.csv to look over first).
+ *          go in ranking.csv to look over first),
+ *          --max-pages <n> (item pages read per chain at most, default 250: a Firecrawl credit each).
+ * A guide_url of `items:<menu page> <item page prefix>` reads a chain's item pages one by one instead of one guide
+ * (scripts/item-pages.ts), for chains such as McDonald's that publish nutrition item by item.
  * Needs OPENROUTER_API_KEY, and FIRECRAWL_API_KEY to find and read guides (PDFs included); without
  * it, only web-page guides already set in ranking.csv can be read. CHAIN_DRAFT_MODELS overrides the two
  * models ("maker/model,maker/model"). A run that runs out of AI or Firecrawl credit stops; run the same
@@ -30,6 +33,8 @@ import { z } from 'zod';
 
 import { CHAIN_CSV_COLUMNS, chainSlug, type ChainCheck, type ChainItemKind } from '../src/shared/chains';
 import { csvLine, parseCsv } from './csv';
+import { firecrawl } from './firecrawl';
+import { DEFAULT_MAX_PAGES, ITEM_PAGES, readItemPages } from './item-pages';
 
 config({ quiet: true });
 
@@ -112,26 +117,6 @@ function writeRanking(chains: readonly RankedChain[]) {
 }
 
 // ── Finding and reading the guide ───────────────────────────────────────────────────────────────
-
-async function firecrawl<T>(endpoint: 'search' | 'scrape', body: object): Promise<T> {
-  const key = process.env.FIRECRAWL_API_KEY;
-  if (!key) throw new Error('Set FIRECRAWL_API_KEY to find and read guides (or set guide_url in ranking.csv).');
-  for (let attempt = 1; ; attempt++) {
-    const response = await fetch(`https://api.firecrawl.dev/v2/${endpoint}`, {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-    });
-    if (response.ok) return (await response.json()) as T;
-    // Rate limited: wait as long as Firecrawl asks (up to 2 minutes), three times at most.
-    if (response.status === 429 && attempt < 3) {
-      const wait = Math.min(Number(response.headers.get('retry-after')) || 30 * attempt, 120);
-      await new Promise((resolve) => setTimeout(resolve, wait * 1000));
-      continue;
-    }
-    throw new Error(`Firecrawl ${endpoint}: ${response.status} ${(await response.text()).slice(0, 300)}`);
-  }
-}
 
 /**
  * Many chains' nutrition pages are run by Nutritionix (its links all over the page). Nutritionix's terms
@@ -273,7 +258,8 @@ async function readGuide(slug: string, url: string, refetch: boolean): Promise<{
   return { text, readOn };
 }
 
-type Guide = { url: string; text: string; readOn: string } | { problem: string };
+/** A guide to draft (with `pages` when it is a chain's item pages), or why there isn't one. */
+type Guide = { url: string; text: string; readOn: string; pages?: string[] } | { problem: string };
 
 /** Reads the guide and checks it's one to draft. A page without numbers is followed once to the PDF it links. */
 async function usableGuide(entry: RankedChain, url: string, refetch: boolean, followed = false): Promise<Guide> {
@@ -315,33 +301,42 @@ const draftItemSchema = z.object({
   serving: z.string(),
   serving_g: z.number().nullable(),
   ...Object.fromEntries(NUMBER_FIELDS.map((field) => [field, z.number().nullable()])),
+  page: z.number().int().nullable().optional(),
 }) as unknown as z.ZodType<DraftItem>;
-export type DraftItem = { section: string; name: string; serving: string; serving_g: number | null } & Record<NumberField, number | null>;
+/** `page`: the item page a line came from, when the chain publishes one page per item. */
+export type DraftItem = { section: string; name: string; serving: string; serving_g: number | null; page?: number | null } & Record<
+  NumberField,
+  number | null
+>;
 const draftSchema = z.object({ items: z.array(draftItemSchema) });
 
 const nullableNumber = { type: ['number', 'null'] };
-const DRAFT_JSON_SCHEMA = {
-  type: 'object',
-  additionalProperties: false,
-  required: ['items'],
-  properties: {
-    items: {
-      type: 'array',
+/** The drafts' answer format; with item pages, every row also names its page. */
+function draftJsonSchema(itemPages: boolean) {
+  return {
+    type: 'object',
+    additionalProperties: false,
+    required: ['items'],
+    properties: {
       items: {
-        type: 'object',
-        additionalProperties: false,
-        required: ['section', 'name', 'serving', 'serving_g', ...NUMBER_FIELDS],
-        properties: {
-          section: { type: 'string' },
-          name: { type: 'string' },
-          serving: { type: 'string' },
-          serving_g: nullableNumber,
-          ...Object.fromEntries(NUMBER_FIELDS.map((field) => [field, nullableNumber])),
+        type: 'array',
+        items: {
+          type: 'object',
+          additionalProperties: false,
+          required: ['section', 'name', 'serving', 'serving_g', ...NUMBER_FIELDS, ...(itemPages ? ['page'] : [])],
+          properties: {
+            section: { type: 'string' },
+            name: { type: 'string' },
+            serving: { type: 'string' },
+            serving_g: nullableNumber,
+            ...Object.fromEntries(NUMBER_FIELDS.map((field) => [field, nullableNumber])),
+            ...(itemPages ? { page: { type: ['integer', 'null'] } } : {}),
+          },
         },
       },
     },
-  },
-};
+  };
+}
 
 const DRAFT_PROMPT = `You copy a restaurant chain's own nutrition guide into rows. Rules:
 - One row per menu item and size, as the guide lists them. Skip combo meals, kids' meal bundles, catering trays, whole pies or party sizes, and any line without a calorie number.
@@ -352,6 +347,11 @@ const DRAFT_PROMPT = `You copy a restaurant chain's own nutrition guide into row
 - Units: fat, saturated fat, trans fat, carbohydrates, fiber, sugars and protein in grams; cholesterol and sodium in milligrams. A value in any other unit becomes null.
 - Ignore everything that isn't nutrition facts (allergens, ingredients, footnotes, prices).
 - If this part of the guide has no nutrition facts, return an empty list.`;
+/** Added for chains that publish one page per item (scripts/item-pages.ts). */
+const ITEM_PAGES_RULES = `- This guide is the chain's item pages, one section each, headed "### Page N: name (address)". Copy each page's nutrition facts; page: the number N of the section the row comes from.
+- name: the item's name from its heading, without promotion words ("New", "Now Crispier"); where words run together, the address shows them apart ("mccrispy-strip-ranch-snack-wrap").
+- serving: the size the page shows; its address often names it ("coca-cola-small" is Small). section: the menu category the page names, else one word for what it is ("Burgers", "Chicken", "Breakfast", "Sides", "Drinks", "Desserts", "Sauces").`;
+const promptFor = (itemPages: boolean) => (itemPages ? `${DRAFT_PROMPT}\n${ITEM_PAGES_RULES}` : DRAFT_PROMPT);
 
 let client: OpenAI | null = null;
 function openRouter() {
@@ -367,44 +367,44 @@ function openRouter() {
   return client;
 }
 
-/** Long guides go in parts of about CHUNK_CHARS, split at line breaks. */
-function chunks(text: string) {
+/** Long guides go in parts of about CHUNK_CHARS, split at line breaks (item pages: between pages). */
+function chunks(text: string, itemPages = false) {
   const parts: string[] = [];
   let current = '';
-  for (const line of text.split('\n')) {
-    if (current.length + line.length > CHUNK_CHARS && current) {
+  for (const piece of itemPages ? text.split(/\n+(?=### Page \d)/) : text.split('\n')) {
+    if (current.length + piece.length > CHUNK_CHARS && current) {
       parts.push(current);
       current = '';
     }
-    current += `${line}\n`;
+    current += `${piece}\n${itemPages ? '\n' : ''}`;
   }
   if (current.trim()) parts.push(current);
   return parts;
 }
 
 /** Each model's draft is kept with the guide and prompt it came from, so comparing again costs nothing. */
-async function cachedDraft(slug: string, model: string, chain: string, text: string, redraft: boolean) {
-  const hash = createHash('sha256').update(`${model}\n${DRAFT_PROMPT}\n${text}`).digest('hex').slice(0, 16);
+async function cachedDraft(slug: string, model: string, chain: string, text: string, redraft: boolean, itemPages: boolean) {
+  const hash = createHash('sha256').update(`${model}\n${promptFor(itemPages)}\n${text}`).digest('hex').slice(0, 16);
   const file = path.join(CACHE, `${slug}.${model.replace(/[^a-z0-9.-]+/gi, '_')}.${hash}.json`);
   if (!redraft && existsSync(file)) return { items: draftSchema.parse(JSON.parse(readFileSync(file, 'utf8'))).items, tokens: 0 };
-  const result = await draft(model, chain, text);
+  const result = await draft(model, chain, text, itemPages);
   mkdirSync(CACHE, { recursive: true });
   writeFileSync(file, JSON.stringify({ items: result.items }));
   return result;
 }
 
-async function draft(model: string, chain: string, text: string) {
-  const parts = chunks(text);
+async function draft(model: string, chain: string, text: string, itemPages: boolean) {
+  const parts = chunks(text, itemPages);
   const items: DraftItem[] = [];
   let tokens = 0;
   for (const [index, part] of parts.entries()) {
     const response = await openRouter().chat.completions.create({
       model,
       messages: [
-        { role: 'system', content: DRAFT_PROMPT },
+        { role: 'system', content: promptFor(itemPages) },
         { role: 'user', content: `Chain: ${chain}\nGuide, part ${index + 1} of ${parts.length}:\n\n${part}` },
       ],
-      response_format: { type: 'json_schema', json_schema: { name: 'chain_menu', strict: true, schema: DRAFT_JSON_SCHEMA } },
+      response_format: { type: 'json_schema', json_schema: { name: 'chain_menu', strict: true, schema: draftJsonSchema(itemPages) } },
       max_tokens: 64_000,
     } as OpenAI.ChatCompletionCreateParamsNonStreaming);
     const content = response.choices[0]?.message?.content;
@@ -455,7 +455,12 @@ function similarNames(x: string, y: string) {
 }
 type Problem = { key: string; a: DraftItem | null; b: DraftItem | null; reason: string };
 
-export function compare(a: readonly DraftItem[], b: readonly DraftItem[]) {
+/**
+ * Lines both drafts agree on, and the rest for a person. With item pages (`pageCount` given), both drafts must
+ * also name the same page, one that exists, since that page is the line's source.
+ */
+export function compare(a: readonly DraftItem[], b: readonly DraftItem[], pageCount?: number) {
+  const samePage = (x: DraftItem, y: DraftItem) => pageCount === undefined || x.page === y.page;
   const first = (items: readonly DraftItem[]) => {
     const map = new Map<string, DraftItem>();
     for (const item of items) if (!map.has(keyOf(item))) map.set(keyOf(item), item);
@@ -473,7 +478,7 @@ export function compare(a: readonly DraftItem[], b: readonly DraftItem[]) {
     const x = left.get(keyA)!;
     const candidates = [...unmatchedB].filter((keyB) => {
       const y = right.get(keyB)!;
-      return NUMBER_FIELDS.every((field) => same(x[field], y[field])) && similarNames(x.name, y.name);
+      return NUMBER_FIELDS.every((field) => same(x[field], y[field])) && similarNames(x.name, y.name) && samePage(x, y);
     });
     if (candidates.length !== 1) continue;
     const y = right.get(candidates[0])!;
@@ -495,10 +500,13 @@ export function compare(a: readonly DraftItem[], b: readonly DraftItem[]) {
       lines.push({ item: (x ?? y)!, check: 'pending' });
       continue;
     }
-    const differ = NUMBER_FIELDS.filter((field) => !same(x[field], y[field]));
+    const differ: string[] = NUMBER_FIELDS.filter((field) => !same(x[field], y[field]));
+    if (!samePage(x, y)) differ.push('page');
     const missing = REQUIRED.filter((field) => x[field] === null);
-    if (differ.length > 0 || missing.length > 0) {
-      problems.push({ key, a: x, b: y, reason: differ.length > 0 ? `differ: ${differ.join(', ')}` : `the guide gives no ${missing.join(', ')}` });
+    const noPage = pageCount !== undefined && !(x.page && x.page >= 1 && x.page <= pageCount);
+    if (differ.length > 0 || missing.length > 0 || noPage) {
+      const reason = differ.length > 0 ? `differ: ${differ.join(', ')}` : missing.length > 0 ? `the guide gives no ${missing.join(', ')}` : 'no item page';
+      problems.push({ key, a: x, b: y, reason });
       lines.push({ item: x, check: 'pending' });
     } else {
       lines.push({ item: { ...x, serving_g: same(x.serving_g, y.serving_g) ? x.serving_g : null }, check: 'two-drafts' });
@@ -521,8 +529,12 @@ export function sample(lines: readonly Line[]) {
 
 const show = (value: number | null) => (value === null ? '' : String(value));
 
-/** Writes the chain's menu file; lines a person already checked stay as they are. */
-export function writeMenu(slug: string, chain: string, url: string, readOn: string, lines: readonly Line[]) {
+/**
+ * Writes the chain's menu file; lines a person already checked stay as they are. With item pages, each line's
+ * source is its own page (`pages`, numbered from 1), else the guide.
+ */
+export function writeMenu(slug: string, chain: string, url: string, readOn: string, lines: readonly Line[], pages?: readonly string[]) {
+  const sourceOf = (item: DraftItem) => (pages && item.page ? (pages[item.page - 1] ?? url) : url);
   const file = path.join(MENUS, `${slug}.csv`);
   const checked = new Map<string, string[]>();
   if (existsSync(file)) {
@@ -543,7 +555,7 @@ export function writeMenu(slug: string, chain: string, url: string, readOn: stri
         show(item.serving_g),
         kindOf(item.section, item.name),
         ...NUMBER_FIELDS.map((field) => show(item[field])),
-        url,
+        sourceOf(item),
         readOn,
         check,
       ]),
@@ -553,13 +565,23 @@ export function writeMenu(slug: string, chain: string, url: string, readOn: stri
   writeFileSync(file, `${[csvLine([...CHAIN_CSV_COLUMNS]), ...kept, ...rows].join('\n')}\n`);
 }
 
-function writeReview(slug: string, chain: string, url: string, readOn: string, models: readonly string[], problems: readonly Problem[], spot: readonly Line[]) {
+function writeReview(
+  slug: string,
+  chain: string,
+  url: string,
+  readOn: string,
+  models: readonly string[],
+  problems: readonly Problem[],
+  spot: readonly Line[],
+  pages?: readonly string[],
+) {
   const numbers = (item: DraftItem | null) => (item ? NUMBER_FIELDS.map((field) => show(item[field]) || '–').join(' / ') : 'not found');
   const name = (problem: Problem) => (problem.a ?? problem.b)!;
+  const guide = pages ? `${pages.length} item pages under ${url}, each line's own page in its source_url` : url;
   const out = [
     `# ${chain}: lines for a person`,
     '',
-    `Guide: ${url} (read ${readOn}). Draft A: ${models[0]}. Draft B: ${models[1]}.`,
+    `Guide: ${guide} (read ${readOn}). Draft A: ${models[0]}. Draft B: ${models[1]}.`,
     `Numbers in order: ${NUMBER_FIELDS.join(' / ')}.`,
     '',
     `## Disagreements (${problems.length})`,
@@ -604,6 +626,7 @@ async function main() {
   const redraft = process.argv.includes('--redraft');
   const guidesOnly = process.argv.includes('--guides-only');
   const parallel = Number(argument('--parallel')) || DEFAULT_PARALLEL;
+  const maxPages = Number(argument('--max-pages')) || DEFAULT_MAX_PAGES;
   const [from, to] = (range ?? '').split('-').map(Number);
   const picked = only
     ? ranking.filter((c) => c.chain.toLowerCase() === only.toLowerCase() || chainSlug(c.chain) === chainSlug(only))
@@ -625,7 +648,10 @@ async function main() {
     try {
       if (url) entry.guideUrl = url;
       let guide: Guide;
-      if (entry.guideUrl) {
+      if (entry.guideUrl.startsWith(ITEM_PAGES)) {
+        const log = (line: string) => console.log(`#${entry.rank} ${entry.chain}: ${line}`);
+        guide = await readItemPages(path.join(CACHE, slug), entry.guideUrl, { refetch, maxPages, log });
+      } else if (entry.guideUrl) {
         guide = await usableGuide(entry, entry.guideUrl, refetch);
       } else if (!entry.site) {
         entry.notes = 'set site (the chain’s own website) or guide_url';
@@ -654,28 +680,34 @@ async function main() {
         console.warn(`#${entry.rank} ${entry.chain}: ${entry.notes} (${entry.guideUrl})`);
         return;
       }
-      const { text, readOn } = guide;
-      entry.guideUrl = guide.url;
+      const { text, readOn, pages } = guide;
+      // Item pages keep their items: spec; a followed PDF replaces the page it was linked from.
+      if (!pages) entry.guideUrl = guide.url;
       if (guidesOnly) {
+        if (pages) {
+          entry.notes = `item pages read ${readOn}: ${pages.length} with nutrition, ready to draft`;
+          console.log(`#${entry.rank} ${entry.chain}: ready, ${pages.length} item pages with nutrition`);
+          return;
+        }
         const { rows, nutrients } = nutritionFacts(text);
         entry.notes = `guide read ${readOn}: ready to draft${datedNote(entry.guideUrl)}`;
         console.log(`#${entry.rank} ${entry.chain}: ready, ${rows} table rows, ${nutrients} nutrient words${datedNote(entry.guideUrl)} (${entry.guideUrl})`);
         return;
       }
-      const [a, b] = await Promise.all(models.map((model) => cachedDraft(slug, model, entry.chain, text, redraft)));
-      const { lines, problems } = compare(a.items, b.items);
+      const [a, b] = await Promise.all(models.map((model) => cachedDraft(slug, model, entry.chain, text, redraft, Boolean(pages))));
+      const { lines, problems } = compare(a.items, b.items, pages?.length);
       if (lines.length === 0) {
         entry.notes = 'no nutrition numbers found in the guide: set guide_url to the PDF or full table';
         console.warn(`#${entry.rank} ${entry.chain}: ${entry.notes}`);
         return;
       }
       const spot = sample(lines);
-      writeMenu(slug, entry.chain, entry.guideUrl, readOn, lines);
-      writeReview(slug, entry.chain, entry.guideUrl, readOn, models, problems, spot);
+      writeMenu(slug, entry.chain, guide.url, readOn, lines, pages);
+      writeReview(slug, entry.chain, guide.url, readOn, models, problems, spot, pages);
       const agreed = lines.length - problems.length;
       // A short list is usually one page or one promotion, not the whole guide.
       const few = lines.length < 20 ? '; few items: check the guide is the whole menu' : '';
-      entry.notes = `drafted ${readOn}: ${agreed} agreed, ${problems.length} for a person${few}${datedNote(entry.guideUrl)}`;
+      entry.notes = `drafted ${readOn}: ${agreed} agreed, ${problems.length} for a person${few}${datedNote(guide.url)}`;
       console.log(`#${entry.rank} ${entry.chain}: ${agreed} agreed, ${problems.length} pending, ${spot.length} to spot-check (${a.tokens + b.tokens} tokens)`);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
