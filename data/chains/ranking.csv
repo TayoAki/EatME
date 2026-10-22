@@ -1,251 +1,251 @@
 rank,chain,site,guide_url,notes
-1,McDonald's,mcdonalds.com,,
-2,Starbucks,starbucks.com,,
+1,McDonald's,mcdonalds.com,https://www.mcdonalds.com/us/en-us/about-our-food/nutrition-calculator.html,no nutrition numbers found in the guide: set guide_url to the PDF or full table
+2,Starbucks,starbucks.com,https://www.starbucks.com/menu/product/407/hot/nutrition,no nutrition numbers found in the guide: set guide_url to the PDF or full table
 3,Chick-fil-A,chick-fil-a.com,https://www.chick-fil-a.com/nutrition-allergens,"drafted 2026-10-21: 303 agreed, 24 for a person"
 4,Taco Bell,tacobell.com,https://www.tacobell.com/nutrition/info,guide is run by Nutritionix: set guide_url to the chain’s own PDF
 5,Dunkin',dunkindonuts.com,https://assets.ctfassets.net/ubkcphxhphh0/3qEP8wMU2IFmLsLyEeWLuc/7bdae361f785d1611d25c4d859f8c721/DD_W7_nutrition_guide.pdf,guide read 2026-10-22: ready to draft
-6,Wendy's,wendys.com,,
+6,Wendy's,wendys.com,https://www.wendys.com/nutrition-allergens,no nutrition numbers found in the guide: set guide_url to the PDF or full table
 7,Chipotle Mexican Grill,chipotle.com,https://www.chipotle.com/content/dam/chipotle/menu/nutrition/US-Nutrition-Facts-Paper-Menu-3-2025.pdf,guide read 2026-10-22: ready to draft
-8,Burger King,bk.com,,
+8,Burger King,bk.com,https://help.bk.com/hc/en-us/sections/36912922362263-Nutrition,no nutrition numbers found in the guide: set guide_url to the PDF or full table
 9,Domino's,dominos.com,https://cache.dominos.com/olo/6_48_1/assets/build/market/US/_en/pdf/DominosNutritionGuide.pdf,guide read 2026-10-22: ready to draft
-10,Subway,subway.com,,
-11,Panda Express,pandaexpress.com,,
+10,Subway,subway.com,https://media.subway.com/dam/urn:aaid:aem:f20a4541-8c88-496b-940d-4aa8318cae26/original/as/us-nutrition-en.pdf,guide read 2026-10-22: ready to draft
+11,Panda Express,pandaexpress.com,https://www.pandaexpress.com/nutritioninformation,guide read 2026-10-22: ready to draft
 12,Panera Bread,panerabread.com,https://www.panerabread.com/content/dam/panerabread/documents/c8-26-nutrition-guide.pdf,guide read 2026-10-22: ready to draft
-13,Texas Roadhouse,texasroadhouse.com,,
-14,Popeyes,popeyes.com,,
-15,Chili's Grill & Bar,chilis.com,,
-16,Raising Cane's,raisingcanes.com,,
+13,Texas Roadhouse,texasroadhouse.com,https://www.texasroadhouse.com/menu/nutrition,no nutrition numbers found in the guide: set guide_url to the PDF or full table
+14,Popeyes,popeyes.com,https://plk-use1-prod.sites.rbictg.com/nutrition/PLK_Nutrition.pdf,guide read 2026-10-22: ready to draft
+15,Chili's Grill & Bar,chilis.com,https://www.chilis.com/nutrition,guide is run by Nutritionix: set guide_url to the chain’s own PDF
+16,Raising Cane's,raisingcanes.com,https://www.raisingcanes.com/allergens/,guide read 2026-10-22: ready to draft
 17,Olive Garden,olivegarden.com,https://media.olivegarden.com/en_us/pdf/olive_garden_nutrition.pdf,guide read 2026-10-22: ready to draft
 18,SONIC,sonicdrivein.com,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,guide read 2026-10-22: ready to draft
 19,Pizza Hut,pizzahut.com,https://www.pizzahut.com/c/content/nutrition,guide is run by Nutritionix: set guide_url to the chain’s own PDF
-20,Dairy Queen,dairyqueen.com,,
-21,Wingstop,wingstop.com,,
-22,KFC,kfc.com,,
+20,Dairy Queen,dairyqueen.com,https://www.dairyqueen.com/en-us/nutrition/food-treats/,guide read 2026-10-22: ready to draft
+21,Wingstop,wingstop.com,https://s3.amazonaws.com/wingstop.com/assets/static/WSR18-0009-Corporate-NutritionalGuide-JumboWings-HR_OFFICAL.pdf,guide read 2026-10-22: ready to draft
+22,KFC,www.kfc.com,,no nutrition page found on www.kfc.com: set guide_url by hand
 23,Little Caesars,littlecaesars.com,https://littlecaesars.com/static/usnutritionguide.pdf,guide read 2026-10-22: ready to draft
 24,Culver's,culvers.com,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,guide read 2026-10-22: ready to draft
-25,Whataburger,whataburger.com,,
+25,Whataburger,whataburger.com,https://wbimageserver.whataburger.com/Nutrition.pdf,guide read 2026-10-22: ready to draft
 26,Arby's,arbys.com,https://assets.ctfassets.net/30q5w5l98nbx/42zLskOHOxnHbSVYO98X47/eb5b661b4d42295aaf804a8f6a150b13/Arbys_Nutritional_and_Allergen_OCT_2026.pdf,guide read 2026-10-22: ready to draft
-27,Jack in the Box,jackinthebox.com,,
-28,Jersey Mike's Subs,jerseymikes.com,,
+27,Jack in the Box,jackinthebox.com,,no nutrition page found on jackinthebox.com: set guide_url by hand
+28,Jersey Mike's Subs,jerseymikes.com,https://www.jerseymikes.com/menu/nutrition,no nutrition numbers found in the guide: set guide_url to the PDF or full table
 29,Buffalo Wild Wings,buffalowildwings.com,https://assets.ctfassets.net/6dxmiqksdkqb/2XgznB5cOqQ9l1r7PQAasB/dd312340082cc00107545e7ab21318a7/BWW_Nutrition_Guide__08-18-2026_-_11-17-2026_.pdf,guide read 2026-10-22: ready to draft
-30,Applebee's,applebees.com,,
-31,Papa Johns,papajohns.com,,
-32,IHOP,ihop.com,,
+30,Applebee's,applebees.com,https://www.applebees.com/en/nutrition,no nutrition numbers found in the guide: set guide_url to the PDF or full table
+31,Papa Johns,papajohns.com,https://www.papajohns.com/company/nutritional-details/index.html,guide read 2026-10-22: ready to draft
+32,IHOP,ihop.com,https://www.ihop.com/en/nutrition/calculator,guide is run by Nutritionix: set guide_url to the chain’s own PDF
 33,LongHorn Steakhouse,longhornsteakhouse.com,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,guide read 2026-10-22: ready to draft
-34,Zaxbys,zaxbys.com,,
+34,Zaxbys,zaxbys.com,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,guide read 2026-10-22: ready to draft
 35,Jimmy John's,jimmyjohns.com,https://resources.jimmyjohns.com/downloadable-files/Beefy_Black_And_Bleu_Nutrition_Guide.pdf,guide read 2026-10-22: ready to draft
 36,Outback Steakhouse,outback.com,https://outback.blob.core.windows.net/content/images/OBS_Full_Nutrition_Information_Core_Menu_Items.pdf,guide read 2026-10-22: ready to draft
 37,The Cheesecake Factory,thecheesecakefactory.com,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,guide read 2026-10-22: ready to draft
-38,Cracker Barrel,crackerbarrel.com,,
+38,Cracker Barrel,crackerbarrel.com,https://www.crackerbarrel.com/nutrition,no nutrition numbers found in the guide: set guide_url to the PDF or full table
 39,Denny's,dennys.com,https://www.dennys.com/sites/default/files/2026-05/M2%20Spring%20Core%20Menu%20Nutrition%20Guide.pdf,guide read 2026-10-22: ready to draft
-40,In-N-Out Burger,in-n-out.com,,
+40,In-N-Out Burger,in-n-out.com,https://www.in-n-out.com/menu/nutrition-info,guide read 2026-10-22: ready to draft
 41,Five Guys,fiveguys.com,https://www.fiveguys.com/wp-content/uploads/2025/07/five-guys-us-nutrition-allergen-guide-english-1-final.pdf,guide read 2026-10-22: ready to draft
 42,Dutch Bros Coffee,dutchbros.com,https://www.dutchbros.com/website/menu/nutritional-guide.pdf,guide read 2026-10-22: ready to draft
-43,Hardee's,hardees.com,https://www.hardees.com/getContentAsset/20c3e4eb-fa23-4fb2-b914-5fc082e91122/dfc3d011-8f63-43f6-9ed8-4b444333a1d0/nutritional-info-page.pdf?language=en-US,
-44,Bojangles,bojangles.com,https://www.bojangles.com/menu/nutrition/,
-45,Golden Corral,goldencorral.com,https://www.goldencorral.com/nutrition/,
-46,Red Lobster,redlobster.com,,
-47,Tropical Smoothie Cafe,tropicalsmoothiecafe.com,https://www.tropicalsmoothiecafe.com/nutrition,
-48,Shake Shack,shakeshack.com,,
-49,Waffle House,wafflehouse.com,,
-50,Red Robin,redrobin.com,,
-51,Carl's Jr.,carlsjr.com,,
-52,BJ's Restaurant & Brewhouse,bjsrestaurants.com,,
-53,First Watch,firstwatch.com,,
-54,Qdoba Mexican Eats,qdoba.com,,
-55,Crumbl,crumblcookies.com,,
-56,Firehouse Subs,firehousesubs.com,,
-57,7 Brew Drive Thru Coffee,7brew.com,,
-58,Cava,cava.com,,
-59,El Pollo Loco,elpolloloco.com,,
-60,Freddy's,freddys.com,,
-61,McAlister's Deli,mcalistersdeli.com,,
-62,Marco's Pizza,marcos.com,,
-63,Nothing Bundt Cakes,nothingbundtcakes.com,,
-64,Dave's Hot Chicken,daveshotchicken.com,,
-65,Del Taco,deltaco.com,,
-66,Yard House,yardhouse.com,,
-67,P.F. Chang's,pfchangs.com,,
-68,Church's Texas Chicken,churchs.com,,
-69,Scooter's Coffee,scooterscoffee.com,,
-70,Auntie Anne's,auntieannes.com,,
-71,Tim Hortons,timhortons.com,,
-72,Smoothie King,smoothieking.com,,
-73,Cheddar's Scratch Kitchen,cheddars.com,,
-74,Krispy Kreme,krispykreme.com,,
-75,Steak 'n Shake,steaknshake.com,,
-76,Carrabba's Italian Grill,carrabbas.com,,
-77,Fogo de Chao,fogodechao.com,,
-78,Portillo's,portillos.com,,
-79,Bob Evans,bobevans.com,,
-80,Ruth's Chris Steak House,ruthschris.com,,
-81,Charleys Cheesesteaks,charleys.com,,
-82,Habit Burger & Grill,habitburger.com,,
-83,Baskin-Robbins,baskinrobbins.com,,
-84,Papa Murphy's Pizza,papamurphys.com,,
-85,Sweetgreen,sweetgreen.com,,
-86,Einstein Bros. Bagels,einsteinbros.com,,
-87,Jason's Deli,jasonsdeli.com,,
-88,Moe's Southwest Grill,moes.com,,
-89,Cooper's Hawk Winery & Restaurants,chwinery.com,,
-90,Paris Baguette,parisbaguette.com,,
-91,Dave & Buster's,daveandbusters.com,,
-92,Jack's Family Restaurants,eatatjacks.com,,
-93,Cold Stone Creamery,coldstonecreamery.com,,
-94,Jet's Pizza,jetspizza.com,,
-95,The Capital Grille,thecapitalgrille.com,,
-96,White Castle,whitecastle.com,,
-97,Cook Out,cookout.com,,
-98,Potbelly Sandwich Shop,potbelly.com,,
-99,Noodles & Company,noodles.com,,
-100,Miller's Ale House,millersalehouse.com,,
-101,Twin Peaks,twinpeaksrestaurant.com,,
-102,KPOT Korean BBQ & Hot Pot,thekpot.com,,
-103,Honey Baked Ham Co.,honeybaked.com,,
-104,Captain D's Seafood Kitchen,captainds.com,,
-105,Hooters,hooters.com,,
-106,MOD Pizza,modpizza.com,,
-107,Benihana,benihana.com,,
-108,Chuy's,chuys.com,,
-109,Bonefish Grill,bonefishgrill.com,,
-110,Checkers,checkersandrallys.com,,
-111,Maggiano's Little Italy,maggianos.com,,
-112,Perkins American Food Co.,perkinsrestaurants.com,,
-113,Torchy's Tacos,torchystacos.com,,
-114,Saltgrass Steak House,saltgrass.com,,
-115,Din Tai Fung,dtf.com,,
-116,Slim Chickens,slimchickens.com,,
-117,Jamba,jamba.com,,
-118,Chicken Salad Chick,chickensaladchick.com,,
-119,Black Bear Diner,blackbeardiner.com,,
-120,Topgolf,topgolf.com,,
-121,Texas de Brazil,texasdebrazil.com,,
-122,Mellow Mushroom,mellowmushroom.com,,
-123,Long John Silver's,ljsilvers.com,,
-124,Chuck E. Cheese,chuckecheese.com,,
-125,Lazy Dog Restaurant & Bar,lazydogrestaurants.com,,
-126,Hungry Howie's Pizza,hungryhowies.com,,
-127,Fleming's Prime Steakhouse & Wine Bar,flemingssteakhouse.com,,
-128,Taco John's,tacojohns.com,,
-129,Jollibee,jollibeefoods.com,,
-130,Caribou Coffee,cariboucoffee.com,,
-131,Round Table Pizza,roundtablepizza.com,,
-132,Pollo Campero,us.campero.com,,
-133,Mountain Mike's Pizza,mountainmikespizza.com,,
-134,Pizza Ranch,pizzaranch.com,,
-135,Biggby Coffee,biggby.com,,
-136,Wienerschnitzel,wienerschnitzel.com,,
-137,Firebirds Wood Fired Grill,firebirdsrestaurants.com,,
-138,California Pizza Kitchen,cpk.com,,
-139,Mastro's Restaurants,mastrosrestaurants.com,,
-140,Logan's Roadhouse,logansroadhouse.com,,
-141,North Italia,northitalia.com,,
-142,Shipley Do-Nuts,shipleydonuts.com,,
-143,Cafe Rio Mexican Grill,caferio.com,,
-144,Schlotzsky's,schlotzskys.com,,
-145,Walk-On's Sports Bistreaux,walk-ons.com,,
-146,Cicis,cicis.com,,
-147,Bubba's 33,bubbas33.com,,
-148,Playa Bowls,playabowls.com,,
-149,Pollo Tropical,pollotropical.com,,
-150,Blaze Pizza,blazepizza.com,,
-151,Golden Chick,goldenchick.com,,
-152,True Food Kitchen,truefoodkitchen.com,,
-153,Sarku Japan,sarkujapan.com,,
-154,Tous Les Jours,tljus.com,,
-155,Pappadeaux Seafood Kitchen,pappadeaux.com,,
-156,Peet's Coffee,peets.com,,
-157,Seasons 52,seasons52.com,,
-158,Wetzel's Pretzels,wetzels.com,,
-159,Mendocino Farms,mendocinofarms.com,,
-160,Rally's,checkersandrallys.com,,
-161,Mission BBQ,mission-bbq.com,,
-162,Braum's Ice Cream & Dairy Stores,braums.com,,
-163,Cinnabon,cinnabon.com,,
-164,Ninety Nine Restaurant & Pub,99restaurants.com,,
-165,Sonny's BBQ,sonnysbbq.com,,
-166,Insomnia Cookies,insomniacookies.com,,
-167,Krystal Company,krystal.com,,
-168,85C Bakery Cafe,85cbakerycafe.com,,
-169,Kura Sushi,kurasushi.com,,
-170,Ruby Tuesday,rubytuesday.com,,
-171,Famous Dave's,famousdaves.com,,
-172,TGI Fridays,tgifridays.com,,
-173,J. Alexander's,jalexanders.com,,
-174,Ocean Prime,ocean-prime.com,,
-175,Penn Station East Coast Subs,penn-station.com,,
-176,Skyline Chili,skylinechili.com,,
-177,Ono Hawaiian BBQ,onohawaiianbbq.com,,
-178,Sbarro,sbarro.com,,
-179,Perry's Steakhouse & Grille,perryssteakhouse.com,,
-180,bb.q Chicken,bbqchicken.com,,
-181,Godfather's Pizza,godfathers.com,,
-182,Eddie V's Prime Seafood,eddiev.com,,
-183,City Barbeque,citybbq.com,,
-184,A&W All American Food,awrestaurants.com,,
-185,Nobu Restaurants,noburestaurants.com,,
-186,Morton's The Steakhouse,mortons.com,,
-187,Hook & Reel,hookreel.com,,
-188,Rosati's Pizza,myrosatis.com,,
-189,L&L Hawaiian Barbecue,hawaiianbarbecue.com,,
-190,Andy's Frozen Custard,eatandys.com,,
-191,Fazoli's,fazolis.com,,
-192,STK,stksteakhouse.com,,
-193,Lee's Famous Recipe Chicken,leesfamousrecipe.com,,
-194,Farmer Boys,farmerboys.com,,
-195,Coffee Bean & Tea Leaf,coffeebean.com,,
-196,Just Salad,justsalad.com,,
-197,Donatos Pizza,donatos.com,,
-198,Newk's Eatery,newks.com,,
-199,Village Inn,villageinn.com,,
-200,Gen Korean BBQ,genkoreanbbq.com,,
-201,Dickey's Barbecue Pit,dickeys.com,,
-202,Bonchon,bonchon.com,,
-203,Beef 'O' Brady's,beefobradys.com,,
-204,Pei Wei,peiwei.com,,
-205,Panini Kabob Grill,paninikabobgrill.com,,
-206,Lupe Tortilla,tex-mex.com,,
-207,Huddle House,huddlehouse.com,,
-208,Smashburger,smashburger.com,,
-209,Rita's Ice,ritasice.com,,
-210,Jinya Ramen Bar,jinyaramenbar.com,,
-211,Original Pancake House,originalpancakehouse.com,,
-212,Costa Vida Fresh Mexican Grill,costavida.com,,
-213,Del Frisco's Double Eagle Steakhouse,delfriscos.com,,
-214,Black Rock Coffee Bar,br.coffee,,
-215,54th Street Restaurant & Drafthouse,54thstreetrestaurants.com,,
-216,Taziki's Mediterranean Cafe,tazikis.com,,
-217,Wayback Burgers,waybackburgers.com,,
-218,Taco Cabana,tacocabana.com,,
-219,Sizzler,sizzler.com,,
-220,Snooze Eatery,snoozeeatery.com,,
-221,Teriyaki Madness,teriyakimadness.com,,
-222,Melting Pot,meltingpot.com,,
-223,Yogurtland,yogurtland.com,,
-224,Corner Bakery,cornerbakerycafe.com,,
-225,Ford's Garage,fordsgarageusa.com,,
-226,Metro Diner,metrodiner.com,,
-227,Chopt,choptsalad.com,,
-228,Flower Child,iamaflowerchild.com,,
-229,Menchie's Frozen Yogurt,menchies.com,,
-230,Legal Sea Foods,legalseafoods.com,,
-231,Cheba Hut,chebahut.com,,
-232,Condado Tacos,condadotacos.com,,
-233,WaBa Grill,wabagrill.com,,
-234,Handel's Homemade Ice Cream,handelsicecream.com,,
-235,La Madeleine,lamadeleine.com,,
-236,Boiling Crab,theboilingcrab.com,,
-237,Bruegger's Bagels,brueggers.com,,
-238,Bartaco,bartaco.com,,
-239,Kung Fu Tea,kungfutea.com,,
-240,Carvel Ice Cream,carvel.com,,
-241,Another Broken Egg Cafe,anotherbrokenegg.com,,
-242,Golden Krust,goldenkrust.com,,
-243,Fuzzy's Taco Shop,fuzzystacoshop.com,,
-244,Roosters Wings,roosterswings.com,,
-245,Nekter Juice Bar,nekterjuicebar.com,,
-246,Velvet Taco,velvettaco.com,,
-247,Great American Cookies,greatamericancookies.com,,
-248,Huey Magoo's,hueymagoos.com,,
-249,LaRosa's Pizzeria,larosas.com,,
-250,Flanigan's,flanigans.net,,
+43,Hardee's,hardees.com,https://www.hardees.com/getContentAsset/20c3e4eb-fa23-4fb2-b914-5fc082e91122/dfc3d011-8f63-43f6-9ed8-4b444333a1d0/nutritional-info-page.pdf?language=en-US,guide read 2026-10-22: ready to draft
+44,Bojangles,bojangles.com,https://storyblok.pleinaircdn.com/f/110020/x/6c7b2a7e6a/m25-099-2025_02-nutritiongudeupdates_bobitessalad_master.pdf,guide read 2026-10-22: ready to draft
+45,Golden Corral,goldencorral.com,https://www.goldencorral.com/nutrition/,guide read 2026-10-22: ready to draft
+46,Red Lobster,redlobster.com,,no nutrition page found on redlobster.com: set guide_url by hand
+47,Tropical Smoothie Cafe,tropicalsmoothiecafe.com,https://www.tropicalsmoothiecafe.com/nutrition,no nutrition numbers found in the guide: set guide_url to the PDF or full table
+48,Shake Shack,shakeshack.com,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,guide read 2026-10-22: ready to draft
+49,Waffle House,wafflehouse.com,https://www.wafflehouse.com/wp-content/uploads/2026/05/Menu-Nutritionals-2026-05-05.pdf,guide read 2026-10-22: ready to draft
+50,Red Robin,redrobin.com,https://www.redrobin.com/sites/default/files/2024-10/CATERING_NUTR_0924.pdf,hold: only the catering guide found (2024): set the restaurant menu guide
+51,Carl's Jr.,carlsjr.com,https://www.carlsjr.com/getContentAsset/cccf694a-3d94-4cbc-adfc-28c255939f92/dfc3d011-8f63-43f6-9ed8-4b444333a1d0/nutritional-info.pdf?language=en-US,guide read 2026-10-22: ready to draft
+52,BJ's Restaurant & Brewhouse,bjsrestaurants.com,https://services1.bjsrestaurants.com/BJSS/images/BJsNutritionInfo.pdf,guide read 2026-10-22: ready to draft
+53,First Watch,firstwatch.com,https://firstwatch.com/nutrition-and-allergens,guide read 2026-10-22: ready to draft
+54,Qdoba Mexican Eats,qdoba.com,https://www.qdoba.com/public/assets/documents/qdoba-nutrition-information.pdf,guide read 2026-10-22: ready to draft
+55,Crumbl,crumblcookies.com,https://crumblcookies.com/allergens/nvsouthstrip,guide read 2026-10-22: ready to draft
+56,Firehouse Subs,firehousesubs.com,https://www.firehousesubs.com/nutritional-information,no nutrition numbers found in the guide: set guide_url to the PDF or full table
+57,7 Brew Drive Thru Coffee,7brew.com,https://7brew.com/nutrition-guide.pdf,guide read 2026-10-22: ready to draft
+58,Cava,cava.com,https://assets.ctfassets.net/kugm9fp9ib18/Ki4gri5pvT2rtPcjBQPjR/c78bed9be8448e2ab700f440f6faa83e/KT6_26_AN_ANGUIDE_RETAIL_T_MKTAN11724.pdf,guide read 2026-10-22: ready to draft
+59,El Pollo Loco,elpolloloco.com,https://www.elpolloloco.com/content/pdfs/epl_web_nutrition_guide_mod_1_2025_hr.pdf,guide read 2026-10-22: ready to draft
+60,Freddy's,freddys.com,https://www.freddys.com/nutrition-and-allergens,guide read 2026-10-22: ready to draft
+61,McAlister's Deli,mcalistersdeli.com,https://www.mcalistersdeli.com/nutrition,guide is run by Nutritionix: set guide_url to the chain’s own PDF
+62,Marco's Pizza,marcos.com,,no nutrition page found on marcos.com: set guide_url by hand
+63,Nothing Bundt Cakes,nothingbundtcakes.com,https://www.nothingbundtcakes.com/nutrition/?srsltid=AYCX9vJtpNOw2aSCLk6mGypoHo_HTuwCth3ZrZBBijNZJqX4JuYh2aa2,guide read 2026-10-22: ready to draft
+64,Dave's Hot Chicken,daveshotchicken.com,https://store.daveshotchicken.com/wp-content/uploads/2026/06/DHC-Nutrition-Chart_FOODS.pdf,guide read 2026-10-22: ready to draft
+65,Del Taco,deltaco.com,https://deltaco.com/nutrition.html,guide read 2026-10-22: ready to draft
+66,Yard House,yardhouse.com,https://media.yardhouse.com/en_us/pdf/yard_house_nutrition.pdf,guide read 2026-10-22: ready to draft
+67,P.F. Chang's,pfchangs.com,https://www.pfchangs.com/docs/default-source/pdf/pfc-national-menu-nutrition-autumn-in-kyoto-2026.pdf?sfvrsn=c1edf3f2_9,guide read 2026-10-22: ready to draft
+68,Church's Texas Chicken,churchs.com,,no nutrition page found on churchs.com: set guide_url by hand
+69,Scooter's Coffee,scooterscoffee.com,https://www.scooterscoffee.com/media/nutrition/scooters_nutrition_and_allergy_information.pdf,guide read 2026-10-22: ready to draft
+70,Auntie Anne's,auntieannes.com,https://assets.ctfassets.net/zqt8tllj2cy0/10Ezjc1ozMDByK7cBBikSn/4ca91079eaac12bb63fcec420cd0ca46/AA_2103518_NutritionAllergenGuide_W2andW3_2026_HIGHRES-1.pdf,guide read 2026-10-22: ready to draft
+71,Tim Hortons,timhortons.com,,no nutrition page found on timhortons.com: set guide_url by hand
+72,Smoothie King,smoothieking.com,https://www.smoothieking.com/nutrition/,no nutrition numbers found in the guide: set guide_url to the PDF or full table
+73,Cheddar's Scratch Kitchen,cheddars.com,https://media.cheddars.com/images/site/pdf/Cheddars_Nutrition_Guide_effective_3.20.23.pdf,guide read 2026-10-22: ready to draft
+74,Krispy Kreme,krispykreme.com,https://www.krispykreme.com/about/nutritional-info,no nutrition numbers found in the guide: set guide_url to the PDF or full table
+75,Steak 'n Shake,steaknshake.com,https://beeftallow.steaknshake.com/pages/nutrition-info,no nutrition numbers found in the guide: set guide_url to the PDF or full table
+76,Carrabba's Italian Grill,carrabbas.com,https://www.carrabbas.com/nutrition,no nutrition numbers found in the guide: set guide_url to the PDF or full table
+77,Fogo de Chao,fogodechao.com,,no nutrition page found on fogodechao.com: set guide_url by hand
+78,Portillo's,portillos.com,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,guide read 2026-10-22: ready to draft
+79,Bob Evans,bobevans.com,https://assets.ctfassets.net/81w9kb7f1jq4/7B5kIp1p1RGRhx1UFq6ToY/a453c3e4d8798f61df5cdd54c86e607c/Nutritional_Guide_Fall_FY2027_All_Day_Breakfast.pdf,guide read 2026-10-22: ready to draft
+80,Ruth's Chris Steak House,ruthschris.com,,no nutrition page found on ruthschris.com: set guide_url by hand
+81,Charleys Cheesesteaks,charleys.com,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,guide read 2026-10-22: ready to draft
+82,Habit Burger & Grill,habitburger.com,https://www.habitburger.com/nutritional-information/,guide read 2026-10-22: ready to draft
+83,Baskin-Robbins,baskinrobbins.com,https://www.baskinrobbins.com/en/nutrition?srsltid=AYCX9vJ4kPmX1wr0d_8IstpfFOnKoF9SkalHuYbgM71NhmZrnGUFreHh,guide read 2026-10-22: ready to draft
+84,Papa Murphy's Pizza,papamurphys.com,https://www.papamurphys.com/nutrition/,guide is run by Nutritionix: set guide_url to the chain’s own PDF
+85,Sweetgreen,sweetgreen.com,https://www.sweetgreen.com/nutrition/,guide read 2026-10-22: ready to draft
+86,Einstein Bros. Bagels,einsteinbros.com,https://www.einsteinbros.com/wp-content/uploads/2026/08/EBB-Nutrition-Guide-Master-2026-2.pdf,guide read 2026-10-22: ready to draft
+87,Jason's Deli,jasonsdeli.com,https://www.jasonsdeli.com/nutrition/,no nutrition numbers found in the guide: set guide_url to the PDF or full table
+88,Moe's Southwest Grill,moes.com,,no nutrition page found on moes.com: set guide_url by hand
+89,Cooper's Hawk Winery & Restaurants,chwinery.com,https://assets.chwinery.com/uploads/general/Food/AllergenGuide.pdf,no nutrition numbers found in the guide: set guide_url to the PDF or full table
+90,Paris Baguette,parisbaguette.com,https://parisbaguette.com/wp-content/uploads/2026/06/2026-Summer-Nutrition-Chart-US.pdf,guide read 2026-10-22: ready to draft
+91,Dave & Buster's,daveandbusters.com,https://www.daveandbusters.com/content/dam/dnb/us/en/menu/nutritional-menu/Nutritional%20Menu.pdf,guide read 2026-10-22: ready to draft
+92,Jack's Family Restaurants,eatatjacks.com,https://www.eatatjacks.com/wp-content/uploads/2026/05/Jacks-Nutritional-Info-05112020.pdf,guide read 2026-10-22: ready to draft
+93,Cold Stone Creamery,coldstonecreamery.com,https://www.coldstonecreamery.com/nutrition/pdf/CSC_Nutrition%20Info-Ice%20Cream_Sorbet.pdf,guide read 2026-10-22: ready to draft
+94,Jet's Pizza,jetspizza.com,https://www.jetspizza.com/nutrition/,guide is run by Nutritionix: set guide_url to the chain’s own PDF
+95,The Capital Grille,thecapitalgrille.com,https://media.thecapitalgrille.com/images/site/ext/menu/TCG_Nutrition_Guide.pdf,guide read 2026-10-22: ready to draft
+96,White Castle,whitecastle.com,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,guide read 2026-10-22: ready to draft
+97,Cook Out,cookout.com,https://cookout.com/wp-content/uploads/Cook-Out-Nutrition1.pdf,guide read 2026-10-22: ready to draft
+98,Potbelly Sandwich Shop,potbelly.com,https://www.potbelly.com/nutrition-calculator,guide is run by Nutritionix: set guide_url to the chain’s own PDF
+99,Noodles & Company,noodles.com,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,guide read 2026-10-22: ready to draft
+100,Miller's Ale House,millersalehouse.com,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,guide read 2026-10-22: ready to draft
+101,Twin Peaks,twinpeaksrestaurant.com,https://api.twinpeaksrestaurant.com/wp-content/uploads/Twin-Peaks-Nutritional-Guide_Jan2025.pdf,guide read 2026-10-22: ready to draft
+102,KPOT Korean BBQ & Hot Pot,thekpot.com,,no nutrition page found on thekpot.com: set guide_url by hand
+103,Honey Baked Ham Co.,honeybaked.com,,no nutrition page found on honeybaked.com: set guide_url by hand
+104,Captain D's Seafood Kitchen,captainds.com,https://www.captainds.com/wp-content/uploads/2026/03/Captain-Ds-Nutrition-and-Allergen-Chart_2026.02.18.pdf,guide read 2026-10-22: ready to draft
+105,Hooters,hooters.com,https://www.hooters.com/perch/resources/content/hoot-5690nutritional-menu-update.pdf,guide read 2026-10-22: ready to draft
+106,MOD Pizza,modpizza.com,https://modpizza.com/nutrition/,guide read 2026-10-22: ready to draft
+107,Benihana,benihana.com,https://www.benihana.com/wp-content/uploads/2025/02/c114d5a3-benihana-food-nutritional-info-1.2025_d.pdf,guide read 2026-10-22: ready to draft
+108,Chuy's,chuys.com,,no nutrition page found on chuys.com: set guide_url by hand
+109,Bonefish Grill,bonefishgrill.com,https://www.bonefishgrill.com/nutrition-information,no nutrition numbers found in the guide: set guide_url to the PDF or full table
+110,Checkers,checkersandrallys.com,https://web.checkersandrallys.com/wp-content/uploads/2025/11/Checkers-and-Rallys-Nutritional-Facts.pdf,guide read 2026-10-22: ready to draft
+111,Maggiano's Little Italy,maggianos.com,,no nutrition page found on maggianos.com: set guide_url by hand
+112,Perkins American Food Co.,perkinsrestaurants.com,,no nutrition page found on perkinsrestaurants.com: set guide_url by hand
+113,Torchy's Tacos,torchystacos.com,,no nutrition page found on torchystacos.com: set guide_url by hand
+114,Saltgrass Steak House,saltgrass.com,,no nutrition page found on saltgrass.com: set guide_url by hand
+115,Din Tai Fung,dtf.com,,no nutrition page found on dtf.com: set guide_url by hand
+116,Slim Chickens,slimchickens.com,https://www.slimchickens.com/nutritional-and-allergen-info/,guide read 2026-10-22: ready to draft
+117,Jamba,jamba.com,,no nutrition page found on jamba.com: set guide_url by hand
+118,Chicken Salad Chick,chickensaladchick.com,https://storyblok.pleinaircdn.com/f/297321/x/2be8a2157f/nutritional-and-allergy-information.pdf,guide read 2026-10-22: ready to draft
+119,Black Bear Diner,blackbeardiner.com,https://blackbeardiner.com/wp-content/uploads/2025/05/Nutrition_WEB_Oct-2024.pdf,guide read 2026-10-22: ready to draft
+120,Topgolf,topgolf.com,https://topgolf.com/us/menu/,no nutrition numbers found in the guide: set guide_url to the PDF or full table
+121,Texas de Brazil,texasdebrazil.com,https://texasdebrazil.com/nutrition-allergens/,guide read 2026-10-22: ready to draft
+122,Mellow Mushroom,mellowmushroom.com,,no nutrition page found on mellowmushroom.com: set guide_url by hand
+123,Long John Silver's,ljsilvers.com,https://www.ljsilvers.com/nutrition,guide read 2026-10-22: ready to draft
+124,Chuck E. Cheese,chuckecheese.com,https://www.chuckecheese.com/wp-content/uploads/2025/01/12.5.24-CEC-24-0297-Chuck-E_Nutritionals.pdf,guide read 2026-10-22: ready to draft
+125,Lazy Dog Restaurant & Bar,lazydogrestaurants.com,https://cdn.shopify.com/s/files/1/0789/3218/1236/files/Lazy_Dog_Nutritional_Menu_Fall_2026.pdf?v=1791392593,guide read 2026-10-22: ready to draft
+126,Hungry Howie's Pizza,hungryhowies.com,https://hungryhowies.com/nutrition-info,guide read 2026-10-22: ready to draft
+127,Fleming's Prime Steakhouse & Wine Bar,flemingssteakhouse.com,https://www.flemingssteakhouse.com/-/media/fsh/promotions/assets/FlemingsPrimeSteakhouseNutritionJuly2026-ADA.ashx,guide read 2026-10-22: ready to draft
+128,Taco John's,tacojohns.com,https://tacojohns.com/wp-content/uploads/2026/09/TAC-26-P5_NUTRITION-GUIDE_ED_V3.pdf,guide read 2026-10-22: ready to draft
+129,Jollibee,jollibeefoods.com,https://jollibee-prod-media.s3.us-west-2.amazonaws.com/20260701_JB_USA_Nutrition_Facts_2026_Mktg_8f037d9d5d.pdf,guide read 2026-10-22: ready to draft
+130,Caribou Coffee,cariboucoffee.com,,no nutrition page found on cariboucoffee.com: set guide_url by hand
+131,Round Table Pizza,roundtablepizza.com,https://www.roundtablepizza.com/wp-content/uploads/2023/10/FINAL-10_2023-Updated-Full-Nutrtional-Info.pdf,guide read 2026-10-22: ready to draft (dated 2023: look for a newer guide)
+132,Pollo Campero,us.campero.com,https://us.campero.com/nutrition,no nutrition numbers found in the guide: set guide_url to the PDF or full table
+133,Mountain Mike's Pizza,mountainmikespizza.com,https://www.mountainmikespizza.com/wp-content/uploads/2018/10/Menu_Pizza_Calorie_Chart.pdf,guide read 2026-10-22: ready to draft (dated 2018: look for a newer guide)
+134,Pizza Ranch,pizzaranch.com,https://d3exbi59yykwt2.cloudfront.net/header-images/Pizza-Ranch-ANI-Updated-sent-09.07.2026v1.pdf,guide read 2026-10-22: ready to draft
+135,Biggby Coffee,biggby.com,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,guide read 2026-10-22: ready to draft
+136,Wienerschnitzel,wienerschnitzel.com,https://www.wienerschnitzel.com/wp-content/uploads/2026/01/Nutrition-Allergen-Guide-eff-1_12_2026.pdf,guide read 2026-10-22: ready to draft
+137,Firebirds Wood Fired Grill,firebirdsrestaurants.com,https://images.firebirdsrestaurants.com/production/general/Firebirds-Nutritional-10.14.2026.pdf?dm=1791904801,guide read 2026-10-22: ready to draft
+138,California Pizza Kitchen,cpk.com,,no nutrition page found on cpk.com: set guide_url by hand
+139,Mastro's Restaurants,mastrosrestaurants.com,,no nutrition page found on mastrosrestaurants.com: set guide_url by hand
+140,Logan's Roadhouse,logansroadhouse.com,https://logans.wpenginepowered.com/wp-content/uploads/2026/06/LRH_Menu_Items_Nutritional_0526.pdf,guide read 2026-10-22: ready to draft
+141,North Italia,northitalia.com,https://www.northitalia.com/wp-content/uploads/2026/04/North-Italia-Nutritional-Guide-04-2026-1.pdf,guide read 2026-10-22: ready to draft
+142,Shipley Do-Nuts,shipleydonuts.com,https://shipleydonuts.com/2022-Nutritional-Website.pdf,guide read 2026-10-22: ready to draft (dated 2022: look for a newer guide)
+143,Cafe Rio Mexican Grill,caferio.com,https://assets.trinitip.caferio-core.com/5fc18ec8aa3c03000910c905/635fd8e1f2751f0008cf4c0b/NutritionWebUpdate8.5x11printable.pdf,guide read 2026-10-22: ready to draft
+144,Schlotzsky's,schlotzskys.com,https://assets.ctfassets.net/zqt8tllj2cy0/3wkZtcobeRUvoOcOWjhR44/a2b753f659f5e4f470076c541e2df7f4/SCH_1899730_Nutritional_and_allergen_chart_2.26_v3.Digital_Upload.pdf,guide read 2026-10-22: ready to draft
+145,Walk-On's Sports Bistreaux,walk-ons.com,,no nutrition page found on walk-ons.com: set guide_url by hand
+146,Cicis,cicis.com,https://www.cicis.com/media/ksla20m4/nutrition_facts_060122.pdf,guide read 2026-10-22: ready to draft
+147,Bubba's 33,bubbas33.com,,no nutrition page found on bubbas33.com: set guide_url by hand
+148,Playa Bowls,playabowls.com,https://www.playabowls.com/nutrition,guide read 2026-10-22: ready to draft
+149,Pollo Tropical,pollotropical.com,https://www.pollotropical.com/nutrition,guide read 2026-10-22: ready to draft
+150,Blaze Pizza,blazepizza.com,https://www.blazepizza.com/nutritional,guide is run by Nutritionix: set guide_url to the chain’s own PDF
+151,Golden Chick,goldenchick.com,https://goldenchick.com/nutrition/,guide read 2026-10-22: ready to draft
+152,True Food Kitchen,truefoodkitchen.com,https://www.truefoodkitchen.com/wp-content/uploads/2026/04/April_2026-Nutritional-Guide.pdf,guide read 2026-10-22: ready to draft
+153,Sarku Japan,sarkujapan.com,https://www.sarkujapan.com/nutrition/,guide read 2026-10-22: ready to draft
+154,Tous Les Jours,tljus.com,https://tljus.com/nutrition-allergy-information,no nutrition numbers found in the guide: set guide_url to the PDF or full table
+155,Pappadeaux Seafood Kitchen,pappadeaux.com,,no nutrition page found on pappadeaux.com: set guide_url by hand
+156,Peet's Coffee,peets.com,https://www.peets.com/pages/nutrition-allergen-facts,guide read 2026-10-22: ready to draft
+157,Seasons 52,seasons52.com,https://media.seasons52.com/en_us/pdf/Seasons52-Nutrition-Guide.pdf,guide read 2026-10-22: ready to draft
+158,Wetzel's Pretzels,wetzels.com,https://www.wetzels.com/assets/pdf/Nutrition-Info.pdf,guide read 2026-10-22: ready to draft
+159,Mendocino Farms,mendocinofarms.com,https://contact.mendocinofarms.com/wp-content/uploads/2026/02/Feb2026_NutritionalAllergen.pdf,guide read 2026-10-22: ready to draft
+160,Rally's,checkersandrallys.com,https://web.checkersandrallys.com/wp-content/uploads/2025/11/Checkers-and-Rallys-Nutritional-Facts.pdf,guide read 2026-10-22: ready to draft
+161,Mission BBQ,mission-bbq.com,https://mission-bbq.com/wp-content/uploads/MISSION-BBQ-Nutritional-Info.pdf,guide read 2026-10-22: ready to draft
+162,Braum's Ice Cream & Dairy Stores,braums.com,https://www.braums.com/wp-content/uploads/2022/08/2018-Nutritional-Chart-for-web.pdf,guide read 2026-10-22: ready to draft (dated 2022: look for a newer guide)
+163,Cinnabon,cinnabon.com,https://www.cinnabon.com/-/media/cinnabon/nutrition/nutritional-guide-domestic-042025.pdf?v=1&d=20250630T084309Z,guide read 2026-10-22: ready to draft
+164,Ninety Nine Restaurant & Pub,99restaurants.com,,no nutrition page found on 99restaurants.com: set guide_url by hand
+165,Sonny's BBQ,sonnysbbq.com,https://www.sonnysbbq.com/wp-content/uploads/2024/12/Sonnys-BBQ-Menu-Nutritionals-2024.pdf,guide read 2026-10-22: ready to draft (dated 2024: look for a newer guide)
+166,Insomnia Cookies,insomniacookies.com,https://api.insomniacookies.com/uploads/Insomnia%20Cookies%20Overall%20Nutritional%20Facts%20Guide.pdf,guide read 2026-10-22: ready to draft
+167,Krystal Company,krystal.com,https://a.storyblok.com/f/120533/x/d2267d8908/kry-nutrition-20250417.pdf?cv=1745505109988,guide read 2026-10-22: ready to draft
+168,85C Bakery Cafe,85cbakerycafe.com,,no nutrition page found on 85cbakerycafe.com: set guide_url by hand
+169,Kura Sushi,kurasushi.com,https://kurasushi.com/application/views/themes/theme-1/assets/pdf/Nutrition-Information.pdf,guide read 2026-10-22: ready to draft
+170,Ruby Tuesday,rubytuesday.com,,no nutrition page found on rubytuesday.com: set guide_url by hand
+171,Famous Dave's,famousdaves.com,https://www.famousdaves.com/FamousDaves/media/File-Attachments/Nutrition%20and%20Allergen%20Guide/Nutrition-Guide_Summer-Menu.pdf,guide read 2026-10-22: ready to draft
+172,TGI Fridays,tgifridays.com,https://tgifridays.com/wp-content/uploads/2026/02/TGI-Fridays-SYSTEM-ANI-Document-Q1-2026-Rollout-post-02.17.2027v1.pdf,guide read 2026-10-22: ready to draft
+173,J. Alexander's,jalexanders.com,,no nutrition page found on jalexanders.com: set guide_url by hand
+174,Ocean Prime,ocean-prime.com,,no nutrition page found on ocean-prime.com: set guide_url by hand
+175,Penn Station East Coast Subs,penn-station.com,https://penn-station.com/menu_nutrition.php,guide read 2026-10-22: ready to draft
+176,Skyline Chili,skylinechili.com,https://skylinechili.com/wp-content/uploads/2025/03/21062-SLC-Nutritional-Info-2019.pdf,guide read 2026-10-22: ready to draft
+177,Ono Hawaiian BBQ,onohawaiianbbq.com,https://onohawaiianbbq.com/wp-content/uploads/2021/09/Ono-Nutrition.pdf,guide read 2026-10-22: ready to draft (dated 2021: look for a newer guide)
+178,Sbarro,sbarro.com,https://sbarro.com/wp-content/uploads/2022/10/Sbarro-Nutrition-and-Allergen-Info-10.12.22.pdf,guide read 2026-10-22: ready to draft (dated 2022: look for a newer guide)
+179,Perry's Steakhouse & Grille,perryssteakhouse.com,https://perryssteakhouse.com/wp-content/uploads/2020/12/Holiday-box-cooking-instructions-and-nutrition-facts.pdf,no nutrition numbers found in the guide: set guide_url to the PDF or full table
+180,bb.q Chicken,bbqchicken.com,https://bbqchicken.com/wp-content/uploads/2024/02/bbq_chicken_nutrition_info.pdf,guide read 2026-10-22: ready to draft (dated 2024: look for a newer guide)
+181,Godfather's Pizza,godfathers.com,https://shop.godfathers.com/wp-content/uploads/2023/01/23-T-Nutritionals-Web.pdf,guide read 2026-10-22: ready to draft (dated 2023: look for a newer guide)
+182,Eddie V's Prime Seafood,eddiev.com,https://media.eddiev.com/en_us/pdf/nutrition-guide-dinner-locations.pdf,guide read 2026-10-22: ready to draft
+183,City Barbeque,citybbq.com,https://www.citybbq.com/nutrition-allergens,guide read 2026-10-22: ready to draft
+184,A&W All American Food,awrestaurants.com,https://backend.awrestaurants.com/sites/default/files/2025-01/A%26W%20Nutritional%20Fact%20Sheet%202025.pdf,guide read 2026-10-22: ready to draft
+185,Nobu Restaurants,noburestaurants.com,,no nutrition page found on noburestaurants.com: set guide_url by hand
+186,Morton's The Steakhouse,mortons.com,,no nutrition page found on mortons.com: set guide_url by hand
+187,Hook & Reel,hookreel.com,,no nutrition page found on hookreel.com: set guide_url by hand
+188,Rosati's Pizza,myrosatis.com,https://myrosatis.wpenginepowered.com/wp-content/uploads/2022/02/Rosatis-PizzaNutrition-Guide.pdf,guide read 2026-10-22: ready to draft (dated 2022: look for a newer guide)
+189,L&L Hawaiian Barbecue,hawaiianbarbecue.com,,no nutrition page found on hawaiianbarbecue.com: set guide_url by hand
+190,Andy's Frozen Custard,eatandys.com,https://www.eatandys.com/nutritional-information,no nutrition numbers found in the guide: set guide_url to the PDF or full table
+191,Fazoli's,fazolis.com,https://fazolis.com/nutrition/,guide read 2026-10-22: ready to draft
+192,STK,stksteakhouse.com,,no nutrition page found on stksteakhouse.com: set guide_url by hand
+193,Lee's Famous Recipe Chicken,leesfamousrecipe.com,https://leesfamousrecipe.com/lees_nutrition_guide_2-17-25.pdf,guide read 2026-10-22: ready to draft
+194,Farmer Boys,farmerboys.com,https://www.farmerboys.com/downloads/FarmerBoys-Nutritional-Guide.pdf,guide read 2026-10-22: ready to draft
+195,Coffee Bean & Tea Leaf,coffeebean.com,https://cdn.shopify.com/s/files/1/0462/8021/2633/files/CBTL_Nutrition.pdf?v=1744407185,guide read 2026-10-22: ready to draft
+196,Just Salad,justsalad.com,https://www.justsalad.com/documents/Just_Salad_Allergen_Guide_JUN26-C.pdf,guide read 2026-10-22: ready to draft
+197,Donatos Pizza,donatos.com,https://www.donatos.com/nutrition,guide read 2026-10-22: ready to draft
+198,Newk's Eatery,newks.com,,no nutrition page found on newks.com: set guide_url by hand
+199,Village Inn,villageinn.com,,"hold: only one restaurant’s 2022 guide found (St. Cloud, FL): set the national guide"
+200,Gen Korean BBQ,genkoreanbbq.com,,no nutrition page found on genkoreanbbq.com: set guide_url by hand
+201,Dickey's Barbecue Pit,dickeys.com,https://www.dickeys.com/company/nutritional,no nutrition numbers found in the guide: set guide_url to the PDF or full table
+202,Bonchon,bonchon.com,https://bonchon-brand.files.svdcdn.com/production/Downloads/Nutrition-Facts_2026-july-2026.pdf?dm=1784840485,guide read 2026-10-22: ready to draft
+203,Beef 'O' Brady's,beefobradys.com,https://www.beefobradys.com/online_menus/nutrition/catering_nutrional_information_0319.pdf,hold: only the catering guide found (2019): set the restaurant menu guide
+204,Pei Wei,peiwei.com,https://www.peiwei.com/nutritional-information/,guide read 2026-10-22: ready to draft
+205,Panini Kabob Grill,paninikabobgrill.com,,no nutrition page found on paninikabobgrill.com: set guide_url by hand
+206,Lupe Tortilla,tex-mex.com,,no nutrition page found on tex-mex.com: set guide_url by hand
+207,Huddle House,huddlehouse.com,https://www.huddlehouse.com/nutrition/latest,guide read 2026-10-22: ready to draft
+208,Smashburger,smashburger.com,,no nutrition page found on smashburger.com: set guide_url by hand
+209,Rita's Ice,ritasice.com,https://cdn.ritasice.com/wp-content/uploads/2026/02/2026-Nutrition-Guide.pdf,guide read 2026-10-22: ready to draft
+210,Jinya Ramen Bar,jinyaramenbar.com,https://www.jinyaramenbar.com/nutritional-information/,guide read 2026-10-22: ready to draft
+211,Original Pancake House,originalpancakehouse.com,,no nutrition page found on originalpancakehouse.com: set guide_url by hand
+212,Costa Vida Fresh Mexican Grill,costavida.com,https://www.costavida.com/nutrition-allergen-information/,guide read 2026-10-22: ready to draft
+213,Del Frisco's Double Eagle Steakhouse,delfriscos.com,,no nutrition page found on delfriscos.com: set guide_url by hand
+214,Black Rock Coffee Bar,br.coffee,https://cdn.prod.website-files.com/688100e2544612eb562dc98d/6a0155fa655c5893f4f098f6_Nutrition%20File%20BRCB%20MASTER%20DETAILS.pdf,guide read 2026-10-22: ready to draft
+215,54th Street Restaurant & Drafthouse,54thstreetrestaurants.com,https://www.54thstreetrestaurants.com/cmss_files/attachmentlibrary/54th-Street-Nutritional-Information.pdf,guide read 2026-10-22: ready to draft
+216,Taziki's Mediterranean Cafe,tazikis.com,https://www.tazikis.com/nutrition,guide is run by Nutritionix: set guide_url to the chain’s own PDF
+217,Wayback Burgers,waybackburgers.com,https://waybackburgers.com/wp-content/uploads/nutritional_facts_website.pdf,guide read 2026-10-22: ready to draft
+218,Taco Cabana,tacocabana.com,https://www.tacocabana.com/wp-content/uploads/2025/01/TacoCabana_NutritionalGuide_Jan_2025_R2_LR_M.pdf,guide read 2026-10-22: ready to draft
+219,Sizzler,sizzler.com,https://sizzler.com/wp-content/uploads/2024/07/Sizzler-Nutrition.pdf,guide read 2026-10-22: ready to draft (dated 2024: look for a newer guide)
+220,Snooze Eatery,snoozeeatery.com,https://www.snoozeeatery.com/files/0126-nutri-all-pdf.pdf,guide read 2026-10-22: ready to draft
+221,Teriyaki Madness,teriyakimadness.com,https://teriyakimadness.com/wp-content/uploads/2025/07/Teriyaki-Madness-Nutritional-Summaries-2025-05-20.pdf,guide read 2026-10-22: ready to draft
+222,Melting Pot,meltingpot.com,,no nutrition page found on meltingpot.com: set guide_url by hand
+223,Yogurtland,yogurtland.com,https://www.yogurtland.com/files/nutritionalfacts.pdf?v=031326,guide read 2026-10-22: ready to draft
+224,Corner Bakery,cornerbakerycafe.com,https://cornerbakerycafe.com/wp-content/uploads/2025/06/CB_Nutrition_Allergen_Info.pdf,guide read 2026-10-22: ready to draft
+225,Ford's Garage,fordsgarageusa.com,https://fordsgarageusa.com/nutrition-guide/,guide read 2026-10-22: ready to draft
+226,Metro Diner,metrodiner.com,https://metrodiner.com/diner-digest/eggsareeasy/,no nutrition numbers found in the guide: set guide_url to the PDF or full table
+227,Chopt,choptsalad.com,https://assets.choptsalad.com/pdfs/web/chopt_nutrition_allergen_guide.pdf,guide read 2026-10-22: ready to draft
+228,Flower Child,iamaflowerchild.com,https://www.iamaflowerchild.com/wp-content/uploads/2026/09/FC_Nutritional-Sheet_09.01.26_MP_v2.pdf,guide read 2026-10-22: ready to draft
+229,Menchie's Frozen Yogurt,menchies.com,https://www.menchies.com/nutrition/,guide read 2026-10-22: ready to draft
+230,Legal Sea Foods,legalseafoods.com,,no nutrition page found on legalseafoods.com: set guide_url by hand
+231,Cheba Hut,chebahut.com,https://www.chebahut.com/nutrition-allergens,guide read 2026-10-22: ready to draft
+232,Condado Tacos,condadotacos.com,https://condadotacos.com/menu-food/nutrition/,guide read 2026-10-22: ready to draft
+233,WaBa Grill,wabagrill.com,https://www.wabagrill.com/nutritional-guide,guide read 2026-10-22: ready to draft
+234,Handel's Homemade Ice Cream,handelsicecream.com,https://handelsicecream.com/nutritional-info/,guide read 2026-10-22: ready to draft
+235,La Madeleine,lamadeleine.com,https://lamadeleine.com/menu/nutrition-allergen-information,no nutrition numbers found in the guide: set guide_url to the PDF or full table
+236,Boiling Crab,theboilingcrab.com,,no nutrition page found on theboilingcrab.com: set guide_url by hand
+237,Bruegger's Bagels,brueggers.com,https://www.brueggers.com/wp-content/uploads/2026/06/Breuggers-Bagels-Nutritional-Guide-2026.pdf,guide read 2026-10-22: ready to draft
+238,Bartaco,bartaco.com,https://bartaco.com/nutrition/,no nutrition numbers found in the guide: set guide_url to the PDF or full table
+239,Kung Fu Tea,kungfutea.com,https://www.kungfutea.com/nutrition/?srsltid=AYCX9vI5Pei8vuMTaRBrpOaWb2eDlB3jyrmlrWcdNcH4TjpPCUnx-qAF,no nutrition numbers found in the guide: set guide_url to the PDF or full table
+240,Carvel Ice Cream,carvel.com,https://www.carvel.com/-/media/carvel/files/carvel-nutritional--allergen-guide-april-2025.pdf?v=1&d=20250509T091921Z,guide read 2026-10-22: ready to draft
+241,Another Broken Egg Cafe,anotherbrokenegg.com,,no nutrition page found on anotherbrokenegg.com: set guide_url by hand
+242,Golden Krust,goldenkrust.com,,no nutrition page found on goldenkrust.com: set guide_url by hand
+243,Fuzzy's Taco Shop,fuzzystacoshop.com,https://www.fuzzystacoshop.com/-/media/fuzzystacoshop/nutrition/fuzzys-taco-shop-nutrition-handout.pdf,guide read 2026-10-22: ready to draft
+244,Roosters Wings,roosterswings.com,https://d651b0bc45559e9eaafa-f4d239947d449bf5c8da6abd73db9e1f.ssl.cf2.rackcdn.com/Nutrition-Info-October-2025.pdf,guide read 2026-10-22: ready to draft
+245,Nekter Juice Bar,nekterjuicebar.com,,no nutrition page found on nekterjuicebar.com: set guide_url by hand
+246,Velvet Taco,velvettaco.com,https://www.velvettaco.com/nutrition/,guide is run by Nutritionix: set guide_url to the chain’s own PDF
+247,Great American Cookies,greatamericancookies.com,https://www.greatamericancookies.com/wp-content/uploads/sites/2/2026/06/GAC-Allergen_Ingred_Nutri_6.15.26.pdf,guide read 2026-10-22: ready to draft
+248,Huey Magoo's,hueymagoos.com,https://hueymagoos.com/nutritional-allergen-information/,guide read 2026-10-22: ready to draft
+249,LaRosa's Pizzeria,larosas.com,https://www.larosas.com/pdf/NutritionFacts.pdf,guide read 2026-10-22: ready to draft
+250,Flanigan's,flanigans.net,,no nutrition page found on flanigans.net: set guide_url by hand

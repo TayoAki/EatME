@@ -60,6 +60,7 @@ when it changed. An item left out of the CSV is **retired**, never deleted.
 | `guide looks like another country’s` | Set `guide_url` to the US guide |
 | `dated 2023: look for a newer guide` | The guide is two or more years old: look for a newer one on the chain's site, else draft it and say so in the review |
 | `few items: check the guide is the whole menu` | Fewer than 20 lines: likely one promotion or one page, not the whole guide |
+| `hold: …` | Written by a person: runs skip the chain until its right guide is set with `--chain "<name>" --url <guide>` |
 
 ## Columns
 

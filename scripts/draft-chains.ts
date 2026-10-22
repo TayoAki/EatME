@@ -283,6 +283,8 @@ async function usableGuide(entry: RankedChain, url: string, refetch: boolean, fo
   if (nutritionFacts(text).enough) return { url, text, readOn };
   const pdf = followed ? null : pdfLink(text, entry.chain);
   if (pdf) return usableGuide(entry, pdf, refetch, true);
+  // No numbers of its own, but a link to Nutritionix's calculator (Chili's, Texas Roadhouse): the guide is theirs.
+  if (/\]\(https:\/\/[^)\s]*nutritionix\.com/i.test(text)) return { problem: 'guide is run by Nutritionix: set guide_url to the chain’s own PDF' };
   return { problem: 'no nutrition numbers found in the guide: set guide_url to the PDF or full table' };
 }
 
@@ -618,6 +620,8 @@ async function main() {
     const slug = chainSlug(entry.chain);
     // A long run picks up where it stopped: chains with a menu file are done unless --redo.
     if (!redo && !url && existsSync(path.join(MENUS, `${slug}.csv`))) return;
+    // A person put the chain on hold (only a catering guide, say) until they set the right guide with --url.
+    if (!url && entry.notes.startsWith('hold:')) return;
     try {
       if (url) entry.guideUrl = url;
       let guide: Guide;
