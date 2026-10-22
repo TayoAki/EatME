@@ -425,6 +425,16 @@ Then: reconnect GitHub (railway.com/account, the Railway app's access on GitHub,
 the latest commit, and check `/api/health`, `/api/features`, a meal scan (OpenRouter), a photo upload (bucket), a
 new sign-in, and a RevenueCat webhook test from its dashboard. Update the local `.env` too.
 
+Done on 22 October 2026: new `OPENROUTER_API_KEY`, `REVENUECAT_SECRET_KEY` (V1), `REVENUECAT_WEBHOOK_SECRET` (RevenueCat's
+header switched, test event answered 200) and `BETTER_AUTH_SECRET`, and Postgres's Regenerate. `DATABASE_URL` and the
+`S3_*` keys were already references; `SENTRY_AUTH_TOKEN` is not on Railway. Left for the owner: revoke the old
+RevenueCat secret key and OpenRouter key, delete the `FATSECRET_*` variables and the FatSecret app.
+
+A redeploy (Railway's Redeploy, as opposed to a new commit) can build without `railway.json`: on 22 October one
+started `expo start` instead of the server and the API answered 502 until the next deploy. The api service's own
+settings now repeat `railway.json`'s build command, start command, health check and restart policy; change both
+together.
+
 ## 7. Error tracking (Sentry)
 - `Sentry.init` in the root layout, `Sentry.wrap`, session replay in development builds only
   (store builds record none: Apple 2.5.14), structured logs (`Sentry.logger`), tracing with the Expo Router
