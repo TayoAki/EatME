@@ -2,10 +2,10 @@ rank,chain,guide_url,notes
 1,McDonald's,,
 2,Starbucks,,
 3,Chick-fil-A,https://www.chick-fil-a.com/nutrition-allergens,"drafted 2026-10-21: 303 agreed, 24 for a person"
-4,Taco Bell,,
-5,Dunkin',,
+4,Taco Bell,https://www.tacobell.com/nutrition/info,guide is run by Nutritionix: set guide_url to the chain’s own PDF
+5,Dunkin',https://www.dunkindonuts.com/nutrition/,no nutrition numbers found in the guide: set guide_url to the PDF or full table
 6,Wendy's,,
-7,Chipotle Mexican Grill,,
+7,Chipotle Mexican Grill,https://www.chipotle.com/content/dam/chipotle/menu/nutrition/US-Nutrition-Facts-Paper-Menu-3-2025.pdf,
 8,Burger King,,
 9,Domino's,,
 10,Subway,,

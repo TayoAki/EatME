@@ -12,6 +12,7 @@ are the only restaurant numbers Weight Class ranks (`WHAT-TO-ORDER.md` §7).
 | `.cache/` | The guides as read (git-ignored: only the numbers are kept) |
 
 ```bash
+npm run chains:draft -- --rank 1-250 --guides-only   # find, read and check the guides first (Firecrawl only, no AI)
 npm run chains:draft -- --rank 1-250             # find, read and draft chains 1 to 250 (picks up where it stopped)
 npm run chains:draft -- --chain "Chick-fil-A"    # one chain (--url <guide> to set its guide, --refetch to read it again)
 npm run chains:build -- --check                  # check every menu file, write nothing
@@ -22,15 +23,19 @@ npm run db:chains                                # load data/chains.json into DA
 `chains:draft` needs `OPENROUTER_API_KEY` and, to find guides and read PDFs or script-built pages,
 `FIRECRAWL_API_KEY`. It works on 3 chains at a time (`--parallel`), skips chains that already have a menu file
 (`--redo` drafts them again, keeping lines a person checked), and costs about 5 US cents of AI a chain with the
-default models (about $10–20 for all 250, prices read 22 October 2026). The server loads `data/chains.json` into `chain_items` when it starts (`server/chains.mjs`), only
+default models (about $10–20 for all 250, prices read 22 October 2026). Firecrawl bills a search, each page read and
+each PDF page, so PDFs are read up to 40 pages. When either runs out of credit the run stops; the same command
+picks up after a top-up. The server loads `data/chains.json` into `chain_items` when it starts (`server/chains.mjs`), only
 when it changed. An item left out of the CSV is **retired**, never deleted.
 
 ## How a line gets checked
 
-1. Firecrawl finds the chain's nutrition page or PDF **on the chain's own site** (copy sites such as Nutritionix,
-   FatSecret or fan pages are never a source) and reads it once. Only text is kept; no photos or logos. Many chains
-   have Nutritionix run their nutrition page (Taco Bell's, for one): those are skipped with a note, and need the
-   chain's own PDF in `guide_url`.
+1. Firecrawl finds the chain's **US** nutrition page or PDF **on the chain's own site** (copy sites such as
+   Nutritionix, FatSecret or fan pages are never a source; other countries' sites and guides are skipped, since menus
+   differ) and reads it once. A page without numbers is followed to the nutrition PDF it links. Only text is kept; no
+   photos or logos. Many chains have Nutritionix run their nutrition page (Taco Bell's, for one): those are skipped
+   with a note, and need the chain's own PDF in `guide_url`. Pages without numbers (calculators built by script) are
+   skipped before any AI is spent.
 2. Two AI models from different makers (`CHAIN_DRAFT_MODELS`, by default OpenAI's and Anthropic's) copy the guide
    into rows on their own, told to copy numbers as printed and never to calculate or guess.
 3. Code compares the drafts. A line where both agree on every number goes in with `check` = `two-drafts`. A line

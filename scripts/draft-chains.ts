@@ -13,10 +13,13 @@
  *          --refetch (read the guide again instead of the cached copy),
  *          --redo (draft chains that already have a menu file; lines a person checked are kept),
  *          --redraft (ask the models again even when a draft of the same guide and prompt is cached),
- *          --parallel <n> (chains at once, default 3).
+ *          --parallel <n> (chains at once, default 3),
+ *          --guides-only (find, read and check each guide without drafting: no AI; links and problems
+ *          go in ranking.csv to look over first).
  * Needs OPENROUTER_API_KEY, and FIRECRAWL_API_KEY to find and read guides (PDFs included); without
  * it, only web-page guides already set in ranking.csv can be read. CHAIN_DRAFT_MODELS overrides the two
- * models ("maker/model,maker/model"). Afterwards: npm run chains:build.
+ * models ("maker/model,maker/model"). A run that runs out of AI or Firecrawl credit stops; run the same
+ * command again after topping up. Afterwards: npm run chains:build.
  */
 import { config } from 'dotenv';
 import { createHash } from 'node:crypto';
@@ -41,10 +44,43 @@ const DEFAULT_MODELS = ['openai/gpt-5.6-luna', 'anthropic/claude-haiku-5.5'];
 const DEFAULT_PARALLEL = 3;
 /** Guide text per AI call; longer guides are split at line breaks. */
 const CHUNK_CHARS = 60_000;
+/** PDF pages read per guide: Firecrawl bills each page, and full guides run to about 40. */
+const PDF_PAGES = 40;
 /** Agreed lines a person spot-checks per chain: about 1 in 20, at least 3, at most 15. */
 const SAMPLE = { every: 20, min: 3, max: 15 };
 /** Words that don't tell one chain's website from another's. */
 const GENERIC_WORDS = new Set(['and', 'the', 'bar', 'grill', 'restaurant', 'restaurants', 'cafe', 'kitchen', 'company', 'house', 'express', 'pizza', 'pizzeria', 'coffee', 'burger', 'burgers', 'chicken', 'steakhouse', 'subs', 'sandwich', 'shop', 'brewhouse', 'bakery', 'mexican', 'tacos', 'wings']);
+/** Country codes and places that mark another country's site or guide (menus differ by country). */
+const COUNTRY_CODES = 'uk|gb|ca|au|nz|ie|mx|in|ph|sg|my|jp|kr|cn|hk|tw|th|vn|ae|sa|qa|kw|bh|om|eg|pk|za|de|fr|es|it|nl|be|pl|pt|se|no|dk|fi|br|ar|cl|co|pe|pr|gt|cr|pa|do|gu';
+/** A country folder: /ca/, /en-gb/, /fr_ca/. */
+const COUNTRY_FOLDER = new RegExp(`/(${COUNTRY_CODES}|[a-z]{2}[-_](${COUNTRY_CODES})|(${COUNTRY_CODES})[-_][a-z]{2})(/|$)`, 'i');
+/** A country in a file name or query, in capitals: "Wendy's UK Nutrition", ?locale=en_CA. */
+const COUNTRY_IN_NAME = new RegExp(`(^|[^A-Za-z])(${COUNTRY_CODES.toUpperCase()})([^A-Za-z]|$)`);
+const PLACES =
+  /\b(arabia|(saudi|jeddah|riyadh|dubai|kuwait|qatar|bahrain|oman|egypt|canada|australia|zealand|ireland|britain|mexico|india|philippines|singapore|malaysia|japan|korea|china|taiwan|thailand|vietnam|puerto|guam|europe|emea|gcc|international)(?![a-z])|united-?kingdom|hong-?kong|middle-?east)/i;
+/**
+ * Another country's site or guide: a country domain (wendys.co.uk) or subdomain (ca.chain.com), the chain plus a
+ * country code (starbuckspr.com), or a country or place in the path (/en-gb/, "Wendy's UK Nutrition", jeddah).
+ */
+export function otherCountrySite(url: string, chainWords: readonly string[]) {
+  const { hostname, pathname, search } = new URL(url);
+  const labels = hostname.replace(/^www\./, '').split('.');
+  const tld = labels.at(-1) ?? '';
+  if (tld.length === 2 && tld !== 'us') return true;
+  if (labels.length > 2 && new RegExp(`^(${COUNTRY_CODES})$`).test(labels[0])) return true;
+  const name = (labels.at(-2) ?? '').replace(/[^a-z0-9]/g, '');
+  if (chainWords.some((word) => new RegExp(`^${word}(${COUNTRY_CODES})$`).test(name))) return true;
+  let place = pathname + search;
+  try {
+    place = decodeURIComponent(place);
+  } catch {
+    // A malformed escape: check the path as it is.
+  }
+  return COUNTRY_FOLDER.test(place) || COUNTRY_IN_NAME.test(place) || PLACES.test(place);
+}
+/** Kilojoules mean another country's guide: US guides give Calories only. */
+const nonUsGuide = (text: string) => (text.match(/\bkj\b|kilojoule/gi) ?? []).length >= 5;
+
 /** Sites that copy chains' numbers: never a source (WHAT-TO-ORDER.md §7). */
 const NOT_SOURCES = /nutritionix|fatsecret|fastfoodnutrition|menuwithprice|eatthismuch|myfooddiary|calorieking|nutritionvalue|myfitnesspal|fastfoodcalories|healthyfastfood|carbmanager|reddit|wikipedia|yelp|tripadvisor|doordash|ubereats|grubhub/i;
 
@@ -90,28 +126,74 @@ async function firecrawl<T>(endpoint: 'search' | 'scrape', body: object): Promis
  */
 const hostedByNutritionix = (text: string) => (text.match(/nutritionix\.com/gi) ?? []).length >= 3;
 
+/**
+ * The text holds nutrition facts: table rows of numbers, or many nutrient names (pages that give one value a
+ * line). Pages without them (a calculator built by script, a landing page) aren't worth an AI draft.
+ */
+export function hasNutritionFacts(text: string) {
+  const rows = text.split('\n').filter((line) => (line.match(/(?<![\w.])\d+(?:\.\d+)?(?:g|mg|cal|kcal)?(?![\w.])/gi) ?? []).length >= 5).length;
+  const nutrients = (text.match(/\b(calories|sodium|protein|carbohydrates?|saturated|cholesterol)\b/gi) ?? []).length;
+  return rows >= 10 || nutrients >= 30;
+}
+
+const thisYear = new Date().getFullYear();
+/** A link dated two or more years back (guides are reissued when the menu changes). */
+function oldLink(url: string) {
+  const years = [...url.matchAll(/(?:^|\D)(20\d\d)(?:\D|$)/g)].map((m) => Number(m[1]));
+  return years.length > 0 && Math.max(...years) < thisYear - 1;
+}
+const US_MARKER = /(^|[/._\s-])(us|usa|en-us)([/._\s-]|$)/;
+
+/**
+ * The nutrition PDF a landing page links to. It may sit on the chain's file host (Dunkin's is on
+ * assets.ctfassets.net): the page is the chain's own, so the link is too.
+ */
+export function pdfLink(text: string): string | null {
+  const scored = [...text.matchAll(/\[([^\]]*)\]\((https:\/\/[^)\s]+)\)/g)]
+    .map(([, label, url]) => ({ label, url }))
+    .filter(({ url }) => /\.pdf($|[?#])/i.test(url) && !NOT_SOURCES.test(url) && !otherCountrySite(url, []))
+    .map(({ label, url }) => {
+      let words = `${label} ${url}`;
+      try {
+        words = decodeURIComponent(words);
+      } catch {
+        // A malformed escape: score the link as it is.
+      }
+      words = words.toLowerCase();
+      const score = (/nutri/.test(words) ? 4 : 0) + (/calori/.test(words) ? 2 : 0) + (US_MARKER.test(words) ? 2 : 0) - (oldLink(url) ? 6 : 0);
+      return { url, score, nutrition: /nutri|calori/.test(words) };
+    })
+    .filter((link) => link.nutrition)
+    .sort((a, b) => b.score - a.score);
+  return scored[0]?.url ?? null;
+}
+
 type SearchHit = { url: string; title?: string };
 
-/** The chain's own nutrition page or PDF: a search, then the best hit that isn't a copy site. */
+/** The chain's own nutrition page or PDF: a search, then the best hit on its own site that isn't a copy. */
 async function findGuide(chain: string): Promise<string | null> {
   const result = await firecrawl<{ data?: SearchHit[] | { web?: SearchHit[] } }>('search', {
-    query: `${chain} official nutrition information calories pdf`,
+    query: `${chain} US nutrition information calories`,
     limit: 10,
   });
   const hits = Array.isArray(result.data) ? result.data : (result.data?.web ?? []);
   const words = chainSlug(chain)
     .split('-')
-    .filter((word) => word.length > 2 && !GENERIC_WORDS.has(word));
+    .filter((word) => word.length > 2 && !GENERIC_WORDS.has(word))
+    .map((word) => word.replace(/[^a-z0-9]/g, ''));
   const scored = hits
-    .filter((hit) => !NOT_SOURCES.test(hit.url))
+    .filter((hit) => /^https:/.test(hit.url) && !NOT_SOURCES.test(hit.url) && !otherCountrySite(hit.url, words))
+    .filter((hit) => /nutri|calori|allergen/i.test(`${hit.url} ${hit.title ?? ''}`))
     .map((hit) => {
       const url = hit.url.toLowerCase();
-      const host = new URL(hit.url).hostname.replace(/^www\./, '');
-      const ownSite = words.some((word) => host.replace(/[^a-z0-9]/g, '').includes(word.replace(/[^a-z0-9]/g, '')));
-      const score = (ownSite ? 10 : 0) + (/nutrition|allergen/.test(url) ? 3 : 0) + (url.endsWith('.pdf') ? 2 : 0);
-      return { url: hit.url, ownSite, score };
+      const host = new URL(hit.url).hostname.replace(/^www\./, '').replace(/[^a-z0-9.]/g, '');
+      // More of the chain's words in the host is a better match (goldencorral.com over goldenchick.com).
+      const ownWords = words.filter((word) => host.includes(word)).length;
+      const score =
+        ownWords * 2 + (/nutri/.test(url) ? 3 : 0) + (url.endsWith('.pdf') ? 2 : 0) + (US_MARKER.test(url) ? 3 : 0) - (oldLink(url) ? 6 : 0);
+      return { url: hit.url, ownWords, score };
     })
-    .filter((hit) => hit.ownSite)
+    .filter((hit) => hit.ownWords > 0)
     .sort((a, b) => b.score - a.score);
   return scored[0]?.url ?? null;
 }
@@ -132,6 +214,7 @@ async function readGuide(slug: string, url: string, refetch: boolean): Promise<{
       onlyMainContent: false,
       waitFor: 3000,
       timeout: 120_000,
+      parsers: [{ type: 'pdf', maxPages: PDF_PAGES }],
     });
     text = result.data?.markdown ?? '';
   } else {
@@ -152,6 +235,19 @@ async function readGuide(slug: string, url: string, refetch: boolean): Promise<{
   mkdirSync(CACHE, { recursive: true });
   writeFileSync(file, `<!-- source: ${url} | read: ${readOn} -->\n${text}`);
   return { text, readOn };
+}
+
+type Guide = { url: string; text: string; readOn: string } | { problem: string };
+
+/** Reads the guide and checks it's one to draft. A page without numbers is followed once to the PDF it links. */
+async function usableGuide(slug: string, url: string, refetch: boolean, followed = false): Promise<Guide> {
+  const { text, readOn } = await readGuide(slug, url, refetch);
+  if (nonUsGuide(text)) return { problem: 'guide looks like another country’s (kilojoules): set guide_url to the US guide' };
+  if (hostedByNutritionix(text)) return { problem: 'guide is run by Nutritionix: set guide_url to the chain’s own PDF' };
+  if (hasNutritionFacts(text)) return { url, text, readOn };
+  const pdf = followed ? null : pdfLink(text);
+  if (pdf) return usableGuide(slug, pdf, refetch, true);
+  return { problem: 'no nutrition numbers found in the guide: set guide_url to the PDF or full table' };
 }
 
 // ── Two drafts ──────────────────────────────────────────────────────────────────────────────────
@@ -465,6 +561,7 @@ async function main() {
   const refetch = process.argv.includes('--refetch');
   const redo = process.argv.includes('--redo');
   const redraft = process.argv.includes('--redraft');
+  const guidesOnly = process.argv.includes('--guides-only');
   const parallel = Number(argument('--parallel')) || DEFAULT_PARALLEL;
   const [from, to] = (range ?? '').split('-').map(Number);
   const picked = only
@@ -472,6 +569,11 @@ async function main() {
     : ranking.filter((c) => range && c.rank >= from && c.rank <= (to || from));
   if (picked.length === 0) throw new Error('Pick chains with --rank 1-10 or --chain "Name" (see data/chains/ranking.csv).');
   if (url && picked.length !== 1) throw new Error('--url goes with one --chain.');
+
+  /** Set when AI or Firecrawl credit runs out: every chain after would fail the same way. */
+  let stopped = '';
+  const outOfCredit = (error: unknown) =>
+    (error instanceof OpenAI.APIError && error.status === 402) || (error instanceof Error && /^Firecrawl \w+: 402\b/.test(error.message));
 
   const draftOne = async (entry: RankedChain) => {
     const slug = chainSlug(entry.chain);
@@ -488,10 +590,17 @@ async function main() {
         }
       }
       writeRanking(ranking);
-      const { text, readOn } = await readGuide(slug, entry.guideUrl, refetch);
-      if (hostedByNutritionix(text)) {
-        entry.notes = 'guide is run by Nutritionix: set guide_url to the chain’s own PDF';
-        console.warn(`#${entry.rank} ${entry.chain}: ${entry.notes}`);
+      const guide = await usableGuide(slug, entry.guideUrl, refetch);
+      if ('problem' in guide) {
+        entry.notes = guide.problem;
+        console.warn(`#${entry.rank} ${entry.chain}: ${entry.notes} (${entry.guideUrl})`);
+        return;
+      }
+      const { text, readOn } = guide;
+      entry.guideUrl = guide.url;
+      if (guidesOnly) {
+        entry.notes = `guide read ${readOn}: ready to draft`;
+        console.log(`#${entry.rank} ${entry.chain}: ready (${entry.guideUrl})`);
         return;
       }
       const [a, b] = await Promise.all(models.map((model) => cachedDraft(slug, model, entry.chain, text, redraft)));
@@ -508,7 +617,13 @@ async function main() {
       entry.notes = `drafted ${readOn}: ${agreed} agreed, ${problems.length} for a person`;
       console.log(`#${entry.rank} ${entry.chain}: ${agreed} agreed, ${problems.length} pending, ${spot.length} to spot-check (${a.tokens + b.tokens} tokens)`);
     } catch (error) {
-      entry.notes = `failed: ${error instanceof Error ? error.message.slice(0, 120) : String(error)}`;
+      const message = error instanceof Error ? error.message : String(error);
+      // Out of credit: the chain keeps its notes and is picked up again on the next run.
+      if (outOfCredit(error)) {
+        stopped ||= message.slice(0, 200);
+        return;
+      }
+      entry.notes = `failed: ${message.slice(0, 120)}`;
       console.error(`#${entry.rank} ${entry.chain}: ${entry.notes}`);
     } finally {
       writeRanking(ranking);
@@ -519,9 +634,10 @@ async function main() {
   const queue = [...picked];
   await Promise.all(
     Array.from({ length: Math.min(parallel, queue.length) }, async () => {
-      for (let entry = queue.shift(); entry; entry = queue.shift()) await draftOne(entry);
+      for (let entry = queue.shift(); entry && !stopped; entry = queue.shift()) await draftOne(entry);
     }),
   );
+  if (stopped) throw new Error(`Stopped, out of credit (${stopped}). Top up, then run the same command again: finished chains are skipped.`);
 }
 
 // Run only from the command line (the comparing is also used by a check script).

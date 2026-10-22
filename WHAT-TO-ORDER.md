@@ -282,6 +282,11 @@ own PDF. Each item is rechecked every six months or when a report comes in.
 - **No chain photos or logos (5.2.1)**: food photos are the chains' copyright and logos their trademarks; Apple
   rejects apps that use "protected third-party material" without permission. Chain names appear as text. If the
   list needs pictures, they are our own (generic, unbranded dish illustrations), never copied.
+- **Nutritionix's pictures, if we license it later**: its API returns small (150 px) and large (1080 px) photos,
+  which its FAQ describes as thumbnails of "CPG products and common foods", not each chain's dish. A paid licence
+  would let us show them inside the app, loaded from Nutritionix with its attribution visible (caching is allowed
+  only for a person's own food log, so no copying them to our storage), and only while we pay. It can't license
+  the chains' logos or photos, which stay the chains' property. Not a reason to buy it.
 - **App Review**: on in the reviewed build and in the review notes, with a test menu image on the support page a
   reviewer can photograph from a second screen, so it can be tried without a restaurant (2.1, 2.5.19).
   Screenshots show it with the Premium badge.
