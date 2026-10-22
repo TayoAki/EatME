@@ -10,7 +10,10 @@
  *   npm run chains:draft -- --rank 1-10              chains by rank in data/chains/ranking.csv
  *   npm run chains:draft -- --chain "Chick-fil-A"    one chain (its name or slug)
  * Options: --url <guide url> (with --chain: read this guide and save it to ranking.csv),
- *          --refetch (read the guide again instead of the cached copy).
+ *          --refetch (read the guide again instead of the cached copy),
+ *          --redo (draft chains that already have a menu file; lines a person checked are kept),
+ *          --redraft (ask the models again even when a draft of the same guide and prompt is cached),
+ *          --parallel <n> (chains at once, default 3).
  * Needs OPENROUTER_API_KEY, and FIRECRAWL_API_KEY to find and read guides (PDFs included); without
  * it, only web-page guides already set in ranking.csv can be read. CHAIN_DRAFT_MODELS overrides the two
  * models ("maker/model,maker/model"). Afterwards: npm run chains:build.
@@ -32,7 +35,10 @@ const RANKING = path.join(ROOT, 'ranking.csv');
 const MENUS = path.join(ROOT, 'menus');
 const REVIEW = path.join(ROOT, 'review');
 const CACHE = path.join(ROOT, '.cache');
-const DEFAULT_MODELS = ['openai/gpt-5.6-luna', 'google/gemini-3.8-flash'];
+/** Two makers, both cheap: about 5 US cents a chain for the pair (prices read 22 October 2026). */
+const DEFAULT_MODELS = ['openai/gpt-5.6-luna', 'anthropic/claude-haiku-5.5'];
+/** Chains worked on at once. */
+const DEFAULT_PARALLEL = 3;
 /** Guide text per AI call; longer guides are split at line breaks. */
 const CHUNK_CHARS = 60_000;
 /** Agreed lines a person spot-checks per chain: about 1 in 20, at least 3, at most 15. */
@@ -61,14 +67,28 @@ function writeRanking(chains: readonly RankedChain[]) {
 async function firecrawl<T>(endpoint: 'search' | 'scrape', body: object): Promise<T> {
   const key = process.env.FIRECRAWL_API_KEY;
   if (!key) throw new Error('Set FIRECRAWL_API_KEY to find and read guides (or set guide_url in ranking.csv).');
-  const response = await fetch(`https://api.firecrawl.dev/v2/${endpoint}`, {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
-  });
-  if (!response.ok) throw new Error(`Firecrawl ${endpoint}: ${response.status} ${(await response.text()).slice(0, 300)}`);
-  return (await response.json()) as T;
+  for (let attempt = 1; ; attempt++) {
+    const response = await fetch(`https://api.firecrawl.dev/v2/${endpoint}`, {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    if (response.ok) return (await response.json()) as T;
+    // Rate limited: wait as long as Firecrawl asks (up to 2 minutes), three times at most.
+    if (response.status === 429 && attempt < 3) {
+      const wait = Math.min(Number(response.headers.get('retry-after')) || 30 * attempt, 120);
+      await new Promise((resolve) => setTimeout(resolve, wait * 1000));
+      continue;
+    }
+    throw new Error(`Firecrawl ${endpoint}: ${response.status} ${(await response.text()).slice(0, 300)}`);
+  }
 }
+
+/**
+ * Many chains' nutrition pages are run by Nutritionix (its links all over the page). Nutritionix's terms
+ * cover what it serves, so those chains need their own PDF instead (WHAT-TO-ORDER.md §7).
+ */
+const hostedByNutritionix = (text: string) => (text.match(/nutritionix\.com/gi) ?? []).length >= 3;
 
 type SearchHit = { url: string; title?: string };
 
@@ -190,6 +210,7 @@ const DRAFT_PROMPT = `You copy a restaurant chain's own nutrition guide into row
 - One row per menu item and size, as the guide lists them. Skip combo meals, kids' meal bundles, catering trays, whole pies or party sizes, and any line without a calorie number.
 - Copy every number exactly as printed. Never calculate, convert, round or estimate. "<1" becomes 0.5, "<5" becomes 2.5. A dash, "N/A" or a blank becomes null.
 - name: the item's name as printed, without the size. serving: the size or amount as printed ("1 burrito", "Medium (21 fl oz)", "4 oz", "1 slice"); "1 serving" only when the guide gives none. serving_g: grams only when printed, else null.
+- Counts are sizes: "4 ct", "8-count", "12 pc" go in serving together with any weight ("4 ct (70g)"), never in the name. The same item in several sizes is one row per size, each with the same name.
 - section: the guide's heading the item sits under ("Burritos", "Breakfast", "Drinks").
 - Units: fat, saturated fat, trans fat, carbohydrates, fiber, sugars and protein in grams; cholesterol and sodium in milligrams. A value in any other unit becomes null.
 - Ignore everything that isn't nutrition facts (allergens, ingredients, footnotes, prices).
@@ -222,6 +243,17 @@ function chunks(text: string) {
   }
   if (current.trim()) parts.push(current);
   return parts;
+}
+
+/** Each model's draft is kept with the guide and prompt it came from, so comparing again costs nothing. */
+async function cachedDraft(slug: string, model: string, chain: string, text: string, redraft: boolean) {
+  const hash = createHash('sha256').update(`${model}\n${DRAFT_PROMPT}\n${text}`).digest('hex').slice(0, 16);
+  const file = path.join(CACHE, `${slug}.${model.replace(/[^a-z0-9.-]+/gi, '_')}.${hash}.json`);
+  if (!redraft && existsSync(file)) return { items: draftSchema.parse(JSON.parse(readFileSync(file, 'utf8'))).items, tokens: 0 };
+  const result = await draft(model, chain, text);
+  mkdirSync(CACHE, { recursive: true });
+  writeFileSync(file, JSON.stringify({ items: result.items }));
+  return result;
 }
 
 async function draft(model: string, chain: string, text: string) {
@@ -272,6 +304,18 @@ export function kindOf(section: string, name: string): ChainItemKind {
 }
 
 type Line = { item: DraftItem; check: ChainCheck };
+
+const words = (value: string) => new Set(normalize(value).split(/[^a-z0-9]+/).filter(Boolean));
+/** Names that differ only in wording ("4 ct Mini Yeast Rolls" and "Mini Yeast Rolls"). */
+function similarNames(x: string, y: string) {
+  const a = normalize(x);
+  const b = normalize(y);
+  if (a.includes(b) || b.includes(a)) return true;
+  const p = words(x);
+  const q = words(y);
+  const shared = [...p].filter((word) => q.has(word)).length;
+  return shared / new Set([...p, ...q]).size >= 0.6;
+}
 type Problem = { key: string; a: DraftItem | null; b: DraftItem | null; reason: string };
 
 export function compare(a: readonly DraftItem[], b: readonly DraftItem[]) {
@@ -284,6 +328,28 @@ export function compare(a: readonly DraftItem[], b: readonly DraftItem[]) {
   const right = first(b);
   const lines: Line[] = [];
   const problems: Problem[] = [];
+  // Second chance for lines one draft named differently: every number the same and a similar name, with no
+  // other candidate. Ten matching numbers are a strong sign it's the same line.
+  const unmatchedA = [...left.keys()].filter((key) => !right.has(key));
+  const unmatchedB = new Set([...right.keys()].filter((key) => !left.has(key)));
+  for (const keyA of unmatchedA) {
+    const x = left.get(keyA)!;
+    const candidates = [...unmatchedB].filter((keyB) => {
+      const y = right.get(keyB)!;
+      return NUMBER_FIELDS.every((field) => same(x[field], y[field])) && similarNames(x.name, y.name);
+    });
+    if (candidates.length !== 1) continue;
+    const y = right.get(candidates[0])!;
+    const longer = y.name.length > x.name.length ? y : x;
+    const item = { ...x, name: longer.name, serving: x.serving.length >= y.serving.length ? x.serving : y.serving };
+    const pairedKey = keyOf(item);
+    if (pairedKey !== keyA && pairedKey !== candidates[0] && (left.has(pairedKey) || right.has(pairedKey))) continue;
+    unmatchedB.delete(candidates[0]);
+    left.delete(keyA);
+    right.delete(candidates[0]);
+    left.set(pairedKey, item);
+    right.set(pairedKey, { ...y, name: item.name, serving: item.serving });
+  }
   for (const key of new Set([...left.keys(), ...right.keys()])) {
     const x = left.get(key) ?? null;
     const y = right.get(key) ?? null;
@@ -390,13 +456,16 @@ function argument(name: string) {
 async function main() {
   const models = (process.env.CHAIN_DRAFT_MODELS ?? DEFAULT_MODELS.join(',')).split(',').map((m) => m.trim());
   if (models.length !== 2 || models[0].split('/')[0] === models[1].split('/')[0]) {
-    throw new Error('CHAIN_DRAFT_MODELS needs two models from different makers, e.g. openai/…,google/…');
+    throw new Error('CHAIN_DRAFT_MODELS needs two models from different makers, e.g. openai/…,anthropic/…');
   }
   const ranking = readRanking();
   const range = argument('--rank');
   const only = argument('--chain');
   const url = argument('--url');
   const refetch = process.argv.includes('--refetch');
+  const redo = process.argv.includes('--redo');
+  const redraft = process.argv.includes('--redraft');
+  const parallel = Number(argument('--parallel')) || DEFAULT_PARALLEL;
   const [from, to] = (range ?? '').split('-').map(Number);
   const picked = only
     ? ranking.filter((c) => c.chain.toLowerCase() === only.toLowerCase() || chainSlug(c.chain) === chainSlug(only))
@@ -404,8 +473,10 @@ async function main() {
   if (picked.length === 0) throw new Error('Pick chains with --rank 1-10 or --chain "Name" (see data/chains/ranking.csv).');
   if (url && picked.length !== 1) throw new Error('--url goes with one --chain.');
 
-  for (const entry of picked) {
+  const draftOne = async (entry: RankedChain) => {
     const slug = chainSlug(entry.chain);
+    // A long run picks up where it stopped: chains with a menu file are done unless --redo.
+    if (!redo && !url && existsSync(path.join(MENUS, `${slug}.csv`))) return;
     try {
       if (url) entry.guideUrl = url;
       if (!entry.guideUrl) {
@@ -413,17 +484,22 @@ async function main() {
         if (!entry.guideUrl) {
           entry.notes = 'no guide found on the chain’s own site: set guide_url by hand';
           console.warn(`#${entry.rank} ${entry.chain}: ${entry.notes}`);
-          continue;
+          return;
         }
       }
       writeRanking(ranking);
       const { text, readOn } = await readGuide(slug, entry.guideUrl, refetch);
-      const [a, b] = await Promise.all(models.map((model) => draft(model, entry.chain, text)));
+      if (hostedByNutritionix(text)) {
+        entry.notes = 'guide is run by Nutritionix: set guide_url to the chain’s own PDF';
+        console.warn(`#${entry.rank} ${entry.chain}: ${entry.notes}`);
+        return;
+      }
+      const [a, b] = await Promise.all(models.map((model) => cachedDraft(slug, model, entry.chain, text, redraft)));
       const { lines, problems } = compare(a.items, b.items);
       if (lines.length === 0) {
         entry.notes = 'no nutrition numbers found in the guide: set guide_url to the PDF or full table';
         console.warn(`#${entry.rank} ${entry.chain}: ${entry.notes}`);
-        continue;
+        return;
       }
       const spot = sample(lines);
       writeMenu(slug, entry.chain, entry.guideUrl, readOn, lines);
@@ -437,7 +513,15 @@ async function main() {
     } finally {
       writeRanking(ranking);
     }
-  }
+  };
+
+  // A few chains at a time, in rank order.
+  const queue = [...picked];
+  await Promise.all(
+    Array.from({ length: Math.min(parallel, queue.length) }, async () => {
+      for (let entry = queue.shift(); entry; entry = queue.shift()) await draftOne(entry);
+    }),
+  );
 }
 
 // Run only from the command line (the comparing is also used by a check script).
