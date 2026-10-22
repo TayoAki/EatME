@@ -1,8 +1,8 @@
 /**
  * Drafts chain menus for What to order (WHAT-TO-ORDER.md §7) from each chain's own nutrition guide.
- * Firecrawl finds and reads the guide (web page or PDF); two AI models from different makers copy it
- * into rows on their own; a line goes in as checked ("two-drafts") only when both drafts agree on every
- * number. Disagreements go in as "pending" (never loaded) and are listed with both versions in
+ * Firecrawl finds the guide on the chain's own website (`site` in ranking.csv) and reads it (web page or
+ * PDF); two AI models from different makers copy it into rows on their own; a line goes in as checked
+ * ("two-drafts") only when both drafts agree on every number. Disagreements go in as "pending" (never loaded) and are listed with both versions in
  * data/chains/review/<chain>.md for a person, together with a sample of agreed lines to spot-check.
  * Only numbers are kept: no wording, photos or logos from the guides.
  *
@@ -48,8 +48,8 @@ const CHUNK_CHARS = 60_000;
 const PDF_PAGES = 40;
 /** Agreed lines a person spot-checks per chain: about 1 in 20, at least 3, at most 15. */
 const SAMPLE = { every: 20, min: 3, max: 15 };
-/** Words that don't tell one chain's website from another's. */
-const GENERIC_WORDS = new Set(['and', 'the', 'bar', 'grill', 'restaurant', 'restaurants', 'cafe', 'kitchen', 'company', 'house', 'express', 'pizza', 'pizzeria', 'coffee', 'burger', 'burgers', 'chicken', 'steakhouse', 'subs', 'sandwich', 'shop', 'brewhouse', 'bakery', 'mexican', 'tacos', 'wings']);
+/** Pages on the chain's site tried in turn until one has nutrition facts. */
+const GUIDE_TRIES = 3;
 /** Country codes and places that mark another country's site or guide (menus differ by country). */
 const COUNTRY_CODES = 'uk|gb|ca|au|nz|ie|mx|in|ph|sg|my|jp|kr|cn|hk|tw|th|vn|ae|sa|qa|kw|bh|om|eg|pk|za|de|fr|es|it|nl|be|pl|pt|se|no|dk|fi|br|ar|cl|co|pe|pr|gt|cr|pa|do|gu';
 /** A country folder: /ca/, /en-gb/, /fr_ca/. */
@@ -59,17 +59,15 @@ const COUNTRY_IN_NAME = new RegExp(`(^|[^A-Za-z])(${COUNTRY_CODES.toUpperCase()}
 const PLACES =
   /\b(arabia|(saudi|jeddah|riyadh|dubai|kuwait|qatar|bahrain|oman|egypt|canada|australia|zealand|ireland|britain|mexico|india|philippines|singapore|malaysia|japan|korea|china|taiwan|thailand|vietnam|puerto|guam|europe|emea|gcc|international)(?![a-z])|united-?kingdom|hong-?kong|middle-?east)/i;
 /**
- * Another country's site or guide: a country domain (wendys.co.uk) or subdomain (ca.chain.com), the chain plus a
- * country code (starbuckspr.com), or a country or place in the path (/en-gb/, "Wendy's UK Nutrition", jeddah).
+ * Another country's site or guide: a country domain (wendys.co.uk) or subdomain (ca.chain.com), or a country or
+ * place in the path (/en-gb/, "Wendy's UK Nutrition", jeddah).
  */
-export function otherCountrySite(url: string, chainWords: readonly string[]) {
+export function otherCountrySite(url: string) {
   const { hostname, pathname, search } = new URL(url);
   const labels = hostname.replace(/^www\./, '').split('.');
   const tld = labels.at(-1) ?? '';
   if (tld.length === 2 && tld !== 'us') return true;
   if (labels.length > 2 && new RegExp(`^(${COUNTRY_CODES})$`).test(labels[0])) return true;
-  const name = (labels.at(-2) ?? '').replace(/[^a-z0-9]/g, '');
-  if (chainWords.some((word) => new RegExp(`^${word}(${COUNTRY_CODES})$`).test(name))) return true;
   let place = pathname + search;
   try {
     place = decodeURIComponent(place);
@@ -86,15 +84,19 @@ const NOT_SOURCES = /nutritionix|fatsecret|fastfoodnutrition|menuwithprice|eatth
 
 // ── Ranking file ────────────────────────────────────────────────────────────────────────────────
 
-type RankedChain = { rank: number; chain: string; guideUrl: string; notes: string };
+/** `site` is the chain's own US website (its domain): guides are only looked for there. */
+type RankedChain = { rank: number; chain: string; site: string; guideUrl: string; notes: string };
 
 function readRanking(): RankedChain[] {
   const [, ...rows] = parseCsv(readFileSync(RANKING, 'utf8'));
-  return rows.map(([rank, chain, guideUrl = '', notes = '']) => ({ rank: Number(rank), chain, guideUrl, notes }));
+  return rows.map(([rank, chain, site = '', guideUrl = '', notes = '']) => ({ rank: Number(rank), chain, site, guideUrl, notes }));
 }
 
 function writeRanking(chains: readonly RankedChain[]) {
-  const lines = [csvLine(['rank', 'chain', 'guide_url', 'notes']), ...chains.map((c) => csvLine([c.rank, c.chain, c.guideUrl, c.notes]))];
+  const lines = [
+    csvLine(['rank', 'chain', 'site', 'guide_url', 'notes']),
+    ...chains.map((c) => csvLine([c.rank, c.chain, c.site, c.guideUrl, c.notes])),
+  ];
   writeFileSync(RANKING, `${lines.join('\n')}\n`);
 }
 
@@ -127,13 +129,13 @@ async function firecrawl<T>(endpoint: 'search' | 'scrape', body: object): Promis
 const hostedByNutritionix = (text: string) => (text.match(/nutritionix\.com/gi) ?? []).length >= 3;
 
 /**
- * The text holds nutrition facts: table rows of numbers, or many nutrient names (pages that give one value a
- * line). Pages without them (a calculator built by script, a landing page) aren't worth an AI draft.
+ * How much nutrition the text holds: table rows of numbers, and nutrient names (pages that give one value a
+ * line). Pages without enough (a calculator built by script, a landing page) aren't worth an AI draft.
  */
-export function hasNutritionFacts(text: string) {
+export function nutritionFacts(text: string) {
   const rows = text.split('\n').filter((line) => (line.match(/(?<![\w.])\d+(?:\.\d+)?(?:g|mg|cal|kcal)?(?![\w.])/gi) ?? []).length >= 5).length;
   const nutrients = (text.match(/\b(calories|sodium|protein|carbohydrates?|saturated|cholesterol)\b/gi) ?? []).length;
-  return rows >= 10 || nutrients >= 30;
+  return { rows, nutrients, enough: rows >= 10 || nutrients >= 30 };
 }
 
 const thisYear = new Date().getFullYear();
@@ -151,7 +153,7 @@ const US_MARKER = /(^|[/._\s-])(us|usa|en-us)([/._\s-]|$)/;
 export function pdfLink(text: string): string | null {
   const scored = [...text.matchAll(/\[([^\]]*)\]\((https:\/\/[^)\s]+)\)/g)]
     .map(([, label, url]) => ({ label, url }))
-    .filter(({ url }) => /\.pdf($|[?#])/i.test(url) && !NOT_SOURCES.test(url) && !otherCountrySite(url, []))
+    .filter(({ url }) => /\.pdf($|[?#])/i.test(url) && !NOT_SOURCES.test(url) && !otherCountrySite(url))
     .map(({ label, url }) => {
       let words = `${label} ${url}`;
       try {
@@ -170,32 +172,31 @@ export function pdfLink(text: string): string | null {
 
 type SearchHit = { url: string; title?: string };
 
-/** The chain's own nutrition page or PDF: a search, then the best hit on its own site that isn't a copy. */
-async function findGuide(chain: string): Promise<string | null> {
+/**
+ * Nutrition pages and PDFs on the chain's own site, best first. The search is limited to that site: copy sites
+ * put chains' names in their own domains (popeyesnutrition.us), so a name in the domain proves nothing.
+ */
+async function findGuides(chain: string, site: string): Promise<string[]> {
   const result = await firecrawl<{ data?: SearchHit[] | { web?: SearchHit[] } }>('search', {
-    query: `${chain} US nutrition information calories`,
+    query: `${chain} nutrition information calories`,
     limit: 10,
+    includeDomains: [site],
   });
   const hits = Array.isArray(result.data) ? result.data : (result.data?.web ?? []);
-  const words = chainSlug(chain)
-    .split('-')
-    .filter((word) => word.length > 2 && !GENERIC_WORDS.has(word))
-    .map((word) => word.replace(/[^a-z0-9]/g, ''));
-  const scored = hits
-    .filter((hit) => /^https:/.test(hit.url) && !NOT_SOURCES.test(hit.url) && !otherCountrySite(hit.url, words))
+  const onSite = (url: string) => {
+    const host = new URL(url).hostname;
+    return host === site || host.endsWith(`.${site}`);
+  };
+  return hits
+    .filter((hit) => /^https:/.test(hit.url) && onSite(hit.url) && !otherCountrySite(hit.url))
     .filter((hit) => /nutri|calori|allergen/i.test(`${hit.url} ${hit.title ?? ''}`))
     .map((hit) => {
       const url = hit.url.toLowerCase();
-      const host = new URL(hit.url).hostname.replace(/^www\./, '').replace(/[^a-z0-9.]/g, '');
-      // More of the chain's words in the host is a better match (goldencorral.com over goldenchick.com).
-      const ownWords = words.filter((word) => host.includes(word)).length;
-      const score =
-        ownWords * 2 + (/nutri/.test(url) ? 3 : 0) + (url.endsWith('.pdf') ? 2 : 0) + (US_MARKER.test(url) ? 3 : 0) - (oldLink(url) ? 6 : 0);
-      return { url: hit.url, ownWords, score };
+      const score = (/nutri/.test(url) ? 3 : 0) + (url.endsWith('.pdf') ? 2 : 0) + (US_MARKER.test(url) ? 3 : 0) - (oldLink(url) ? 6 : 0);
+      return { url: hit.url, score };
     })
-    .filter((hit) => hit.ownWords > 0)
-    .sort((a, b) => b.score - a.score);
-  return scored[0]?.url ?? null;
+    .sort((a, b) => b.score - a.score)
+    .map((hit) => hit.url);
 }
 
 /** The guide as text (markdown), cached so a re-run doesn't fetch again. Images are never kept. */
@@ -244,7 +245,7 @@ async function usableGuide(slug: string, url: string, refetch: boolean, followed
   const { text, readOn } = await readGuide(slug, url, refetch);
   if (nonUsGuide(text)) return { problem: 'guide looks like another country’s (kilojoules): set guide_url to the US guide' };
   if (hostedByNutritionix(text)) return { problem: 'guide is run by Nutritionix: set guide_url to the chain’s own PDF' };
-  if (hasNutritionFacts(text)) return { url, text, readOn };
+  if (nutritionFacts(text).enough) return { url, text, readOn };
   const pdf = followed ? null : pdfLink(text);
   if (pdf) return usableGuide(slug, pdf, refetch, true);
   return { problem: 'no nutrition numbers found in the guide: set guide_url to the PDF or full table' };
@@ -581,16 +582,31 @@ async function main() {
     if (!redo && !url && existsSync(path.join(MENUS, `${slug}.csv`))) return;
     try {
       if (url) entry.guideUrl = url;
-      if (!entry.guideUrl) {
-        entry.guideUrl = (await findGuide(entry.chain)) ?? '';
-        if (!entry.guideUrl) {
-          entry.notes = 'no guide found on the chain’s own site: set guide_url by hand';
+      let guide: Guide;
+      if (entry.guideUrl) {
+        guide = await usableGuide(slug, entry.guideUrl, refetch);
+      } else if (!entry.site) {
+        entry.notes = 'set site (the chain’s own website) or guide_url';
+        console.warn(`#${entry.rank} ${entry.chain}: ${entry.notes}`);
+        return;
+      } else {
+        const candidates = (await findGuides(entry.chain, entry.site)).slice(0, GUIDE_TRIES);
+        if (candidates.length === 0) {
+          entry.notes = `no nutrition page found on ${entry.site}: set guide_url by hand`;
           console.warn(`#${entry.rank} ${entry.chain}: ${entry.notes}`);
           return;
         }
+        // The first page with numbers wins; otherwise the best match is kept with its problem for a person.
+        const tried: Guide[] = [];
+        for (const candidate of candidates) {
+          tried.push(await usableGuide(slug, candidate, refetch));
+          if (!('problem' in tried.at(-1)!)) break;
+        }
+        const usable = tried.findIndex((attempt) => !('problem' in attempt));
+        guide = tried[Math.max(usable, 0)];
+        entry.guideUrl = 'url' in guide ? guide.url : candidates[0];
       }
       writeRanking(ranking);
-      const guide = await usableGuide(slug, entry.guideUrl, refetch);
       if ('problem' in guide) {
         entry.notes = guide.problem;
         console.warn(`#${entry.rank} ${entry.chain}: ${entry.notes} (${entry.guideUrl})`);
@@ -599,8 +615,9 @@ async function main() {
       const { text, readOn } = guide;
       entry.guideUrl = guide.url;
       if (guidesOnly) {
+        const { rows, nutrients } = nutritionFacts(text);
         entry.notes = `guide read ${readOn}: ready to draft`;
-        console.log(`#${entry.rank} ${entry.chain}: ready (${entry.guideUrl})`);
+        console.log(`#${entry.rank} ${entry.chain}: ready, ${rows} table rows, ${nutrients} nutrient words (${entry.guideUrl})`);
         return;
       }
       const [a, b] = await Promise.all(models.map((model) => cachedDraft(slug, model, entry.chain, text, redraft)));

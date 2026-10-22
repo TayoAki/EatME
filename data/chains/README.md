@@ -6,7 +6,7 @@ are the only restaurant numbers Weight Class ranks (`WHAT-TO-ORDER.md` §7).
 
 | Path | What it is |
 | --- | --- |
-| `ranking.csv` | The order we work in: the Technomic Top 500, 2026 edition (2025 US system sales), ranks 1-250 as published by Restaurant Business (restaurantbusinessonline.com/top-500-2026-ranking, read 21 Oct 2026). `guide_url` is the chain's own nutrition page or PDF, `notes` the last run's result |
+| `ranking.csv` | The order we work in: the Technomic Top 500, 2026 edition (2025 US system sales), ranks 1-250 as published by Restaurant Business (restaurantbusinessonline.com/top-500-2026-ranking, read 21 Oct 2026). `site` is the chain's own US website (checked 22 Oct 2026 by loading each homepage), the only place its guide is looked for; `guide_url` is the nutrition page or PDF in use, `notes` the last run's result |
 | `menus/<chain>.csv` | One chain's items (columns below). `menus/_template.csv` holds the header |
 | `review/<chain>.md` | What a person checks for that chain: the lines the two drafts disagreed on, and a sample of agreed lines |
 | `.cache/` | The guides as read (git-ignored: only the numbers are kept) |
@@ -30,9 +30,11 @@ when it changed. An item left out of the CSV is **retired**, never deleted.
 
 ## How a line gets checked
 
-1. Firecrawl finds the chain's **US** nutrition page or PDF **on the chain's own site** (copy sites such as
-   Nutritionix, FatSecret or fan pages are never a source; other countries' sites and guides are skipped, since menus
-   differ) and reads it once. A page without numbers is followed to the nutrition PDF it links. Only text is kept; no
+1. Firecrawl searches **only the chain's own site** (`site`) for its **US** nutrition page or PDF and reads it once.
+   Copy sites such as Nutritionix, FatSecret or fan pages are never a source, even when they carry the chain's name
+   in their domain (popeyesnutrition.us); other countries' sites and guides are skipped, since menus differ. Up to
+   three pages are tried, and a page without numbers is followed to the nutrition PDF it links (which may sit on
+   the chain's file host, such as assets.ctfassets.net). Only text is kept; no
    photos or logos. Many chains have Nutritionix run their nutrition page (Taco Bell's, for one): those are skipped
    with a note, and need the chain's own PDF in `guide_url`. Pages without numbers (calculators built by script) are
    skipped before any AI is spent.
