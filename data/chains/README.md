@@ -48,6 +48,19 @@ when it changed. An item left out of the CSV is **retired**, never deleted.
    A wrong sample line means the whole chain gets a closer look. Re-running a draft never overwrites `person` lines.
 5. `npm run chains:build` checks everything again before anything ships.
 
+## What the notes in `ranking.csv` mean
+
+| Note | What to do |
+| --- | --- |
+| `guide read …: ready to draft` | Nothing: the next `chains:draft` run drafts it |
+| `drafted …: N agreed, M for a person` | Open `review/<chain>.md` (see below) |
+| `no nutrition numbers found in the guide` | The page is a calculator built by script, or the numbers sit on one page per item (McDonald's, Starbucks, Wendy's). Set `guide_url` to the chain's PDF if it has one; otherwise it waits for item pages to be read one by one |
+| `no nutrition page found on <site>` | Look on the chain's site by hand and set `guide_url` |
+| `guide is run by Nutritionix` | Set `guide_url` to the chain's own PDF if there is one; otherwise it waits (Nutritionix is a later decision, `WHAT-TO-ORDER.md` §7) |
+| `guide looks like another country’s` | Set `guide_url` to the US guide |
+| `dated 2023: look for a newer guide` | The guide is two or more years old: look for a newer one on the chain's site, else draft it and say so in the review |
+| `few items: check the guide is the whole menu` | Fewer than 20 lines: likely one promotion or one page, not the whole guide |
+
 ## Columns
 
 | Column | What goes in it |
@@ -62,7 +75,7 @@ when it changed. An item left out of the CSV is **retired**, never deleted.
 | `fat_g`, `saturated_fat_g`, `trans_fat_g` | grams (`trans_fat_g` may be empty when the guide leaves it out) |
 | `cholesterol_mg`, `sodium_mg` | milligrams (`cholesterol_mg` may be empty) |
 | `carbs_g`, `fiber_g`, `sugars_g`, `protein_g` | grams |
-| `source_url` | The `https://` page or PDF on the chain's own site with these numbers |
+| `source_url` | The `https://` page or PDF on the chain's own site with these numbers. The app cites it on every item ("Source: Chick-fil-A nutrition information · checked 22 Oct 2026", with a link), so it is always the chain's own page or file, never a copy site |
 | `checked_on` | The day the line was checked (the drafts agreed, or a person checked it): `2026-10-21` |
 | `check` | `two-drafts`, `person` or `pending` (above) |
 

@@ -138,14 +138,25 @@ ordering page, and the chat (not in v2.5).
   works. An optional field for the restaurant's name.
 - [ ] **The list**: a header with what's left today ("About 850 kcal and 60 g protein left"), then **Fits well**
   (up to five, shown as a group when their ranges overlap, not a false first-second-third) and **Everything
-  else**. Each row: the dish, calories (a range for estimates), protein, the source ("From the restaurant" or
-  "Estimate") and one reason ("Leaves about 500 kcal for dinner", "45 g protein"). Items over what's left are
-  listed last, never hidden.
+  else**. Each row: the dish, calories (a range for estimates), protein, the source ("From Chick-fil-A" for a
+  chain item, "Estimate" for a scanned menu) and one reason ("Leaves about 500 kcal for dinner", "45 g protein").
+  Items over what's left are listed last, never hidden. Under a chain's list: "Numbers from Chick-fil-A's nutrition
+  information, checked 22 Oct 2026" with a link to its guide (see **Citing the source** below).
 - [ ] **When nothing fits** or the day's budget is spent: no ranking, a neutral line ("Nothing here fits what's
   left today; these are the lighter dishes") and the list sorted by size.
-- [ ] **A dish**: its numbers and where they're from (the chain's page and the date we checked it, or the foods
-  and portions behind an estimate, editable as in the meal screen), and up to two tweaks with their effect
-  ("Dressing on the side: about −150 kcal").
+- [ ] **A dish**: its numbers and where they're from (the chain's citation below, or the foods and portions behind
+  an estimate, editable as in the meal screen), and up to two tweaks with their effect ("Dressing on the side: about
+  −150 kcal").
+- [ ] **Citing the source** (every chain number, wherever it shows): the dish screen and the logged meal say
+  "Source: Chick-fil-A nutrition information · checked 22 Oct 2026" with **View Chick-fil-A's guide**, which opens
+  the item's `source_url` (the chain's own page or PDF, never a copy site) in the in-app browser. Next to it: "Weight
+  Class isn't affiliated with Chick-fil-A. Menus change; check with the restaurant." and **Report a wrong item**. A
+  logged meal keeps the citation it was logged with, so the diary still shows where a number came from after the
+  chain's guide changes. Profile → Sources (the 1.4.1 screen, `src/lib/sources.ts`) gets a **Restaurant menus**
+  topic: the numbers are each chain's own published nutrition information, which US chains with 20 or more
+  locations must publish ([21 CFR 101.11](https://www.ecfr.gov/current/title-21/chapter-I/subchapter-B/part-101/subpart-A/section-101.11));
+  how we copy and check them (two drafts that must agree, a person for the rest); and that each item shows the day
+  it was checked and is rechecked every six months. Added with the feature, not before (no dormant text).
 - [ ] **One question when it matters**: for an estimate where the answer moves the number most, one tap
   ("Grilled or fried?", "Side or entrée size?"), like the follow-up question on photo scans.
 - [ ] **Order it**: **Log it** saves the meal now; **Save for later** keeps it in Saved meals to log when the food
@@ -229,11 +240,13 @@ own PDF. Each item is rechecked every six months or when a report comes in.
   (`reading` | `ready` | `failed`), timestamps. Deleted after 30 days by a nightly job. Menu photos are never stored
   when the phone read the text; when photos are sent, they're deleted once read.
 - Meals: a new meal source `menu`; `meal_items.menu` (scan or chain item, dish name, source, range) next to the
-  existing `restaurant` field.
+  existing `restaurant` field. For a chain item the source is copied at log time: the chain, `source_url` and
+  `checked_on`, so the citation stays with the meal.
 - Reports: `chain_item_reports`, the same shape as product reports.
 
 **API**
-- `GET /api/chains?q=` and `GET /api/chains/:chain/menu`: our table, ranked for the person's day.
+- `GET /api/chains?q=` and `GET /api/chains/:chain/menu`: our table, ranked for the person's day. Every item
+  carries `sourceUrl` and `checkedOn` for its citation.
 - `POST /api/menu-scans`: the confirmed dish lines (or photos when the phone can't read them) and an optional
   restaurant name. Runs the AI in the background, like meal analysis; counts as an AI scan.
 - `GET /api/menu-scans/:id`: the dishes, ranked on every read, so the list follows what's been eaten since.
@@ -268,8 +281,9 @@ own PDF. Each item is rechecked every six months or when a report comes in.
 - **AI consent (5.1.2(i), Washington)**: the consent screen names what's sent; add "menu text or photos and the
   restaurant's name". People who already agreed see the change once. Never sent: location, targets, weight,
   what's left, foods to skip.
-- **Health claims (1.4.1)**: every number has its source; chain numbers link to the chain's page; estimates say so
-  and show a range; the method (where numbers come from, how the ranking works) goes on the support page's
+- **Health claims (1.4.1)**: every number has its source; chain numbers cite the chain's own guide with a link and
+  the date checked (**Citing the source**, section 3), on the list, the dish and the logged meal, and Profile →
+  Sources explains where restaurant numbers come from; estimates say so and show a range; the method (where numbers come from, how the ranking works) goes on the support page's
   sources section, linked from the list. The "check with a doctor" line stays in Daily goals. No accuracy claims in
   the app, store text or ads (F15).
 - **Allergens**: the line on every list; we never filter by allergy or call a dish safe (F15).

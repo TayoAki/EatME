@@ -52,17 +52,19 @@ const SAMPLE = { every: 20, min: 3, max: 15 };
 const GUIDE_TRIES = 3;
 /** Country codes and places that mark another country's site or guide (menus differ by country). */
 const COUNTRY_CODES = 'uk|gb|ca|au|nz|ie|mx|in|ph|sg|my|jp|kr|cn|hk|tw|th|vn|ae|sa|qa|kw|bh|om|eg|pk|za|de|fr|es|it|nl|be|pl|pt|se|no|dk|fi|br|ar|cl|co|pe|pr|gt|cr|pa|do|gu';
-/** A country folder: /ca/, /en-gb/, /fr_ca/. */
-const COUNTRY_FOLDER = new RegExp(`/(${COUNTRY_CODES}|[a-z]{2}[-_](${COUNTRY_CODES})|(${COUNTRY_CODES})[-_][a-z]{2})(/|$)`, 'i');
+/** A country folder: /ca/, or a locale for anywhere but the US: /en-gb/, /en-cy/, /fr_ca/, /ca-en/. */
+const COUNTRY_FOLDER = new RegExp(`/(${COUNTRY_CODES}|(en|es|fr|de|it|pt|nl|zh|ja|ko|ar)[-_](?!us\\b)[a-z]{2}|(?!us\\b)[a-z]{2}[-_](en|es|fr))(/|$)`, 'i');
 /** A country in a file name or query, in capitals: "Wendy's UK Nutrition", ?locale=en_CA. */
 const COUNTRY_IN_NAME = new RegExp(`(^|[^A-Za-z])(${COUNTRY_CODES.toUpperCase()})([^A-Za-z]|$)`);
+/** Countries and places (not ones that are also foods, such as turkey or chile). */
 const PLACES =
-  /\b(arabia|(saudi|jeddah|riyadh|dubai|kuwait|qatar|bahrain|oman|egypt|canada|australia|zealand|ireland|britain|mexico|india|philippines|singapore|malaysia|japan|korea|china|taiwan|thailand|vietnam|puerto|guam|europe|emea|gcc|international)(?![a-z])|united-?kingdom|hong-?kong|middle-?east)/i;
+  /\b(arabia|(saudi|jeddah|riyadh|dubai|emirates|kuwait|qatar|bahrain|oman|egypt|jordan|lebanon|israel|morocco|nigeria|kenya|canada|australia|ireland|britain|england|scotland|wales|mexico|india|pakistan|bangladesh|philippines|singapore|malaysia|indonesia|japan|korea|china|taiwan|thailand|vietnam|cambodia|guam|cyprus|greece|spain|portugal|france|germany|austria|switzerland|italy|netherlands|belgium|poland|sweden|norway|denmark|finland|panama|guatemala|honduras|ecuador|colombia|peru|venezuela|argentina|brazil|jamaica|trinidad|bahamas|aruba|europe|emea|latam|apac|gcc|international)(?![a-z])|(united|new|hong|middle|puerto|south|costa|el|sri|dominican)[\s_-]?(kingdom|zealand|kong|east|rico|africa|rica|salvador|lanka|republic))/i;
 /**
  * Another country's site or guide: a country domain (wendys.co.uk) or subdomain (ca.chain.com), or a country or
- * place in the path (/en-gb/, "Wendy's UK Nutrition", jeddah).
+ * place in the path (/en-gb/, "Wendy's UK Nutrition", "United Kingdom", jeddah). The chain's own name is left out
+ * first, so Texas de Brazil and Sarku Japan stay American.
  */
-export function otherCountrySite(url: string) {
+export function otherCountrySite(url: string, chain = '') {
   const { hostname, pathname, search } = new URL(url);
   const labels = hostname.replace(/^www\./, '').split('.');
   const tld = labels.at(-1) ?? '';
@@ -74,10 +76,19 @@ export function otherCountrySite(url: string) {
   } catch {
     // A malformed escape: check the path as it is.
   }
+  for (const word of chainSlug(chain).split('-').filter((w) => w.length > 2)) place = place.replace(new RegExp(word, 'gi'), ' ');
   return COUNTRY_FOLDER.test(place) || COUNTRY_IN_NAME.test(place) || PLACES.test(place);
 }
-/** Kilojoules mean another country's guide: US guides give Calories only. */
-const nonUsGuide = (text: string) => (text.match(/\bkj\b|kilojoule/gi) ?? []).length >= 5;
+/**
+ * Another country's guide by its contents: kilojoules, or salt in place of sodium (US guides give Calories and
+ * sodium in milligrams).
+ */
+function nonUsGuide(text: string) {
+  const count = (pattern: RegExp) => (text.match(pattern) ?? []).length;
+  return count(/\bkj\b|kilojoule/gi) >= 5 || (count(/\bsalt\b/gi) >= 5 && count(/\bsodium\b/gi) < 3);
+}
+/** Pages on a chain's site that aren't its nutrition guide: blog posts, news, press, FAQs, careers. */
+const NOT_GUIDES = /(^|[/._-])(blog|news|press|faqs?|careers?|investors?|jobs)([/._-]|$)/i;
 
 /** Sites that copy chains' numbers: never a source (WHAT-TO-ORDER.md §7). */
 const NOT_SOURCES = /nutritionix|fatsecret|fastfoodnutrition|menuwithprice|eatthismuch|myfooddiary|calorieking|nutritionvalue|myfitnesspal|fastfoodcalories|healthyfastfood|carbmanager|reddit|wikipedia|yelp|tripadvisor|doordash|ubereats|grubhub/i;
@@ -139,31 +150,46 @@ export function nutritionFacts(text: string) {
 }
 
 const thisYear = new Date().getFullYear();
-/** A link dated two or more years back (guides are reissued when the menu changes). */
-function oldLink(url: string) {
+/** The latest year in a link (guides are reissued when the menu changes), or null. */
+function linkYear(url: string) {
   const years = [...url.matchAll(/(?:^|\D)(20\d\d)(?:\D|$)/g)].map((m) => Number(m[1]));
-  return years.length > 0 && Math.max(...years) < thisYear - 1;
+  return years.length > 0 ? Math.max(...years) : null;
 }
+/** A link dated two or more years back. */
+const oldLink = (url: string) => (linkYear(url) ?? thisYear) < thisYear - 1;
 const US_MARKER = /(^|[/._\s-])(us|usa|en-us)([/._\s-]|$)/;
+/** Neither a copy site nor another country's guide nor a page that isn't a guide. */
+const candidate = (url: string, chain: string) => {
+  const { hostname, pathname } = new URL(url);
+  return !NOT_SOURCES.test(url) && !NOT_GUIDES.test(hostname + pathname) && !otherCountrySite(url, chain);
+};
 
 /**
  * The nutrition PDF a landing page links to. It may sit on the chain's file host (Dunkin's is on
  * assets.ctfassets.net): the page is the chain's own, so the link is too.
  */
-export function pdfLink(text: string): string | null {
-  const scored = [...text.matchAll(/\[([^\]]*)\]\((https:\/\/[^)\s]+)\)/g)]
-    .map(([, label, url]) => ({ label, url }))
-    .filter(({ url }) => /\.pdf($|[?#])/i.test(url) && !NOT_SOURCES.test(url) && !otherCountrySite(url))
+export function pdfLink(text: string, chain = ''): string | null {
+  const decode = (value: string) => {
+    try {
+      return decodeURIComponent(value);
+    } catch {
+      return value; // A malformed escape: use it as it is.
+    }
+  };
+  // Markdown links, with or without a title: [label](url "title").
+  const scored = [...text.matchAll(/\[([^\]]*)\]\((https:\/\/[^)\s]+)(?:\s+"[^"]*")?\)/g)]
+    .map(([, label, url]) => ({ label: label.toLowerCase(), url }))
+    .filter(({ url }) => /\.pdf($|[?#])/i.test(url) && candidate(url, chain))
     .map(({ label, url }) => {
-      let words = `${label} ${url}`;
-      try {
-        words = decodeURIComponent(words);
-      } catch {
-        // A malformed escape: score the link as it is.
-      }
-      words = words.toLowerCase();
-      const score = (/nutri/.test(words) ? 4 : 0) + (/calori/.test(words) ? 2 : 0) + (US_MARKER.test(words) ? 2 : 0) - (oldLink(url) ? 6 : 0);
-      return { url, score, nutrition: /nutri|calori/.test(words) };
+      // The file's own name counts, not its folder (Popeyes keeps its allergen PDF in /nutrition/).
+      const file = decode(new URL(url).pathname.split('/').at(-1) ?? '').toLowerCase();
+      const score =
+        (/nutri|calori/.test(file) ? 4 : 0) +
+        (/nutri|calori/.test(label) ? 2 : 0) +
+        (US_MARKER.test(`${label} ${file}`) ? 2 : 0) -
+        (/allerg|ingredient/.test(file) && !/nutri/.test(file) ? 4 : 0) -
+        (oldLink(url) ? 6 : 0);
+      return { url, score, nutrition: /nutri|calori/.test(`${file} ${label}`) };
     })
     .filter((link) => link.nutrition)
     .sort((a, b) => b.score - a.score);
@@ -171,6 +197,15 @@ export function pdfLink(text: string): string | null {
 }
 
 type SearchHit = { url: string; title?: string };
+
+/** A link without search trackers (srsltid, utm_…), so the same guide is always the same link. */
+function withoutTrackers(url: string) {
+  const parsed = new URL(url);
+  for (const key of [...parsed.searchParams.keys()]) {
+    if (key === 'srsltid' || key.startsWith('utm_')) parsed.searchParams.delete(key);
+  }
+  return parsed.toString();
+}
 
 /**
  * Nutrition pages and PDFs on the chain's own site, best first. The search is limited to that site: copy sites
@@ -188,12 +223,12 @@ async function findGuides(chain: string, site: string): Promise<string[]> {
     return host === site || host.endsWith(`.${site}`);
   };
   return hits
-    .filter((hit) => /^https:/.test(hit.url) && onSite(hit.url) && !otherCountrySite(hit.url))
+    .filter((hit) => /^https:/.test(hit.url) && onSite(hit.url) && candidate(hit.url, chain))
     .filter((hit) => /nutri|calori|allergen/i.test(`${hit.url} ${hit.title ?? ''}`))
     .map((hit) => {
       const url = hit.url.toLowerCase();
       const score = (/nutri/.test(url) ? 3 : 0) + (url.endsWith('.pdf') ? 2 : 0) + (US_MARKER.test(url) ? 3 : 0) - (oldLink(url) ? 6 : 0);
-      return { url: hit.url, score };
+      return { url: withoutTrackers(hit.url), score };
     })
     .sort((a, b) => b.score - a.score)
     .map((hit) => hit.url);
@@ -241,15 +276,18 @@ async function readGuide(slug: string, url: string, refetch: boolean): Promise<{
 type Guide = { url: string; text: string; readOn: string } | { problem: string };
 
 /** Reads the guide and checks it's one to draft. A page without numbers is followed once to the PDF it links. */
-async function usableGuide(slug: string, url: string, refetch: boolean, followed = false): Promise<Guide> {
-  const { text, readOn } = await readGuide(slug, url, refetch);
-  if (nonUsGuide(text)) return { problem: 'guide looks like another country’s (kilojoules): set guide_url to the US guide' };
+async function usableGuide(entry: RankedChain, url: string, refetch: boolean, followed = false): Promise<Guide> {
+  const { text, readOn } = await readGuide(chainSlug(entry.chain), url, refetch);
+  if (nonUsGuide(text)) return { problem: 'guide looks like another country’s (kilojoules or salt): set guide_url to the US guide' };
   if (hostedByNutritionix(text)) return { problem: 'guide is run by Nutritionix: set guide_url to the chain’s own PDF' };
   if (nutritionFacts(text).enough) return { url, text, readOn };
-  const pdf = followed ? null : pdfLink(text);
-  if (pdf) return usableGuide(slug, pdf, refetch, true);
+  const pdf = followed ? null : pdfLink(text, entry.chain);
+  if (pdf) return usableGuide(entry, pdf, refetch, true);
   return { problem: 'no nutrition numbers found in the guide: set guide_url to the PDF or full table' };
 }
+
+/** A note for a guide dated two or more years back. */
+const datedNote = (url: string) => (oldLink(url) ? ` (dated ${linkYear(url)}: look for a newer guide)` : '');
 
 // ── Two drafts ──────────────────────────────────────────────────────────────────────────────────
 
@@ -584,7 +622,7 @@ async function main() {
       if (url) entry.guideUrl = url;
       let guide: Guide;
       if (entry.guideUrl) {
-        guide = await usableGuide(slug, entry.guideUrl, refetch);
+        guide = await usableGuide(entry, entry.guideUrl, refetch);
       } else if (!entry.site) {
         entry.notes = 'set site (the chain’s own website) or guide_url';
         console.warn(`#${entry.rank} ${entry.chain}: ${entry.notes}`);
@@ -598,8 +636,8 @@ async function main() {
         }
         // The first page with numbers wins; otherwise the best match is kept with its problem for a person.
         const tried: Guide[] = [];
-        for (const candidate of candidates) {
-          tried.push(await usableGuide(slug, candidate, refetch));
+        for (const page of candidates) {
+          tried.push(await usableGuide(entry, page, refetch));
           if (!('problem' in tried.at(-1)!)) break;
         }
         const usable = tried.findIndex((attempt) => !('problem' in attempt));
@@ -616,8 +654,8 @@ async function main() {
       entry.guideUrl = guide.url;
       if (guidesOnly) {
         const { rows, nutrients } = nutritionFacts(text);
-        entry.notes = `guide read ${readOn}: ready to draft`;
-        console.log(`#${entry.rank} ${entry.chain}: ready, ${rows} table rows, ${nutrients} nutrient words (${entry.guideUrl})`);
+        entry.notes = `guide read ${readOn}: ready to draft${datedNote(entry.guideUrl)}`;
+        console.log(`#${entry.rank} ${entry.chain}: ready, ${rows} table rows, ${nutrients} nutrient words${datedNote(entry.guideUrl)} (${entry.guideUrl})`);
         return;
       }
       const [a, b] = await Promise.all(models.map((model) => cachedDraft(slug, model, entry.chain, text, redraft)));
@@ -631,7 +669,9 @@ async function main() {
       writeMenu(slug, entry.chain, entry.guideUrl, readOn, lines);
       writeReview(slug, entry.chain, entry.guideUrl, readOn, models, problems, spot);
       const agreed = lines.length - problems.length;
-      entry.notes = `drafted ${readOn}: ${agreed} agreed, ${problems.length} for a person`;
+      // A short list is usually one page or one promotion, not the whole guide.
+      const few = lines.length < 20 ? '; few items: check the guide is the whole menu' : '';
+      entry.notes = `drafted ${readOn}: ${agreed} agreed, ${problems.length} for a person${few}${datedNote(entry.guideUrl)}`;
       console.log(`#${entry.rank} ${entry.chain}: ${agreed} agreed, ${problems.length} pending, ${spot.length} to spot-check (${a.tokens + b.tokens} tokens)`);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
