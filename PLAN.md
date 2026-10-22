@@ -402,6 +402,28 @@ added to an earlier day are stored at local noon of that day.
   `npm run start:server`, health check `/api/health`), **Postgres**, **meal-photos**
   bucket. Migrations run when the server starts.
 - `server/index.mjs` serves `/api/*` (exported API routes), `/`, `/privacy`, `/terms`.
+- The api service deploys branch `claude/gallant-archimedes-o2u9dy` of TayoAki/EatME (Settings → Source;
+  autodeploy on).
+
+**Rotating the secrets** (after Railway's security incident of 21 October 2026, when environment variables may have
+been read; do the same after any leak). Secret values go straight into Railway's Variables, never into a chat, a
+commit or a file in the repo. Live `GET /api/features` showed Apple and Google sign-in, email codes (Resend) and
+restaurant menus off, Premium on (22 October 2026), so these are the api service's secrets:
+
+| Variable | Who makes the new one | How |
+| --- | --- | --- |
+| `OPENROUTER_API_KEY` | the owner | openrouter.ai → Keys: a new key with a spend limit; check Activity for usage you don't recognise and disable the old key |
+| `REVENUECAT_SECRET_KEY` | the owner | RevenueCat → EatME → API keys: a new secret key; revoke the old one once the new deploy is live |
+| `REVENUECAT_WEBHOOK_SECRET` | a random 64-character value | Also in RevenueCat → EatME → Integrations → Webhooks → "EatME server" → Authorization header as `Bearer <value>` (only the dashboard can change it). Switch it when the new deploy goes live: RevenueCat's webhooks are turned away in between |
+| `BETTER_AUTH_SECRET` | a random 64-character value (`openssl rand -hex 32`) | Signs sessions: a new one signs everyone out once (the App Review demo account too) |
+| `DATABASE_URL` | Railway | Railway's guide "Rotate PostgreSQL Database Credentials"; keep the api service's value a reference, `${{Postgres.DATABASE_URL}}` |
+| `S3_ACCESS_KEY_ID`, `S3_SECRET_ACCESS_KEY` (and `S3_*`) | Railway (rotated on 21 October) | The meal-photos bucket's Credentials tab; better as references to the bucket than pasted values |
+| `FATSECRET_CLIENT_ID`, `FATSECRET_CLIENT_SECRET` | nobody | Retired: delete them from Railway, and the app in FatSecret |
+| `SENTRY_AUTH_TOKEN` | the owner, if it is on Railway | Sentry → a new auth token; it is a build-time value for EAS |
+
+Then: reconnect GitHub (railway.com/account, the Railway app's access on GitHub, the api service's Source), deploy
+the latest commit, and check `/api/health`, `/api/features`, a meal scan (OpenRouter), a photo upload (bucket), a
+new sign-in, and a RevenueCat webhook test from its dashboard. Update the local `.env` too.
 
 ## 7. Error tracking (Sentry)
 - `Sentry.init` in the root layout, `Sentry.wrap`, session replay in development builds only
