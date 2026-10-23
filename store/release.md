@@ -81,6 +81,13 @@ Before the first external testers:
 - [ ] RevenueCat: the four products are attached to the `premium` entitlement and the offering, and Sandbox Testing
       Access is "Anybody"; Railway has `REVENUECAT_SECRET_KEY` and `PAYMENTS_ENABLED=true`.
 - [ ] When every tester is on TestFlight instead of Expo Go: delete `ALLOW_EXPO_GO` on Railway.
+- [ ] OpenRouter has credit: every AI scan stops when the balance reaches zero (the onboarding plan falls back to
+      a formula). About $50 covers the beta; turn on auto top-up, and put a credit limit on every key on the
+      account, so another project's key can't spend the app's balance.
+- [ ] Before the first sale: enroll in Apple's
+      [Small Business Program](https://developer.apple.com/app-store/small-business-program/) (Enroll now, as the
+      Account Holder, once the Paid Apps Agreement is active). Without it Apple keeps 30% of a subscription's first
+      year instead of 15%. The lower rate starts 15 days after the end of the fiscal month Apple approves it in.
 - [ ] When the app is live: Apple's App Store badge on the landing page (`legal/index.html`, the comment in the
       download section) and the Marketing URL in App Store Connect.
 
