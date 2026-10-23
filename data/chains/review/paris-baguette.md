@@ -3,16 +3,14 @@
 Guide: https://parisbaguette.com/wp-content/uploads/2026/06/2026-Summer-Nutrition-Chart-US.pdf (read 2026-10-23). Draft A: openai/gpt-5.6-luna. Draft B: anthropic/claude-haiku-5.5.
 Numbers in order: calories / fat_g / saturated_fat_g / trans_fat_g / cholesterol_mg / sodium_mg / carbs_g / fiber_g / sugars_g / protein_g.
 
-## Disagreements (81)
+## Disagreements (79)
 
 Fix each line in `menus/paris-baguette.csv` from the guide and set its check to `person` (or delete the line if it isn't on the menu).
 
 | Item | Size | Why | Draft A | Draft B |
 | --- | --- | --- | --- | --- |
 | Tiramisu Cake Slice | 1 serving | both read numbers that can't be right: sugars 26 g above carbs 17 g | 430 / 31 / 19 / 0 / 170 / 135 / 17 / 0 / 26 / 5 | 430 / 31 / 19 / 0 / 170 / 135 / 17 / 0 / 26 / 5 |
-| Chai Latte | 20oz | only in draft A | 610 / 20 / 15 / 0 / 55 / 400 / 98 / 0 / 87 / 17 | not found |
 | Boursin Garlic Cheese Quiche | 1 serving | the guide gives no sodium_mg | 340 / 23 / 14 / 0 / 95 / – / 24 / 1 / 4 / 9 | 340 / 23 / 14 / 0 / 95 / – / 24 / 1 / 4 / 9 |
-| Chai Latte | 20oz1 | only in draft B | not found | 610 / 20 / 15 / 0 / 55 / 400 / 98 / 0 / 87 / 17 |
 | Iced Black Coffee | 16oz | only in draft B | not found | 5 / 0 / 0 / 0 / 0 / 15 / 1 / 0 / 0 / 0 |
 | Iced Black Coffee | 20oz | only in draft B | not found | 5 / 0 / 0 / 0 / 0 / 15 / 1 / 0 / 0 / 0 |
 | Iced Black Coffee | 24oz | only in draft B | not found | 5 / 0 / 0 / 0 / 0 / 20 / 1 / 0 / 0 / 0 |
@@ -27,7 +25,7 @@ Fix each line in `menus/paris-baguette.csv` from the guide and set its check to 
 | Iced Café Latte | 24oz | only in draft B | not found | 220 / 12 / 7 / 0 / 50 / 180 / 19 / 0 / 16 / 15 |
 | Iced Café Mocha | 16oz | only in draft B | not found | 290 / 8 / 5 / 0 / 30 / 120 / 47 / 0 / 45 / 10 |
 | Iced Café Mocha | 20oz | only in draft B | not found | 410 / 11 / 6 / 0 / 35 / 150 / 68 / 0 / 66 / 13 |
-| Iced Café Mocha | 24oz1 | only in draft B | not found | 530 / 13 / 8 / 0 / 45 / 190 / 89 / 0 / 86 / 17 |
+| Iced Café Mocha | 24oz | only in draft B | not found | 530 / 13 / 8 / 0 / 45 / 190 / 89 / 0 / 86 / 17 |
 | Iced Vanilla Latte | 16oz | only in draft B | not found | 260 / 7 / 4 / 0 / 30 / 105 / 43 / 0 / 40 / 9 |
 | Iced Vanilla Latte | 20oz | only in draft B | not found | 330 / 9 / 5 / 0 / 35 / 130 / 54 / 0 / 50 / 11 |
 | Iced Vanilla Latte | 24oz | only in draft B | not found | 410 / 11 / 6 / 0 / 45 / 160 / 65 / 0 / 60 / 14 |
@@ -39,7 +37,7 @@ Fix each line in `menus/paris-baguette.csv` from the guide and set its check to 
 | Iced Hazelnut Latte | 24oz | only in draft B | not found | 390 / 11 / 6 / 0 / 45 / 180 / 59 / 0 / 56 / 14 |
 | Iced Caramel Latte | 16oz | only in draft B | not found | 130 / 8 / 5 / 0 / 35 / 150 / 35 / 0 / 31 / 10 |
 | Iced Caramel Latte | 20oz | only in draft B | not found | 170 / 11 / 7 / 0 / 45 / 200 / 50 / 0 / 44 / 13 |
-| Iced Caramel Latte | 24oz1 | only in draft B | not found | 210 / 14 / 8 / 0 / 55 / 250 / 65 / 0 / 57 / 17 |
+| Iced Caramel Latte | 24oz | only in draft B | not found | 210 / 14 / 8 / 0 / 55 / 250 / 65 / 0 / 57 / 17 |
 | Iced Americano | 16oz | only in draft B | not found | 5 / 0 / 0 / 0 / 0 / 15 / 1 / 0 / 0 / 2 |
 | Iced Americano | 20oz | only in draft B | not found | 10 / 0 / 0 / 0 / 0 / 15 / 1 / 0 / 0 / 3 |
 | Iced Americano | 24oz | only in draft B | not found | 10 / 0 / 0 / 0 / 0 / 20 / 2 / 0 / 0 / 4 |
@@ -53,31 +51,31 @@ Fix each line in `menus/paris-baguette.csv` from the guide and set its check to 
 | Iced Green Tea | 20oz | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
 | Iced Green Tea | 24oz | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
 | Peach Iced Tea | 16oz | only in draft B | not found | 120 / 0 / 0 / 0 / 0 / 5 / 28 / 0 / 28 / 0 |
-| Peach Iced | 24oz1 | only in draft B | not found | 150 / 0 / 0 / 0 / 0 / 5 / 36 / 0 / 36 / 0 |
+| Peach Iced | 24oz | only in draft B | not found | 150 / 0 / 0 / 0 / 0 / 5 / 36 / 0 / 36 / 0 |
 | Iced Chai Latte | 16oz | only in draft B | not found | 380 / 13 / 10 / 0 / 35 / 260 / 61 / 0 / 54 / 12 |
 | Iced Chai Latte | 20oz | only in draft B | not found | 490 / 16 / 12 / 0 / 45 / 330 / 80 / 0 / 70 / 14 |
-| Iced Chai Latte | 24oz1 | only in draft B | not found | 610 / 20 / 15 / 0 / 55 / 400 / 98 / 0 / 87 / 17 |
+| Iced Chai Latte | 24oz | only in draft B | not found | 610 / 20 / 15 / 0 / 55 / 400 / 98 / 0 / 87 / 17 |
 | Iced Matcha Latte | 16oz | only in draft B | not found | 440 / 8 / 5 / 0 / 30 / 180 / 81 / 0 / 62 / 7 |
 | Iced Matcha Latte | 20oz | only in draft B | not found | 570 / 10 / 7 / 0 / 40 / 230 / 104 / 0 / 78 / 9 |
 | Iced Matcha Latte | 24oz | only in draft B | not found | 690 / 13 / 8 / 0 / 50 / 280 / 126 / 0 / 94 / 12 |
 | Coffee Frappe | 16oz | only in draft B | not found | 200 / 22.5 / 2.5 / 0 / 5 / 95 / 44 / 0 / 43 / 3 |
-| Coffee Frappe | 20oz1 | only in draft B | not found | 260 / 3 / 2 / 0 / 10 / 115 / 56 / 0 / 54 / 5 |
-| Coffee Frappe | 24oz1 | only in draft B | not found | 310 / 3.5 / 2 / 0 / 10 / 140 / 67 / 0 / 65 / 6 |
-| Mocha Frappe | 16oz1 | only in draft B | not found | 230 / 3 / 1.5 / 0 / 10 / 70 / 51 / 2 / 46 / 5 |
-| Mocha Frappe | 20oz1 | only in draft B | not found | 300 / 4 / 2.5 / 0 / 10 / 100 / 67 / 3 / 60 / 8 |
+| Coffee Frappe | 20oz | only in draft B | not found | 260 / 3 / 2 / 0 / 10 / 115 / 56 / 0 / 54 / 5 |
+| Coffee Frappe | 24oz | only in draft B | not found | 310 / 3.5 / 2 / 0 / 10 / 140 / 67 / 0 / 65 / 6 |
+| Mocha Frappe | 16oz | only in draft B | not found | 230 / 3 / 1.5 / 0 / 10 / 70 / 51 / 2 / 46 / 5 |
+| Mocha Frappe | 20oz | only in draft B | not found | 300 / 4 / 2.5 / 0 / 10 / 100 / 67 / 3 / 60 / 8 |
 | Mocha Frappe | 24oz | only in draft B | not found | 380 / 5 / 3 / 0 / 15 / 125 / 83 / 4 / 74 / 10 |
 | Matcha Frappe | 16oz | only in draft B | not found | 420 / 7 / 4.5 / 0 / 30 / 160 / 80 / 0 / 60 / 6 |
 | Matcha Frappe | 20oz | only in draft B | not found | 550 / 9 / 6 / 0 / 40 / 210 / 102 / 0 / 76 / 8 |
 | Matcha Frappe | 24oz | only in draft B | not found | 670 / 12 / 7 / 0 / 50 / 260 / 125 / 0 / 92 / 11 |
-| Lavender Matcha Frappe | 16oz1 | only in draft B | not found | 420 / 6 / 4 / 0 / 25 / 140 / 81 / 0 / 60 / 6 |
-| Lavender Matcha Frappe | 20oz1 | only in draft B | not found | 560 / 9 / 6 / 0 / 35 / 190 / 106 / 0 / 79 / 8 |
-| Lavender Matcha Frappe | 24oz1 | only in draft B | not found | 690 / 11 / 7 / 0 / 45 / 240 / 131 / 0 / 97 / 10 |
-| Strawberry Smoothie | 16oz2 | only in draft B | not found | 400 / 0 / 0 / 0 / 0 / 5 / 102 / 0 / 100 / 0 |
-| Strawberry Smoothie | 20oz2 | only in draft B | not found | 500 / 0 / 0 / 0 / 0 / 5 / 128 / 0 / 125 / 0 |
-| Strawberry Smoothie | 24oz2 | only in draft B | not found | 600 / 0 / 0 / 0 / 0 / 10 / 153 / 0 / 150 / 0 |
-| Mango Smoothie | 16oz1 | only in draft B | not found | 320 / 0 / 0 / 0 / 0 / 5 / 81 / 0 / 70 / 0 |
-| Mango Smoothie | 20oz2 | only in draft B | not found | 400 / 0 / 0 / 0 / 0 / 5 / 102 / 0 / 87 / 0 |
-| Mango Smoothie | 24oz1 | only in draft B | not found | 480 / 0 / 0 / 0 / 0 / 10 / 122 / 0 / 105 / 0 |
+| Lavender Matcha Frappe | 16oz | only in draft B | not found | 420 / 6 / 4 / 0 / 25 / 140 / 81 / 0 / 60 / 6 |
+| Lavender Matcha Frappe | 20oz | only in draft B | not found | 560 / 9 / 6 / 0 / 35 / 190 / 106 / 0 / 79 / 8 |
+| Lavender Matcha Frappe | 24oz | only in draft B | not found | 690 / 11 / 7 / 0 / 45 / 240 / 131 / 0 / 97 / 10 |
+| Strawberry Smoothie | 16oz | only in draft B | not found | 400 / 0 / 0 / 0 / 0 / 5 / 102 / 0 / 100 / 0 |
+| Strawberry Smoothie | 20oz | only in draft B | not found | 500 / 0 / 0 / 0 / 0 / 5 / 128 / 0 / 125 / 0 |
+| Strawberry Smoothie | 24oz | only in draft B | not found | 600 / 0 / 0 / 0 / 0 / 10 / 153 / 0 / 150 / 0 |
+| Mango Smoothie | 16oz | only in draft B | not found | 320 / 0 / 0 / 0 / 0 / 5 / 81 / 0 / 70 / 0 |
+| Mango Smoothie | 20oz | only in draft B | not found | 400 / 0 / 0 / 0 / 0 / 5 / 102 / 0 / 87 / 0 |
+| Mango Smoothie | 24oz | only in draft B | not found | 480 / 0 / 0 / 0 / 0 / 10 / 122 / 0 / 105 / 0 |
 | Triple Chocolate Chip Cookie | 1 serving | only in draft B | not found | 530 / 26 / 13 / 0 / 40 / 270 / 73 / 2 / 46 / 7 |
 | Macadamia Nut Cookie | 1 serving | only in draft B | not found | 580 / 34 / 18 / 0 / 40 / 310 / 65 / 2 / 40 / 8 |
 | Decadent Chocolate Brownie | 1 serving | only in draft B | not found | 490 / 27 / 11 / 0 / 90 / 180 / 61 / 0 / 47 / 5 |

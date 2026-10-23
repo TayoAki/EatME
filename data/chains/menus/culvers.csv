@@ -1,73 +1,5 @@
 chain,section,name,serving,serving_g,kind,calories,fat_g,saturated_fat_g,trans_fat_g,cholesterol_mg,sodium_mg,carbs_g,fiber_g,sugars_g,protein_g,source_url,checked_on,check
-Culver's,BUTTERBURGERS®,"ButterBurger ""The Original""",Single,136,main,390,19,6.8,0.5,56,570,39,1,6,20,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,BUTTERBURGERS®,"ButterBurger ""The Original""",Double,193,main,560,32,11.8,1,106,670,39,1,6,34,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,BUTTERBURGERS®,"ButterBurger ""The Original""",Triple,250,main,730,45,16.8,1.5,156,770,39,1,6,48,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,BUTTERBURGERS®,ButterBurger Cheese,Single,155,main,460,25,10.3,0.5,72,710,40,1,7,23,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,BUTTERBURGERS®,ButterBurger Cheese,Double,231,main,700,44,18.8,1,136,950,41,1,8,40,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,BUTTERBURGERS®,ButterBurger Cheese,Triple,307,main,940,63,27.3,1.5,202,1190,42,1,9,57,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,BUTTERBURGERS®,Cheddar ButterBurger,Single,157,main,470,26,11.3,0.5,76,710,39,1,6,25,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,BUTTERBURGERS®,Cheddar ButterBurger,Double,235,main,720,46,20.8,1,146,950,39,1,6,44,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,BUTTERBURGERS®,Cheddar ButterBurger,Triple,313,main,970,66,30.3,1.5,216,1190,39,1,6,63,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,BUTTERBURGERS®,Cheddar ButterBurger with Bacon,Single,166,main,510,29,12.3,0.5,86,850,39,1,6,29,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,BUTTERBURGERS®,Cheddar ButterBurger with Bacon,Double,244,main,760,49,21.8,1,156,1090,39,1,6,48,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,BUTTERBURGERS®,Cheddar ButterBurger with Bacon,Triple,322,main,1010,69,31.3,1.5,226,1330,39,1,6,67,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,BUTTERBURGERS®,Mushroom & Swiss,Single,171,main,490,27,10.3,0.5,76,654,40,1,6,26,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,BUTTERBURGERS®,Mushroom & Swiss,Double,263,main,760,48,18.8,1,146,840,41,1,6,46,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,BUTTERBURGERS®,Mushroom & Swiss,Triple,355,main,1030,69,27.3,1.5,216,1024,42,1,6,66,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,BUTTERBURGERS®,Sourdough Melt,Single,162,main,460,26,11.5,0.5,80,710,36,1,2,25,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,BUTTERBURGERS®,Sourdough Melt,Double,240,main,710,46,21,1,150,950,36,1,2,44,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,BUTTERBURGERS®,Sourdough Melt,Triple,348,main,970,66,30.5,1.5,220,1190,36,1,2,63,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,BUTTERBURGERS®,Swiss ButterBurger,Single,157,main,470,25,10.3,0.5,76,604,39,1,6,26,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,BUTTERBURGERS®,Swiss ButterBurger,Double,235,main,720,44,18.8,1,146,740,39,1,6,46,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,BUTTERBURGERS®,Swiss ButterBurger,Triple,313,main,970,63,27.3,1.5,216,874,39,1,6,66,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,BUTTERBURGERS®,The Culver's® Deluxe,Single,216,main,570,36,12.3,0.5,82,940,42,1,8,23,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,BUTTERBURGERS®,The Culver's® Deluxe,Double,292,main,810,55,20.8,1,146,1180,43,1,8,40,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,BUTTERBURGERS®,The Culver's® Deluxe,Triple,368,main,1050,74,29.3,1.5,212,1420,44,1,10,57,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,BUTTERBURGERS®,The Culver's® Bacon Deluxe,Single,225,main,610,39,13.3,0.5,92,1080,42,1,8,27,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,BUTTERBURGERS®,The Culver's® Bacon Deluxe,Double,301,main,850,58,21.8,1,156,1320,43,1,8,44,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,BUTTERBURGERS®,The Culver's® Bacon Deluxe,Triple,377,main,1090,77,30.3,1.5,222,1560,44,1,10,61,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,BUTTERBURGERS®,Wisconsin Swiss Melt,Single,162,main,480,24,10.5,0.5,80,725,38,4,2,26,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,BUTTERBURGERS®,Wisconsin Swiss Melt,Double,240,main,730,44,19,1,150,860,38,4,2,46,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,BUTTERBURGERS®,Wisconsin Swiss Melt,Triple,348,main,990,62,27.5,1.5,220,995,38,4,2,66,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SANDWICHES & FAVORITES,Buffalo Chicken Tenders,4 Piece,206,main,460,21,2.8,0,100,1820,32,2,0,35,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SANDWICHES & FAVORITES,Chicken Tenders,4 Piece,228,main,540,24,2.8,0,94,1840,42,2,0,40,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,BREADS,Rye Bread,2 Slices,74,main,200,2,0,0,0,480,38,4,2,6,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,BREADS,Sourdough Bread,2 Slices,74,main,180,2,0,0,0,360,36,1,2,6,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,DINNERS,Butterfly Jumbo Shrimp Dinner,6 Piece,466,main,1090,55,6.2,0,85,2323,130,7,22,22,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,DINNERS,Butterfly Jumbo Shrimp Dinner,10 Piece,550,main,1310,67,6.2,0,125,3043,150,7,22,30,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,DINNERS,Fresh Fried Chicken Value Basket,2 Piece,392,main,840,35,5.7,0,250,1493,57,4,0,75,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DINNERS,Fresh Fried Chicken Dinner,"2 Piece (Leg, Thigh)",559,main,770,38,11,0,253,2250,60,6,10,49,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,DINNERS,Fresh Fried Chicken Dinner,"2 Piece (Breast, Wing)",637,main,890,38,11,0,293,2550,60,6,10,78,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,DINNERS,Fresh Fried Chicken Dinner,4 Piece,813,main,1250,59,15,0,503,3300,64,6,10,118,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,DINNERS,North Atlantic Cod,2 Piece,538,main,1480,100,14.2,0.5,175,1603,107,6,19,42,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,DINNERS,North Atlantic Cod,3 Piece,628,main,1680,112,15.1,0.5,234,1788,114,6,20,57,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SIDES,Crinkle Cut Fries,Small,92,side,240,9,1,0,0,350,35,3,15,4,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SIDES,Crinkle Cut Fries,Regular,140,side,360,14,2,0,0,530,53,4,22,6,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SIDES,Crinkle Cut Fries,Large,180,side,460,18,2,0,0,680,68,5,29,7,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,CONDIMENTS,American Cheese,Slice,19,extra,70,6,3.5,0,15,140,1,0,1,3,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,CONDIMENTS,Bacon,2 Slices,9,extra,40,3,1,0,10,140,0,0,0,4,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SUNDAES,Banana Split,2 Scoop,485,dessert,1060,60,26.3,1.6,219,368,121,8,90,16,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SUNDAES,Banana Split,3 Scoop,612,dessert,1350,71,33.9,1.9,274,503,165,8,125,20,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SUNDAES,Caramel Cashew,1 Scoop,212,dessert,600,33,14.9,0.9,118,296,68,1,45,11,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SUNDAES,Caramel Cashew,2 Scoop,377,dessert,1000,51,26,1.6,224,472,122,1,84,17,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SUNDAES,Caramel Cashew,3 Scoop,446,dessert,1150,60,31.5,1.9,279,513,137,1,97,19,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SUNDAES,Fudge Pecan Sundae,1 Scoop,212,dessert,640,43,16.8,0.9,113,286,58,2,48,10,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SUNDAES,Fudge Pecan Sundae,2 Scoop,377,dessert,1040,64,30.6,1.5,214,452,107,2,90,17,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SUNDAES,Fudge Pecan Sundae,3 Scoop,446,dessert,1190,73,36.1,1.9,269,493,122,2,103,20,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SUNDAES,Turtle Sundae,1 Scoop,212,dessert,640,42,15.4,0.9,115,291,61,2,46,10,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SUNDAES,Turtle Sundae,2 Scoop,377,dessert,1040,62,27.9,1.5,219,462,112,2,87,16,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SUNDAES,Turtle Sundae,3 Scoop,446,dessert,1190,70,33.4,1.9,274,503,127,2,100,19,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,CONES & DISHES,Chocolate Cake Cone,1 Scoop,144,dessert,300,14,8.2,0.5,96,127,39,1,29,6,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,CONES & DISHES,Chocolate Cake Cone,2 Scoop,274,dessert,560,27,16,0.9,187,237,72,3,56,11,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,CONES & DISHES,Chocolate Cake Cone,3 Scoop,344,dessert,700,34,20.2,1.1,236,297,89,3,71,14,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,CONES & DISHES,"Chocolate, Dish",1 Scoop,140,main,280,14,8.4,0.5,98,119,35,1,29,6,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,CONES & DISHES,"Chocolate, Dish",2 Scoop,270,main,540,27,16.2,0.9,189,230,68,3,57,11,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,CONES & DISHES,"Chocolate, Dish",3 Scoop,340,main,680,34,20.4,1.2,238,289,85,3,71,14,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,CONES & DISHES,"Chocolate, Waffle Cone",1 Scoop,183,main,380,16,8.9,0.5,103,119,53,1,37,7,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,CONES & DISHES,"Chocolate, Waffle Cone",2 Scoop,313,main,640,30,16.7,0.9,194,230,86,3,65,12,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,CONES & DISHES,"Chocolate, Waffle Cone",3 Scoop,383,main,780,36,20.9,1.2,243,289,103,3,79,15,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,CONES & DISHES,Vanilla Cake Cone,1 Scoop,145,dessert,330,18,11.1,0.7,111,93,35,0,26,6,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,CONES & DISHES,Vanilla Cake Cone,2 Scoop,272,dessert,610,35,21.3,1.3,213,170,64,0,51,11,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Dinners,Fresh Fried Chicken Value Basket,2 Piece,392,main,840,35,5.7,0,250,1493,57,4,0,75,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
 Culver's,Frozen Custard,Vanilla Cake Cone,3 Scoop,340,dessert,760,43,26.7,1.7,267,210,78,0,63,13,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
 Culver's,Frozen Custard,"Vanilla, Dish",1 Scoop,141,main,310,18,11.3,0.7,113,85,31,0,27,6,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
 Culver's,Frozen Custard,"Vanilla, Dish",2 Scoop,268,main,590,35,21.4,1.3,214,161,59,0,51,11,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
@@ -120,6 +52,21 @@ Culver's,Concrete Mixers,Oreo Chocolate Concrete Mixer,Mini,189,main,430,21,11.2
 Culver's,Concrete Mixers,Oreo Chocolate Concrete Mixer,Short,314,main,680,34,18.7,1,206,331,88,3,70,13,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
 Culver's,Concrete Mixers,Oreo Chocolate Concrete Mixer,Medium,388,main,880,43,23,1.2,245,458,116,4,90,16,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
 Culver's,Concrete Mixers,Oreo Chocolate Concrete Mixer,Tall,557,main,1270,62,33,1.7,350,665,167,5,129,23,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Concrete Mixers,Reese's Chocolate Concrete Mixer,Mini,198,main,480,25,13.2,0.6,119,244,58,3,50,10,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Concrete Mixers,Reese's Chocolate Concrete Mixer,Short,323,main,730,38,20.7,1,206,351,90,4,76,15,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Concrete Mixers,Reese's Chocolate Concrete Mixer,Medium,406,main,980,51,27,1.2,245,498,120,6,102,20,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Concrete Mixers,Reese's Chocolate Concrete Mixer,Tall,584,main,1420,74,39,1.7,350,725,173,8,147,29,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Concrete Mixers,Reese's Vanilla Concrete Mixer,Short,324,main,790,46,26.6,1.5,236,277,81,1,70,15,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Concrete Mixers,Reese's Vanilla Concrete Mixer,Medium,406,main,1050,62,34,1.8,280,410,109,2,94,20,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Concrete Mixers,Reese's Vanilla Concrete Mixer,Tall,584,main,1520,89,49,2.5,400,600,158,3,137,29,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Concrete Mixers,Snickers Chocolate Concrete Mixer,Mini,198,main,470,23,12.7,0.6,119,210,60,2,50,9,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Concrete Mixers,Snickers Chocolate Concrete Mixer,Short,323,main,720,36,20.2,1,206,316,91,4,76,14,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Concrete Mixers,Snickers Chocolate Concrete Mixer,Medium,406,main,960,47,26,1.2,245,428,122,5,102,18,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Concrete Mixers,Snickers Chocolate Concrete Mixer,Tall,584,main,1390,68,37.5,1.7,350,620,176,7,147,26,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Concrete Mixers,Snickers Vanilla Concrete Mixer,Mini,196,main,500,28,16,0.8,135,166,54,1,46,9,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Concrete Mixers,Snickers Vanilla Concrete Mixer,Short,324,main,780,44,26.1,1.5,236,242,82,1,70,14,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Concrete Mixers,Snickers Vanilla Concrete Mixer,Medium,406,main,1030,58,33,1.8,280,340,111,1,94,18,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Concrete Mixers,Snickers Vanilla Concrete Mixer,Tall,584,main,1490,83,47.5,2.5,400,495,161,2,137,26,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
 Culver's,Concrete Mixers,Strawberry Concrete Mixer,Mini,212,main,420,22,13.6,0.9,136,102,49,0,43,7,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
 Culver's,Concrete Mixers,Strawberry Concrete Mixer,Short,340,main,700,39,23.8,1.5,238,179,77,0,68,12,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
 Culver's,Concrete Mixers,Strawberry Concrete Mixer,Medium,434,main,860,46,28,1.8,280,210,99,0,88,14,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
@@ -133,215 +80,253 @@ Culver's,Lemon Ice,Lemon Ice Cooler,Tall,505,main,640,0,0,0,0,15,160,0,145,0,htt
 Culver's,Lemon Ice,Lemon Ice Smoothie,Short,352,drink,520,17,9.8,0.6,105,84,86,0,79,6,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
 Culver's,Lemon Ice,Lemon Ice Smoothie,Medium,449,drink,650,20,11.6,0.7,124,99,111,0,102,7,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
 Culver's,Lemon Ice,Lemon Ice Smoothie,Tall,686,drink,990,30,17.3,1,186,148,170,0,156,10,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,Drinks,Caffeine Free Diet Pepsi®,Small,,drink,0,0,0,0,0,50,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Drinks,Caffeine Free Diet Pepsi®,Medium,,drink,0,0,0,0,0,69,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Drinks,Caffeine Free Diet Pepsi®,Large,,drink,0,0,0,0,0,100,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Drinks,"Chocolate Milk, Low Fat",8 oz,,drink,170,2,1.5,0,0,10,28,0,26,8,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Drinks,Culver's® Diet Root Beer,Small,,drink,0,0,0,0,0,110,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Drinks,Culver's® Diet Root Beer,Medium,,drink,0,0,0,0,0,151,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Drinks,Culver's® Diet Root Beer,Large,,drink,0,0,0,0,0,220,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Drinks,Culver's® Root Beer,Small,,drink,220,0,0,0,0,110,60,0,58,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Drinks,Culver's® Root Beer,Medium,,drink,300,0,0,0,0,150,82,0,79,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Drinks,Culver's® Root Beer,Large,,drink,440,0,0,0,0,220,120,0,116,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Drinks,Diet Dr Pepper®,Small,,drink,0,0,0,0,0,100,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Drinks,Diet Dr Pepper®,Medium,,drink,0,0,0,0,0,138,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Drinks,Diet Dr Pepper®,Large,,drink,0,0,0,0,0,200,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Drinks,Dr Pepper®,Small,,drink,200,0,0,0,0,72,51,0,51,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Drinks,Dr Pepper®,Medium,,drink,280,0,0,0,0,100,71,0,71,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Drinks,Dr Pepper®,Large,,drink,400,0,0,0,0,143,102,0,102,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Drinks,Fresh Brewed Sweet Tea,Small,,dessert,180,0,0,0,0,0,46,0,46,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Drinks,Fresh Brewed Sweet Tea,Medium,,dessert,250,0,0,0,0,0,64,0,64,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Drinks,Fresh Brewed Sweet Tea,Large,,dessert,360,0,0,0,0,0,92,0,92,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Drinks,Fresh Brewed Unsweet Tea,Small,,drink,0,0,0,0,0,0,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Drinks,Fresh Brewed Unsweet Tea,Medium,,drink,0,0,0,0,0,0,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Drinks,Fresh Brewed Unsweet Tea,Large,,drink,0,0,0,0,0,0,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Drinks,"Milk, 1%",8 oz,,drink,110,0,0,0,0,10,13,0,12,8,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Drinks,Mountain Dew®,Small,,drink,220,0,0,0,0,70,58,0,58,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Drinks,Mountain Dew®,Medium,,drink,300,0,0,0,0,96,79,0,79,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Drinks,Mountain Dew®,Large,,drink,440,0,0,0,0,140,116,0,116,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Drinks,Pepsi®,Small,,drink,200,0,0,0,0,40,56,0,56,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Drinks,Pepsi®,Medium,,drink,270,0,0,0,0,54,76,0,76,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Drinks,Pepsi®,Large,,drink,400,0,0,0,0,80,112,0,112,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Drinks,"Tea, Hot",12 oz,,drink,0,0,0,0,0,0,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SANDWICHES & FAVORITES,Beef Pot Roast Sandwich,1 sandwich,188,main,410,16,6.5,1,140,1060,41,1,8,31,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SANDWICHES & FAVORITES,Crispy Chicken Sandwich,1 sandwich,194,main,460,16,2.8,0,56,1200,57,1,6,25,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SANDWICHES & FAVORITES,Grilled Chicken Sandwich,1 sandwich,244,main,390,8,2.8,0,112,1190,39,1,5,41,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SANDWICHES & FAVORITES,Grilled Reuben Melt,1 sandwich,304,main,670,34,13.5,0,105,1880,49,4,7,37,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SANDWICHES & FAVORITES,North Atlantic Cod Filet Sandwich,1 sandwich,211,main,599,34,7.6,0.2,103,858,48,1,7,27,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SANDWICHES & FAVORITES,Pork Tenderloin Sandwich,1 sandwich,217,main,630,27,4.8,0,46,990,73,3,6,18,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SANDWICHES & FAVORITES,Shaved Prime Rib Sandwich,1 sandwich,222,main,620,37,16.8,0,106,1394,41,1,5,28,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,BREADS,"4"" Kaiser Bun",1 bun,70,main,200,4,0.5,0,0,370,39,1,6,6,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,BREADS,Hoagie Bun,1 bun,79,main,210,3,1,0,15,380,39,1,5,7,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,BREADS,Authentic Pub Bun,1 bun,88,main,230,4,1.5,0,0,380,43,1,5,8,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,BREADS,Gluten Free Bun,1 bun,90,main,230,6,0,0,0,440,39,5,6,6,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,DINNERS,Beef Pot Roast Dinner,1 dinner,586,main,750,32,14.2,1,181,2490,80,6,13,37,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,DINNERS,Chopped Steak Dinner,1 dinner,565,main,810,47,18.2,1,141,1950,62,6,10,37,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SIDES,Chili Cheddar Fries,1 serving,305,side,670,31,8.6,0,40,1226,77,7,2,20,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SIDES,Cole Slaw,1 serving,114,side,210,17,2.5,0,10,240,15,2,12,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SIDES,Dinner Roll,1 roll,45,side,140,6,2,0,15,200,20,0,3,3,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SIDES,Green Beans,1 serving,140,side,130,9,5,0,26,950,12,4,4,2,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SIDES,Mashed Potatoes,1 serving,168,side,120,1,0,0,0,220,23,2,3,4,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SIDES,Mashed Potatoes & Gravy,1 serving,198,side,140,2,0,0,2,350,25,2,3,4,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SIDES,Onion Rings,1 serving,118,side,400,22,2.5,0,0,530,44,3,3,6,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SIDES,Wisconsin Cheese Curds,1 serving,150,side,510,25,12,0.7,55,1230,51,0,4,20,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,CONDIMENTS,BBQ Sauce,1 serving,54,extra,100,0,0,0,0,440,25,0,24,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,CONDIMENTS,"Dill Pickles, Sliced",1 serving,6,extra,0,0,0,0,0,80,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,CONDIMENTS,Honey Mustard,1 serving,54,extra,130,6,1,0,0,400,20,0,18,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,CONDIMENTS,Horseradish Sauce,1 serving,12,extra,60,6,1,0,5,90,2,0,1,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,CONDIMENTS,Ketchup,1 serving,17,extra,20,0,0,0,0,160,5,0,4,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,CONDIMENTS,Malt Vinegar,1 serving,9,extra,0,0,0,0,0,0,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,CONDIMENTS,Mayonnaise,1 serving,12,extra,80,8,1.5,0,5,75,1,0,1,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,CONDIMENTS,"Mustard, Mild",1 serving,11,extra,0,0,0,0,0,130,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,CONDIMENTS,"Mustard, Spicy Brown",1 serving,10,extra,0,0,0,0,0,120,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,CONDIMENTS,"Picante Sauce, Mild and Medium",1 serving,32,extra,10,0,0,0,0,220,2,0,2,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,CONDIMENTS,Shrimp Cocktail Sauce,1 serving,42,extra,50,0,0,0,0,360,12,1,7,1,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,CONDIMENTS,Steak Sauce,1 serving,12,extra,10,0,0,0,0,150,2,0,2,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,CONDIMENTS,Sweet & Sour Dipping Sauce,1 serving,54,extra,90,0,0,0,0,320,23,0,21,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,CONDIMENTS,Tartar Sauce,1 serving,57,extra,360,39,6,0.5,30,340,3,0,2,1,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SALAD & SALAD DRESSINGS (CHOICES MAY VARY AT RESTAURANTS),Chicken Cashew with Grilled Chicken,1 serving,340,extra,460,24,8.1,0.2,115,863,18,3,3,47,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SALAD & SALAD DRESSINGS (CHOICES MAY VARY AT RESTAURANTS),Cranberry Bacon Bleu Salad with Grilled Chicken,1 serving,329,extra,360,14,6.5,0,120,1103,17,2,8,46,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SALAD & SALAD DRESSINGS (CHOICES MAY VARY AT RESTAURANTS),Garden Fresco,1 serving,200,extra,200,11,5,0,25,363,19,2,2,11,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SALAD & SALAD DRESSINGS (CHOICES MAY VARY AT RESTAURANTS),Garden Fresco with Grilled Chicken,1 serving,326,extra,360,14,5.5,0,115,913,19,2,2,45,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SALAD & SALAD DRESSINGS (CHOICES MAY VARY AT RESTAURANTS),Side Salad,1 serving,61,extra,55,3,1.4,0,7,101,5,1,1,3,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SALAD & SALAD DRESSINGS (CHOICES MAY VARY AT RESTAURANTS),Chunky Bleu Cheese Dressing,1 serving,50,extra,310,33,6,0.5,20,480,2,0,1,1,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SALAD & SALAD DRESSINGS (CHOICES MAY VARY AT RESTAURANTS),French Dressing,1 serving,50,extra,190,13,2,0,0,320,19,0,18,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SALAD & SALAD DRESSINGS (CHOICES MAY VARY AT RESTAURANTS),Ranch Dressing,1 serving,50,extra,180,19,3,0,25,370,2,0,1,1,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SALAD & SALAD DRESSINGS (CHOICES MAY VARY AT RESTAURANTS),Raspberry Vinaigrette Dressing,1 serving,54,extra,45,0,0,0,0,180,11,0,10,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SALAD & SALAD DRESSINGS (CHOICES MAY VARY AT RESTAURANTS),Sesame Ginger Dressing,1 serving,54,extra,70,0,0,0,0,350,16,0,14,1,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SALAD & SALAD DRESSINGS (CHOICES MAY VARY AT RESTAURANTS),Thousand Island Dressing,1 serving,60,extra,220,18,2,0,20,460,14,0,8,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),Baja Chicken Enchilada,1 serving,11,main,300,18,8,0,65,1300,25,6,6,12,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),Bean with Ham,1 serving,11,main,160,2,0.5,0,5,1270,28,7,3,7,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),Boston Clam Chowder,1 serving,11,main,260,11,4,0,30,1530,27,1,8,12,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),Broccoli Cheese,1 serving,11,main,220,12,5.5,0,31,1160,17,1,9,10,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),Cauliflower Cheese,1 serving,11,main,270,15,6,0,26,1320,25,1,15,10,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),Cheesy Chicken Tortilla,1 serving,11,main,150,6,3,0,27,1450,16,1,4,8,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),Chicken & Dumpling,1 serving,11,main,240,12,3,0,50,1290,23,1,5,9,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),Chicken Noodle,1 serving,11,main,110,2,0.5,0,30,1110,14,1,1,7,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),George's Chili,1 serving,11,main,300,14,4.5,0,45,1470,27,6,6,18,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),George's Chili Supreme,1 serving,12,main,400,22,6.8,0,75,1516,28,6,7,21,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),Oven-Roasted Turkey Noodle,1 serving,11,main,170,5,2,0,43,1286,21,0,1,11,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),Potato Au Gratin,1 serving,11,main,330,20,10,0,45,1180,28,1,9,10,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),Potato with Bacon,1 serving,11,main,240,10,4,0,25,1140,28,2,9,9,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),Stuffed Green Pepper,1 serving,11,main,140,2,1,0,10,1170,24,1,6,5,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),Tomato Fiorentine,1 serving,11,main,110,1,0.5,0,0,1280,22,2,7,4,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),Vegetable Beef with Barley,1 serving,11,main,160,4,2,0,20,1440,22,2,4,8,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),Wild and Brown Rice with Chicken,1 serving,11,main,270,14,5,0,38,1220,26,1,9,10,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),Wisconsin Cheese,1 serving,11,main,320,20,9,0,37,1090,27,0,16,9,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,CONES & DISHES,Mini Scoop Chocolate Cake Cone,1 cone,94,dessert,200,9,5.2,0.3,61,84,27,1,18,4,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,CONES & DISHES,Mini Scoop Vanilla Cake Cone,1 cone,90,dessert,210,11,6.7,0.4,67,60,23,0,16,3,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
-Culver's,SCOOPIE KIDS' MEALS,Applesauce,112 g,112,main,50,0,0,0,0,10,12,2,8,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,SCOOPIE KIDS' MEALS,Buffalo Chicken Tenders,2 Piece,103,main,230,11,1.4,0,50,910,16,1,0,17,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,SCOOPIE KIDS' MEALS,Chicken Tenders,2 Piece,114,main,270,12,1.4,0,47,920,21,1,0,20,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,SCOOPIE KIDS' MEALS,Corn Dog,75 g,75,main,230,14,4,0,15,500,17,0,6,7,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,SCOOPIE KIDS' MEALS,Grilled Cheese on Sourdough,116 g,116,main,350,18,9,0,40,670,38,1,4,12,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,CONCRETE MIXERS,Reese's Chocolate Concrete Mixer,Mini,198,main,480,25,13.2,0.6,119,244,58,3,50,10,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,CONCRETE MIXERS,Reese's Chocolate Concrete Mixer,Short,323,main,730,38,20.7,1,206,351,90,4,76,15,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,CONCRETE MIXERS,Reese's Chocolate Concrete Mixer,Medium,406,main,980,51,27,1.2,245,498,120,6,102,20,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,CONCRETE MIXERS,Reese's Chocolate Concrete Mixer,Tall,584,main,1420,74,39,1.7,350,725,173,8,147,29,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,CONCRETE MIXERS,Reese's Chocolate Concrete Mini Mixer,1 serving,196,main,510,30,16.5,0.8,135,201,53,1,46,10,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,CONCRETE MIXERS,Reese's Vanilla Concrete Mixer,Short,324,main,790,46,26.6,1.5,236,277,81,1,70,15,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,CONCRETE MIXERS,Reese's Vanilla Concrete Mixer,Medium,406,main,1050,62,34,1.8,280,410,109,2,94,20,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,CONCRETE MIXERS,Reese's Vanilla Concrete Mixer,Tall,584,main,1520,89,49,2.5,400,600,158,3,137,29,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,CONCRETE MIXERS,Snickers Chocolate Concrete Mixer,Mini,198,main,470,23,12.7,0.6,119,210,60,2,50,9,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,CONCRETE MIXERS,Snickers Chocolate Concrete Mixer,Short,323,main,720,36,20.2,1,206,316,91,4,76,14,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,CONCRETE MIXERS,Snickers Chocolate Concrete Mixer,Medium,406,main,960,47,26,1.2,245,428,122,5,102,18,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,CONCRETE MIXERS,Snickers Chocolate Concrete Mixer,Tall,584,main,1390,68,37.5,1.7,350,620,176,7,147,26,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,CONCRETE MIXERS,Snickers Vanilla Concrete Mixer,Mini,196,main,500,28,16,0.8,135,166,54,1,46,9,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,CONCRETE MIXERS,Snickers Vanilla Concrete Mixer,Short,324,main,780,44,26.1,1.5,236,242,82,1,70,14,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,CONCRETE MIXERS,Snickers Vanilla Concrete Mixer,Medium,406,main,1030,58,33,1.8,280,340,111,1,94,18,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,CONCRETE MIXERS,Snickers Vanilla Concrete Mixer,Tall,584,main,1490,83,47.5,2.5,400,495,161,2,137,26,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,TOPPINGS,Almond,28 g,28,extra,170,15,1,0,0,0,5,3,1,6,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,TOPPINGS,Andes® Creme De Menthe Thins,28 g,28,extra,150,9,8.5,0,0,15,15,1,15,1,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,TOPPINGS,Banana,60 g,60,extra,50,0,0,0,0,0,13,2,7,1,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,TOPPINGS,Blackberry,33 g,33,extra,40,0,0,0,0,10,10,1,8,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,TOPPINGS,Blueberry,33 g,33,extra,30,0,0,0,0,10,7,0,6,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,TOPPINGS,Brownie Pieces,28 g,28,extra,110,5,1,0,15,15,17,1,11,2,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,TOPPINGS,Butterfinger®,28 g,28,extra,130,5,3,0,0,60,20,0,13,1,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Toppings,Butterscotch,38 g,38,extra,110,1,0.5,0,0,130,25,0,13,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Toppings,Cashew,28 g,28,extra,160,13,2.6,0.2,0,110,9,1,1,4,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Toppings,Cheesecake Pieces,30 g,30,extra,110,7,3.5,0.5,30,90,10,0,7,2,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Toppings,"Cherry, Red Topping",33 g,33,extra,40,0,0,0,0,10,10,0,9,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Toppings,Chocolate Chip Cookie Dough,28 g,28,extra,120,5,2,0.5,15,50,18,0,9,1,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Toppings,Chocolate Flake,22 g,22,extra,110,7,6,0,0,0,13,1,11,1,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Toppings,Creme® De Menthe,38 g,38,extra,100,0,0,0,0,100,25,0,20,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Toppings,Culver's® Chocolate Syrup,35 g,35,extra,90,0,0,0,0,45,22,0,13,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Toppings,Culver's® Hot Caramel,38 g,38,extra,120,2,1,0,5,100,26,0,15,1,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Toppings,Culver's® Hot Fudge,38 g,38,extra,120,4,3.7,0,0,90,21,0,18,2,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Toppings,Health® Toffee Chunks,28 g,28,extra,150,9,5,0,5,95,17,1,17,1,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Toppings,Kit Kat®,24 g,24,extra,120,6,4,0,0,15,16,0,12,1,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Toppings,M&M® Minis,28 g,28,extra,140,6,3.5,0,0,20,20,1,18,2,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Toppings,Mango Fruit Infusion,35 g,35,extra,60,0,0,0,0,5,16,0,15,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Toppings,Maraschino Cherry,5 g,5,extra,10,0,0,0,0,1,2,0,2,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Toppings,Marshmallow Creme,38 g,38,extra,110,0,0,0,0,15,27,0,23,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Toppings,Nerds®,28 g,28,extra,100,0,0,0,0,0,25,0,25,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Toppings,Nestlé® Chunch,28 g,28,extra,140,7,4,0,0,40,19,0,15,1,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Toppings,Novelty Coating,28 g,28,extra,170,13,6,0,5,20,12,0,11,2,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Toppings,Oreo® Cookie Crumbs,19 g,19,extra,90,4,1,0,0,80,14,0,8,1,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Toppings,Peach,33 g,33,extra,35,0,0,0,0,10,9,0,8,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Toppings,Peanut Butter,34 g,34,extra,200,18,2.5,0,0,170,7,2,4,7,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Toppings,"Peanuts, Dry Roast Seasoned",28 g,28,extra,160,13,1.8,0,0,210,6,2,2,6,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,Toppings,Pecan Halves,1 serving,,extra,28,190,21,1.8,0.2,0,110,4,2,1,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,Toppings,Raspberry,1 serving,28,extra,30,1,0,0,0,0,7,1,6,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,Drinks,Caffeine Free Diet Pepsi®,Small (16 fl oz),,drink,0,0,0,0,0,50,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,Drinks,Caffeine Free Diet Pepsi®,Medium (22 fl oz),,drink,0,0,0,0,0,69,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,Drinks,Caffeine Free Diet Pepsi®,Large (32 fl oz),,drink,0,0,0,0,0,100,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,Drinks,Diet Pepsi®,Small (16 fl oz),,drink,0,0,0,0,0,50,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,Drinks,Diet Pepsi®,Medium (22 fl oz),,drink,0,0,0,0,0,69,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,Drinks,Diet Pepsi®,Large (32 fl oz),,drink,0,0,0,0,0,100,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,Drinks,Fresh Brewed Unsweet Tea,Small (16 fl oz),,drink,0,0,0,0,0,0,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,Drinks,Fresh Brewed Unsweet Tea,Medium (22 fl oz),,drink,0,0,0,0,0,0,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,Drinks,Fresh Brewed Unsweet Tea,Large (32 fl oz),,drink,0,0,0,0,0,0,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,Drinks,Pepsi®,Small (16 fl oz),,drink,200,0,0,0,0,40,56,0,56,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,Drinks,Pepsi®,Medium (22 fl oz),,drink,270,0,0,0,0,54,76,0,76,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,Drinks,Pepsi®,Large (32 fl oz),,drink,400,0,0,0,0,80,112,0,112,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,Drinks,Wild Cherry Pepsi,Small (16 fl oz),,drink,200,0,0,0,0,40,56,0,56,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,Drinks,Wild Cherry Pepsi,Medium (22 fl oz),,drink,270,0,0,0,0,54,76,0,76,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,Drinks,Wild Cherry Pepsi,Large (32 fl oz),,drink,400,0,0,0,0,80,112,0,112,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,ButterBurgers,"ButterBurger ""The Original""",Single (136 g),136,main,390,19,6.8,0.5,56,570,39,1,6,20,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,ButterBurgers,"ButterBurger ""The Original""",Double (193 g),193,main,560,32,11.8,1,106,670,39,1,6,34,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,ButterBurgers,"ButterBurger ""The Original""",Triple (250 g),250,main,730,45,16.8,1.5,156,770,39,1,6,48,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,ButterBurgers,ButterBurger Cheese,Single (155 g),155,main,460,25,10.3,0.5,72,710,40,1,7,23,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,ButterBurgers,ButterBurger Cheese,Double (231 g),231,main,700,44,18.8,1,136,950,41,1,8,40,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,ButterBurgers,ButterBurger Cheese,Triple (307 g),307,main,940,63,27.3,1.5,202,1190,42,1,9,57,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,ButterBurgers,Cheddar ButterBurger,Single (157 g),157,main,470,26,11.3,0.5,76,710,39,1,6,25,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,ButterBurgers,Cheddar ButterBurger,Double (235 g),235,main,720,46,20.8,1,146,950,39,1,6,44,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,ButterBurgers,Cheddar ButterBurger,Triple (313 g),313,main,970,66,30.3,1.5,216,1190,39,1,6,63,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,ButterBurgers,Cheddar ButterBurger with Bacon,Single (166 g),166,main,510,29,12.3,0.5,86,850,39,1,6,29,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,ButterBurgers,Cheddar ButterBurger with Bacon,Double (244 g),244,main,760,49,21.8,1,156,1090,39,1,6,48,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,ButterBurgers,Cheddar ButterBurger with Bacon,Triple (322 g),322,main,1010,69,31.3,1.5,226,1330,39,1,6,67,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,ButterBurgers,Mushroom & Swiss,Single (171 g),171,main,490,27,10.3,0.5,76,654,40,1,6,26,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,ButterBurgers,Mushroom & Swiss,Double (263 g),263,main,760,48,18.8,1,146,840,41,1,6,46,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,ButterBurgers,Mushroom & Swiss,Triple (355 g),355,main,1030,69,27.3,1.5,216,1024,42,1,6,66,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,ButterBurgers,Sourdough Melt,Single (162 g),162,main,460,26,11.5,0.5,80,710,36,1,2,25,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,ButterBurgers,Sourdough Melt,Double (240 g),240,main,710,46,21,1,150,950,36,1,2,44,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,ButterBurgers,Sourdough Melt,Triple (348 g),348,main,970,66,30.5,1.5,220,1190,36,1,2,63,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,ButterBurgers,Swiss ButterBurger,Single (157 g),157,main,470,25,10.3,0.5,76,604,39,1,6,26,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,ButterBurgers,Swiss ButterBurger,Double (235 g),235,main,720,44,18.8,1,146,740,39,1,6,46,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,ButterBurgers,Swiss ButterBurger,Triple (313 g),313,main,970,63,27.3,1.5,216,874,39,1,6,66,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,ButterBurgers,The Culver's® Deluxe,Single (216 g),216,main,570,36,12.3,0.5,82,940,42,1,8,23,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,ButterBurgers,The Culver's® Deluxe,Double (292 g),292,main,810,55,20.8,1,146,1180,43,1,8,40,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,ButterBurgers,The Culver's® Deluxe,Triple (368 g),368,main,1050,74,29.3,1.5,212,1420,44,1,10,57,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,ButterBurgers,The Culver's® Bacon Deluxe,Single (225 g),225,main,610,39,13.3,0.5,92,1080,42,1,8,27,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,ButterBurgers,The Culver's® Bacon Deluxe,Double (301 g),301,main,850,58,21.8,1,156,1320,43,1,8,44,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,ButterBurgers,The Culver's® Bacon Deluxe,Triple (377 g),377,main,1090,77,30.3,1.5,222,1560,44,1,10,61,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,ButterBurgers,Wisconsin Swiss Melt,Single (162 g),162,main,480,24,10.5,0.5,80,725,38,4,2,26,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,ButterBurgers,Wisconsin Swiss Melt,Double (240 g),240,main,730,44,19,1,150,860,38,4,2,46,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,ButterBurgers,Wisconsin Swiss Melt,Triple (348 g),348,main,990,62,27.5,1.5,220,995,38,4,2,66,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Sandwiches & Favorites,Beef Pot Roast Sandwich,1 sandwich,188,main,410,16,6.5,1,140,1060,41,1,8,31,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Sandwiches & Favorites,Buffalo Chicken Tenders,4 Piece (206 g),206,main,460,21,2.8,0,100,1820,32,2,0,35,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Sandwiches & Favorites,Chicken Tenders,4 Piece (228 g),228,main,540,24,2.8,0,94,1840,42,2,0,40,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Sandwiches & Favorites,Crispy Chicken Sandwich,1 sandwich,194,main,460,16,2.8,0,56,1200,57,1,6,25,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Sandwiches & Favorites,Grilled Chicken Sandwich,1 sandwich,244,main,390,8,2.8,0,112,1190,39,1,5,41,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Sandwiches & Favorites,Grilled Reuben Melt,1 sandwich,304,main,670,34,13.5,0,105,1880,49,4,7,37,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Sandwiches & Favorites,North Atlantic Cod Filet Sandwich,1 sandwich,211,main,599,34,7.6,0.2,103,858,48,1,7,27,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Sandwiches & Favorites,Pork Tenderloin Sandwich,1 sandwich,217,main,630,27,4.8,0,46,990,73,3,6,18,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Sandwiches & Favorites,Shaved Prime Rib Sandwich,1 sandwich,222,main,620,37,16.8,0,106,1394,41,1,5,28,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Breads,"4"" Kaiser Bun",1 bun,70,main,200,4,0.5,0,0,370,39,1,6,6,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Breads,Hoagie Bun,1 bun,79,main,210,3,1,0,15,380,39,1,5,7,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Breads,Rye Bread,2 Slices (74 g),74,main,200,2,0,0,0,480,38,4,2,6,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Breads,Sourdough Bread,2 Slices (74 g),74,main,180,2,0,0,0,360,36,1,2,6,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Breads,Authentic Pub Bun,1 bun,88,main,230,4,1.5,0,0,380,43,1,5,8,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Breads,Gluten Free Bun,1 bun,90,main,230,6,0,0,0,440,39,5,6,6,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Dinners,Beef Pot Roast Dinner,1 dinner,586,main,750,32,14.2,1,181,2490,80,6,13,37,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Dinners,Butterfly Jumbo Shrimp Dinner,6 Piece (466 g),466,main,1090,55,6.2,0,85,2323,130,7,22,22,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Dinners,Butterfly Jumbo Shrimp Dinner,10 Piece (550 g),550,main,1310,67,6.2,0,125,3043,150,7,22,30,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Dinners,Chopped Steak Dinner,1 dinner,565,main,810,47,18.2,1,141,1950,62,6,10,37,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Dinners,"Fresh Fried Chicken Dinner (Leg, Thigh)","2 Piece (Leg, Thigh)",559,main,770,38,11,0,253,2250,60,6,10,49,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Dinners,"Fresh Fried Chicken Dinner (Breast, Wing)","2 Piece (Breast, Wing)",637,main,890,38,11,0,293,2550,60,6,10,78,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Dinners,Fresh Fried Chicken Dinner,4 Piece (813 g),813,main,1250,59,15,0,503,3300,64,6,10,118,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Dinners,North Atlantic Cod,2 Piece (538 g),538,main,1480,100,14.2,0.5,175,1603,107,6,19,42,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Dinners,North Atlantic Cod,3 Piece (628 g),628,main,1680,112,15.1,0.5,234,1788,114,6,20,57,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Sides,Chili Cheddar Fries,1 serving,305,side,670,31,8.6,0,40,1226,77,7,2,20,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Sides,Cole Slaw,1 serving,114,side,210,17,2.5,0,10,240,15,2,12,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Sides,Crinkle Cut Fries,Small (92 g),92,side,240,9,1,0,0,350,35,3,15,4,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Sides,Crinkle Cut Fries,Regular (140 g),140,side,360,14,2,0,0,530,53,4,22,6,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Sides,Crinkle Cut Fries,Large (180 g),180,side,460,18,2,0,0,680,68,5,29,7,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Sides,Dinner Roll,1 roll,45,side,140,6,2,0,15,200,20,0,3,3,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Sides,Green Beans,1 serving,140,side,130,9,5,0,26,950,12,4,4,2,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Sides,Mashed Potatoes,1 serving,168,side,120,1,0,0,0,220,23,2,3,4,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Sides,Mashed Potatoes & Gravy,1 serving,198,side,140,2,0,0,2,350,25,2,3,4,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Sides,Onion Rings,1 serving,118,side,400,22,2.5,0,0,530,44,3,3,6,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Sides,Wisconsin Cheese Curds,1 serving,150,side,510,25,12,0.7,55,1230,51,0,4,20,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Concrete Mixers,Reese's Chocolate Concrete Mini Mixer,1 serving,196,main,510,30,16.5,0.8,135,201,53,1,46,10,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,Almond,1 serving,28,extra,170,15,1,0,0,0,5,3,1,6,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,Andes® Creme De Menthe Thins,1 serving,28,extra,150,9,8.5,0,0,15,15,1,15,1,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,Banana,1 serving,60,extra,50,0,0,0,0,0,13,2,7,1,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,Blackberry,1 serving,33,extra,40,0,0,0,0,10,10,1,8,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,Blueberry,1 serving,33,extra,30,0,0,0,0,10,7,0,6,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,Brownie Pieces,1 serving,28,extra,110,5,1,0,15,15,17,1,11,2,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,Butterfinger®,1 serving,28,extra,130,5,3,0,0,60,20,0,13,1,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,Butterscotch,1 serving,38,extra,110,1,0.5,0,0,130,25,0,13,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,Cashew,1 serving,28,extra,160,13,2.6,0.2,0,110,9,1,1,4,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,Cheesecake Pieces,1 serving,30,extra,110,7,3.5,0.5,30,90,10,0,7,2,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,"Cherry, Red Topping",1 serving,33,extra,40,0,0,0,0,10,10,0,9,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,Chocolate Chip Cookie Dough,1 serving,28,extra,120,5,2,0.5,15,50,18,0,9,1,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,Chocolate Flake,1 serving,22,extra,110,7,6,0,0,0,13,1,11,1,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,Creme® De Menthe,1 serving,38,extra,100,0,0,0,0,100,25,0,20,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,Culver's® Chocolate Syrup,1 serving,35,extra,90,0,0,0,0,45,22,0,13,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,Culver's® Hot Caramel,1 serving,38,extra,120,2,1,0,5,100,26,0,15,1,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,Culver's® Hot Fudge,1 serving,38,extra,120,4,3.7,0,0,90,21,0,18,2,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,Health® Toffee Chunks,1 serving,28,extra,150,9,5,0,5,95,17,1,17,1,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,Kit Kat®,1 serving,24,extra,120,6,4,0,0,15,16,0,12,1,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,M&M® Minis,1 serving,28,extra,140,6,3.5,0,0,20,20,1,18,2,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,Mango Fruit Infusion,1 serving,35,extra,60,0,0,0,0,5,16,0,15,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,Maraschino Cherry,1 serving,5,extra,10,0,0,0,0,1,2,0,2,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,Marshmallow Creme,1 serving,38,extra,110,0,0,0,0,15,27,0,23,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,Nerds®,1 serving,28,extra,100,0,0,0,0,0,25,0,25,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,Nestlé® Chunch,1 serving,28,extra,140,7,4,0,0,40,19,0,15,1,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,Novelty Coating,1 serving,28,extra,170,13,6,0,5,20,12,0,11,2,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,Oreo® Cookie Crumbs,1 serving,19,extra,90,4,1,0,0,80,14,0,8,1,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,Peach,1 serving,33,extra,35,0,0,0,0,10,9,0,8,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,Peanut Butter,1 serving,34,extra,200,18,2.5,0,0,170,7,2,4,7,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,"Peanuts, Dry Roast Seasoned",1 serving,28,extra,160,13,1.8,0,0,210,6,2,2,6,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,Pie Crust Pieces,1 serving,28,extra,200,6,3,0,0,0,70,19,0,5,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,Reese's Pieces®,1 serving,28,extra,130,6,5,0,0,0,40,18,1,15,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,Reese's® Peanut Butter Cups,1 serving,28,extra,140,8,3,0,0,0,100,16,1,14,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,Salted Caramel Topping,1 serving,38,extra,120,2,1,0,0,0,240,25,0,16,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,Snickers® Candy Bar Pieces,1 serving,28,extra,130,6,2.5,0,0,0,65,17,1,14,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,"Sprinkles, Blue and White",1 serving,28,extra,120,2,2,0,0,0,0,26,0,24,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,Toppings,"Strawberry, Sliced",1 serving,42,extra,45,0,0,0,0,0,0,11,0,11,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,Toppings,Twin®,1 serving,28,extra,140,6,3.8,0,0,0,55,18,0,13,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Toppings,"Whipped Topping, Extra Creamy",1 serving,5,extra,15,1,0.5,0,0,0,0,1,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,"Chocolate Milk, Low Fat",8 fl oz,,drink,170,2,1.5,0,10,230,28,0,26,8,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Culver's® Diet Root Beer,Small (16 fl oz),,drink,0,0,0,0,0,110,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Culver's® Diet Root Beer,Medium (22 fl oz),,drink,0,0,0,0,0,151,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Culver's® Diet Root Beer,Large (32 fl oz),,drink,0,0,0,0,0,220,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Culver's® Root Beer,Small (16 fl oz),,drink,220,0,0,0,0,110,60,0,58,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Culver's® Root Beer,Medium (22 fl oz),,drink,300,0,0,0,0,150,82,0,79,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Culver's® Root Beer,Large (32 fl oz),,drink,440,0,0,0,0,220,120,0,116,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Diet Dr Pepper®,Small (16 fl oz),,drink,0,0,0,0,0,100,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Diet Dr Pepper®,Medium (22 fl oz),,drink,0,0,0,0,0,138,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Diet Dr Pepper®,Large (32 fl oz),,drink,0,0,0,0,0,200,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Diet Mountain Dew®,Small (16 fl oz),,drink,0,0,0,0,0,80,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Diet Mountain Dew®,Medium (22 fl oz),,drink,0,0,0,0,0,110,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Diet Mountain Dew®,Large (32 fl oz),,drink,0,0,0,0,0,160,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Dr Pepper®,Small (16 fl oz),,drink,200,0,0,0,0,72,51,0,51,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Dr Pepper®,Medium (22 fl oz),,drink,280,0,0,0,0,100,71,0,71,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Dr Pepper®,Large (32 fl oz),,drink,400,0,0,0,0,143,102,0,102,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Fresh Brewed Sweet Tea,Small (16 fl oz),,dessert,180,0,0,0,0,0,46,0,46,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Fresh Brewed Sweet Tea,Medium (22 fl oz),,dessert,250,0,0,0,0,0,64,0,64,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Fresh Brewed Sweet Tea,Large (32 fl oz),,dessert,360,0,0,0,0,0,92,0,92,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,"Milk, 1%",8 fl oz,,drink,110,0,0,0,10,135,13,0,12,8,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Mountain Dew®,Small (16 fl oz),,drink,220,0,0,0,0,70,58,0,58,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Mountain Dew®,Medium (22 fl oz),,drink,300,0,0,0,0,96,79,0,79,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Mountain Dew®,Large (32 fl oz),,drink,440,0,0,0,0,140,116,0,116,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Sierra Mist®,Small (16 fl oz),,drink,200,0,0,0,0,40,54,0,54,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Sierra Mist®,Medium (22 fl oz),,drink,270,0,0,0,0,54,73,0,73,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Sierra Mist®,Large (32 fl oz),,drink,400,0,0,0,0,80,108,0,108,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Strawberry Mirinda®,Small (16 fl oz),,drink,220,0,0,0,0,100,58,0,58,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Strawberry Mirinda®,Medium (22 fl oz),,drink,300,0,0,0,0,136,79,0,79,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Strawberry Mirinda®,Large (32 fl oz),,drink,440,0,0,0,0,200,116,0,116,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,"Tea, Hot",12 fl oz,,drink,0,0,0,0,0,0,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Tropicana Fruit Punch®,Small (16 fl oz),,drink,220,0,0,0,0,50,60,0,60,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Tropicana Fruit Punch®,Medium (22 fl oz),,drink,300,0,0,0,0,68,82,0,82,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Tropicana Fruit Punch®,Large (32 fl oz),,drink,440,0,0,0,0,100,120,0,120,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Tropicana® Light Lemonade,Small (16 fl oz),,drink,10,0,0,0,0,190,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Tropicana® Light Lemonade,Medium (22 fl oz),,drink,15,0,0,0,0,285,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Tropicana® Light Lemonade,Large (32 fl oz),,drink,20,0,0,0,0,380,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Tropicana® Pink Lemonade,Small (16 fl oz),,drink,200,0,0,0,0,207,50,0,50,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Tropicana® Pink Lemonade,Medium (22 fl oz),,drink,280,0,0,0,0,289,70,0,70,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Tropicana® Pink Lemonade,Large (32 fl oz),,drink,410,0,0,0,0,423,103,0,103,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Pepsi® Max,Small (16 fl oz),,drink,0,0,0,0,0,51,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Pepsi® Max,Medium (22 fl oz),,drink,0,0,0,0,0,70,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,Drinks,Pepsi® Max,Large (32 fl oz),,drink,0,0,0,0,0,102,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,two-drafts
+Culver's,CONDITIONS,American Cheese,Slice (19 g),19,main,70,6,3.5,0,15,140,1,0,1,3,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,CONDITIONS,Bacon,2 Slices (9 g),9,main,40,3,1,0,10,140,0,0,0,4,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,CONDITIONS,BBQ Sauce,54 g,54,extra,100,0,0,0,0,440,25,0,24,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,CONDITIONS,"Dill Pickles, Sliced",6 g,6,main,0,0,0,0,0,80,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,CONDITIONS,Honey Mustard,54 g,54,main,130,6,1,0,0,400,20,0,18,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,CONDITIONS,Horseradish Sauce,12 g,12,extra,60,6,1,0,5,90,2,0,1,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,CONDITIONS,Ketchup,17 g,17,main,20,0,0,0,0,160,5,0,4,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,CONDITIONS,Malt Vinegar,9 g,9,main,0,0,0,0,0,0,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,CONDITIONS,Mayonnaise,12 g,12,main,80,8,1.5,0,5,75,1,0,1,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,CONDITIONS,"Mustard, Mild",11 g,11,main,0,0,0,0,0,130,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,CONDITIONS,"Mustard, Spicy Brown",10 g,10,main,0,0,0,0,0,120,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,CONDITIONS,"Picante Sauce, Mild and Medium",32 g,32,extra,10,0,0,0,0,220,2,0,2,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,CONDITIONS,Shrimp Cocktail Sauce,42 g,42,extra,50,0,0,0,0,360,12,1,7,1,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,CONDITIONS,Steak Sauce,12 g,12,extra,10,0,0,0,0,150,2,0,2,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,CONDITIONS,Sweet & Sour Dipping Sauce,54 g,54,extra,90,0,0,0,0,320,23,0,21,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,CONDITIONS,Tartar Sauce,57 g,57,extra,360,39,6,0.5,30,340,3,0,2,1,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SALAD & SALAD DRESSINGS (CHOICES MAY VARY AT RESTAURANTS),Chicken Cashew with Grilled Chicken,340 g,340,extra,460,24,8.1,0.2,115,863,18,3,3,47,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SALAD & SALAD DRESSINGS (CHOICES MAY VARY AT RESTAURANTS),Cranberry Bacon Bleu Salad with Grilled Chicken,329 g,329,extra,360,14,6.5,0,120,1103,17,2,8,46,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SALAD & SALAD DRESSINGS (CHOICES MAY VARY AT RESTAURANTS),Garden Fresco,200 g,200,extra,200,11,5,0,25,363,19,2,2,11,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SALAD & SALAD DRESSINGS (CHOICES MAY VARY AT RESTAURANTS),Garden Fresco with Grilled Chicken,326 g,326,extra,360,14,5.5,0,115,913,19,2,2,45,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SALAD & SALAD DRESSINGS (CHOICES MAY VARY AT RESTAURANTS),Side Salad,61 g,61,extra,55,3,1.4,0,7,101,5,1,1,3,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SALAD & SALAD DRESSINGS (CHOICES MAY VARY AT RESTAURANTS),Chunky Bleu Cheese Dressing,50 g,50,extra,310,33,6,0.5,20,480,2,0,1,1,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SALAD & SALAD DRESSINGS (CHOICES MAY VARY AT RESTAURANTS),French Dressing,50 g,50,extra,190,13,2,0,0,320,19,0,18,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SALAD & SALAD DRESSINGS (CHOICES MAY VARY AT RESTAURANTS),Ranch Dressing,50 g,50,extra,180,19,3,0,25,370,2,0,1,1,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SALAD & SALAD DRESSINGS (CHOICES MAY VARY AT RESTAURANTS),Raspberry Vinaigrette Dressing,54 g,54,extra,45,0,0,0,0,180,11,0,10,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SALAD & SALAD DRESSINGS (CHOICES MAY VARY AT RESTAURANTS),Sesame Ginger Dressing,54 g,54,extra,70,0,0,0,0,350,16,0,14,1,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SALAD & SALAD DRESSINGS (CHOICES MAY VARY AT RESTAURANTS),Thousand Island Dressing,60 g,60,extra,220,18,2,0,20,460,14,0,8,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),Baja Chicken Enchilada,11 g,11,main,300,18,8,0,65,1300,25,6,6,12,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),Bean with Ham,11 g,11,main,160,2,0.5,0,5,1270,28,7,3,7,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),Boston Clam Chowder,11 g,11,main,260,11,4,0,30,1530,27,1,8,12,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),Broccoli Cheese,11 g,11,main,220,12,5.5,0,31,1160,17,1,9,10,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),Cauliflower Cheese,11 g,11,main,270,15,6,0,26,1320,25,1,15,10,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),Cheesy Chicken Tortilla,11 g,11,main,150,6,3,0,27,1450,16,1,4,8,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),Chicken & Dumpling,11 g,11,main,240,12,3,0,50,1290,23,1,5,9,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),Chicken Noodle,11 g,11,main,110,2,0.5,0,30,1110,14,1,1,7,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),George's Chili,11 g,11,main,300,14,4.5,0,45,1470,27,6,6,18,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),George's Chili Supreme,12 g,12,main,400,22,6.8,0,75,1516,28,6,7,21,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),Oven-Roasted Turkey Noodle,11 g,11,main,170,5,2,0,43,1286,21,0,1,11,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),Potato Au Gratin,11 g,11,main,330,20,10,0,45,1180,28,1,9,10,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),Potato with Bacon,11 g,11,main,240,10,4,0,25,1140,28,2,9,9,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),Stuffed Green Pepper,11 g,11,main,140,2,1,0,10,1170,24,1,6,5,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),Tomato Fiorentine,11 g,11,main,110,1,0.5,0,0,1280,22,2,7,4,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),Vegetable Beef with Barley,11 g,11,main,160,4,2,0,20,1440,22,2,4,8,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),Wild and Brown Rice with Chicken,11 g,11,main,270,14,5,0,38,1220,26,1,9,10,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SOUPS (CHOICES VARY AT RESTAURANTS),Wisconsin Cheese,11 g,11,main,320,20,9,0,37,1090,27,0,16,9,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SUNDAES,Banana Split,2 Scoop (485 g),485,dessert,1060,60,26.3,1.6,219,368,121,8,90,16,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SUNDAES,Banana Split,3 Scoop (612 g),612,dessert,1350,71,33.9,1.9,274,503,165,8,125,20,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SUNDAES,Caramel Cashew,1 Scoop (212 g),212,dessert,600,33,14.9,0.9,118,296,68,1,45,11,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SUNDAES,Caramel Cashew,2 Scoop (377 g),377,dessert,1000,51,26,1.6,224,472,122,1,84,17,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SUNDAES,Caramel Cashew,3 Scoop (446 g),446,dessert,1150,60,31.5,1.9,279,513,137,1,97,19,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SUNDAES,Fudge Pecan Sundae,1 Scoop (212 g),212,dessert,640,43,16.8,0.9,113,286,58,2,48,10,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SUNDAES,Fudge Pecan Sundae,2 Scoop (377 g),377,dessert,1040,64,30.6,1.5,214,452,107,2,90,17,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SUNDAES,Fudge Pecan Sundae,3 Scoop (446 g),446,dessert,1190,73,36.1,1.9,269,493,122,2,103,20,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SUNDAES,Turtle Sundae,1 Scoop (212 g),212,dessert,640,42,15.4,0.9,115,291,61,2,46,10,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SUNDAES,Turtle Sundae,2 Scoop (377 g),377,dessert,1040,62,27.9,1.5,219,462,112,2,87,16,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,SUNDAES,Turtle Sundae,3 Scoop (446 g),446,dessert,1190,70,33.4,1.9,274,503,127,2,100,19,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,CONES & DISHES,Chocolate Cake Cone,1 Scoop (144 g),144,dessert,300,14,8.2,0.5,96,127,39,1,29,6,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,CONES & DISHES,Chocolate Cake Cone,2 Scoop (274 g),274,dessert,560,27,16,0.9,187,237,72,3,56,11,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,CONES & DISHES,Chocolate Cake Cone,3 Scoop (344 g),344,dessert,700,34,20.2,1.1,236,297,89,3,71,14,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,CONES & DISHES,"Chocolate, Dish",1 Scoop (140 g),140,main,280,14,8.4,0.5,98,119,35,1,29,6,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,CONES & DISHES,"Chocolate, Dish",2 Scoop (270 g),270,main,540,27,16.2,0.9,189,230,68,3,57,11,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,CONES & DISHES,"Chocolate, Dish",3 Scoop (340 g),340,main,680,34,20.4,1.2,238,289,85,3,71,14,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,CONES & DISHES,"Chocolate, Waffle Cone",1 Scoop (183 g),183,main,380,16,8.9,0.5,103,119,53,1,37,7,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,CONES & DISHES,"Chocolate, Waffle Cone",2 Scoop (313 g),313,main,640,30,16.7,0.9,194,230,86,3,65,12,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,CONES & DISHES,"Chocolate, Waffle Cone",3 Scoop (383 g),383,main,780,36,20.9,1.2,243,289,103,3,79,15,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,CONES & DISHES,Mini Scoop Chocolate Cake Cone,94 g,94,dessert,200,9,5.2,0.3,61,84,27,1,18,4,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,CONES & DISHES,Mini Scoop Vanilla Cake Cone,90 g,90,dessert,210,11,6.7,0.4,67,60,23,0,16,3,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,CONES & DISHES,Vanilla Cake Cone,1 Scoop (145 g),145,dessert,330,18,11.1,0.7,111,93,35,0,26,6,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,CONES & DISHES,Vanilla Cake Cone,2 Scoop (272 g),272,dessert,610,35,21.3,1.3,213,170,64,0,51,11,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
 Culver's,Toppings,Pecan Halves,28 g,28,extra,200,21,1.8,0.2,0,110,4,2,1,2,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Toppings,Pie Crust Pieces,28 g,28,extra,200,6,3,0,0,0,70,19,0,5,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Toppings,Raspberry,28 g,28,extra,30,1,0,0,0,0,0,7,1,6,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Toppings,Reese's Pieces®,28 g,28,extra,130,6,5,0,0,0,40,18,1,15,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Toppings,Reese's® Peanut Butter Cups,28 g,28,extra,140,8,3,0,0,0,100,16,1,14,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Toppings,Salted Caramel Topping,38 g,38,extra,120,2,1,0,0,0,240,25,0,16,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Toppings,Snickers® Candy Bar Pieces,28 g,28,extra,130,6,2.5,0,0,0,65,17,1,14,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Toppings,"Sprinkles, Blue and White",28 g,28,extra,120,2,2,0,0,0,0,26,0,24,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Toppings,"Strawberry, Sliced",42 g,42,extra,45,0,0,0,0,0,0,11,0,11,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Toppings,Twin®,28 g,28,extra,140,6,3.8,0,0,0,55,18,0,13,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,Toppings,"Whipped Topping, Extra Creamy",5 g,5,extra,15,1,0.5,0,0,0,0,1,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Caffeine Free Diet Pepsi®,Small (16 oz),,drink,0,0,0,0,0,0,50,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Caffeine Free Diet Pepsi®,Medium (22 oz),,drink,0,0,0,0,0,0,69,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Caffeine Free Diet Pepsi®,Large (32 oz),,drink,0,0,0,0,0,0,100,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Culver's® Diet Root Beer,Small (16 oz),,drink,0,0,0,0,0,0,110,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Culver's® Diet Root Beer,Medium (22 oz),,drink,0,0,0,0,0,0,151,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Culver's® Diet Root Beer,Large (32 oz),,drink,0,0,0,0,0,0,220,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Culver's® Root Beer,Small (16 oz),,drink,220,0,0,0,0,0,110,60,0,58,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Culver's® Root Beer,Medium (22 oz),,drink,300,0,0,0,0,0,150,82,0,79,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Culver's® Root Beer,Large (32 oz),,drink,440,0,0,0,0,0,220,120,0,116,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Diet Dr Pepper®,Small (16 oz),,drink,0,0,0,0,0,0,100,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Diet Dr Pepper®,Medium (22 oz),,drink,0,0,0,0,0,0,138,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Diet Dr Pepper®,Large (32 oz),,drink,0,0,0,0,0,0,200,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Diet Mountain Dew®,Small (16 oz),,drink,0,0,0,0,0,0,80,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Diet Mountain Dew®,Medium (22 oz),,drink,0,0,0,0,0,0,110,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Diet Mountain Dew®,Large (32 oz),,drink,0,0,0,0,0,0,160,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Diet Pepsi®,Small (16 oz),,drink,0,0,0,0,0,0,50,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Diet Pepsi®,Medium (22 oz),,drink,0,0,0,0,0,0,69,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Diet Pepsi®,Large (32 oz),,drink,0,0,0,0,0,0,100,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Dr Pepper®,Small (16 oz),,drink,200,0,0,0,0,0,72,51,0,51,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Dr Pepper®,Medium (22 oz),,drink,280,0,0,0,0,0,100,71,0,71,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Dr Pepper®,Large (32 oz),,drink,400,0,0,0,0,0,143,102,0,102,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Fresh Brewed Sweet Tea,Small (16 oz),,dessert,180,0,0,0,0,0,0,46,0,46,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Fresh Brewed Sweet Tea,Medium (22 oz),,dessert,250,0,0,0,0,0,0,64,0,64,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Fresh Brewed Sweet Tea,Large (32 oz),,dessert,360,0,0,0,0,0,0,92,0,92,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Fresh Brewed Unsweet Tea,Small (16 oz),,drink,0,0,0,0,0,0,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Fresh Brewed Unsweet Tea,Medium (22 oz),,drink,0,0,0,0,0,0,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Fresh Brewed Unsweet Tea,Large (32 oz),,drink,0,0,0,0,0,0,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Mountain Dew®,Small (16 oz),,drink,220,0,0,0,0,0,70,58,0,58,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Mountain Dew®,Medium (22 oz),,drink,300,0,0,0,0,0,96,79,0,79,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Mountain Dew®,Large (32 oz),,drink,440,0,0,0,0,0,140,116,0,116,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Pepsi®,Small (16 oz),,drink,200,0,0,0,0,0,40,56,0,56,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Pepsi®,Medium (22 oz),,drink,270,0,0,0,0,0,54,76,0,76,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Pepsi®,Large (32 oz),,drink,400,0,0,0,0,0,80,112,0,112,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Sierra Mist®,Small (16 oz),,drink,200,0,0,0,0,0,40,54,0,54,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Sierra Mist®,Medium (22 oz),,drink,270,0,0,0,0,0,54,73,0,73,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Sierra Mist®,Large (32 oz),,drink,400,0,0,0,0,0,80,108,0,108,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Strawberry Mirinda®,Small (16 oz),,drink,220,0,0,0,0,0,100,58,0,58,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Strawberry Mirinda®,Medium (22 oz),,drink,300,0,0,0,0,0,136,79,0,79,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Strawberry Mirinda®,Large (32 oz),,drink,440,0,0,0,0,0,200,116,0,116,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Tropicana Fruit Punch®,Small (16 oz),,drink,220,0,0,0,0,0,50,60,0,60,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Tropicana Fruit Punch®,Medium (22 oz),,drink,300,0,0,0,0,0,68,82,0,82,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Tropicana Fruit Punch®,Large (32 oz),,drink,440,0,0,0,0,0,100,120,0,120,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Tropicana® Light Lemonade,Small (16 oz),,drink,10,0,0,0,0,0,190,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Tropicana® Light Lemonade,Medium (22 oz),,drink,15,0,0,0,0,0,285,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Tropicana® Light Lemonade,Large (32 oz),,drink,20,0,0,0,0,0,380,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Tropicana® Pink Lemonade,Small (16 oz),,drink,200,0,0,0,0,0,207,50,0,50,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Tropicana® Pink Lemonade,Medium (22 oz),,drink,280,0,0,0,0,0,289,70,0,70,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Tropicana® Pink Lemonade,Large (32 oz),,drink,410,0,0,0,0,0,423,103,0,103,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Pepsi® Max,Small (16 oz),,drink,0,0,0,0,0,0,51,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Pepsi® Max,Medium (22 oz),,drink,0,0,0,0,0,0,70,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Pepsi® Max,Large (32 oz),,drink,0,0,0,0,0,0,102,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Wild Cherry Pepsi,Small (16 oz),,drink,200,0,0,0,0,0,40,56,0,56,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Wild Cherry Pepsi,Medium (22 oz),,drink,270,0,0,0,0,0,54,76,0,76,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
-Culver's,DRINKS,Wild Cherry Pepsi,Large (32 oz),,drink,400,0,0,0,0,0,80,112,0,112,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,Toppings,Raspberry,28 g,28,extra,30,0,0,0,0,0,0,7,1,6,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,Drinks,Caffeine Free Diet Pepsi®,Small (16 oz),,drink,0,0,0,0,0,50,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,Drinks,Caffeine Free Diet Pepsi®,Medium (22 oz),,drink,0,0,0,0,0,69,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,Drinks,Caffeine Free Diet Pepsi®,Large (32 oz),,drink,0,0,0,0,0,100,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,Drinks,Diet Pepsi®,Small (16 oz),,drink,0,0,0,0,0,50,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,Drinks,Diet Pepsi®,Medium (22 oz),,drink,0,0,0,0,0,69,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,Drinks,Diet Pepsi®,Large (32 oz),,drink,0,0,0,0,0,100,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,Drinks,Fresh Brewed Unsweet Tea,Small (16 oz),,drink,0,0,0,0,0,0,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,Drinks,Fresh Brewed Unsweet Tea,Medium (22 oz),,drink,0,0,0,0,0,0,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,Drinks,Fresh Brewed Unsweet Tea,Large (32 oz),,drink,0,0,0,0,0,0,0,0,0,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,Drinks,Pepsi®,Small (16 oz),,drink,200,0,0,0,0,40,56,0,56,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,Drinks,Pepsi®,Medium (22 oz),,drink,270,0,0,0,0,54,76,0,76,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,Drinks,Pepsi®,Large (32 oz),,drink,400,0,0,0,0,80,112,0,112,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,Drinks,Wild Cherry Pepsi,Small (16 oz),,drink,200,0,0,0,0,40,56,0,56,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,Drinks,Wild Cherry Pepsi,Medium (22 oz),,drink,270,0,0,0,0,54,76,0,76,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending
+Culver's,Drinks,Wild Cherry Pepsi,Large (32 oz),,drink,400,0,0,0,0,80,112,0,112,0,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,2026-10-23,pending

@@ -3,7 +3,7 @@
 Guide: https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf (read 2026-10-23). Draft A: openai/gpt-5.6-luna. Draft B: anthropic/claude-haiku-5.5.
 Numbers in order: calories / fat_g / saturated_fat_g / trans_fat_g / cholesterol_mg / sodium_mg / carbs_g / fiber_g / sugars_g / protein_g.
 
-## Disagreements (70)
+## Disagreements (60)
 
 Fix each line in `menus/noodles-and-company.csv` from the guide and set its check to `person` (or delete the line if it isn't on the menu).
 
@@ -11,14 +11,9 @@ Fix each line in `menus/noodles-and-company.csv` from the guide and set its chec
 | --- | --- | --- | --- | --- |
 | Roasted Garlic Cream Tortelloni | REG | only in draft A | 770 / 38 / 10 / 0 / 140 / 2400 / 72 / 5 / 7 / 36 | not found |
 | Roasted Garlic Cream Tortelloni | SM | only in draft A | 380 / 19 / 0.5 / – / 70 / 1200 / 36 / 3 / 4 / 18 | not found |
-| Basil Pesto Cavatappi | SM | only in draft A | 430 / 20 / 7 / 0 / 25 / 570 / 51 / 5 / 4 / 12 | not found |
-| Pad Thai | SM | only in draft A | 520 / 21 / 4 / 0 / 170 / 1010 / 72 / 2 / 22 / 10 | not found |
-| Buttery Parmesan Noodles | SM | only in draft A | 370 / 17 / 7 / 0 / 105 / 160 / 49 / 2 / 3 / 11 | not found |
-| Japanese Pan Noodles | SM | only in draft A | 320 / 6 / 2 / 0 / 0 / 1000 / 57 / 2 / 11 / 10 | not found |
 | Pasta Fresca | SM | only in draft A | 330 / 10 / 2 / 0 / 5 / 620 / 52 / 5 / 5 / 10 | not found |
 | Chicken Parmesan | REG | only in draft A | 940 / 12 / 1 / 0 / 90 / 1840 / 115 / 8 / 8 / 15 | not found |
 | Chicken Parmesan | SM | only in draft A | 292 / 12 / 1 / 0 / – / – / 107 / 15 / 15 / 51 | not found |
-| Creamy Cheddar Mac | SM | only in draft A | 520 / 22 / 11 / 0.5 / 55 / 950 / 60 / 3 / 5 / 23 | not found |
 | Chicken Caesar Salad | REG | only in draft A | 670 / 49 / 12 / 12 / 12 / 0.5 / 150 / 1510 / 1510 / 1510 | not found |
 | Mediterranean Chicken Salad | REG | only in draft A | 430 / 17 / 6 / 12 / 12 / 0 / 0 / 125 / 1700 / 1700 | not found |
 | Chicken Noodle Soup | REG | only in draft A | 360 / 10 / 2.5 / 10 / 140 / 140 / 140 / 140 / 140 / 140 | not found |
@@ -42,12 +37,7 @@ Fix each line in `menus/noodles-and-company.csv` from the guide and set its chec
 | Snoodle Doodle Cookie | 1 serving | only in draft A | 450 / 20 / 8 / 0 / 25 / 290 / 64 / 3 / 36 / 6 | not found |
 | Roasted Garlic Cream Tortelloni ☑ w/a | REG | only in draft B | not found | 770 / 38 / – / 0.5 / 140 / 2400 / 72 / 5 / 7 / 36 |
 | Roasted Garlic Cream Tortelloni ☑ w/a | SM | only in draft B | not found | 380 / 19 / 10 / 0 / 70 / 1200 / 36 / 3 / 4 / 18 |
-| Basil Pesto Cavatappi ☑ | SM | only in draft B | not found | 430 / 20 / 7 / 0 / 25 / 570 / 51 / 5 / 4 / 12 |
-| Pad Thai ☒ | SM | only in draft B | not found | 520 / 21 / 4 / 0 / 170 / 1010 / 72 / 2 / 22 / 10 |
-| Buttery Parmesan Noodles ☑ | SM | only in draft B | not found | 370 / 17 / 7 / 0 / 105 / 160 / 49 / 2 / 3 / 11 |
-| Japanese Pan Noodles ☑ | SM | only in draft B | not found | 320 / 6 / 2 / 0 / 0 / 1000 / 57 / 2 / 11 / 10 |
 | Pasta Fresca ☑ w/a | SM | only in draft B | not found | 330 / 10 / 2 / 0 / 5 / 620 / 52 / 5 / 5 / 10 |
-| Creamy Cheddar Mac ☑ | SM | only in draft B | not found | 520 / 22 / 11 / 0.5 / 55 / 950 / 60 / 3 / 5 / 23 |
 | Buttery Parmesan Noodles | 1 serving | only in draft B | not found | 370 / 17 / 7 / 0 / 105 / 210 / 49 / 2 / 3 / 11 |
 | Spaghetti & Meatballs | 1 serving | only in draft B | not found | 520 / 26 / 10 / 1 / 60 / 760 / 51 / 2 / 8 / 19 |
 | Grilled Chicken Breast with Dipping Marinara* | 1 serving | only in draft B | not found | 170 / 5 / 1.5 / 0 / 105 / 640 / 3 / 1 / 2 / 27 |

@@ -1,10 +1,6 @@
 chain,section,name,serving,serving_g,kind,calories,fat_g,saturated_fat_g,trans_fat_g,cholesterol_mg,sodium_mg,carbs_g,fiber_g,sugars_g,protein_g,source_url,checked_on,check
 Noodles & Company,Culinary Classics,Roasted Garlic Cream Tortelloni,REG,,main,770,38,10,0,140,2400,72,5,7,36,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,pending
 Noodles & Company,Culinary Classics,Roasted Garlic Cream Tortelloni,SM,,main,380,19,0.5,,70,1200,36,3,4,18,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,pending
-Noodles & Company,Culinary Classics,Basil Pesto Cavatappi,SM,,main,430,20,7,0,25,570,51,5,4,12,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,pending
-Noodles & Company,Culinary Classics,Pad Thai,SM,,main,520,21,4,0,170,1010,72,2,22,10,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,pending
-Noodles & Company,Culinary Classics,Buttery Parmesan Noodles,SM,,main,370,17,7,0,105,160,49,2,3,11,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,pending
-Noodles & Company,Culinary Classics,Japanese Pan Noodles,SM,,main,320,6,2,0,0,1000,57,2,11,10,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,pending
 Noodles & Company,Culinary Classics,Pasta Fresca,SM,,main,330,10,2,0,5,620,52,5,5,10,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,pending
 Noodles & Company,Chef-Curated with Protein,Rigatoni Rosa with Parmesan Chicken,REG,,main,890,30,10,0.5,90,1640,113,13,12,45,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,two-drafts
 Noodles & Company,Chef-Curated with Protein,Rigatoni Rosa with Parmesan Chicken,SM,,main,540,19,6,0,70,1280,60,7,6,34,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,two-drafts
@@ -20,7 +16,6 @@ Noodles & Company,Chef-Curated with Protein,Cajun Shrimp Fettuccine,REG,,main,10
 Noodles & Company,Chef-Curated with Protein,Cajun Shrimp Fettuccine,SM,,main,550,30,14,0,175,1200,49,4,4,23,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,two-drafts
 Noodles & Company,Chef-Curated with Protein,Chipotle Chicken Cavatappi,REG,,main,1170,58,29,0,260,1870,108,7,13,53,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,two-drafts
 Noodles & Company,Chef-Curated with Protein,Chipotle Chicken Cavatappi,SM,,main,670,32,15,0,185,1210,54,4,6,40,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,two-drafts
-Noodles & Company,Mac & Cheese,Creamy Cheddar Mac,SM,,main,520,22,11,0.5,55,950,60,3,5,23,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,pending
 Noodles & Company,Mac & Cheese,Buffalo Chicken Ranch Mac,REG,,main,1380,61,24,1.5,215,3450,128,6,12,70,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,two-drafts
 Noodles & Company,Mac & Cheese,Buffalo Chicken Ranch Mac,SM,,main,790,32,13,0.5,160,2000,64,3,6,49,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,two-drafts
 Noodles & Company,Mac & Cheese,Pulled Pork BBQ Mac,REG,,main,1240,49,22,1,185,2580,137,6,21,63,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,two-drafts
@@ -48,25 +43,25 @@ Noodles & Company,Sides,Baguette,1 serving,,side,170,1.5,0.5,0,0,410,33,0,0,2,ht
 Noodles & Company,Desserts,Rice Crispy,1 serving,,dessert,540,19,12,1,1,50,87,0,39,6,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,pending
 Noodles & Company,Desserts,Chocolate Chunk Cookie,1 serving,,dessert,450,21,9,0,25,290,64,3,36,6,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,pending
 Noodles & Company,Desserts,Snoodle Doodle Cookie,1 serving,,dessert,450,20,8,0,25,290,64,3,36,6,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,pending
-Noodles & Company,Culinary Classics,Basil Pesto Cavatappi ☑,REG,,main,860,41,13,0.5,55,1140,103,10,8,24,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,two-drafts
-Noodles & Company,Culinary Classics,Pad Thai ☒,REG,,main,1040,42,8,0,340,2020,143,4,44,20,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,two-drafts
-Noodles & Company,Culinary Classics,Buttery Parmesan Noodles ☑,REG,,main,760,34,14,1,210,330,98,4,6,22,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,two-drafts
-Noodles & Company,Culinary Classics,Japanese Pan Noodles ☑,REG,,main,640,12,4,0,0,2010,114,5,22,20,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,two-drafts
+Noodles & Company,Culinary Classics,Basil Pesto Cavatappi,REG,,main,860,41,13,0.5,55,1140,103,10,8,24,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,two-drafts
+Noodles & Company,Culinary Classics,Basil Pesto Cavatappi,SM,,main,430,20,7,0,25,570,51,5,4,12,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,two-drafts
+Noodles & Company,Culinary Classics,Pad Thai,REG,,main,1040,42,8,0,340,2020,143,4,44,20,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,two-drafts
+Noodles & Company,Culinary Classics,Pad Thai,SM,,main,520,21,4,0,170,1010,72,2,22,10,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,two-drafts
+Noodles & Company,Culinary Classics,Buttery Parmesan Noodles,REG,,main,760,34,14,1,210,330,98,4,6,22,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,two-drafts
+Noodles & Company,Culinary Classics,Buttery Parmesan Noodles,SM,,main,370,17,7,0,105,160,49,2,3,11,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,two-drafts
+Noodles & Company,Culinary Classics,Japanese Pan Noodles,REG,,main,640,12,4,0,0,2010,114,5,22,20,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,two-drafts
+Noodles & Company,Culinary Classics,Japanese Pan Noodles,SM,,main,320,6,2,0,0,1000,57,2,11,10,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,two-drafts
 Noodles & Company,Culinary Classics,Pasta Fresca ☑ w/a,REG,,main,860,20,4,0,5,1240,103,10,10,21,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,two-drafts
 Noodles & Company,Chef-Curated with Protein,Steak Stroganoff w/a,REG,,main,1220,68,27,1.5,275,1610,118,7,13,44,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,two-drafts
 Noodles & Company,Chef-Curated with Protein,Steak Stroganoff w/a,SM,,main,680,38,15,0.5,160,1000,60,4,7,29,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,two-drafts
 Noodles & Company,Chef-Curated with Protein,Spicy Korean Steak Noodles w/a,REG,,main,960,25,4,0,40,3400,150,3,43,31,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,two-drafts
 Noodles & Company,Chef-Curated with Protein,Spicy Korean Steak Noodles w/a,SM,,main,550,16,3,0,40,1890,76,1,22,23,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,two-drafts
-Noodles & Company,Mac & Cheese,Creamy Cheddar Mac ☑,REG,,main,1050,43,23,1.5,115,1910,120,5,10,46,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,two-drafts
+Noodles & Company,Mac & Cheese,Creamy Cheddar Mac,REG,,main,1050,43,23,1.5,115,1910,120,5,10,46,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,two-drafts
+Noodles & Company,Mac & Cheese,Creamy Cheddar Mac,SM,,main,520,22,11,0.5,55,950,60,3,5,23,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,two-drafts
 Noodles & Company,Sides,Caesar Salad w,1 serving,,side,230,21,4,0,20,470,8,1,2,4,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,two-drafts
 Noodles & Company,Culinary Classics,Roasted Garlic Cream Tortelloni ☑ w/a,REG,,main,770,38,,0.5,140,2400,72,5,7,36,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,pending
 Noodles & Company,Culinary Classics,Roasted Garlic Cream Tortelloni ☑ w/a,SM,,main,380,19,10,0,70,1200,36,3,4,18,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,pending
-Noodles & Company,Culinary Classics,Basil Pesto Cavatappi ☑,SM,,main,430,20,7,0,25,570,51,5,4,12,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,pending
-Noodles & Company,Culinary Classics,Pad Thai ☒,SM,,main,520,21,4,0,170,1010,72,2,22,10,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,pending
-Noodles & Company,Culinary Classics,Buttery Parmesan Noodles ☑,SM,,main,370,17,7,0,105,160,49,2,3,11,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,pending
-Noodles & Company,Culinary Classics,Japanese Pan Noodles ☑,SM,,main,320,6,2,0,0,1000,57,2,11,10,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,pending
 Noodles & Company,Culinary Classics,Pasta Fresca ☑ w/a,SM,,main,330,10,2,0,5,620,52,5,5,10,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,pending
-Noodles & Company,Mac & Cheese,Creamy Cheddar Mac ☑,SM,,main,520,22,11,0.5,55,950,60,3,5,23,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,pending
 Noodles & Company,Kids Meals,Buttery Parmesan Noodles,1 serving,,main,370,17,7,0,105,210,49,2,3,11,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,pending
 Noodles & Company,Kids Meals,Spaghetti & Meatballs,1 serving,,main,520,26,10,1,60,760,51,2,8,19,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,pending
 Noodles & Company,Kids Meals,Grilled Chicken Breast with Dipping Marinara*,1 serving,,main,170,5,1.5,0,105,640,3,1,2,27,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,2026-10-23,pending

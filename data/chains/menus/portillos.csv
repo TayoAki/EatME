@@ -1,167 +1,154 @@
 chain,section,name,serving,serving_g,kind,calories,fat_g,saturated_fat_g,trans_fat_g,cholesterol_mg,sodium_mg,carbs_g,fiber_g,sugars_g,protein_g,source_url,checked_on,check
-Portillo's,Beef & Sausage Sandwiches,Beef N Cheddar Croissant,1 serving,,main,670,41,19,,91,928,44,1,6,31,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Beef & Sausage Sandwiches,Char-Grilled Italian Sausage,1 serving,,main,660,33,12,,80,2014,62,0,5,26,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Beef & Sausage Sandwiches,Italian Beef Sandwich,Regular Sandwich,,main,690,34,14,,81,1237,59,0,2,33,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Beef & Sausage Sandwiches,Italian Beef Sandwich,Big Beef Sandwich,,main,1040,51,21,,122,1856,88,0,3,50,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Portillo's Bowls,Classic Beef Bowl,1 serving,,main,440,32,13,,103,230,0,0,0,35,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Portillo's Bowls,Italiano Bowl,1 serving,,main,590,44,17,,121,1060,9,2,2,38,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Hot Dogs,Chili Cheese Dog,Regular,,main,500,30,14,,73,1669,36,1,5,21,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Hot Dogs,Chili Cheese Dog,Jumbo,,main,610,40,18,,98,2159,37,1,6,27,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Hot Dogs,Hot Dog with Everything,Regular,,main,340,15,5,,30,1560,39,2,13,12,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Hot Dogs,Hot Dog with Everything,Jumbo,,main,450,25,9,,55,2050,40,2,14,18,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Hot Dogs,Maxwell Street Polish,1 serving,,main,570,39,13,,88,1886,32,1,7,25,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Hot Dogs,Plant-Based Garden Dog*,1 serving,,main,320,12,1,,0,1432,44,2,13,10,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Burgers,Bacon Burger,Single,,main,700,37,12,,129,1371,46,2,6,42,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Burgers,Bacon Burger,Double,,main,980,56,19,,223,1897,46,2,6,69,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Burgers,Brioche Bacon Burger (Select Locations),Single,,main,690,39,12,,129,1281,40,1,9,40,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Burgers,Brioche Bacon Burger (Select Locations),Double,,main,960,58,19,,223,1807,40,1,9,67,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Burgers,Hamburger,Single,,main,570,26,8,,99,1325,47,2,7,34,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Burgers,Hamburger,Double,,main,900,50,15,,198,1888,47,2,7,61,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Burgers,Brioche Hamburger (Select Locations),Single,,main,570,26,8,,99,1325,47,2,7,34,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Burgers,Brioche Hamburger (Select Locations),Double,,main,900,50,15,,198,1888,47,2,7,61,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Burgers,Rodeo Burger,Single,,main,790,43,17,,145,2195,65,1,18,46,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Burgers,Rodeo Burger,Double,,main,1160,69,28,,259,3101,67,1,18,76,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Chicken & Fish,Breaded Chicken Sandwich,1 serving,,main,600,25,5,,85,2058,60,1,9,30,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Chicken & Fish,Broiled Chicken Sandwich,1 serving,,main,400,17,4,,80,769,36,1,8,26,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Chicken & Fish,Chicken Tenders,4 Piece,,main,340,16,3,,60,961,24,0,0,24,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Chicken & Fish,Chicken Tenders,6 Piece,,main,510,25,5,,90,1442,36,0,0,36,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Chicken & Fish,Chicken Tenders,20 Piece,,main,1690,82,16,,300,4807,120,0,0,120,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Chicken & Fish,Spicy Chicken Sandwich,1 serving,,main,520,17,6,,70,1558,60,2,8,29,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Chicken & Fish,Breaded Fish Sandwich,1 serving,,main,710,43,15,,87,1236,55,1,7,23,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Salads,Chicken Pecan Salad with Bacon,without dressing,,main,620,42,12,,139,1166,15,5,4,46,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Salads,Chicken Pecan Salad with Bacon,with dressing,,main,910,70,16,,161,1666,23,5,4,46,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Salads,Chopped Salad,without dressing,,main,510,20,11,,135,1462,37,6,8,42,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Salads,Chopped Salad,with dressing,,main,850,54,16,,135,1962,45,6,14,42,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Salads,Classic Caesar Salad,without dressing,,main,230,12,3,,218,299,16,4,3,13,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Salads,Classic Caesar Salad,with dressing,,main,570,48,7,,240,671,18,4,3,15,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Salads,Classic Caesar Salad with Grilled Chicken,without dressing,,main,360,12,3,,201,855,18,4,2,38,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Salads,Classic Caesar Salad with Grilled Chicken,with dressing,,main,700,65,9,,228,1275,24,4,5,42,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Salads,Greek Salad with Chicken,without dressing,,main,340,16,5,,80,1130,15,7,6,27,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Salads,Greek Salad with Chicken,with dressing,,main,615,44,9,,80,1554,23,7,10,27,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Salads,Spicy Chicken Chopped Salad,without dressing,,main,740,34,13,,135,2336,62,7,8,45,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Salads,Spicy Chicken Chopped Salad,with dressing,,main,1080,68,18,,135,2836,70,7,14,45,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Salad Dressings & Sauce,BBQ Sauce,1 serving,,extra,38,1,0,,0,395,9,0,8,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Salad Dressings & Sauce,Caesar Dressing,1 serving,,extra,340,36,4,,22,372,2,0,0,2,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Salad Dressings & Sauce,Roasted Garlic Vinaigrette,1 serving,,extra,250,28,5,,0,440,0,0,0,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Salad Dressings & Sauce,Honey Mustard Sauce,1 serving,,extra,195,17,3,,23,210,11,0,9,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Salad Dressings & Sauce,Hot Giardiniera Sauce,1 serving,,extra,90,5,3,,0,170,2,0,1,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Salad Dressings & Sauce,House Dressing,1 serving,,extra,340,34,5,,0,500,8,0,6,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Salad Dressings & Sauce,Lite Italian Dressing,1 serving,,extra,80,7,1,,0,507,4,0,3,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Salad Dressings & Sauce,Ranch Dressing,1 serving,,extra,130,14,3,,10,292,1,0,0,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Side Orders,Cup of Original Chili with Cheese and Onion,1 serving,,side,430,20,9,,58,1764,42,7,6,22,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Side Orders,Chili Cheese Fries,1 serving,,side,450,27,10,,23,1151,46,5,4,11,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Side Orders,Chicken Noodle Soup,1 serving,,side,140,3,1,,38,988,15,1,3,14,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Side Orders,French Fries,Small,,side,380,20,8,,9,111,47,5,0,5,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Side Orders,French Fries,Large,,side,530,28,12,,13,158,67,7,0,7,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Side Orders,French Fries,Jumbo,,side,2650,140,60,,65,790,335,35,0,35,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Side Orders,Fresh Baked House Bread,1 serving,,side,480,2,0,,0,1110,99,3,0,18,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Side Orders,Garlic Bread,1 serving,,side,680,44,18,,0,960,61,0,2,10,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Side Orders,Cheesy Garlic Bread,1 serving,,side,860,58,27,,40,1340,63,0,2,22,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Side Orders,Meatball with Sauce and Cheese,1 serving,,extra,330,24,9,,54,836,11,3,2,20,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Side Orders,Onion Rings,Small,,side,320,7,2,,6,763,59,0,5,6,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Side Orders,Onion Rings,Large,,side,480,10,3,,9,1145,89,0,7,9,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Side Orders,Onion Rings,Jumbo,,side,2400,60,20,,45,5915,470,10,50,45,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Side Orders,Side of Meatballs,1 serving,,side,310,21,7,,47,902,13,3,4,20,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Side Orders,Tamale in Cup of Chili,1 serving,,side,540,31,14,,71,1348,43,4,3,22,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Side Orders,Tamale,1 serving,,side,340,17,6,,30,1020,36,3,1,11,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Add-ons & Condiments,Add Bacon,1 serving,,extra,100,9,3,,30,91,0,0,0,7,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Add-ons & Condiments,Barnelli's Add Chicken,1 serving,,extra,130,4,1,,55,390,2,0,0,21,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Add-ons & Condiments,Barnelli's Add Italian Sausage,1 serving,,extra,280,23,8,,55,956,0,0,0,18,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Add-ons & Condiments,Barnelli's Add Meatball,1 serving,,extra,310,21,7,,47,902,13,3,4,20,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Add-ons & Condiments,Regular Cheese Sauce,1 serving,,extra,135,9,3,,8,555,9,0,0,2,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Add-ons & Condiments,Jumbo Cheese Sauce,1 serving,,extra,540,36,12,,32,2220,36,0,0,8,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Add-ons & Condiments,Hot Peppers,1 serving,,extra,50,5,1,,0,100,2,0,1,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Add-ons & Condiments,Side of Gravy,1 serving,,extra,120,13,6,,14,431,1,0,0,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Add-ons & Condiments,Sweet Peppers,1 serving,,extra,40,4,1,,0,304,2,1,1,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Barnelli's Entrees & Ribs,Baked Mostaccioli without Sauce,1 serving,,extra,1080,51,28,0,137,2489,105,8,12,55,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Barnelli's Entrees & Ribs,Baked Mostaccioli with Marinara Sauce,1 serving,,extra,1440,69,38,0,195,3270,126,9,12,81,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Barnelli's Entrees & Ribs,Baked Mostaccioli with Meat Sauce,1 serving,,extra,1400,62,33,0,187,3372,130,9,15,83,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Barnelli's Entrees & Ribs,Fettuccine Alfredo,1 serving,,main,1890,103,60,0,295,2889,154,6,11,95,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Barnelli's Entrees & Ribs,Mostaccioli without sauce,Large,,extra,760,11,5,0,21,446,137,6,3,32,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Barnelli's Entrees & Ribs,Mostaccioli with Marinara Sauce,Large,,extra,1030,24,8,0,54,2450,165,12,20,42,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Barnelli's Entrees & Ribs,Mostaccioli with Meat Sauce,Large,,extra,1090,34,16,0,66,2297,158,12,16,40,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Barnelli's Entrees & Ribs,Mostaccioli without Sauce,Small,,extra,510,10,5,0,21,413,84,4,2,23,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Barnelli's Entrees & Ribs,Mostaccioli with Marinara Sauce,Small,,extra,690,19,7,0,43,1749,103,8,13,30,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Barnelli's Entrees & Ribs,Mostaccioli with Meat Sauce,Small,,extra,730,25,12,0,51,1647,99,8,10,28,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Barnelli's Entrees & Ribs,Penne All Arrabbiata,1 serving,,main,1170,59,19,0,61,2451,126,11,13,34,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Barnelli's Entrees & Ribs,Rigatoni Ala Vodka,1 serving,,main,2330,151,88,0,425,1744,193,11,9,54,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Barnelli's Entrees & Ribs,Spaghetti without Sauce,Large,,extra,760,11,5,0,21,446,137,6,3,32,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Barnelli's Entrees & Ribs,Spaghetti with Marinara Sauce,Large,,extra,1030,24,8,0,54,2450,165,12,20,42,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Barnelli's Entrees & Ribs,Spaghetti with Meat Sauce,Large,,extra,1090,34,16,0,66,2297,158,12,16,40,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Barnelli's Entrees & Ribs,Spaghetti without Sauce,Small,,extra,510,10,5,0,21,413,84,4,2,23,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Barnelli's Entrees & Ribs,Spaghetti with Marinara Sauce,Small,,extra,690,19,7,0,43,1749,103,8,13,30,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Barnelli's Entrees & Ribs,Spaghetti with Meat Sauce,Small,,extra,730,25,12,0,51,1647,103,8,10,28,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Meatball Sandwich,Breaded Chicken,1 serving,,main,310,12,2,0,65,1680,26,0,1,23,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Meatball Sandwich,Breaded Whitefish,1 serving,,main,250,13,5,0,40,430,17,0,0,12,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Meatball Sandwich,Burger Patty,1 serving,,main,280,18,7,0,94,526,0,0,0,27,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Meatball Sandwich,Char-Broiled Chicken,1 serving,,main,130,4,1,0,55,390,2,0,0,21,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Meatball Sandwich,Char-Grilled Polish Sausage,1 serving,,main,400,35,13,0,88,1450,3,0,3,20,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Meatball Sandwich,Hot Dog,1 serving,,main,150,12,5,0,30,480,2,0,1,7,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Meatball Sandwich,Jumbo Hot Dog,1 serving,,main,260,22,9,0,55,970,3,0,2,13,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Breads,Brioche Bun,1 serving,,main,190,4,2,0,10,300,33,1,7,7,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Breads,French Bread,6 inch,,main,300,2,0,0,0,720,58,0,2,10,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Breads,Hamburger Bun,1 serving,,main,220,3,0,0,0,400,42,1,4,7,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Breads,Hot Dog Bun,1 serving,,main,140,3,0,0,0,270,26,0,3,4,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Breads,Croissant,3 oz,,main,260,7,3,0,0,350,43,1,6,6,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Homemade Desserts,Chocolate Eclair Cake,1 serving,,dessert,520,18,7,0,17,512,83,4,51,6,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Homemade Desserts,Lemon Cake,1 serving,,dessert,700,29,11,0,74,573,103,1,75,5,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Homemade Desserts,Portillo's Famous Chocolate Cake,1 serving,,dessert,720,37,11,0,119,780,86,4,64,6,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Homemade Desserts,Strawberry Shortcake,1 serving,,dessert,480,20,12,0,66,311,73,2,62,3,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks,Cherry Coke,Small,,drink,156,0,0,0,0,0,6,42,0,42,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks,Cherry Coke,Large,,drink,250,0,0,0,0,0,10,67,0,67,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks,Chocolate Cake Shake,Small,,dessert,850,25,10,0,88,738,138,2,114,13,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks,Chocolate Cake Shake,Large,,dessert,1490,47,18,0,161,1325,240,4,197,21,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks,Chocolate Covered Strawberry Shake,Small,,dessert,940,23,13,0,35,598,163,4,143,13,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks,Chocolate Covered Strawberry Shake,Large,,dessert,1470,35,20,0,56,935,257,6,225,20,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks,Chocolate Shake,Small,,dessert,540,9,6,0,37,405,102,1,87,13,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks,Chocolate Shake,Large,,dessert,890,14,9,0,59,657,168,1,143,20,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks,Coke,Small,,drink,150,0,0,0,0,9,41,0,41,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks,Coke,Large,,drink,240,0,0,0,0,14,65,0,65,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks,Coke Zero,Small,,drink,1,0,0,0,0,42,0,0,0,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks,Coke Zero,Large,,drink,2,0,0,0,0,67,0,0,0,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks,Diet Coke,Small,,drink,0,0,0,0,0,15,0,0,0,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks,Diet Coke,Large,,drink,0,0,0,0,0,24,0,0,0,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks,Dr. Pepper,Small,,drink,165,0,0,0,0,53,41,0,41,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks,Dr. Pepper,Large,,drink,264,0,0,0,0,84,65,0,65,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks,Fanta Orange Soda,Small,,drink,167,0,0,0,0,53,53,0,53,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks,Fantasy Orange Soda,Large,,drink,266,0,0,0,0,84,84,0,84,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks,Hi-C Flashin Fruit Punch,Small,,drink,160,0,0,0,0,13,42,0,42,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks,Hi-C Flashin Fruit Punch,Large,,drink,250,0,0,0,0,22,67,0,67,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks,Iced Tea,Small,,drink,0,0,0,0,0,8,0,0,0,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks,Iced Tea,Large,,drink,0,0,0,0,0,12,0,0,0,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks,Milk,1 serving,,drink,120,5,4,0,25,120,11,0,11,8,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks,Minute Maid Lemonade,Small,,drink,150,0,0,0,0,61,39,0,39,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks,Minute Maid Lemonade,Large,,drink,230,0,0,0,0,98,62,0,62,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks,Root Beer,Small,,drink,170,0,0,0,0,36,45,0,45,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks,Root Beer,Large,,drink,270,0,0,0,0,58,72,0,72,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks continued,Sprite,Small,,drink,150,0,0,0,0,0,33,39,0,39,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks continued,Sprite,Large,,drink,230,0,0,0,0,0,53,62,0,62,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks continued,Strawberry Shake,Small,,dessert,520,8,6,0,35,379,96,1,82,13,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks continued,Strawberry Shake,Large,,dessert,830,14,9,0,56,606,156,2,132,20,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks continued,Strawberry Hibiscus Aqua Fresca,Small,,drink,85,0,0,0,0,17,22,0,22,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks continued,Strawberry Hibiscus Aqua Fresca,Large,,drink,130,0,0,0,0,27,35,0,35,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks continued,Sweet Tea,Small,,dessert,120,0,0,0,0,0,32,0,32,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks continued,Sweet Tea,Large,,dessert,190,0,0,0,0,0,50,0,50,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks continued,Vanilla Shake,Small,,dessert,500,8,6,0,35,379,91,1,77,13,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks continued,Vanilla Shake,Large,,dessert,800,14,9,0,56,606,146,1,124,20,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks continued,Add Malt,Small,,drink,55,1,0,0,0,40,12,0,9,1,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Drinks continued,Add Malt,Large,,drink,83,1,0,0,0,60,18,0,14,2,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,Burgers,Slice of American Cheese,1 serving,,main,90,7,5,,20,380,2,0,0,4,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,Side Orders,Side Garden Salad (no dressing),no dressing,,extra,170,8,3,,13,256,16,2,3,7,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,BEEF & SAUSAGE SANDWICHES,Italian Beef and Sausage Combo,1 serving,,main,860,49,19,,120,2272,63,0,5,38,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,PORTILLO'S BOWLS,Chicago Combo Bowl,1 serving,,main,760,59,23,,178,1380,4,0,3,51,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,BARNELLI'S ENTREES & RIBS,Baked Mostaccioli,without Sauce,,main,1080,51,28,,137,2489,105,8,12,55,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,BARNELLI'S ENTREES & RIBS,Baked Mostaccioli,with Marinara Sauce,,main,1440,69,38,,195,3270,126,9,12,81,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,BARNELLI'S ENTREES & RIBS,Baked Mostaccioli,with Meat Sauce,,main,1400,62,33,,187,3372,130,9,15,83,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,BARNELLI'S ENTREES & RIBS,Mostaccioli,"Large, without sauce",,main,760,11,5,,21,446,137,6,3,32,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,BARNELLI'S ENTREES & RIBS,Mostaccioli,"Large, with Marinara Sauce",,main,1030,24,8,,54,2450,165,12,20,42,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,BARNELLI'S ENTREES & RIBS,Mostaccioli,"Large, with Meat Sauce",,main,1090,34,16,,66,2297,158,12,16,40,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,BARNELLI'S ENTREES & RIBS,Mostaccioli,"Small, without Sauce",,main,510,10,5,,21,413,84,4,2,23,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,BARNELLI'S ENTREES & RIBS,Mostaccioli,"Small, with Marinara Sauce",,main,690,19,7,,43,1749,103,8,13,30,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,BARNELLI'S ENTREES & RIBS,Mostaccioli,"Small, with Meat Sauce",,main,730,25,12,,51,1647,99,8,10,28,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,BARNELLI'S ENTREES & RIBS,Spaghetti,"Large, without Sauce",,main,760,11,5,,21,446,137,6,3,32,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,BARNELLI'S ENTREES & RIBS,Spaghetti,"Large, with Marinara Sauce",,main,1030,24,8,,54,2450,165,12,20,42,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,BARNELLI'S ENTREES & RIBS,Spaghetti,"Large, with Meat Sauce",,main,1090,34,16,,66,2297,158,12,16,40,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,BARNELLI'S ENTREES & RIBS,Spaghetti,"Small, without Sauce",,main,510,10,5,,21,413,84,4,2,23,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,BARNELLI'S ENTREES & RIBS,Spaghetti,"Small, with Marinara Sauce",,main,690,19,7,,43,1749,103,8,13,30,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
-Portillo's,BARNELLI'S ENTREES & RIBS,Spaghetti,"Small, with Meat Sauce",,main,730,25,12,,51,1647,103,8,10,28,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
+Portillo's,BEEF & SAUSAGE SANDWICHES,Beef N Cheddar Croissant,1 serving,,main,670,41,19,,91,928,44,1,6,31,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BEEF & SAUSAGE SANDWICHES,Char-Grilled Italian Sausage,1 serving,,main,660,33,12,,80,2014,62,0,5,26,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BEEF & SAUSAGE SANDWICHES,Italian Beef Sandwich,Regular Sandwich,,main,690,34,14,,81,1237,59,0,2,33,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
+Portillo's,BEEF & SAUSAGE SANDWICHES,Italian Beef Sandwich,Big Beef Sandwich,,main,1040,51,21,,122,1856,88,0,3,50,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
+Portillo's,BEEF & SAUSAGE SANDWICHES,Italian Beef and Sausage Combo,1 serving,,main,860,49,19,,120,2272,63,0,5,38,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,PORTILLO'S BOWLS,Chicago Combo Bowl,1 serving,,main,760,59,23,,178,1380,4,0,3,51,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,PORTILLO'S BOWLS,Classic Beef Bowl,1 serving,,main,440,32,13,,103,230,0,0,0,35,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,PORTILLO'S BOWLS,Italiano Bowl,1 serving,,main,590,44,17,,121,1060,9,2,2,38,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,HOT DOGS,Chili Cheese Dog,Regular,,main,500,30,14,,73,1669,36,1,5,21,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,HOT DOGS,Chili Cheese Dog,Jumbo,,main,610,40,18,,98,2159,37,1,6,27,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,HOT DOGS,Hot Dog with Everything,Regular,,main,340,15,5,,30,1560,39,2,13,12,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,HOT DOGS,Hot Dog with Everything,Jumbo,,main,450,25,9,,55,2050,40,2,14,18,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,HOT DOGS,Maxwell Street Polish,1 serving,,main,570,39,13,,88,1886,32,1,7,25,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,HOT DOGS,Plant-Based Garden Dog*,1 serving,,main,320,12,1,,0,1432,44,2,13,10,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BURGERS,Bacon Burger,Single,,main,700,37,12,,129,1371,46,2,6,42,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BURGERS,Bacon Burger,Double,,main,980,56,19,,223,1897,46,2,6,69,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BURGERS,Brioche Bacon Burger (Select Locations),Single,,main,690,39,12,,129,1281,40,1,9,40,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BURGERS,Brioche Bacon Burger (Select Locations),Double,,main,960,58,19,,223,1807,40,1,9,67,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BURGERS,Hamburger,Single,,main,570,26,8,,99,1325,47,2,7,34,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BURGERS,Hamburger,Double,,main,900,50,15,,198,1888,47,2,7,61,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BURGERS,Brioche Hamburger (Select Locations),Single,,main,570,26,8,,99,1325,47,2,7,34,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BURGERS,Brioche Hamburger (Select Locations),Double,,main,900,50,15,,198,1888,47,2,7,61,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BURGERS,Rodeo Burger,Single,,main,790,43,17,,145,2195,65,1,18,46,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BURGERS,Rodeo Burger,Double,,main,1160,69,28,,259,3101,67,1,18,76,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,CHICKEN & FISH,Breaded Chicken Sandwich,1 serving,,main,600,25,5,,85,2058,60,1,9,30,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,CHICKEN & FISH,Broiled Chicken Sandwich,1 serving,,main,400,17,4,,80,769,36,1,8,26,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,CHICKEN & FISH,Chicken Tenders,4 Piece,,main,340,16,3,,60,961,24,0,0,24,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,CHICKEN & FISH,Chicken Tenders,6 Piece,,main,510,25,5,,90,1442,36,0,0,36,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,CHICKEN & FISH,Chicken Tenders,20 Piece,,main,1690,82,16,,300,4807,120,0,0,120,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,CHICKEN & FISH,Spicy Chicken Sandwich,1 serving,,main,520,17,6,,70,1558,60,2,8,29,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,CHICKEN & FISH,Breaded Fish Sandwich,1 serving,,main,710,43,15,,87,1236,55,1,7,23,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SALADS,Chicken Pecan Salad with Bacon,without dressing,,main,620,42,12,,139,1166,15,5,4,46,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SALADS,Chicken Pecan Salad with Bacon,with dressing,,main,910,70,16,,161,1666,23,5,4,46,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SALADS,Chopped Salad,without dressing,,main,510,20,11,,135,1462,37,6,8,42,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SALADS,Chopped Salad,with dressing,,main,850,54,16,,135,1962,45,6,14,42,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SALADS,Classic Caesar Salad,without dressing,,main,230,12,3,,218,299,16,4,3,13,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SALADS,Classic Caesar Salad,with dressing,,main,570,48,7,,240,671,18,4,3,15,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SALADS,Classic Caesar Salad with Grilled Chicken,without dressing,,main,360,12,3,,201,855,18,4,2,38,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SALADS,Classic Caesar Salad with Grilled Chicken,with dressing,,main,700,65,9,,228,1275,24,4,5,42,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SALADS,Greek Salad with Chicken,without dressing,,main,340,16,5,,80,1130,15,7,6,27,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SALADS,Greek Salad with Chicken,with dressing,,main,615,44,9,,80,1554,23,7,10,27,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SALADS,Spicy Chicken Chopped Salad,without dressing,,main,740,34,13,,135,2336,62,7,8,45,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SALADS,Spicy Chicken Chopped Salad,with dressing,,main,1080,68,18,,135,2836,70,7,14,45,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SALAD DRESSINGS & SAUCE,BBQ Sauce,1 serving,,extra,38,1,0,,0,395,9,0,8,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SALAD DRESSINGS & SAUCE,Caesar Dressing,1 serving,,extra,340,36,4,,22,372,2,0,0,2,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SALAD DRESSINGS & SAUCE,Roasted Garlic Vinaigrette,1 serving,,extra,250,28,5,,0,440,0,0,0,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SALAD DRESSINGS & SAUCE,Honey Mustard Sauce,1 serving,,extra,195,17,3,,23,210,11,0,9,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SALAD DRESSINGS & SAUCE,Hot Giardiniera Sauce,1 serving,,extra,90,5,3,,0,170,2,0,1,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SALAD DRESSINGS & SAUCE,House Dressing,1 serving,,extra,340,34,5,,0,500,8,0,6,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SALAD DRESSINGS & SAUCE,Lite Italian Dressing,1 serving,,extra,80,7,1,,0,507,4,0,3,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SALAD DRESSINGS & SAUCE,Ranch Dressing,1 serving,,extra,130,14,3,,10,292,1,0,0,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SIDE ORDERS,Cup of Original Chili with Cheese and Onion,1 serving,,side,430,20,9,,58,1764,42,7,6,22,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SIDE ORDERS,Chili Cheese Fries,1 serving,,side,450,27,10,,23,1151,46,5,4,11,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SIDE ORDERS,Chicken Noodle Soup,1 serving,,side,140,3,1,,38,988,15,1,3,14,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SIDE ORDERS,French Fries,Small,,side,380,20,8,,9,111,47,5,0,5,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SIDE ORDERS,French Fries,Large,,side,530,28,12,,13,158,67,7,0,7,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SIDE ORDERS,French Fries,Jumbo,,side,2650,140,60,,65,790,335,35,0,35,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SIDE ORDERS,Fresh Baked House Bread,1 serving,,side,480,2,0,,0,1110,99,3,0,18,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SIDE ORDERS,Garlic Bread,1 serving,,side,680,44,18,,0,960,61,0,2,10,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SIDE ORDERS,Cheesy Garlic Bread,1 serving,,side,860,58,27,,40,1340,63,0,2,22,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SIDE ORDERS,Meatball with Sauce and Cheese,1 serving,,extra,330,24,9,,54,836,11,3,2,20,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SIDE ORDERS,Onion Rings,Small,,side,320,7,2,,6,763,59,0,5,6,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SIDE ORDERS,Onion Rings,Large,,side,480,10,3,,9,1145,89,0,7,9,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SIDE ORDERS,Onion Rings,Jumbo,,side,2400,60,20,,45,5915,470,10,50,45,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SIDE ORDERS,Side Garden Salad (no dressing),1 serving,,extra,170,8,3,,13,256,16,2,3,7,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SIDE ORDERS,Side of Meatballs,1 serving,,side,310,21,7,,47,902,13,3,4,20,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SIDE ORDERS,Tamale in Cup of Chili,1 serving,,side,540,31,14,,71,1348,43,4,3,22,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SIDE ORDERS,Tamale,1 serving,,side,340,17,6,,30,1020,36,3,1,11,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,ADD-ONS & CONDIMENTS,Add Bacon,1 serving,,extra,100,9,3,,30,91,0,0,0,7,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,ADD-ONS & CONDIMENTS,Barnelli's Add Chicken,1 serving,,extra,130,4,1,,55,390,2,0,0,21,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,ADD-ONS & CONDIMENTS,Barnelli's Add Italian Sausage,1 serving,,extra,280,23,8,,55,956,0,0,0,18,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,ADD-ONS & CONDIMENTS,Barnelli's Add Meatball,1 serving,,extra,310,21,7,,47,902,13,3,4,20,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,ADD-ONS & CONDIMENTS,Hot Peppers,1 serving,,extra,50,5,1,,0,100,2,0,1,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,ADD-ONS & CONDIMENTS,Side of Gravy,1 serving,,extra,120,13,6,,14,431,1,0,0,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,ADD-ONS & CONDIMENTS,Sweet Peppers,1 serving,,extra,40,4,1,,0,304,2,1,1,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BARNELLI'S ENTREES & RIBS,Baked Mostaccioli,without Sauce,,main,1080,51,28,,137,2489,105,8,12,55,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BARNELLI'S ENTREES & RIBS,Baked Mostaccioli,with Marinara Sauce,,main,1440,69,38,,195,3270,126,9,12,81,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BARNELLI'S ENTREES & RIBS,Baked Mostaccioli,with Meat Sauce,,main,1400,62,33,,187,3372,130,9,15,83,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BARNELLI'S ENTREES & RIBS,Fettuccine Alfredo,1 serving,,main,1890,103,60,,295,2889,154,6,11,95,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BARNELLI'S ENTREES & RIBS,Mostaccioli,"Large, without sauce",,main,760,11,5,,21,446,137,6,3,32,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BARNELLI'S ENTREES & RIBS,Mostaccioli,"Large, with Marinara Sauce",,main,1030,24,8,,54,2450,165,12,20,42,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BARNELLI'S ENTREES & RIBS,Mostaccioli,"Large, with Meat Sauce",,main,1090,34,16,,66,2297,158,12,16,40,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BARNELLI'S ENTREES & RIBS,Mostaccioli,"Small, without sauce",,main,510,10,5,,21,413,84,4,2,23,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BARNELLI'S ENTREES & RIBS,Mostaccioli,"Small, with Marinara Sauce",,main,690,19,7,,43,1749,103,8,13,30,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BARNELLI'S ENTREES & RIBS,Mostaccioli,"Small, with Meat Sauce",,main,730,25,12,,51,1647,99,8,10,28,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BARNELLI'S ENTREES & RIBS,Penne All Arrabbiata,1 serving,,main,1170,59,19,,61,2451,126,11,13,34,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BARNELLI'S ENTREES & RIBS,Rigatoni Ala Vodka,1 serving,,main,2330,151,88,,425,1744,193,11,9,54,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BARNELLI'S ENTREES & RIBS,Spaghetti,"Large, without Sauce",,main,760,11,5,,21,446,137,6,3,32,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BARNELLI'S ENTREES & RIBS,Spaghetti,"Large, with Marinara Sauce",,main,1030,24,8,,54,2450,165,12,20,42,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BARNELLI'S ENTREES & RIBS,Spaghetti,"Large, with Meat Sauce",,main,1090,34,16,,66,2297,158,12,16,40,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BARNELLI'S ENTREES & RIBS,Spaghetti,"Small, without Sauce",,main,510,10,5,,21,413,84,4,2,23,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BARNELLI'S ENTREES & RIBS,Spaghetti,"Small, with Marinara Sauce",,main,690,19,7,,43,1749,103,8,13,30,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BARNELLI'S ENTREES & RIBS,Spaghetti,"Small, with Meat Sauce",,main,730,25,12,,51,1647,103,8,10,28,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,Meatball Sandwich,Breaded Chicken,1 serving,,main,310,12,2,,65,1680,26,0,1,23,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,Meatball Sandwich,Breaded Whitefish,1 serving,,main,250,13,5,,40,430,17,0,0,12,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,Meatball Sandwich,Burger Patty,1 serving,,main,280,18,7,,94,526,0,0,0,27,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,Meatball Sandwich,Char-Broiled Chicken,1 serving,,main,130,4,1,,55,390,2,0,0,21,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,Meatball Sandwich,Char-Grilled Polish Sausage,1 serving,,main,400,35,13,,88,1450,3,0,3,20,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,Meatball Sandwich,Hot Dog,1 serving,,main,150,12,5,,30,480,2,0,1,7,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,Meatball Sandwich,Jumbo Hot Dog,1 serving,,main,260,22,9,,55,970,3,0,2,13,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BREADS,Brioche Bun,1 serving,,main,190,4,2,,10,300,33,1,7,7,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BREADS,Hamburger Bun,1 serving,,main,220,3,0,,0,400,42,1,4,7,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BREADS,Hot Dog Bun,1 serving,,main,140,3,0,,0,270,26,0,3,4,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,HOMEMADE DESSERTS,Chocolate Eclair Cake,1 serving,,dessert,520,18,7,,17,512,83,4,51,6,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,HOMEMADE DESSERTS,Lemon Cake,1 serving,,dessert,700,29,11,,74,573,103,1,75,5,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,HOMEMADE DESSERTS,Portillo's Famous Chocolate Cake,1 serving,,dessert,720,37,11,,119,780,86,4,64,6,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,HOMEMADE DESSERTS,Strawberry Shortcake,1 serving,,dessert,480,20,12,,66,311,73,2,62,3,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS,Cherry Coke,Small,,drink,156,0,0,,0,6,42,0,42,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
+Portillo's,DRINKS,Cherry Coke,Large,,drink,250,0,0,,0,10,67,0,67,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
+Portillo's,DRINKS,Chocolate Cake Shake,Small,,dessert,850,25,10,,88,738,138,2,114,13,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS,Chocolate Cake Shake,Large,,dessert,1490,47,18,,161,1325,240,4,197,21,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS,Chocolate Covered Strawberry Shake,Small,,dessert,940,23,13,,35,598,163,4,143,13,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS,Chocolate Covered Strawberry Shake,Large,,dessert,1470,35,20,,56,935,257,6,225,20,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS,Chocolate Shake,Small,,dessert,540,9,6,,37,405,102,1,87,13,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS,Chocolate Shake,Large,,dessert,890,14,9,,59,657,168,1,143,20,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS,Coke,Small,,drink,150,0,0,,0,9,41,0,41,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS,Coke,Large,,drink,240,0,0,,0,14,65,0,65,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS,Coke Zero,Small,,drink,1,0,0,,0,42,0,0,0,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS,Coke Zero,Large,,drink,2,0,0,,0,67,0,0,0,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS,Diet Coke,Small,,drink,0,0,0,,0,15,0,0,0,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS,Diet Coke,Large,,drink,0,0,0,,0,24,0,0,0,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS,Dr. Pepper,Small,,drink,165,0,0,,0,53,41,0,41,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS,Dr. Pepper,Large,,drink,264,0,0,,0,84,65,0,65,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS,Fanta Orange Soda,Small,,drink,167,0,0,,0,53,53,0,53,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS,Fantasy Orange Soda,Large,,drink,266,0,0,,0,84,84,0,84,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS,Hi-C Flashin Fruit Punch,Small,,drink,160,0,0,,0,13,42,0,42,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS,Hi-C Flashin Fruit Punch,Large,,drink,250,0,0,,0,22,67,0,67,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS,Iced Tea,Small,,drink,0,0,0,,0,8,0,0,0,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS,Iced Tea,Large,,drink,0,0,0,,0,12,0,0,0,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS,Milk,1 serving,,drink,120,5,4,,25,120,11,0,11,8,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS,Minute Maid Lemonade,Small,,drink,150,0,0,,0,61,39,0,39,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS,Minute Maid Lemonade,Large,,drink,230,0,0,,0,98,62,0,62,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS,Root Beer,Small,,drink,170,0,0,,0,36,45,0,45,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS,Root Beer,Large,,drink,270,0,0,,0,58,72,0,72,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS continued,Sprite,Small,,drink,150,0,0,,0,0,33,0,39,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
+Portillo's,DRINKS continued,Sprite,Large,,drink,230,0,0,,0,0,53,0,62,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
+Portillo's,DRINKS continued,Strawberry Shake,Small,,dessert,520,8,6,,35,379,96,1,82,13,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS continued,Strawberry Shake,Large,,dessert,830,14,9,,56,606,156,2,132,20,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS continued,Strawberry Hibiscus Aqua Fresca,Small,,drink,85,0,0,,0,17,22,0,22,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS continued,Strawberry Hibiscus Aqua Fresca,Large,,drink,130,0,0,,0,27,35,0,35,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS continued,Sweet Tea,Small,,dessert,120,0,0,,0,0,32,0,32,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS continued,Sweet Tea,Large,,dessert,190,0,0,,0,0,50,0,50,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS continued,Vanilla Shake,Small,,dessert,500,8,6,,35,379,91,1,77,13,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS continued,Vanilla Shake,Large,,dessert,800,14,9,,56,606,146,1,124,20,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS continued,Add Malt,Small,,drink,55,1,0,,0,40,12,0,9,1,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS continued,Add Malt,Large,,drink,83,1,0,,0,60,18,0,14,2,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BURGERS,Slice of American Cheese,1 serving,,main,90,7,5,,20,380,2,0,0,4,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,ADD-ONS & CONDIMENTS,Regular Cheese Sauce,1 serving,,extra,135,9,3,,8,555,9,0,0,2,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,ADD-ONS & CONDIMENTS,Jumbo Cheese Sauce,1 serving,,extra,540,36,12,,32,2220,36,0,0,8,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BREADS,"French Bread, 6 inch",6 inch,,main,300,2,0,,0,720,58,0,2,10,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,BREADS,"Croissant, 3 oz",3 oz,,main,260,7,3,,0,350,43,1,6,6,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,Beef & Sausage Sandwiches,Regular Sandwich,1 serving,,main,690,34,14,,81,1237,59,0,2,33,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
+Portillo's,Beef & Sausage Sandwiches,Big Beef Sandwich,1 serving,,main,1040,51,21,,122,1856,88,0,3,50,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending

@@ -148,11 +148,11 @@ Compare with the guide. If one is wrong, fix it, set its check to `person`, and 
 | Item | Size | Numbers |
 | --- | --- | --- |
 | Misty® Freeze | Large | 590 / 15 / 10 / 1 / 50 / 210 / 102 / 0 / 90 / 12 |
-| Buster Bar - Manufactured | 6 Pack - Manufactured | 2850 / 177 / 107 / 1 / 95 / 1090 / 274 / 18 / 223 / 61 |
 | BBQ Smokehouse Cheddar Signature Stackburger™ | Triple | 960 / 59 / 26 / 2.5 / 170 / 2280 / 56 / 2 / 16 / 49 |
 | Hot Dog | 1 serving | 330 / 19 / 8 / 1 / 35 / 820 / 25 / 1 / 3 / 12 |
 | Misty® Slush | Small | 200 / 0 / 0 / 0 / 0 / 35 / 50 / 0 / 50 / 0 |
 | Tripleberry Smoothie | XLarge | 660 / 0 / 0 / 0 / 0 / 220 / 153 / 3 / 149 / 10 |
+| Dilly Bar | 6 Pack - Store Made | 1210 / 71 / 59 / 1 / 75 / 300 / 128 / 3 / 108 / 19 |
 | Chocolate Cone | Kids' | 160 / 5 / 3 / 0 / 15 / 60 / 25 / 0 / 17 / 4 |
 | Pork Tenderloin Sandwich | 1 serving | 600 / 34 / 7 / 0 / 45 / 990 / 52 / 3 / 7 / 21 |
 | Cherry Sundae | Medium | 360 / 9 / 6 / 0 / 30 / 135 / 61 / 0 / 52 / 8 |
