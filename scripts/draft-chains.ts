@@ -48,7 +48,7 @@ const DEFAULT_MODELS = ['openai/gpt-5.6-luna', 'anthropic/claude-haiku-5.5'];
 /** Chains worked on at once. */
 const DEFAULT_PARALLEL = 3;
 /** Guide text per AI call; longer guides are split at line breaks. */
-const CHUNK_CHARS = 60_000;
+const CHUNK_CHARS = 24_000;
 /** PDF pages read per guide: Firecrawl bills each page, and full guides run to about 40. */
 const PDF_PAGES = 40;
 /** Agreed lines a person spot-checks per chain: about 1 in 20, at least 3, at most 15. */
@@ -367,16 +367,20 @@ function openRouter() {
   return client;
 }
 
+/** A guide's pieces: its lines, or (item pages) its pages, so a part never cuts an item in two. */
+const pieces = (text: string, itemPages: boolean) => (itemPages ? text.split(/\n+(?=### Page \d)/) : text.split('\n'));
+const joinPieces = (list: readonly string[], itemPages: boolean) => list.map((piece) => `${piece}\n${itemPages ? '\n' : ''}`).join('');
+
 /** Long guides go in parts of about CHUNK_CHARS, split at line breaks (item pages: between pages). */
 function chunks(text: string, itemPages = false) {
   const parts: string[] = [];
   let current = '';
-  for (const piece of itemPages ? text.split(/\n+(?=### Page \d)/) : text.split('\n')) {
+  for (const piece of pieces(text, itemPages)) {
     if (current.length + piece.length > CHUNK_CHARS && current) {
       parts.push(current);
       current = '';
     }
-    current += `${piece}\n${itemPages ? '\n' : ''}`;
+    current += joinPieces([piece], itemPages);
   }
   if (current.trim()) parts.push(current);
   return parts;
@@ -393,24 +397,48 @@ async function cachedDraft(slug: string, model: string, chain: string, text: str
   return result;
 }
 
+/** The answer was cut off (too long for one reply) or the connection dropped while it was written. */
+class PartTooLong extends Error {}
+const tooLong = (error: unknown) =>
+  error instanceof PartTooLong || error instanceof SyntaxError || (error instanceof Error && /terminated|socket hang up|ECONNRESET/i.test(error.message));
+
+/** One part of a guide; an answer that gets cut off is read again as two halves (up to three times). */
+async function draftPart(model: string, chain: string, part: string, label: string, itemPages: boolean, depth = 0): Promise<{ items: DraftItem[]; tokens: number }> {
+  try {
+    const response = await openRouter().chat.completions.create({
+      model,
+      messages: [
+        { role: 'system', content: promptFor(itemPages) },
+        { role: 'user', content: `Chain: ${chain}\nGuide, ${label}:\n\n${part}` },
+      ],
+      response_format: { type: 'json_schema', json_schema: { name: 'chain_menu', strict: true, schema: draftJsonSchema(itemPages) } },
+      max_tokens: 64_000,
+    } as OpenAI.ChatCompletionCreateParamsNonStreaming);
+    const choice = response.choices[0];
+    if (choice?.finish_reason === 'length') throw new PartTooLong(`${model}: the answer for ${label} was cut off`);
+    if (!choice?.message?.content) throw new Error(`${model}: empty answer for ${label}`);
+    return { items: draftSchema.parse(JSON.parse(choice.message.content)).items, tokens: response.usage?.total_tokens ?? 0 };
+  } catch (error) {
+    const list = pieces(part, itemPages).filter((piece) => piece.trim());
+    if (!tooLong(error) || depth >= 3 || list.length < 2) throw error;
+    const middle = Math.ceil(list.length / 2);
+    const halves = [list.slice(0, middle), list.slice(middle)];
+    const results = [];
+    for (const [i, half] of halves.entries()) {
+      results.push(await draftPart(model, chain, joinPieces(half, itemPages), `${label}, half ${i + 1} of 2`, itemPages, depth + 1));
+    }
+    return { items: results.flatMap((r) => r.items), tokens: results.reduce((sum, r) => sum + r.tokens, 0) };
+  }
+}
+
 async function draft(model: string, chain: string, text: string, itemPages: boolean) {
   const parts = chunks(text, itemPages);
   const items: DraftItem[] = [];
   let tokens = 0;
   for (const [index, part] of parts.entries()) {
-    const response = await openRouter().chat.completions.create({
-      model,
-      messages: [
-        { role: 'system', content: promptFor(itemPages) },
-        { role: 'user', content: `Chain: ${chain}\nGuide, part ${index + 1} of ${parts.length}:\n\n${part}` },
-      ],
-      response_format: { type: 'json_schema', json_schema: { name: 'chain_menu', strict: true, schema: draftJsonSchema(itemPages) } },
-      max_tokens: 64_000,
-    } as OpenAI.ChatCompletionCreateParamsNonStreaming);
-    const content = response.choices[0]?.message?.content;
-    if (!content) throw new Error(`${model}: empty answer for part ${index + 1}`);
-    items.push(...draftSchema.parse(JSON.parse(content)).items);
-    tokens += response.usage?.total_tokens ?? 0;
+    const result = await draftPart(model, chain, part, `part ${index + 1} of ${parts.length}`, itemPages);
+    items.push(...result.items);
+    tokens += result.tokens;
   }
   return { items, tokens };
 }
@@ -504,8 +532,16 @@ export function compare(a: readonly DraftItem[], b: readonly DraftItem[], pageCo
     if (!samePage(x, y)) differ.push('page');
     const missing = REQUIRED.filter((field) => x[field] === null);
     const noPage = pageCount !== undefined && !(x.page && x.page >= 1 && x.page <= pageCount);
-    if (differ.length > 0 || missing.length > 0 || noPage) {
-      const reason = differ.length > 0 ? `differ: ${differ.join(', ')}` : missing.length > 0 ? `the guide gives no ${missing.join(', ')}` : 'no item page';
+    const impossible = impossibleNumbers(x);
+    if (differ.length > 0 || missing.length > 0 || noPage || impossible) {
+      const reason =
+        differ.length > 0
+          ? `differ: ${differ.join(', ')}`
+          : missing.length > 0
+            ? `the guide gives no ${missing.join(', ')}`
+            : noPage
+              ? 'no item page'
+              : `both read numbers that can't be right: ${impossible}`;
       problems.push({ key, a: x, b: y, reason });
       lines.push({ item: x, check: 'pending' });
     } else {
@@ -513,6 +549,18 @@ export function compare(a: readonly DraftItem[], b: readonly DraftItem[], pageCo
     }
   }
   return { lines, problems };
+}
+
+/**
+ * Numbers no guide can mean (the build refuses them too): both drafts read the same line wrongly, or
+ * the guide has a typo. Such a line waits for a person.
+ */
+function impossibleNumbers(item: DraftItem) {
+  const n = (value: number | null) => value ?? 0;
+  if (n(item.sugars_g) > n(item.carbs_g) + 1) return `sugars ${n(item.sugars_g)} g above carbs ${n(item.carbs_g)} g`;
+  if (n(item.fiber_g) > n(item.carbs_g) + 1) return `fiber ${n(item.fiber_g)} g above carbs ${n(item.carbs_g)} g`;
+  if (n(item.saturated_fat_g) + n(item.trans_fat_g) > n(item.fat_g) + 1) return 'saturated and trans fat above fat';
+  return null;
 }
 
 /** A fixed sample of agreed lines (the same on every run) for a person to compare with the guide. */
@@ -533,6 +581,17 @@ const show = (value: number | null) => (value === null ? '' : String(value));
  * Writes the chain's menu file; lines a person already checked stay as they are. With item pages, each line's
  * source is its own page (`pages`, numbered from 1), else the guide.
  */
+/**
+ * A guide's heading as a section (at most 60 characters): a long one keeps its first sentence,
+ * "CUSTOM ROUND PIZZAS (1-2 TOPPINGS). ADD CALORIES TO BASE PIZZA" → "CUSTOM ROUND PIZZAS (1-2 TOPPINGS)".
+ */
+export function shortSection(section: string) {
+  const text = section.replace(/\s+/g, ' ').trim();
+  if (text.length <= 60) return text;
+  const sentence = text.split(/(?<=[.!?;:])\s|\s[–—-]\s/)[0].replace(/[.!?;:]$/, '').trim();
+  return (sentence.length >= 3 && sentence.length <= 60 ? sentence : text.slice(0, 60)).trim();
+}
+
 export function writeMenu(slug: string, chain: string, url: string, readOn: string, lines: readonly Line[], pages?: readonly string[]) {
   const sourceOf = (item: DraftItem) => (pages && item.page ? (pages[item.page - 1] ?? url) : url);
   const file = path.join(MENUS, `${slug}.csv`);
@@ -549,7 +608,7 @@ export function writeMenu(slug: string, chain: string, url: string, readOn: stri
     .map(({ item, check }) =>
       csvLine([
         chain,
-        item.section,
+        shortSection(item.section),
         item.name,
         item.serving,
         show(item.serving_g),

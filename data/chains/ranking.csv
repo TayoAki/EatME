@@ -1,29 +1,29 @@
 rank,chain,site,guide_url,notes
-1,McDonald's,mcdonalds.com,items:https://www.mcdonalds.com/us/en-us/product/ menu=https://www.mcdonalds.com/us/en-us/full-menu.html,"item pages read 2026-10-22: 119 with nutrition, ready to draft"
-2,Starbucks,starbucks.com,items:https://www.starbucks.com/menu/product/ segments=2 suffix=/nutrition skip=whole-bean,"item pages read 2026-10-22: 165 with nutrition, ready to draft"
+1,McDonald's,mcdonalds.com,items:https://www.mcdonalds.com/us/en-us/product/ menu=https://www.mcdonalds.com/us/en-us/full-menu.html,"drafted 2026-10-22: 111 agreed, 8 for a person"
+2,Starbucks,starbucks.com,items:https://www.starbucks.com/menu/product/ segments=2 suffix=/nutrition skip=whole-bean,"drafted 2026-10-22: 164 agreed, 1 for a person"
 3,Chick-fil-A,chick-fil-a.com,https://www.chick-fil-a.com/nutrition-allergens,"drafted 2026-10-21: 303 agreed, 24 for a person"
 4,Taco Bell,tacobell.com,https://www.tacobell.com/nutrition/info,guide is run by Nutritionix: set guide_url to the chain’s own PDF
-5,Dunkin',dunkindonuts.com,https://assets.ctfassets.net/ubkcphxhphh0/3qEP8wMU2IFmLsLyEeWLuc/7bdae361f785d1611d25c4d859f8c721/DD_W7_nutrition_guide.pdf,guide read 2026-10-22: ready to draft
+5,Dunkin',dunkindonuts.com,https://assets.ctfassets.net/ubkcphxhphh0/3qEP8wMU2IFmLsLyEeWLuc/7bdae361f785d1611d25c4d859f8c721/DD_W7_nutrition_guide.pdf,failed: Unterminated string in JSON at position 64406 (line 1 column 64407)
 6,Wendy's,wendys.com,https://www.wendys.com/nutrition-allergens,no nutrition numbers found in the guide: set guide_url to the PDF or full table
-7,Chipotle Mexican Grill,chipotle.com,https://www.chipotle.com/content/dam/chipotle/menu/nutrition/US-Nutrition-Facts-Paper-Menu-3-2025.pdf,guide read 2026-10-22: ready to draft
+7,Chipotle Mexican Grill,chipotle.com,https://www.chipotle.com/content/dam/chipotle/menu/nutrition/US-Nutrition-Facts-Paper-Menu-3-2025.pdf,"drafted 2026-10-22: 0 agreed, 51 for a person"
 8,Burger King,bk.com,https://help.bk.com/hc/en-us/sections/36912922362263-Nutrition,no nutrition numbers found in the guide: set guide_url to the PDF or full table
-9,Domino's,dominos.com,https://cache.dominos.com/olo/6_48_1/assets/build/market/US/_en/pdf/DominosNutritionGuide.pdf,guide read 2026-10-22: ready to draft
-10,Subway,subway.com,https://media.subway.com/dam/urn:aaid:aem:f20a4541-8c88-496b-940d-4aa8318cae26/original/as/us-nutrition-en.pdf,guide read 2026-10-22: ready to draft
-11,Panda Express,pandaexpress.com,https://www.pandaexpress.com/nutritioninformation,guide read 2026-10-22: ready to draft
-12,Panera Bread,panerabread.com,https://www.panerabread.com/content/dam/panerabread/documents/c8-26-nutrition-guide.pdf,guide read 2026-10-22: ready to draft
+9,Domino's,dominos.com,https://cache.dominos.com/olo/6_48_1/assets/build/market/US/_en/pdf/DominosNutritionGuide.pdf,"drafted 2026-10-22: 82 agreed, 146 for a person"
+10,Subway,subway.com,https://media.subway.com/dam/urn:aaid:aem:f20a4541-8c88-496b-940d-4aa8318cae26/original/as/us-nutrition-en.pdf,"drafted 2026-10-22: 52 agreed, 118 for a person"
+11,Panda Express,pandaexpress.com,https://www.pandaexpress.com/nutritioninformation,"drafted 2026-10-22: 122 agreed, 1 for a person"
+12,Panera Bread,panerabread.com,https://www.panerabread.com/content/dam/panerabread/documents/c8-26-nutrition-guide.pdf,"drafted 2026-10-22: 256 agreed, 278 for a person"
 13,Texas Roadhouse,texasroadhouse.com,https://www.texasroadhouse.com/menu/nutrition,no nutrition numbers found in the guide: set guide_url to the PDF or full table
-14,Popeyes,popeyes.com,https://plk-use1-prod.sites.rbictg.com/nutrition/PLK_Nutrition.pdf,guide read 2026-10-22: ready to draft
+14,Popeyes,popeyes.com,https://plk-use1-prod.sites.rbictg.com/nutrition/PLK_Nutrition.pdf,"drafted 2026-10-22: 37 agreed, 32 for a person"
 15,Chili's Grill & Bar,chilis.com,https://www.chilis.com/nutrition,guide is run by Nutritionix: set guide_url to the chain’s own PDF
-16,Raising Cane's,raisingcanes.com,https://www.raisingcanes.com/allergens/,guide read 2026-10-22: ready to draft
-17,Olive Garden,olivegarden.com,https://media.olivegarden.com/en_us/pdf/olive_garden_nutrition.pdf,guide read 2026-10-22: ready to draft
-18,SONIC,sonicdrivein.com,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,guide read 2026-10-22: ready to draft
+16,Raising Cane's,raisingcanes.com,https://www.raisingcanes.com/allergens/,"drafted 2026-10-22: 106 agreed, 3 for a person"
+17,Olive Garden,olivegarden.com,https://media.olivegarden.com/en_us/pdf/olive_garden_nutrition.pdf,"drafted 2026-10-22: 97 agreed, 95 for a person"
+18,SONIC,sonicdrivein.com,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,failed: Unterminated string in JSON at position 48017 (line 1 column 48018)
 19,Pizza Hut,pizzahut.com,https://www.pizzahut.com/c/content/nutrition,guide is run by Nutritionix: set guide_url to the chain’s own PDF
-20,Dairy Queen,dairyqueen.com,https://www.dairyqueen.com/en-us/nutrition/food-treats/,guide read 2026-10-22: ready to draft
-21,Wingstop,wingstop.com,https://s3.amazonaws.com/wingstop.com/assets/static/WSR18-0009-Corporate-NutritionalGuide-JumboWings-HR_OFFICAL.pdf,guide read 2026-10-22: ready to draft
+20,Dairy Queen,dairyqueen.com,https://www.dairyqueen.com/en-us/nutrition/food-treats/,failed: terminated
+21,Wingstop,wingstop.com,https://s3.amazonaws.com/wingstop.com/assets/static/WSR18-0009-Corporate-NutritionalGuide-JumboWings-HR_OFFICAL.pdf,"drafted 2026-10-22: 56 agreed, 45 for a person"
 22,KFC,www.kfc.com,https://www.kfc.com/full-nutrition-guide,guide is run by Nutritionix: set guide_url to the chain’s own PDF
-23,Little Caesars,littlecaesars.com,https://littlecaesars.com/static/usnutritionguide.pdf,guide read 2026-10-22: ready to draft
-24,Culver's,culvers.com,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,guide read 2026-10-22: ready to draft
-25,Whataburger,whataburger.com,https://wbimageserver.whataburger.com/Nutrition.pdf,guide read 2026-10-22: ready to draft
+23,Little Caesars,littlecaesars.com,https://littlecaesars.com/static/usnutritionguide.pdf,"drafted 2026-10-22: 50 agreed, 1 for a person"
+24,Culver's,culvers.com,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,failed: terminated
+25,Whataburger,whataburger.com,https://wbimageserver.whataburger.com/Nutrition.pdf,"drafted 2026-10-22: 136 agreed, 103 for a person"
 26,Arby's,arbys.com,https://assets.ctfassets.net/30q5w5l98nbx/42zLskOHOxnHbSVYO98X47/eb5b661b4d42295aaf804a8f6a150b13/Arbys_Nutritional_and_Allergen_OCT_2026.pdf,guide read 2026-10-22: ready to draft
 27,Jack in the Box,jackinthebox.com,,no nutrition page found on jackinthebox.com: set guide_url by hand
 28,Jersey Mike's Subs,jerseymikes.com,https://www.jerseymikes.com/menu/nutrition,no nutrition numbers found in the guide: set guide_url to the PDF or full table

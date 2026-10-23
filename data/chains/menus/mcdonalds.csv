@@ -1,0 +1,120 @@
+chain,section,name,serving,serving_g,kind,calories,fat_g,saturated_fat_g,trans_fat_g,cholesterol_mg,sodium_mg,carbs_g,fiber_g,sugars_g,protein_g,source_url,checked_on,check
+McDonald's,Sides,Apple Slices,1 serving,,side,15,0,0,0,0,0,4,0,3,0,https://www.mcdonalds.com/us/en-us/product/apple-slices.html,2026-10-22,two-drafts
+McDonald's,Breakfast,Big Breakfast® with Hotcakes,1 serving,,main,1340,63,24,0.5,525,2070,158,5,48,36,https://www.mcdonalds.com/us/en-us/product/big-breakfast-with-hotcakes.html,2026-10-22,two-drafts
+McDonald's,Breakfast,Big Breakfast®,1 serving,,main,1060,48,18,0,485,1540,131,3,56,26,https://www.mcdonalds.com/us/en-us/product/big-breakfast.html,2026-10-22,two-drafts
+McDonald's,Drinks,Blackberry Passion Fruit Refresher,Small,,drink,170,0,0,0,0,40,40,1,35,1,https://www.mcdonalds.com/us/en-us/product/blackberry-passionfruit-refresher-small.html,2026-10-22,two-drafts
+McDonald's,Drinks,McCafé® Cappuccino,Small,,drink,110,5,3.5,0,20,75,10,0,8,6,https://www.mcdonalds.com/us/en-us/product/cappuccino-small.html,2026-10-22,two-drafts
+McDonald's,Drinks,McCafé® Caramel Cappuccino,Small,,drink,210,4.5,3,0,20,290,35,0,31,7,https://www.mcdonalds.com/us/en-us/product/caramel-cappuccino-small.html,2026-10-22,two-drafts
+McDonald's,Drinks,McCafé® Caramel Macchiato,Small,,drink,260,6,4,0,25,320,41,0,35,9,https://www.mcdonalds.com/us/en-us/product/caramel-macchiato-small.html,2026-10-22,two-drafts
+McDonald's,Chicken,Chicken McNuggets®,4 Piece,,main,170,10,1.5,0,25,340,10,0,0,9,https://www.mcdonalds.com/us/en-us/product/chicken-mcnuggets-4-piece.html,2026-10-22,two-drafts
+McDonald's,Drinks,Chocolate Shake,Small,,dessert,520,14,9,0.5,55,250,85,,67,12,https://www.mcdonalds.com/us/en-us/product/chocolate-shake-small.html,2026-10-22,pending
+McDonald's,Drinks,Coca-Cola®,Medium,,drink,270,0,0,0,0,65,70,0,70,0,https://www.mcdonalds.com/us/en-us/product/coca-cola-medium.html,2026-10-22,two-drafts
+McDonald's,Drinks,Coca-Cola®,Small,,drink,200,0,0,0,0,50,53,0,53,0,https://www.mcdonalds.com/us/en-us/product/coca-cola-small.html,2026-10-22,two-drafts
+McDonald's,Drinks,Coca-Cola® Zero Sugar,Small,,drink,0,0,0,0,0,40,0,,0,0,https://www.mcdonalds.com/us/en-us/product/coca-cola-zero-sugar-small.html,2026-10-22,pending
+McDonald's,Drinks,McCafé® Premium Roast Decaf Coffee,Small,,drink,5,0,0,0,0,10,1,0,0,1,https://www.mcdonalds.com/us/en-us/product/coffee-decaf-small.html,2026-10-22,two-drafts
+McDonald's,Drinks,McCafé® Premium Roast Coffee,Medium,,drink,10,0,0,0,0,10,1,0,0,1,https://www.mcdonalds.com/us/en-us/product/coffee-medium.html,2026-10-22,pending
+McDonald's,Drinks,McCafé® Premium Roast Coffee,Small,,drink,5,0,0,0,0,10,1,0,0,0,https://www.mcdonalds.com/us/en-us/product/coffee-small.html,2026-10-22,two-drafts
+McDonald's,Sauces,Creamy Chili McCrispy® Strip Dip,1 serving,,extra,110,11,2,0,10,250,3,0,2,0,https://www.mcdonalds.com/us/en-us/product/creamy-chili-sauce.html,2026-10-22,two-drafts
+McDonald's,Sauces,Creamy Ranch Sauce,1 serving,,extra,110,12,2,0,5,160,1,,1,0,https://www.mcdonalds.com/us/en-us/product/creamy-ranch-sauce.html,2026-10-22,pending
+McDonald's,Burgers,Daily Double,1 serving,,main,490,31,11,1,80,810,30,2,5,22,https://www.mcdonalds.com/us/en-us/product/daily-double.html,2026-10-22,two-drafts
+McDonald's,Drinks,DASANI® Water,1 serving,,drink,0,0,0,0,0,0,0,0,0,0,https://www.mcdonalds.com/us/en-us/product/dasani-water.html,2026-10-22,two-drafts
+McDonald's,Chicken,Deluxe McCrispy®,1 serving,,main,530,26,4,0,65,1050,48,2,10,27,https://www.mcdonalds.com/us/en-us/product/deluxe-mccrispy-chicken-sandwich.html,2026-10-22,two-drafts
+McDonald's,Burgers,Quarter Pounder®* with Cheese Deluxe,1 serving,,main,630,37,14,1.5,105,1210,44,3,11,30,https://www.mcdonalds.com/us/en-us/product/deluxe-quarter-pounder-with-cheese.html,2026-10-22,two-drafts
+McDonald's,Drinks,Diet Coke®,Small,,drink,0,0,0,0,0,50,0,,0,0,https://www.mcdonalds.com/us/en-us/product/diet-coke-small.html,2026-10-22,pending
+McDonald's,Drinks,Dirty Dr Pepper®,Small,,drink,250,6,0.5,0,0,45,51,0,47,0,https://www.mcdonalds.com/us/en-us/product/dirty-dr-pepper-small.html,2026-10-22,two-drafts
+McDonald's,Burgers,Double Cheeseburger,1 serving,,main,440,24,11,1.5,85,1120,34,2,6,25,https://www.mcdonalds.com/us/en-us/product/double-cheeseburger.html,2026-10-22,two-drafts
+McDonald's,Burgers,Double Quarter Pounder®* with Cheese,1 serving,,main,740,42,20,2.5,165,1360,43,2,10,48,https://www.mcdonalds.com/us/en-us/product/double-quarter-pounder-with-cheese.html,2026-10-22,two-drafts
+McDonald's,Drinks,Dr Pepper®,Small,,drink,190,0,0,0,0,60,52,0,51,0,https://www.mcdonalds.com/us/en-us/product/dr-pepper-small.html,2026-10-22,two-drafts
+McDonald's,Breakfast,Egg and Cheese Bagel,1 serving,,main,520,24,10,0.5,230,1100,55,2,6,21,https://www.mcdonalds.com/us/en-us/product/egg-and-cheese-bagel.html,2026-10-22,two-drafts
+McDonald's,Breakfast,Egg Cheese Biscuit,1 serving,,main,390,21,11,0,205,1110,39,1,3,13,https://www.mcdonalds.com/us/en-us/product/egg-cheese-biscuit.html,2026-10-22,two-drafts
+McDonald's,Breakfast,Egg McMuffin®,1 serving,,main,310,13,6,0,250,770,30,2,3,17,https://www.mcdonalds.com/us/en-us/product/egg-mcmuffin.html,2026-10-22,two-drafts
+McDonald's,Drinks,McCafé® Americano,Small,,drink,0,0,0,0,0,10,1,0,0,0,https://www.mcdonalds.com/us/en-us/product/espresso-americano-coffee-small.html,2026-10-22,two-drafts
+McDonald's,Fish,Filet-O-Fish®,1 serving,,main,380,19,4,0,30,580,38,1,4,16,https://www.mcdonalds.com/us/en-us/product/filet-o-fish.html,2026-10-22,two-drafts
+McDonald's,Drinks,McCafé® Caramel Frappé,Small,,drink,420,17,11,0.5,55,80,60,1,53,7,https://www.mcdonalds.com/us/en-us/product/frappe-caramel-small.html,2026-10-22,two-drafts
+McDonald's,Drinks,McCafé® Mocha Frappé,Small,,drink,430,17,11,0.5,65,120,61,0,51,7,https://www.mcdonalds.com/us/en-us/product/frappe-mocha-small.html,2026-10-22,two-drafts
+McDonald's,Drinks,McCafé® French Vanilla Cappuccino,Small,,drink,210,4.5,3,0,20,65,37,0,28,5,https://www.mcdonalds.com/us/en-us/product/french-vanilla-cappuccino-small.html,2026-10-22,two-drafts
+McDonald's,Drinks,Frozen Coca-Cola® Classic,Small,,drink,90,0,0,0,0,0,24,0,24,0,https://www.mcdonalds.com/us/en-us/product/frozen-coke-small.html,2026-10-22,two-drafts
+McDonald's,Drinks,Frozen Fanta® Blue Raspberry,Small,,drink,90,0,0,0,0,10,23,0,23,0,https://www.mcdonalds.com/us/en-us/product/frozen-fanta-blue-raspberry-small.html,2026-10-22,two-drafts
+McDonald's,Drinks,Frozen Hawaiian Punch®,Small,,drink,60,0,0,0,0,20,15,0,15,0,https://www.mcdonalds.com/us/en-us/product/frozen-hawaiian-punch-small.html,2026-10-22,two-drafts
+McDonald's,Breakfast,Fruit & Maple Oatmeal,1 serving,,main,320,4.5,1.5,0,5,150,64,4,31,6,https://www.mcdonalds.com/us/en-us/product/fruit-maple-oatmeal.html,2026-10-22,two-drafts
+McDonald's,Burgers,Hamburger: The Classic McDonald's Burger,1 serving,,main,250,9,3.5,0,30,510,30,1,5,12,https://www.mcdonalds.com/us/en-us/product/hamburger.html,2026-10-22,two-drafts
+McDonald's,Sides,Hash Browns,1 serving,,side,140,8,1,0,0,310,18,2,0,2,https://www.mcdonalds.com/us/en-us/product/hash-browns.html,2026-10-22,two-drafts
+McDonald's,Drinks,Hi-C® Orange Lavaburst®,Small,,drink,220,0,0,0,0,55,56,0,56,0,https://www.mcdonalds.com/us/en-us/product/hi-c-orange-lavaburst-small.html,2026-10-22,two-drafts
+McDonald's,Sauces,Honey Mustard Sauce,1 serving,,extra,60,3.5,0.5,0,5,125,6,1,4,0,https://www.mcdonalds.com/us/en-us/product/honey-mustard-sauce.html,2026-10-22,two-drafts
+McDonald's,Sauces,Honey,1 serving,,extra,50,0,0,0,0,0,12,0,11,0,https://www.mcdonalds.com/us/en-us/product/honey.html,2026-10-22,two-drafts
+McDonald's,Desserts,Hot Caramel Sundae,1 serving,,dessert,330,7,4.5,0,30,150,58,0,41,7,https://www.mcdonalds.com/us/en-us/product/hot-caramel-sundae.html,2026-10-22,two-drafts
+McDonald's,Drinks,McCafé® Hot Chocolate,Small,,drink,360,12,8,0,45,170,51,1,45,11,https://www.mcdonalds.com/us/en-us/product/hot-chocolate-small.html,2026-10-22,two-drafts
+McDonald's,Desserts,Hot Fudge Sundae,1 serving,,dessert,330,10,7,0,25,170,51,2,44,8,https://www.mcdonalds.com/us/en-us/product/hot-fudge-sundae.html,2026-10-22,two-drafts
+McDonald's,Drinks,Hot Tea,Small,,drink,10,0,0,0,0,5,0,0,0,2,https://www.mcdonalds.com/us/en-us/product/hot-tea-small.html,2026-10-22,two-drafts
+McDonald's,Breakfast,Hotcakes and Sausage,1 serving,,main,770,33,12,0,75,810,102,2,46,15,https://www.mcdonalds.com/us/en-us/product/hotcakes-and-sausage.html,2026-10-22,two-drafts
+McDonald's,Breakfast,Hotcakes,1 serving,,main,580,15,6,0,40,530,101,2,45,9,https://www.mcdonalds.com/us/en-us/product/hotcakes.html,2026-10-22,two-drafts
+McDonald's,Drinks,McCafé® Iced Caramel Latte,Small,,drink,180,4.5,2.5,0,20,240,28,0,25,6,https://www.mcdonalds.com/us/en-us/product/iced-caramel-latte-small.html,2026-10-22,two-drafts
+McDonald's,Drinks,McCafé® Iced Caramel Macchiato,Small,,drink,200,5,3,0,20,250,33,0,28,7,https://www.mcdonalds.com/us/en-us/product/iced-caramel-macchiato-small.html,2026-10-22,two-drafts
+McDonald's,Drinks,McCafé® Iced Black Coffee,Small,,drink,5,0,0,0,0,10,1,0,0,1,https://www.mcdonalds.com/us/en-us/product/iced-coffee-black-small.html,2026-10-22,two-drafts
+McDonald's,Drinks,McCafé® Iced Caramel Coffee,Small,,drink,150,5,3,0,15,210,23,0,19,2,https://www.mcdonalds.com/us/en-us/product/iced-coffee-caramel-small.html,2026-10-22,two-drafts
+McDonald's,Drinks,McCafé® Iced French Vanilla Coffee,Small,,drink,150,5,3,0,15,35,25,0,17,1,https://www.mcdonalds.com/us/en-us/product/iced-coffee-french-vanilla-small.html,2026-10-22,two-drafts
+McDonald's,Drinks,McCafé® Iced Coffee,Small,,drink,150,5,3,0,15,35,25,0,20,1,https://www.mcdonalds.com/us/en-us/product/iced-coffee-small.html,2026-10-22,two-drafts
+McDonald's,Drinks,McCafé® Iced Latte,Small,,drink,80,4,2.5,0,15,60,8,0,6,5,https://www.mcdonalds.com/us/en-us/product/iced-latte-small.html,2026-10-22,two-drafts
+McDonald's,Drinks,McCafé® Iced Mocha Latte,Small,,drink,270,10,6,0,35,115,39,1,33,7,https://www.mcdonalds.com/us/en-us/product/iced-mocha-small.html,2026-10-22,two-drafts
+McDonald's,Drinks,Unsweetened Iced Tea,Small,,drink,0,0,0,0,0,10,0,,0,1,https://www.mcdonalds.com/us/en-us/product/iced-tea-small.html,2026-10-22,pending
+McDonald's,Drinks,McCafé® Caramel Latte,Small,,drink,250,7,4,0,25,320,39,0,34,9,https://www.mcdonalds.com/us/en-us/product/latte-caramel-small.html,2026-10-22,two-drafts
+McDonald's,Drinks,McCafé® French Vanilla Latte,Small,,drink,250,6,4,0,25,90,41,0,30,8,https://www.mcdonalds.com/us/en-us/product/latte-french-vanilla-small.html,2026-10-22,two-drafts
+McDonald's,Drinks,McCafé® Latte,Small,,drink,140,7,4,0,25,90,13,0,10,8,https://www.mcdonalds.com/us/en-us/product/latte-small.html,2026-10-22,two-drafts
+McDonald's,Drinks,Lemonade,Small,,drink,120,0,0,0,0,5,31,0,29,0,https://www.mcdonalds.com/us/en-us/product/lemonade-small.html,2026-10-22,two-drafts
+McDonald's,Drinks,Mango Pineapple Refresher,Small,,drink,180,0,0,0,0,40,43,0,39,0,https://www.mcdonalds.com/us/en-us/product/mango-pineapple-refresher-small.html,2026-10-22,two-drafts
+McDonald's,Drinks,Mango Pineapple Smoothie,Small,,drink,200,0.5,0,0,5,35,45,1,42,2,https://www.mcdonalds.com/us/en-us/product/mango-pineapple-smoothie-small.html,2026-10-22,two-drafts
+McDonald's,Chicken,McChicken®,1 serving,,main,390,21,3.5,0,40,560,38,1,4,14,https://www.mcdonalds.com/us/en-us/product/mcchicken.html,2026-10-22,two-drafts
+McDonald's,Chicken,McCrispy®,1 serving,,main,470,20,5,0,70,1140,46,1,9,26,https://www.mcdonalds.com/us/en-us/product/mccrispy-chicken-sandwich.html,2026-10-22,two-drafts
+McDonald's,Chicken,McCrispy® Strips,3 piece,,main,400,20,2,0,90,1320,24,2,1,31,https://www.mcdonalds.com/us/en-us/product/mccrispy-strips-3-piece.html,2026-10-22,two-drafts
+McDonald's,Burgers,McDouble®,1 serving,,main,390,20,9,1,70,920,32,2,6,22,https://www.mcdonalds.com/us/en-us/product/mcdouble.html,2026-10-22,two-drafts
+McDonald's,Desserts,OREO® McFlurry®,1 serving,,dessert,410,13,7,0,35,210,64,1,48,10,https://www.mcdonalds.com/us/en-us/product/mcflurry-with-oreo-cookies.html,2026-10-22,two-drafts
+McDonald's,Drinks,Minute Maid® Premium Orange Juice,Medium,,drink,190,0,0,0,0,45,45,1,41,3,https://www.mcdonalds.com/us/en-us/product/minute-maid-orange-juice-medium-201248.html,2026-10-22,two-drafts
+McDonald's,Desserts,M&M'S® McFlurry®,1 serving,,dessert,570,19,12,0,35,170,85,2,74,11,https://www.mcdonalds.com/us/en-us/product/mm-candy-mcflurry.html,2026-10-22,two-drafts
+McDonald's,Drinks,McCafé® Mocha Latte,Small,,drink,290,9,5,0,30,125,45,1,39,8,https://www.mcdonalds.com/us/en-us/product/mocha-latte-small.html,2026-10-22,two-drafts
+McDonald's,Drinks,Orange Dream with Hi-C®,Small,,drink,260,6,0.5,0,0,45,53,0,49,0,https://www.mcdonalds.com/us/en-us/product/orange-dream-small.html,2026-10-22,two-drafts
+McDonald's,Drinks,Orange Dream with Fanta®,Small,,drink,250,6,0.5,0,0,40,51,0,49,0,https://www.mcdonalds.com/us/en-us/product/orange-dream-with-fanta-small.html,2026-10-22,two-drafts
+McDonald's,Burgers,Bacon Quarter Pounder® with Cheese,1 serving,,main,630,35,15,1.5,115,1470,43,3,10,36,https://www.mcdonalds.com/us/en-us/product/quarter-pounder-bacon.html,2026-10-22,two-drafts
+McDonald's,Burgers,Quarter Pounder® with Cheese,1 serving,,main,520,26,12,1.5,95,1140,42,2,10,30,https://www.mcdonalds.com/us/en-us/product/quarter-pounder-with-cheese.html,2026-10-22,two-drafts
+McDonald's,Chicken,McCrispy® Strip Ranch Snack Wrap®,1 serving,,main,400,23,6,0,45,970,32,1,3,17,https://www.mcdonalds.com/us/en-us/product/ranch-snack-wrap.html,2026-10-22,two-drafts
+McDonald's,Drinks,Red Bull® Dragonberry Energizer,1 serving,,drink,200,0,0,0,0,115,50,1,48,0,https://www.mcdonalds.com/us/en-us/product/red-bull-dragonberry-energizer.html,2026-10-22,two-drafts
+McDonald's,Drinks,Reduced Sugar Low Fat Chocolate Milk Carton,1 serving,,drink,130,2.5,1.5,0,10,85,18,0,14,9,https://www.mcdonalds.com/us/en-us/product/reduced-sugar-low-fat-chocolate-milk-jug.html,2026-10-22,two-drafts
+McDonald's,Drinks,Reduced Sugar Red Bull® Dragonberry Energizer,1 serving,,drink,100,0,0,0,0,35,29,1,24,0,https://www.mcdonalds.com/us/en-us/product/reduced-sugar-red-bull-dragonberry-energizer.html,2026-10-22,two-drafts
+McDonald's,Drinks,Reduced Sugar Vanilla Swirl with Diet Coke®,Small,,drink,150,6,0.5,0,0,45,25,0,23,0,https://www.mcdonalds.com/us/en-us/product/reduced-sugar-vanilla-swirl-with-diet-coke-small.html,2026-10-22,two-drafts
+McDonald's,Breakfast,Sausage Biscuit with Egg,1 serving,,main,530,35,15,0,225,1190,38,2,3,17,https://www.mcdonalds.com/us/en-us/product/sausage-biscuit-with-egg.html,2026-10-22,two-drafts
+McDonald's,Breakfast,Sausage Biscuit,1 serving,,main,460,30,13,0,35,1090,37,2,2,11,https://www.mcdonalds.com/us/en-us/product/sausage-biscuit.html,2026-10-22,two-drafts
+McDonald's,Breakfast,Sausage Burrito,1 serving,,main,310,17,7,0,170,800,25,1,2,13,https://www.mcdonalds.com/us/en-us/product/sausage-burrito.html,2026-10-22,two-drafts
+McDonald's,Breakfast,"Sausage, Egg & Cheese Bagel",1 serving,,main,710,42,16,0.5,265,1380,56,2,6,27,https://www.mcdonalds.com/us/en-us/product/sausage-egg-and-cheese-bagel.html,2026-10-22,two-drafts
+McDonald's,Breakfast,"Sausage, Egg & Cheese McGriddles®",1 serving,,main,550,33,13,0,235,1290,44,2,15,19,https://www.mcdonalds.com/us/en-us/product/sausage-egg-cheese-mcgriddles.html,2026-10-22,two-drafts
+McDonald's,Breakfast,Sausage McGriddles®,1 serving,,main,430,24,9,0,35,990,41,2,14,11,https://www.mcdonalds.com/us/en-us/product/sausage-mcgriddles.html,2026-10-22,two-drafts
+McDonald's,Breakfast,Sausage McMuffin® with Egg,1 serving,,main,480,31,12,0.5,280,830,30,2,2,20,https://www.mcdonalds.com/us/en-us/product/sausage-mcmuffin-with-egg.html,2026-10-22,two-drafts
+McDonald's,Breakfast,Sausage McMuffin®,1 serving,,main,400,26,10,0.5,55,760,29,2,2,14,https://www.mcdonalds.com/us/en-us/product/sausage-mcmuffin.html,2026-10-22,two-drafts
+McDonald's,Sides,World Famous Fries®,Small,,side,230,11,1.5,0,0,190,31,3,0,3,https://www.mcdonalds.com/us/en-us/product/small-french-fries.html,2026-10-22,two-drafts
+McDonald's,Sauces,Spicy Buffalo Sauce,1 serving,,extra,30,3,0,0,0,520,1,0,0,0,https://www.mcdonalds.com/us/en-us/product/spicy-buffalo-sauce.html,2026-10-22,two-drafts
+McDonald's,Chicken,Spicy Deluxe McCrispy®,1 serving,,main,530,26,4,0,65,1200,49,2,10,27,https://www.mcdonalds.com/us/en-us/product/spicy-deluxe-mccrispy-chicken-sandwich.html,2026-10-22,two-drafts
+McDonald's,Chicken,Spicy McCrispy®,1 serving,,main,530,26,4,0,65,1320,48,2,9,27,https://www.mcdonalds.com/us/en-us/product/spicy-mccrispy-chicken-sandwich.html,2026-10-22,two-drafts
+McDonald's,Chicken,McCrispy® Strip Spicy Snack Wrap®,1 serving,,main,390,22,6,0,50,1000,32,2,2,17,https://www.mcdonalds.com/us/en-us/product/spicy-snack-wrap.html,2026-10-22,two-drafts
+McDonald's,Drinks,Sprite® Berry Blast,Small,,drink,240,6,0.5,0,0,65,47,0,45,0,https://www.mcdonalds.com/us/en-us/product/sprite-berry-blast-small.html,2026-10-22,two-drafts
+McDonald's,Drinks,Sprite®,Small,,drink,190,0,0,0,0,90,49,0,49,0,https://www.mcdonalds.com/us/en-us/product/sprite-small.html,2026-10-22,two-drafts
+McDonald's,Breakfast,"Steak, Egg & Cheese Bagel",1 serving,,main,680,35,15,1.5,275,1510,57,3,7,34,https://www.mcdonalds.com/us/en-us/product/steak-egg-cheese-bagel.html,2026-10-22,two-drafts
+McDonald's,Drinks,Strawberry Banana Smoothie,Small,,drink,190,0.5,0,0,5,40,44,2,39,2,https://www.mcdonalds.com/us/en-us/product/strawberry-banana-smoothie-small.html,2026-10-22,two-drafts
+McDonald's,Desserts,Strawberry Shake,Small,,dessert,470,13,8,0.5,50,160,77,,58,10,https://www.mcdonalds.com/us/en-us/product/strawberry-shake-small.html,2026-10-22,pending
+McDonald's,Drinks,Strawberry Watermelon Refresher,Small,,drink,160,0,0,0,0,40,36,0,34,0,https://www.mcdonalds.com/us/en-us/product/strawberry-watermelon-refresher-small.html,2026-10-22,two-drafts
+McDonald's,Sauces,Sweet 'N Sour Sauce,1 serving,,extra,50,0,0,0,0,160,11,0,10,0,https://www.mcdonalds.com/us/en-us/product/sweet-n-sour-sauce.html,2026-10-22,two-drafts
+McDonald's,Drinks,Sweet Tea,Small,,dessert,170,0,0,0,0,15,42,0,40,1,https://www.mcdonalds.com/us/en-us/product/sweet-tea-small.html,2026-10-22,two-drafts
+McDonald's,Sauces,Tangy Barbeque Sauce,1 serving,,extra,45,0,0,0,0,260,11,0,9,0,https://www.mcdonalds.com/us/en-us/product/tangy-barbeque-sauce.html,2026-10-22,two-drafts
+McDonald's,Desserts,Vanilla Cone,1 serving,,dessert,200,5,3,0,20,80,33,0,23,5,https://www.mcdonalds.com/us/en-us/product/vanilla-cone.html,2026-10-22,two-drafts
+McDonald's,Desserts,Vanilla Shake,Small,,dessert,480,13,8,0.5,50,210,80,0,51,10,https://www.mcdonalds.com/us/en-us/product/vanilla-shake-small.html,2026-10-22,two-drafts
+McDonald's,Drinks,Vanilla Swirl with Coca-Cola®,Small,,drink,260,6,0.5,0,0,40,53,0,49,0,https://www.mcdonalds.com/us/en-us/product/vanilla-swirl-with-coke-small.html,2026-10-22,two-drafts
+McDonald's,Drinks,1% Low Fat Milk Carton,1 serving,,drink,100,2,1.5,0,10,80,12,0,11,8,https://www.mcdonalds.com/us/en-us/product/1-low-fat-milk-jug.html,2026-10-22,two-drafts
+McDonald's,Breakfast,"Bacon, Egg & Cheese Bagel",1 serving,,main,590,30,12,0.5,245,1320,56,2,7,25,https://www.mcdonalds.com/us/en-us/product/bacon-egg-cheese-bagel.html,2026-10-22,two-drafts
+McDonald's,Breakfast,"Bacon, Egg & Cheese Biscuit",1 biscuit,,main,460,26,13,0,215,1330,39,2,3,17,https://www.mcdonalds.com/us/en-us/product/bacon-egg-cheese-biscuit.html,2026-10-22,two-drafts
+McDonald's,Breakfast,"Bacon, Egg & Cheese McGriddles®",1 sandwich,,main,430,21,9,0,215,1230,44,2,15,17,https://www.mcdonalds.com/us/en-us/product/bacon-egg-cheese-mcgriddles.html,2026-10-22,two-drafts
+McDonald's,Breakfast,Bagel (plain),1 serving,,main,270,3.5,0.5,0,0,550,51,2,5,9,https://www.mcdonalds.com/us/en-us/product/bagel-plain.html,2026-10-22,two-drafts
+McDonald's,Desserts,Baked Apple Pie,1 serving,,dessert,230,11,6,0,0,100,33,1,14,2,https://www.mcdonalds.com/us/en-us/product/baked-hot-apple-pie.html,2026-10-22,two-drafts
+McDonald's,Burgers,Big Mac®,1 serving,,main,580,34,11,1,85,1060,45,3,7,25,https://www.mcdonalds.com/us/en-us/product/big-mac.html,2026-10-22,two-drafts
+McDonald's,Burgers,Cheeseburger,1 serving,,main,300,13,6,0.5,40,720,31,2,6,15,https://www.mcdonalds.com/us/en-us/product/cheeseburger.html,2026-10-22,two-drafts
+McDonald's,Desserts,Chocolate Chip Cookie,1 serving,,dessert,170,8,4,0,10,95,22,1,15,2,https://www.mcdonalds.com/us/en-us/product/chocolate-chip-cookie.html,2026-10-22,two-drafts
+McDonald's,Drinks,Honest Kids® Appley Ever After® Organic Juice Drink,6 fl oz drink box,,drink,35,0,0,0,0,15,8,0,8,0,https://www.mcdonalds.com/us/en-us/product/honest-kids-appley-ever-after-6-fl-oz-drink-box.html,2026-10-22,two-drafts
+McDonald's,Sauces,Ketchup Packet,1 serving,,extra,10,0,0,0,0,90,2,,2,0,https://www.mcdonalds.com/us/en-us/product/ketchup-packet.html,2026-10-22,pending
+McDonald's,Sauces,Mayonnaise Packet,1 serving,,extra,90,10,1.5,0,10,60,0,0,0,0,https://www.mcdonalds.com/us/en-us/product/mayonnaise-packet.html,2026-10-22,two-drafts
+McDonald's,Sauces,Mustard Packet,1 serving,,extra,0,0,0,0,0,70,0,0,0,0,https://www.mcdonalds.com/us/en-us/product/mustard-package.html,2026-10-22,two-drafts

@@ -1,0 +1,240 @@
+chain,section,name,serving,serving_g,kind,calories,fat_g,saturated_fat_g,trans_fat_g,cholesterol_mg,sodium_mg,carbs_g,fiber_g,sugars_g,protein_g,source_url,checked_on,check
+Whataburger,BURGERS,#1 Whataburger,1 serving,,main,590,25,8,1,45,1220,62,4,12,29,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BURGERS,#2 Double Meat Whataburger,1 serving,,main,830,44,14,1.5,85,1470,62,4,12,47,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BURGERS,#3 Triple Meat Whataburger,1 serving,,main,1070,63,21,2.5,130,1720,62,4,12,65,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BURGERS,#4 Jalapeño & Cheese Whataburger,1 serving,,main,680,32,12,1,65,1800,63,4,12,34,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BURGERS,#5 Bacon & Cheese Whataburger,1 serving,,main,750,37,13,1,80,1910,62,4,12,39,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BURGERS,#6 Avocado Bacon Burger,1 serving,,main,820,52,15,1,85,1600,52,4,7,37,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BURGERS,#7 Whataburger Jr.,1 serving,,main,310,11,3,0,20,750,37,2,6,14,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BURGERS,#8 Double Meat Whataburger Jr.,1 serving,,main,420,20,6,0.5,40,870,37,2,6,23,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BURGERS,Bacon & Cheese Whataburger Jr.,1 serving,,main,400,18,7,0,40,1140,37,2,6,21,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,CHICKEN,#10 Whatachick'n' Sandwich with Whatasauce,1 serving,,main,540,22,10,0,80,960,54,3,10,32,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,CHICKEN,#11 Whatachick'n' Sandwich with Mayonnaise,1 serving,,main,580,28,11,0,80,900,52,3,9,32,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,CHICKEN,#12 Grilled Chicken Sandwich with Whatasauce,1 serving,,main,430,14,3.5,0,85,1030,44,4,10,32,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,CHICKEN,#13 Spicy Chicken Sandwich with Mayonnaise,1 serving,,main,470,20,4.5,0,90,980,42,4,9,32,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,CHICKEN,#16 Chicken Fajita Taco,1 serving,,main,580,28,4,0,110,1160,37,3,1,45,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,CHICKEN,Grilled Chicken Melt,1 serving,,main,340,11,3.5,0,80,1200,31,3,1,29,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,ALL-TIME FAVORITES & SEASONAL SANDWICHES,Honey BBQ Chicken Strip Sandwich,1 serving,,main,890,42,11,0,90,2430,87,3,17,38,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,ALL-TIME FAVORITES & SEASONAL SANDWICHES,Whataburger. Patty Melt,1 serving,,main,940,61,21,1.5,125,1760,45,1,6,49,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,ALL-TIME FAVORITES & SEASONAL SANDWICHES,Mushroom Swiss Burger,1 serving,,main,1110,70,23,1.5,130,1890,61,3,11,56,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,ALL-TIME FAVORITES & SEASONAL SANDWICHES,Whatacatch Sandwich,1 serving,,main,490,20,3,0,45,880,59,5,7,19,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,ALL-TIME FAVORITES & SEASONAL SANDWICHES,Grilled Veggie Wrap*,1 serving,,main,330,18,4,0,0,800,38,6,4,7,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,ALL-TIME FAVORITES & SEASONAL SANDWICHES,Sweet & Spicy Bacon Burger*,1 serving,,dessert,1080,62,23,1.5,140,2310,69,3,18,60,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,ALL-TIME FAVORITES & SEASONAL SANDWICHES,Green Chile Double*,1 serving,,main,980,57,21,1.5,120,1950,61,3,12,54,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,ALL-TIME FAVORITES & SEASONAL SANDWICHES,Buffalo Ranch Chicken Strip Sandwich†,1 serving,,main,990,51,13,0,95,2790,90,5,10,41,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,JUNIOR ALL-TIME FAVORITES & SEASONAL SANDWICHES,Jr. Honey BBQ Chicken Strip Sandwich,1 serving,,main,650,31,9,0,70,1840,63,3,13,28,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,JUNIOR ALL-TIME FAVORITES & SEASONAL SANDWICHES,Jr. Whataburger. Patty Melt (Single Patty),1 serving,,main,640,37,11,1,65,1200,45,1,6,28,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,JUNIOR ALL-TIME FAVORITES & SEASONAL SANDWICHES,Jr. Mushroom Swiss Burger,1 serving,,main,700,42,14,1,85,1380,47,3,11,32,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,JUNIOR ALL-TIME FAVORITES & SEASONAL SANDWICHES,Jr. Sweet & Spicy Bacon Burger*,1 serving,,dessert,600,33,13,1,75,1350,42,1,11,32,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,JUNIOR ALL-TIME FAVORITES & SEASONAL SANDWICHES,Jr. Green Chile Double*,1 serving,,main,540,30,12,1,65,1310,37,1,7,28,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,JUNIOR ALL-TIME FAVORITES & SEASONAL SANDWICHES,Jr. Buffalo Ranch Chicken Strip Sandwich†,1 serving,,main,660,35,10,0,70,2040,56,3,6,28,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,FOR THE KIDS,Justaburger*,1 serving,,main,300,11,3,0,20,740,35,1,5,14,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,FOR THE KIDS,Grilled Cheese,1 serving,,main,510,28,10,0,40,1300,42,0,4,16,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,SALADS,Apple & Cranberry Salad with Grilled Chicken,1 serving,,main,380,12,7,0,110,780,38,6,27,33,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,SALADS,Apple & Cranberry Salad with Whatasackhick'n',1 serving,,main,490,20,13,0,105,710,47,4,27,34,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,SALADS,Apple & Cranberry Salad with Spicy Chicken,1 serving,,main,500,21,8,0,95,1050,49,6,28,31,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,SALADS,Cobb Salad,1 serving,,main,300,21,10,0,235,610,8,0,3,20,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,SALADS,Cobb Salad with Grilled Chicken,1 serving,,main,430,23,11,0,315,1160,10,3,3,44,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,SALADS,Cobb Salad with Whatachick'n',1 serving,,main,540,31,17,0,305,1090,20,2,3,45,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,SALADS,Cobb Salad with Spicy Chicken,1 serving,,main,550,32,12,0,300,1420,21,3,4,43,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,SALADS,Buffalo Ranch Chicken Salad† with Grilled Chicken,1 serving,,main,370,19,8,0,125,2070,13,4,3,37,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,SALADS,Buffalo Ranch Chicken Salad† with Whatachick'n',1 serving,,main,480,27,15,0,115,2000,23,2,3,38,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,SALADS,Buffalo Ranch Chicken Salad with Spicy Chicken,1 serving,,main,480,28,9,0,110,2330,24,4,4,35,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,SALADS,Garden Salad,1 serving,,main,160,10,6,0,30,220,10,5,4,10,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,SALADS,Garden Salad with Grilled Chicken,1 serving,,main,290,12,7,0,110,770,12,6,4,34,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,SALADS,Garden Salad with Whatachick'n',1 serving,,main,400,20,13,0,100,700,22,5,4,35,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,SALADS,Garden Salad with Spicy Chicken,1 serving,,main,400,21,8,0,95,1070,22,4,5,32,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,SIDES,French Fries,Small,,side,270,14,2,0,0,170,34,3,0,3,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,SIDES,French Fries,Medium,,side,400,21,3,0,0,260,51,4,1,4,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,SIDES,French Fries,Large,,side,530,28,3.5,0,0,350,68,6,1,6,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,SIDES,Onion Rings,Medium,,side,300,17,2.5,0,0,430,33,4,2,4,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,SIDES,Onion Rings,Large,,side,450,25,3.5,0,0,650,49,6,3,7,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,SIDES,Apple Slices,1 serving,,side,30,0,0,0,0,0,8,1,6,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,ADD-ONS,Avocado,1 serving,,extra,90,9,1.5,0,0,20,4,3,0,1,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,ADD-ONS,Hard-Boiled Egg†,1 serving,,extra,80,5,1.5,0,185,60,1,0,1,6,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,ADD-ONS,Bacon,per slice,,extra,25,1.5,0.5,0,5,85,0,0,0,2,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,ADD-ONS,Grilled Peppers and Onions,1 serving,,extra,25,1.5,0,0,0,130,3,1,1,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,ADD-ONS,Jalapeños,whole or sliced - about 5-8 slices,,extra,0,0,0,0,0,,1,0,0,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,ADD-ONS,Small American Cheese,per slice,,extra,45,3.5,2.5,0,10,220,0,0,0,3,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,ADD-ONS,Large American Cheese,per slice,,extra,90,7,4,0,20,430,0,0,0,5,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,ADD-ONS (CONTINUED),Monterey Jack Cheese,1 serving,,extra,60,5,3,0,15,310,0,0,0,3,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,ADD-ONS (CONTINUED),Shredded Cheddar Cheese,1 serving,,extra,170,14,9,0,45,270,0,0,0,11,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,ADD-ONS (CONTINUED),Blue Cheese†,1 serving,,extra,110,9,5,0,30,400,2,0,0,6,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,ADD-ONS (CONTINUED),Green Chiles*,1 serving,,extra,40,2.5,0,0,0,200,5,1,3,1,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,ADD-ONS (CONTINUED),Fire Roasted Brown Mushrooms,1 serving,,extra,15,1,0,0,0,55,1,0,0,1,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,CONDIMENTS,Fancy Ketchup,per portion cup,,extra,35,0,0,0,0,340,8,0,6,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,CONDIMENTS,Spicy Ketchup,per portion cup,,extra,30,0,0,0,0,400,7,0,6,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,CONDIMENTS,Picante Sauce,per portion cup,,extra,5,0,0,0,0,170,1,0,1,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,CONDIMENTS,Salsa Verde,per portion cup,,extra,5,0,0,0,0,85,1,0,1,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,CONDIMENTS,Margarine,per portion cup,,extra,35,4,1.5,0,0,30,0,0,0,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,DIPPING SAUCES & DRESSINGS,Balsamic Vinaigrette,1 serving,,extra,180,15,2.5,0,0,480,10,0,9,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,DIPPING SAUCES & DRESSINGS,Buffalo Sauce,1 serving,,extra,25,1.5,0,0,0,1510,3,1,1,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,DIPPING SAUCES & DRESSINGS,Buttermilk Ranch Dressing,1 serving,,extra,240,25,4.5,0,20,500,3,0,2,1,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,DIPPING SAUCES & DRESSINGS,Cream Gravy,1 serving,,extra,60,3,1.5,0,0,410,8,0,1,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,DIPPING SAUCES & DRESSINGS,Creamy Pepper Sauce,1 serving,,extra,240,24,4,0,20,550,4,0,3,1,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,DIPPING SAUCES & DRESSINGS,Fat-Free Ranch Dressing,1 serving,,extra,50,0,0,0,0,770,13,1,5,1,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,DIPPING SAUCES & DRESSINGS,Honey BBQ Sauce,1 serving,,extra,90,0,0,0,0,650,22,0,19,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,DIPPING SAUCES & DRESSINGS,Honey Butter Sauce,1 serving,,extra,300,24,4,0,20,180,20,0,19,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,DIPPING SAUCES & DRESSINGS,Honey Mustard Sauce,1 serving,,extra,200,16,2.5,0,15,300,15,0,13,1,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,DIPPING SAUCES & DRESSINGS,Jalapeño Ranch Dressing,1 serving,,extra,280,30,5,0,20,580,2,0,1,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,DIPPING SAUCES & DRESSINGS,Low-Fat Herb Vinaigrette,1 serving,,extra,35,0.5,0,0,0,470,7,0,6,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,DIPPING SAUCES & DRESSINGS,Low-Fat Honey Pepper Vinaigrette,1 serving,,extra,90,3.5,0.5,0,0,460,15,0,14,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,DIPPING SAUCES & DRESSINGS,Sugar-Free Pancake Syrup,1 serving,,extra,25,0,0,0,0,75,10,0,0,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,DIPPING SAUCES & DRESSINGS,Pancake Syrup,1 serving,,extra,160,0,0,0,0,0,39,0,21,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,DIPPING SAUCES & DRESSINGS,Thousand Island Dressing,1 serving,,extra,260,25,4,0,25,540,8,0,7,1,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BREAKFAST,#20 Taquito with Cheese & Bacon,1 serving,,main,400,23,9,0,345,1050,29,1,1,20,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BREAKFAST,#20 Taquito with Cheese & Chorizo*,1 serving,,main,450,28,11,0,305,1060,28,2,1,19,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BREAKFAST,#20 Taquito with Cheese & Potato,1 serving,,main,440,25,8,0,330,1100,38,2,1,17,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BREAKFAST,#20 Taquito with Cheese & Sausage,1 serving,,main,420,26,10,0,345,1050,28,1,1,19,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BREAKFAST,#21 Breakfast On A Bun* with Bacon,1 serving,,main,360,16,6,0,230,940,35,1,5,18,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BREAKFAST,#21 Breakfast On A Bun* with Sausage,1 serving,,main,510,28,11,0,265,1190,35,1,5,27,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BREAKFAST,#22 Buttermilk Biscuit Sandwich with Bacon,1 serving,,main,490,31,15,0,230,1210,35,1,3,18,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BREAKFAST,#22 Buttermilk Biscuit Sandwich with Sausage,1 serving,,main,640,44,20,0,265,1460,35,1,3,27,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BREAKFAST,#22 Jalapeno Cheddar Biscuit Sandwich with Bacon,1 serving,,main,500,32,16,0,245,1300,31,2,0,19,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BREAKFAST,#22 Jalapeno Cheddar Biscuit Sandwich with Sausage,1 serving,,main,640,45,21,0,280,1550,31,0,2,28,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BREAKFAST,#23 Pancake Platter with Bacon,1 serving,,main,680,21,7,0,15,1560,109,3,33,12,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BREAKFAST,#23 Pancake Platter with Sausage,1 serving,,main,830,33,12,0,50,1810,109,3,33,21,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BREAKFAST,#24 Breakfast Platter with Bacon,1 serving,,main,600,38,16,0,655,1120,39,1,5,28,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BREAKFAST,#24 Breakfast Platter with Sausage,1 serving,,main,750,50,21,0,690,1370,39,1,5,37,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BREAKFAST,#25 Honey Butter Chicken Biscuit,1 serving,,main,580,36,12,0,25,990,52,2,10,13,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BREAKFAST,#26 Buttermilk Biscuit & Gravy,1 serving,,main,490,30,14,0,15,1530,49,1,5,8,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BREAKFAST,#26 Jalapeno Cheddar Biscuit & Gravy,1 serving,,main,490,31,16,0,30,1620,44,2,4,9,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BREAKFAST A LA CARTE,Buttermilk Biscuit,1 serving,,main,310,17,9,0,0,600,34,1,3,5,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BREAKFAST A LA CARTE,Buttermilk Biscuit with Bacon,1 serving,,main,360,21,11,0,10,810,35,1,3,8,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BREAKFAST A LA CARTE,Buttermilk Biscuit with Sausage,1 serving,,main,510,34,16,0,45,1060,35,1,3,17,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BREAKFAST A LA CARTE,Buttermilk Biscuit with Egg & Cheese,1 serving,,main,440,27,14,0,220,1000,35,1,3,14,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BREAKFAST A LA CARTE,Jalapeño Cheddar Biscuit,1 serving,,main,310,18,10,0,15,690,30,0,0,6,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BREAKFAST A LA CARTE,Jalapeño Cheddar Biscuit with Bacon,1 serving,,main,370,23,12,0,25,900,31,0,2,9,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BREAKFAST A LA CARTE,Jalapeño Cheddar Biscuit with Sausage,1 serving,,main,510,35,17,0,60,1150,30,0,2,18,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BREAKFAST A LA CARTE,Jalapeño Cheddar Biscuit with Egg & Cheese,1 serving,,main,440,28,15,0,235,1090,30,0,2,16,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BREAKFAST A LA CARTE,Taquito with Bacon,1 serving,,main,360,20,7,0,335,830,29,1,1,17,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BREAKFAST A LA CARTE,Taquito with Sausage,1 serving,,main,380,23,8,0,335,840,28,1,1,16,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BREAKFAST A LA CARTE,Taquito with Potato,1 serving,,main,400,21,6,0,320,880,38,2,1,15,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BREAKFAST A LA CARTE,Cinnamon Roll,single,,main,580,16,9,0,10,1330,103,2,59,8,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BREAKFAST A LA CARTE,Egg Sandwich,1 serving,,main,310,12,4.5,0,220,740,34,1,5,15,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BREAKFAST A LA CARTE,Grits*,1 serving,,main,100,0.5,0,0,0,320,22,1,0,2,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BREAKFAST A LA CARTE,Hashbrowns,1 serving,,main,190,11,1.5,0,0,500,21,2,0,2,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,BREAKFAST A LA CARTE,Pancakes with syrup & margarine,1 serving,,extra,630,17,5,0,0,1350,108,3,33,9,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,ORANGE JUICE & MILK,Simply/Orange Orange Juice,11.5 fl oz,,drink,160,0,0,0,0,0,37,0,33,2,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,ORANGE JUICE & MILK,1% Low Fat Milk,8 fl oz,,drink,110,2.5,1.5,0,15,130,13,0,12,9,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,ORANGE JUICE & MILK,1% Low Fat Chocolate Milk,8 fl oz,,drink,160,2.5,1.5,0,10,220,27,0,25,8,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,COFFEE & TEA,Coffee,Small (12 fl oz),,drink,5,0,0,0,0,5,0,0,0,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,COFFEE & TEA,Coffee,Medium (16 fl oz),,drink,5,0,0,0,0,10,0,0,0,1,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,COFFEE & TEA,Coffee,Large (20 fl oz),,drink,5,0,0,0,0,10,0,0,0,1,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,COFFEE & TEA,Decaf Coffee,Small (12 fl oz),,drink,0,0,0,0,0,5,0,0,0,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,COFFEE & TEA,Decaf Coffee,Medium (16 fl oz),,drink,0,0,0,0,0,10,0,0,0,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,COFFEE & TEA,Decaf Coffee,Large (20 fl oz),,drink,0,0,0,0,0,10,0,0,0,1,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,COFFEE & TEA,Unsweet Tea,Small (20 fl oz),,drink,5,0,0,0,0,20,2,0,0,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,COFFEE & TEA,Unsweet Tea,Medium (32 fl oz),,drink,10,0,0,0,0,30,3,0,0,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,COFFEE & TEA,Unsweet Tea,Large (44 fl oz),,drink,15,0,0,0,0,40,4,0,0,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,COFFEE & TEA,Sweet Tea,Small (20 fl oz),,dessert,280,0,0,0,0,15,72,0,70,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,COFFEE & TEA,Sweet Tea,Medium (32 fl oz),,dessert,440,0,0,0,0,25,115,0,113,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,COFFEE & TEA,Sweet Tea,Large (44 fl oz),,dessert,610,0,0,0,0,35,158,0,155,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,CHICKEN,#14 Whatachick'n' Strips,(3),,main,550,26,5,0,70,1490,50,4,9,31,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,CHICKEN,#15 Whatachick'n' Bites,(6),,main,390,19,2.5,0,75,780,25,2,1,30,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,FOR THE KIDS,Whatachick'n' Strips,(2),,main,300,18,2.5,0,40,680,20,0,0,16,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,FOR THE KIDS,Whatachick'n' Bites,(4),,main,260,12,1.5,0,50,520,16,1,0,20,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,COFFEE & TEA,Kid's Unsweet Tea,Kid's (16 fl oz),,drink,5,0,0,0,0,15,1,0,0,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,COFFEE & TEA,Kid's Sweet Tea,Kid's (16 fl oz),,dessert,220,0,0,0,0,15,58,0,56,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,two-drafts
+Whataburger,DESSERTS,Hot Apple Pie,1 serving,,dessert,270,14,5,0,0,260,34,2,7,3,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,DESSERTS,Hot Lemon Pie,1 serving,,dessert,320,16,5,0,0,230,41,3,12,4,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,DESSERTS,Fruit Chews,1 serving,,dessert,80,0,0,0,0,20,19,0,11,1,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,DESSERTS,Chocolate Chunk Cookie,1 serving,,dessert,230,11,6,0,15,190,32,1,18,2,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,DESSERTS,Sugar Cookie,1 serving,,dessert,230,10,5,0,15,210,34,0,17,3,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SHAKES & MALTS,Chocolate Shake,Small (16 fl oz),,dessert,440,11,6,0,30,390,80,0,78,10,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SHAKES & MALTS,Chocolate Shake,Medium (20 fl oz),,dessert,560,14,8,0,40,490,102,0,100,13,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SHAKES & MALTS,Chocolate Shake,Large (32 fl oz),,dessert,890,23,13,0,65,790,159,0,159,20,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SHAKES & MALTS,Chocolate Malt,Small (16 fl oz),,dessert,460,11,6,0,30,390,85,1,83,10,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SHAKES & MALTS,Chocolate Malt,Medium (20 fl oz),,dessert,590,13,8,0,35,490,110,2,107,12,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SHAKES & MALTS,Chocolate Malt,Large (32 fl oz),,dessert,920,22,12,0,60,780,170,2,166,19,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SHAKES & MALTS,Strawberry Shake,Small (16 fl oz),,dessert,450,11,6,0,30,370,80,0,80,9,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SHAKES & MALTS,Strawberry Shake,Medium (20 fl oz),,dessert,560,14,8,0,40,460,103,0,103,12,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SHAKES & MALTS,Strawberry Shake,Large (32 fl oz),,dessert,890,22,13,0,65,750,160,0,160,19,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SHAKES & MALTS,Strawberry Malt,Small (16 fl oz),,dessert,460,11,6,0,30,370,85,0,85,9,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SHAKES & MALTS,Strawberry Malt,Medium (20 fl oz),,dessert,590,13,7,0,35,460,111,0,110,11,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SHAKES & MALTS,Strawberry Malt,Large (32 fl oz),,dessert,920,21,12,0,60,740,171,0,170,18,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SHAKES & MALTS,Vanilla Shake,Small (16 fl oz),,dessert,410,12,7,0,35,390,69,0,69,10,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SHAKES & MALTS,Vanilla Shake,Medium (20 fl oz),,dessert,510,15,9,0,45,490,86,0,86,13,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SHAKES & MALTS,Vanilla Shake,Large (32 fl oz),,dessert,820,24,14,0,70,790,137,0,137,21,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SHAKES & MALTS,Vanilla Malt,Small (16 fl oz),,dessert,430,12,7,0,35,390,74,0,74,10,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SHAKES & MALTS,Vanilla Malt,Medium (20 fl oz),,dessert,540,14,8,0,40,490,94,0,93,12,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SHAKES & MALTS,Vanilla Malt,Large (32 fl oz),,dessert,860,23,13,0,65,780,148,0,147,20,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SHAKES & MALTS,Dr Pepper. Shake†,Small (16 fl oz),,dessert,430,11,6,0,30,370,78,0,78,9,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SHAKES & MALTS,Dr Pepper. Shake†,Medium (20 fl oz),,dessert,550,14,8,0,40,460,100,0,99,12,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SHAKES & MALTS,Dr Pepper. Shake†,Large (32 fl oz),,dessert,870,22,13,0,65,740,157,1,155,19,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS,Coca-Cola. Classic,Kid's (16 fl oz),,drink,200,0,0,0,0,55,54,0,54,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS,Coca-Cola. Classic,Small (20 fl oz),,drink,250,0,0,0,0,65,67,0,67,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS,Coca-Cola. Classic,Medium (32 fl oz),,drink,390,0,0,0,0,105,107,0,107,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS,Coca-Cola. Classic,Large (44 fl oz),,drink,540,0,0,0,0,150,147,0,147,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS,Diet Coke.,Kid's (16 fl oz),,drink,0,0,0,0,0,65,0,0,0,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS,Diet Coke.,Small (20 fl oz),,drink,0,0,0,0,0,80,0.5,0,0,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS,Diet Coke.,Medium (32 fl oz),,drink,0,0,0,0,0,130,0.5,0,0,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS,Diet Coke.,Large (44 fl oz),,drink,0,0,0,0,0,180,1,0,0,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS,Coke Zero,Kid's (16 fl oz),,drink,0,0,0,0,0,55,0,0,0,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS,Coke Zero,Small (20 fl oz),,drink,0,0,0,0,0,65,0,0,0,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS,Coke Zero,Medium (32 fl oz),,drink,0,0,0,0,0,105,0,0,0,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS,Coke Zero,Large (44 fl oz),,drink,0,0,0,0,0,150,0.5,0,0,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Caffeine Free Diet Coke.,Kid's (16 fl oz),,drink,0,0,0,0,0,65,0,0,0,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Caffeine Free Diet Coke.,Small (20 fl oz),,drink,0,0,0,0,0,80,0,0,0,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Caffeine Free Diet Coke.,Medium (32 fl oz),,drink,0,0,0,0,0,130,0.5,0,0,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Caffeine Free Diet Coke.,Large (44 fl oz),,drink,0,0,0,0,0,180,0.5,0,0,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Cherry Coke.,Kid's (16 fl oz),,drink,210,0,0,0,0,55,56,0,56,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Cherry Coke.,Small (20 fl oz),,drink,260,0,0,0,0,70,70,0,70,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Cherry Coke.,Medium (32 fl oz),,drink,410,0,0,0,0,110,112,0,112,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Cherry Coke.,Large (44 fl oz),,drink,560,0,0,0,0,150,154,0,154,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Sprite.,Kid's (16 fl oz),,drink,180,0,0,0,0,95,50,0,50,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Sprite.,Small (20 fl oz),,drink,230,0,0,0,0,120,62,0,62,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Sprite.,Medium (32 fl oz),,drink,370,0,0,0,0,190,99,0,99,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Sprite.,Large (44 fl oz),,drink,510,0,0,0,0,260,137,0,137,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Dr Pepper.,Kid's (16 fl oz),,drink,190,0,0,0,0,20,52,0,51,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Dr Pepper.,Small (20 fl oz),,drink,240,0,0,0,0,25,65,0,64,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Dr Pepper.,Medium (32 fl oz),,drink,380,0,0,0,0,40,104,0,102,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Dr Pepper.,Large (44 fl oz),,drink,530,0,0,0,0,60,143,0,140,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Diet Dr Pepper.,Kid's (16 fl oz),,drink,0,0,0,0,0,55,0,0,0,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Diet Dr Pepper.,Small (20 fl oz),,drink,0,0,0,0,0,65,0,0,0,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Diet Dr Pepper.,Medium (32 fl oz),,drink,0,0,0,0,0,110,1,0,0,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Diet Dr Pepper.,Large (44 fl oz),,drink,5,0,0,0,0,150,1,0,0,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Barq's. Root Beer,Kid's (16 fl oz),,drink,210,0,0,0,0,70,58,0,58,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Barq's. Root Beer,Small (20 fl oz),,drink,270,0,0,0,0,90,73,0,73,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Barq's. Root Beer,Medium (32 fl oz),,drink,430,0,0,0,0,140,116,0,116,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Barq's. Root Beer,Large (44 fl oz),,drink,590,0,0,0,0,190,160,0,160,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Minute Maid. Light Lemonade,Kid's (16 fl oz),,drink,10,0,0,0,0,55,3,0,0,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Minute Maid. Light Lemonade,Small (20 fl oz),,drink,10,0,0,0,0,70,3,0,0,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Minute Maid. Light Lemonade,Medium (32 fl oz),,drink,15,0,0,0,0,115,5,0,0,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Minute Maid. Light Lemonade,Large (44 fl oz),,drink,25,0,0,0,0,160,7,0,0,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),POWERADE. Mountain Blast,Kid's (16 fl oz),,drink,110,0,0,0,0,150,29,0,29,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),POWERADE. Mountain Blast,Small (20 fl oz),,drink,140,0,0,0,0,190,37,0,36,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),POWERADE. Mountain Blast,Medium (32 fl oz),,drink,220,0,0,0,0,300,58,0,58,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),POWERADE. Mountain Blast,Large (44 fl oz),,drink,310,0,0,0,0,410,80,0,80,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),POWERADE. Fruit Punch,Kid's (16 fl oz),,drink,110,0,0,0,0,150,30,0,28,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),POWERADE. Fruit Punch,Small (20 fl oz),,drink,130,0,0,0,0,190,37,0,36,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),POWERADE. Fruit Punch,Medium (32 fl oz),,drink,220,0,0,0,0,310,59,0,57,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),POWERADE. Fruit Punch,Large (44 fl oz),,drink,300,0,0,0,0,420,82,0,78,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Hi-C' Orange Lavaburst,Kid's (16 fl oz),,drink,220,0,0,0,0,55,58,0,57,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Hi-C' Orange Lavaburst,Small (20 fl oz),,drink,280,0,0,0,0,65,73,0,71,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Hi-C' Orange Lavaburst,Medium (32 fl oz),,drink,440,0,0,0,0,105,116,0,113,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Hi-C' Orange Lavaburst,Large (44 fl oz),,drink,610,0,0,0,0,150,160,0,156,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Hi-C' Poppin' Pink Lemonade,Kid's (16 fl oz),,drink,190,0,0,0,0,130,50,0,48,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Hi-C' Poppin' Pink Lemonade,Small (20 fl oz),,drink,240,0,0,0,0,160,63,0,60,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Hi-C' Poppin' Pink Lemonade,Medium (32 fl oz),,drink,380,0,0,0,0,260,100,0,96,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Hi-C' Poppin' Pink Lemonade,Large (44 fl oz),,drink,520,0,0,0,0,350,138,0,132,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Fanta. Orange,Kid's (16 fl oz),,drink,200,0,0,0,0,55,54,0,53,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Fanta. Orange,Small (20 fl oz),,drink,250,0,0,0,0,65,67,0,66,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Fanta. Orange,Medium (32 fl oz),,drink,390,0,0,0,0,105,108,0,106,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Fanta. Orange,Large (44 fl oz),,drink,540,0,0,0,0,150,148,0,146,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Fanta. Strawberry,Kid's (16 fl oz),,drink,220,0,0,0,0,55,59,0,59,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Fanta. Strawberry,Small (20 fl oz),,drink,270,0,0,0,0,70,74,0,73,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Fanta. Strawberry,Medium (32 fl oz),,drink,430,0,0,0,0,110,118,0,117,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Fanta. Strawberry,Large (44 fl oz),,drink,600,0,0,0,0,150,162,0,161,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Mello Yello.,Kid's (16 fl oz),,drink,220,0,0,0,0,65,58,0,58,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Mello Yello.,Small (20 fl oz),,drink,270,0,0,0,0,85,73,0,73,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Mello Yello.,Medium (32 fl oz),,drink,440,0,0,0,0,135,116,0,116,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Mello Yello.,Large (44 fl oz),,drink,600,0,0,0,0,190,160,0,160,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Fuze' Raspberry Tea,Kid's (16 fl oz),,drink,110,0,0,0,0,65,31,0,30,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Fuze' Raspberry Tea,Small (20 fl oz),,drink,140,0,0,0,0,85,38,0,37,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Fuze' Raspberry Tea,Medium (32 fl oz),,drink,220,0,0,0,0,135,61,0,59,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Fuze' Raspberry Tea,Large (44 fl oz),,drink,310,0,0,0,0,180,84,0,81,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Pibb. Xtra,Kid's (16 fl oz),,drink,190,0,0,0,0,70,50,0,50,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Pibb. Xtra,Small (20 fl oz),,drink,240,0,0,0,0,90,63,0,63,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Pibb. Xtra,Medium (32 fl oz),,drink,380,0,0,0,0,140,101,0,101,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
+Whataburger,SOFT DRINKS (CONTINUED),Pibb. Xtra,Large (44 fl oz),,drink,530,0,0,0,0,200,139,0,139,0,https://wbimageserver.whataburger.com/Nutrition.pdf,2026-10-22,pending
