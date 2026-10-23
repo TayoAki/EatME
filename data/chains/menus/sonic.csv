@@ -1,0 +1,575 @@
+chain,section,name,serving,serving_g,kind,calories,fat_g,saturated_fat_g,trans_fat_g,cholesterol_mg,sodium_mg,carbs_g,fiber_g,sugars_g,protein_g,source_url,checked_on,check
+SONIC,BURGERS,AHATCH GREEN CHILE CHEESEBURGER,1 serving,,main,590,28,10,1,85,1070,53,3,11,30,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,BURGERS,JR. BURGER,1 serving,,main,330,16,4.5,0.5,35,610,32,2,15,5,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BURGERS,QUARTER POUND DOUBLE CHEESEBURGER,1 serving,,main,570,34,14,1,105,1370,34,2,6,,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BURGERS,SONIC\circledR BACON CHEESEBURGER WITH MAYO,1 serving,,main,770,46,14,1,105,1340,53,3,11,,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BURGERS,SONIC\circledR BURGER WITH KETCHUP,1 serving,,main,540,22,7,1,65,910,57,3,14,,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BURGERS,SONIC\circledR BURGER WITH MAYO,1 serving,,main,620,34,9,1,70,850,53,3,11,,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BURGERS,SONIC\circledR BURGER WITH MUSTARD,1 serving,,main,520,23,7,1,65,860,53,3,11,,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BURGERS,"SONIC\circledR BURGER WITH MUSTARD, KETCHUP & MAYO",1 serving,,main,640,34,9,1,70,1070,57,3,14,,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BURGERS,SONIC\circledR CHEESEBURGER WITH KETCHUP,1 serving,,main,600,28,10,1,85,1240,58,3,14,,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BURGERS,SONIC\circledR CHEESEBURGER WITH MAYO,1 serving,,main,680,39,12,1,85,1180,54,3,11,,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BURGERS,SONIC\circledR CHEESEBURGER WITH MUSTARD,1 serving,,main,590,28,10,1,85,1190,54,3,11,,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BURGERS,"SONIC\circledR CHEESEBURGER WITH MUSTARD, KETCHUP & MAYO",1 serving,,main,710,39,12,1,85,1400,58,3,15,,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BURGERS,SUPERSONIC\circledR BACON DOUBLE CHEESEBURGER WITH MAYO,1 serving,,main,1030,65,23,2,190,1880,54,3,12,,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BURGERS,SUPERSONIC\circledR DOUBLE CHEESEBURGER WITH KETCHUP,1 serving,,main,870,48,19,1.5,165,1780,59,3,15,,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BURGERS,SUPERSONIC\circledR DOUBLE CHEESEBURGER WITH MAYO,1 serving,,main,960,59,21,2,170,1720,55,3,12,,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BURGERS,SUPERSONIC\circledR DOUBLE CHEESEBURGER WITH MUSTARD,1 serving,,main,860,48,19,1.5,165,1730,55,3,12,,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BURGERS,"SUPERSONIC\circledR DOUBLE CHEESEBURGER WITH MUSTARD, KETCHUP & MAYO",1 serving,,main,970,59,21,2,170,1940,59,3,15,,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BURGERS,SUPERSONIC\circledR JALAPENO DOUBLE CHEESEBURGER WITH MUSTARD,1 serving,,main,850,48,19,1.5,165,1740,54,2,12,,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BURGERS,AVEGGIE BURGER WITH KETCHUP,1 serving,,main,440,11,2.5,0,5,1800,73,7,14,,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BURGERS,AVEGGIE BURGER WITH MAYO,1 serving,,main,530,22,4,0,10,1750,69,7,11,,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BURGERS,AVEGGIE BURGER WITH MUSTARD,1 serving,,main,430,11,2.5,0,5,1760,69,7,10,,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BURGERS,"AVEGGIE BURGER WITH MUSTARD, KETCHUP & MAYO",1 serving,,main,550,23,4,0,10,1960,73,7,14,,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,MAKE IT YOURS,AMERICAN CHEESE,1 serving,,main,70,6,3,0,20,330,1,0,0,4,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,MAKE IT YOURS,AAVOCADO,1 serving,,main,35,3,0.5,0,0,20,2,1,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,MAKE IT YOURS,CRISPY BACON,1 serving,,main,80,7,2.5,0,20,290,1,0,0,6,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,MAKE IT YOURS,GRILLED ONIONS,1 serving,,main,5,0,0,0,0,5,1,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,MAKE IT YOURS,AHATCH GREEN CHILES,1 serving,,main,5,0,0,0,0,0,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,MAKE IT YOURS,AHICKORY BBQ SAUCE,1 serving,,extra,30,0,0,0,0,310,7,0,0,5,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,MAKE IT YOURS,HOT CHILI,1 serving,,main,60,4,1.5,0,10,170,3,1,1,1,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,MAKE IT YOURS,ARANCH DRESSING,1 serving,,extra,130,14,2.5,0,5,250,2,0,0,1,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,MAKE IT YOURS,ASLAW,1 serving,,main,140,7,1.5,0,5,220,17,2,2,14,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,MAKE IT YOURS,SPICY JALAPENO,1 serving,,main,5,0,0,0,0,140,1,0,0,1,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,TOASTER\circledR SANDWICHES,ABACON CHEESEBURGER TOASTER\circledR SANDWICH,1 serving,,main,760,38,13,1,100,1670,68,3,14,37,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,TOASTER\circledR SANDWICHES,ABLT TOASTER\circledR SANDWICH,1 serving,,main,580,32,8,0,40,1080,53,2,8,,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,TOASTER\circledR SANDWICHES,ACHICKEN CLUB TOASTER\circledR SANDWICH,1 serving,,main,770,43,11,0,80,1590,63,3,8,,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,TOASTER\circledR SANDWICHES,ACOUNTRY FRIED STEAK TOASTER\circledR SANDWICH,1 serving,,main,700,35,9,0,45,1390,80,3,7,,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,WRAPS,ACHICKEN WRAP - CRISPY,1 serving,,main,530,28,6,0,40,1280,48,2,2,21,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,WRAPS,ACHICKEN WRAP - GRILLED,1 serving,,main,480,14,4,0,80,1720,39,2,3,,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CHICKEN,\wedgeASIAN SWEET CHILI BONELESS WINGS,6 PC.,,dessert,470,24,9,0,80,1450,32,2,14,30,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CHICKEN,\wedgeASIAN SWEET CHILI BONELESS WINGS,12 PC.,,dessert,930,48,19,1,165,2910,65,4,28,60,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CHICKEN,\wedgeASIAN SWEET CHILI BONELESS WINGS,24 PC.,,dessert,1860,95,37,2,330,5820,129,9,56,119,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CHICKEN,\wedgeHONEY BBQ BONELESS WINGS,6 PC.,,main,470,24,9,0,80,1380,33,2,16,29,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CHICKEN,\wedgeHONEY BBQ BONELESS WINGS,12 PC.,,main,930,48,19,1,165,2760,67,4,32,58,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CHICKEN,\wedgeHONEY BBQ BONELESS WINGS,24 PC.,,main,1860,95,37,2,330,5530,133,9,65,117,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CHICKEN,\wedgeBUFFALO BONELESS WINGS,6 PC.,,main,440,28,10,0.5,85,1430,17,2,1,29,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CHICKEN,\wedgeBUFFALO BONELESS WINGS,12 PC.,,main,880,57,20,1,175,2860,34,4,1,59,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CHICKEN,\wedgeBUFFALO BONELESS WINGS,24 PC.,,main,1760,113,40,2,345,5720,68,9,2,117,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CHICKEN,CLASSIC CRISPY CHICKEN SANDWICH,1 serving,,main,550,30,6,0,45,870,48,4,10,21,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CHICKEN,CLASSIC CRILLED CHICKEN SANDWICH,1 serving,,main,470,22,4,0,75,1340,39,3,10,30,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CHICKEN,CRISPY TENDER SANDWICH,1 serving,,main,440,22,3,0,40,910,41,2,3,19,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CHICKEN,JUMBO POPCORN CHICKEN#,SMALL,,main,330,19,3.5,0,40,1100,24,3,1,16,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CHICKEN,JUMBO POPCORN CHICKEN#,MEDIUM,,main,490,28,5,0,55,1640,36,4,1,23,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CHICKEN,JUMBO POPCORN CHICKEN#,LARGE,,main,750,43,8,0.5,90,2520,55,6,2,36,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CHICKEN,\wedgeSAUCED JUMBO POPCORN CHICKEN# - BUFFALO,MEDIUM,,main,560,35,6,0.5,65,2500,37,5,2,24,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CHICKEN,\wedgeSAUCED JUMBO POPCORN CHICKEN# - BUFFALO,LARGE,,main,920,60,11,1,105,4670,58,8,3,37,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CHICKEN,\wedgeSAUCED JUMBO POPCORN CHICKEN# - HONEY BBQ,MEDIUM,,main,570,28,5,0,55,2170,53,4,17,24,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CHICKEN,\wedgeSAUCED JUMBO POPCORN CHICKEN# - HONEY BBQ,LARGE,,main,930,43,8,1,90,3830,98,7,42,36,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CHICKEN,CRISPY TENDERS,3 PC.,,main,260,12,1,0,60,730,16,2,0,21,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CHICKEN,CRISPY TENDERS,5 PC.,,main,430,20,2,0,95,1210,27,3,0,35,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SANDWICHES,\wedgeCOUNTRY FRIED STEAK SANDWICH,1 serving,,main,700,35,9,0,45,1410,80,3,10,16,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SANDWICHES,\wedgeFISH SANDWICH,1 serving,,main,540,27,5,0,35,1240,57,4,10,18,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SANDWICHES,GRILLED CHEESE SANDWICH,1 serving,,main,430,19,7,0,35,1090,51,2,7,14,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SANDWICHES,\wedgePHILLY CHEESE STEAK SANDWICH,1 serving,,main,750,39,16,1.5,125,1710,53,1,5,46,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SANDWICHES,\wedgePORK TENDERLOIN SANDWICH,1 serving,,main,710,35,4.5,0,45,1110,73,3,10,20,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SANDWICHES,\wedgeSEAFOOD & CRAB SANDWICH,1 serving,,main,510,21,3.5,0,35,1110,64,3,12,14,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HOT DOGS,ALL-AMERICAN DOG,"6""",,main,410,21,8,1,35,1120,41,2,12,13,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HOT DOGS,ALL BEEF REGULAR HOT DOG,"6""",,main,360,21,8,1,35,800,31,2,4,12,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HOT DOGS,\wedgeCHEESY BACON PRETZEL DOG,"6""",,main,430,29,12,1.5,50,1130,27,2,4,15,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HOT DOGS,\wedgeCHICAGO DOG,"6""",,main,400,20,7,1,35,2010,41,1,13,11,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HOT DOGS,CHILI CHEESE CONEY,"6""",,main,470,29,12,1.5,55,1260,34,2,5,18,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HOT DOGS,FOOTLONG QUARTER POUND CONEY,1 serving,,main,790,49,19,1,105,2300,55,3,9,31,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HOT DOGS,\wedgeNEW YORK DOG,"6""",,main,400,23,8,1,35,1110,35,3,5,13,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HOT DOGS,\wedgeORIGINAL PRETZEL DOG,"6""",,main,320,20,8,1,35,760,23,1,2,11,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,\wedgeBAGEL BREAKFAST SANDWICH BACON,1 serving,,main,660,29,10,0,330,1830,68,2,5,33,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,ΔBACEL BREAKFAST SANDWICH HAM,1 serving,,main,590,21,7,0,330,2070,70,2,7,33,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,ΔBAGEL BREAKFAST SANDWICH SAUSAGE,1 serving,,main,770,41,14,0,340,1750,68,2,5,33,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,ΔBISCUIT SANDWICH BACON,1 serving,,main,570,30,15,0,330,1970,40,1,5,28,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,ΔBISCUIT SANDWICH HAM,1 serving,,main,510,21,12,0,330,2210,42,1,7,28,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,ΔBISCUIT SANDWICH SAUSAGE,1 serving,,main,680,42,19,0,340,1890,40,1,5,28,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,ΔBREAKFAST BURRITO BACON,1 serving,,main,470,25,11,0,320,1540,35,1,1,25,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,ΔBREAKFAST BURRITO HAM,1 serving,,main,440,20,9,0,330,1920,38,1,2,27,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,BREAKFAST BURRITO SAUSAGE,1 serving,,main,500,30,13,0,325,1430,35,1,1,23,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,ΔBREAKFAST BURRITO STEAK & EGG,1 serving,,main,650,36,14,1.5,345,1960,48,2,2,33,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,BREAKFAST TOASTER# BACON,1 serving,,main,610,31,10,0,330,1610,52,2,7,29,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,ΔBREAKFAST TOASTER# HAM,1 serving,,main,540,22,7,0,330,1850,54,2,9,29,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,BREAKFAST TOASTER# SAUSAGE,1 serving,,main,720,43,14,0,340,1530,52,2,7,29,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,ΔBRIOCHE BREAKFAST SANDWICH BACON,1 serving,,main,530,30,11,0,330,1520,38,2,10,27,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,ΔBRIOCHE BREAKFAST SANDWICH HAM,1 serving,,main,470,22,8,0,330,1750,40,2,11,27,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,ΔBRIOCHE BREAKFAST SANDWICH SAUSAGE,1 serving,,main,640,43,15,0,340,1440,38,3,10,27,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,CINNASNACKS# WITHOUT CREAM CHEESE FROSTING,3 PC.,,main,380,22,6,0,0,210,38,2,12,6,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,CINNASNACKS# WITHOUT CREAM CHEESE FROSTING,5 PC.,,main,630,37,11,0,0,350,63,4,21,10,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,ΔCROISSONIC# BREAKFAST SANDWICH BACON,1 serving,,main,560,37,14,0,330,1380,31,1,5,26,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,ΔCROISSONIC# BREAKFAST SANDWICH HAM,1 serving,,main,490,29,11,0,330,1620,33,1,7,26,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,ΔCROISSONIC# BREAKFAST SANDWICH SAUSAGE,1 serving,,main,670,49,18,0,340,1300,31,1,5,26,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,FRENCH TOAST STICKS WITHOUT SYRUP,4 PC.,,extra,480,25,4.5,0,0,460,54,3,12,8,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,JR. BREAKFAST BURRITO,1 serving,,main,290,17,7,0,145,820,22,1,0,12,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,#SULFOSOLIC# BREAKFAST BURRITO,1 serving,,main,610,35,14,0,325,1800,49,3,3,24,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,ULTIMATE MEAT & CHEESE BREAKFAST BURRITO,1 serving,,main,840,58,19,0.5,360,2220,47,2,1,30,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,COFFEE,FRENCH VANILLA COLD BREW ICED COFFEE,SMALL,,drink,210,9,6,0,30,110,29,0,17,4,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,COFFEE,FRENCH VANILLA COLD BREW ICED COFFEE,MEDIUM,,drink,300,13,8,0,45,150,42,0,25,5,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,COFFEE,FRENCH VANILLA COLD BREW ICED COFFEE,LARGE,,drink,470,20,12,0.5,70,230,65,0,39,8,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,COFFEE,FRENCH VANILLA COLD BREW ICED COFFEE,RT 44°,,drink,650,27,17,1,95,320,90,0,54,11,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,COFFEE,ORIGINAL COLD BREW ICED COFFEE,SMALL,,drink,190,9,6,0,30,110,24,0,12,4,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,COFFEE,ORIGINAL COLD BREW ICED COFFEE,MEDIUM,,drink,260,13,8,0,45,150,32,0,17,5,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,COFFEE,ORIGINAL COLD BREW ICED COFFEE,LARGE,,drink,410,20,12,0.5,70,230,50,0,26,8,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,COFFEE,ORIGINAL COLD BREW ICED COFFEE,RT 44°,,drink,570,27,17,1,95,320,70,0,37,11,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,ΔCHED 'R' BITES®,SMALL,,side,280,27,8,0.5,40,970,23,1,1,14,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,ΔCHED 'R' BITES®,MEDIUM,,side,410,46,13,1,65,1570,35,2,2,21,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,ΔCHED 'R' BITES®,LARGE,,side,550,53,16,1,85,1940,46,2,2,27,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,CHED 'R' PEPPERS®,(4 PC) SMALL,,side,330,28,8,1,35,1340,37,2,2,9,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,CHED 'R' PEPPERS,(6 PC) MEDIUM,,side,490,48,12,1.5,55,2130,56,3,4,13,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,CHED 'R' PEPPERS,(8 PC) LARGE,,side,660,57,15,2,65,2690,74,4,5,17,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,CHILI CHEESE FRIES,SMALL,,side,350,19,6,0,20,640,36,3,1,8,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,CHILI CHEESE FRIES,MEDIUM,,side,450,26,10,0.5,35,940,42,4,2,12,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,CHILI CHEESE FRIES,LARGE,,side,710,40,14,1,50,1390,70,7,2,18,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,CHILI CHEESE TOTS,SMALL,,side,350,21,7,0,20,1000,32,3,1,7,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,CHILI CHEESE TOTS,MEDIUM,,side,530,32,10,0.5,35,1540,47,5,2,12,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,CHILI CHEESE TOTS,LARGE,,side,960,57,17,1,50,2690,92,9,3,19,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,CORN DOG,1 serving,,side,230,13,4,0,15,480,23,1,5,6,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,FRIES,SMALL,,side,250,12,2,0,0,260,33,3,0,3,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,FRIES,MEDIUM,,side,290,13,2.5,0,0,300,38,3,0,3,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,FRIES,LARGE,,side,470,22,4,0,0,490,63,6,1,5,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,ΔFRIES WITH CHEESE,SMALL,,side,310,17,5,0,20,590,34,3,1,6,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,ΔFRIES WITH CHEESE,MEDIUM,,side,380,22,7,0,25,790,39,3,1,9,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,ΔFRIES WITH CHEESE,LARGE,,side,600,33,10,0,35,1150,64,6,2,12,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,ΔFRITOS® CHILI PIE,SMALL,,dessert,510,34,10,0.5,35,1030,35,3,1,14,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,ΔFRITOS,(CHILI PIE MEDIUM),,side,750,50,15,1,50,1490,53,5,2,20,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,ΔFRITOS,(CHILI PIE LARGE),,side,990,66,20,1,70,1940,71,6,3,26,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,HANDMADE ONION RINGS,SMALL,,side,440,21,3.5,0,0,430,55,3,14,6,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,HANDMADE ONION RINGS,MEDIUM,,side,580,29,5,0,0,570,74,4,19,8,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,HANDMADE ONION RINGS,LARGE,,side,800,39,7,0.5,0,790,101,5,26,11,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,JUMBO POPCORN CHICKEN®,SMALL,,side,330,19,3.5,0,40,1100,24,3,1,16,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,JUMBO POPCORN CHICKEN®,MEDIUM,,side,490,28,5,0,55,1640,36,4,1,23,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,JUMBO POPCORN CHICKEN®,LARGE,,side,750,43,8,0.5,90,2520,55,6,2,36,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,MOZZARELLA STICKS,(4 PC) SMALL,,side,370,19,7,0,30,950,40,2,5,15,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,MOZZARELLA STICKS,(6 PC) MEDIUM,,side,560,29,11,0.5,45,1490,61,3,8,23,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,MOZZARELLA STICKS,(8 PC) LARGE,,side,750,38,15,0.5,60,1890,79,4,9,31,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,ΔPICKLE-O'S®,SMALL,,side,190,21,3.5,0,10,850,23,1,2,3,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,ΔPICKLE-O'S®,MEDIUM,,side,310,39,7,0.5,20,1490,39,2,4,5,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,ΔPICKLE-O'S®,LARGE,,side,500,49,8,0.5,20,2100,61,4,5,8,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,SOFT PRETZEL TWIST,1 serving,,side,250,7,1,0,0,440,39,2,6,7,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,TOTS,SMALL,,side,250,13,2.5,0,0,620,30,3,0,2,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,TOTS,MEDIUM,,side,360,19,3.5,0,0,890,43,4,0,3,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,TOTS,LARGE,,side,580,31,6,0,0,1450,69,6,1,5,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,ΔTOTS WITH CHEESE,SMALL,,side,310,19,5,0,20,950,30,3,1,6,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,ΔTOTS WITH CHEESE,MEDIUM,,side,450,28,8,0,30,1390,43,4,1,8,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,ΔTOTS WITH CHEESE,LARGE,,side,840,50,13,0,40,2450,86,8,2,13,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,REAL ICE CREAM SUNDAES,CARAMEL REAL ICE CREAM SUNDAE,1 serving,,dessert,490,22,15,1,65,350,61,0,43,7,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,REAL ICE CREAM SUNDAES,CHOCOLATE REAL ICE CREAM SUNDAE,1 serving,,dessert,430,22,15,0.5,65,280,51,1,36,7,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,REAL ICE CREAM SUNDAES,HOT FUDGE REAL ICE CREAM SUNDAE,1 serving,,dessert,520,26,18,0.5,65,270,65,1,46,7,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,REAL ICE CREAM SUNDAES,STRAWBERRY REAL ICE CREAM SUNDAE,1 serving,,dessert,440,21,14,0.5,65,220,55,1,40,7,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,FROZEN ZONE® ADD-ONS,PEANUTS ADD-ON,1 serving,,extra,40,3.5,0.5,0,0,0,2,1,0,2,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,FROZEN ZONE® ADD-ONS,WHIPPED TOPPING ADD-ON,1 serving,,extra,70,5,5,0,0,0,5,0,5,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CONE,VANILLA CONE,1 serving,,main,250,12,8,0,45,140,30,0,17,4,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SLUSHES,PLAIN SLUSH ONLY - NO SYRUP,SMALL,,extra,180,0,0,0,0,30,48,0,48,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,SLUSHES,PLAIN SLUSH ONLY - NO SYRUP,MEDIUM,,extra,240,0,0,0,0,40,66,0,66,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,SLUSHES,PLAIN SLUSH ONLY - NO SYRUP,LARGE,,extra,380,0,0,0,0,60,103,0,103,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,SLUSHES,PLAIN SLUSH ONLY - NO SYRUP,RT 44®,,extra,540,0,0,0,0,85,145,0,145,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,ALL-NATURAL LEMONADE,ALL-NATURAL LEMONADE,WACKY PACK®,,drink,100,0,0,0,0,0,27,0,25,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,ALL-NATURAL LEMONADE,ALL-NATURAL LEMONADE,SMALL,,drink,160,0,0,0,0,0,42,0,38,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,ALL-NATURAL LEMONADE,ALL-NATURAL LEMONADE,MEDIUM,,drink,270,0,0,0,0,0,69,0,64,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,ALL-NATURAL LEMONADE,ALL-NATURAL LEMONADE,LARGE,,drink,400,0,0,0,0,10,105,0,97,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,ALL-NATURAL LEMONADE,ALL-NATURAL LEMONADE,RT 44®,,drink,540,0,0,0,0,10,142,0,131,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,LEMONADE/LIMEADE SLUSHES,LEMONADE SLUSH,WACKY PACK®,,drink,140,0,0,0,0,20,37,0,36,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,LEMONADE/LIMEADE SLUSHES,LEMONADE SLUSH,SMALL,,drink,190,0,0,0,0,30,52,0,51,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,LEMONADE/LIMEADE SLUSHES,LEMONADE SLUSH,MEDIUM,,drink,280,0,0,0,0,40,74,0,72,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,LEMONADE/LIMEADE SLUSHES,LEMONADE SLUSH,LARGE,,drink,430,0,0,0,0,65,116,0,112,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,LEMONADE/LIMEADE SLUSHES,LEMONADE SLUSH,RT 44®,,drink,600,0,0,0,0,95,162,0,157,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,LEMONADE/LIMEADE SLUSHES,LIMEADE SLUSH,WACKY PACK®,,drink,140,0,0,0,0,20,37,0,36,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,LEMONADE/LIMEADE SLUSHES,LIMEADE SLUSH,SMALL,,drink,190,0,0,0,0,30,53,0,51,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,LEMONADE/LIMEADE SLUSHES,LIMEADE SLUSH,MEDIUM,,drink,280,0,0,0,0,40,74,0,72,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,LEMONADE/LIMEADE SLUSHES,LIMEADE SLUSH,LARGE,,drink,430,0,0,0,0,65,116,0,112,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,LEMONADE/LIMEADE SLUSHES,LIMEADE SLUSH,RT 44®,,drink,600,0,0,0,0,95,163,0,157,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,SOFT DRINKS,BARQ'S® ROOT BEER,WACKY PACK®,,drink,80,0,0,0,0,20,21,0,21,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,SOFT DRINKS,BARQ'S® ROOT BEER,SMALL,,drink,120,0,0,0,0,30,32,0,32,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,SOFT DRINKS,BARQ'S® ROOT BEER,MEDIUM,,drink,200,0,0,0,0,50,53,0,53,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,SOFT DRINKS,BARQ'S® ROOT BEER,LARGE,,drink,300,0,0,0,0,80,81,0,81,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,SOFT DRINKS,BARQ'S® ROOT BEER,RT 44®,,drink,400,0,0,0,0,105,109,0,109,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,SOFT DRINKS,COCA-COLA®,WACKY PACK®,,drink,70,0,0,0,0,0,19,0,19,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,SOFT DRINKS,COCA-COLA®,SMALL,,drink,110,0,0,0,0,10,29,0,29,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,SOFT DRINKS,COCA-COLA®,MEDIUM,,drink,180,0,0,0,0,15,48,0,48,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,SOFT DRINKS,COCA-COLA®,LARGE,,drink,270,0,0,0,0,20,72,0,72,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,SOFT DRINKS,COCA-COLA®,RT 44®,,drink,360,0,0,0,0,30,98,0,98,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,SOFT DRINKS,COCA-COLA® ZERO SUGAR,WACKY PACK®,,drink,0,0,0,0,0,5,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,SOFT DRINKS,COCA-COLA® ZERO SUGAR,SMALL,,drink,0,0,0,0,0,10,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,SOFT DRINKS,COCA-COLA® ZERO SUGAR,MEDIUM,,drink,0,0,0,0,0,10,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,SOFT DRINKS,COCA-COLA® ZERO SUGAR,LARGE,,drink,0,0,0,0,0,20,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,SOFT DRINKS,COCA-COLA® ZERO SUGAR,RT 44®,,drink,0,0,0,0,0,35,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,SOFT DRINKS,DIET COKE®,WACKY PACK®,,drink,0,0,0,0,0,10,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,SOFT DRINKS,DIET COKE®,SMALL,,drink,0,0,0,0,0,15,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,SOFT DRINKS,DIET COKE®,MEDIUM,,drink,0,0,0,0,0,25,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,SOFT DRINKS,DIET COKE®,LARGE,,drink,0,0,0,0,0,30,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,SOFT DRINKS,DIET COKE®,RT 44®,,drink,0,0,0,0,0,50,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,COFFEE,GREEN MOUNTAIN COFFEE ROASTERS® HOT COFFEE REG.,REG. (16 OZ.),,drink,0,0,0,0,0,0,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,SOFT DRINKS,ΔBIG RED®,WACKY PACK®,,drink,70,0,0,0,0,25,20,0,20,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,SOFT DRINKS,ΔBIG RED®,SMALL,,drink,110,0,0,0,0,45,31,0,41,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,ΔBIG RED®,MEDIUM,,drink,170,0,0,0,0,65,45,0,45,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,SOFT DRINKS,ΔBIG RED®,LARGE,,drink,250,0,0,0,0,100,68,0,68,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,SOFT DRINKS,ΔBIG RED®,RT 44®,,drink,340,0,0,0,0,135,92,0,92,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,BURGERS,SONIC® BACON CHEESEBURGER WITH MAYO,1 serving,,main,770,410,46,14,1,105,1340,53,3,11,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BURGERS,SONIC® BURGER WITH KETCHUP,1 serving,,main,540,200,22,7,1,65,910,57,3,14,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BURGERS,SONIC® BURGER WITH MAYO,1 serving,,main,620,300,34,9,1,70,850,53,3,11,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BURGERS,SONIC® BURGER WITH MUSTARD,1 serving,,main,520,200,23,7,1,65,860,53,3,11,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BURGERS,"SONIC® BURGER WITH MUSTARD, KETCHUP & MAYO",1 serving,,main,640,300,34,9,1,70,1070,57,3,14,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BURGERS,SONIC® CHEESEBURGER WITH KETCHUP,1 serving,,main,600,250,28,10,1,85,1240,58,3,14,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BURGERS,SONIC® CHEESEBURGER WITH MAYO,1 serving,,main,680,350,39,12,1,85,1180,54,3,11,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BURGERS,SONIC® CHEESEBURGER WITH MUSTARD,1 serving,,main,590,250,28,10,1,85,1190,54,3,11,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BURGERS,"SONIC® CHEESEBURGER WITH MUSTARD, KETCHUP & MAYO",1 serving,,main,710,350,39,12,1,85,1400,58,3,15,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BURGERS,SUPERSONIC® BACON DOUBLE CHEESEBURGER WITH MAYO,1 serving,,main,1030,590,65,23,2,190,1880,54,3,12,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BURGERS,SUPERSONIC® DOUBLE CHEESEBURGER WITH KETCHUP,1 serving,,main,870,430,48,19,1.5,165,1780,59,3,15,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BURGERS,SUPERSONIC® DOUBLE CHEESEBURGER WITH MAYO,1 serving,,main,960,530,59,21,2,170,1720,55,3,12,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BURGERS,SUPERSONIC® DOUBLE CHEESEBURGER WITH MUSTARD,1 serving,,main,860,430,48,19,1.5,165,1730,55,3,12,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BURGERS,"SUPERSONIC® DOUBLE CHEESEBURGER WITH MUSTARD, KETCHUP & MAYO",1 serving,,main,970,530,59,21,2,170,1940,59,3,15,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BURGERS,SUPERSONIC® JALAPENO DOUBLE CHEESEBURGER WITH MUSTARD,1 serving,,main,850,430,48,19,1.5,165,1740,54,2,12,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,TOASTER® SANDWICHES,ABACON CHEESEBURGER TOASTER® SANDWICH,1 serving,,main,760,340,38,13,1,100,1670,68,3,14,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,TOASTER® SANDWICHES,ABLT TOASTER® SANDWICH,1 serving,,main,580,290,32,8,0,40,1080,53,2,8,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,TOASTER® SANDWICHES,ACHICKEN CLUB TOASTER® SANDWICH,1 serving,,main,770,390,43,11,0,80,1590,63,3,8,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,TOASTER® SANDWICHES,ACOUNTRY FRIED STEAK TOASTER® SANDWICH,1 serving,,main,700,310,35,9,0,45,1390,80,3,7,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CHICKEN,ASIAN SWEET CHILI BONELESS WINGS,6 PC.,,dessert,470,210,24,9,0,80,1450,32,2,14,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CHICKEN,ASIAN SWEET CHILI BONELESS WINGS,12 PC.,,dessert,930,430,48,19,1,165,2910,65,4,28,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CHICKEN,ASIAN SWEET CHILI BONELESS WINGS,24 PC.,,dessert,1860,860,95,37,2,330,5820,129,9,56,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CHICKEN,HONEY BBQ BONELESS WINGS,6 PC.,,main,470,210,24,9,0,80,1380,33,2,16,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CHICKEN,HONEY BBQ BONELESS WINGS,12 PC.,,main,930,430,48,19,1,165,2760,67,4,32,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CHICKEN,HONEY BBQ BONELESS WINGS,24 PC.,,main,1860,860,95,37,2,330,5530,133,9,65,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CHICKEN,BUFFALO BONELESS WINGS,6 PC.,,main,440,250,28,10,0.5,85,1430,17,2,1,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CHICKEN,BUFFALO BONELESS WINGS,12 PC.,,main,880,510,57,20,1,175,2860,34,4,1,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CHICKEN,BUFFALO BONELESS WINGS,24 PC.,,main,1760,1020,113,40,2,345,5720,68,9,2,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CHICKEN,SAUCED JUMBO POPCORN CHICKEN - BUFFALO,Medium,,main,560,310,35,6,0.5,65,2500,37,5,2,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CHICKEN,SAUCED JUMBO POPCORN CHICKEN - BUFFALO,Large,,main,920,540,60,11,1,105,4670,58,8,3,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CHICKEN,SAUCED JUMBO POPCORN CHICKEN - HONEY BBQ,Medium,,main,570,250,28,5,0,55,2170,53,4,17,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CHICKEN,SAUCED JUMBO POPCORN CHICKEN - HONEY BBQ,Large,,main,930,390,43,8,1,90,3830,98,7,42,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SANDWICHES,COUNTRY FRIED STEAK SANDWICH,1 serving,,main,700,320,35,9,0,45,1410,80,3,10,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SANDWICHES,FISH SANDWICH,1 serving,,main,540,240,27,5,0,35,1240,57,4,10,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SANDWICHES,PHILLY CHEESE STEAK SANDWICH,1 serving,,main,750,350,39,16,1.5,125,1710,53,1,5,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SANDWICHES,PORK TENDERLOIN SANDWICH,1 serving,,main,710,320,35,4.5,0,45,1110,73,3,10,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SANDWICHES,SEAFOOD & CRAB SANDWICH,1 serving,,main,510,190,21,3.5,0,35,1110,64,3,12,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HOT DOGS,CHEESY BACON PRETZEL DOG,"6""",,main,430,260,29,12,1.5,50,1130,27,2,4,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HOT DOGS,CHICAGO DOG,"6""",,main,400,180,20,7,1,35,2010,41,1,13,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HOT DOGS,NEW YORK DOG,"6""",,main,400,210,23,8,1,35,1110,35,3,5,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HOT DOGS,ORIGINAL PRETZEL DOG,"6""",,main,320,180,20,8,1,35,760,23,1,2,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,BAGEL BREAKFAST SANDWICH BACON,1 serving,,main,660,260,29,10,0,330,1830,68,2,5,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,BACEL BREAKFAST SANDWICH HAM,1 serving,,main,590,180,21,7,0,330,2070,70,2,7,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,BAGEL BREAKFAST SANDWICH SAUSAGE,1 serving,,main,770,370,41,14,0,340,1750,68,2,5,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,BISCUIT SANDWICH BACON,1 serving,,main,570,270,30,15,0,330,1970,40,1,5,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,BISCUIT SANDWICH HAM,1 serving,,main,510,190,21,12,0,330,2210,42,1,7,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,BISCUIT SANDWICH SAUSAGE,1 serving,,main,680,380,42,19,0,340,1890,40,1,5,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,BREAKFAST BURRITO BACON,1 serving,,main,470,230,25,11,0,320,1540,35,1,1,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,BREAKFAST BURRITO HAM,1 serving,,main,440,180,20,9,0,330,1920,38,1,2,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,BREAKFAST BURRITO STEAK & EGG,1 serving,,main,650,320,36,14,1.5,345,1960,48,2,2,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,BREAKFAST TOASTER BACON,1 serving,,main,610,280,31,10,0,330,1610,52,2,7,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,BREAKFAST TOASTER HAM,1 serving,,main,540,200,22,7,0,330,1850,54,2,9,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,BREAKFAST TOASTER SAUSAGE,1 serving,,main,720,390,43,14,0,340,1530,52,2,7,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,BRIOCHE BREAKFAST SANDWICH BACON,1 serving,,main,530,270,30,11,0,330,1520,38,2,10,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,BRIOCHE BREAKFAST SANDWICH HAM,1 serving,,main,470,200,22,8,0,330,1750,40,2,11,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,BRIOCHE BREAKFAST SANDWICH SAUSAGE,1 serving,,main,640,380,43,15,0,340,1440,38,3,10,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,CINNASNACKS WITHOUT CREAM CHEESE FROSTING,3 PC.,,main,380,200,22,6,0,0,210,38,2,12,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,CINNASNACKS WITHOUT CREAM CHEESE FROSTING,5 PC.,,main,630,340,37,11,0,0,350,63,4,21,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,CROISSONIC BREAKFAST SANDWICH BACON,1 serving,,main,560,330,37,14,0,330,1380,31,1,5,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,CROISSONIC BREAKFAST SANDWICH HAM,1 serving,,main,490,260,29,11,0,330,1620,33,1,7,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,CROISSONIC BREAKFAST SANDWICH SAUSAGE,1 serving,,main,670,440,49,18,0,340,1300,31,1,5,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,BREAKFAST ITEMS,SULFOSOLIC BREAKFAST BURRITO,1 serving,,main,610,310,35,14,0,325,1800,49,3,3,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,CHED 'R' BITES®,Small,,side,280,140,27,8,0.5,40,970,23,1,1,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,CHED 'R' BITES®,Medium,,side,410,200,46,13,1,65,1570,35,2,2,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,CHED 'R' BITES®,Large,,side,550,270,53,16,1,85,1940,46,2,2,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,FRIES WITH CHEESE,Small,,side,310,150,17,5,0,20,590,34,3,1,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,FRIES WITH CHEESE,Medium,,side,380,190,22,7,0,25,790,39,3,1,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,FRIES WITH CHEESE,Large,,side,600,300,33,10,0,35,1150,64,6,2,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,FRITOS® CHILI PIE,Small,,dessert,510,310,34,10,0.5,35,1030,35,3,1,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,FRITOS® CHILI PIE,Medium,,dessert,750,450,50,15,1,50,1490,53,5,2,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,FRITOS® CHILI PIE,Large,,dessert,990,600,66,20,1,70,1940,71,6,3,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,PICKLE-O'S®,Small,,side,190,90,21,3.5,0,10,850,23,1,2,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,PICKLE-O'S®,Medium,,side,310,150,39,7,0.5,20,1490,39,2,4,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,PICKLE-O'S®,Large,,side,500,230,49,8,0.5,20,2100,61,4,5,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,TOTS WITH CHEESE,Small,,side,310,170,19,5,0,20,950,30,3,1,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,TOTS WITH CHEESE,Medium,,side,450,250,28,8,0,30,1390,43,4,1,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,TOTS WITH CHEESE,Large,,side,840,450,50,13,0,40,2450,86,8,2,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SONIC BLAST®,SONIC BLAST® WITH BUTTERFINGER® PIECES,Mini,,main,470,210,23,13,0.5,60,260,57,1,36,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SONIC BLAST®,SONIC BLAST® WITH BUTTERFINGER® PIECES,Small,,main,740,330,37,21,1,95,420,90,2,57,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SONIC BLAST®,SONIC BLAST® WITH BUTTERFINGER® PIECES,Medium,,main,980,440,48,28,1.5,125,550,118,2,75,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SONIC BLAST®,SONIC BLAST® WITH BUTTERFINGER® PIECES,Large,,main,1440,650,72,43,2,200,820,172,3,110,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SONIC BLAST®,SONIC BLAST® WITH CHOCOLATE CHIP COOKIE DOUGH,Mini,,dessert,450,190,22,12,0.5,65,220,59,0,37,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SONIC BLAST®,SONIC BLAST® WITH CHOCOLATE CHIP COOKIE DOUGH,Small,,dessert,690,300,34,19,1,100,340,89,1,55,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SONIC BLAST®,SONIC BLAST® WITH CHOCOLATE CHIP COOKIE DOUGH,Medium,,dessert,920,400,45,25,1.5,135,450,118,1,73,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SONIC BLAST®,SONIC BLAST® WITH CHOCOLATE CHIP COOKIE DOUGH,Large,,dessert,1370,610,68,39,2,210,690,172,1,108,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SONIC BLAST®,SONIC BLAST® WITH M&M'S® MINIS CHOCOLATE CANDIES,Mini,,main,530,250,27,17,0.5,65,210,65,1,51,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SONIC BLAST®,SONIC BLAST® WITH M&M'S® MINIS CHOCOLATE CANDIES,Small,,main,800,370,41,25,1,100,330,97,2,75,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SONIC BLAST®,SONIC BLAST® WITH M&M'S® MINIS CHOCOLATE CANDIES,Medium,,main,1060,490,54,34,1.5,135,430,127,2,98,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SONIC BLAST®,SONIC BLAST® WITH M&M'S® MINIS CHOCOLATE CANDIES,Large,,main,1540,720,80,49,2,210,680,183,3,138,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SONIC BLAST®,SONIC BLAST® WITH OREO® COOKIE PIECES,Mini,,dessert,440,200,22,12,0.5,55,340,54,1,34,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SONIC BLAST®,SONIC BLAST® WITH OREO® COOKIE PIECES,Small,,dessert,650,300,33,18,1,90,470,78,1,50,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SONIC BLAST®,SONIC BLAST® WITH OREO® COOKIE PIECES,Medium,,dessert,860,390,44,24,1.5,125,620,103,2,66,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SONIC BLAST®,SONIC BLAST® WITH OREO® COOKIE PIECES,Large,,dessert,1300,600,67,38,2,195,890,153,2,98,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SONIC BLAST®,SONIC BLAST® WITH REESE'S® PEANUT BUTTER CUPS,Mini,,main,490,250,27,14,0.5,60,310,55,1,42,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SONIC BLAST®,SONIC BLAST® WITH REESE'S® PEANUT BUTTER CUPS,Small,,main,750,370,41,22,1,95,460,84,2,62,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SONIC BLAST®,SONIC BLAST® WITH REESE'S® PEANUT BUTTER CUPS,Medium,,main,990,490,55,29,1.5,130,610,110,2,82,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SONIC BLAST®,SONIC BLAST® WITH REESE'S® PEANUT BUTTER CUPS,Large,,main,1460,720,80,44,2,205,890,162,3,118,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SONIC BLAST®,SONIC BLAST® WITH SNICKERS® BARS,Mini,,main,460,220,24,13,1,65,250,54,1,38,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SONIC BLAST®,SONIC BLAST® WITH SNICKERS® BARS,Small,,main,720,340,37,21,1,95,390,84,1,61,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SONIC BLAST®,SONIC BLAST® WITH SNICKERS® BARS,Medium,,main,890,420,46,26,1.5,130,490,103,1,73,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SONIC BLAST®,SONIC BLAST® WITH SNICKERS® BARS,Large,,main,1340,630,70,40,2.5,205,750,154,1,108,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED CLASSIC SHAKES,CARAMEL SHAKE,Mini,,dessert,430,200,22,16,0.5,55,210,45,0,32,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED CLASSIC SHAKES,CARAMEL SHAKE,Small,,dessert,660,310,34,23,1,100,350,71,0,49,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED CLASSIC SHAKES,CARAMEL SHAKE,Medium,,dessert,830,380,41,28,1.5,125,520,97,0,67,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED CLASSIC SHAKES,CARAMEL SHAKE,Large,,dessert,1230,550,61,41,2,190,790,144,0,99,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED CLASSIC SHAKES,CHOCOLATE SHAKE,Mini,,dessert,420,200,23,16,0.5,55,250,48,1,35,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED CLASSIC SHAKES,CHOCOLATE SHAKE,Small,,dessert,650,320,35,24,1,100,390,74,1,52,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED CLASSIC SHAKES,CHOCOLATE SHAKE,Medium,,dessert,810,390,43,29,1.5,125,540,95,1,67,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED CLASSIC SHAKES,CHOCOLATE SHAKE,Large,,dessert,1200,570,63,42,2,190,820,142,2,99,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED CLASSIC SHAKES,FRESH BANANA SHAKE,Mini,,dessert,430,200,22,15,0.5,55,180,54,2,37,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED CLASSIC SHAKES,FRESH BANANA SHAKE,Small,,dessert,660,310,34,23,1,100,310,80,2,54,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED CLASSIC SHAKES,FRESH BANANA SHAKE,Medium,,dessert,850,370,41,27,1.5,125,390,108,3,70,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED CLASSIC SHAKES,FRESH BANANA SHAKE,Large,,dessert,1250,550,61,39,2,190,590,160,5,103,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED CLASSIC SHAKES,HOT FUDGE SHAKE,Mini,,dessert,450,210,24,17,0.5,55,210,51,1,37,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED CLASSIC SHAKES,HOT FUDGE SHAKE,Small,,dessert,680,330,36,25,1,100,340,77,1,54,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED CLASSIC SHAKES,HOT FUDGE SHAKE,Medium,,dessert,940,430,48,33,1.5,125,480,113,2,80,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED CLASSIC SHAKES,HOT FUDGE SHAKE,Large,,dessert,1350,620,69,47,2,190,710,162,2,113,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED CLASSIC SHAKES,PEANUT BUTTER SHAKE,Mini,,dessert,480,270,30,17,0.5,55,220,45,1,32,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED CLASSIC SHAKES,PEANUT BUTTER SHAKE,Small,,dessert,710,380,43,24,1,100,360,71,1,49,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED CLASSIC SHAKES,PEANUT BUTTER SHAKE,Medium,,dessert,940,520,58,30,1.5,125,480,89,1,61,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED CLASSIC SHAKES,PEANUT BUTTER SHAKE,Large,,dessert,1490,850,94,45,2,190,770,136,2,91,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED CLASSIC SHAKES,STRAWBERRY SHAKE,Mini,,dessert,400,190,21,15,0.5,55,180,47,0,35,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED CLASSIC SHAKES,STRAWBERRY SHAKE,Small,,dessert,630,310,34,23,1,100,320,72,0,52,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED CLASSIC SHAKES,STRAWBERRY SHAKE,Medium,,dessert,790,370,41,27,1.5,125,400,92,1,66,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED CLASSIC SHAKES,STRAWBERRY SHAKE,Large,,dessert,1160,540,60,39,2,190,600,137,1,97,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED CLASSIC SHAKES,VANILLA SHAKE,Mini,,dessert,420,210,23,16,0.5,65,200,45,0,32,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED CLASSIC SHAKES,VANILLA SHAKE,Small,,dessert,650,330,36,24,1.1,110,340,71,0,49,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED CLASSIC SHAKES,VANILLA SHAKE,Medium,,dessert,820,410,45,30,1.4,140,430,89,0,61,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED CLASSIC SHAKES,VANILLA SHAKE,Large,,dessert,1200,590,66,43,2.1,210,650,132,0,90,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED MASTER SHAKES®,CHEESECAKE SHAKE,Mini,,dessert,440,200,23,15,0.5,55,340,53,0,36,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED MASTER SHAKES®,CHEESECAKE SHAKE,Small,,dessert,670,320,35,23,1,100,470,79,0,53,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED MASTER SHAKES®,CHEESECAKE SHAKE,Medium,,dessert,840,380,43,28,1.5,125,680,101,1,68,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED MASTER SHAKES®,CHEESECAKE SHAKE,Large,,dessert,1230,560,62,39,2,190,1010,148,1,99,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED MASTER SHAKES®,OREO® CHEESECAKE SHAKE,Mini,,dessert,550,240,27,17,0.5,55,460,69,1,45,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED MASTER SHAKES®,OREO® CHEESECAKE SHAKE,Small,,dessert,820,370,41,25,1,100,650,102,1,66,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED MASTER SHAKES®,OREO® CHEESECAKE SHAKE,Medium,,dessert,1030,460,51,30,1.5,125,900,131,2,84,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED MASTER SHAKES®,OREO® CHEESECAKE SHAKE,Large,,dessert,1470,650,72,42,2,190,1280,184,2,119,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED MASTER SHAKES®,OREO® CHOCOLATE SHAKE,Mini,,dessert,520,240,27,18,0.5,55,380,65,1,44,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED MASTER SHAKES®,OREO® CHOCOLATE SHAKE,Small,,dessert,750,360,40,25,1,100,510,90,1,61,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED MASTER SHAKES®,OREO® CHOCOLATE SHAKE,Medium,,dessert,1000,460,51,32,1.5,125,760,125,3,84,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED MASTER SHAKES®,OREO® CHOCOLATE SHAKE,Large,,dessert,1430,660,73,45,2,190,1090,178,4,119,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED MASTER SHAKES®,OREO® PEANUT BUTTER SHAKE,Mini,,dessert,590,310,34,18,0.5,55,350,61,1,41,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED MASTER SHAKES®,OREO® PEANUT BUTTER SHAKE,Small,,dessert,820,420,47,26,1,100,480,87,1,58,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED MASTER SHAKES®,OREO® PEANUT BUTTER SHAKE,Medium,,dessert,1130,590,66,33,1.5,125,700,118,2,77,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED MASTER SHAKES®,OREO® PEANUT BUTTER SHAKE,Large,,dessert,1720,930,104,48,2,190,1040,172,4,111,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED MASTER SHAKES®,STRAWBERRY CHEESECAKE SHAKE,Mini,,dessert,460,200,23,15,0.5,55,340,59,1,41,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED MASTER SHAKES®,STRAWBERRY CHEESECAKE SHAKE,Small,,dessert,700,320,35,23,1,100,480,84,1,58,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED MASTER SHAKES®,STRAWBERRY CHEESECAKE SHAKE,Medium,,dessert,890,380,43,28,1.5,125,680,112,2,78,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,HAND-MIXED MASTER SHAKES®,STRAWBERRY CHEESECAKE SHAKE,Large,,dessert,1300,560,62,39,2,190,1020,165,2,115,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,CANADA DRY® GINGER ALE,Wacky Pack®,,drink,70,0,0,0,0,25,16,0,16,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,CANADA DRY® GINGER ALE,Small,,drink,100,0,0,0,0,45,26,0,26,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,CANADA DRY® GINGER ALE,Medium,,drink,150,0,0,0,0,65,37,0,37,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,CANADA DRY® GINGER ALE,Large,,drink,230,0,0,0,0,100,56,0,56,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,CANADA DRY® GINGER ALE,RT 44®,,drink,310,0,0,0,0,135,76,0,76,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,DR PEPPER®,Wacky Pack®,,drink,60,0,0,0,0,25,18,0,18,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,DR PEPPER®,Small,,drink,100,0,0,0,0,35,28,0,28,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,DR PEPPER®,Medium,,drink,160,0,0,0,0,60,46,0,46,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,DR PEPPER®,Large,,drink,240,0,0,0,0,90,70,0,70,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,DR PEPPER®,RT 44®,,drink,330,0,0,0,0,120,94,0,94,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,DIET DR PEPPER®,Wacky Pack®,,drink,0,0,0,0,0,35,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,DIET DR PEPPER®,Small,,drink,0,0,0,0,0,55,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,DIET DR PEPPER®,Medium,,drink,0,0,0,0,0,95,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,DIET DR PEPPER®,Large,,drink,0,0,0,0,0,140,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,DIET DR PEPPER®,RT 44®,,drink,0,0,0,0,0,190,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,FANTA® ORANGE,Wacky Pack®,,drink,70,0,0,0,0,0,20,0,20,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,FANTA® ORANGE,Small,,drink,110,0,0,0,0,0,31,0,31,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,FANTA® ORANGE,Medium,,drink,190,0,0,0,0,0,51,0,51,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,FANTA® ORANGE,Large,,drink,280,0,0,0,0,10,78,0,78,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,FANTA® ORANGE,RT 44®,,drink,380,0,0,0,0,10,105,0,105,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,HI-C® FRUIT PUNCH,Wacky Pack®,,drink,70,0,0,0,0,10,19,0,19,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,HI-C® FRUIT PUNCH,Small,,drink,110,0,0,0,0,15,30,0,30,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,HI-C® FRUIT PUNCH,Medium,,drink,180,0,0,0,0,20,50,0,50,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,HI-C® FRUIT PUNCH,Large,,drink,280,0,0,0,0,35,75,0,75,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,HI-C® FRUIT PUNCH,RT 44®,,drink,380,0,0,0,0,40,102,0,102,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,MELLO YELLO®,Wacky Pack®,,drink,70,0,0,0,0,10,20,0,20,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,MELLO YELLO®,Small,,drink,110,0,0,0,0,15,31,0,31,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,MELLO YELLO®,Medium,,drink,190,0,0,0,0,20,51,0,51,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,MELLO YELLO®,Large,,drink,280,0,0,0,0,30,78,0,78,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,MELLO YELLO®,RT 44®,,drink,380,0,0,0,0,40,105,0,105,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,POWERADE® MOUNTAIN BLAST®,Wacky Pack®,,drink,45,0,0,0,0,40,12,0,12,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,POWERADE® MOUNTAIN BLAST®,Small,,drink,70,0,0,0,0,60,18,0,18,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,POWERADE® MOUNTAIN BLAST®,Medium,,drink,110,0,0,0,0,100,30,0,30,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,POWERADE® MOUNTAIN BLAST®,Large,,drink,170,0,0,0,0,150,46,0,46,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,POWERADE® MOUNTAIN BLAST®,RT 44®,,drink,230,0,0,0,0,200,62,0,62,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,SPRITE®,Wacky Pack®,,drink,70,0,0,0,0,15,18,0,18,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,SPRITE®,Small,,drink,100,0,0,0,0,25,28,0,28,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,SPRITE®,Medium,,drink,170,0,0,0,0,40,46,0,46,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,SPRITE®,Large,,drink,260,0,0,0,0,70,70,0,70,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,SPRITE®,RT 44®,,drink,350,0,0,0,0,85,94,0,94,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,SPRITE ZERO®,Wacky Pack®,,drink,0,0,0,0,0,10,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,SPRITE ZERO®,Small,,drink,5,0,0,0,0,15,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,SPRITE ZERO®,Medium,,drink,5,0,0,0,0,20,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,SPRITE ZERO®,Large,,drink,5,0,0,0,0,30,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,SPRITE ZERO®,RT 44®,,drink,10,0,0,0,0,40,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,SUN DROP®,Wacky Pack®,,drink,80,0,0,0,0,25,21,0,21,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,SUN DROP®,Small,,drink,130,0,0,0,0,45,33,0,33,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,SUN DROP®,Medium,,drink,190,0,0,0,0,65,48,0,48,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,SUN DROP®,Large,,drink,280,0,0,0,0,100,73,0,73,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SOFT DRINKS,SUN DROP®,RT 44®,,drink,380,0,0,0,0,135,99,0,99,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,ICED TEAS,SWEET ICED TEA,Wacky Pack®,,dessert,80,0,0,0,0,10,21,0,21,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,ICED TEAS,SWEET ICED TEA,Small,,dessert,140,0,0,0,0,10,37,0,37,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,ICED TEAS,SWEET ICED TEA,Medium,,dessert,170,0,0,0,0,15,45,0,45,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,ICED TEAS,SWEET ICED TEA,Large,,dessert,290,0,0,0,0,30,78,0,78,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,ICED TEAS,SWEET ICED TEA,RT 44®,,dessert,360,0,0,0,0,35,96,0,96,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,ICED TEAS,UNSWEET ICED TEA,Wacky Pack®,,drink,0,0,0,0,0,10,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,ICED TEAS,UNSWEET ICED TEA,Small,,drink,0,0,0,0,0,10,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,ICED TEAS,UNSWEET ICED TEA,Medium,,drink,0,0,0,0,0,15,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,ICED TEAS,UNSWEET ICED TEA,Large,,drink,0,0,0,0,0,30,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,ICED TEAS,UNSWEET ICED TEA,RT 44®,,drink,0,0,0,0,0,35,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,JUICES,MINUTE MAID® 100% APPLE JUICE,Box,,drink,80,0,0,0,0,15,21,0,19,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,JUICES,MINUTE MAID® ORANGE JUICE,Small,,drink,140,0,0,0,0,25,34,0,30,2,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,JUICES,MINUTE MAID® ORANGE JUICE,Medium,,drink,200,0,0,0,0,35,47,0,42,3,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SIGNATURE LIMEADES,CHERRY LIMEADE,Wacky Pack®,,main,110,0,0,0,0,20,29,0,28,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SIGNATURE LIMEADES,CHERRY LIMEADE,Small,,main,150,0,0,0,0,30,39,0,38,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SIGNATURE LIMEADES,CHERRY LIMEADE,Medium,,main,250,0,0,0,0,50,66,0,65,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SIGNATURE LIMEADES,CHERRY LIMEADE,Large,,main,370,0,0,0,0,70,99,0,97,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SIGNATURE LIMEADES,CHERRY LIMEADE,RT 44®,,main,490,0,0,0,0,100,132,0,130,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SIGNATURE LIMEADES,DIET CHERRY® LIMEADE,Wacky Pack®,,main,15,0,0,0,0,10,3,0,2,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SIGNATURE LIMEADES,DIET CHERRY® LIMEADE,Small,,main,15,0,0,0,0,15,3,0,2,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SIGNATURE LIMEADES,DIET CHERRY® LIMEADE,Medium,,main,20,0,0,0,0,20,3,0,2,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SIGNATURE LIMEADES,DIET CHERRY® LIMEADE,Large,,main,25,0,0,0,0,35,4,0,2,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SIGNATURE LIMEADES,DIET CHERRY® LIMEADE,RT 44®,,main,30,0,0,0,0,45,4,0,2,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SIGNATURE LIMEADES,DIET LIME LIMEADE,Wacky Pack®,,main,5,0,0,0,0,10,1,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SIGNATURE LIMEADES,DIET LIME LIMEADE,Small,,main,5,0,0,0,0,10,1,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SIGNATURE LIMEADES,DIET LIME LIMEADE,Medium,,main,10,0,0,0,0,15,1,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SIGNATURE LIMEADES,DIET LIME LIMEADE,Large,,main,10,0,0,0,0,25,2,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SIGNATURE LIMEADES,DIET LIME LIMEADE,RT 44®,,main,15,0,0,0,0,35,2,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SIGNATURE LIMEADES,LIMEADE,Wacky Pack®,,main,70,0,0,0,0,15,18,0,18,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SIGNATURE LIMEADES,LIMEADE,Small,,main,100,0,0,0,0,25,28,0,28,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SIGNATURE LIMEADES,LIMEADE,Medium,,main,180,0,0,0,0,40,47,0,46,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SIGNATURE LIMEADES,LIMEADE,Large,,main,270,0,0,0,0,65,72,0,70,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SIGNATURE LIMEADES,LIMEADE,RT 44®,,main,360,0,0,0,0,85,97,0,95,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SIGNATURE LIMEADES,MINUTE MAID® CRANBERRY LIMEADE,Wacky Pack®,,main,100,0,0,0,0,20,27,0,26,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SIGNATURE LIMEADES,MINUTE MAID® CRANBERRY LIMEADE,Small,,main,140,0,0,0,0,20,37,0,36,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SIGNATURE LIMEADES,MINUTE MAID® CRANBERRY LIMEADE,Medium,,main,240,0,0,0,0,45,64,0,62,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SIGNATURE LIMEADES,MINUTE MAID® CRANBERRY LIMEADE,Large,,main,360,0,0,0,0,65,97,0,94,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SIGNATURE LIMEADES,MINUTE MAID® CRANBERRY LIMEADE,RT 44®,,main,490,0,0,0,0,90,131,0,127,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SIGNATURE LIMEADES,STRAWBERRY LIMEADE,Wacky Pack®,,main,100,0,0,1,0,25,25,1,24,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SIGNATURE LIMEADES,STRAWBERRY LIMEADE,Small,,main,130,0,0,1,0,30,35,1,34,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SIGNATURE LIMEADES,STRAWBERRY LIMEADE,Medium,,main,220,0,0,1,0,50,59,1,57,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SIGNATURE LIMEADES,STRAWBERRY LIMEADE,Large,,main,340,0,0,2,0,80,90,2,87,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SIGNATURE LIMEADES,STRAWBERRY LIMEADE,RT 44®,,main,450,0,0,2,0,105,120,2,117,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,OCEAN WATER®,OCEAN WATER®,Wacky Pack®,,drink,80,0,0,0,0,20,21,0,21,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,OCEAN WATER®,OCEAN WATER®,Small,,drink,120,0,0,0,0,30,31,0,31,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,OCEAN WATER®,OCEAN WATER®,Medium,,drink,200,0,0,0,0,45,52,0,52,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,OCEAN WATER®,OCEAN WATER®,Large,,drink,300,0,0,0,0,70,79,0,79,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,OCEAN WATER®,OCEAN WATER®,RT 44®,,drink,400,0,0,0,0,95,107,0,106,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,BLACKBERRY SUGAR-FREE ADD-IN,Wacky Pack®,,extra,0,0,0,0,0,5,1,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,BLACKBERRY SUGAR-FREE ADD-IN,Small,,extra,0,0,0,0,0,5,1,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,BLACKBERRY SUGAR-FREE ADD-IN,Medium,,extra,5,0,0,0,0,15,1,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,BLACKBERRY SUGAR-FREE ADD-IN,Large,,extra,5,0,0,0,0,20,2,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,BLUE COCONUT ADD-IN,Wacky Pack®,,extra,15,0,0,0,0,0,3,0,3,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,BLUE COCONUT ADD-IN,Small,,extra,15,0,0,0,0,0,3,0,3,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,BLUE COCONUT ADD-IN,Medium,,extra,25,0,0,0,0,0,6,0,6,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,BLUE COCONUT ADD-IN,Large,,extra,40,0,0,0,0,5,9,0,9,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,BLUE Raspberry ADD-IN,Small,,extra,10,0,0,0,0,0,3,0,3,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,BLUE Raspberry ADD-IN,Medium,,extra,20,0,0,0,0,0,6,0,5,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,BLUE Raspberry ADD-IN,Large,,extra,35,0,0,0,0,5,8,0,8,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,BLUE Raspberry ADD-IN,RT 44®,,extra,45,0,0,0,0,10,11,0,11,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,CARAMEL TOPPING,Wacky Pack®,,extra,90,1,0.5,0,5,90,19,0,12,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,CARAMEL TOPPING,Small,,extra,90,1,0.5,0,5,90,19,0,12,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,CARAMEL TOPPING,Medium,,extra,180,2,1.5,0,5,180,37,0,24,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,CARAMEL TOPPING,Large,,extra,270,3.5,2,0,10,270,56,0,36,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,CARAMEL TOPPING,RT 44®,,extra,360,4.5,3,0,15,360,75,0,48,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,CHERRY ADD-IN,Wacky Pack®,,extra,30,0,0,0,0,0,8,0,8,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,CHERRY ADD-IN,Small,,extra,30,0,0,0,0,0,8,0,8,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,CHERRY ADD-IN,Medium,,extra,60,0,0,0,0,5,17,0,17,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,CHERRY ADD-IN,Large,,extra,90,0,0,0,0,10,25,0,25,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,CHERRY ADD-IN,RT 44®,,extra,120,0,0,0,0,10,34,0,34,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,CHERRY GARNISH,1 serving,,extra,10,0,0,0,0,0,2,0,2,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,CHOCOLATE ADD-IN,Wacky Pack®,,extra,80,0,0,0,0,30,19,0,15,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,CHOCOLATE ADD-IN,Small,,extra,80,0,0,0,0,30,19,0,15,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,CHOCOLATE ADD-IN,Medium,,extra,160,0,0,0,0,60,38,0,31,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,CHOCOLATE ADD-IN,Large,,extra,240,0,0,0,0,85,57,0,46,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,CHOCOLATE ADD-IN,RT 44®,,extra,320,0,0,0,0,115,76,0,61,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,DIET CHERRY SUGAR-FREE ADD-IN,Wacky Pack®,,extra,15,0,0,0,0,10,3,0,2,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,DIET CHERRY SUGAR-FREE ADD-IN,Small,,extra,15,0,0,0,0,15,3,0,2,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,DIET CHERRY SUGAR-FREE ADD-IN,Medium,,extra,20,0,0,0,0,20,3,0,2,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,DIET CHERRY SUGAR-FREE ADD-IN,Large,,extra,25,0,0,0,0,35,4,0,2,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,DIET CHERRY SUGAR-FREE ADD-IN,RT 44®,,extra,30,0,0,0,0,45,4,0,2,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,GRAPE ADD-IN,Wacky Pack®,,extra,20,0,0,0,0,0,5,0,5,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,GRAPE ADD-IN,Small,,extra,20,0,0,0,0,0,5,0,5,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,GRAPE ADD-IN,Medium,,extra,45,0,0,0,0,5,11,0,10,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,GRAPE ADD-IN,Large,,extra,70,0,0,0,0,10,16,0,16,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,GRAPE ADD-IN,RT 44®,,extra,90,0,0,0,0,10,22,0,21,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,HOT FUDGE TOPPING,Wacky Pack®,,extra,100,3.5,3,0,0,45,16,1,12,1,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,HOT FUDGE TOPPING,Small,,extra,100,3.5,3,0,0,45,16,1,12,1,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,HOT FUDGE TOPPING,Medium,,extra,200,7,6,0,0,90,32,2,25,2,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,HOT FUDGE TOPPING,Large,,extra,300,10,9,0,0,140,48,2,37,2,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,HOT FUDGE TOPPING,RT 44®,,extra,400,14,12,0,0,180,64,3,49,3,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,LEMON ADD-IN,Wacky Pack®,,extra,0,0,0,0,0,0,1,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,LEMON ADD-IN,Small,,extra,0,0,0,0,0,0,1,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,LEMON ADD-IN,Medium,,extra,5,0,0,0,0,0,1,0,1,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,LEMON ADD-IN,Large,,extra,5,0,0,0,0,0,2,0,1,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,LEMON ADD-IN,RT 44®,,extra,5,0,0,0,0,0,2,0,1,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,MANGO SUGAR-FREE ADD-IN,Wacky Pack®,,extra,0,0,0,0,0,5,1,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,MANGO SUGAR-FREE ADD-IN,Small,,extra,0,0,0,0,0,5,1,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,MANGO SUGAR-FREE ADD-IN,Medium,,extra,0,0,0,0,0,15,1,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,MANGO SUGAR-FREE ADD-IN,Large,,extra,5,0,0,0,0,20,2,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,MANGO SUGAR-FREE ADD-IN,RT 44®,,extra,10,0,0,0,0,30,2,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,MINUTE MAID® CRANBERRY ADD-IN,Wacky Pack®,,extra,35,0,0,0,0,0,9,0,8,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,MINUTE MAID® CRANBERRY ADD-IN,Small,,extra,35,0,0,0,0,0,9,0,8,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,MINUTE MAID® CRANBERRY ADD-IN,Medium,,extra,70,0,0,0,0,0,17,0,16,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,MINUTE MAID® CRANBERRY ADD-IN,Large,,extra,100,0,0,0,0,0,26,0,24,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,MINUTE MAID® CRANBERRY ADD-IN,RT 44®,,extra,130,0,0,0,0,0,34,0,32,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,NERDS® CANDY ADD-IN,Wacky Pack®,,extra,110,0,0,0,0,0,26,26,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,NERDS® CANDY ADD-IN,Small,,extra,160,0,0,0,0,5,39,39,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,NERDS® CANDY ADD-IN,Medium,,extra,210,0,0,0,0,10,52,52,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,NERDS® CANDY ADD-IN,Large,,extra,230,0,0,0,0,10,57,57,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,NERDS® CANDY ADD-IN,RT 44®,,extra,290,0,0,0,0,10,71,71,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,PEACH SUGAR-FREE ADD-IN,Wacky Pack®,,extra,0,0,0,0,0,5,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,PEACH SUGAR-FREE ADD-IN,Small,,extra,0,0,0,0,0,5,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,PEACH SUGAR-FREE ADD-IN,Medium,,extra,0,0,0,0,0,10,1,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,PEACH SUGAR-FREE ADD-IN,Large,,extra,5,0,0,0,0,20,1,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,PEACH SUGAR-FREE ADD-IN,RT 44®,,extra,5,0,0,0,0,25,1,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,POWERADE® ADD-IN,Wacky Pack®,,extra,25,0,0,0,0,20,6,0,6,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,POWERADE® ADD-IN,Small,,extra,25,0,0,0,0,20,6,0,6,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,POWERADE® ADD-IN,Medium,,extra,45,0,0,0,0,40,13,0,13,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,POWERADE® ADD-IN,Large,,extra,70,0,0,0,0,60,20,0,20,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,POWERADE® ADD-IN,RT 44®,,extra,90,0,0,0,0,80,25,0,25,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,RASPBERRY SUGAR-FREE ADD-IN,Wacky Pack®,,extra,0,0,0,0,0,5,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,RASPBERRY SUGAR-FREE ADD-IN,Small,,extra,0,0,0,0,0,5,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,RASPBERRY SUGAR-FREE ADD-IN,Medium,,extra,5,0,0,0,0,15,1,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,RASPBERRY SUGAR-FREE ADD-IN,Large,,extra,5,0,0,0,0,20,1,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,RASPBERRY SUGAR-FREE ADD-IN,RT 44®,,extra,5,0,0,0,0,25,1,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,STRAWBERRY ADD-IN,Wacky Pack®,,extra,25,0,0,0,0,5,7,1,6,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,STRAWBERRY ADD-IN,Small,,extra,25,0,0,0,0,5,7,1,6,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,STRAWBERRY ADD-IN,Medium,,extra,50,0,0,0,0,10,12,1,11,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,STRAWBERRY ADD-IN,Large,,extra,70,0,0,0,0,15,18,1,17,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,STRAWBERRY ADD-IN,RT 44®,,extra,90,0,0,0,0,20,24,2,22,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,VANILLA ADD-IN,Wacky Pack®,,extra,20,0,0,0,0,0,6,0,6,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,VANILLA ADD-IN,Small,,extra,20,0,0,0,0,0,6,0,6,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,VANILLA ADD-IN,Medium,,extra,45,0,0,0,0,0,12,0,12,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,VANILLA ADD-IN,Large,,extra,70,0,0,0,0,5,18,0,18,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,DRINK ADD-INS & TOPPINGS,VANILLA ADD-IN,RT 44®,,extra,90,0,0,0,0,5,24,0,24,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,WATER,SONIC® WATER BOTTLE,16.9 OZ.,,drink,0,0,0,0,0,0,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CONDIMENT PACKETS,BBQ SAUCE,1 serving,,extra,40,0,0,0,0,360,9,0,7,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CONDIMENT PACKETS,COUNTRY GRAVY,1 serving,,extra,70,2,0.5,0.5,0,440,13,0,4,1,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CONDIMENT PACKETS,CREAM CHEESE FROSTING,1 serving,,extra,160,10,6,0,5,140,17,0,19,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CONDIMENT PACKETS,HONEY MUSTARD,1 serving,,extra,90,8,1.5,0,10,170,6,0,4,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CONDIMENT PACKETS,KETCHUP,1 serving,,extra,10,0,0,0,0,85,3,0,2,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CONDIMENT PACKETS,MARINARA,1 serving,,extra,15,0,0,0,0,140,4,0,2,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CONDIMENT PACKETS,LIGHT MAYO,1 serving,,extra,40,3,0,0,5,105,3,2,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CONDIMENT PACKETS,MUSTARD,1 serving,,extra,5,0,0,0,0,85,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CONDIMENT PACKETS,RANCH,1 serving,,extra,110,11,2,0,10,230,1,0,1,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CONDIMENT PACKETS,SALSA DE SONIC®,1 serving,,extra,0,0,0,0,0,140,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CONDIMENT PACKETS,SIGNATURE CHEESE SAUCE,1 serving,,extra,110,9,2,0,5,580,5,0,2,2,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CONDIMENT PACKETS,SIGNATURE SAUCE,1 serving,,extra,100,6,1,0,5,280,10,0,8,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CONDIMENT PACKETS,SWEET RELISH,1 serving,,extra,10,0,0,0,0,55,3,0,2,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,CONDIMENT PACKETS,SYRUP,1 serving,,extra,90,0,0,0,0,0,22,0,15,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,LIMITED TIME ONLY,RED BULL® SLUSH,Small,,main,180,0,0,0,0,50,48,0,48,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,LIMITED TIME ONLY,RED BULL® SLUSH,Medium,,main,250,0,0,0,0,80,65,0,65,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,LIMITED TIME ONLY,RED BULL® SLUSH,Large,,main,390,0,0,0,0,125,103,0,102,1,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,LIMITED TIME ONLY,RED BULL® SLUSH,RT 44®,,main,540,0,0,0,0,170,144,0,143,1,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,LIMITED TIME ONLY,RED BULL® CAN,Can,,main,120,0,0,0,0,110,30,0,29,1,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,LIMITED TIME ONLY,SUMMER EDITION WATERMELON RED BULL® SLUSH,Small,,main,180,0,0,0,0,45,48,0,48,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,LIMITED TIME ONLY,SUMMER EDITION WATERMELON RED BULL® SLUSH,Medium,,main,250,0,0,0,0,75,65,0,65,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,LIMITED TIME ONLY,SUMMER EDITION WATERMELON RED BULL® SLUSH,Large,,main,390,0,0,0,0,115,103,0,102,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,LIMITED TIME ONLY,SUMMER EDITION WATERMELON RED BULL® SLUSH,RT 44®,,main,540,0,0,0,0,160,144,0,143,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,LIMITED TIME ONLY,SUMMER EDITION WATERMELON RED BULL® CAN,Can,,main,120,0,0,0,0,95,30,0,29,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,LIMITED TIME ONLY,CLASSIC CHICKEN SLINGER,1 serving,,main,350,16,3.5,0,35,680,35,3,6,15,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,LIMITED TIME ONLY,SPICY CHICKEN SLINGER,1 serving,,main,330,15,3.5,0,35,740,36,3,6,15,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,LIMITED TIME ONLY,YELLOW CAKE BATTER SHAKE,Mini,,dessert,540,31,18,0.5,55,200,57,0,40,6,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,LIMITED TIME ONLY,YELLOW CAKE BATTER SHAKE,Small,,dessert,770,44,26,1,100,330,83,0,57,10,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,LIMITED TIME ONLY,YELLOW CAKE BATTER SHAKE,Medium,,dessert,1050,61,33,1.5,125,420,113,0,77,13,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,LIMITED TIME ONLY,YELLOW CAKE BATTER SHAKE,Large,,dessert,1560,90,48,2,190,640,168,1,113,20,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,LIMITED TIME ONLY,BROWNIE BATTER SHAKE,Mini,,dessert,530,31,18,0.5,55,320,59,1,40,7,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,LIMITED TIME ONLY,BROWNIE BATTER SHAKE,Small,,dessert,760,43,26,1,100,450,85,1,57,11,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,LIMITED TIME ONLY,BROWNIE BATTER SHAKE,Medium,,dessert,1040,59,32,1.5,125,670,117,2,78,14,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,LIMITED TIME ONLY,BROWNIE BATTER SHAKE,Large,,dessert,1540,88,47,2,190,1010,174,4,115,22,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,LIMITED TIME ONLY,LEMONBERRY SLUSH FLOAT,Mini,,main,260,7,4,0,25,95,51,1,44,2,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,LIMITED TIME ONLY,LEMONBERRY SLUSH FLOAT,Small,,main,350,9,5,0,30,125,68,1,59,3,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,LIMITED TIME ONLY,LEMONBERRY SLUSH FLOAT,Medium,,main,430,11,7,0,40,150,83,1,73,3,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,LIMITED TIME ONLY,LEMONBERRY SLUSH FLOAT,Large,,main,650,15,10,0.5,55,220,128,1,114,5,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,LIMITED TIME ONLY,BBLT,1 serving,,main,610,39,10,0,55,1300,42,3,12,24,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending

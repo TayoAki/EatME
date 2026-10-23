@@ -16,9 +16,9 @@ rank,chain,site,guide_url,notes
 15,Chili's Grill & Bar,chilis.com,https://www.chilis.com/nutrition,guide is run by Nutritionix: set guide_url to the chain’s own PDF
 16,Raising Cane's,raisingcanes.com,https://www.raisingcanes.com/allergens/,"drafted 2026-10-22: 106 agreed, 3 for a person"
 17,Olive Garden,olivegarden.com,https://media.olivegarden.com/en_us/pdf/olive_garden_nutrition.pdf,"drafted 2026-10-22: 97 agreed, 95 for a person"
-18,SONIC,sonicdrivein.com,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,failed: Unterminated string in JSON at position 48017 (line 1 column 48018)
+18,SONIC,sonicdrivein.com,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,"drafted 2026-10-23: 47 agreed, 527 for a person"
 19,Pizza Hut,pizzahut.com,https://www.pizzahut.com/c/content/nutrition,guide is run by Nutritionix: set guide_url to the chain’s own PDF
-20,Dairy Queen,dairyqueen.com,https://www.dairyqueen.com/en-us/nutrition/food-treats/,failed: terminated
+20,Dairy Queen,dairyqueen.com,https://www.dairyqueen.com/en-us/nutrition/food-treats/,"drafted 2026-10-23: 195 agreed, 131 for a person"
 21,Wingstop,wingstop.com,https://s3.amazonaws.com/wingstop.com/assets/static/WSR18-0009-Corporate-NutritionalGuide-JumboWings-HR_OFFICAL.pdf,"drafted 2026-10-22: 56 agreed, 45 for a person"
 22,KFC,www.kfc.com,https://www.kfc.com/full-nutrition-guide,guide is run by Nutritionix: set guide_url to the chain’s own PDF
 23,Little Caesars,littlecaesars.com,https://littlecaesars.com/static/usnutritionguide.pdf,"drafted 2026-10-22: 50 agreed, 1 for a person"
