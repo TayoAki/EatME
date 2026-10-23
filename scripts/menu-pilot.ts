@@ -186,12 +186,23 @@ async function main() {
       const published = rankMenu(mains.map((r) => asDish(r, 'chain')), day).fitsWell.map((d) => d.key);
       const ours = rankMenu(mains.map((r) => asDish(r, 'estimate')), day).fitsWell.map((d) => d.key);
       const shared = published.filter((key) => ours.includes(key)).length;
-      return { chain: samples[0].chain, label, shared, of: Math.min(published.length, ours.length) };
+      // Safety: each dish we put in Fits well, judged by the chain's own numbers (alone, it fits or it doesn't).
+      const judged = ours.map((key) => {
+        const r = mains.find((m) => m.sample.key === key)!;
+        const alone = rankMenu([asDish(r, 'chain')], day);
+        return alone.fitsWell.length === 1 ? 'fits' : r.published > alone.aim.calories ? 'too big' : 'too small';
+      });
+      return { chain: samples[0].chain, label, shared, of: Math.min(published.length, ours.length), judged };
     });
   });
 
   const medianAbs = median(correctedError.map(Math.abs));
-  const overlapPass = overlaps.length > 0 && median(overlaps.map((o) => o.shared)) >= 3;
+  // A day where either list is empty compares nothing; a shorter list counts as its share (2 of 2 is all of it).
+  const compared = overlaps.filter((o) => o.of > 0);
+  const overlapShare = median(compared.map((o) => o.shared / o.of));
+  const overlapPass = compared.length > 0 && overlapShare >= 0.6;
+  const judged = overlaps.flatMap((o) => o.judged);
+  const judgedShare = (verdict: string) => (judged.length ? judged.filter((j) => j === verdict).length / judged.length : 0);
   const pass = {
     error: medianAbs <= 0.2,
     topFive: overlapPass,
@@ -212,8 +223,12 @@ drafts or a person agreed on). Error = (our estimate − published) ÷ published
 | Check | Result | Pass line | Passed |
 | --- | --- | --- | --- |
 | Median calorie error (after the correction) | ${pct(medianAbs)} | 20% or less | ${pass.error ? 'yes' : 'no'} |
-| Fits well: our top five and the published top five share | median ${median(overlaps.map((o) => o.shared))} of 5 | at least 3 | ${pass.topFive ? 'yes' : 'no'} |
+| Fits well: our top five and the published top five share | median ${pct(overlapShare)} (${compared.length} days compared) | at least 3 of 5 (60%) | ${pass.topFive ? 'yes' : 'no'} |
 | Big plates (published 800 kcal or more): median error after the correction | ${big.length ? pct(bigBias) : 'none in the sample'} (${big.length} dishes) | no underestimate beyond 10% | ${pass.bigPlates ? 'yes' : 'no'} |
+
+Safety, not a pass line: of the ${judged.length} dishes we put in Fits well, ${pct(judgedShare('fits'))} fit the day by the chain's own
+numbers too; ${pct(judgedShare('too big'))} are too big by them (they'd leave less than a small meal for each meal still to come)
+and ${pct(judgedShare('too small'))} too small to be a meal.
 
 ## Errors
 

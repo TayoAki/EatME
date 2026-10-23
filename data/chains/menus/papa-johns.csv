@@ -1,0 +1,116 @@
+chain,section,name,serving,serving_g,kind,calories,fat_g,saturated_fat_g,trans_fat_g,cholesterol_mg,sodium_mg,carbs_g,fiber_g,sugars_g,protein_g,source_url,checked_on,check
+Papa Johns,Specialty Pizzas,Heart Shaped Pizza,1 Slice,,main,170,8,3,3,15,350,19,1,1,6,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,two-drafts
+Papa Johns,Specialty Pizzas,Jack O' Lantern Pizza,1 serving (93g),93,main,240,14,5,0,30,580,20,1,2,9,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,two-drafts
+Papa Johns,Pizza,Pizza My Heart (Canada),1 Slice,,main,170,8,24.47,3,15,350,19,1,1,6,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Cheese Pizza,"1 slice (Pizza for One, 4 slices per pizza)",,main,200,7,3.5,0,20,500,25,1,3,8,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,two-drafts
+Papa Johns,Specialty Pizzas,Pepperoni Pizza,"1 slice (Pizza for One, 4 slices per pizza)",,main,220,10,4,0,25,580,25,1,3,8,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,two-drafts
+Papa Johns,Specialty Pizzas,Sausage Pizza,"1 slice (Pizza for One, 4 slices per pizza)",,main,230,10,4.5,0,20,580,25,1,3,8,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,two-drafts
+Papa Johns,Specialty Pizzas,BBQ Chicken Bacon,"1 slice (Pizza for One, 4 slices per pizza)",,main,240,8,3.5,0,30,740,30,1,8,12,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,two-drafts
+Papa Johns,Specialty Pizzas,Butter Chicken,"1 slice (Pizza for One, 4 slices per pizza)",,main,210,4,3,0,25,520,26,0,3,11,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,two-drafts
+Papa Johns,Specialty Pizzas,Epic Pepperoni Stuffed Crust Pizza - Cheese Only,"1 slice (Large, 8 slices per pizza)",,main,380,17,9,0,45,1000,39,0,4,16,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,two-drafts
+Papa Johns,Specialty Pizzas,Epic Pepperoni Stuffed Crust Pizza - Pepperoni Only,"1 slice (Large, 8 slices per pizza)",,main,410,21,10,0.5,50,1090,39,0,4,17,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,two-drafts
+Papa Johns,Specialty Pizzas,Epic Pepperoni Stuffed Crust Pizza - Sausage Only,"1 slice (Large, 8 slices per pizza)",,main,430,22,10,0.5,50,1100,39,0,5,17,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,two-drafts
+Papa Johns,Specialty Pizzas,Extra Cheesy Alfredo,"1 slice (Pizza for One, 4 slices per pizza)",,extra,220,9,5,0,25,520,24,1,2,9,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,two-drafts
+Papa Johns,Specialty Pizzas,Fiery Buffalo Chicken,"1 slice (Pizza for One, 4 slices per pizza)",,main,230,9,4,0,30,840,26,1,3,12,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,two-drafts
+Papa Johns,Specialty Pizzas,Fresh Spinach & Tomato Alfredo,"1 slice (Pizza for One, 4 slices per pizza)",,main,190,7,3,0,20,470,26,1,4,7,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,two-drafts
+Papa Johns,Specialty Pizzas,Garden Fresh,"1 slice (Pizza for One, 4 slices per pizza)",,main,190,6,3,0,15,470,26,1,4,7,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,two-drafts
+Papa Johns,Specialty Pizzas,Garlic Epic Stuffed Crust Pizza,"1 slice (Large, 8 slices per pizza)",,main,370,16,8,0,35,990,39,0,4,16,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,two-drafts
+Papa Johns,Pizza,Meatball and Pepperoni,1 slice (Pizza for One),,main,240,10,4.5,0,25,600,26,1,3,10,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,two-drafts
+Papa Johns,Pizza,New York Style,1 slice (Large),,main,310,11,6,0,25,770,40,2,5,12,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,two-drafts
+Papa Johns,Pizza,Pan Crust Pizza,1 slice (Large),,main,350,20,8,0,40,960,27,0,3,17,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,two-drafts
+Papa Johns,Pizza,"Pepperoni, Sausage & Six Cheese",1 slice (Pizza for One),,main,280,15,6,0,35,670,24,1,2,11,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,two-drafts
+Papa Johns,Pizza,Philly Cheesesteak Pizza,1 slice (Pizza for One),,main,230,9,4,0,30,840,26,1,3,12,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,two-drafts
+Papa Johns,Pizza,Shaq-a-Roni,1 slice (Large),,main,390,18,8,0,5,1010,39,2,5,15,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,two-drafts
+Papa Johns,Pizza,Super Hawaiian,1 slice (Pizza for One),,main,230,9,4,0,25,630,27,1,5,10,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,two-drafts
+Papa Johns,Pizza,The Meats,1 slice (Pizza for One),,main,260,12,5,0,30,720,26,1,3,11,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,two-drafts
+Papa Johns,Pizza,The Works,1 slice (Pizza for One),,main,230,10,4,0,25,610,26,1,4,9,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,two-drafts
+Papa Johns,Pizza,Tuscan Six Cheese,1 slice (Pizza for One),,main,220,9,4,0,20,550,25,1,3,10,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,two-drafts
+Papa Johns,Pizza,Ultimate Pepperoni,1 slice (Pizza for One),,main,250,12,5,0,30,660,26,1,3,10,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,two-drafts
+Papa Johns,Pizza,Zesty Italian Trio,1 slice (Pizza for One),,main,250,11,5,0,25,680,25,1,3,10,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,two-drafts
+Papa Johns,Pizza,Spicy Garlic Epic Stuffed Crust Pizza,1 slice (Large),,main,370,16,8,0,35,980,39,0,4,16,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,two-drafts
+Papa Johns,Pizza,Create Your Own Crispy Parm Pizza,1 slice (Large),,main,140,6,2,0,5,210,16,1,0,5,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,two-drafts
+Papa Johns,Pizza,NY Style Crispy Cuppy ‘Roni Pizza,1 slice (Large),,main,390,14,8,0,40,920,39,0,4,17,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,two-drafts
+Papa Johns,Pizza,Cheesy Calzone Epic Stuffed Crust Pizza (NO LONGER AVAILABLE),1 slice,,main,350,14,7,0,35,910,41,0,5,14,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,two-drafts
+Papa Johns,Pizza,Papa Dippa (No Longer Available),1 slice,,main,160,6,2.5,0,15,340,18,0,2,6,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,two-drafts
+Papa Johns,Pizza,Garlic 5-Cheese Crust Pizza (No longer available),1 slice,,main,320,11,6,0,25,790,40,0,4,13,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,two-drafts
+Papa Johns,Specialty Pizzas,Cheese Pizza,"1 slice (Small, 6 slices per pizza)",,main,180,6,2.5,0,15,440,25,1,3,7,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Cheese Pizza,"1 slice (Medium, 8 slices per pizza)",,main,210,7,3.5,0,20,520,27,1,3,8,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Cheese Pizza,"1 slice (Large, 8 slices per pizza)",,main,290,10,4.5,0,25,710,38,2,5,11,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Cheese Pizza,"1 slice (Extra Large, 10 slices per pizza)",,main,300,10,4.5,0,25,730,40,2,5,11,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Cheese Pizza,1 slice (8 slices per pizza),,main,360,14,8,0,35,900,40,2,4,15,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Pepperoni Pizza,"1 slice (Small, 6 slices per pizza)",,main,210,8,3.5,0,20,530,25,1,3,8,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Pepperoni Pizza,"1 slice (Medium, 8 slices per pizza)",,main,230,9,4,0,20,570,26,1,3,8,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Pepperoni Pizza,"1 slice (Large, 8 slices per pizza)",,main,320,13,6,0,30,810,38,2,5,12,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Pepperoni Pizza,"1 slice (Extra Large, 10 slices per pizza)",,main,330,13,6,0,30,840,40,2,5,12,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Pepperoni Pizza,1 slice (8 slices per pizza),,main,390,17,8,0,45,980,40,2,4,16,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Sausage Pizza,"1 slice (Small, 6 slices per pizza)",,main,220,10,4,0,20,540,25,1,3,8,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Sausage Pizza,"1 slice (Medium, 8 slices per pizza)",,main,240,11,4.5,0,20,580,27,1,3,8,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Sausage Pizza,"1 slice (Large, 8 slices per pizza)",,main,330,14,6,0,30,810,38,2,5,12,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Sausage Pizza,"1 slice (Extra Large, 10 slices per pizza)",,main,340,15,6,0,30,840,40,2,5,12,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Sausage Pizza,1 slice (8 slices per pizza),,main,400,19,9,0,45,1000,40,2,5,16,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,BBQ Chicken Bacon,"1 slice (Small, 6 slices per pizza)",,main,230,7,3.5,0,25,660,30,1,7,10,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,BBQ Chicken Bacon,"1 slice (Medium, 8 slices per pizza)",,main,240,8,3.5,0,25,730,32,1,8,11,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,BBQ Chicken Bacon,"1 slice (Large, 8 slices per pizza)",,main,340,11,5,0,40,1020,45,2,11,16,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,BBQ Chicken Bacon,"1 slice (Extra Large, 10 slices per pizza)",,main,360,11,5,0,40,1070,48,2,11,16,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,BBQ Chicken Bacon,1 slice (8 slices per pizza),,main,400,15,8,0,50,1090,45,2,10,20,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Butter Chicken,"1 slice (Small, 6 slices per pizza)",,main,200,4,3,0,20,510,26,0,3,11,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Butter Chicken,"1 slice (Medium, 8 slices per pizza)",,main,280,4,4,0,30,700,36,0,4,15,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Butter Chicken,"1 slice (Large, 8 slices per pizza)",,main,300,4,4,0,30,750,38,0,6,16,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Butter Chicken,"1 slice (Extra Large, 10 slices per pizza)",,main,310,5,4,0,30,780,41,1,5,16,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Butter Chicken,1 slice (8 slices per pizza),,main,370,10,7,0,45,930,39,0,5,23,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Extra Cheesy Alfredo,"1 slice (Small, 6 slices per pizza)",,extra,210,9,4.5,0,25,500,25,1,2,9,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Extra Cheesy Alfredo,"1 slice (Medium, 8 slices per pizza)",,extra,230,10,5,0,25,550,26,1,2,10,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Extra Cheesy Alfredo,"1 slice (Large, 8 slices per pizza)",,extra,320,13,7,0,35,750,37,1,3,13,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Extra Cheesy Alfredo,"1 slice (Extra Large, 10 slices per pizza)",,extra,330,13,7,0,35,760,39,1,4,13,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Extra Cheesy Alfredo,1 slice (8 slices per pizza),,extra,390,18,9,0.5,50,970,39,1,3,18,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Fiery Buffalo Chicken,"1 slice (Small, 6 slices per pizza)",,main,220,8,3.5,0,25,780,26,1,3,10,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Fiery Buffalo Chicken,"1 slice (Medium, 8 slices per pizza)",,main,230,9,3.5,0,25,820,27,1,3,11,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Fiery Buffalo Chicken,"1 slice (Large, 8 slices per pizza)",,main,330,12,5,0,40,1190,38,2,5,16,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Fiery Buffalo Chicken,"1 slice (Extra Large, 10 slices per pizza)",,main,350,13,5,0,40,1250,40,2,5,16,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Fiery Buffalo Chicken,1 slice (8 slices per pizza),,main,390,16,8,0,50,1320,,2,4,20,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Fresh Spinach & Tomato Alfredo,"1 slice (Small, 6 slices per pizza)",,main,190,6,2.5,0,15,440,26,1,3,7,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Fresh Spinach & Tomato Alfredo,"1 slice (Medium, 8 slices per pizza)",,main,200,7,3,0,20,470,27,1,4,7,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Fresh Spinach & Tomato Alfredo,"1 slice (Large, 8 slices per pizza)",,main,280,10,4,0,25,690,39,2,5,10,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Fresh Spinach & Tomato Alfredo,"1 slice (Extra Large, 10 slices per pizza)",,main,300,10,4,0,25,440,41,2,6,11,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Fresh Spinach & Tomato Alfredo,1 slice (8 slices per pizza),,main,350,14,7,0,40,890,39,2,4,15,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Garden Fresh,"1 slice (Small, 6 slices per pizza)",,main,190,6,2.5,0,15,450,26,1,3,7,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Garden Fresh,"1 slice (Medium, 8 slices per pizza)",,main,200,7,3,0,15,480,27,1,4,7,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Garden Fresh,"1 slice (Large, 8 slices per pizza)",,main,280,9,4,0,20,680,39,2,5,10,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Garden Fresh,"1 slice (Extra Large, 10 slices per pizza)",,main,300,9,4,0,20,710,41,2,6,11,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Specialty Pizzas,Garden Fresh,1 slice (8 slices per pizza),,main,350,14,7,0,35,870,41,2,5,15,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,Meatball and Pepperoni,1 slice (Small),,main,230,10,4.5,0,25,580,26,1,3,10,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,Meatball and Pepperoni,1 slice (Medium),,main,240,10,4.5,0,25,600,27,1,3,10,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,Meatball and Pepperoni,1 slice (Large),,main,360,15,7,0,40,880,38,2,5,15,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,Meatball and Pepperoni,1 slice (Extra Large),,main,370,16,7,0,40,920,41,2,5,15,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,"Pepperoni, Sausage & Six Cheese",1 slice (Small),,main,260,13,6,0,30,620,24,1,2,11,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,"Pepperoni, Sausage & Six Cheese",1 slice (Medium),,main,280,14,6,0,30,650,25,1,2,11,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,"Pepperoni, Sausage & Six Cheese",1 slice (Large),,main,390,20,9,0,45,920,36,1,3,16,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,"Pepperoni, Sausage & Six Cheese",1 slice (Extra Large),,main,410,21,9,0,45,960,38,1,3,16,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,Philly Cheesesteak Pizza,1 slice (Small),,main,220,8,3.5,0,25,780,26,1,3,10,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,Philly Cheesesteak Pizza,1 slice (Medium),,main,230,9,3.5,0,25,820,27,1,3,11,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,Philly Cheesesteak Pizza,1 slice (Large),,main,330,12,5,0,40,1190,38,2,5,16,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,Philly Cheesesteak Pizza,1 slice (Extra Large),,main,350,13,5,0,40,1250,40,2,5,16,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,Super Hawaiian,1 slice (Small),,main,230,8,3.5,0,25,610,27,1,4,10,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,Super Hawaiian,1 slice (Medium),,main,230,9,4,0,25,630,28,1,5,10,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,Super Hawaiian,1 slice (Large),,main,340,13,6,0,35,920,40,2,7,15,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,Super Hawaiian,1 slice (Extra Large),,main,360,13,6,0,35,970,42,2,4,16,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,The Meats,1 slice (Small),,main,250,12,5,0,30,700,26,1,3,10,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,The Meats,1 slice (Medium),,main,260,11,5,0,30,710,27,1,3,11,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,The Meats,1 slice (Large),,main,380,17,7,0,45,1040,38,2,5,15,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,The Meats,1 slice (Extra Large),,main,410,19,8,0,45,1130,41,2,5,17,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,The Works,1 slice (Small),,main,230,9,4,0,20,590,26,1,3,9,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,The Works,1 slice (Medium),,main,230,9,4,0,25,620,27,1,4,9,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,The Works,1 slice (Large),,main,340,14,6,0,35,890,39,2,5,13,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,The Works,1 slice (Extra Large),,main,360,15,6,0,35,940,41,2,6,14,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,Tuscan Six Cheese,1 slice (Small),,main,220,8,4,0,20,530,26,1,3,9,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,Tuscan Six Cheese,1 slice (Medium),,main,230,9,4.5,0,20,560,27,1,3,10,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,Tuscan Six Cheese,1 slice (Large),,main,320,12,6,0,30,780,38,2,5,14,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,Tuscan Six Cheese,1 slice (Extra Large),,main,330,12,6,0,30,810,40,2,5,14,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,Ultimate Pepperoni,1 slice (Small),,main,240,10,4.5,0,25,600,26,1,3,9,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,Ultimate Pepperoni,1 slice (Medium),,main,250,11,5,0,25,650,27,1,3,10,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,Ultimate Pepperoni,1 slice (Large),,main,360,16,7,0,40,930,38,2,5,14,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,Ultimate Pepperoni,1 slice (Extra Large),,main,370,16,7,0,40,940,40,2,5,14,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,Zesty Italian Trio,1 slice (Small),,main,240,11,4.5,0,25,660,25,1,3,9,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,Zesty Italian Trio,1 slice (Medium),,main,260,12,5,0,30,710,27,1,3,10,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,Zesty Italian Trio,1 slice (Large),,main,370,17,7,0,40,1020,38,2,5,14,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending
+Papa Johns,Pizzas,Zesty Italian Trio,1 slice (Extra Large),,main,390,18,7,0,40,1070,40,2,5,15,https://www.papajohns.com/company/nutritional-details/index.html,2026-10-23,pending

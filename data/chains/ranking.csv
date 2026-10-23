@@ -3,7 +3,7 @@ rank,chain,site,guide_url,notes
 2,Starbucks,starbucks.com,items:https://www.starbucks.com/menu/product/ segments=2 suffix=/nutrition skip=whole-bean,"drafted 2026-10-22: 164 agreed, 1 for a person"
 3,Chick-fil-A,chick-fil-a.com,https://www.chick-fil-a.com/nutrition-allergens,"drafted 2026-10-21: 303 agreed, 24 for a person"
 4,Taco Bell,tacobell.com,https://www.tacobell.com/nutrition/info,guide is run by Nutritionix: set guide_url to the chain’s own PDF
-5,Dunkin',dunkindonuts.com,https://assets.ctfassets.net/ubkcphxhphh0/3qEP8wMU2IFmLsLyEeWLuc/7bdae361f785d1611d25c4d859f8c721/DD_W7_nutrition_guide.pdf,failed: Unterminated string in JSON at position 64406 (line 1 column 64407)
+5,Dunkin',dunkindonuts.com,https://assets.ctfassets.net/ubkcphxhphh0/3qEP8wMU2IFmLsLyEeWLuc/7bdae361f785d1611d25c4d859f8c721/DD_W7_nutrition_guide.pdf,"drafted 2026-10-23: 524 agreed, 268 for a person"
 6,Wendy's,wendys.com,https://www.wendys.com/nutrition-allergens,no nutrition numbers found in the guide: set guide_url to the PDF or full table
 7,Chipotle Mexican Grill,chipotle.com,https://www.chipotle.com/content/dam/chipotle/menu/nutrition/US-Nutrition-Facts-Paper-Menu-3-2025.pdf,"drafted 2026-10-22: 0 agreed, 51 for a person"
 8,Burger King,bk.com,https://help.bk.com/hc/en-us/sections/36912922362263-Nutrition,no nutrition numbers found in the guide: set guide_url to the PDF or full table
@@ -22,14 +22,14 @@ rank,chain,site,guide_url,notes
 21,Wingstop,wingstop.com,https://s3.amazonaws.com/wingstop.com/assets/static/WSR18-0009-Corporate-NutritionalGuide-JumboWings-HR_OFFICAL.pdf,"drafted 2026-10-22: 56 agreed, 45 for a person"
 22,KFC,www.kfc.com,https://www.kfc.com/full-nutrition-guide,guide is run by Nutritionix: set guide_url to the chain’s own PDF
 23,Little Caesars,littlecaesars.com,https://littlecaesars.com/static/usnutritionguide.pdf,"drafted 2026-10-22: 50 agreed, 1 for a person"
-24,Culver's,culvers.com,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,failed: terminated
+24,Culver's,culvers.com,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,"drafted 2026-10-23: 200 agreed, 146 for a person"
 25,Whataburger,whataburger.com,https://wbimageserver.whataburger.com/Nutrition.pdf,"drafted 2026-10-22: 136 agreed, 103 for a person"
-26,Arby's,arbys.com,https://assets.ctfassets.net/30q5w5l98nbx/42zLskOHOxnHbSVYO98X47/eb5b661b4d42295aaf804a8f6a150b13/Arbys_Nutritional_and_Allergen_OCT_2026.pdf,guide read 2026-10-22: ready to draft
+26,Arby's,arbys.com,https://assets.ctfassets.net/30q5w5l98nbx/42zLskOHOxnHbSVYO98X47/eb5b661b4d42295aaf804a8f6a150b13/Arbys_Nutritional_and_Allergen_OCT_2026.pdf,"drafted 2026-10-23: 176 agreed, 59 for a person"
 27,Jack in the Box,jackinthebox.com,,no nutrition page found on jackinthebox.com: set guide_url by hand
 28,Jersey Mike's Subs,jerseymikes.com,https://www.jerseymikes.com/menu/nutrition,no nutrition numbers found in the guide: set guide_url to the PDF or full table
 29,Buffalo Wild Wings,buffalowildwings.com,https://assets.ctfassets.net/6dxmiqksdkqb/2XgznB5cOqQ9l1r7PQAasB/dd312340082cc00107545e7ab21318a7/BWW_Nutrition_Guide__08-18-2026_-_11-17-2026_.pdf,guide read 2026-10-22: ready to draft
 30,Applebee's,applebees.com,https://www.applebees.com/en/nutrition,no nutrition numbers found in the guide: set guide_url to the PDF or full table
-31,Papa Johns,papajohns.com,https://www.papajohns.com/company/nutritional-details/index.html,guide read 2026-10-22: ready to draft
+31,Papa Johns,papajohns.com,https://www.papajohns.com/company/nutritional-details/index.html,"drafted 2026-10-23: 33 agreed, 82 for a person"
 32,IHOP,ihop.com,https://www.ihop.com/en/nutrition/calculator,guide is run by Nutritionix: set guide_url to the chain’s own PDF
 33,LongHorn Steakhouse,longhornsteakhouse.com,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,guide read 2026-10-22: ready to draft
 34,Zaxbys,zaxbys.com,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,guide read 2026-10-22: ready to draft

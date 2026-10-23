@@ -345,6 +345,7 @@ const DRAFT_PROMPT = `You copy a restaurant chain's own nutrition guide into row
 - Counts are sizes: "4 ct", "8-count", "12 pc" go in serving together with any weight ("4 ct (70g)"), never in the name. The same item in several sizes is one row per size, each with the same name.
 - section: the guide's heading the item sits under ("Burritos", "Breakfast", "Drinks").
 - Units: fat, saturated fat, trans fat, carbohydrates, fiber, sugars and protein in grams; cholesterol and sodium in milligrams. A value in any other unit becomes null.
+- Some guides print "Calories from fat" (or "Fat calories") next to the calories: it is not fat in grams and has no field here, so skip that column and keep every other number under its own heading.
 - Ignore everything that isn't nutrition facts (allergens, ingredients, footnotes, prices).
 - If this part of the guide has no nutrition facts, return an empty list.`;
 /** Added for chains that publish one page per item (scripts/item-pages.ts). */
