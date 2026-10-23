@@ -46,6 +46,9 @@ when it changed. An item left out of the CSV is **retired**, never deleted.
 4. A person opens `review/<chain>.md`: fixes each pending line from the guide and sets its `check` to `person` (or
    deletes it), and compares the spot-check sample (about 1 in 20 agreed lines, 3 to 15 per chain) with the guide.
    A wrong sample line means the whole chain gets a closer look. Re-running a draft never overwrites `person` lines.
+   To make it quicker, `npm run chains:evidence` (no AI) adds a column saying whether each draft's numbers sit
+   right after the item's name in the guide text the drafts read (`.cache/`, kept on the machine that drafted). It
+   can't read sizes or sections, so the person still checks those; re-run it after re-drafting a chain.
 5. `npm run chains:build` checks everything again before anything ships.
 
 ## Chains that publish nutrition item by item

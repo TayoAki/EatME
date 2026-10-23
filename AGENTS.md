@@ -111,6 +111,7 @@ npm run db:migrate          # apply migrations to DATABASE_URL
 npm run db:studio           # browse the database
 npm run chains:draft        # draft chain menus from their own guides (two AI drafts, see data/chains/README.md)
 npm run chains:build        # check data/chains/menus/*.csv and write data/chains.json (the server loads it)
+npm run chains:evidence     # mark which pending review lines a draft's numbers back up in the guide text (no AI)
 npm run build:server        # export the API routes for the production server
 npm run start:server        # run the production server (as on Railway)
 ```

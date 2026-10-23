@@ -5,11 +5,13 @@ Numbers in order: calories / fat_g / saturated_fat_g / trans_fat_g / cholesterol
 
 ## Disagreements (1)
 
+The last column comes from `npm run chains:evidence`: whether a draft's numbers sit right after the item's name in the guide text the drafts read. It can't read sizes or sections (one draft called a single 78 g cookie a "6 pack"): check those against the guide, then fix the line and set its check to `person`.
+
 Fix each line in `menus/starbucks.csv` from the guide and set its check to `person` (or delete the line if it isn't on the menu).
 
-| Item | Size | Why | Draft A | Draft B |
-| --- | --- | --- | --- | --- |
-| Organic Valley Stringles® Mozzarella String Cheese | 1 Piece 28 g | differ: fiber_g | 80 / 6 / 3.5 / 0 / 20 / 200 / 1 / – / 0 / 7 | 80 / 6 / 3.5 / 0 / 20 / 200 / 1 / 0 / 0 / 7 |
+| Item | Size | Why | Draft A | Draft B | In the guide text (no AI) |
+| --- | --- | --- | --- | --- | --- |
+| Organic Valley Stringles® Mozzarella String Cheese | 1 Piece 28 g | differ: fiber_g | 80 / 6 / 3.5 / 0 / 20 / 200 / 1 / – / 0 / 7 | 80 / 6 / 3.5 / 0 / 20 / 200 / 1 / 0 / 0 / 7 | A: name not in the guide text; B: name not in the guide text |
 
 ## Spot check (9 agreed lines)
 

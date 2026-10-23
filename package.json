@@ -97,6 +97,7 @@
     "foods:build": "tsx scripts/build-foods.ts",
     "db:foods": "node server/foods.mjs",
     "chains:build": "tsx scripts/build-chains.ts",
+    "chains:evidence": "tsx scripts/chains-evidence.ts",
     "chains:draft": "tsx scripts/draft-chains.ts",
     "menus:pilot": "tsx scripts/menu-pilot.ts",
     "db:chains": "node server/chains.mjs"

@@ -113,6 +113,27 @@ App Store Connect → the app → the iOS version (1.0) → fill it from [`READM
 
 After 1.0 is live, raise `expo.version` in `app.json` (1.0.1, 1.1.0...) before building the next App Store version.
 
+## What to order on a phone (the v2.5 build)
+
+What to order is the first version with a native module of our own (`modules/menu-text`, Apple Vision), so test it
+in a TestFlight build (or `eas build --profile development`), never in Expo Go, before it goes to App Review:
+
+- [ ] **Menu reading** (WHAT-TO-ORDER.md §11): Scan → Menu on 10 real menus: printed, a chalkboard, a dim room, a
+      long menu as 2-3 pages, a menu with prices in a column. Each time the confirm step lists the dishes; fix what's
+      wrong and count it as usable if it took less than a minute. Pass: 9 of 10. Then
+      `<server>/test-menu` on a laptop screen, and the same page saved as an image and picked with Choose a photo
+- [ ] The camera alert appears on the first scan with nothing of ours in front of it; after a no, Menu mode says the
+      camera is off and offers Choose a photo
+- [ ] The consent screen names menus on the first menu scan (the account allowed AI before), and not again after
+- [ ] Search → Restaurants → a chain: Fits well, View the guide (opens in the in-app browser), Log it (Home shows the
+      meal and its source), Save for later (Saved meals), Report a wrong item
+- [ ] A scanned menu: the question and a tweak change the calories, Half halves them, the logged meal shows the
+      estimate's range; Your menus reopens it
+- [ ] Free account: the first menu is the free try, the second opens the Premium screen; a sandbox purchase opens
+      every menu
+- [ ] Calm mode: no numbers on the lists or the dish sheet; Foods to skip hides dishes and says how many
+- [ ] VoiceOver reads each row's dish, source, numbers and reason
+
 ## Android (Google Play internal testing)
 
 ```bash

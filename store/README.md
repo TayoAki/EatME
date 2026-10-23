@@ -364,7 +364,7 @@ in the code after commit `f05e76a` and ship as their own App Store version once 
 Apple doesn't want a feature switched off in a submitted app (2.3.1(a), 2.5.19), so the version Apple reviews has it
 on, all of it. Before that submission:
 
-- [ ] A person has checked the review lists (`data/chains/menus/*-review.md`, 908 lines pending today), then
+- [ ] A person has checked the review lists (`data/chains/review/<chain>.md`, 908 lines pending today; `npm run chains:evidence` backs up 727 of them from the guide text), then
       `npm run chains:build`; more chains drafted toward 100 (`npm run chains:draft`, needs OpenRouter credit)
 - [ ] The accuracy pilot passed (`npm run menus:pilot`, WHAT-TO-ORDER.md §11; needs OpenRouter credit) and its
       calibration copied into `ESTIMATE_CALIBRATION` (`src/shared/menus.ts`)

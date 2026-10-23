@@ -5,34 +5,36 @@ Numbers in order: calories / fat_g / saturated_fat_g / trans_fat_g / cholesterol
 
 ## Disagreements (24)
 
+The last column comes from `npm run chains:evidence`: whether a draft's numbers sit right after the item's name in the guide text the drafts read. It can't read sizes or sections (one draft called a single 78 g cookie a "6 pack"): check those against the guide, then fix the line and set its check to `person`.
+
 Fix each line in `menus/chick-fil-a.csv` from the guide and set its check to `person` (or delete the line if it isn't on the menu).
 
-| Item | Size | Why | Draft A | Draft B |
-| --- | --- | --- | --- | --- |
-| Chick-fil-A® Nuggets | 1 serving (113g) | only in draft A | 250 / 11 / 2.5 / 0 / 85 / 1210 / 11 / 0 / 1 / 27 | not found |
-| Market Salad w/ No Chicken | 241g | the guide gives no sugars_g, protein_g | 440 / 29 / 5.5 / 0 / 10 / 640 / 40 / 5 / – / – | 440 / 29 / 5.5 / 0 / 10 / 640 / 40 / 5 / – / – |
-| Fruit Cup | 215g | only in draft A | 120 / 0 / 0 / 0 / 0 / 0 / 28 / 4 / 21 / 1 | not found |
-| Fruit Cup | 107g | only in draft A | 60 / 0 / 0 / 0 / 0 / 0 / 14 / 2 / 11 / 1 | not found |
-| Pineapple Dragonfruit Sunjoy® (1/2 Unsweet Tea, 1/2 Diet Lemonade) | Gallon (340g) | only in draft A | 45 / 0 / 0 / 0 / 0 / 15 / 10 / 0 / 4 / 0 | not found |
-| Pineapple Dragonfruit Sunjoy® (1/2 Sweet Tea, 1/2 Diet Lemonade) | Gallon (340g) | only in draft A | 110 / 0 / 0 / 0 / 0 / 15 / 28 / 0 / 22 / 0 | not found |
-| Pineapple Dragonfruit Sunjoy® (1/2 Unsweet Tea, 1/2 Lemonade) | Gallon (340g) | only in draft A | 110 / 0 / 0 / 0 / 0 / 10 / 27 / 0 / 20 / 0 | not found |
-| Pineapple Dragonfruit Sunjoy® (1/2 Sweet Tea, 1/2 Lemonade) | Gallon (340g) | only in draft A | 180 / 0 / 0 / 0 / 0 / 10 / 44 / 0 / 38 / 0 | not found |
-| Pineapple Dragonfruit Diet Lemonade | Gallon (340g) | only in draft A | 70 / 0 / 0 / 0 / 0 / 20 / 16 / 0 / 8 / 0 | not found |
-| Pineapple Dragonfruit Lemonade | Gallon (340g) | only in draft A | 210 / 0 / 0 / 0 / 0 / 10 / 53 / 0 / 44 / 0 | not found |
-| Sunjoy® (1/2 Unsweet Tea, 1/2 Diet Lemonade) | Gallon (340g) | only in draft A | 20 / 0 / 0 / 0 / 0 / 0 / 6 / 0 / 4 / 0 | not found |
-| Sunjoy® (1/2 Unsweet Tea, 1/2 Lemonade) | Gallon (340g) | only in draft A | 100 / 0 / 0 / 0 / 0 / 0 / 26 / 0 / 24 / 0 | not found |
-| Sunjoy® (1/2 Sweet Tea, 1/2 Diet Lemonade) | Gallon (340g) | only in draft A | 90 / 0 / 0 / 0 / 0 / 0 / 23 / 0 / 21 / 0 | not found |
-| Sunjoy® (1/2 Sweet Tea, 1/2 Lemonade) | Gallon (340g) | only in draft A | 160 / 0 / 0 / 0 / 0 / 0 / 41 / 0 / 39 / 0 | not found |
-| Chick-fil-A® Iced Tea (1/2 Sweet Tea, 1/2 Unsweet Tea) | Gallon (340g) | only in draft A | 70 / 0 / 0 / 0 / 0 / 0 / 18 / 0 / 18 / 0 | not found |
-| Freshly-Brewed Iced Tea Unsweetened | Gallon (340g) | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found |
-| Freshly-Brewed Iced Tea Sweetened | Gallon (340g) | only in draft A | 130 / 0 / 0 / 0 / 0 / 0 / 33 / 0 / 33 / 0 | not found |
-| Chick-fil-A® Lemonade (1/2 Lemonade, 1/2 Diet Lemonade) | Gallon (340g) | only in draft A | 120 / 0 / 0 / 0 / 0 / 0 / 33 / 0 / 30 / 0 | not found |
-| Chick-fil-A® Diet Lemonade | Gallon (340g) | only in draft A | 40 / 0 / 0 / 0 / 0 / 10 / 12 / 0 / 8 / 0 | not found |
-| Chick-fil-A® Lemonade | Gallon (340g) | only in draft A | 190 / 0 / 0 / 0 / 0 / 0 / 49 / 0 / 45 / 0 | not found |
-| Mac & Cheese | Medium (227g) | only in draft B | not found | 450 / 29 / 16 / 0 / 70 / 1190 / 28 / 3 / 3 / 20 |
-| Chick-fil-A Waffle Potato Fries® | Medium (125g) | only in draft B | not found | 420 / 24 / 4 / 0 / 0 / 240 / 45 / 5 / 1 / 5 |
-| Chicken Noodle Soup | Cup (252g) | only in draft B | not found | 190 / 4.5 / 1 / 0 / 30 / 1290 / 27 / 2 / 2 / 11 |
-| Chocolate Chunk Cookie | 6 pack (78g) | only in draft B | not found | 370 / 17 / 9 / 0 / 15 / 230 / 49 / 3 / 26 / 5 |
+| Item | Size | Why | Draft A | Draft B | In the guide text (no AI) |
+| --- | --- | --- | --- | --- | --- |
+| Chick-fil-A® Nuggets | 1 serving (113g) | only in draft A | 250 / 11 / 2.5 / 0 / 85 / 1210 / 11 / 0 / 1 / 27 | not found | A: numbers found after the name (line 7855); check the size |
+| Market Salad w/ No Chicken | 241g | the guide gives no sugars_g, protein_g | 440 / 29 / 5.5 / 0 / 10 / 640 / 40 / 5 / – / – | 440 / 29 / 5.5 / 0 / 10 / 640 / 40 / 5 / – / – | A: numbers found after the name (line 10932); check the size; B: numbers found after the name (line 10932); check the size |
+| Fruit Cup | 215g | only in draft A | 120 / 0 / 0 / 0 / 0 / 0 / 28 / 4 / 21 / 1 | not found | A: numbers found after the name (line 1563); check the size |
+| Fruit Cup | 107g | only in draft A | 60 / 0 / 0 / 0 / 0 / 0 / 14 / 2 / 11 / 1 | not found | A: numbers found after the name (line 1654); check the size |
+| Pineapple Dragonfruit Sunjoy® (1/2 Unsweet Tea, 1/2 Diet Lemonade) | Gallon (340g) | only in draft A | 45 / 0 / 0 / 0 / 0 / 15 / 10 / 0 / 4 / 0 | not found | A: numbers found after the name (line 21649); check the size |
+| Pineapple Dragonfruit Sunjoy® (1/2 Sweet Tea, 1/2 Diet Lemonade) | Gallon (340g) | only in draft A | 110 / 0 / 0 / 0 / 0 / 15 / 28 / 0 / 22 / 0 | not found | A: numbers found after the name (line 21740); check the size |
+| Pineapple Dragonfruit Sunjoy® (1/2 Unsweet Tea, 1/2 Lemonade) | Gallon (340g) | only in draft A | 110 / 0 / 0 / 0 / 0 / 10 / 27 / 0 / 20 / 0 | not found | A: numbers found after the name (line 21831); check the size |
+| Pineapple Dragonfruit Sunjoy® (1/2 Sweet Tea, 1/2 Lemonade) | Gallon (340g) | only in draft A | 180 / 0 / 0 / 0 / 0 / 10 / 44 / 0 / 38 / 0 | not found | A: numbers found after the name (line 21922); check the size |
+| Pineapple Dragonfruit Diet Lemonade | Gallon (340g) | only in draft A | 70 / 0 / 0 / 0 / 0 / 20 / 16 / 0 / 8 / 0 | not found | A: numbers found after the name (line 22013); check the size |
+| Pineapple Dragonfruit Lemonade | Gallon (340g) | only in draft A | 210 / 0 / 0 / 0 / 0 / 10 / 53 / 0 / 44 / 0 | not found | A: numbers found after the name (line 22104); check the size |
+| Sunjoy® (1/2 Unsweet Tea, 1/2 Diet Lemonade) | Gallon (340g) | only in draft A | 20 / 0 / 0 / 0 / 0 / 0 / 6 / 0 / 4 / 0 | not found | A: numbers found after the name (line 23144); check the size |
+| Sunjoy® (1/2 Unsweet Tea, 1/2 Lemonade) | Gallon (340g) | only in draft A | 100 / 0 / 0 / 0 / 0 / 0 / 26 / 0 / 24 / 0 | not found | A: numbers found after the name (line 23235); check the size |
+| Sunjoy® (1/2 Sweet Tea, 1/2 Diet Lemonade) | Gallon (340g) | only in draft A | 90 / 0 / 0 / 0 / 0 / 0 / 23 / 0 / 21 / 0 | not found | A: numbers found after the name (line 23326); check the size |
+| Sunjoy® (1/2 Sweet Tea, 1/2 Lemonade) | Gallon (340g) | only in draft A | 160 / 0 / 0 / 0 / 0 / 0 / 41 / 0 / 39 / 0 | not found | A: numbers found after the name (line 23417); check the size |
+| Chick-fil-A® Iced Tea (1/2 Sweet Tea, 1/2 Unsweet Tea) | Gallon (340g) | only in draft A | 70 / 0 / 0 / 0 / 0 / 0 / 18 / 0 / 18 / 0 | not found | A: numbers found after the name (line 23508); check the size |
+| Freshly-Brewed Iced Tea Unsweetened | Gallon (340g) | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found | A: numbers found after the name (line 23599); check the size, mostly zeros: look |
+| Freshly-Brewed Iced Tea Sweetened | Gallon (340g) | only in draft A | 130 / 0 / 0 / 0 / 0 / 0 / 33 / 0 / 33 / 0 | not found | A: numbers found after the name (line 23690); check the size |
+| Chick-fil-A® Lemonade (1/2 Lemonade, 1/2 Diet Lemonade) | Gallon (340g) | only in draft A | 120 / 0 / 0 / 0 / 0 / 0 / 33 / 0 / 30 / 0 | not found | A: numbers found after the name (line 23781); check the size |
+| Chick-fil-A® Diet Lemonade | Gallon (340g) | only in draft A | 40 / 0 / 0 / 0 / 0 / 10 / 12 / 0 / 8 / 0 | not found | A: numbers found after the name (line 23872); check the size |
+| Chick-fil-A® Lemonade | Gallon (340g) | only in draft A | 190 / 0 / 0 / 0 / 0 / 0 / 49 / 0 / 45 / 0 | not found | A: numbers found after the name (line 23963); check the size |
+| Mac & Cheese | Medium (227g) | only in draft B | not found | 450 / 29 / 16 / 0 / 70 / 1190 / 28 / 3 / 3 / 20 | B: numbers found after the name (line 13285); check the size |
+| Chick-fil-A Waffle Potato Fries® | Medium (125g) | only in draft B | not found | 420 / 24 / 4 / 0 / 0 / 240 / 45 / 5 / 1 / 5 | B: numbers found after the name (line 13597); check the size |
+| Chicken Noodle Soup | Cup (252g) | only in draft B | not found | 190 / 4.5 / 1 / 0 / 30 / 1290 / 27 / 2 / 2 / 11 | B: numbers found after the name (line 14130); check the size |
+| Chocolate Chunk Cookie | 6 pack (78g) | only in draft B | not found | 370 / 17 / 9 / 0 / 15 / 230 / 49 / 3 / 26 / 5 | B: numbers found after the name (line 16791); check the size |
 
 ## Spot check (15 agreed lines)
 

@@ -5,13 +5,15 @@ Numbers in order: calories / fat_g / saturated_fat_g / trans_fat_g / cholesterol
 
 ## Disagreements (3)
 
+The last column comes from `npm run chains:evidence`: whether a draft's numbers sit right after the item's name in the guide text the drafts read. It can't read sizes or sections (one draft called a single 78 g cookie a "6 pack"): check those against the guide, then fix the line and set its check to `person`.
+
 Fix each line in `menus/raising-canes.csv` from the guide and set its check to `person` (or delete the line if it isn't on the menu).
 
-| Item | Size | Why | Draft A | Draft B |
-| --- | --- | --- | --- | --- |
-| Sweet Tea - Jug | 1 gallon | only in draft A | 1360 / 0 / 0 / 0 / 0 / 140 / 352 / 0 / 351 / 0 | not found |
-| Unsweet Tea - Jug | 1 gallon | only in draft A | 0 / 0 / 0 / 0 / 0 / 140 / 0 / 0 / 0 / 0 | not found |
-| Lemonade - Jug | 1 gallon | only in draft A | 1700 / 1 / 0 / 0 / 0 / 130 / 442 / 0.5 / 427 / 1 | not found |
+| Item | Size | Why | Draft A | Draft B | In the guide text (no AI) |
+| --- | --- | --- | --- | --- | --- |
+| Sweet Tea - Jug | 1 gallon | only in draft A | 1360 / 0 / 0 / 0 / 0 / 140 / 352 / 0 / 351 / 0 | not found | A: numbers found after the name (line 150); check the size |
+| Unsweet Tea - Jug | 1 gallon | only in draft A | 0 / 0 / 0 / 0 / 0 / 140 / 0 / 0 / 0 / 0 | not found | A: numbers found after the name (line 158); check the size, mostly zeros: look |
+| Lemonade - Jug | 1 gallon | only in draft A | 1700 / 1 / 0 / 0 / 0 / 130 / 442 / 0.5 / 427 / 1 | not found | A: numbers found after the name (line 166); check the size |
 
 ## Spot check (6 agreed lines)
 

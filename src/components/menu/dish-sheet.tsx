@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/react-native';
 import * as Crypto from 'expo-crypto';
 import { router } from 'expo-router';
 import { Check, ExternalLink, Flame } from 'lucide-react-native';
@@ -124,6 +125,7 @@ export function DishSheet({ row, target, sides = [], calm, onClose, onReport, on
       {
         onSuccess: () => {
           haptics.success();
+          Sentry.logger.info('Menu dish ordered', { action: next, source: row.source, variant, tweak: tweak !== null, side: !!side });
           // A new order next time (Save for later, then Log it, are two meals).
           requestId.current = Crypto.randomUUID();
           if (next === 'log') onLogged();
@@ -136,7 +138,10 @@ export function DishSheet({ row, target, sides = [], calm, onClose, onReport, on
           if (error instanceof ApiError && error.status === 402) {
             onClose();
             router.push('/premium');
-          } else notify(next === 'log' ? "We couldn't log it" : "We couldn't save it", error.message);
+          } else {
+            Sentry.logger.error('Ordering a menu dish failed', { action: next, error: error.message });
+            notify(next === 'log' ? "We couldn't log it" : "We couldn't save it", error.message);
+          }
         },
       },
     );

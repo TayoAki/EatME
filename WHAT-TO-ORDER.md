@@ -357,7 +357,8 @@ changes before any app code.
   real run (Chick-fil-A, guide read) waits for OpenRouter credit and `FIRECRAWL_API_KEY`.
 - [ ] **First ten chains** drafted and their review lists checked: the ground truth for the next check. Then on to
   100 before launch. *23 October: 13 chains drafted, 1,570 items both drafts agree on (in `data/chains.json` and live);
-  908 lines wait for a person in `data/chains/menus/*-review.md`. Dunkin', SONIC, Culver's and Dairy Queen need a
+  908 lines wait for a person in `data/chains/review/<chain>.md`, where `npm run chains:evidence` (no AI)
+  shows that for 727 of them a draft's numbers sit right after the item's name in the guide text (sizes still need a look). Dunkin', SONIC, Culver's and Dairy Queen need a
   rerun and Chipotle a source, once OpenRouter has credit.*
 - [ ] **Accuracy pilot** (like the week-1 pilot run for ChartME): 60 dishes from those ten chains, their menu text
   through our pipeline (read → foods and portions → USDA) against the chains' published numbers. Pass: median

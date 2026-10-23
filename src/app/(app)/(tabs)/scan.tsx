@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/react-native';
 import { router } from 'expo-router';
 import { useRef, useState } from 'react';
 import { ActivityIndicator, Text, View } from 'react-native';
@@ -91,6 +92,8 @@ export default function ScanScreen() {
       { ...input, restaurant: menuName.trim() || undefined },
       {
         onSuccess: (scan) => {
+          // No menu text or numbers in diagnostics.
+          Sentry.logger.info('Menu sent', { kind: 'lines' in input ? 'lines' : 'photos', count: 'lines' in input ? input.lines.length : input.photos.length });
           router.push({ pathname: '/menu/[id]', params: { id: scan.id } });
           setMenuName('');
           capture();
@@ -98,7 +101,10 @@ export default function ScanScreen() {
         onError: (error) => {
           if (error instanceof ApiError && error.status === 402) router.push('/premium');
           else if (error instanceof ApiError && error.code === 'ai_consent_required') setMenuConsentFor(input);
-          else notify("We couldn't send the menu", error.message);
+          else {
+            Sentry.logger.error('Sending a menu failed', { error: error.message });
+            notify("We couldn't send the menu", error.message);
+          }
         },
       },
     );

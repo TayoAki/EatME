@@ -5,18 +5,20 @@ Numbers in order: calories / fat_g / saturated_fat_g / trans_fat_g / cholesterol
 
 ## Disagreements (8)
 
+The last column comes from `npm run chains:evidence`: whether a draft's numbers sit right after the item's name in the guide text the drafts read. It can't read sizes or sections (one draft called a single 78 g cookie a "6 pack"): check those against the guide, then fix the line and set its check to `person`.
+
 Fix each line in `menus/mcdonalds.csv` from the guide and set its check to `person` (or delete the line if it isn't on the menu).
 
-| Item | Size | Why | Draft A | Draft B |
-| --- | --- | --- | --- | --- |
-| Chocolate Shake | Small | the guide gives no fiber_g | 520 / 14 / 9 / 0.5 / 55 / 250 / 85 / – / 67 / 12 | 520 / 14 / 9 / 0.5 / 55 / 250 / 85 / – / 67 / 12 |
-| Coca-Cola® Zero Sugar | Small | the guide gives no fiber_g | 0 / 0 / 0 / 0 / 0 / 40 / 0 / – / 0 / 0 | 0 / 0 / 0 / 0 / 0 / 40 / 0 / – / 0 / 0 |
-| McCafé® Premium Roast Coffee | Medium | differ: fiber_g | 10 / 0 / 0 / 0 / 0 / 10 / 1 / 0 / 0 / 1 | 10 / 0 / 0 / 0 / 0 / 10 / 1 / – / 0 / 1 |
-| Creamy Ranch Sauce | 1 serving | the guide gives no fiber_g | 110 / 12 / 2 / 0 / 5 / 160 / 1 / – / 1 / 0 | 110 / 12 / 2 / 0 / 5 / 160 / 1 / – / 1 / 0 |
-| Diet Coke® | Small | the guide gives no fiber_g | 0 / 0 / 0 / 0 / 0 / 50 / 0 / – / 0 / 0 | 0 / 0 / 0 / 0 / 0 / 50 / 0 / – / 0 / 0 |
-| Unsweetened Iced Tea | Small | the guide gives no fiber_g | 0 / 0 / 0 / 0 / 0 / 10 / 0 / – / 0 / 1 | 0 / 0 / 0 / 0 / 0 / 10 / 0 / – / 0 / 1 |
-| Strawberry Shake | Small | the guide gives no fiber_g | 470 / 13 / 8 / 0.5 / 50 / 160 / 77 / – / 58 / 10 | 470 / 13 / 8 / 0.5 / 50 / 160 / 77 / – / 58 / 10 |
-| Ketchup Packet | 1 serving | the guide gives no fiber_g | 10 / 0 / 0 / 0 / 0 / 90 / 2 / – / 2 / 0 | 10 / 0 / 0 / 0 / 0 / 90 / 2 / – / 2 / 0 |
+| Item | Size | Why | Draft A | Draft B | In the guide text (no AI) |
+| --- | --- | --- | --- | --- | --- |
+| Chocolate Shake | Small | the guide gives no fiber_g | 520 / 14 / 9 / 0.5 / 55 / 250 / 85 / – / 67 / 12 | 520 / 14 / 9 / 0.5 / 55 / 250 / 85 / – / 67 / 12 | A: name not in the guide text; B: name not in the guide text |
+| Coca-Cola® Zero Sugar | Small | the guide gives no fiber_g | 0 / 0 / 0 / 0 / 0 / 40 / 0 / – / 0 / 0 | 0 / 0 / 0 / 0 / 0 / 40 / 0 / – / 0 / 0 | A: name not in the guide text; B: name not in the guide text |
+| McCafé® Premium Roast Coffee | Medium | differ: fiber_g | 10 / 0 / 0 / 0 / 0 / 10 / 1 / 0 / 0 / 1 | 10 / 0 / 0 / 0 / 0 / 10 / 1 / – / 0 / 1 | A: name not in the guide text; B: name not in the guide text |
+| Creamy Ranch Sauce | 1 serving | the guide gives no fiber_g | 110 / 12 / 2 / 0 / 5 / 160 / 1 / – / 1 / 0 | 110 / 12 / 2 / 0 / 5 / 160 / 1 / – / 1 / 0 | A: name not in the guide text; B: name not in the guide text |
+| Diet Coke® | Small | the guide gives no fiber_g | 0 / 0 / 0 / 0 / 0 / 50 / 0 / – / 0 / 0 | 0 / 0 / 0 / 0 / 0 / 50 / 0 / – / 0 / 0 | A: name not in the guide text; B: name not in the guide text |
+| Unsweetened Iced Tea | Small | the guide gives no fiber_g | 0 / 0 / 0 / 0 / 0 / 10 / 0 / – / 0 / 1 | 0 / 0 / 0 / 0 / 0 / 10 / 0 / – / 0 / 1 | A: name not in the guide text; B: name not in the guide text |
+| Strawberry Shake | Small | the guide gives no fiber_g | 470 / 13 / 8 / 0.5 / 50 / 160 / 77 / – / 58 / 10 | 470 / 13 / 8 / 0.5 / 50 / 160 / 77 / – / 58 / 10 | A: name not in the guide text; B: name not in the guide text |
+| Ketchup Packet | 1 serving | the guide gives no fiber_g | 10 / 0 / 0 / 0 / 0 / 90 / 2 / – / 2 / 0 | 10 / 0 / 0 / 0 / 0 / 90 / 2 / – / 2 / 0 | A: name not in the guide text; B: name not in the guide text |
 
 ## Spot check (6 agreed lines)
 
