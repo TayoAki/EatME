@@ -36,7 +36,7 @@ rank,chain,site,guide_url,notes
 35,Jimmy John's,jimmyjohns.com,https://resources.jimmyjohns.com/downloadable-files/Beefy_Black_And_Bleu_Nutrition_Guide.pdf,"drafted 2026-10-23: 21 agreed, 5 for a person"
 36,Outback Steakhouse,outback.com,https://outback.blob.core.windows.net/content/images/OBS_Full_Nutrition_Information_Core_Menu_Items.pdf,"drafted 2026-10-23: 244 agreed, 204 for a person"
 37,The Cheesecake Factory,thecheesecakefactory.com,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,"drafted 2026-10-23: 407 agreed, 172 for a person"
-38,Cracker Barrel,crackerbarrel.com,https://www.crackerbarrel.com/nutrition,no nutrition numbers found in the guide: set guide_url to the PDF or full table
+38,Cracker Barrel,crackerbarrel.com,https://www.crackerbarrel.com/-/media/Project/cb-brandsite/brandsite/pdfs/Nutrition-Guide.pdf,no nutrition numbers found in the guide: set guide_url to the PDF or full table
 39,Denny's,dennys.com,https://www.dennys.com/sites/default/files/2026-05/M2%20Spring%20Core%20Menu%20Nutrition%20Guide.pdf,"drafted 2026-10-23: 218 agreed, 26 for a person"
 40,In-N-Out Burger,in-n-out.com,https://www.in-n-out.com/menu/nutrition-info,"drafted 2026-10-23: 66 agreed, 6 for a person"
 41,Five Guys,fiveguys.com,https://www.fiveguys.com/wp-content/uploads/2025/07/five-guys-us-nutrition-allergen-guide-english-1-final.pdf,"drafted 2026-10-23: 40 agreed, 15 for a person"
@@ -44,11 +44,11 @@ rank,chain,site,guide_url,notes
 43,Hardee's,hardees.com,https://www.hardees.com/getContentAsset/20c3e4eb-fa23-4fb2-b914-5fc082e91122/dfc3d011-8f63-43f6-9ed8-4b444333a1d0/nutritional-info-page.pdf?language=en-US,"drafted 2026-10-23: 114 agreed, 12 for a person"
 44,Bojangles,bojangles.com,https://storyblok.pleinaircdn.com/f/110020/x/6c7b2a7e6a/m25-099-2025_02-nutritiongudeupdates_bobitessalad_master.pdf,"drafted 2026-10-23: 75 agreed, 118 for a person"
 45,Golden Corral,goldencorral.com,https://www.goldencorral.com/nutrition/,"drafted 2026-10-23: 1125 agreed, 109 for a person"
-46,Red Lobster,redlobster.com,https://img-ecomm-rl-prod-fye5gqbxdtbghqer.a03.azurefd.net/brandsite/documents/US_Nutrition_10-12-26.pdf,no nutrition page found on redlobster.com: set guide_url by hand
-47,Tropical Smoothie Cafe,tropicalsmoothiecafe.com,https://www.tropicalsmoothiecafe.com/nutrition,no nutrition numbers found in the guide: set guide_url to the PDF or full table
+46,Red Lobster,redlobster.com,https://img-ecomm-rl-prod-fye5gqbxdtbghqer.a03.azurefd.net/brandsite/documents/US_Nutrition_10-12-26.pdf,"drafted 2026-10-23: 174 agreed, 34 for a person"
+47,Tropical Smoothie Cafe,tropicalsmoothiecafe.com,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,"drafted 2026-10-23: 16 agreed, 103 for a person"
 48,Shake Shack,shakeshack.com,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,"drafted 2026-10-23: 152 agreed, 6 for a person"
 49,Waffle House,wafflehouse.com,https://www.wafflehouse.com/wp-content/uploads/2026/05/Menu-Nutritionals-2026-05-05.pdf,"drafted 2026-10-23: 111 agreed, 39 for a person"
-50,Red Robin,redrobin.com,https://www.redrobin.com/sites/default/files/2024-10/CATERING_NUTR_0924.pdf,hold: only the catering guide found (2024): set the restaurant menu guide
+50,Red Robin,redrobin.com,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,"drafted 2026-10-23: 218 agreed, 227 for a person (dated 2023: look for a newer guide)"
 51,Carl's Jr.,carlsjr.com,https://www.carlsjr.com/getContentAsset/cccf694a-3d94-4cbc-adfc-28c255939f92/dfc3d011-8f63-43f6-9ed8-4b444333a1d0/nutritional-info.pdf?language=en-US,"drafted 2026-10-23: 104 agreed, 26 for a person"
 52,BJ's Restaurant & Brewhouse,bjsrestaurants.com,https://services1.bjsrestaurants.com/BJSS/images/BJsNutritionInfo.pdf,"drafted 2026-10-23: 386 agreed, 81 for a person"
 53,First Watch,firstwatch.com,https://firstwatch.com/nutrition-and-allergens,"drafted 2026-10-23: 142 agreed, 3 for a person"
@@ -66,7 +66,7 @@ rank,chain,site,guide_url,notes
 65,Del Taco,deltaco.com,https://deltaco.com/nutrition.html,"drafted 2026-10-23: 164 agreed, 4 for a person"
 66,Yard House,yardhouse.com,https://media.yardhouse.com/en_us/pdf/yard_house_nutrition.pdf,"drafted 2026-10-23: 252 agreed, 76 for a person"
 67,P.F. Chang's,pfchangs.com,https://www.pfchangs.com/docs/default-source/pdf/pfc-national-menu-nutrition-autumn-in-kyoto-2026.pdf?sfvrsn=c1edf3f2_9,"drafted 2026-10-23: 109 agreed, 72 for a person"
-68,Church's Texas Chicken,churchs.com,,no nutrition page found on churchs.com: set guide_url by hand
+68,Church's Texas Chicken,churchs.com,https://cdn.sanity.io/files/at6verwz/production/987e1f90747ee65edf2ff6b494571290ed75e31c.pdf,"drafted 2026-10-23: 87 agreed, 35 for a person"
 69,Scooter's Coffee,scooterscoffee.com,https://www.scooterscoffee.com/media/nutrition/scooters_nutrition_and_allergy_information.pdf,"drafted 2026-10-23: 70 agreed, 1066 for a person"
 70,Auntie Anne's,auntieannes.com,https://assets.ctfassets.net/zqt8tllj2cy0/10Ezjc1ozMDByK7cBBikSn/4ca91079eaac12bb63fcec420cd0ca46/AA_2103518_NutritionAllergenGuide_W2andW3_2026_HIGHRES-1.pdf,"drafted 2026-10-23: 113 agreed, 27 for a person"
 71,Tim Hortons,timhortons.com,,no nutrition page found on timhortons.com: set guide_url by hand
@@ -74,7 +74,7 @@ rank,chain,site,guide_url,notes
 73,Cheddar's Scratch Kitchen,cheddars.com,https://media.cheddars.com/images/site/pdf/Cheddars_Nutrition_Guide_effective_3.20.23.pdf,"drafted 2026-10-23: 96 agreed, 104 for a person"
 74,Krispy Kreme,krispykreme.com,https://www.krispykreme.com/about/nutritional-info,no nutrition numbers found in the guide: set guide_url to the PDF or full table
 75,Steak 'n Shake,steaknshake.com,https://beeftallow.steaknshake.com/pages/nutrition-info,no nutrition numbers found in the guide: set guide_url to the PDF or full table
-76,Carrabba's Italian Grill,carrabbas.com,https://www.carrabbas.com/nutrition,no nutrition numbers found in the guide: set guide_url to the PDF or full table
+76,Carrabba's Italian Grill,carrabbas.com,https://edge.sitecorecloud.io/osirestaurantpartners-piq24hos/media/Project/BBI/carrabbas/Nutrition-Images/CIG_Nutrition_September_2026.pdf,"drafted 2026-10-23: 148 agreed, 174 for a person"
 77,Fogo de Chao,fogodechao.com,,no nutrition page found on fogodechao.com: set guide_url by hand
 78,Portillo's,portillos.com,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,"drafted 2026-10-23: 76 agreed, 90 for a person"
 79,Bob Evans,bobevans.com,https://assets.ctfassets.net/81w9kb7f1jq4/7B5kIp1p1RGRhx1UFq6ToY/a453c3e4d8798f61df5cdd54c86e607c/Nutritional_Guide_Fall_FY2027_All_Day_Breakfast.pdf,"drafted 2026-10-23: 49 agreed, 89 for a person"
