@@ -1,0 +1,708 @@
+chain,section,name,serving,serving_g,kind,calories,fat_g,saturated_fat_g,trans_fat_g,cholesterol_mg,sodium_mg,carbs_g,fiber_g,sugars_g,protein_g,source_url,checked_on,check
+Biggby Coffee,Lattes,"Caramel Marvel® Latte, Frozen",16oz,,drink,500,15,11,0,35,270,90,0,70,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Caramel Marvel® Latte, Frozen",20oz,,drink,570,16,12,0,35,310,103,0,81,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Caramel Marvel® Latte, Frozen",24oz,,drink,710,19,15,0,40,390,132,0,102,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Caramel Marvel® Latte, Hot",16oz,,drink,370,12,8,0,40,270,63,0,49,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Caramel Marvel® Latte, Hot",20oz,,drink,460,14,9,0,45,340,80,0,62,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Caramel Marvel® Latte, Hot",24oz,,drink,550,16,10,0,55,420,98,0,75,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Caramel Marvel® Latte, Iced",20oz,,drink,510,17,11,0,60,340,82,0,63,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Caramel Marvel® Latte, Iced",24oz,,drink,600,20,13,0,70,400,99,0,76,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Mocha Mocha Latte, Frozen",16oz,,drink,490,13,10,0,30,200,87,1,75,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Mocha Mocha Latte, Frozen",20oz,,drink,560,15,11,0,30,230,100,1,86,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Mocha Mocha Latte, Frozen",24oz,,drink,690,17,13,0,35,290,127,2,109,4,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Mocha Mocha Latte, Hot",16oz,,drink,350,10,6,0,35,170,58,2,55,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Mocha Mocha Latte, Hot",20oz,,drink,430,11,7,0,40,210,73,2,70,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Mocha Mocha Latte, Hot",24oz,,drink,520,13,8,0,45,250,90,3,86,13,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Mocha Mocha Latte, Iced",16oz,,drink,380,13,8,0,45,150,58,2,55,7,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Mocha Mocha Latte, Iced",20oz,,drink,480,15,10,0,50,210,75,2,72,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Mocha Mocha Latte, Iced",24oz,,drink,560,17,11,0,55,240,91,3,87,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Teddy Bear® Latte, Frozen",16oz,,drink,510,14,11,0,30,260,91,0,72,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Teddy Bear® Latte, Frozen",20oz,,drink,570,15,12,0,35,300,104,0,82,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Teddy Bear® Latte, Frozen",24oz,,drink,710,18,14,0,40,380,131,0,103,4,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Teddy Bear® Latte, Hot",16oz,,drink,380,11,7,0,40,260,62,0,50,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Teddy Bear® Latte, Hot",20oz,,drink,460,12,8,0,45,330,79,0,62,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Teddy Bear® Latte, Hot",24oz,,drink,550,15,9,0,50,400,95,0,76,13,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Teddy Bear® Latte, Iced",16oz,,drink,400,14,9,0,45,240,62,0,50,7,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Teddy Bear® Latte, Iced",20oz,,drink,510,16,10,0,55,330,81,0,64,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Teddy Bear® Latte, Iced",24oz,,drink,600,18,12,0,65,390,97,0,77,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Butter Bear Latte, Frozen",16oz,,drink,490,14,11,0,35,260,89,0,71,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Butter Bear Latte, Frozen",20oz,,drink,560,16,12,0,35,300,102,0,82,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Butter Bear Latte, Frozen",24oz,,drink,700,19,14,0,40,390,130,0,103,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Butter Bear Latte, Hot",16oz,,drink,380,11,7,0,40,270,64,0,52,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Butter Bear Latte, Hot",20oz,,drink,450,13,8,0,45,330,77,0,63,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Butter Bear Latte, Hot",24oz,,drink,530,15,10,0,55,390,91,0,74,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Butter Bear Latte, Iced",16oz,,drink,400,14,9,0,50,250,64,0,52,6,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Butter Bear Latte, Iced",20oz,,drink,490,17,11,0,60,330,79,0,65,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Butter Bear Latte, Iced",24oz,,drink,570,19,12,0,65,380,92,0,75,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Island Bear Latte, Frozen",16oz,,drink,490,14,10,0,30,220,88,0,72,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Island Bear Latte, Frozen",20oz,,drink,560,15,12,0,35,260,101,0,83,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Island Bear Latte, Frozen",24oz,,drink,690,18,14,0,40,320,128,0,105,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Island Bear Latte, Hot",16oz,,drink,360,11,7,0,40,200,59,0,51,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Island Bear Latte, Hot",20oz,,drink,440,12,8,0,45,250,75,0,65,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Island Bear Latte, Hot",24oz,,drink,530,14,9,0,50,300,91,0,79,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Island Bear Latte, Iced",16oz,,drink,380,13,9,0,45,180,59,0,51,6,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Island Bear Latte, Iced",20oz,,drink,480,16,10,0,55,240,77,0,67,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Island Bear Latte, Iced",24oz,,drink,570,18,12,0,65,280,92,0,80,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Tan Line Latte, Frozen",16oz,,drink,490,14,11,0,35,240,89,0,71,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Tan Line Latte, Frozen",20oz,,drink,560,16,12,0,35,280,102,0,82,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Tan Line Latte, Frozen",24oz,,drink,700,19,14,0,40,370,130,0,103,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Tan Line Latte, Hot",16oz,,drink,380,11,7,0,40,250,64,0,52,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Tan Line Latte, Hot",20oz,,drink,450,13,8,0,45,300,77,0,63,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Tan Line Latte, Hot",24oz,,drink,520,15,10,0,55,340,90,0,74,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Tan Line Latte, Iced",16oz,,drink,400,14,9,0,50,230,64,0,52,6,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Tan Line Latte, Iced",20oz,,drink,490,17,11,0,60,290,79,0,65,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Tan Line Latte, Iced",24oz,,drink,570,19,12,0,65,330,92,0,75,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,"Winter Wonderland Latte, Iced",24oz,,drink,560,16,11,0,60,300,86,0,74,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Sweet Foam Cold Brew,Sweet Foam Avalanche Cold Brew,16oz,,dessert,360,13,12,0,10,150,58,1,50,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Sweet Foam Cold Brew,Sweet Foam Avalanche Cold Brew,20oz,,dessert,430,15,15,0,10,180,70,1,60,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Sweet Foam Cold Brew,Sweet Foam Avalanche Cold Brew,24oz,,dessert,490,17,16,0,10,200,81,1,70,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Sweet Foam Cold Brew,Sweet Foam Caramel Cold Brew,16oz,,dessert,360,15,13,0,15,230,59,0,42,1,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Sweet Foam Cold Brew,Sweet Foam Caramel Cold Brew,20oz,,dessert,450,18,16,0,20,290,76,0,54,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Sweet Foam Cold Brew,Sweet Foam Caramel Cold Brew,24oz,,dessert,530,21,18,0,20,350,92,0,66,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Sweet Foam Cold Brew,Sweet Foam Mocha Cold Brew,16oz,,dessert,340,13,12,0,10,125,54,2,49,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Sweet Foam Cold Brew,Sweet Foam Mocha Cold Brew,20oz,,dessert,420,16,15,0,10,160,69,2,63,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Sweet Foam Cold Brew,Sweet Foam Mocha Cold Brew,24oz,,dessert,500,18,16,0,10,190,84,3,77,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Sweet Foam Cold Brew,Sweet Foam White Lightning Cold Brew,16oz,,dessert,350,13,12,0,10,200,54,0,41,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Sweet Foam Cold Brew,Sweet Foam White Lightning Cold Brew,20oz,,dessert,430,15,15,0,10,250,69,0,53,4,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Sweet Foam Cold Brew,Sweet Foam White Lightning Cold Brew,24oz,,dessert,510,17,16,0,10,300,84,0,64,5,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Sweet Foam Cold Brew,Sweet Foam Black Forest Cold Brew,16oz,,dessert,360,14,13,0,10,160,60,1,50,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Sweet Foam Cold Brew,Sweet Foam Black Forest Cold Brew,20oz,,dessert,430,17,15,0,15,190,72,1,60,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Sweet Foam Cold Brew,Sweet Foam Black Forest Cold Brew,24oz,,dessert,500,19,17,0,15,220,84,1,70,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Hot & Iced Coffee,"Americano, Hot",16oz,,drink,0,0,0,0,0,15,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Hot & Iced Coffee,"Americano, Hot",20oz,,drink,0,0,0,0,0,20,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Hot & Iced Coffee,"Americano, Hot",24oz,,drink,0,0,0,0,0,25,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Hot & Iced Coffee,"Americano, Iced",16oz,,drink,0,0,0,0,0,10,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Hot & Iced Coffee,"Americano, Iced",20oz,,drink,0,0,0,0,0,15,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Hot & Iced Coffee,"Americano, Iced",24oz,,drink,0,0,0,0,0,20,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Hot & Iced Coffee,"Red Eye, Hot",16oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Hot & Iced Coffee,"Red Eye, Hot",20oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Hot & Iced Coffee,"Red Eye, Hot",24oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Hot & Iced Coffee,"Red Eye, Iced",16oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Hot & Iced Coffee,"Red Eye, Iced",20oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Hot & Iced Coffee,"Red Eye, Iced",24oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Hot & Iced Coffee,Iced Coffee,16oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Hot & Iced Coffee,Iced Coffee,20oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Hot & Iced Coffee,Iced Coffee,24oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Hot & Iced Coffee,"BIGGBY Best, Hot",16oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Hot & Iced Coffee,"BIGGBY Best, Hot",20oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Hot & Iced Coffee,"BIGGBY Best, Hot",24oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Hot & Iced Coffee,"French Roast, Hot",16oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Hot & Iced Coffee,"French Roast, Hot",20oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Hot & Iced Coffee,"French Roast, Hot",24oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Hot & Iced Coffee,"Decaf BIGGBY Best, Hot",16oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Hot & Iced Coffee,"Decaf BIGGBY Best, Hot",20oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Hot & Iced Coffee,"Decaf BIGGBY Best, Hot",24oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Hot & Iced Coffee,Shot of Espresso,1 serving,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Hot & Iced Coffee,"Cafe Au Lait, Hot",16oz,,drink,90,3.5,2,0,15,80,8,0,8,6,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Hot & Iced Coffee,"Cafe Au Lait, Hot",20oz,,drink,110,4.5,2.5,0,15,100,10,0,10,7,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Hot & Iced Coffee,"Cafe Au Lait, Hot",24oz,,drink,130,5,3,0,20,120,12,0,12,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Hot & Iced Coffee,"Cafe Au Lait, Iced",16oz,,drink,80,3,2,0,15,80,8,0,8,5,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Hot & Iced Coffee,"Cafe Au Lait, Iced",20oz,,drink,100,4,2.5,0,15,95,9,0,9,6,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Hot & Iced Coffee,"Cafe Au Lait, Iced",24oz,,drink,120,4.5,3,0,20,120,11,0,11,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Hot & Iced Coffee,Cappuccino,16oz,,drink,150,6,4,0,25,140,15,0,15,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Hot & Iced Coffee,Cappuccino,20oz,,drink,180,7,4.5,0,30,170,18,0,18,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Hot & Iced Coffee,Cappuccino,24oz,,drink,200,8,5,0,30,190,19,0,19,13,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Chai Tea Latte, Frozen",16oz,,drink,390,6,5,0,10,200,78,0,61,5,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Chai Tea Latte, Frozen",20oz,,drink,460,8,7,0,10,250,92,0,73,6,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Chai Tea Latte, Frozen",24oz,,drink,590,9,8,0,15,300,118,0,93,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Chai Tea Latte, Hot",16oz,,drink,250,6,4,0,25,150,38,0,31,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Chai Tea Latte, Hot",20oz,,drink,310,8,5,0,30,180,49,0,40,13,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Chai Tea Latte, Hot",24oz,,drink,380,9,6,0,35,220,60,0,49,15,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Chai Tea Latte, Iced",16oz,,drink,220,5,3.5,0,20,130,36,0,29,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Chai Tea Latte, Iced",20oz,,drink,290,7,4.5,0,25,170,47,0,38,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Chai Tea Latte, Iced",24oz,,drink,350,8,5,0,30,190,57,0,46,13,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Citrus Mint Soother Tea, Hot",16oz,,drink,190,0,0,0,0,15,49,0,46,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Citrus Mint Soother Tea, Hot",20oz,,drink,240,0,0,0,0,20,63,0,60,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Citrus Mint Soother Tea, Hot",24oz,,drink,290,0,0,0,0,25,76,0,73,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Matcha Tea Latte, Frozen",16oz,,drink,390,6,5,0,10,200,79,0,69,5,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Matcha Tea Latte, Frozen",20oz,,drink,470,8,7,0,10,250,93,0,80,6,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Matcha Tea Latte, Frozen",24oz,,drink,590,9,8,0,15,310,119,0,104,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Matcha Tea Latte, Hot",16oz,,drink,230,6,4,0,25,150,33,0,33,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Matcha Tea Latte, Hot",20oz,,drink,300,8,5,0,35,190,43,0,43,13,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Matcha Tea Latte, Hot",24oz,,drink,360,10,6,0,40,230,53,0,53,16,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Matcha Tea Latte, Iced",16oz,,drink,210,6,3.5,0,25,140,31,0,31,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Matcha Tea Latte, Iced",20oz,,drink,270,7,4.5,0,30,170,40,0,40,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Matcha Tea Latte, Iced",24oz,,drink,330,9,5,0,35,210,50,0,50,14,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Chai Charger Latte, Frozen",16oz,,drink,310,4,4,0,0,150,66,0,52,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Chai Charger Latte, Frozen",20oz,,drink,370,5,5,0,0,190,79,0,62,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Chai Charger Latte, Frozen",24oz,,drink,470,6,6,0,0,230,99,0,77,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Chai Charger Latte, Hot",16oz,,drink,230,5,3.5,0,20,125,36,0,29,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Chai Charger Latte, Hot",20oz,,drink,290,7,4.5,0,30,160,47,0,38,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Chai Charger Latte, Hot",24oz,,drink,350,8,5,0,30,190,57,0,46,13,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Chai Charger Latte, Iced",16oz,,drink,190,4,2.5,0,15,100,33,0,26,7,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Chai Charger Latte, Iced",20oz,,drink,260,6,3.5,0,20,135,44,0,35,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Chai Charger Latte, Iced",24oz,,drink,300,6,4,0,25,150,53,0,42,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Cinnabuzz Matcha Tea Latte, Frozen",16oz,,drink,530,15,11,0,35,290,91,0,75,6,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Cinnabuzz Matcha Tea Latte, Frozen",20oz,,drink,620,17,13,0,40,340,105,0,87,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Cinnabuzz Matcha Tea Latte, Frozen",24oz,,drink,780,20,15,0,50,440,137,0,113,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Cinnabuzz Matcha Tea Latte, Hot",16oz,,drink,370,9,6,0,35,270,61,0,53,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Cinnabuzz Matcha Tea Latte, Hot",20oz,,drink,450,11,7,0,40,320,74,0,64,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Cinnabuzz Matcha Tea Latte, Hot",24oz,,drink,540,13,9,0,50,370,88,0,75,15,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Cinnabuzz Matcha Tea Latte, Iced",16oz,,drink,420,13,9,0,50,250,63,0,54,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Cinnabuzz Matcha Tea Latte, Iced",20oz,,drink,510,15,10,0,55,320,77,0,67,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Cinnabuzz Matcha Tea Latte, Iced",24oz,,drink,590,17,11,0,65,370,90,0,78,14,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,Cream Earl Grey Tea,16oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,Cream Earl Grey Tea,20oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,Cream Earl Grey Tea,24oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,Hot Spicy Cinnamon Tea,16oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,Hot Spicy Cinnamon Tea,20oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,Hot Spicy Cinnamon Tea,24oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,Matcha Tea,16oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,Matcha Tea,20oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,Matcha Tea,24oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,Minty Green Tea,16oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,Minty Green Tea,20oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,Minty Green Tea,24oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,Morning Blend Tea,16oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,Morning Blend Tea,20oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,Morning Blend Tea,24oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,Rainbow Rooibos Tea,16oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,Rainbow Rooibos Tea,20oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,Rainbow Rooibos Tea,24oz,,drink,0,0,0,0,0,0,0,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Cream Earl Grey Tea Latte, Frozen",16oz,,drink,340,4,4,0,0,160,74,0,64,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Cream Earl Grey Tea Latte, Frozen",20oz,,drink,410,5,5,0,0,200,87,0,74,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Cream Earl Grey Tea Latte, Frozen",24oz,,drink,520,6,6,0,0,240,111,0,96,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Cream Earl Grey Tea Latte, Hot",16oz,,drink,230,6,4,0,25,150,33,0,33,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Cream Earl Grey Tea Latte, Hot",20oz,,drink,300,8,5,0,35,190,43,0,43,13,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Cream Earl Grey Tea Latte, Hot",24oz,,drink,360,9,6,0,40,230,52,0,52,16,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Cream Earl Grey Tea Latte, Iced",16oz,,drink,160,3.5,2.5,0,15,95,26,0,26,6,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Cream Earl Grey Tea Latte, Iced",20oz,,drink,210,4.5,3,0,20,120,35,0,35,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Cream Earl Grey Tea Latte, Iced",24oz,,drink,250,5,3.5,0,20,140,42,0,42,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Hot Spicy Cinnamon Tea Latte, Frozen",16oz,,drink,340,4,4,0,0,160,74,0,64,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Hot Spicy Cinnamon Tea Latte, Frozen",20oz,,drink,410,5,5,0,0,200,87,0,74,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Hot Spicy Cinnamon Tea Latte, Frozen",24oz,,drink,520,6,6,0,0,240,111,0,96,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Hot Spicy Cinnamon Tea Latte, Hot",16oz,,drink,230,6,4,0,25,150,33,0,33,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Hot Spicy Cinnamon Tea Latte, Hot",20oz,,drink,300,8,5,0,35,190,43,0,43,13,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Hot Spicy Cinnamon Tea Latte, Hot",24oz,,drink,360,9,6,0,40,230,52,0,52,16,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Hot Spicy Cinnamon Tea Latte, Iced",16oz,,drink,160,3.5,2.5,0,15,95,26,0,26,6,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Hot Spicy Cinnamon Tea Latte, Iced",20oz,,drink,210,4.5,3,0,20,120,35,0,35,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Hot Spicy Cinnamon Tea Latte, Iced",24oz,,drink,250,5,3.5,0,20,140,42,0,42,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Minty Green Tea Latte, Frozen",16oz,,drink,340,4,4,0,0,160,74,0,64,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Minty Green Tea Latte, Frozen",20oz,,drink,410,5,5,0,0,200,87,0,74,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Minty Green Tea Latte, Frozen",24oz,,drink,520,6,6,0,0,240,111,0,96,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Minty Green Tea Latte, Hot",16oz,,drink,230,6,4,0,25,150,33,0,33,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Minty Green Tea Latte, Hot",20oz,,drink,300,8,5,0,35,190,43,0,43,13,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Minty Green Tea Latte, Hot",24oz,,drink,360,9,6,0,40,230,52,0,52,16,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Minty Green Tea Latte, Iced",16oz,,drink,160,3.5,2.5,0,15,95,26,0,26,6,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Minty Green Tea Latte, Iced",20oz,,drink,210,4.5,3,0,20,120,35,0,35,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Minty Green Tea Latte, Iced",24oz,,drink,250,5,3.5,0,20,140,42,0,42,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Morning Blend Tea Latte, Frozen",16oz,,drink,340,4,4,0,0,160,74,0,64,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Morning Blend Tea Latte, Frozen",20oz,,drink,410,5,5,0,0,200,87,0,74,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Morning Blend Tea Latte, Frozen",24oz,,drink,520,6,6,0,0,240,111,0,96,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Morning Blend Tea Latte, Hot",16oz,,drink,230,6,4,0,25,150,33,0,33,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Morning Blend Tea Latte, Hot",20oz,,drink,300,8,5,0,35,190,43,0,43,13,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Morning Blend Tea Latte, Hot",24oz,,drink,360,9,6,0,40,230,52,0,52,16,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Morning Blend Tea Latte, Iced",16oz,,drink,160,3.5,2.5,0,15,95,26,0,26,6,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Morning Blend Tea Latte, Iced",20oz,,drink,210,4.5,3,0,20,120,35,0,35,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Morning Blend Tea Latte, Iced",24oz,,drink,250,5,3.5,0,20,140,42,0,42,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Rainbow Rooibos Tea Latte, Frozen",16oz,,drink,340,4,4,0,0,160,74,0,64,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Rainbow Rooibos Tea Latte, Frozen",20oz,,drink,410,5,5,0,0,200,87,0,74,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Rainbow Rooibos Tea Latte, Frozen",24oz,,drink,520,6,6,0,0,240,111,0,96,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Rainbow Rooibos Tea Latte, Hot",16oz,,drink,230,6,4,0,25,150,33,0,33,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Rainbow Rooibos Tea Latte, Hot",20oz,,drink,300,8,5,0,35,190,43,0,43,13,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,Tea & Tea Lattes,"Rainbow Rooibos Tea Latte, Hot",24oz,,drink,360,9,6,0,40,230,52,0,52,16,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,Tea & Tea Lattes,"Rainbow Rooibos Tea Latte, Iced",16oz,,drink,160,3.5,2.5,0,15,95,26,0,26,6,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,Tea & Tea Lattes,"Rainbow Rooibos Tea Latte, Iced",20oz,,drink,210,4.5,3,0,20,120,35,0,35,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,Tea & Tea Lattes,"Rainbow Rooibos Tea Latte, Iced",24oz,,drink,250,5,3.5,0,20,140,42,0,42,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,Tea & Tea Lattes,"Golden Honey Matcha Tea Latte, Frozen",16oz,,drink,450,6,5,0,10,200,92,0,76,5,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Golden Honey Matcha Tea Latte, Frozen",20oz,,drink,520,8,7,0,10,250,106,0,87,7,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Golden Honey Matcha Tea Latte, Frozen",24oz,,drink,680,9,8,0,15,310,139,0,114,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Golden Honey Matcha Tea Latte, Hot",16oz,,drink,270,6,4,0,25,150,43,0,38,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Golden Honey Matcha Tea Latte, Hot",20oz,,drink,350,8,5,0,35,190,56,0,50,13,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Golden Honey Matcha Tea Latte, Hot",24oz,,drink,430,10,6,0,40,230,69,0,61,16,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Golden Honey Matcha Tea Latte, Iced",16oz,,drink,250,6,3.5,0,25,140,41,0,36,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Golden Honey Matcha Tea Latte, Iced",20oz,,drink,330,7,4.5,0,30,170,54,0,48,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Golden Honey Matcha Tea Latte, Iced",24oz,,drink,400,9,5,0,35,210,67,0,59,14,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Golden Chai Tea Latte, Frozen",16oz,,drink,450,6,5,0,10,200,93,0,73,5,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Golden Chai Tea Latte, Frozen",20oz,,drink,530,8,7,0,10,250,107,0,85,6,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Golden Chai Tea Latte, Frozen",24oz,,drink,630,9,8,0,15,300,126,0,100,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Golden Chai Tea Latte, Hot",16oz,,drink,300,6,4,0,25,150,51,0,41,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Golden Chai Tea Latte, Hot",20oz,,drink,380,8,5,0,30,190,64,0,52,13,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Golden Chai Tea Latte, Hot",24oz,,drink,460,9,6,0,35,220,77,0,62,15,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Golden Chai Tea Latte, Iced",16oz,,drink,280,5,3.5,0,20,130,49,0,39,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Golden Chai Tea Latte, Iced",20oz,,drink,360,7,4.5,0,30,170,62,0,50,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"Golden Chai Tea Latte, Iced",24oz,,drink,430,8,5,0,30,200,74,0,59,13,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea & Tea Lattes,"The Spice of Life Tea Latte, Frozen",16oz,,drink,340,4,4,0,0,160,74,0,57,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea Lattes,"The Spice of Life Tea Latte, Frozen",20oz,,drink,400,5,5,0,0,190,86,0,67,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea Lattes,"The Spice of Life Tea Latte, Frozen",24oz,,drink,470,6,6,0,0,230,99,0,77,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea Lattes,"The Spice of Life Tea Latte, Hot",16oz,,drink,240,6,4,0,25,140,38,0,31,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea Lattes,"The Spice of Life Tea Latte, Hot",20oz,,drink,310,8,5,0,30,180,49,0,40,13,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea Lattes,"The Spice of Life Tea Latte, Hot",24oz,,drink,380,9,6,0,35,210,60,0,49,15,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea Lattes,"The Spice of Life Tea Latte, Iced",16oz,,drink,180,3.5,2,0,15,85,31,0,24,6,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea Lattes,"The Spice of Life Tea Latte, Iced",20oz,,drink,230,4,2.5,0,15,110,41,0,32,7,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Tea Lattes,"The Spice of Life Tea Latte, Iced",24oz,,drink,270,4.5,3,0,20,120,49,0,38,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Chocolate Chip Cookie Creme Freeze,16oz,,dessert,840,26,18,0,50,580,140,2,106,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Chocolate Chip Cookie Creme Freeze,20oz,,dessert,930,28,19,0,50,630,155,2,118,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Chocolate Chip Cookie Creme Freeze,24oz,,dessert,1120,33,23,0,60,740,189,2,145,14,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Banana Berry Creme Freeze,16oz,,main,400,4.5,4.5,0,0,160,90,4,64,4,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Banana Berry Creme Freeze,20oz,,main,480,6,5,0,0,200,106,4,77,4,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Banana Berry Creme Freeze,24oz,,main,560,7,6,0,0,240,122,4,90,5,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Mango Blood Orange Creme Freeze,16oz,,main,410,4.5,4,0,0,300,91,1,79,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Mango Blood Orange Creme Freeze,20oz,,main,510,5,5,0,0,190,110,1,95,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Mango Blood Orange Creme Freeze,24oz,,main,640,6,6,0,0,240,139,1,121,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Strawberry Shortcake Creme Freeze,16oz,,main,400,4,4,0,0,160,89,1,77,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Strawberry Shortcake Creme Freeze,20oz,,main,480,5,5,0,0,200,105,1,91,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Strawberry Shortcake Creme Freeze,24oz,,main,610,6,6,0,0,240,134,1,117,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Red Bull® Creme Freeze,20oz,,main,420,5,5,0,0,260,91,0,77,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Red Bull® Creme Freeze,24oz,,main,490,6,6,0,0,300,104,0,88,4,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Banana Split Creme Freeze,16oz,,main,700,16,11,0,35,260,133,5,107,7,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Banana Split Creme Freeze,20oz,,main,780,18,13,0,40,310,148,5,119,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Banana Split Creme Freeze,24oz,,main,960,21,16,0,50,390,183,6,151,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Coconut Beach Creme Freeze,16oz,,main,400,4.5,4,0,0,160,89,1,77,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Coconut Beach Creme Freeze,20oz,,main,480,5,5,0,0,200,105,1,91,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Coconut Beach Creme Freeze,24oz,,main,610,6,6,0,0,240,134,1,117,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Confetti Cupcake Creme Freeze,16oz,,main,720,20,16,0,40,290,125,0,108,6,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Confetti Cupcake Creme Freeze,20oz,,main,810,22,18,0,40,340,140,0,120,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Confetti Cupcake Creme Freeze,24oz,,main,980,25,20,0,50,440,174,0,148,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Freedom Creme Freeze,16oz,,main,640,15,11,0,40,330,115,0,95,7,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Freedom Creme Freeze,20oz,,main,730,17,13,0,45,380,130,0,107,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Freedom Creme Freeze,24oz,,main,900,20,15,0,50,490,165,0,135,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Frisbee Creme Freeze,16oz,,main,460,6,5,0,10,200,94,1,83,5,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Frisbee Creme Freeze,20oz,,main,530,8,7,0,10,250,108,1,95,6,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Frisbee Creme Freeze,24oz,,main,690,9,8,0,15,310,141,1,125,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Intergalactic Creme Freeze,16oz,,main,400,4,4,0,0,160,87,1,76,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Intergalactic Creme Freeze,20oz,,main,470,5,5,0,0,200,104,1,89,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Intergalactic Creme Freeze,24oz,,main,600,6,6,0,0,240,132,1,115,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Mango Creme Freeze,16oz,,main,390,4,4,0,0,150,84,1,72,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Mango Creme Freeze,20oz,,main,510,5,5,0,0,190,110,2,95,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Mango Creme Freeze,24oz,,main,630,6,6,0,0,230,136,2,118,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Piña Colada Creme Freeze,16oz,,main,390,4.5,4,0,0,160,85,0,73,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Piña Colada Creme Freeze,20oz,,main,470,5,5,0,0,200,101,0,86,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Piña Colada Creme Freeze,24oz,,main,590,6,6,0,0,240,129,0,111,4,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Pink Panther Creme Freeze,16oz,,main,400,4,4,0,0,160,87,1,74,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Pink Panther Creme Freeze,20oz,,main,470,5,5,0,0,200,103,1,87,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Pink Panther Creme Freeze,24oz,,main,600,6,6,0,0,240,131,1,112,4,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Raspberry Zinger Creme Freeze,16oz,,main,390,4,4,0,0,160,86,0,75,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Raspberry Zinger Creme Freeze,20oz,,main,470,5,5,0,0,200,102,0,88,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Raspberry Zinger Creme Freeze,24oz,,main,590,6,6,0,0,240,130,0,114,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Solar Flare Creme Freeze,16oz,,main,440,4,4,0,0,150,96,1,85,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Solar Flare Creme Freeze,20oz,,main,560,5,5,0,0,190,122,2,108,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Creme Freezes,Solar Flare Creme Freeze,24oz,,main,680,6,6,0,0,230,148,2,130,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,BIGGBY Blast®,Tropic Biggby Blast®,"Iced, 24oz",,main,240,0,0,0,0,40,58,1,50,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,Red Bull®,Red Bull Sugarfree® Energy Drink,1 serving,,drink,5,0,0,0,0,105,3,0,0,1,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Red Bull®,Red Bull® Energy Drink,1 serving,,drink,110,0,0,0,0,70,28,0,27,1,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,More,Cocoa Carmella Hot Chocolate,16oz,,main,390,12,8,0,40,240,64,1,56,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,More,Cocoa Carmella Hot Chocolate,20oz,,main,470,13,8,0,45,300,81,1,70,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,More,Cocoa Carmella Hot Chocolate,24oz,,main,580,16,10,0,55,370,99,1,85,14,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,More,Hot Chocolate,16oz,,main,370,11,7,0,35,190,60,2,57,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,More,Hot Chocolate,20oz,,main,450,12,8,0,40,230,75,2,72,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,More,Hot Chocolate,24oz,,main,550,14,9,0,50,280,93,3,89,15,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,More,Mellow Hot Chocolate,16oz,,main,380,10,7,0,40,290,60,0,50,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,More,Mellow Hot Chocolate,20oz,,main,460,11,7,0,45,370,76,0,62,13,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,More,Mellow Hot Chocolate,24oz,,main,570,13,9,0,50,450,93,0,77,16,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,More,Mint Hot Chocolate,16oz,,main,360,10,7,0,35,160,55,1,54,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,More,Mint Hot Chocolate,20oz,,main,420,11,7,0,40,200,67,1,65,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,More,Mint Hot Chocolate,24oz,,main,530,14,9,0,50,260,88,2,85,14,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,More,White Hot Chocolate,16oz,,main,380,10,7,0,40,260,60,0,50,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,More,White Hot Chocolate,20oz,,main,470,12,7,0,45,320,75,0,62,13,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,More,White Hot Chocolate,24oz,,main,570,14,9,0,50,400,92,0,76,16,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,More,Iced Tea,16oz,,drink,5,0,0,0,0,15,1,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,More,Iced Tea,20oz,,drink,5,0,0,0,0,15,1,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,More,Iced Tea,24oz,,drink,5,0,0,0,0,20,1,0,0,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,More,Frozen Lemonade,16oz,,drink,320,4,4,0,0,160,70,0,59,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,More,Frozen Lemonade,20oz,,drink,420,5,5,0,0,200,90,0,76,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,More,Frozen Lemonade,24oz,,drink,510,6,6,0,0,240,111,0,94,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,More,Lemonade,24oz,,drink,150,0,0,0,0,15,38,0,37,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,More,Lemonade,16oz,,drink,190,0,0,0,0,20,48,0,46,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,More,Lemonade,20oz,,drink,220,0,0,0,0,20,58,0,56,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,More,"Matcha Lemonade, Iced",16oz,,drink,180,0,0,0,0,20,46,0,45,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,More,"Matcha Lemonade, Iced",20oz,,drink,220,0,0,0,0,20,56,0,54,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,More,Orange Juice,16oz,,drink,140,0,0,0,0,25,34,0,28,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,More,Orange Juice,20oz,,drink,180,0,0,0,0,30,43,0,35,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,More,Orange Juice,24oz,,drink,210,0,0,0,0,35,52,0,43,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,More,Arnold Palmer,16oz,,main,80,0,0,0,0,15,20,0,18,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,More,Arnold Palmer,20oz,,main,90,0,0,0,0,15,25,0,23,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,More,Arnold Palmer,24oz,,main,110,0,0,0,0,20,30,0,28,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Kids,Kid's Cocoa Carmella Hot Chocolate,1 serving,,main,300,10,6,0,30,160,48,1,42,6,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Kids,Kid's Hot Chocolate,1 serving,,main,280,9,6,0,30,125,44,1,42,6,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Kids,Kid's Teddy Bear Hot Chocolate,1 serving,,main,300,10,6,0,30,190,48,0,39,7,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Kids,Chocolate Magic Milk,1 serving,,drink,420,14,10,0,50,180,63,2,61,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Kids,Strawberry Magic Milk,1 serving,,drink,330,14,10,0,50,130,39,0,39,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Bragels®,"Bacon, Egg & Cheese Bragel®",1 serving,,main,570,25,10,0,175,940,61,2,7,25,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Bragels®,Egg & Cheese Bragel®,1 serving,,main,500,18,7,0,155,760,61,2,6,21,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Bragels®,Four Cheese Bragel®,1 serving,,main,490,20,12,0,65,950,59,2,7,20,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Bragels®,Ham & Cheese Bragel®,1 serving,,main,440,12,6,0,45,1070,60,2,6,20,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Bragels®,"Sausage, Egg & Cheese Bragel®",1 serving,,main,730,40,15,0,195,1120,61,2,6,29,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Bragels®,Sausage and Cheese Bragel®,1 serving,,main,640,32,14,0,75,1120,60,2,6,24,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Bragels®,Turkey Havarti Bragel®,1 serving,,main,450,12,7,0,55,1230,60,2,7,21,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Bragels®,"Turkey, Bacon & Cheddar Bragel®",1 serving,,main,500,16,8,0,70,1380,60,2,7,26,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Bragels®,Turkey Sausage & Cheddar Bragel®,1 serving,,main,480,15,8,0,60,1080,60,2,6,24,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Bragels®,"HALAL Beef Sausage, Egg, & Cheese Bragel®",1 serving,,main,610,26,52,0,175,1110,62,2,6,28,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,Bragels®,HALAL Turkey Ham & Cheese Bragel®,1 serving,,main,450,28,6,0,50,1020,61,2,6,21,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Bragels®,"HALAL Turkey, Turkey Bacon & Cheddar Bragel®",1 serving,,main,550,18,8,0,95,1540,63,2,7,33,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Bakery & More,Donut Holes,1 serving,,dessert,210,10,4.5,0,5,190,27,1,14,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Bakery & More,Plain Bagel,1 serving,,dessert,290,0,0,0,0,570,59,2,6,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Bakery & More,Asiago Bagel,1 serving,,dessert,280,2,1,0,5,590,58,2,7,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Bakery & More,Bagel with Cream Cheese,1 serving,,dessert,360,7,4,0,15,690,61,2,7,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Bakery & More,BIGG Cookie,1 serving,,dessert,460,16,7,0,20,540,74,3,41,7,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Bakery & More,Banana,1 serving,,dessert,90,0,0,0,0,0,23,3,12,1,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Seasonal Food,Everything Bagel,1 serving,,main,290,0,0,0,0,670,59,2,6,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Seasonal Food,Blueberry Muffin,1 serving,,dessert,370,17,4,0,55,390,47,1,26,5,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Seasonal Food,Cinnamon Coffee Cake Muffin,1 serving,,dessert,390,17,3,0,60,370,55,1,34,5,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Seasonal Food,Chocolate Brownie,1 serving,,dessert,350,18,9,0,70,140,42,3,31,4,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Winter Beverages,"Vanilla Bean Latte, Hot, Sugar-Free Syrup",16oz,,extra,150,6,3.5,0,25,140,18,0,14,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Winter Beverages,"Vanilla Bean Latte, Iced, Sugar-Free Syrup",16oz,,extra,120,4.5,3,0,20,120,15,0,11,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Winter Beverages,"Nutty Buddy Latte, Hot, Sugar-Free Syrup",16oz,,extra,140,6,3.5,0,25,150,18,0,14,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Winter Beverages,"Nutty Buddy Latte, Iced, Sugar-Free Syrup",16oz,,extra,120,4.5,3,0,20,125,15,0,11,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Winter Beverages,"Purple Haze Latte, Hot, Sugar-Free Syrup",16oz,,extra,140,6,3.5,0,25,270,16,0,14,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Winter Beverages,"Purple Haze Latte, Iced, Sugar-Free Syrup",16oz,,extra,120,4.5,3,0,20,250,13,0,11,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Breakfast,"Sausage, Cheddar Biscuit",1 serving,,main,570,40,18,0,65,1200,35,1,8,17,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Seasonal Food,Biscuit with Honey,1 serving,,main,260,11,6,0,0,700,35,1,8,4,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Seasonal Food,Egg & Cheese Biscuit with Honey,1 serving,,main,430,26,12,0,145,840,36,1,8,14,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Valentine's (150 - 1030 Cals),"Red Velvet Latte, Frozen",16oz,,drink,510,15,12,0,30,250,88,0,78,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Valentine's (150 - 1030 Cals),"Red Velvet Latte, Frozen",20oz,,drink,580,16,13,0,30,290,101,0,89,4,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Valentine's (150 - 1030 Cals),"Red Velvet Latte, Frozen",24oz,,drink,710,19,15,0,35,370,127,1,112,5,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Valentine's (150 - 1030 Cals),"Red Velvet Latte, Hot",16oz,,drink,380,11,8,0,35,240,58,0,58,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Valentine's (150 - 1030 Cals),"Red Velvet Latte, Hot",20oz,,drink,450,12,8,0,40,310,72,1,72,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Valentine's (150 - 1030 Cals),"Red Velvet Latte, Hot",24oz,,drink,540,14,10,0,45,370,87,1,87,14,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Valentine's (150 - 1030 Cals),"Red Velvet Latte, Iced",16oz,,drink,400,14,10,0,45,220,58,0,58,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Valentine's (150 - 1030 Cals),"Red Velvet Latte, Iced",20oz,,drink,500,16,11,0,50,300,74,1,74,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Valentine's (150 - 1030 Cals),"Red Velvet Latte, Iced",24oz,,drink,590,18,12,0,60,360,88,1,88,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Valentine's (150 - 1030 Cals),Sweet Foam Red Velvet Cold Brew,16oz,,dessert,360,14,14,0,10,200,54,1,52,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Valentine's (150 - 1030 Cals),Sweet Foam Red Velvet Cold Brew,20oz,,dessert,430,17,16,0,10,250,67,1,64,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Valentine's (150 - 1030 Cals),Sweet Foam Red Velvet Cold Brew,24oz,,dessert,520,19,18,0,10,300,82,1,78,4,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Valentine's (150 - 1030 Cals),Berry Chocolatey Creme Freeze,16oz,,main,770,23,19,0,40,320,134,1,116,7,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Valentine's (150 - 1030 Cals),Berry Chocolatey Creme Freeze,20oz,,main,850,25,21,0,40,370,148,1,128,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Valentine's (150 - 1030 Cals),Berry Chocolatey Creme Freeze,24oz,,main,1030,29,24,0,50,470,183,2,158,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Lattes,"Pumpkin Spice Latte, Iced",16oz,,drink,390,12,8,0,45,200,60,0,57,7,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Firefly Latte,"Hot, 16oz",,drink,350,9,6,0,35,180,56,0,50,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Firefly Latte,"Hot, 20oz",,drink,430,11,7,0,40,230,71,0,63,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Firefly Latte,"Hot, 24oz",,drink,520,12,8,0,45,270,86,0,77,13,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Firefly Latte,"Iced, 16oz",,drink,380,12,8,0,45,160,56,0,50,7,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Firefly Latte,"Iced, 20oz",,drink,480,14,9,0,50,220,73,0,65,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Firefly Latte,"Iced, 24oz",,drink,560,16,11,0,60,260,88,0,78,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Fluffy Clouds Latte,"Frozen, 16oz",,drink,500,13,10,0,30,260,89,0,71,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Fluffy Clouds Latte,"Frozen, 20oz",,drink,570,15,11,0,30,300,102,0,82,4,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Fluffy Clouds Latte,"Frozen, 24oz",,drink,700,17,13,0,35,390,128,0,103,5,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Fluffy Clouds Latte,"Hot, 16oz",,drink,370,9,6,0,35,260,60,0,49,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Fluffy Clouds Latte,"Hot, 20oz",,drink,450,11,7,0,40,330,75,0,62,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Fluffy Clouds Latte,"Hot, 24oz",,drink,540,12,8,0,45,400,91,0,75,14,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Fluffy Clouds Latte,"Iced, 16oz",,drink,400,12,8,0,45,240,60,0,49,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Fluffy Clouds Latte,"Iced, 20oz",,drink,500,14,9,0,50,330,77,0,64,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Fluffy Clouds Latte,"Iced, 24oz",,drink,580,16,11,0,60,390,93,0,76,13,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Latte,"Frozen, 16oz",,drink,380,6,6,0,0,230,76,0,61,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Latte,"Frozen, 20oz",,drink,440,7,7,0,0,260,89,0,71,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Latte,"Frozen, 24oz",,drink,560,10,9,0,0,340,114,0,92,4,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Latte,"Hot, 16oz",,drink,150,6,4,0,25,140,14,0,14,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Latte,"Hot, 20oz",,drink,190,8,5,0,30,180,19,0,19,13,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Latte,"Hot, 24oz",,drink,230,9,6,0,35,210,22,0,22,15,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Latte,"Iced, 16oz",,drink,130,5,3,0,20,120,12,0,12,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Latte,"Iced, 20oz",,drink,170,7,4,0,25,160,16,0,16,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Latte,"Iced, 24oz",,drink,190,8,5,0,30,190,18,0,18,13,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Lissa's Luscious Latte,"Frozen, 16oz",,drink,490,13,10,0,30,230,86,0,70,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Lissa's Luscious Latte,"Frozen, 20oz",,drink,560,15,11,0,30,270,99,0,81,4,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Lissa's Luscious Latte,"Frozen, 24oz",,drink,700,17,13,0,35,340,128,0,105,5,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Lissa's Luscious Latte,"Hot, 16oz",,drink,370,9,6,0,35,220,59,0,51,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Lissa's Luscious Latte,"Hot, 20oz",,drink,430,11,7,0,40,270,71,0,61,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Lissa's Luscious Latte,"Hot, 24oz",,drink,510,13,8,0,45,310,84,0,72,13,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Lissa's Luscious Latte,"Iced, 16oz",,drink,390,12,8,0,45,200,59,0,51,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Lissa's Luscious Latte,"Iced, 20oz",,drink,480,15,9,0,50,260,73,0,63,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Lissa's Luscious Latte,"Iced, 24oz",,drink,550,16,11,0,60,300,85,0,74,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Lotta Love Latte,"Frozen, 16oz",,drink,490,13,10,0,30,230,86,0,71,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Lotta Love Latte,"Frozen, 20oz",,drink,560,15,11,0,30,270,99,0,81,4,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Lotta Love Latte,"Frozen, 24oz",,drink,710,17,13,0,35,340,129,0,105,5,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Lotta Love Latte,"Hot, 16oz",,drink,370,9,6,0,35,220,60,0,52,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Lotta Love Latte,"Hot, 20oz",,drink,440,11,7,0,40,270,72,0,62,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Lotta Love Latte,"Hot, 24oz",,drink,520,13,8,0,45,310,85,0,73,13,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Lotta Love Latte,"Iced, 16oz",,drink,400,12,8,0,45,200,60,0,52,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Lotta Love Latte,"Iced, 20oz",,drink,490,15,9,0,50,260,74,0,64,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Lotta Love Latte,"Iced, 24oz",,drink,560,16,11,0,60,300,86,0,75,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Neapolitan Latte,"Frozen, 16oz",,drink,480,13,10,0,30,180,86,1,75,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Neapolitan Latte,"Frozen, 20oz",,drink,550,15,11,0,30,220,99,1,85,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Neapolitan Latte,"Frozen, 24oz",,drink,680,17,13,0,35,270,125,1,108,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Neapolitan Latte,"Hot, 16oz",,drink,350,10,6,0,35,140,56,1,55,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Neapolitan Latte,"Hot, 20oz",,drink,420,11,7,0,40,180,71,1,69,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Neapolitan Latte,"Hot, 24oz",,drink,510,13,8,0,45,210,87,1,84,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Neapolitan Latte,"Iced, 16oz",,drink,370,12,8,0,45,125,56,1,55,7,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Neapolitan Latte,"Iced, 20oz",,drink,470,15,10,0,50,170,73,1,71,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Neapolitan Latte,"Iced, 24oz",,drink,550,16,11,0,60,200,88,1,86,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Nutty Buddy Latte,"Frozen, 16oz",,drink,340,4.5,4,0,0,160,73,0,63,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Nutty Buddy Latte,"Frozen, 20oz",,drink,400,5,5,0,0,200,85,0,73,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Nutty Buddy Latte,"Frozen, 24oz",,drink,510,6,6,0,0,250,109,0,94,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Nutty Buddy Latte,"Hot, 16oz",,drink,210,6,3.5,0,25,140,30,0,30,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Nutty Buddy Latte,"Hot, 20oz",,drink,270,7,4.5,0,30,180,40,0,39,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Nutty Buddy Latte,"Hot, 24oz",,drink,330,8,5,0,35,210,48,0,48,14,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Nutty Buddy Latte,"Iced, 16oz",,drink,180,4.5,3,0,20,120,27,0,27,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Nutty Buddy Latte,"Iced, 20oz",,drink,240,6,4,0,25,160,36,0,36,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Nutty Buddy Latte,"Iced, 24oz",,drink,290,7,4.5,0,30,180,44,0,44,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Peppermint Blizzard Latte,"Frozen, 24oz",,dessert,710,17,13,0,35,340,129,0,105,5,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Peppermint Blizzard Latte,"Frozen, 16oz",,dessert,490,13,10,0,30,230,86,0,71,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Peppermint Blizzard Latte,"Frozen, 20oz",,dessert,560,15,11,0,30,260,99,0,81,4,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Peppermint Blizzard Latte,"Hot, 16oz",,dessert,370,9,6,0,35,220,60,0,51,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Peppermint Blizzard Latte,"Hot, 20oz",,dessert,440,11,7,0,40,260,72,0,62,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Peppermint Blizzard Latte,"Hot, 24oz",,dessert,510,13,8,0,45,310,85,0,73,13,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Peppermint Blizzard Latte,"Iced, 16oz",,dessert,400,12,8,0,45,200,60,0,51,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Peppermint Blizzard Latte,"Iced, 20oz",,dessert,560,16,11,0,60,300,86,0,74,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Peppermint Blizzard Latte,"Iced, 24oz",,dessert,490,14,11,0,35,240,89,0,71,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Purple Haze Latte,"Frozen, 16oz",,drink,560,16,12,0,35,280,102,0,81,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Purple Haze Latte,"Frozen, 20oz",,drink,700,19,14,0,40,370,130,0,103,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Purple Haze Latte,"Frozen, 24oz",,drink,380,11,7,0,40,250,64,0,52,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Purple Haze Latte,"Hot, 16oz",,drink,450,13,8,0,45,300,77,0,63,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Purple Haze Latte,"Hot, 20oz",,drink,530,15,10,0,55,340,90,0,74,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Purple Haze Latte,"Hot, 24oz",,drink,400,14,9,0,50,230,64,0,52,6,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Purple Haze Latte,"Iced, 16oz",,drink,490,17,11,0,60,290,79,0,65,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Purple Haze Latte,"Iced, 20oz",,drink,570,19,12,0,65,330,91,0,75,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Raspberry Mocha Latte,"Frozen, 16oz",,drink,480,13,10,0,30,190,86,1,75,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Raspberry Mocha Latte,"Frozen, 20oz",,drink,550,15,11,0,30,230,99,1,85,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Raspberry Mocha Latte,"Frozen, 24oz",,drink,700,17,13,0,35,280,129,2,111,4,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Raspberry Mocha Latte,"Hot, 16oz",,drink,330,10,6,0,35,160,52,1,50,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Raspberry Mocha Latte,"Hot, 20oz",,drink,420,11,7,0,40,190,72,2,69,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Raspberry Mocha Latte,"Hot, 24oz",,drink,500,13,8,0,45,230,84,2,81,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Raspberry Mocha Latte,"Iced, 16oz",,drink,390,12,8,0,45,140,60,1,58,7,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Raspberry Mocha Latte,"Iced, 20oz",,drink,470,15,10,0,50,190,74,2,71,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Raspberry Mocha Latte,"Iced, 24oz",,drink,540,17,11,0,60,220,85,2,83,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Snow Bear Latte,"Frozen, 16oz",,drink,490,13,10,0,30,230,86,0,70,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Snow Bear Latte,"Frozen, 20oz",,drink,560,15,11,0,30,270,99,0,81,4,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Snow Bear Latte,"Frozen, 24oz",,drink,700,17,13,0,35,350,128,0,104,5,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Snow Bear Latte,"Hot, 16oz",,drink,370,9,6,0,35,220,59,0,51,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Snow Bear Latte,"Hot, 20oz",,drink,430,11,7,0,40,270,71,0,61,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Snow Bear Latte,"Hot, 24oz",,drink,510,13,8,0,45,310,83,0,72,13,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Snow Bear Latte,"Iced, 16oz",,drink,390,12,8,0,45,200,59,0,51,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Snow Bear Latte,"Iced, 20oz",,drink,480,15,9,0,50,270,73,0,63,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Snow Bear Latte,"Iced, 24oz",,drink,550,16,11,0,60,300,84,0,73,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Snow Berry Latte,"Frozen, 16oz",,drink,490,13,10,0,30,230,86,0,70,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Snow Berry Latte,"Frozen, 20oz",,drink,560,15,11,0,30,270,99,0,81,4,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Snow Berry Latte,"Frozen, 24oz",,drink,700,17,13,0,35,340,128,0,105,5,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Snow Berry Latte,"Hot, 16oz",,drink,370,9,6,0,35,220,60,0,51,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Snow Berry Latte,"Hot, 20oz",,drink,440,11,7,0,40,270,72,0,62,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Snow Berry Latte,"Hot, 24oz",,drink,510,13,8,0,45,310,84,0,73,13,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Snow Berry Latte,"Iced, 16oz",,drink,390,12,8,0,45,200,60,0,51,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Snow Berry Latte,"Iced, 20oz",,drink,480,15,10,0,50,260,74,0,64,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Snow Berry Latte,"Iced, 24oz",,drink,560,16,11,0,60,300,85,0,74,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Sugar Bear Latte,"Frozen, 16oz",,drink,490,14,11,0,35,250,88,0,71,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Sugar Bear Latte,"Frozen, 20oz",,drink,560,16,12,0,35,280,101,0,81,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Sugar Bear Latte,"Frozen, 24oz",,drink,700,19,14,0,40,370,130,0,103,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Sugar Bear Latte,"Hot, 16oz",,drink,380,11,7,0,40,250,64,0,51,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Sugar Bear Latte,"Hot, 20oz",,drink,440,13,8,0,45,300,76,0,62,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Sugar Bear Latte,"Hot, 24oz",,drink,520,15,10,0,55,350,89,0,73,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Sugar Bear Latte,"Iced, 16oz",,drink,400,14,9,0,50,230,64,0,52,6,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Sugar Bear Latte,"Iced, 20oz",,drink,490,17,11,0,60,300,78,0,64,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Sugar Bear Latte,"Iced, 24oz",,drink,560,19,12,0,65,340,91,0,74,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Sunburn Latte,"Frozen, 16oz",,drink,490,13,10,0,30,210,88,1,74,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Sunburn Latte,"Frozen, 20oz",,drink,560,15,11,0,30,250,101,1,85,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Sunburn Latte,"Frozen, 24oz",,drink,710,17,13,0,35,320,130,1,110,4,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Sunburn Latte,"Hot, 16oz",,drink,370,10,6,0,35,190,62,1,56,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Sunburn Latte,"Hot, 20oz",,drink,440,11,7,0,40,230,74,1,67,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Sunburn Latte,"Hot, 24oz",,drink,510,13,8,0,45,270,86,1,79,13,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Sunburn Latte,"Iced, 16oz",,drink,400,12,8,0,45,170,62,1,56,7,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Sunburn Latte,"Iced, 20oz",,drink,490,15,10,0,50,230,75,1,69,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Sunburn Latte,"Iced, 24oz",,drink,560,17,11,0,60,260,87,1,80,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Sweet Tooth Latte,"Frozen, 16oz",,dessert,500,14,10,0,30,260,90,0,72,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Sweet Tooth Latte,"Frozen, 20oz",,dessert,570,15,12,0,35,300,103,0,83,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Sweet Tooth Latte,"Frozen, 24oz",,dessert,720,18,14,0,40,390,133,0,107,4,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Sweet Tooth Latte,"Hot, 16oz",,dessert,380,10,7,0,35,270,64,0,53,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Sweet Tooth Latte,"Hot, 20oz",,dessert,450,12,8,0,40,330,77,0,64,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Sweet Tooth Latte,"Hot, 24oz",,dessert,530,14,9,0,50,380,90,0,75,13,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Sweet Tooth Latte,"Iced, 16oz",,dessert,410,13,9,0,45,250,64,0,53,7,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Sweet Tooth Latte,"Iced, 20oz",,dessert,500,16,10,0,55,320,79,0,66,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Sweet Tooth Latte,"Iced, 24oz",,dessert,570,18,12,0,60,370,91,0,76,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Vanilla Bean Latte,"Frozen, 16oz",,drink,340,4,4,0,0,160,74,0,64,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Vanilla Bean Latte,"Frozen, 20oz",,drink,410,5,5,0,0,200,87,0,74,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Vanilla Bean Latte,"Frozen, 24oz",,drink,520,6,6,0,0,240,111,0,96,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Vanilla Bean Latte,"Hot, 16oz",,drink,210,6,3.5,0,25,135,31,0,31,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Vanilla Bean Latte,"Hot, 20oz",,drink,280,7,4.5,0,30,180,41,0,41,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Vanilla Bean Latte,"Hot, 24oz",,drink,330,8,5,0,35,200,50,0,50,14,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Vanilla Bean Latte,"Iced, 16oz",,drink,190,4.5,3,0,20,115,29,0,29,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Vanilla Bean Latte,"Iced, 20oz",,drink,240,6,4,0,25,150,38,0,38,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Vanilla Bean Latte,"Iced, 24oz",,drink,290,7,4.5,0,30,170,46,0,46,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Wild Zebra Latte,"Frozen, 16oz",,drink,500,13,10,0,30,230,89,1,74,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Wild Zebra Latte,"Frozen, 20oz",,drink,570,15,11,0,30,260,102,1,85,4,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Wild Zebra Latte,"Frozen, 24oz",,drink,700,17,13,0,35,330,128,1,107,5,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Wild Zebra Latte,"Hot, 16oz",,drink,370,10,6,0,35,210,60,1,53,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Wild Zebra Latte,"Hot, 20oz",,drink,450,11,7,0,40,260,75,1,67,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Wild Zebra Latte,"Hot, 24oz",,drink,540,13,8,0,45,310,91,1,81,14,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Wild Zebra Latte,"Iced, 16oz",,drink,390,13,8,0,45,190,60,1,53,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Wild Zebra Latte,"Iced, 20oz",,drink,490,15,10,0,50,260,77,1,69,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Wild Zebra Latte,"Iced, 24oz",,drink,580,17,11,0,60,300,92,1,82,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,White Lightning Latte,"Frozen, 16oz",,drink,490,13,10,0,30,250,87,0,70,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,White Lightning Latte,"Frozen, 20oz",,drink,560,15,11,0,30,280,100,0,80,4,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,White Lightning Latte,"Frozen, 24oz",,drink,700,17,13,0,35,360,126,0,101,5,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,White Lightning Latte,"Hot, 16oz",,drink,360,10,6,0,35,240,57,0,48,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,White Lightning Latte,"Hot, 20oz",,drink,440,11,7,0,40,300,73,0,60,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,White Lightning Latte,"Hot, 24oz",,drink,540,13,8,0,45,370,89,0,73,14,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,White Lightning Latte,"Iced, 16oz",,drink,390,12,8,0,45,220,58,0,48,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,White Lightning Latte,"Iced, 20oz",,drink,490,15,10,0,55,300,75,0,62,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,White Lightning Latte,"Iced, 24oz",,drink,580,17,11,0,60,350,90,0,74,13,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Winter Wonderland Latte,"Frozen, 16oz",,drink,490,13,10,0,30,230,86,0,71,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Winter Wonderland Latte,"Frozen, 20oz",,drink,560,15,11,0,30,270,99,0,81,4,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Winter Wonderland Latte,"Frozen, 24oz",,drink,710,17,13,0,35,340,129,0,105,5,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Winter Wonderland Latte,"Hot, 16oz",,drink,370,9,6,0,35,220,60,0,51,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Winter Wonderland Latte,"Hot, 20oz",,drink,440,11,7,0,40,270,72,0,62,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Winter Wonderland Latte,"Hot, 24oz",,drink,510,13,8,0,45,310,85,0,73,13,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Winter Wonderland Latte,"Iced, 16oz",,drink,400,12,8,0,45,200,60,0,51,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,Winter Wonderland Latte,"Iced, 20oz",,drink,480,15,9,0,50,260,74,0,64,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,BIGGBY Blast®,Blood Moon® BIGGBY Blast®,"Iced, 16oz",,main,110,0,0,0,0,10,26,0,20,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,BIGGBY Blast®,Blood Moon® BIGGBY Blast®,"Iced, 20oz",,main,130,0,0,0,0,10,29,1,24,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,BIGGBY Blast®,Blood Moon® BIGGBY Blast®,"Iced, 24oz",,main,190,0,0,0,0,15,43,1,37,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,BIGGBY Blast®,Blood Moon® BIGGBY Blast®,"Frozen, 16oz",,main,170,0,0,0,0,10,42,0,36,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,BIGGBY Blast®,Blood Moon® BIGGBY Blast®,"Frozen, 20oz",,main,210,0,0,0,0,15,51,1,45,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,BIGGBY Blast®,Blood Moon® BIGGBY Blast®,"Frozen, 24oz",,main,270,0,0,0,0,15,64,1,58,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,BIGGBY Blast®,Eclipse BIGGBY Blast®,"20oz, Iced",,main,140,0,0,0,0,15,33,0,28,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,BIGGBY Blast®,Eclipse BIGGBY Blast®,"Frozen, 16oz",,main,180,0,0,0,0,15,43,0,38,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,BIGGBY Blast®,Eclipse BIGGBY Blast®,"Frozen, 20oz",,main,220,0,0,0,0,15,54,0,49,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,BIGGBY Blast®,Eclipse BIGGBY Blast®,"Frozen, 24oz",,main,270,0,0,0,0,20,65,0,60,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,BIGGBY Blast®,Eclipse BIGGBY Blast®,"Iced, 16oz",,main,120,0,0,0,0,10,27,0,22,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,BIGGBY Blast®,Eclipse BIGGBY Blast®,"Iced, 24oz",,main,190,0,0,0,0,15,44,0,39,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,BIGGBY Blast®,Electric Dragon® Biggby Blast®,"Iced, 16oz",,main,120,0,0,0,0,10,29,0,24,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,BIGGBY Blast®,Electric Dragon® Biggby Blast®,"Iced, 20oz",,main,150,0,0,0,0,15,35,0,30,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,BIGGBY Blast®,Electric Dragon® Biggby Blast®,"Iced, 24oz",,main,200,0,0,0,0,15,47,0,42,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,BIGGBY Blast®,Electric Dragon® Biggby Blast®,"Frozen, 16oz",,main,180,0,0,0,0,15,44,0,40,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,BIGGBY Blast®,Electric Dragon® Biggby Blast®,"Frozen, 20oz",,main,230,0,0,0,0,15,56,0,51,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,BIGGBY Blast®,Electric Dragon® Biggby Blast®,"Frozen, 24oz",,main,280,0,0,0,0,20,67,0,62,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,BIGGBY Blast®,Scuba® Biggby Blast®,"Iced, 16oz",,main,160,0,0,0,0,40,38,1,31,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,BIGGBY Blast®,Scuba® Biggby Blast®,"Iced, 20oz",,main,190,0,0,0,0,40,43,1,36,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,BIGGBY Blast®,Scuba® Biggby Blast®,"Iced, 24oz",,main,230,0,0,0,0,40,54,1,47,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,BIGGBY Blast®,Scuba® Biggby Blast®,"Frozen, 16oz",,main,220,0,0,0,0,40,54,1,47,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,BIGGBY Blast®,Scuba® Biggby Blast®,"Frozen, 20oz",,main,270,0,0,0,0,45,65,1,57,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,BIGGBY Blast®,Scuba® Biggby Blast®,"Frozen, 24oz",,main,310,0,0,0,0,45,75,1,68,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,BIGGBY Blast®,Tropic Biggby Blast®,"Iced, 16oz",,main,170,0,0,0,0,40,40,1,33,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,BIGGBY Blast®,Tropic Biggby Blast®,"Iced, 20oz",,main,190,0,0,0,0,40,46,1,39,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,BIGGBY Blast®,Tropic Biggby Blast®,"Frozen, 16oz",,main,230,0,0,0,0,45,56,1,49,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,BIGGBY Blast®,Tropic Biggby Blast®,"Frozen, 20oz",,main,270,0,0,0,0,45,68,1,60,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,BIGGBY Blast®,Tropic Biggby Blast®,"Frozen, 24oz",,main,320,0,0,0,0,50,79,1,71,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Red Bull®,Blackberry Bolt Red Bull® Mocktail,"Frozen, 20oz",,main,340,0,0,0,0,85,87,0,85,1,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Red Bull®,Blackberry Bolt Red Bull® Mocktail,"Frozen, 24oz",,main,390,0,0,0,0,90,100,0,98,1,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Red Bull®,Blackberry Bolt Red Bull® Mocktail,"Iced, 20oz",,main,280,0,0,0,0,85,70,0,68,1,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Red Bull®,Blackberry Bolt Red Bull® Mocktail,"Iced, 24oz",,main,320,0,0,0,0,85,80,0,78,1,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Red Bull®,BlueRazz Fusion Red Bull® Mocktail,"Frozen, 20oz",,main,340,0,0,0,0,85,86,0,84,1,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Red Bull®,BlueRazz Fusion Red Bull® Mocktail,"Frozen, 24oz",,main,390,0,0,0,0,90,99,0,97,1,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Red Bull®,BlueRazz Fusion Red Bull® Mocktail,"Iced, 20oz",,main,280,0,0,0,0,85,69,0,67,1,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Red Bull®,BlueRazz Fusion Red Bull® Mocktail,"Iced, 24oz",,main,320,0,0,0,0,85,79,0,76,1,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Red Bull®,Kickin' Raspberry Red Bull® Mocktail,"Frozen, 20oz",,main,340,0,0,0,0,85,87,0,84,1,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Red Bull®,Kickin' Raspberry Red Bull® Mocktail,"Frozen, 24oz",,main,390,0,0,0,0,90,100,0,97,1,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Red Bull®,Kickin' Raspberry Red Bull® Mocktail,"Iced, 20oz",,main,280,0,0,0,0,85,70,0,68,1,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Red Bull®,Kickin' Raspberry Red Bull® Mocktail,"Iced, 24oz",,main,320,0,0,0,0,85,80,0,77,1,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Red Bull®,Strawberry Punch Red Bull® Mocktail,"Frozen, 20oz",,main,350,0,0,0,0,85,89,1,86,1,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Red Bull®,Strawberry Punch Red Bull® Mocktail,"Frozen, 24oz",,main,400,0,0,0,0,90,103,1,100,1,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Red Bull®,Strawberry Punch Red Bull® Mocktail,"Iced, 20oz",,main,290,0,0,0,0,85,73,1,70,1,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Red Bull®,Strawberry Punch Red Bull® Mocktail,"Iced, 24oz",,main,330,0,0,0,0,85,83,1,79,1,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Winter Beverages,"Salted Caramel Latte with Twix\circledR, Hot",16oz,,drink,390,12,8,0,40,560,59,0,45,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Winter Beverages,"Salted Caramel Latte with Twix\circledR, Hot",20oz,,drink,470,14,9,0,45,720,74,0,56,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Winter Beverages,"Salted Caramel Latte with Twix\circledR, Hot",24oz,,drink,570,17,11,0,55,870,90,0,67,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Winter Beverages,"Salted Caramel Latte with Twix\circledR, Iced",16oz,,drink,410,15,10,0,50,540,59,0,45,7,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Winter Beverages,"Salted Caramel Latte with Twix\circledR, Iced",20oz,,drink,520,18,12,0,60,710,76,0,58,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Winter Beverages,"Salted Caramel Latte with Twix\circledR, Iced",24oz,,drink,610,21,13,0,70,860,91,0,69,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Winter Beverages,"Salted Mocha Caramel Latte with Twix\circledR, Hot",16oz,,drink,390,11,7,0,40,380,61,1,52,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Winter Beverages,"Salted Mocha Caramel Latte with Twix\circledR, Hot",20oz,,drink,470,13,8,0,45,480,77,1,65,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Winter Beverages,"Salted Mocha Caramel Latte with Twix\circledR, Hot",24oz,,drink,560,15,10,0,50,580,93,1,79,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Winter Beverages,"Salted Mocha Caramel Latte with Twix\circledR, Iced",16oz,,drink,410,14,9,0,45,360,61,1,52,7,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Winter Beverages,"Salted Mocha Caramel Latte with Twix\circledR, Iced",20oz,,drink,510,17,11,0,55,470,79,1,67,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Winter Beverages,"Salted Mocha Caramel Latte with Twix\circledR, Iced",24oz,,drink,600,19,12,0,65,560,94,1,80,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Winter Beverages,Sweet Foam Salted Caramel Cold Brew with Twix\circledR,16oz,,dessert,370,16,14,0,15,510,55,0,38,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Winter Beverages,Sweet Foam Salted Caramel Cold Brew with Twix\circledR,20oz,,dessert,460,19,17,0,20,660,70,0,48,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Winter Beverages,Sweet Foam Salted Caramel Cold Brew with Twix\circledR,24oz,,dessert,540,21,19,0,20,800,85,0,58,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Winter Beverages,Twix\circledR Fix Creme Freeze,16oz,,drink,740,23,16,0,40,520,125,1,101,7,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Winter Beverages,Twix\circledR Fix Creme Freeze,20oz,,drink,830,25,18,0,45,570,139,1,113,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Winter Beverages,Twix\circledR Fix Creme Freeze,24oz,,drink,1000,28,20,0,55,730,174,2,142,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Winter Beverages,Salted Cocoa Carmella Hot Chocolate with Twix\circledR,16oz,,drink,410,12,8,0,40,400,63,1,54,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Winter Beverages,Salted Cocoa Carmella Hot Chocolate with Twix\circledR,20oz,,drink,490,14,9,0,45,500,79,1,67,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Winter Beverages,Salted Cocoa Carmella Hot Chocolate with Twix\circledR,24oz,,drink,580,16,10,0,55,600,94,1,81,14,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Valentine's (150 - 1030 Cals),"Sweetheart BIGGBY Blast\circledR, Frozen",16oz,,main,340,13,12,0,10,65,55,0,48,1,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Valentine's (150 - 1030 Cals),"Sweetheart BIGGBY Blast\circledR, Frozen",20oz,,main,420,15,14,0,10,75,69,0,61,1,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Valentine's (150 - 1030 Cals),"Sweetheart BIGGBY Blast\circledR, Frozen",24oz,,main,490,17,16,0,10,85,82,0,73,1,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Valentine's (150 - 1030 Cals),"Sweetheart BIGGBY Blast\circledR, Iced",16oz,,main,280,13,12,0,10,60,39,0,32,1,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Valentine's (150 - 1030 Cals),"Sweetheart BIGGBY Blast\circledR, Iced",20oz,,main,340,15,14,0,10,70,47,0,39,1,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,Valentine's (150 - 1030 Cals),"Sweetheart BIGGBY Blast\circledR, Iced",24oz,,main,410,17,16,0,10,80,61,0,53,1,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,two-drafts
+Biggby Coffee,The Lineup,"Black Bear Latte, Frozen",16oz,,drink,500,14,10,0,30,240,90,1,75,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Black Bear Latte, Frozen",20oz,,drink,570,15,12,0,35,280,103,1,85,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Black Bear Latte, Frozen",24oz,,drink,710,18,14,0,40,360,133,1,111,4,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Black Bear Latte, Hot",16oz,,drink,380,11,7,0,35,240,64,1,57,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Black Bear Latte, Hot",20oz,,drink,440,12,8,0,40,290,77,1,68,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Black Bear Latte, Hot",24oz,,drink,520,14,9,0,50,340,90,1,80,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Black Bear Latte, Iced",16oz,,drink,400,13,9,0,45,220,64,1,57,7,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Black Bear Latte, Iced",20oz,,drink,490,16,10,0,55,280,79,1,70,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Black Bear Latte, Iced",24oz,,drink,560,18,12,0,60,330,91,1,81,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Mint Mocha Latte, Frozen",16oz,,drink,480,13,10,0,30,190,86,1,75,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Mint Mocha Latte, Frozen",20oz,,drink,550,15,11,0,30,230,99,1,85,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Mint Mocha Latte, Frozen",24oz,,drink,700,17,13,0,35,280,129,2,112,4,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Mint Mocha Latte, Hot",16oz,,drink,360,10,6,0,35,160,60,1,58,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Mint Mocha Latte, Hot",20oz,,drink,430,11,7,0,40,190,72,2,70,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Mint Mocha Latte, Hot",24oz,,drink,500,13,8,0,45,230,85,2,82,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Mint Mocha Latte, Iced",16oz,,drink,390,12,8,0,45,140,60,1,58,7,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Mint Mocha Latte, Iced",20oz,,drink,470,15,10,0,50,190,74,2,72,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Mint Mocha Latte, Iced",24oz,,drink,550,17,11,0,60,210,86,2,83,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Mocha Caramel Latte, Frozen",16oz,,drink,500,14,11,0,30,240,91,1,74,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Mocha Caramel Latte, Frozen",20oz,,drink,570,15,12,0,35,270,104,1,85,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Mocha Caramel Latte, Frozen",24oz,,drink,710,18,14,0,40,350,131,1,107,4,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Mocha Caramel Latte, Hot",16oz,,drink,370,11,7,0,35,220,62,1,54,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Mocha Caramel Latte, Hot",20oz,,drink,450,12,8,0,45,280,79,1,68,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Mocha Caramel Latte, Hot",24oz,,drink,550,15,9,0,50,340,96,1,82,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Mocha Caramel Latte, Iced",16oz,,drink,400,14,9,0,45,200,62,1,54,7,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Mocha Caramel Latte, Iced",20oz,,drink,500,16,11,0,55,280,81,1,70,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Mocha Caramel Latte, Iced",24oz,,drink,590,18,12,0,65,330,97,1,83,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Avalanche Latte, Frozen",16oz,,drink,500,13,10,0,30,210,88,1,74,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Avalanche Latte, Frozen",20oz,,drink,560,15,11,0,30,250,101,1,85,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Avalanche Latte, Frozen",24oz,,drink,700,17,13,0,35,320,128,1,107,4,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Avalanche Latte, Hot",16oz,,drink,370,10,6,0,35,190,62,1,56,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Avalanche Latte, Hot",20oz,,drink,440,11,7,0,40,230,74,1,68,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Avalanche Latte, Hot",24oz,,drink,520,13,8,0,45,270,87,1,79,13,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Avalanche Latte, Iced",16oz,,drink,400,12,8,0,45,170,62,1,56,7,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Avalanche Latte, Iced",20oz,,drink,710,15,10,0,50,310,133,3,123,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Avalanche Latte, Iced",24oz,,drink,560,17,11,0,60,260,88,1,80,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"German Mocha Latte, Frozen",16oz,,drink,550,14,11,0,30,240,102,1,86,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"German Mocha Latte, Frozen",20oz,,drink,620,15,12,0,35,270,115,1,97,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"German Mocha Latte, Frozen",24oz,,drink,780,18,14,0,40,350,149,1,125,4,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"German Mocha Latte, Hot",16oz,,drink,360,10,7,0,35,180,59,0,54,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"German Mocha Latte, Hot",20oz,,drink,440,11,7,0,40,220,74,1,68,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"German Mocha Latte, Hot",24oz,,drink,520,14,9,0,50,260,90,1,83,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"German Mocha Latte, Iced",16oz,,drink,380,13,9,0,45,160,59,0,54,6,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"German Mocha Latte, Iced",20oz,,drink,480,15,10,0,55,220,76,1,70,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"German Mocha Latte, Iced",24oz,,drink,570,17,11,0,60,250,91,1,84,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Spotted Owl Latte, Frozen",16oz,,drink,480,13,10,0,30,220,85,0,71,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Spotted Owl Latte, Frozen",20oz,,drink,550,14,11,0,30,260,98,0,81,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Spotted Owl Latte, Frozen",24oz,,drink,680,17,13,0,35,330,124,0,103,4,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Spotted Owl Latte, Hot",16oz,,drink,350,9,6,0,35,200,55,0,50,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Spotted Owl Latte, Hot",20oz,,drink,420,10,7,0,40,260,70,0,63,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Spotted Owl Latte, Hot",24oz,,drink,510,12,8,0,45,300,85,0,76,13,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Spotted Owl Latte, Iced",16oz,,drink,370,12,8,0,45,180,55,0,50,7,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Spotted Owl Latte, Iced",20oz,,drink,470,14,9,0,50,250,72,0,65,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Spotted Owl Latte, Iced",24oz,,drink,550,16,10,0,60,290,86,0,78,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Golden Honey Latte, Frozen",16oz,,drink,340,4,4,0,0,160,74,0,64,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Golden Honey Latte, Frozen",20oz,,drink,460,5,5,0,0,200,100,0,81,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Golden Honey Latte, Frozen",24oz,,drink,600,6,6,0,0,240,131,0,107,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Golden Honey Latte, Hot",16oz,,drink,250,6,3.5,0,25,135,41,0,37,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Golden Honey Latte, Hot",20oz,,drink,330,7,4.5,0,30,180,54,0,48,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Golden Honey Latte, Hot",24oz,,drink,400,8,5,0,35,200,66,0,59,14,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Golden Honey Latte, Iced",16oz,,drink,230,4.5,3,0,20,115,39,0,34,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Golden Honey Latte, Iced",20oz,,drink,300,6,4,0,25,150,51,0,45,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Golden Honey Latte, Iced",24oz,,drink,360,7,4.5,0,30,170,63,0,55,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Honey Cinnamon Vanilla Latte, Frozen",16oz,,drink,350,4.5,4,0,0,160,77,0,66,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Honey Cinnamon Vanilla Latte, Frozen",20oz,,drink,410,5,5,0,0,190,89,0,76,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Honey Cinnamon Vanilla Latte, Frozen",24oz,,drink,530,6,6,0,0,230,115,0,99,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Honey Cinnamon Vanilla Latte, Hot",16oz,,drink,220,6,3.5,0,25,135,33,0,33,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Honey Cinnamon Vanilla Latte, Hot",20oz,,drink,280,7,4.5,0,30,170,44,0,43,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Honey Cinnamon Vanilla Latte, Hot",24oz,,drink,340,8,5,0,35,200,53,0,52,14,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Honey Cinnamon Vanilla Latte, Iced",16oz,,drink,190,4.5,3,0,20,115,31,0,30,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Honey Cinnamon Vanilla Latte, Iced",20oz,,drink,250,6,4,0,25,150,41,0,40,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Honey Cinnamon Vanilla Latte, Iced",24oz,,drink,300,7,4.5,0,30,170,49,0,48,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Black Forest Latte, Frozen",16oz,,drink,500,14,10,0,30,220,90,1,75,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Black Forest Latte, Frozen",20oz,,drink,570,15,12,0,35,260,103,1,85,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Black Forest Latte, Frozen",24oz,,drink,710,18,14,0,40,330,133,1,110,4,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Black Forest Latte, Hot",16oz,,drink,380,11,7,0,35,210,64,1,57,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Black Forest Latte, Hot",20oz,,drink,440,12,8,0,40,250,77,1,68,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Black Forest Latte, Hot",24oz,,drink,520,14,9,0,50,290,89,1,79,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Black Forest Latte, Iced",16oz,,drink,400,13,9,0,45,190,64,1,57,7,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Black Forest Latte, Iced",20oz,,drink,490,16,10,0,55,250,78,1,70,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Black Forest Latte, Iced",24oz,,drink,560,18,12,0,60,280,91,1,81,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Cinnabuzz Latte, Frozen",16oz,,drink,490,13,10,0,30,250,86,0,71,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Cinnabuzz Latte, Frozen",20oz,,drink,560,14,11,0,30,280,99,0,81,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Cinnabuzz Latte, Frozen",24oz,,drink,700,17,13,0,35,370,129,0,105,5,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Cinnabuzz Latte, Hot",16oz,,drink,370,9,6,0,35,250,60,0,51,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Cinnabuzz Latte, Hot",20oz,,drink,440,10,7,0,40,300,73,0,62,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Cinnabuzz Latte, Hot",24oz,,drink,510,12,8,0,45,350,85,0,73,13,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Cinnabuzz Latte, Iced",16oz,,drink,390,12,8,0,45,230,60,0,51,7,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Cinnabuzz Latte, Iced",20oz,,drink,480,14,9,0,50,300,75,0,64,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Cinnabuzz Latte, Iced",24oz,,drink,560,16,11,0,60,340,87,0,74,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Coconut Creme Latte, Frozen",16oz,,drink,350,4.5,4,0,0,160,75,0,65,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Coconut Creme Latte, Frozen",20oz,,drink,410,5,5,0,0,200,88,0,75,2,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Coconut Creme Latte, Frozen",24oz,,drink,520,6,6,0,0,240,112,0,97,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Coconut Creme Latte, Hot",16oz,,drink,220,6,3.5,0,25,135,32,0,32,9,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Coconut Creme Latte, Hot",20oz,,drink,280,7,4.5,0,30,180,42,0,42,12,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Coconut Creme Latte, Hot",24oz,,drink,330,8,5,0,35,200,51,0,51,14,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Coconut Creme Latte, Iced",16oz,,drink,190,4.5,3,0,20,115,29,0,29,8,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Coconut Creme Latte, Iced",20oz,,drink,250,6,4,0,25,150,39,0,39,10,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Coconut Creme Latte, Iced",24oz,,drink,300,7,4.5,0,30,170,47,0,47,11,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Firefly Latte, Frozen",16oz,,drink,490,13,10,0,30,210,86,0,71,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Firefly Latte, Frozen",20oz,,drink,550,15,11,0,30,250,99,0,82,3,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,The Lineup,"Firefly Latte, Frozen",24oz,,drink,690,17,13,0,35,300,125,0,104,4,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending
+Biggby Coffee,BIGGBY Blast,"Tropic Biggby Blast®, Iced",24oz,,main,240,0,0,0,0,45,58,1,50,0,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,2026-10-23,pending

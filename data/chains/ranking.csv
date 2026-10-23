@@ -116,38 +116,38 @@ rank,chain,site,guide_url,notes
 115,Din Tai Fung,dtf.com,,no nutrition page found on dtf.com: set guide_url by hand
 116,Slim Chickens,slimchickens.com,https://www.slimchickens.com/nutritional-and-allergen-info/,"drafted 2026-10-23: 165 agreed, 1 for a person"
 117,Jamba,jamba.com,,no nutrition page found on jamba.com: set guide_url by hand
-118,Chicken Salad Chick,chickensaladchick.com,https://storyblok.pleinaircdn.com/f/297321/x/2be8a2157f/nutritional-and-allergy-information.pdf,guide read 2026-10-22: ready to draft
-119,Black Bear Diner,blackbeardiner.com,https://blackbeardiner.com/wp-content/uploads/2025/05/Nutrition_WEB_Oct-2024.pdf,guide read 2026-10-22: ready to draft
+118,Chicken Salad Chick,chickensaladchick.com,https://storyblok.pleinaircdn.com/f/297321/x/2be8a2157f/nutritional-and-allergy-information.pdf,"drafted 2026-10-23: 32 agreed, 83 for a person"
+119,Black Bear Diner,blackbeardiner.com,https://blackbeardiner.com/wp-content/uploads/2025/05/Nutrition_WEB_Oct-2024.pdf,"drafted 2026-10-23: 190 agreed, 152 for a person"
 120,Topgolf,topgolf.com,https://topgolf.com/us/menu/,no nutrition numbers found in the guide: set guide_url to the PDF or full table
-121,Texas de Brazil,texasdebrazil.com,https://texasdebrazil.com/nutrition-allergens/,guide read 2026-10-22: ready to draft
+121,Texas de Brazil,texasdebrazil.com,https://texasdebrazil.com/nutrition-allergens/,"drafted 2026-10-23: 158 agreed, 86 for a person"
 122,Mellow Mushroom,mellowmushroom.com,,no nutrition page found on mellowmushroom.com: set guide_url by hand
-123,Long John Silver's,ljsilvers.com,https://www.ljsilvers.com/nutrition,guide read 2026-10-22: ready to draft
-124,Chuck E. Cheese,chuckecheese.com,https://www.chuckecheese.com/wp-content/uploads/2025/01/12.5.24-CEC-24-0297-Chuck-E_Nutritionals.pdf,guide read 2026-10-22: ready to draft
-125,Lazy Dog Restaurant & Bar,lazydogrestaurants.com,https://cdn.shopify.com/s/files/1/0789/3218/1236/files/Lazy_Dog_Nutritional_Menu_Fall_2026.pdf?v=1791392593,guide read 2026-10-22: ready to draft
-126,Hungry Howie's Pizza,hungryhowies.com,https://hungryhowies.com/nutrition-info,guide read 2026-10-22: ready to draft
-127,Fleming's Prime Steakhouse & Wine Bar,flemingssteakhouse.com,https://www.flemingssteakhouse.com/-/media/fsh/promotions/assets/FlemingsPrimeSteakhouseNutritionJuly2026-ADA.ashx,guide read 2026-10-22: ready to draft
-128,Taco John's,tacojohns.com,https://tacojohns.com/wp-content/uploads/2026/09/TAC-26-P5_NUTRITION-GUIDE_ED_V3.pdf,guide read 2026-10-22: ready to draft
-129,Jollibee,jollibeefoods.com,https://jollibee-prod-media.s3.us-west-2.amazonaws.com/20260701_JB_USA_Nutrition_Facts_2026_Mktg_8f037d9d5d.pdf,guide read 2026-10-22: ready to draft
-130,Caribou Coffee,cariboucoffee.com,,no nutrition page found on cariboucoffee.com: set guide_url by hand
-131,Round Table Pizza,roundtablepizza.com,https://www.roundtablepizza.com/wp-content/uploads/2023/10/FINAL-10_2023-Updated-Full-Nutrtional-Info.pdf,guide read 2026-10-22: ready to draft (dated 2023: look for a newer guide)
+123,Long John Silver's,ljsilvers.com,https://www.ljsilvers.com/nutrition,"drafted 2026-10-23: 89 agreed, 108 for a person"
+124,Chuck E. Cheese,chuckecheese.com,https://www.chuckecheese.com/wp-content/uploads/2025/01/12.5.24-CEC-24-0297-Chuck-E_Nutritionals.pdf,"drafted 2026-10-23: 135 agreed, 108 for a person"
+125,Lazy Dog Restaurant & Bar,lazydogrestaurants.com,https://cdn.shopify.com/s/files/1/0789/3218/1236/files/Lazy_Dog_Nutritional_Menu_Fall_2026.pdf?v=1791392593,"drafted 2026-10-23: 254 agreed, 32 for a person"
+126,Hungry Howie's Pizza,hungryhowies.com,https://hungryhowies.com/nutrition-info,"drafted 2026-10-23: 80 agreed, 173 for a person"
+127,Fleming's Prime Steakhouse & Wine Bar,flemingssteakhouse.com,https://www.flemingssteakhouse.com/-/media/fsh/promotions/assets/FlemingsPrimeSteakhouseNutritionJuly2026-ADA.ashx,"drafted 2026-10-23: 185 agreed, 21 for a person"
+128,Taco John's,tacojohns.com,https://tacojohns.com/wp-content/uploads/2026/09/TAC-26-P5_NUTRITION-GUIDE_ED_V3.pdf,"drafted 2026-10-23: 216 agreed, 12 for a person"
+129,Jollibee,jollibeefoods.com,https://jollibee-prod-media.s3.us-west-2.amazonaws.com/20260701_JB_USA_Nutrition_Facts_2026_Mktg_8f037d9d5d.pdf,"drafted 2026-10-23: 94 agreed, 5 for a person"
+130,Caribou Coffee,cariboucoffee.com,https://www.cariboucoffee.com/menu-nutrition/beverage-food-detail.jsp?id=1474&type=drink&size=LARGE&whip=whip&x=35&y=12,no nutrition numbers found in the guide: set guide_url to the PDF or full table
+131,Round Table Pizza,roundtablepizza.com,https://www.roundtablepizza.com/wp-content/uploads/2023/10/FINAL-10_2023-Updated-Full-Nutrtional-Info.pdf,"drafted 2026-10-23: 171 agreed, 104 for a person (dated 2023: look for a newer guide)"
 132,Pollo Campero,us.campero.com,https://us.campero.com/nutrition,no nutrition numbers found in the guide: set guide_url to the PDF or full table
-133,Mountain Mike's Pizza,mountainmikespizza.com,https://www.mountainmikespizza.com/wp-content/uploads/2018/10/Menu_Pizza_Calorie_Chart.pdf,guide read 2026-10-22: ready to draft (dated 2018: look for a newer guide)
-134,Pizza Ranch,pizzaranch.com,https://d3exbi59yykwt2.cloudfront.net/header-images/Pizza-Ranch-ANI-Updated-sent-09.07.2026v1.pdf,guide read 2026-10-22: ready to draft
-135,Biggby Coffee,biggby.com,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,guide read 2026-10-22: ready to draft
-136,Wienerschnitzel,wienerschnitzel.com,https://www.wienerschnitzel.com/wp-content/uploads/2026/01/Nutrition-Allergen-Guide-eff-1_12_2026.pdf,guide read 2026-10-22: ready to draft
-137,Firebirds Wood Fired Grill,firebirdsrestaurants.com,https://images.firebirdsrestaurants.com/production/general/Firebirds-Nutritional-10.14.2026.pdf?dm=1791904801,guide read 2026-10-22: ready to draft
+133,Mountain Mike's Pizza,mountainmikespizza.com,https://www.mountainmikespizza.com/wp-content/uploads/2018/10/Menu_Pizza_Calorie_Chart.pdf,"drafted 2026-10-23: 0 agreed, 168 for a person (dated 2018: look for a newer guide)"
+134,Pizza Ranch,pizzaranch.com,https://d3exbi59yykwt2.cloudfront.net/header-images/Pizza-Ranch-ANI-Updated-sent-09.07.2026v1.pdf,"drafted 2026-10-23: 343 agreed, 336 for a person"
+135,Biggby Coffee,biggby.com,https://biggby.com/wp-content/uploads/2026/02/BIGGBY_Nutrition_February_2026.pdf,"drafted 2026-10-23: 594 agreed, 113 for a person"
+136,Wienerschnitzel,wienerschnitzel.com,https://www.wienerschnitzel.com/wp-content/uploads/2026/01/Nutrition-Allergen-Guide-eff-1_12_2026.pdf,"drafted 2026-10-23: 100 agreed, 8 for a person"
+137,Firebirds Wood Fired Grill,firebirdsrestaurants.com,https://images.firebirdsrestaurants.com/production/general/Firebirds-Nutritional-10.14.2026.pdf?dm=1791904801,"drafted 2026-10-23: 138 agreed, 64 for a person"
 138,California Pizza Kitchen,cpk.com,,no nutrition page found on cpk.com: set guide_url by hand
 139,Mastro's Restaurants,mastrosrestaurants.com,,no nutrition page found on mastrosrestaurants.com: set guide_url by hand
-140,Logan's Roadhouse,logansroadhouse.com,https://logans.wpenginepowered.com/wp-content/uploads/2026/06/LRH_Menu_Items_Nutritional_0526.pdf,guide read 2026-10-22: ready to draft
-141,North Italia,northitalia.com,https://www.northitalia.com/wp-content/uploads/2026/04/North-Italia-Nutritional-Guide-04-2026-1.pdf,guide read 2026-10-22: ready to draft
-142,Shipley Do-Nuts,shipleydonuts.com,https://shipleydonuts.com/2022-Nutritional-Website.pdf,guide read 2026-10-22: ready to draft (dated 2022: look for a newer guide)
-143,Cafe Rio Mexican Grill,caferio.com,https://assets.trinitip.caferio-core.com/5fc18ec8aa3c03000910c905/635fd8e1f2751f0008cf4c0b/NutritionWebUpdate8.5x11printable.pdf,guide read 2026-10-22: ready to draft
-144,Schlotzsky's,schlotzskys.com,https://assets.ctfassets.net/zqt8tllj2cy0/3wkZtcobeRUvoOcOWjhR44/a2b753f659f5e4f470076c541e2df7f4/SCH_1899730_Nutritional_and_allergen_chart_2.26_v3.Digital_Upload.pdf,guide read 2026-10-22: ready to draft
+140,Logan's Roadhouse,logansroadhouse.com,https://logans.wpenginepowered.com/wp-content/uploads/2026/06/LRH_Menu_Items_Nutritional_0526.pdf,"drafted 2026-10-23: 148 agreed, 40 for a person"
+141,North Italia,northitalia.com,https://www.northitalia.com/wp-content/uploads/2026/04/North-Italia-Nutritional-Guide-04-2026-1.pdf,"drafted 2026-10-23: 138 agreed, 156 for a person"
+142,Shipley Do-Nuts,shipleydonuts.com,https://shipleydonuts.com/2022-Nutritional-Website.pdf,"drafted 2026-10-23: 71 agreed, 0 for a person (dated 2022: look for a newer guide)"
+143,Cafe Rio Mexican Grill,caferio.com,https://assets.trinitip.caferio-core.com/5fc18ec8aa3c03000910c905/635fd8e1f2751f0008cf4c0b/NutritionWebUpdate8.5x11printable.pdf,"drafted 2026-10-23: 21 agreed, 23 for a person"
+144,Schlotzsky's,schlotzskys.com,https://assets.ctfassets.net/zqt8tllj2cy0/3wkZtcobeRUvoOcOWjhR44/a2b753f659f5e4f470076c541e2df7f4/SCH_1899730_Nutritional_and_allergen_chart_2.26_v3.Digital_Upload.pdf,"drafted 2026-10-23: 26 agreed, 0 for a person"
 145,Walk-On's Sports Bistreaux,walk-ons.com,,no nutrition page found on walk-ons.com: set guide_url by hand
-146,Cicis,cicis.com,https://www.cicis.com/media/ksla20m4/nutrition_facts_060122.pdf,guide read 2026-10-22: ready to draft
+146,Cicis,cicis.com,https://www.cicis.com/media/ksla20m4/nutrition_facts_060122.pdf,"drafted 2026-10-23: 124 agreed, 29 for a person"
 147,Bubba's 33,bubbas33.com,,no nutrition page found on bubbas33.com: set guide_url by hand
-148,Playa Bowls,playabowls.com,https://www.playabowls.com/nutrition,guide read 2026-10-22: ready to draft
-149,Pollo Tropical,pollotropical.com,https://www.pollotropical.com/nutrition,guide read 2026-10-22: ready to draft
+148,Playa Bowls,playabowls.com,https://www.playabowls.com/nutrition,"drafted 2026-10-23: 0 agreed, 131 for a person"
+149,Pollo Tropical,pollotropical.com,https://www.pollotropical.com/nutrition,"drafted 2026-10-23: 41 agreed, 133 for a person"
 150,Blaze Pizza,blazepizza.com,https://www.blazepizza.com/nutritional,guide is run by Nutritionix: set guide_url to the chain’s own PDF
 151,Golden Chick,goldenchick.com,https://goldenchick.com/nutrition/,guide read 2026-10-22: ready to draft
 152,True Food Kitchen,truefoodkitchen.com,https://www.truefoodkitchen.com/wp-content/uploads/2026/04/April_2026-Nutritional-Guide.pdf,guide read 2026-10-22: ready to draft
