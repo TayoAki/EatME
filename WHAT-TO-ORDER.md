@@ -360,9 +360,10 @@ changes before any app code.
   items both drafts agree on (`data/chains.json`). 10,328 lines wait for a person in `data/chains/review/<chain>.md`;
   `npm run chains:evidence` (no AI) finds a draft's numbers right after the item's name in the guide text for 6,767
   of the 9,418 it can check (sizes still need a look). Coffee chains' drink tables leave the most (Scooter's 1,018,
-  7 Brew 778). 22 of the top 100 publish only through Nutritionix or inside their apps (Taco Bell, Wendy's, Burger
-  King, KFC, Pizza Hut, Chili's, Applebee's, IHOP and 14 smaller): they wait for Nutritionix (§13, 2); Chipotle, Moe's
-  and other build-your-own chains publish ingredients, not dishes. Drafting cost about 5 US cents a chain.*
+  7 Brew 778). 72 of the top 100 have numbers; 24 publish only through Nutritionix, inside their apps or not as
+  numbers we can read (Taco Bell, Wendy's, Burger King, KFC, Pizza Hut, Chili's, Applebee's, IHOP and 16 smaller) and
+  wait for Nutritionix (§13, 2); Chipotle and Moe's publish ingredients, not dishes; Cracker Barrel's guide turns
+  readers away and Crumbl's has no numbers. Ranks 101-150 add 28. Drafting cost about 5 US cents a chain.*
 - [ ] **Accuracy pilot** (like the week-1 pilot run for ChartME): 60 dishes from those ten chains, their menu text
   through our pipeline (read → foods and portions → USDA) against the chains' published numbers. Pass: median
   calorie error 20% or less, the published top five and ours share at least three dishes, and no underestimate on
