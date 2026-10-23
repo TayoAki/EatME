@@ -99,22 +99,22 @@ rank,chain,site,guide_url,notes
 98,Potbelly Sandwich Shop,potbelly.com,https://www.potbelly.com/nutrition-calculator,guide is run by Nutritionix: set guide_url to the chain’s own PDF
 99,Noodles & Company,noodles.com,https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf,"drafted 2026-10-23: 34 agreed, 60 for a person"
 100,Miller's Ale House,millersalehouse.com,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,"drafted 2026-10-23: 129 agreed, 147 for a person"
-101,Twin Peaks,twinpeaksrestaurant.com,https://api.twinpeaksrestaurant.com/wp-content/uploads/Twin-Peaks-Nutritional-Guide_Jan2025.pdf,guide read 2026-10-22: ready to draft
+101,Twin Peaks,twinpeaksrestaurant.com,https://api.twinpeaksrestaurant.com/wp-content/uploads/Twin-Peaks-Nutritional-Guide_Jan2025.pdf,"drafted 2026-10-23: 184 agreed, 134 for a person"
 102,KPOT Korean BBQ & Hot Pot,thekpot.com,,no nutrition page found on thekpot.com: set guide_url by hand
 103,Honey Baked Ham Co.,honeybaked.com,,no nutrition page found on honeybaked.com: set guide_url by hand
-104,Captain D's Seafood Kitchen,captainds.com,https://www.captainds.com/wp-content/uploads/2026/03/Captain-Ds-Nutrition-and-Allergen-Chart_2026.02.18.pdf,guide read 2026-10-22: ready to draft
-105,Hooters,hooters.com,https://www.hooters.com/perch/resources/content/hoot-5690nutritional-menu-update.pdf,guide read 2026-10-22: ready to draft
-106,MOD Pizza,modpizza.com,https://modpizza.com/nutrition/,guide read 2026-10-22: ready to draft
-107,Benihana,benihana.com,https://www.benihana.com/wp-content/uploads/2025/02/c114d5a3-benihana-food-nutritional-info-1.2025_d.pdf,guide read 2026-10-22: ready to draft
+104,Captain D's Seafood Kitchen,captainds.com,https://www.captainds.com/wp-content/uploads/2026/03/Captain-Ds-Nutrition-and-Allergen-Chart_2026.02.18.pdf,"drafted 2026-10-23: 19 agreed, 109 for a person"
+105,Hooters,hooters.com,https://www.hooters.com/perch/resources/content/hoot-5690nutritional-menu-update.pdf,"drafted 2026-10-23: 89 agreed, 46 for a person"
+106,MOD Pizza,modpizza.com,https://modpizza.com/nutrition/,"drafted 2026-10-23: 0 agreed, 124 for a person"
+107,Benihana,benihana.com,https://www.benihana.com/wp-content/uploads/2025/02/c114d5a3-benihana-food-nutritional-info-1.2025_d.pdf,"drafted 2026-10-23: 197 agreed, 80 for a person"
 108,Chuy's,chuys.com,,no nutrition page found on chuys.com: set guide_url by hand
 109,Bonefish Grill,bonefishgrill.com,https://www.bonefishgrill.com/nutrition-information,no nutrition numbers found in the guide: set guide_url to the PDF or full table
-110,Checkers,checkersandrallys.com,https://web.checkersandrallys.com/wp-content/uploads/2025/11/Checkers-and-Rallys-Nutritional-Facts.pdf,guide read 2026-10-22: ready to draft
+110,Checkers,checkersandrallys.com,https://web.checkersandrallys.com/wp-content/uploads/2025/11/Checkers-and-Rallys-Nutritional-Facts.pdf,"drafted 2026-10-23: 78 agreed, 137 for a person"
 111,Maggiano's Little Italy,maggianos.com,,no nutrition page found on maggianos.com: set guide_url by hand
 112,Perkins American Food Co.,perkinsrestaurants.com,,no nutrition page found on perkinsrestaurants.com: set guide_url by hand
 113,Torchy's Tacos,torchystacos.com,,no nutrition page found on torchystacos.com: set guide_url by hand
 114,Saltgrass Steak House,saltgrass.com,,no nutrition page found on saltgrass.com: set guide_url by hand
 115,Din Tai Fung,dtf.com,,no nutrition page found on dtf.com: set guide_url by hand
-116,Slim Chickens,slimchickens.com,https://www.slimchickens.com/nutritional-and-allergen-info/,guide read 2026-10-22: ready to draft
+116,Slim Chickens,slimchickens.com,https://www.slimchickens.com/nutritional-and-allergen-info/,"drafted 2026-10-23: 165 agreed, 1 for a person"
 117,Jamba,jamba.com,,no nutrition page found on jamba.com: set guide_url by hand
 118,Chicken Salad Chick,chickensaladchick.com,https://storyblok.pleinaircdn.com/f/297321/x/2be8a2157f/nutritional-and-allergy-information.pdf,guide read 2026-10-22: ready to draft
 119,Black Bear Diner,blackbeardiner.com,https://blackbeardiner.com/wp-content/uploads/2025/05/Nutrition_WEB_Oct-2024.pdf,guide read 2026-10-22: ready to draft

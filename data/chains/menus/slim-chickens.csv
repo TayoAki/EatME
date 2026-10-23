@@ -1,0 +1,167 @@
+chain,section,name,serving,serving_g,kind,calories,fat_g,saturated_fat_g,trans_fat_g,cholesterol_mg,sodium_mg,carbs_g,fiber_g,sugars_g,protein_g,source_url,checked_on,check
+Slim Chickens,Tenders & Wings,Fried Tender,1 Each,39,main,95,5,1,0,21,190,3,1,0,11,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Tenders & Wings,Buffalo Tender,1 Each,52,main,117,7,1,0,21,424,3,1,0,11,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Tenders & Wings,Hot Tender,1 Each,47,main,102,5,1,0,21,327,4,1,0,11,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Tenders & Wings,Honey BBQ Tender,1 Each,47,main,109,5,1,0,21,261,6,1,3,11,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Tenders & Wings,Spicy BBQ Tender,1 Each,47,main,107,5,1,0,21,254,5,1,1,11,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Tenders & Wings,Sweet Red Chili Tender,1 Each,47,dessert,113,5,1,0,21,279,7,1,4,11,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Tenders & Wings,Mango Habanero Tender,1 Each,46,main,106,5,1,0,21,227,5,1,2,11,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Tenders & Wings,Garlic Parmesan Tender,1 Each,46,main,117,7,1,0,21,296,3,1,0,11,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Tenders & Wings,Korean BBQ Tender,1 Each,47,main,111,5,1,0,21,321,5,1,1,11,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Tenders & Wings,Grilled Tender,1 Each,39,main,56,1,0,0,27,227,0,0,0,11,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Tenders & Wings,Plain Wing,1 Each,20,main,56,3,1,0,20,31,0,0,0,7,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Tenders & Wings,Buffalo Wing,1 Each,27,main,72,4,1,0,20,133,1,1,0,8,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Tenders & Wings,Hot Wing,1 Each,27,main,63,3,1,0,20,158,1,1,0,8,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Tenders & Wings,Honey BBQ Wing,1 Each,27,main,68,3,1,0,20,87,3,0,3,7,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Tenders & Wings,Spicy BBQ Wing,1 Each,27,main,66,3,1,0,20,89,3,0,1,7,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Tenders & Wings,Sweet Red Chili Wing,1 Each,27,dessert,76,3,1,0,20,131,5,0,4,8,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Tenders & Wings,Mango Habanero Wing,1 Each,27,main,69,3,1,0,21,68,3,0,2,8,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Tenders & Wings,Garlic Parmesan Wing,1 Each,27,main,79,5,1,0,21,134,1,0,0,8,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Tenders & Wings,Korean BBQ Wing,1 Each,27,main,70,3,1,0,20,151,3,0,2,8,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Tenders & Wings,Cayenne Ranch Dry Rub Wing,1 Each,27,main,80,5,2,0,20,281,1,1,0,8,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Tenders & Wings,Lemon Pepper Dry Rub Wing,1 Each,27,main,81,5,2,0,20,278,1,1,0,8,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Tender Bites,Plain Tender Bite,1 Each,18,main,35,2,1,0,14,107,0,0,0,5,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Tender Bites,Buffalo Tender Bite,1 Each,24,main,46,2,1,0,14,227,0,0,0,5,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Tender Bites,Hot Tender Bite,1 Each,25,main,42,2,1,0,14,245,2,0,0,5,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Tender Bites,Honey BBQ Tender Bite,1 Each,26,main,49,2,1,0,14,178,4,0,3,5,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Tender Bites,Spicy BBQ Tender Bite,1 Each,26,main,47,2,1,0,14,171,3,0,1,5,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Tender Bites,Sweet Red Chili Tender Bite,1 Each,26,dessert,53,2,1,0,14,196,5,0,4,5,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Tender Bites,Mango Habanero Tender Bite,1 Each,24,main,46,2,1,0,14,144,3,0,2,5,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Tender Bites,Garlic Parmesan Tender Bite,1 Each,24,main,57,4,1,0,14,214,1,0,0,5,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Tender Bites,Korean BBQ Tender Bite,1 Each,26,main,51,2,1,0,14,238,3,0,2,5,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sandwiches & Wraps,Cayenne Ranch Chicken Sandwich,1 sandwich,248,main,655,37,9,0,90,1092,45,3,7,32,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sandwiches & Wraps,Crispy Chicken Sandwich,1 sandwich,207,main,589,33,8,0,90,985,39,2,7,31,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sandwiches & Wraps,Chicken Club Sandwich,1 sandwich,265,main,747,42,9,0,130,1044,40,2,8,40,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sandwiches & Wraps,Honey Jalapeno Pimento Sandwich,1 each,274,main,720,37,9,0,125,730,114,7,13,49,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sandwiches & Wraps,Honey Jalapeno Pimento Wrap with Fried Tenders,1 each,280,main,730,38,13,0,55,1090,63,0,8,37,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sandwiches & Wraps,Honey Jalapeno Pimento Wrap with Grilled Tenders,1 each,279,main,650,32,12,0,70,1160,58,0,14,38,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sandwiches & Wraps,Slim's Wrap with Fried Tenders,1 wrap,228,main,653,32,8,0,59,1597,58,4,3,31,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sandwiches & Wraps,Slim's Wrap with Grilled Tenders,1 wrap,228,main,570,25,7,0,71,1669,53,2,2,32,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Chicken & Waffles,Syrup,3 fl oz,120,extra,300,0,0,0,0,165,75,0,48,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Chicken & Waffles,Whipped Butter,#40 scoop,14,main,106,13,8,0,32,120,0,0,0,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Tender Mac & Cheese Bowls (without toast or drink),Tender Mac Bowl,1 bowl,670,drink,1120,51,27,0,118,3831,102,9,8,62,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Tender Mac & Cheese Bowls (without toast or drink),Buffalo Tender Mac Bowl,1 bowl,734,drink,1402,73,31,0,125,4791,118,12,9,65,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Salads,Slim's Salad with Fried Tenders,1 salad,360,main,499,25,7,0,74,1043,31,7,4,39,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Salads,Slim's Salad with Grilled Tenders,1 salad,360,main,380,15,5,0,93,1152,23,4,4,40,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sides,Potato Salad,5 vol oz,142,side,300,23,5,0,19,450,21,1,3,3,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sides,Potato Salad,15 vol oz,425,side,900,68,15,0,56,1350,64,4,8,8,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sides,Coleslaw,5 fl oz,302,side,235,13,2,0,14,528,29,6,18,3,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sides,Coleslaw,15 fl oz,905,side,705,39,6,1,41,1584,87,19,54,10,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sides,Mac & Cheese,5 vol oz,274,side,444,19,11,0,32,1692,48,4,4,19,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sides,Mac & Cheese,15 vol oz,823,side,1333,58,34,1,97,5075,145,11,12,57,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sides,French Fries,5.5 oz wt,156,side,470,22,4,0,0,1180,62,5,0,5,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sides,French Fries,16 oz wt,454,side,1367,65,12,0,0,3434,181,15,0,15,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sides,Fried Pickles,8 wt oz,198,side,667,45,0,0,0,4321,59,6,1,6,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sides,Fried Okra,8 wt oz,227,side,535,26,0,0,0,934,68,3,5,8,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sides,Fried Mushroom,8 wt oz,227,side,762,51,1,0,0,3761,68,4,3,7,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sides,Texas Toast,1 each,33,side,104,3,0,0,0,183,16,0,2,3,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sides,Applesauce,3.2 oz,91,side,40,0,0,0,0,0,10,1,9,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sides,Kettle Cooked Potato Chips,1 bag,39,side,210,12,2,0,0,125,23,2,1,3,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sauces & Dressings,Slim Sauce,1.5 fl oz,44,extra,210,21,3,0,15,270,6,0,5,2,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sauces & Dressings,Cayenne Ranch,1.5 fl oz,36,extra,163,16,3,0,9,206,1,0,1,1,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sauces & Dressings,Ranch,1.5 fl oz,36,extra,163,16,3,0,9,206,1,0,1,1,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sauces & Dressings,Honey Mustard,1.5 fl oz,44,extra,195,18,3,0,15,203,9,0,9,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sauces & Dressings,Blue Cheese,1.5 fl oz,45,extra,270,29,5,0,23,330,2,0,2,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sauces & Dressings,Sweet Red Chili,1.5 fl oz,57,extra,120,0,0,0,0,600,30,0,27,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sauces & Dressings,Buffalo,1.5 fl oz,45,extra,75,9,0,0,0,810,0,0,0,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sauces & Dressings,Hot,1.5 fl oz,51,extra,45,2,0,0,0,930,8,3,0,2,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sauces & Dressings,Honey BBQ,1.5 fl oz,54,extra,90,0,0,0,0,480,23,0,23,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sauces & Dressings,Spicy BBQ,1.5 fl oz,54,extra,81,0,0,0,0,432,20,2,9,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sauces & Dressings,Mango Habanero,1.5 fl oz,45,extra,75,0,0,0,0,255,18,0,12,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sauces & Dressings,Garlic Parmesan,1.5 fl oz,45,extra,150,15,2,0,0,720,3,0,0,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sauces & Dressings,Korean BBQ,1.5 fl oz,53,extra,105,2,0,0,0,885,20,0,17,2,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sauces & Dressings,Gravy,3.0 fl oz,93,extra,57,2,1,0,0,314,10,0,3,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sauces & Dressings,Lite Italian,1.5 fl oz,45,extra,60,5,1,0,0,405,3,0,3,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sauces & Dressings,Balsamic,1.5 fl oz,45,extra,90,8,1,0,0,285,6,0,6,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Barq’s Root Beer,12 fl oz,360,drink,160,0,0,0,0,70,45,0,45,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Barq’s Root Beer,20 fl oz,600,drink,267,0,0,0,0,117,75,0,75,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Barq’s Root Beer,32 fl oz,960,drink,427,0,0,0,0,187,120,0,120,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Cherry Coke,12 fl oz,258,drink,150,0,0,0,0,35,42,0,42,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Cherry Coke,20 fl oz,430,drink,250,0,0,0,0,58,70,0,70,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Cherry Coke,32 fl oz,688,drink,400,0,0,0,0,93,112,0,112,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Coke,12 fl oz,258,drink,140,0,0,0,0,45,39,0,39,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Coke,20 fl oz,430,drink,233,0,0,0,0,75,65,0,65,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Coke,32 fl oz,688,drink,373,0,0,0,0,120,104,0,104,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Coke Zero,12 fl oz,258,drink,0,0,0,0,0,35,0,0,0,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Coke Zero,20 fl oz,430,drink,0,0,0,0,0,58,0,0,0,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Coke Zero,32 fl oz,688,drink,0,0,0,0,0,107,0,0,0,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Diet Coke,12 fl oz,258,drink,0,0,0,0,0,40,0,0,0,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Diet Coke,20 fl oz,430,drink,0,0,0,0,0,67,0,0,0,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Diet Coke,32 fl oz,688,drink,0,0,0,0,0,107,0,0,0,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Dr Pepper Zero,12 fl oz,369,drink,0,0,0,0,0,54,0,0,0,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Dr Pepper Zero,20 fl oz,615,drink,0,0,0,0,0,90,0,0,0,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Dr Pepper Zero,32 fl oz,984,drink,0,0,0,0,0,140,0,0,0,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Dr Pepper,12 fl oz,369,drink,150,0,0,0,0,53,41,0,41,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Dr Pepper,20 fl oz,615,drink,250,0,0,0,0,88,68,0,68,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Dr Pepper,32 fl oz,984,drink,400,0,0,0,0,140,108,0,108,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Fanta Orange,12 fl oz,258,drink,160,0,0,0,0,60,45,0,44,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Fanta Orange,20 fl oz,430,drink,267,0,0,0,0,100,75,0,73,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Fanta Orange,32 fl oz,688,drink,427,0,0,0,0,160,120,0,117,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Fanta Strawberry,12 fl oz,258,drink,180,0,0,0,0,45,48,0,48,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Fanta Strawberry,20 fl oz,430,drink,300,0,0,0,0,75,80,0,80,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Fanta Strawberry,32 fl oz,688,drink,480,0,0,0,0,120,128,0,128,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Fuze Black Tea Lemon,12 fl oz,360,drink,89,0,0,0,0,11,24,0,24,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Fuze Black Tea Lemon,20 fl oz,600,drink,148,0,0,0,0,18,40,0,40,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Fuze Black Tea Lemon,32 fl oz,960,drink,236,0,0,0,0,28,64,0,64,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Fuze Raspberry Tea,12 fl oz,360,drink,89,0,0,0,0,96,24,0,24,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Fuze Raspberry Tea,20 fl oz,600,drink,148,0,0,0,0,160,40,0,40,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Fuze Raspberry Tea,32 fl oz,960,drink,236,0,0,0,0,256,64,0,64,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Hi-C Pink Lemonade,12 fl oz,355,drink,180,0,0,0,0,15,45,0,42,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Hi-C Pink Lemonade,20 fl oz,591,drink,300,0,0,0,0,25,75,0,70,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Hi-C Pink Lemonade,32 fl oz,946,drink,480,0,0,0,0,40,120,0,112,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Hi-C Fruit Punch,12 fl oz,352,drink,160,0,0,0,0,27,44,0,44,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Hi-C Fruit Punch,20 fl oz,586,drink,267,0,0,0,0,44,74,0,74,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Hi-C Fruit Punch,32 fl oz,938,drink,427,0,0,0,0,71,118,0,118,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Mello Yellow,12 fl oz,258,drink,170,0,0,0,0,45,47,0,47,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Mello Yellow,20 fl oz,430,drink,283,0,0,0,0,75,78,0,78,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Mello Yellow,32 fl oz,688,drink,453,0,0,0,0,120,125,0,125,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Sprite,12 fl oz,258,drink,140,0,0,0,0,65,38,0,38,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Sprite,20 fl oz,430,drink,233,0,0,0,0,108,63,0,63,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Sprite,32 fl oz,688,drink,373,0,0,0,0,173,101,0,101,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Sprite Zero,12 fl oz,340,drink,4,0,0,0,0,10,0,0,0,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Sprite Zero,20 fl oz,566,drink,6,0,0,0,0,16,0,0,0,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Sprite Zero,32 fl oz,906,drink,10,0,0,0,0,26,0,0,0,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Peach Tea,12 fl oz,389,drink,122,0,0,0,0,11,31,0,31,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Peach Tea,20 fl oz,649,drink,203,0,0,0,0,18,52,0,52,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Peach Tea,32 fl oz,1038,drink,325,0,0,0,0,29,84,0,84,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Peach Tea,1 gal,4153,drink,1300,0,0,0,0,117,336,0,335,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Raspberry Tea,12 fl oz,389,drink,122,0,0,0,0,11,31,0,31,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Raspberry Tea,20 fl oz,649,drink,203,0,0,0,0,18,52,0,52,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Raspberry Tea,32 fl oz,1038,drink,325,0,0,0,0,29,84,0,84,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Raspberry Tea,1 gal,4153,drink,1300,0,0,0,0,117,336,0,335,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Sweetened Ice Tea,12 fl oz,389,drink,122,0,0,0,0,11,31,0,31,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Sweetened Ice Tea,20 fl oz,649,drink,203,0,0,0,0,18,52,0,52,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Sweetened Ice Tea,32 fl oz,1038,drink,325,0,0,0,0,29,84,0,84,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Sweetened Ice Tea,1 gal,4153,drink,1300,0,0,0,0,117,336,0,335,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Unsweetened Ice Tea,12 fl oz,359,drink,0,0,0,0,0,11,0,0,0,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Unsweetened Ice Tea,20 fl oz,598,drink,0,0,0,0,0,18,0,0,0,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Unsweetened Ice Tea,32 fl oz,957,drink,0,0,0,0,0,28,0,0,0,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Unsweetened Ice Tea,1 gal,3827,drink,0,0,0,0,0,114,0,0,0,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Lemonade,12 fl oz,371,drink,150,0,0,0,0,0,39,0,38,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Lemonade,20 fl oz,618,drink,250,0,0,0,0,0,65,0,63,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Lemonade,32 fl oz,988,drink,400,0,0,0,0,0,104,0,100,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Lemonade,1 gal,3595,drink,1600,0,0,0,0,0,416,0,400,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Powerade,12 fl oz,335,drink,80,0,0,0,0,150,21,0,21,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Powerade,20 fl oz,591,drink,133,0,0,0,0,250,35,0,35,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Powerade,32 fl oz,946,drink,213,0,0,0,0,400,56,0,56,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Vernor’s Ginger Ale,12 fl oz,340,drink,140,0,0,0,0,45,39,0,38,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Vernor’s Ginger Ale,20 fl oz,567,drink,234,0,0,0,0,75,65,0,64,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Vernor’s Ginger Ale,32 fl oz,907,drink,374,0,0,0,0,120,104,0,102,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Apple Juice,6 fl oz,170,drink,35,0,0,0,0,15,9,0,8,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Organic Valley 1% White Milk,8 fl oz,236,drink,110,3,2,0,15,125,12,0,12,8,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Drinks,Organic Valley 1% Chocolate Milk,8 fl oz,236,drink,150,3,2,0,10,200,22,0,21,8,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Milkshakes,Vanilla Milkshake,16oz,366,dessert,563,16,12,0,80,444,87,0,82,16,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Milkshakes,OREO Milkshake,16oz,375,dessert,660,21,14,0,80,555,97,1,84,17,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Milkshakes,Chocolate Milkshake,16oz,406,dessert,665,16,12,0,80,454,112,1,101,17,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Milkshakes,Strawberry Milkshake,16oz,404,dessert,566,16,12,0,80,440,88,1,82,16,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Desserts,Strawberry Cheesecake Jar,1 jar,225,dessert,530,27,12,0,50,350,48,1,39,7,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Desserts,OREO Cheesecake Jar,1 jar,196,dessert,760,37,15,1,50,530,82,0,56,8,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Desserts,Chocolate Brownie Pudding Jar,1 jar,214,dessert,670,26,9,0,25,290,88,1,58,6,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Desserts,NILLA Banana Pudding Jar,1 jar,221,dessert,602,27,17,0,23,362,85,0,59,5,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Desserts,Key Lime Pie,1 jar,241,dessert,890,33,17,0,40,150,120,0,91,9,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Desserts,Chocolate Chip Brownie,1 brownie,93,dessert,433,20,6,0,25,225,58,2,32,5,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Chicken & Waffles,Waffle,1 each (5.4oz cooked),153,main,327,14,3,3,89,692,40,1,1,8,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sides,Fried Pickles (side substitution),5 wt oz,142,side,476,32,0,0,0,3086,42,4,0,5,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sides,Fried Okra (side substitution),5 wt oz,142,side,335,16,0,0,0,584,43,2,3,5,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Sides,Fried Mushroom (side substitution),5 wt oz,142,side,476,32,0,0,0,2350,42,2,2,5,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,two-drafts
+Slim Chickens,Salads,Garden Salad Tray,4 oz,4,main,13,0,0,0,0,23,2,0,0,0,https://www.slimchickens.com/nutritional-and-allergen-info/,2026-10-23,pending
