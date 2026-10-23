@@ -26,11 +26,13 @@ type OnboardingState = {
   plan: NutritionPlan | null;
   /** The choice on the AI consent screen (null until it was shown). */
   aiConsent: boolean | null;
+  /** The consent wording it showed (`MENU_CONSENT_VERSION` names menus). */
+  aiConsentVersion: number | null;
   /** Set when the user finished onboarding; cleared after the plan is saved to the database. */
   pendingSaveAt: number | null;
   setAnswers: (answers: Partial<OnboardingAnswers>) => void;
   setPlan: (plan: NutritionPlan) => void;
-  setAiConsent: (allowed: boolean) => void;
+  setAiConsent: (allowed: boolean, version: number) => void;
   markPendingSave: () => void;
   clearPendingSave: () => void;
   reset: () => void;
@@ -42,18 +44,19 @@ export const useOnboardingStore = create<OnboardingState>()(
       answers: DEFAULT_ANSWERS,
       plan: null,
       aiConsent: null,
+      aiConsentVersion: null,
       pendingSaveAt: null,
       setAnswers: (answers) => set((s) => ({ answers: { ...s.answers, ...answers } })),
       setPlan: (plan) => set({ plan }),
-      setAiConsent: (aiConsent) => set({ aiConsent }),
+      setAiConsent: (aiConsent, aiConsentVersion) => set({ aiConsent, aiConsentVersion }),
       markPendingSave: () => set({ pendingSaveAt: Date.now() }),
       clearPendingSave: () => set({ pendingSaveAt: null }),
-      reset: () => set({ answers: DEFAULT_ANSWERS, plan: null, aiConsent: null, pendingSaveAt: null }),
+      reset: () => set({ answers: DEFAULT_ANSWERS, plan: null, aiConsent: null, aiConsentVersion: null, pendingSaveAt: null }),
     }),
     {
       name: 'eatme-onboarding',
       storage: createJSONStorage(() => AsyncStorage),
-      partialize: ({ answers, plan, aiConsent, pendingSaveAt }) => ({ answers, plan, aiConsent, pendingSaveAt }),
+      partialize: ({ answers, plan, aiConsent, aiConsentVersion, pendingSaveAt }) => ({ answers, plan, aiConsent, aiConsentVersion, pendingSaveAt }),
       // A finished onboarding that was never saved (no sign-up) expires after a week.
       onRehydrateStorage: () => (state) => {
         if (state?.pendingSaveAt && Date.now() - state.pendingSaveAt > PENDING_SAVE_TTL_MS) {
@@ -74,19 +77,20 @@ export function completeAnswers(answers: Partial<OnboardingAnswers>): Onboarding
   return parsed.success ? parsed.data : null;
 }
 
-export type PendingOnboarding = { answers: OnboardingAnswers; plan: NutritionPlan; aiConsent: boolean };
+export type PendingOnboarding = { answers: OnboardingAnswers; plan: NutritionPlan; aiConsent: boolean; aiConsentVersion?: number };
 
 /** The answers + plan waiting to be saved after sign-up, if they are still fresh. */
 export function usePendingOnboarding(): PendingOnboarding | null {
   const answers = useOnboardingStore((s) => s.answers);
   const plan = useOnboardingStore((s) => s.plan);
   const aiConsent = useOnboardingStore((s) => s.aiConsent);
+  const aiConsentVersion = useOnboardingStore((s) => s.aiConsentVersion);
   const pendingSaveAt = useOnboardingStore((s) => s.pendingSaveAt);
   return useMemo(() => {
     if (!pendingSaveAt || !plan) return null;
     const complete = completeAnswers(answers);
-    return complete ? { answers: complete, plan, aiConsent: !!aiConsent } : null;
-  }, [answers, plan, aiConsent, pendingSaveAt]);
+    return complete ? { answers: complete, plan, aiConsent: !!aiConsent, ...(aiConsent && aiConsentVersion ? { aiConsentVersion } : {}) } : null;
+  }, [answers, plan, aiConsent, aiConsentVersion, pendingSaveAt]);
 }
 
 const subscribeToHydration = (onChange: () => void) => useOnboardingStore.persist.onFinishHydration(onChange);

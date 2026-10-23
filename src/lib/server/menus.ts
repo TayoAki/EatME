@@ -9,6 +9,7 @@ import { laterMeals, rankMenu, type MenuDay, type MenuDish, type MenuFit, type R
 import {
   estimateRange,
   MAX_MENU_PHOTOS,
+  MENU_SCAN_KEEP_DAYS,
   PRICED_DISHES,
   type ChainItemReportBody,
   type ChainMenuResponse,
@@ -18,6 +19,7 @@ import {
   type MenuRef,
   type MenuRow,
   type MenuScanResponse,
+  type MenuScanSummary,
   type OrderDishBody,
   type ScanDish,
   type ScanDishItem,
@@ -25,7 +27,7 @@ import {
 import { scaleNutrients } from '@/shared/nutrients';
 import { minimumCalories } from '@/shared/nutrition';
 
-import { requireAiConsent } from './ai-consent';
+import { requireMenuConsent } from './ai-consent';
 import { checkAiLimit, hasPremiumAccess } from './billing';
 import { dayBounds, loggedAtFor } from './day';
 import { whatToOrderEnabled } from './experiments';
@@ -163,6 +165,7 @@ function chainBase(item: ChainItemRow): RowBase {
     fatG: round(n.fat),
     range: null,
     citation: { chain: item.chain, sourceUrl: item.sourceUrl, checkedOn: item.checkedOn },
+    foods: [],
     tweaks: [],
     question: null,
   };
@@ -184,6 +187,7 @@ function scanBase(dish: ScanDish): RowBase {
     fatG: round(n.fat),
     range: dish.range,
     citation: null,
+    foods: dish.items.map((item) => ({ name: item.name, grams: Math.round(item.grams) })),
     tweaks: dish.tweaks.map((t) => ({ label: t.label, calories: t.calories, proteinG: t.proteinG })),
     question: dish.question && {
       kind: dish.question.kind,
@@ -216,6 +220,7 @@ function toRow(base: RowBase, ranked: RankedDish): MenuRow {
     carbsG: Math.round(base.carbsG * share),
     fatG: Math.round(base.fatG * share),
     range: base.range && { low: Math.round(base.range.low * share), high: Math.round(base.range.high * share) },
+    foods: base.foods.map((food) => ({ ...food, grams: Math.round(food.grams * share) })),
     variant: ranked.variant,
     rankedCalories: ranked.calories,
     fit: ranked.fit,
@@ -295,7 +300,7 @@ const menuPhotoKey = (userId: string, scanId: string, n: number) => `meals/${use
  * menu can't be read).
  */
 export async function createMenuScan(user: User, input: { lines: DishLine[] } | { photos: ArrayBuffer[] }, restaurant: string | null) {
-  requireAiConsent(user);
+  requireMenuConsent(user);
   await checkAiLimit(user.id, user.timezone);
   const id = crypto.randomUUID();
   await openList(user, `scan:${id}`);
@@ -420,6 +425,29 @@ async function findScan(userId: string, scanId: string) {
   const scan = await db.query.menuScans.findFirst({ where: and(eq(menuScans.id, idParam(scanId, 'menu')), eq(menuScans.userId, userId)) });
   if (!scan) throw new HttpError(404, "That menu wasn't found. Menus are kept for 30 days.");
   return scan;
+}
+
+/** "Your menus": the person's scans that were read or are being read (failed ones are left out), newest first. */
+export async function listMenuScans(userId: string): Promise<MenuScanSummary[]> {
+  const rows = await db
+    .select({
+      id: menuScans.id,
+      status: menuScans.status,
+      restaurant: menuScans.restaurant,
+      dishes: sql<number>`coalesce(jsonb_array_length(${menuScans.dishes}), 0)::int`,
+      createdAt: menuScans.createdAt,
+    })
+    .from(menuScans)
+    .where(
+      and(
+        eq(menuScans.userId, userId),
+        ne(menuScans.status, 'failed'),
+        gte(menuScans.createdAt, sql`now() - make_interval(days => ${MENU_SCAN_KEEP_DAYS})`),
+      ),
+    )
+    .orderBy(sql`${menuScans.createdAt} desc`)
+    .limit(20);
+  return rows.map((row) => ({ ...row, dishes: Number(row.dishes), createdAt: row.createdAt.toISOString() }));
 }
 
 /** A scan, ranked again on every read so the list follows what's been eaten since. */

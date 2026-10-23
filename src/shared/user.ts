@@ -5,6 +5,7 @@ import {
   DIETS,
   GENDERS,
   GOALS,
+  MENU_CONSENT_VERSION,
   UNIT_SYSTEMS,
   dateOfBirthSchema,
   type ActivityLevel,
@@ -41,6 +42,8 @@ export type Profile = {
   preferences: Preferences;
   /** Allowed AI processing of their answers, meal photos and descriptions (Apple 5.1.2(i)). */
   aiConsent: boolean;
+  /** …and of menus: they saw the consent wording that names them (`MENU_CONSENT_VERSION`). */
+  menuConsent: boolean;
   name: string;
   gender: Gender | null;
   dateOfBirth: string | null;
@@ -118,6 +121,8 @@ export const updateProfileSchema = z
     preferences: z.object({ foodQualityTag: z.boolean(), calmMode: z.boolean(), foodsToSkip: foodsToSkipSchema }).partial().strict(),
     /** Allow (true) or stop (false) AI analysis of meal photos and descriptions. */
     aiConsent: z.boolean(),
+    /** The consent wording the person saw when allowing it (`MENU_CONSENT_VERSION` names menus). */
+    aiConsentVersion: z.number().int().min(1).max(MENU_CONSENT_VERSION),
   })
   .partial();
 export type UpdateProfileBody = z.infer<typeof updateProfileSchema>;

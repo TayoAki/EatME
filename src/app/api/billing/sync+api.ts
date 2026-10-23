@@ -17,6 +17,6 @@ export const POST = handle(async (request) => {
   } catch (error) {
     console.error('[billing] sync failed', error instanceof Error ? error.message : error);
   }
-  const user = await db.query.users.findFirst({ where: eq(users.id, userId), columns: { timezone: true } });
-  return Response.json(await billingStatus(userId, user?.timezone ?? 'UTC'));
+  const user = await db.query.users.findFirst({ where: eq(users.id, userId), columns: { timezone: true, whatToOrderTry: true } });
+  return Response.json(await billingStatus({ id: userId, timezone: user?.timezone ?? 'UTC', whatToOrderTry: user?.whatToOrderTry ?? null }));
 });

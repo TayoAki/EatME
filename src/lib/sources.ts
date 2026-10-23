@@ -128,6 +128,27 @@ const ETHANOL: Citation = {
   by: 'PubChem, National Library of Medicine (NIH)',
   url: 'https://pubchem.ncbi.nlm.nih.gov/compound/Ethanol',
 };
+const MENU_LABELING_RULE: Citation = {
+  title: 'Nutrition labeling of standard menu items in covered establishments (21 CFR 101.11)',
+  by: 'U.S. Food and Drug Administration, Code of Federal Regulations',
+  url: 'https://www.ecfr.gov/current/title-21/chapter-I/subchapter-B/part-101/subpart-A/section-101.11',
+};
+const MENU_LABELING: Citation = {
+  title: 'Menu labeling requirements',
+  by: 'U.S. Food and Drug Administration',
+  url: 'https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/menu-labeling-requirements',
+};
+const RESTAURANT_ACCURACY: Citation = {
+  title: 'Accuracy of stated energy contents of restaurant foods',
+  by: 'Urban et al., JAMA, 2011',
+  url: 'https://pubmed.ncbi.nlm.nih.gov/21771989/',
+};
+const RESTAURANT_MEALS: Citation = {
+  title:
+    'Energy contents of frequently ordered restaurant meals and comparison with human energy requirements and US Department of Agriculture database information: a multisite randomized study',
+  by: 'Urban et al., Journal of the Academy of Nutrition and Dietetics, 2016',
+  url: 'https://pubmed.ncbi.nlm.nih.gov/26803805/',
+};
 const GLP1_ADVISORY: Citation = {
   title: 'Nutritional priorities to support GLP-1 therapy for obesity: a joint advisory',
   by: 'Mozaffarian et al., American Journal of Clinical Nutrition, 2025',
@@ -149,6 +170,7 @@ export const SOURCE_TOPICS = [
   'plan-tomorrow',
   'drinks',
   'glp1',
+  'restaurants',
 ] as const;
 export type SourceTopic = (typeof SOURCE_TOPICS)[number];
 
@@ -269,5 +291,13 @@ export const SOURCES: SourceSection[] = [
     method:
       "GLP-1 mode puts protein, fiber and water first, following the joint advisory on nutrition for people taking GLP-1 medicines. Weight Class logs your medicine, doses and how you feel; it never gives dosing advice. Ask your prescriber about your dose and any side effects.",
     citations: [GLP1_ADVISORY],
+  },
+  {
+    // What to order (v2.5): src/shared/menu-fit.ts (the ranking), src/lib/server/menus.ts and menu-analysis.ts
+    topic: 'restaurants',
+    title: 'Restaurant menus',
+    method:
+      "For the chains in Weight Class, the numbers are each chain's own nutrition information, which US chains with 20 or more locations must publish. Two separate readings of the chain's guide must agree before an item is added, and a person checks the rest; each item shows the day it was checked and is checked again every six months. For any other menu, AI names the foods in each dish and estimates restaurant-size portions, the numbers come from the USDA food database, and they show as a range: restaurant meals often hold more than database portions. The ranking is Weight Class's own code, not AI. It divides what's left today by the main meals still to come (never planning below the calorie floor, and no more than 40% of the day for one meal) and puts the dishes closest to that aim first; with two as close, the one with more protein comes first (protein leads in GLP-1 mode). An estimate counts at the top of its range, a dish must leave at least 200 kcal for each meal still to come, the lightest dish never wins for being small, sides, drinks and sharing sizes are listed but not ranked, and nothing is ranked once the day's budget is spent.",
+    citations: [MENU_LABELING_RULE, MENU_LABELING, RESTAURANT_ACCURACY, RESTAURANT_MEALS, FOODDATA_CENTRAL],
   },
 ];

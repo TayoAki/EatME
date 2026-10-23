@@ -12,6 +12,11 @@ export type BillingStatus = {
   scansToday: number;
   /** Free scans left today; null for premium. */
   scansLeft: number | null;
+  /**
+   * What to order (v2.5): the list that was the one free try ("chain:<slug>" or "scan:<id>"; it
+   * stays open), null while it's unused. Premium opens every list.
+   */
+  whatToOrderTry: string | null;
 };
 
 /** The paid plan unlocks one thing: unlimited AI scans (up to the 50 a day fair-use limit). */

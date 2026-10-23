@@ -14,6 +14,10 @@ your own terminal or dashboard only: never paste them into a chat or commit them
 npm run testflight
 ```
 
+It builds whatever is checked out. **Build 4** (the App Review fixes for version 1.0) must come from commit
+`f05e76a`: `git checkout -B build-4 f05e76a` first. Everything after it, What to order's screens included, is v2.5
+and goes into its own build once 1.0 is approved (`store/README.md` → What to order).
+
 That runs lint and the typecheck (after refreshing the route types Expo Router generates into `.expo/types`, which
 go stale on a machine that hasn't run the dev server since screens were added), builds the production app on EAS (the build number goes up by itself), and
 uploads it to App Store Connect. About 20-30 minutes on EAS, then 5-15 minutes of processing at Apple; Apple emails

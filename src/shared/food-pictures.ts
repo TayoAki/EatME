@@ -50,11 +50,11 @@ const RULES: readonly (readonly [FoodPicture, RegExp])[] = [
   ['waffle', /\b(waffles?)\b/],
   ['bagel', /\b(bagels?)\b/],
   ['croissant', /\b(croissants?|pastry|pastries|danish(es)?|scones?|cinnamon rolls?|kolaches?|strudels?|churros?)\b/],
-  ['chocolate', /\b(chocolates?|fudge|truffles?|(protein|granola|energy|candy|cereal|snack|nut) bars?)\b/],
+  ['chocolate', /\b(chocolates?|fudge|truffles?(?! (fries|oil|mac|pasta|risotto|burgers?))|(protein|granola|energy|candy|cereal|snack|nut) bars?)\b/],
   ['candy', /\b(candy|candies|gumm(y|ies)|lollipops?|licorice|jelly beans?|marshmallows?)\b/],
   ['popcorn', /\b(popcorn|kettle corn)\b/],
   ['pretzel', /\b(pretzels?)\b/],
-  ['egg', /\b(eggs?|omelets?|omelettes?|scrambled|frittatas?|quiches?|benedict|big breakfast)\b(?!\s*rolls?)/],
+  ['egg', /\b(eggs?|omelets?|omelettes?|scrambled|scrambles?|frittatas?|quiches?|benedict|big breakfast)\b(?!\s*rolls?)/],
   // Dishes
   ['burrito', /\b(burritos?|chimichangas?)\b/],
   ['taco', /\b(tacos?|quesadillas?|nachos?|tostadas?|chalupas?|gorditas?|crunchwraps?|fajitas?|enchiladas?)\b/],
@@ -116,7 +116,7 @@ export function foodPictureFor(name: string | null | undefined, source?: string)
     .toLowerCase();
   for (const [picture, pattern] of RULES) if (pattern.test(text)) return picture;
   if (source === 'barcode' || source === 'label') return 'packaged';
-  if (source === 'restaurant') return 'takeout';
+  if (source === 'restaurant' || source === 'menu') return 'takeout';
   if (source === 'drink') return 'cocktail';
   return 'plate';
 }

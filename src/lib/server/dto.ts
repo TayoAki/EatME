@@ -8,7 +8,7 @@ import type { Profile } from '@/shared/user';
 import type { WaterEntry } from '@/shared/water';
 
 import { signedGetUrl } from './storage';
-import { hasAiConsent } from './ai-consent';
+import { hasAiConsent, hasMenuConsent } from './ai-consent';
 
 export function toProfile(user: User): Profile {
   // Without a birthday yet (mid-onboarding), assume an adult.
@@ -43,6 +43,7 @@ export function toProfile(user: User): Profile {
     planSummary: user.planSummary,
     preferences: user.preferences ?? {},
     aiConsent: hasAiConsent(user),
+    menuConsent: hasMenuConsent(user),
     onboardingCompletedAt: user.onboardingCompletedAt?.toISOString() ?? null,
     createdAt: user.createdAt.toISOString(),
   };

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Test menu — Weight Class</title>
+    <meta name="description" content="A sample restaurant menu for testing Weight Class's menu scan." />
+    <meta name="robots" content="noindex" />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#FFFFFF" />
+    <link rel="icon" type="image/png" href="images/app-icon.png" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* A plain printed menu: black on white, a price column, the way menus are printed. */
+      .menu-card {
+        max-width: 560px;
+        margin: 24px auto 0;
+        padding: 36px 32px 28px;
+        border: 2px solid #111;
+        border-radius: 6px;
+        background: #fff;
+        color: #111;
+        font-family: Georgia, 'Times New Roman', serif;
+      }
+      .menu-card h2 {
+        margin: 0;
+        text-align: center;
+        font-size: 30px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .menu-card .tagline {
+        margin: 4px 0 20px;
+        text-align: center;
+        font-style: italic;
+        font-size: 15px;
+      }
+      .menu-card h3 {
+        margin: 22px 0 8px;
+        font-size: 17px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        border-bottom: 1px solid #111;
+        padding-bottom: 4px;
+      }
+      .dish {
+        display: flex;
+        gap: 16px;
+        justify-content: space-between;
+        margin: 10px 0 0;
+      }
+      .dish strong {
+        font-size: 18px;
+      }
+      .dish span {
+        font-size: 18px;
+        white-space: nowrap;
+      }
+      .dish-note {
+        margin: 2px 0 0;
+        font-size: 14px;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <main id="main" class="legal">
+      <article class="doc">
+        <p class="eyebrow">Weight Class</p>
+        <h1>Test menu</h1>
+        <p class="intro">
+          A sample menu from a made-up restaurant, for trying the menu scan without visiting one: photograph this page
+          from a second screen, or save <a href="images/test-menu.png">the menu as an image</a> and choose it as a photo.
+        </p>
+
+        <section class="menu-card" aria-label="Harbor Street Grill menu">
+          <h2>Harbor Street Grill</h2>
+          <p class="tagline">Kitchen open daily</p>
+
+          <h3>Mains</h3>
+          <div class="dish"><strong>Grilled Salmon</strong><span>$24</span></div>
+          <p class="dish-note">rice, green beans, lemon butter</p>
+          <div class="dish"><strong>Chicken Caesar Salad</strong><span>$16</span></div>
+          <p class="dish-note">romaine, parmesan, croutons, caesar dressing</p>
+          <div class="dish"><strong>Double Bacon Burger</strong><span>$19</span></div>
+          <p class="dish-note">two beef patties, cheddar, bacon, fries</p>
+          <div class="dish"><strong>Vegetable Stir Fry with Tofu</strong><span>$15</span></div>
+          <p class="dish-note">broccoli, peppers, snap peas, jasmine rice</p>
+          <div class="dish"><strong>Fettuccine Alfredo</strong><span>$18</span></div>
+          <p class="dish-note">cream, parmesan, black pepper</p>
+          <div class="dish"><strong>Steak Frites</strong><span>$28</span></div>
+          <p class="dish-note">8 oz sirloin, herb butter, fries</p>
+
+          <h3>Sides</h3>
+          <div class="dish"><strong>Truffle Fries</strong><span>$8</span></div>
+          <div class="dish"><strong>Side Salad</strong><span>$6</span></div>
+          <div class="dish"><strong>Garlic Bread</strong><span>$5</span></div>
+
+          <h3>Drinks</h3>
+          <div class="dish"><strong>Fresh Lemonade</strong><span>$4</span></div>
+          <div class="dish"><strong>Iced Tea</strong><span>$3</span></div>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>

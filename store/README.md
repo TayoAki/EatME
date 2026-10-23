@@ -274,7 +274,11 @@ with nothing in front of it, and Open Settings only after a no. To resubmit:
 
 1. Each subscription → Review Information → the Premium screen screenshot (replacing the placeholder) and Multiseat
    purchases → No; names and review notes as in the table above.
-2. `git pull && npm run testflight`, wait for the build to finish processing, then select it on the 1.0 version page.
+2. Build 4 comes from commit `f05e76a`, the last one before the What to order screens (they ship later in their own
+   build, v2.5: Apple doesn't want features switched off inside a submitted app):
+   `git fetch origin && git checkout -B build-4 f05e76a && npm run testflight`, then
+   `git checkout claude/gallant-archimedes-o2u9dy` to come back. Wait for the build to finish processing, then select
+   it on the 1.0 version page. (The live server already runs What to order's routes; build 4 never calls them.)
 3. Put the subscriptions in the submission: each subscription → **Add for Review** → the draft submission that holds
    version 1.0, with the subscription group too ("the app version, subscription group, and every subscription must
    all be added to the same draft submission"). If that menu doesn't offer it: 1.0 version page → In-App Purchases and
@@ -351,6 +355,75 @@ Thanks for testing Weight Class, the new name for EatME! Please try:
 5. Whatever else you use: GLP-1 mode, weight and body, water and the widget, reminders, calm mode.
 
 Found a bug? Take a screenshot and tap Share Beta Feedback, or email us. In TestFlight, subscriptions renew every day (up to 6 times), so renewals come quickly.
+```
+
+## What to order (version 2.5, its own build)
+
+What to order ranks a restaurant's menu for what's left of the person's day (`WHAT-TO-ORDER.md`). Its screens are
+in the code after commit `f05e76a` and ship as their own App Store version once 1.0 is approved, never inside build 4:
+Apple doesn't want a feature switched off in a submitted app (2.3.1(a), 2.5.19), so the version Apple reviews has it
+on, all of it. Before that submission:
+
+- [ ] A person has checked the review lists (`data/chains/menus/*-review.md`, 908 lines pending today), then
+      `npm run chains:build`; more chains drafted toward 100 (`npm run chains:draft`, needs OpenRouter credit)
+- [ ] The accuracy pilot passed (`npm run menus:pilot`, WHAT-TO-ORDER.md §11; needs OpenRouter credit) and its
+      calibration copied into `ESTIMATE_CALIBRATION` (`src/shared/menus.ts`)
+- [ ] The menu-reading check on a phone (10 real menus, 9 readable after the confirm step). `modules/menu-text` is
+      native: test it in a development or TestFlight build, not Expo Go
+- [ ] `WHAT_TO_ORDER` is not `false` on Railway (the switch is for outages only and is on for the review)
+- [ ] The support page lines below, deployed on submission day and not before: the page lists what Premium
+      includes, and the 1.0 review must not read about a feature its build doesn't have
+- [ ] Screenshots: a chain's What fits list (Search → Restaurants) and a scanned menu, with the Premium badge
+- [ ] The demo account hasn't used its free try (any account's first menu is free; then Premium, sandbox in review)
+- [ ] App Privacy needs no new type: menus are User Content (photos only when the phone can't read the text, and
+      the dish list and restaurant name as Other User Content), and the meals ordered from them are Health & Fitness,
+      all already declared. No location is collected.
+
+**What's New:**
+
+```text
+What to order: at a restaurant, see which dishes fit what's left of your day. Chains use their own published nutrition numbers, with a link to each chain's guide; for any other restaurant, scan the menu and get estimates with a range. Log the dish in one tap, or save it for when the food arrives. Part of Weight Class Premium; your first menu is free.
+```
+
+**Description:** under HOW IT WORKS, after the barcode line:
+
+```text
+• What to order: at a restaurant, see which dishes fit what's left of your day. Chain menus use the restaurant's own published numbers; for any other menu, scan it and get estimates with a range. Foods you skip are left out.
+```
+
+and in the Premium block: "Weight Class Premium adds unlimited AI scans (fair use: 50 a day), up to 3 photos of one
+meal, What to order (your first menu is free), the weekly check-in and Plan tomorrow."
+
+**Review notes:** add this block.
+
+```text
+WHAT TO ORDER
+Scan → Search foods → Restaurants lists chains whose numbers come from their own published nutrition information. Open one (Chick-fil-A, for example): "Fits well" and "Everything else" are ranked for what's left of the day by our own code, not AI. Each item names its source and the day it was checked, with "View [chain]'s guide" linking to the chain's own page, "Weight Class isn't affiliated with [chain]" and "Report a wrong item". Chain names appear as text only; the small food pictures are our own (Fluent Emoji, MIT licence), never the chains' photos or logos.
+To scan a menu without a restaurant: open <server>/test-menu on a second screen (or save the image there and use Choose a photo), then Scan → Menu. The iPhone reads the text, you check the dishes, and only that text and the restaurant's name are sent to AI, after a consent screen that names menus. Estimates show as ranges.
+Every list says "Tell staff about allergies: Weight Class can't know what's in a dish." We never call a dish healthy or safe, the lightest dish never wins for being small, and nothing is ranked once the day's budget is spent. "How What to order works" opens Profile → Sources → Restaurant menus.
+What to order is part of Weight Class Premium; the first menu is free (the demo account hasn't used it), then the Premium screen appears.
+```
+
+**Support page:** on submission day, add to `legal/support.html`, in 1. Weight Class Premium:
+
+```html
+<li>What to order: which dishes on a restaurant's menu fit what's left of your day (your first menu is free);</li>
+```
+
+and in 6. How Weight Class works out your numbers (the same method as the app's Sources → Restaurant menus):
+
+```html
+<li>
+  <strong>Restaurant menus:</strong> for chains in Weight Class, each chain's own published nutrition information,
+  which US chains with 20 or more locations must publish
+  (<a href="https://www.ecfr.gov/current/title-21/chapter-I/subchapter-B/part-101/subpart-A/section-101.11">21 CFR 101.11</a>),
+  copied by two readings that must agree and checked by a person, with the day it was checked. For other menus, AI
+  names each dish's foods and restaurant-size portions, the numbers come from USDA data, and they show as a range
+  (restaurant meals often hold more than database portions:
+  <a href="https://pubmed.ncbi.nlm.nih.gov/26803805/">Urban et al., 2016</a>). The ranking is our own code: what's
+  left today divided by the meals still to come, at most 40% of the day for one meal, estimates counted at the top of
+  their range, and nothing ranked once the day's budget is spent.
+</li>
 ```
 
 ## Google Play Console

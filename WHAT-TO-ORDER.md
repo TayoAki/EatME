@@ -1,8 +1,14 @@
 # EatME — What to order (v2.5 plan)
 
 > Written 18 October 2026, after the MenuFit research (`research/menufit-teardown.md`) and a read of the code as it
-> is. Not built yet. Read it with `PLAN.md` (the app as it is) and `AGENTS.md` (how we build). People see the
+> is. Read it with `PLAN.md` (the app as it is) and `AGENTS.md` (how we build). People see the
 > app as **Weight Class**; the code keeps EatME. Tick the boxes here as parts ship and add them to `PLAN.md`.
+>
+> **Status, 23 October 2026: built.** The ranking, the server (live on Railway since 22 October) and the app screens
+> are in the code and pass their tests (`npm test`; a browser run of every screen against the local server). Waiting
+> on: OpenRouter credit (to draft more chains and run the accuracy pilot), a person for the review lists, and a phone
+> for the menu-reading check (section 11). The screens came after commit `f05e76a`: build 4 (version 1.0) is built
+> from that commit, and What to order ships in its own version (`store/README.md` → What to order).
 
 ## Contents
 
@@ -131,23 +137,23 @@ ordering page, and the chat (not in v2.5).
 
 ## 5. What the person sees
 
-- [ ] **Entry points**: Scan gets a **Menu** mode next to Meal and Label. Search → Restaurants finds a chain by
+- [x] **Entry points**: Scan gets a **Menu** mode next to Meal and Label. Search → Restaurants finds a chain by
   name and shows **What fits** on its menu. A Home card later, once we know people use it.
-- [ ] **Scan a menu**: one to three photos (long menus have pages). The phone reads the text and shows the dish
+- [x] **Scan a menu**: one to three photos (long menus have pages). The phone reads the text and shows the dish
   list to confirm or fix (wrong lines removed, a dish typed in); then "Working out what fits…" while the AI
   works. An optional field for the restaurant's name.
-- [ ] **The list**: a header with what's left today ("About 850 kcal and 60 g protein left"), then **Fits well**
+- [x] **The list**: a header with what's left today ("About 850 kcal and 60 g protein left"), then **Fits well**
   (up to five, shown as a group when their ranges overlap, not a false first-second-third) and **Everything
   else**. Each row: a small food picture (section 10), the dish, calories (a range for estimates), protein, the source ("From Chick-fil-A" for a
   chain item, "Estimate" for a scanned menu) and one reason ("Leaves about 500 kcal for dinner", "45 g protein").
   Items over what's left are listed last, never hidden. Under a chain's list: "Numbers from Chick-fil-A's nutrition
   information, checked 22 Oct 2026" with a link to its guide (see **Citing the source** below).
-- [ ] **When nothing fits** or the day's budget is spent: no ranking, a neutral line ("Nothing here fits what's
+- [x] **When nothing fits** or the day's budget is spent: no ranking, a neutral line ("Nothing here fits what's
   left today; these are the lighter dishes") and the list sorted by size.
-- [ ] **A dish**: its numbers and where they're from (the chain's citation below, or the foods and portions behind
+- [x] **A dish**: its numbers and where they're from (the chain's citation below, or the foods and portions behind
   an estimate, editable as in the meal screen), and up to two tweaks with their effect ("Dressing on the side: about
   −150 kcal").
-- [ ] **Citing the source** (every chain number, wherever it shows): the dish screen and the logged meal say
+- [x] **Citing the source** (every chain number, wherever it shows): the dish screen and the logged meal say
   "Source: Chick-fil-A nutrition information · checked 22 Oct 2026" with **View Chick-fil-A's guide**, which opens
   the item's `source_url` (the chain's own page or PDF, never a copy site) in the in-app browser. Next to it: "Weight
   Class isn't affiliated with Chick-fil-A. Menus change; check with the restaurant." and **Report a wrong item**. A
@@ -157,21 +163,43 @@ ordering page, and the chat (not in v2.5).
   locations must publish ([21 CFR 101.11](https://www.ecfr.gov/current/title-21/chapter-I/subchapter-B/part-101/subpart-A/section-101.11));
   how we copy and check them (two drafts that must agree, a person for the rest); and that each item shows the day
   it was checked and is rechecked every six months. Added with the feature, not before (no dormant text).
-- [ ] **One question when it matters**: for an estimate where the answer moves the number most, one tap
+- [x] **One question when it matters**: for an estimate where the answer moves the number most, one tap
   ("Grilled or fried?", "Side or entrée size?"), like the follow-up question on photo scans.
-- [ ] **Order it**: **Log it** saves the meal now; **Save for later** keeps it in Saved meals to log when the food
+- [x] **Order it**: **Log it** saves the meal now; **Save for later** keeps it in Saved meals to log when the food
   arrives (the plate builder and Saved meals we already have). A logged estimate can be edited like any meal.
-- [ ] **Foods to skip**: Profile → Preferences gets a short list (for example mushrooms, pork). Dishes whose name
+- [x] **Foods to skip**: Profile → Preferences gets a short list (for example mushrooms, pork). Dishes whose name
   or description mentions one drop out of Fits well; the list says "3 dishes hidden: foods you skip" and "This
   can't spot hidden ingredients".
-- [ ] **Allergies**: one line on every list, "Tell staff about allergies: Weight Class can't know what's in a
+- [x] **Allergies**: one line on every list, "Tell staff about allergies: Weight Class can't know what's in a
   dish." We don't ask for or store allergies, and never call a dish safe.
-- [ ] **Calm mode**: words instead of numbers ("Fits what's left", "A bigger meal", "A lighter choice").
-- [ ] **States**: the phone couldn't read the menu ("Try again in better light, or type the dishes"); the AI
+- [x] **Calm mode**: words instead of numbers ("Fits what's left", "A bigger meal", "A lighter choice").
+- [x] **States**: the phone couldn't read the menu ("Try again in better light, or type the dishes"); the AI
   failed (the scan isn't counted); no free scans left (the Premium screen).
 
 **Wording**: "fits what's left", "from the restaurant", "an estimate". Never "healthy", "guilt free", "safe",
 "accurate", "verified", "dietitian-approved" or a score.
+
+**As built (23 October 2026)**, where the screens add to or settle the bullets above:
+- Screens: `src/app/(app)/restaurant/[slug].tsx` (a chain's What fits), `src/app/(app)/menu/[id].tsx` (a scanned
+  menu, polled while it's read), `src/components/menu/` (list, row, dish sheet, report sheet, pages, confirm step,
+  Restaurants tab, the logged meal's source). The list has a search field for long chain menus.
+- **Your menus**: Search → Restaurants also lists the menus scanned in the last 30 days (`GET /api/menu-scans`), so a
+  scan can be opened again while it is kept.
+- **The dish sheet**: Whole or Half on every dish; for a chain's main, one side or drink from the same chain can join
+  the order (two items at most); the question's answers and the tweaks show their calories; an estimate lists its
+  foods and portions. Report a wrong item also sits on the logged meal.
+- **Consent**: menu scans need consent wording that names menus (`MENU_CONSENT_VERSION` = 2, stored in
+  `users.ai_consent_version`); a person who agreed before is asked once, on the first menu scan. The wording says
+  targets, weight, what's been eaten and foods skipped are never sent.
+- **Premium**: the list says when it is the free try; once it's used, Menu mode opens the Premium screen and other
+  chains show a crown in Search; a menu that couldn't be read gives the try back (`whatToOrderTry` in
+  `GET /api/billing`).
+- **The ranking** (also in section 6): a dish fits only if it leaves at least 200 kcal for each main meal still to
+  come, and its reason names all of them ("Leaves about 900 kcal for lunch and dinner"); a main well over this
+  meal's aim says so ("A bigger meal: leaves about …"). Found at 3 a.m. in the browser test, when a 1,040-kcal salad
+  would otherwise have "fit" with 1,050 kcal left for three meals.
+- **Chain names** lose the guide's footnote marks ("Buffalo Chicken**" → "Buffalo Chicken") in `npm run chains:build`.
+- **Test menu** for App Review: `<server>/test-menu` (`legal/test-menu.html`, with a downloadable image).
 
 ---
 
@@ -196,7 +224,8 @@ confidence (F14). A measured underestimate is corrected upward.
 `src/shared/day-draft.ts`). It returns the same answer twice, costs nothing and can be published, which 1.4.1 asks
 for:
 - **The aim for this meal**: what's left today divided by the main meals still to come (from the person's own meal
-  times, as Plan tomorrow does), never planning below the calorie floor.
+  times, as Plan tomorrow does), never planning below the calorie floor, and never more than 40% of the day for
+  one meal. A dish fits only if it leaves at least 200 kcal for each main meal still to come.
 - **The score**: distance from that aim (both over and too small: the lowest-calorie dish never wins), a protein
   shortfall cost (protein first in GLP-1 mode, then protein per 100 kcal), and an estimate counts at the **top of
   its range**, so uncertainty can't make a heavy plate look like it fits.
@@ -327,13 +356,18 @@ changes before any app code.
   (`data/chains/README.md`). The order: `data/chains/ranking.csv`, ranks 1-250. Tested on the compare step; the first
   real run (Chick-fil-A, guide read) waits for OpenRouter credit and `FIRECRAWL_API_KEY`.
 - [ ] **First ten chains** drafted and their review lists checked: the ground truth for the next check. Then on to
-  100 before launch.
+  100 before launch. *23 October: 13 chains drafted, 1,570 items both drafts agree on (in `data/chains.json` and live);
+  908 lines wait for a person in `data/chains/menus/*-review.md`. Dunkin', SONIC, Culver's and Dairy Queen need a
+  rerun and Chipotle a source, once OpenRouter has credit.*
 - [ ] **Accuracy pilot** (like the week-1 pilot run for ChartME): 60 dishes from those ten chains, their menu text
   through our pipeline (read → foods and portions → USDA) against the chains' published numbers. Pass: median
   calorie error 20% or less, the published top five and ours share at least three dishes, and no underestimate on
-  big plates we can't correct. It also sets the range widths.
+  big plates we can't correct. It also sets the range widths. *`npm run menus:pilot` is written (it writes
+  `data/chains/pilot.md` and the calibration to copy into `ESTIMATE_CALIBRATION`); it waits for OpenRouter credit.*
 - [ ] **Menu reading on a phone**: the Vision module on 10 real menus (printed, chalkboard, dim light). Pass: 9 of
-  10 give usable dish lines after the confirm step; otherwise we send the photo, as meal scans do.
+  10 give usable dish lines after the confirm step; otherwise we send the photo, as meal scans do. *The module
+  (`modules/menu-text`) and the layout rules (`src/shared/menu-lines.ts`, tested) are written; the check needs a
+  development or TestFlight build on an iPhone. The photo route is built and tested on the web.*
 
 ---
 
@@ -349,6 +383,10 @@ changes before any app code.
 | 6 | Consent, Privacy Policy, Washington policy, sources page, test menu, store text, review notes | 1.5 |
 | 7 | Tests: server end-to-end, UI suite, device checklist (camera, Vision) | 2 |
 | | **Total** | **≈ 22.5** |
+
+*Status, 23 October 2026:* steps 2, 3, 4 and 6 are done; 7 is done for the server and the UI (a browser run of every
+screen, payments on and off) and waits on a phone for the device checklist; 1 and 5 wait for OpenRouter credit and a
+person for the review lists.
 
 Release as v2.5 with one EAS build. Then 250 chains and beyond, "near me" (Apple Maps or Overture) and a Home card in v2.6, if
 people use it.

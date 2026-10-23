@@ -68,6 +68,8 @@ const PAGES = {
   '/delete-account': 'delete-account.html',
   '/health-data': 'health-data.html',
   '/support': 'support.html',
+  // What to order (v2.5): a sample menu App Review can photograph from a second screen.
+  '/test-menu': 'test-menu.html',
 };
 
 async function sendFile(res, file, status, method) {

@@ -43,7 +43,7 @@
       <article class="doc">
         <p class="eyebrow">Legal</p>
         <h1>Privacy Policy</h1>
-        <p class="updated">Last updated: October 21, 2026</p>
+        <p class="updated">Last updated: October 23, 2026</p>
 
         <p class="intro">
           This Privacy Policy explains how UGC Mediakits ("Weight Class", "we", "us"
@@ -62,7 +62,8 @@
           <ul>
             <li>
               We use your onboarding answers to build your daily plan and your meal photos to estimate calories and
-              macros. AI models do the estimating.
+              macros. AI models do the estimating. If you scan a restaurant's menu, its dishes are estimated the same
+              way; your targets and what you've eaten never go to the AI.
             </li>
             <li>
               No ads, no selling or sharing of your personal information, and no third-party advertising or analytics
@@ -223,6 +224,21 @@
             meals you already logged keep their numbers.
           </p>
 
+          <h3>Restaurant menus (What to order)</h3>
+          <p>
+            What to order ranks a restaurant's dishes for what's left of your day. When you open a chain's menu, we
+            store which menu was your free try (if you don't have Weight Class Premium). When you scan a menu, we store
+            the list of dishes you confirmed (or that were read from your photos), the restaurant's name if you typed
+            one, and the estimates worked out for each dish, for 30 days, so you can open the menu again. On an iPhone,
+            the phone reads the menu's text itself and the photo never leaves it; otherwise the photos are stored only
+            until the dishes have been read from them (see <a href="#ai-processing">Section 4</a>). A dish you log or
+            save becomes a meal in your meal log and keeps where its numbers came from: the chain's nutrition
+            information and the day it was checked, or the estimate's range. Foods you choose to skip are stored with
+            your preferences. If you report a wrong item on a chain's menu, we store your report (the reason, an
+            optional note, the item and its numbers at that time) to check it against the chain's published
+            information; reports are not shown to anyone else.
+          </p>
+
           <h3>Plan tomorrow and the weekly check-in</h3>
           <p>
             If you use Plan tomorrow, our server drafts a day from your own meal log and saved meals, without AI. We
@@ -362,7 +378,8 @@
           <ul>
             <li>
               <strong>To provide the Service:</strong> to create and manage your account, generate your plan, analyze
-              your meal photos, descriptions and nutrition labels, show your meals, daily totals, weekly summaries,
+              your meal photos, descriptions and nutrition labels, rank restaurant menus for what's left of your day,
+              show your meals, daily totals, weekly summaries,
               history and streaks, work out the day drafts and weekly check-ins you ask for, and let you edit your
               details, goals and meals.
             </li>
@@ -401,7 +418,8 @@
         <section id="ai-processing">
           <h2>4. How AI processing works</h2>
           <p>
-            Weight Class uses artificial intelligence ("AI") in two places. Our server accesses OpenAI's models through
+            Weight Class uses artificial intelligence ("AI") in three places: your plan, your meals and the restaurant
+            menus you scan. Our server accesses OpenAI's models through
             OpenRouter, a service that routes requests to AI model providers. The app never sends your data to an AI
             provider directly, and the requests our server sends do not include your name, email address, account ID
             or IP address.
@@ -412,8 +430,10 @@
             (OpenRouter and OpenAI). If you choose "Continue without AI", your plan is calculated with the standard
             formula described below, and meal photos and descriptions are not analyzed; barcodes, food search and quick
             add still work. You can give or withdraw your permission at any time in Profile &rarr; Preferences &rarr; AI
-            meal analysis. We record when you gave it and which companies were named; if we ever switch to a different
-            AI company, the app asks you again before sending anything to it.
+            meal analysis. We record when you gave it, which companies were named and which wording you saw; if we ever
+            switch to a different AI company, the app asks you again before sending anything to it. Menu scans need the
+            wording that names menus: if you allowed AI before menus were added, the app asks once more before your
+            first menu scan.
           </p>
 
           <h3>Creating your plan</h3>
@@ -461,6 +481,25 @@
             database stored on our server), our server sends those food names and weights, together with database
             entries that could match, to an AI language model through OpenRouter, which picks the matching entries. No
             photo, name or other account information is included in that request.
+          </p>
+
+          <h3>Restaurant menus</h3>
+          <p>
+            For the chains in Weight Class, the menus and their numbers come from our own table, copied from each
+            chain's published nutrition information. Opening a chain's menu, ranking it for your day and logging a dish
+            happen on our server and do not use AI.
+          </p>
+          <p>
+            When you scan another menu, an iPhone reads the text of your photo on the phone (Apple's text recognition)
+            and shows you the dishes it found to check and correct; only that list and the restaurant's name, if you
+            typed one, are sent, and the photo stays on your phone. Where the phone can't read the text, the app resizes
+            up to three photos of the menu and uploads them; our server stores them in private storage only until an AI
+            vision model, through OpenRouter, has read the list of dishes from them, and then deletes them. Our server
+            sends the list of dishes and the restaurant's name to an AI language model through OpenRouter, which returns
+            the foods and restaurant-size portions in each dish, a couple of changes you could ask for (such as dressing
+            on the side) and, sometimes, one question about how a dish is made. The numbers then come from the USDA food
+            database on our server, the same way as for a meal photo, and our own code ranks the dishes. The AI never
+            receives your targets, your weight, what you have eaten, the foods you skip or your location.
           </p>
 
           <h3>Barcodes and food search (no AI)</h3>
@@ -663,6 +702,15 @@
               deleted when you delete your account.
             </li>
             <li><strong>Meals and nutrition values:</strong> until you delete the meal or your account.</li>
+            <li>
+              <strong>Scanned restaurant menus</strong> (the list of dishes, the restaurant's name and the estimates): 30
+              days, then deleted automatically, or sooner when you delete your account. Menu photos, when the phone
+              can't read the text itself, are deleted as soon as the dishes have been read from them, and at once if
+              they can't be read.
+            </li>
+            <li>
+              <strong>Reports about chain menu items:</strong> until you delete your account.
+            </li>
             <li>
               <strong>Body measurements and progress photos:</strong> until you delete them or your account. Progress
               photos never expire on their own.

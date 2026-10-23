@@ -31,8 +31,11 @@ import type { PhotoMode } from '@/shared/meals';
 
 export type Photo = { uri: string; width?: number; height?: number };
 
-/** What the camera looks at: a meal (estimated), a nutrition label (read) or a barcode (looked up). */
-export type ScanMode = PhotoMode | 'barcode';
+/**
+ * What the camera looks at: a meal (estimated), a nutrition label (read), a barcode (looked up) or a
+ * restaurant's menu (What to order, v2.5: what fits what's left today).
+ */
+export type ScanMode = PhotoMode | 'barcode' | 'menu';
 
 type CameraCaptureProps = {
   onPhoto: (photo: Photo) => void;
@@ -46,13 +49,25 @@ type CameraCaptureProps = {
   onSearch: () => void;
   /** A barcode was read by the camera or typed in. */
   onBarcode: (code: string) => void;
-  /** Taking another angle of the same meal (steer the AI): how many photos there are, and back to them. */
+  /**
+   * Taking another angle of the same meal (steer the AI), or the next page of a menu: how many photos
+   * there are, and back to them.
+   */
   adding?: { count: number; onDone: () => void };
+  /** What to order is on: a Menu mode next to Meal. */
+  menus?: boolean;
 };
 
 const MODE_OPTIONS = [
   { label: 'Meal', value: 'meal' },
   { label: 'Nutrition label', value: 'label' },
+  { label: 'Barcode', value: 'barcode' },
+] as const;
+/** Four modes fit one row with the short "Label". */
+const MODE_OPTIONS_WITH_MENU = [
+  { label: 'Meal', value: 'meal' },
+  { label: 'Menu', value: 'menu' },
+  { label: 'Label', value: 'label' },
   { label: 'Barcode', value: 'barcode' },
 ] as const;
 
@@ -76,13 +91,26 @@ const COPY: Record<ScanMode, { title: string; hint: string; off: string }> = {
     hint: 'Point the camera at the barcode',
     off: 'Turn on the camera for Weight Class to scan barcodes. You can still type the barcode.',
   },
+  menu: {
+    title: 'Scan menu',
+    hint: 'Fit one page of the menu in the frame',
+    off: 'Turn on the camera for Weight Class to read menus. You can still choose a photo of a menu, or find a chain in Search.',
+  },
 };
 
-/** Meal / label / barcode switch on the dark camera screen. */
-function ModeSwitch({ mode, onChange }: { mode: ScanMode; onChange: (mode: ScanMode) => void }) {
+/** Meal / (menu) / label / barcode switch on the dark camera screen. */
+function ModeSwitch({
+  mode,
+  options,
+  onChange,
+}: {
+  mode: ScanMode;
+  options: readonly { label: string; value: ScanMode }[];
+  onChange: (mode: ScanMode) => void;
+}) {
   return (
     <View accessibilityRole="tablist" className="flex-row self-center rounded-full bg-black/45 p-1">
-      {MODE_OPTIONS.map((option) => {
+      {options.map((option) => {
         const selected = option.value === mode;
         return (
           <Pressable
@@ -124,13 +152,15 @@ function Corner({ style }: { style: object }) {
   return <View style={[styles.corner, style]} />;
 }
 
-/** "Photo 2 of 3" while adding an angle, with the way back to the photos taken. */
+/** "Photo 2 of 3" while adding an angle (or "Page 2 of 3" of a menu), with the way back to the photos taken. */
 function AddingBar({
   adding,
   dark,
+  menu,
 }: {
   adding: NonNullable<CameraCaptureProps['adding']>;
   dark: boolean;
+  menu: boolean;
 }) {
   return (
     <View
@@ -140,7 +170,7 @@ function AddingBar({
       )}
     >
       <Text className={cn('flex-1 text-[14px] font-semibold', dark ? 'text-white' : 'text-ink')}>
-        Photo {adding.count + 1} of 3 · another angle of the same meal
+        {menu ? `Page ${adding.count + 1} of 3 · the next page of the menu` : `Photo ${adding.count + 1} of 3 · another angle of the same meal`}
       </Text>
       <Pressable
         accessibilityRole="button"
@@ -167,7 +197,9 @@ export function CameraCapture({
   onSearch,
   onBarcode,
   adding,
+  menus = false,
 }: CameraCaptureProps) {
+  const modeOptions = menus ? MODE_OPTIONS_WITH_MENU : MODE_OPTIONS;
   const insets = useSafeAreaInsets();
   const isFocused = useIsFocused();
   const { permission, asking, requestPermission } = useCameraAccess(isFocused);
@@ -227,9 +259,9 @@ export function CameraCapture({
         style={{ paddingTop: insets.top + 12, paddingBottom: bottomSpace }}
       >
         {adding ? (
-          <AddingBar adding={adding} dark={false} />
+          <AddingBar adding={adding} dark={false} menu={mode === 'menu'} />
         ) : (
-          <SegmentedControl options={MODE_OPTIONS} value={mode} onChange={onModeChange} />
+          <SegmentedControl options={modeOptions} value={mode} onChange={onModeChange} />
         )}
         <View className="flex-1 items-center justify-center">
           <View className="h-20 w-20 items-center justify-center rounded-full bg-surface">
@@ -321,7 +353,7 @@ export function CameraCapture({
 
       {adding ? (
         <View className="px-5" style={{ paddingTop: insets.top + 8 }}>
-          <AddingBar adding={adding} dark />
+          <AddingBar adding={adding} dark menu={mode === 'menu'} />
         </View>
       ) : (
         <View
@@ -376,7 +408,9 @@ export function CameraCapture({
               ? styles.labelFrame
               : mode === 'barcode'
                 ? styles.barcodeFrame
-                : styles.frame
+                : mode === 'menu'
+                  ? styles.menuFrame
+                  : styles.frame
           }
         >
           <Corner
@@ -419,7 +453,7 @@ export function CameraCapture({
         <Text className="mt-6 text-[15px] font-medium text-white">{COPY[mode].hint}</Text>
       </View>
 
-      {adding ? null : <ModeSwitch mode={mode} onChange={onModeChange} />}
+      {adding ? null : <ModeSwitch mode={mode} options={modeOptions} onChange={onModeChange} />}
       <View
         className="flex-row items-center justify-between px-10 pt-5"
         style={{ paddingBottom: bottomSpace }}
@@ -478,5 +512,6 @@ const styles = StyleSheet.create({
   frame: { width: 270, height: 270 },
   labelFrame: { width: 240, height: 330 },
   barcodeFrame: { width: 300, height: 170 },
+  menuFrame: { width: 280, height: 390 },
   corner: { position: 'absolute', width: 56, height: 56, borderColor: '#FFFFFF' },
 });

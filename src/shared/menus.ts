@@ -200,6 +200,8 @@ export type MenuRow = {
   fatG: number;
   range: { low: number; high: number } | null;
   citation: ChainCitation | null;
+  /** An estimate's foods and portions (our guess at the restaurant's serving); empty for a chain item. */
+  foods: { name: string; grams: number }[];
   /** The ranking (absent in the list of a dish that wasn't ranked). */
   variant: OrderVariant;
   rankedCalories: number;
@@ -238,6 +240,9 @@ export type MenuScanResponse = {
   list: MenuList | null;
   createdAt: string;
 };
+
+/** `GET /api/menu-scans`: the person's menus of the last 30 days, newest first ("Your menus"). */
+export type MenuScanSummary = { id: string; status: MenuScanStatus; restaurant: string | null; dishes: number; createdAt: string };
 
 /** Body of the log and save routes for a dish: whole or half, a tweak, the question's answer, a side. */
 export const orderDishSchema = z

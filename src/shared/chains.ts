@@ -70,7 +70,12 @@ const optionalAmount = (max: number) =>
 export const chainCsvRowSchema = z.object({
   chain: z.string().trim().min(2).max(60),
   section: z.string().trim().min(1).max(60),
-  name: z.string().trim().min(2).max(120),
+  // A guide's footnote marks ("Buffalo Chicken**", "Blue Cheese†") aren't part of the name.
+  name: z
+    .string()
+    .trim()
+    .transform((name) => name.replace(/\s*[*†‡§]+$/u, ''))
+    .pipe(z.string().min(2).max(120)),
   serving: z.string().trim().min(1).max(80),
   serving_g: optionalAmount(3000),
   kind: z.enum(CHAIN_ITEM_KINDS),

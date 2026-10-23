@@ -85,12 +85,22 @@ export type NutritionPlan = z.infer<typeof nutritionPlanSchema>;
 /** Body of `POST /api/plan`: the answers, and whether the person allowed AI (else the formula plan). */
 export const planRequestSchema = onboardingAnswersObject.extend({ aiConsent: z.boolean().optional() }).superRefine(safeGoal);
 
-/** Body of `POST /api/onboarding`. `aiConsent`: the choice on the AI consent screen. */
+/**
+ * The AI consent wording that names menus (What to order, v2.5). People who agreed to the earlier
+ * wording (meal photos, descriptions and notes) see the new one once, before their first menu scan.
+ */
+export const MENU_CONSENT_VERSION = 2;
+
+/**
+ * Body of `POST /api/onboarding`. `aiConsent`: the choice on the AI consent screen;
+ * `aiConsentVersion`: the wording it showed (`MENU_CONSENT_VERSION` names menus).
+ */
 export const saveOnboardingSchema = z.object({
   answers: onboardingAnswersSchema,
   plan: nutritionPlanSchema,
   timezone: z.string().min(1).max(100),
   aiConsent: z.boolean().optional(),
+  aiConsentVersion: z.number().int().min(1).max(MENU_CONSENT_VERSION).optional(),
 });
 export type SaveOnboardingBody = z.infer<typeof saveOnboardingSchema>;
 

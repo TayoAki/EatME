@@ -72,7 +72,7 @@ export const PATCH = handle(async (request) => {
   if (body.targetWeightKg !== undefined && (body.goal ?? user.goal) === 'lose' && heightCm && body.targetWeightKg < lowestGoalWeightKg(heightCm)) {
     throw new HttpError(400, lowGoalMessage(heightCm));
   }
-  const { dailyCalories, dailyProteinG, dailyCarbsG, dailyFatG, preferences, aiConsent, ...rest } = body;
+  const { dailyCalories, dailyProteinG, dailyCarbsG, dailyFatG, preferences, aiConsent, aiConsentVersion, ...rest } = body;
   const targets = targetChanges(user, { ...rest, dailyCalories, dailyProteinG, dailyCarbsG, dailyFatG });
 
   // A new weight in Personal details is today's weigh-in (after keeping the starting weight).
@@ -83,7 +83,7 @@ export const PATCH = handle(async (request) => {
       ...rest,
       ...targets,
       ...(preferences ? { preferences: { ...user.preferences, ...preferences } } : {}),
-      ...(aiConsent !== undefined ? aiConsentValues(aiConsent) : {}),
+      ...(aiConsent !== undefined ? aiConsentValues(aiConsent, aiConsentVersion) : {}),
     })
     .where(eq(users.id, userId))
     .returning();

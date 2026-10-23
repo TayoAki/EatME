@@ -105,6 +105,7 @@ These are the FDA's menu-labeling items (calories from fat is fat × 9, so it is
 - **Numbers only.** Facts carry no copyright; a guide's wording, layout, photos and logos do, and Apple rejects apps
   that use third-party material without permission (5.2.1). Don't copy descriptions, don't keep PDFs or images.
 - **Write what's printed.** `<1` becomes `0.5`, `<5 mg` becomes `2.5`; a dash or blank means the chain doesn't say.
+  Footnote marks after a name (`*`, `†`, `‡`, `§`) aren't part of it: `npm run chains:build` drops them.
 - **Every size is its own line**; combos, kids' meal bundles and catering are left out (the ranking builds orders).
 - **Recheck** each chain every six months, or when someone reports an item (the build warns after 183 days).
 

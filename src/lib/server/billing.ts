@@ -86,8 +86,8 @@ export async function checkAiLimit(userId: string, timeZone: string) {
   }
 }
 
-export async function billingStatus(userId: string, timeZone: string): Promise<BillingStatus> {
-  const [row, today] = await Promise.all([subscriptionOf(userId), scansToday(userId, timeZone)]);
+export async function billingStatus(user: { id: string; timezone: string; whatToOrderTry: string | null }): Promise<BillingStatus> {
+  const [row, today] = await Promise.all([subscriptionOf(user.id), scansToday(user.id, user.timezone)]);
   const premium = isActive(row);
   const free = freeScansPerDay();
   return {
@@ -99,6 +99,7 @@ export async function billingStatus(userId: string, timeZone: string): Promise<B
     freeScansPerDay: free,
     scansToday: today,
     scansLeft: premium ? null : Math.max(0, free - today),
+    whatToOrderTry: user.whatToOrderTry,
   };
 }
 

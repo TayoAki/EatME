@@ -1,6 +1,6 @@
 import { requireUserId } from '@/lib/server/auth';
 import { handle, HttpError, readJson } from '@/lib/server/http';
-import { createMenuScan, menuScanResponse, menuUser, requireWhatToOrder } from '@/lib/server/menus';
+import { createMenuScan, listMenuScans, menuScanResponse, menuUser, requireWhatToOrder } from '@/lib/server/menus';
 import { readPhotos } from '@/lib/server/uploads';
 import { createMenuScanSchema, MAX_MENU_PHOTOS } from '@/shared/menus';
 
@@ -33,4 +33,11 @@ export const POST = handle(async (request) => {
     id = await createMenuScan(user, { photos: await readPhotos(request, MAX_MENU_PHOTOS) }, restaurantHeader(request));
   }
   return Response.json(await menuScanResponse(user, id), { status: 201 });
+});
+
+/** "Your menus": scans of the last 30 days (they are deleted after that). */
+export const GET = handle(async (request) => {
+  requireWhatToOrder();
+  const userId = await requireUserId(request);
+  return Response.json({ scans: await listMenuScans(userId) });
 });

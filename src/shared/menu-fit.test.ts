@@ -155,6 +155,14 @@ describe('when nothing fits', () => {
     );
   });
 
+  test('a dish that leaves too little for the meals still to come never fits', () => {
+    // 03:00, 1,050 kcal left with breakfast, lunch and dinner still to come: 450 kcal is the most one dish may take.
+    const night = day({ target: { calories: 1400, proteinG: 140 }, eaten: { calories: 350, proteinG: 31 }, later: ['breakfast', 'lunch', 'dinner'] });
+    const fit = rankMenu([dish('caesar', 800, 38, { source: 'estimate', range: { low: 600, high: 1040 } }), dish('alfredo', 700, 10)], night);
+    assert.equal(fit.state, 'nothing_fits');
+    assert.match(fit.others[1].reason, /^A bigger meal: leaves about 10 kcal for breakfast, lunch and dinner$/);
+  });
+
   test('when every meal is over what is left, nothing is ranked', () => {
     const fit = rankMenu([dish('burger', 900, 40), dish('pizza', 1200, 45)], day({ eaten: { calories: 1300, proteinG: 80 }, later: [] }));
     assert.equal(fit.state, 'nothing_fits');
@@ -214,5 +222,12 @@ describe('words for calm mode', () => {
   test('the reason names the next meal', () => {
     const fit = rankMenu([dish('bowl', 720, 30)], day());
     assert.equal(fit.fitsWell[0].reason, 'Leaves about 780 kcal for dinner');
+  });
+
+  test('…every meal still to come, and says when a dish is a bigger meal than this one', () => {
+    // 09:00: 2,000 kcal left for this meal, lunch and dinner (aim 667 kcal).
+    const morning = day({ eaten: { calories: 0, proteinG: 0 }, later: ['lunch', 'dinner'] });
+    assert.equal(rankMenu([dish('wrap', 640, 20)], morning).fitsWell[0].reason, 'Leaves about 1,360 kcal for lunch and dinner');
+    assert.equal(rankMenu([dish('mixed grill', 1100, 20)], morning).fitsWell[0].reason, 'A bigger meal: leaves about 900 kcal for lunch and dinner');
   });
 });

@@ -66,6 +66,8 @@ export default function AppLayout() {
         <Stack.Screen name="premium" />
         <Stack.Screen name="preferences" />
         <Stack.Screen name="personal-foods" />
+        <Stack.Screen name="restaurant/[slug]" />
+        <Stack.Screen name="menu/[id]" />
         <Stack.Screen name="sentry-test" />
       </Stack>
     </>

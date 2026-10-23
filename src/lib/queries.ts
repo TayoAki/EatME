@@ -20,6 +20,7 @@ import type { DayPlanResponse } from '@/shared/day-draft';
 import type { BillingStatus } from '@/shared/billing';
 import type { Features } from '@/shared/features';
 import type { FoodSummary, Meal, QuickMeal, UpdateMealBody, UpdateMealItemsBody } from '@/shared/meals';
+import type { ChainItemReportBody, ChainMenuResponse, ChainSummary, DishLine, MenuScanResponse, MenuScanSummary, OrderDishBody } from '@/shared/menus';
 import type { NutrientDay } from '@/shared/nutrients';
 import type { FoodCorrection, PersonalFood, RememberFoodsBody, UpdatePersonalFoodBody } from '@/shared/personal-foods';
 import type { ProductReportBody, ProductResponse } from '@/shared/products';
@@ -33,6 +34,7 @@ import type { AddWeightBody, WeightEntry, WeightHistory } from '@/shared/weight'
 import { ApiError, useApi } from './api';
 import { useSession } from './auth-client';
 import { prepareJpeg, readBytes } from './meal-upload';
+import { uploadMenu } from './menu-upload';
 import { todayIso } from './time';
 
 export const queryKeys = {
@@ -61,6 +63,9 @@ export const queryKeys = {
   checkIn: (userId: string | null | undefined) => ['checkin', userId] as const,
   dayPlanAll: (userId: string | null | undefined) => ['day-plan', userId] as const,
   dayPlan: (userId: string | null | undefined, date: string) => ['day-plan', userId, date] as const,
+  menusAll: (userId: string | null | undefined) => ['menus', userId] as const,
+  chainMenu: (userId: string | null | undefined, slug: string) => ['menus', userId, 'chain', slug] as const,
+  menuScan: (userId: string | null | undefined, id: string) => ['menus', userId, 'scan', id] as const,
 };
 
 /** Earlier days are sent as `date`; today logs at "now". */
@@ -923,3 +928,113 @@ export function useClearDayPlan(date: string) {
     onSuccess: () => queryClient.invalidateQueries({ queryKey: queryKeys.dayPlan(userId, date) }),
   });
 }
+
+// ── What to order (v2.5) ────────────────────────────────────────────────────────────────────────
+
+/** A 4xx (not found, Premium, off) is an answer, not a hiccup: never retried. */
+const retryServerErrors = (count: number, error: Error) => !(error instanceof ApiError && error.status < 500) && count < 2;
+
+/** Chains in our table whose name has the words typed; the biggest first when nothing is typed. */
+export function useChains(query: string, enabled = true) {
+  const api = useApi();
+  const q = query.trim();
+  return useQuery({
+    queryKey: ['chains', q],
+    queryFn: ({ signal }) => api<{ chains: ChainSummary[] }>(`/api/chains?q=${encodeURIComponent(q)}`, { signal }),
+    enabled,
+    staleTime: 10 * 60_000,
+    placeholderData: (previous) => previous,
+  });
+}
+
+/** A chain's menu ranked for the person's day (402: Premium after the free try). */
+export function useChainMenu(slug: string) {
+  const { userId } = useSession();
+  const api = useApi();
+  const queryClient = useQueryClient();
+  return useQuery({
+    queryKey: queryKeys.chainMenu(userId, slug),
+    queryFn: async ({ signal }) => {
+      const menu = await api<ChainMenuResponse>(`/api/chains/${encodeURIComponent(slug)}/menu`, { signal });
+      // Opening the free try changes what the next menu needs.
+      if (menu.freeTry) void queryClient.invalidateQueries({ queryKey: queryKeys.billing(userId) });
+      return menu;
+    },
+    retry: retryServerErrors,
+  });
+}
+
+/** "Your menus": scans of the last 30 days. */
+export function useMenuScans(enabled = true) {
+  const { userId } = useSession();
+  const api = useApi();
+  return useQuery({
+    queryKey: [...queryKeys.menusAll(userId), 'scans'],
+    queryFn: ({ signal }) => api<{ scans: MenuScanSummary[] }>('/api/menu-scans', { signal }),
+    enabled,
+    retry: retryServerErrors,
+  });
+}
+
+/** A menu scan; polled while the server reads it. A menu that couldn't be read gives the free try back. */
+export function useMenuScan(id: string) {
+  const { userId } = useSession();
+  const api = useApi();
+  const queryClient = useQueryClient();
+  return useQuery({
+    queryKey: queryKeys.menuScan(userId, id),
+    queryFn: async ({ signal }) => {
+      const scan = await api<MenuScanResponse>(`/api/menu-scans/${id}`, { signal });
+      if (scan.status === 'failed') void queryClient.invalidateQueries({ queryKey: queryKeys.billing(userId) });
+      return scan;
+    },
+    retry: retryServerErrors,
+    refetchInterval: (query) => (query.state.data?.status === 'reading' ? 2000 : false),
+  });
+}
+
+/** Starts reading a menu: the confirmed dish lines, or the photos when the phone couldn't read them. */
+export function useCreateMenuScan() {
+  const { userId } = useSession();
+  const api = useApi();
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async (input: { lines: DishLine[]; restaurant?: string } | { photos: { uri: string; width?: number; height?: number }[]; restaurant?: string }) =>
+      'lines' in input
+        ? api<MenuScanResponse>('/api/menu-scans', { method: 'POST', body: { lines: input.lines, restaurant: input.restaurant || undefined } })
+        : uploadMenu(api, input.photos, input.restaurant),
+    onSuccess: (scan) => {
+      queryClient.setQueryData(queryKeys.menuScan(userId, scan.id), scan);
+      void queryClient.invalidateQueries({ queryKey: queryKeys.billing(userId) });
+      void queryClient.invalidateQueries({ queryKey: [...queryKeys.menusAll(userId), 'scans'] });
+    },
+  });
+}
+
+/** Where an order goes: a chain item, or a dish of a menu scan. */
+export type OrderTarget = { chainItemId: string } | { scanId: string; n: number };
+
+/** Log it (now) or Save for later (Saved meals). Every list follows the day afterwards. */
+export function useOrderDish() {
+  const { userId } = useSession();
+  const api = useApi();
+  const queryClient = useQueryClient();
+  const invalidateMeals = useInvalidateMeals();
+  return useMutation({
+    mutationFn: ({ target, action, body }: { target: OrderTarget; action: 'log' | 'save'; body: OrderDishBody }) =>
+      api<{ meal: Meal }>(
+        'chainItemId' in target ? `/api/chain-items/${target.chainItemId}/${action}` : `/api/menu-scans/${target.scanId}/dishes/${target.n}/${action}`,
+        { method: 'POST', body },
+      ),
+    onSuccess: () => Promise.all([invalidateMeals(), queryClient.invalidateQueries({ queryKey: queryKeys.menusAll(userId) })]),
+  });
+}
+
+/** "Report a wrong item" on a chain item. */
+export function useReportChainItem(itemId: string) {
+  const api = useApi();
+  return useMutation({
+    mutationFn: (report: ChainItemReportBody) => api(`/api/chain-items/${itemId}/report`, { method: 'POST', body: report }),
+  });
+}
+

@@ -892,7 +892,17 @@ item and replaces the old v2.2 list and the "Later" list; tick a box there and h
   21 October 2026: Premium with one free try; FatSecret retired; as many chains as possible by US sales (100 for
   launch), checked by two AI drafts that must agree plus a person for disagreements and a sample; Nutritionix later;
   no chain photos or logos. Built: the chain table, its load script and the drafting pipeline (`data/chains/`,
-  `npm run chains:draft`, `npm run chains:build`). Waiting on OpenRouter credit and `FIRECRAWL_API_KEY`
+  `npm run chains:draft`, `npm run chains:build`).
+  - [x] 22 October: the ranking (`src/shared/menu-fit.ts`, `npm test`), the menu pipeline
+    (`src/lib/server/menu-analysis.ts`) and the server (`src/lib/server/menus.ts`, routes under `/api/chains`,
+    `/api/chain-items`, `/api/menu-scans`), live on Railway with 13 chains (1,570 items)
+  - [x] 23 October: the app screens (Search → Restaurants with Your menus, a chain's What fits, Scan → Menu with
+    pages, on-device reading on iPhone and the confirm step, the scanned menu, the dish sheet, Report a wrong item,
+    the logged meal's source, Foods to skip in Preferences, Sources → Restaurant menus), consent wording that names
+    menus (asked once more), the Privacy Policy and Washington policy, the test menu (`<server>/test-menu`), store
+    notes (`store/README.md` → What to order) and a browser run of every screen with payments on and off
+  - [ ] Waiting: OpenRouter credit (more chains, the accuracy pilot), a person for the 908 review lines, the
+    menu-reading check on an iPhone, then its own build and version (never build 4, which comes from `f05e76a`)
 
 **Eating out decisions** (checked September 2026; migration `restaurant_meals`; kept for the record, the
 feature was retired on 21 October 2026)

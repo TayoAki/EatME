@@ -9,6 +9,6 @@ import { handle } from '@/lib/server/http';
 /** The user's plan (free or Premium) and today's free AI scans. */
 export const GET = handle(async (request) => {
   const userId = await requireUserId(request);
-  const user = await db.query.users.findFirst({ where: eq(users.id, userId), columns: { timezone: true } });
-  return Response.json(await billingStatus(userId, user?.timezone ?? 'UTC'));
+  const user = await db.query.users.findFirst({ where: eq(users.id, userId), columns: { timezone: true, whatToOrderTry: true } });
+  return Response.json(await billingStatus({ id: userId, timezone: user?.timezone ?? 'UTC', whatToOrderTry: user?.whatToOrderTry ?? null }));
 });

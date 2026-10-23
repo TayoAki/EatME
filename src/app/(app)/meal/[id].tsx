@@ -38,6 +38,7 @@ import { ProteinHint } from '@/components/meal/protein-hint';
 import { SugarHint } from '@/components/meal/sugar-hint';
 import { RepeatSheet } from '@/components/meal/repeat-sheet';
 import { ServingsStepper } from '@/components/meal/servings-stepper';
+import { MenuMealSource } from '@/components/menu/menu-meal-source';
 import { SourcesLink } from '@/components/sources';
 import { Button } from '@/components/ui/button';
 import { IconButton } from '@/components/ui/icon-button';
@@ -346,6 +347,8 @@ function MealEditor({ meal, showNumbers, onShowNumbers, corrections, onCorrectio
   // Logged from restaurant menus while they were tested (retired October 2026): the chain's name stays.
   const chains = [...new Set(items.flatMap((item) => (item.restaurant ? [item.restaurant.chain] : [])))];
   const fromRestaurant = items.length > 0 && items.every((item) => item.restaurant);
+  // Ordered with What to order (v2.5): the citation it was logged with.
+  const fromMenu = items.some((item) => item.menu);
 
   return (
     <KeyboardAvoidingView className="flex-1" behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
@@ -363,6 +366,8 @@ function MealEditor({ meal, showNumbers, onShowNumbers, corrections, onCorrectio
               alcohol). Alcohol from the size and strength; carbs from the USDA food database.
             </Text>
           </View>
+        ) : !hero && fromMenu ? (
+          <MenuMealSource items={items} hideNumbers={!showNumbers} />
         ) : !hero && fromRestaurant ? (
           <View className="flex-row gap-3 rounded-card bg-surface p-4">
             <Store size={18} color={colors.muted} style={{ marginTop: 2 }} />
@@ -479,7 +484,7 @@ function MealEditor({ meal, showNumbers, onShowNumbers, corrections, onCorrectio
         )}
         {/* Quick add: the person typed the numbers. */}
         {quick ? null : (
-          <SourcesLink topic={alcoholic ? 'drinks' : 'foods'} label="Where these numbers come from" className="mt-2" />
+          <SourcesLink topic={alcoholic ? 'drinks' : fromMenu ? 'restaurants' : 'foods'} label="Where these numbers come from" className="mt-2" />
         )}
 
         {sugar ? (

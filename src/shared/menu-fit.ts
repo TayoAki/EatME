@@ -193,15 +193,33 @@ export function fitWord(calories: number, aimCalories: number): FitWord {
   return 'fits';
 }
 
-/** One line with numbers our code computed: what the order leaves for later, or its protein. */
-export function reasonFor(calories: number, proteinG: number, left: number, day: Pick<MenuDay, 'glp1' | 'later'>, aimProteinG: number) {
+/** "dinner", "lunch and dinner", "breakfast, lunch and dinner". */
+function mealsText(later: readonly DraftSlot[]) {
+  const names = later.map((slot) => SLOT_LABELS[slot].toLowerCase());
+  if (names.length === 0) return 'the rest of today';
+  return names.length > 1 ? `${names.slice(0, -1).join(', ')} and ${names.at(-1)}` : names[0];
+}
+
+/**
+ * One line with numbers our code computed: what the order leaves for the meals still to come, its
+ * protein, or that it's a bigger meal than this one's aim (an honest word, never a judgment).
+ */
+export function reasonFor(
+  calories: number,
+  proteinG: number,
+  left: number,
+  day: Pick<MenuDay, 'glp1' | 'later'>,
+  aim: { calories: number; proteinG: number },
+  meal = true,
+) {
   const after = left - calories;
   if (after < 0) return `About ${round10(-after).toLocaleString('en-US')} kcal over what's left today`;
   const protein = Math.round(proteinG);
-  if (day.glp1 || (aimProteinG > 0 && protein >= aimProteinG && protein >= 25)) return `${protein} g protein`;
-  const next = day.later[0];
-  const leaves = round10(after).toLocaleString('en-US');
-  return next ? `Leaves about ${leaves} kcal for ${SLOT_LABELS[next].toLowerCase()}` : `Leaves about ${leaves} kcal for the rest of today`;
+  if (day.glp1) return `${protein} g protein`;
+  const leaves = `leaves about ${round10(after).toLocaleString('en-US')} kcal for ${mealsText(day.later)}`;
+  if (meal && fitWord(calories, aim.calories) === 'bigger') return `A bigger meal: ${leaves}`;
+  if (aim.proteinG > 0 && protein >= aim.proteinG && protein >= 25) return `${protein} g protein`;
+  return `L${leaves.slice(1)}`;
 }
 
 /**
@@ -243,7 +261,7 @@ export function rankMenu(dishes: readonly MenuDish[], day: MenuDay, foodsToSkip:
       proteinG: Math.round(proteinG),
       score: orderScore(calories, proteinG, aim, day.glp1),
       fit: fitWord(calories, aim.calories),
-      reason: reasonFor(calories, proteinG, left.calories, day, aim.proteinG),
+      reason: reasonFor(calories, proteinG, left.calories, day, aim, dish.kind === 'main'),
       overBudget: calories > left.calories,
     };
   };
@@ -261,8 +279,9 @@ export function rankMenu(dishes: readonly MenuDish[], day: MenuDay, foodsToSkip:
   }
 
   const mealFloor = Math.max(MEAL_FLOOR_KCAL, MEAL_FLOOR_SHARE * aim.calories);
-  // Meal-sized, and never more than what's left today (whatever the score).
-  const fits = (r: RankedDish) => r.calories >= mealFloor && !r.overBudget;
+  // Meal-sized, and leaving at least a small meal for each main meal still to come (whatever the score).
+  const room = left.calories - day.later.length * MEAL_FLOOR_KCAL;
+  const fits = (r: RankedDish) => r.calories >= mealFloor && r.calories <= room;
   const candidates: { dish: MenuDish; ranked: RankedDish }[] = [];
   for (const w of whole) {
     if (!isMeal(w.dish)) continue;

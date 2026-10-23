@@ -142,6 +142,8 @@ export const users = pgTable('users', {
    */
   aiConsentAt: timestamp({ withTimezone: true }),
   aiConsentProviders: text().array(),
+  /** The consent wording they agreed to: 1 named meals, 2 adds menus (What to order). Empty = 1. */
+  aiConsentVersion: integer(),
   /**
    * What to order (v2.5, Premium with one free try): the list that was the free try, as
    * "chain:<slug>" or "scan:<id>". It stays open; any other list needs Premium.
