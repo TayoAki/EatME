@@ -472,6 +472,8 @@ export function kindOf(section: string, name: string): ChainItemKind {
 type Line = { item: DraftItem; check: ChainCheck };
 
 const words = (value: string) => new Set(normalize(value).split(/[^a-z0-9]+/).filter(Boolean));
+/** A line's words, name and size together: the same line whichever part a draft put a word in. */
+const lineWords = (item: Pick<DraftItem, 'name' | 'serving'>) => [...words(`${item.name} ${item.serving}`)].sort().join(' ');
 /** Names that differ only in wording ("4 ct Mini Yeast Rolls" and "Mini Yeast Rolls"). */
 function similarNames(x: string, y: string) {
   const a = normalize(x);
@@ -505,14 +507,18 @@ export function compare(a: readonly DraftItem[], b: readonly DraftItem[], pageCo
   const unmatchedB = new Set([...right.keys()].filter((key) => !left.has(key)));
   for (const keyA of unmatchedA) {
     const x = left.get(keyA)!;
-    const candidates = [...unmatchedB].filter((keyB) => {
+    let candidates = [...unmatchedB].filter((keyB) => {
       const y = right.get(keyB)!;
       return NUMBER_FIELDS.every((field) => same(x[field], y[field])) && similarNames(x.name, y.name) && samePage(x, y);
     });
+    // Several with the same numbers (a drink's hot medium and iced large): the one with the same words, only split
+    // differently between the name and the size ("911" sized "Hot, Medium" against "911 Hot" sized "Medium").
+    if (candidates.length > 1) candidates = candidates.filter((keyB) => lineWords(right.get(keyB)!) === lineWords(x));
     if (candidates.length !== 1) continue;
     const y = right.get(candidates[0])!;
     const longer = y.name.length > x.name.length ? y : x;
-    const item = { ...x, name: longer.name, serving: x.serving.length >= y.serving.length ? x.serving : y.serving };
+    // The same words keep draft A's split; otherwise the fuller name and size.
+    const item = lineWords(x) === lineWords(y) ? { ...x } : { ...x, name: longer.name, serving: x.serving.length >= y.serving.length ? x.serving : y.serving };
     const pairedKey = keyOf(item);
     if (pairedKey !== keyA && pairedKey !== candidates[0] && (left.has(pairedKey) || right.has(pairedKey))) continue;
     unmatchedB.delete(candidates[0]);

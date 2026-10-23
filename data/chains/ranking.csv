@@ -25,7 +25,7 @@ rank,chain,site,guide_url,notes
 24,Culver's,culvers.com,https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf,"drafted 2026-10-23: 200 agreed, 146 for a person"
 25,Whataburger,whataburger.com,https://wbimageserver.whataburger.com/Nutrition.pdf,"drafted 2026-10-22: 136 agreed, 103 for a person"
 26,Arby's,arbys.com,https://assets.ctfassets.net/30q5w5l98nbx/42zLskOHOxnHbSVYO98X47/eb5b661b4d42295aaf804a8f6a150b13/Arbys_Nutritional_and_Allergen_OCT_2026.pdf,"drafted 2026-10-23: 176 agreed, 59 for a person"
-27,Jack in the Box,jackinthebox.com,,no nutrition page found on jackinthebox.com: set guide_url by hand
+27,Jack in the Box,jackinthebox.com,https://cdn.sanity.io/files/j2jr32rk/content-production/5cbdb27f7f3cd5978732e01d566d4e11e064f0e4.pdf,"drafted 2026-10-23: 5 agreed, 61 for a person"
 28,Jersey Mike's Subs,jerseymikes.com,https://www.jerseymikes.com/menu/nutrition,no nutrition numbers found in the guide: set guide_url to the PDF or full table
 29,Buffalo Wild Wings,buffalowildwings.com,https://assets.ctfassets.net/6dxmiqksdkqb/2XgznB5cOqQ9l1r7PQAasB/dd312340082cc00107545e7ab21318a7/BWW_Nutrition_Guide__08-18-2026_-_11-17-2026_.pdf,"drafted 2026-10-23: 152 agreed, 254 for a person"
 30,Applebee's,applebees.com,https://www.applebees.com/en/nutrition,no nutrition numbers found in the guide: set guide_url to the PDF or full table
@@ -44,7 +44,7 @@ rank,chain,site,guide_url,notes
 43,Hardee's,hardees.com,https://www.hardees.com/getContentAsset/20c3e4eb-fa23-4fb2-b914-5fc082e91122/dfc3d011-8f63-43f6-9ed8-4b444333a1d0/nutritional-info-page.pdf?language=en-US,"drafted 2026-10-23: 114 agreed, 12 for a person"
 44,Bojangles,bojangles.com,https://storyblok.pleinaircdn.com/f/110020/x/6c7b2a7e6a/m25-099-2025_02-nutritiongudeupdates_bobitessalad_master.pdf,"drafted 2026-10-23: 75 agreed, 118 for a person"
 45,Golden Corral,goldencorral.com,https://www.goldencorral.com/nutrition/,"drafted 2026-10-23: 1125 agreed, 109 for a person"
-46,Red Lobster,redlobster.com,,no nutrition page found on redlobster.com: set guide_url by hand
+46,Red Lobster,redlobster.com,https://img-ecomm-rl-prod-fye5gqbxdtbghqer.a03.azurefd.net/brandsite/documents/US_Nutrition_10-12-26.pdf,no nutrition page found on redlobster.com: set guide_url by hand
 47,Tropical Smoothie Cafe,tropicalsmoothiecafe.com,https://www.tropicalsmoothiecafe.com/nutrition,no nutrition numbers found in the guide: set guide_url to the PDF or full table
 48,Shake Shack,shakeshack.com,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,"drafted 2026-10-23: 152 agreed, 6 for a person"
 49,Waffle House,wafflehouse.com,https://www.wafflehouse.com/wp-content/uploads/2026/05/Menu-Nutritionals-2026-05-05.pdf,"drafted 2026-10-23: 111 agreed, 39 for a person"
