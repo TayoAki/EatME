@@ -3,13 +3,12 @@
 Guide: https://www.pfchangs.com/docs/default-source/pdf/pfc-national-menu-nutrition-autumn-in-kyoto-2026.pdf?sfvrsn=c1edf3f2_9 (read 2026-10-23). Draft A: openai/gpt-5.6-luna. Draft B: anthropic/claude-haiku-5.5.
 Numbers in order: calories / fat_g / saturated_fat_g / trans_fat_g / cholesterol_mg / sodium_mg / carbs_g / fiber_g / sugars_g / protein_g.
 
-## Disagreements (72)
+## Disagreements (70)
 
 Fix each line in `menus/p-f-changs.csv` from the guide and set its check to `person` (or delete the line if it isn't on the menu).
 
 | Item | Size | Why | Draft A | Draft B |
 | --- | --- | --- | --- | --- |
-| GF Egg Drop Soup | 1 cup | only in draft A | 40 / 1 / 0 / 0 / 30 / 560 / 6 / 0 / 2 / 1 | not found |
 | GF Chang's Spicy Chicken | 1 | differ: calories, fat_g, saturated_fat_g, cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 1160 / 60 / 12 / 0 / 160 / 1900 / 96 / 4 / 62 / 78 | 550 / 27 / 5 / 0 / 55 / 990 / 34 / 1 / 32 / 25 |
 | GF Mongolian Beef | 1 | differ: calories, fat_g, saturated_fat_g, cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 740 / 40 / 12 / 0 / 120 / 1960 / 28 / 2 / 24 / 66 | 350 / 17 / 5 / 0 / 35 / 1110 / 23 / 1 / 18 / 26 |
 | GF Beef with Broccoli | 1 | differ: calories, fat_g, saturated_fat_g, cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 680 / 32 / 9 / 0 / 90 / 2000 / 42 / 6 / 32 / 56 | 380 / 19 / 4 / 0 / 55 / 1040 / 31 / 3 / 24 / 22 |
@@ -80,7 +79,6 @@ Fix each line in `menus/p-f-changs.csv` from the guide and set its check to `per
 | GF Brown Rice | 8oz | only in draft B | not found | 250 / 2 / 0 / 0 / 0 / 0 / 53 / 4 / 0 / 5 |
 | GF Fried Rice | 8oz | only in draft B | not found | 420 / 15 / 3 / 0 / 185 / 520 / 58 / 2 / 7 / 11 |
 | Kids Soda | 1 | only in draft B | not found | – / 0 / – / 0 / 0 / – / – / 0 / – / 0 |
-| GF Egg Drop Soup cup | 1 | only in draft B | not found | 40 / 1 / 0 / 0 / 30 / 560 / 6 / 0 / 2 / 1 |
 
 ## Spot check (6 agreed lines)
 

@@ -94,16 +94,16 @@ Compare with the guide. If one is wrong, fix it, set its check to `person`, and 
 | --- | --- | --- |
 | Pink Bubblegum | 1 - 4 oz | 250 / 12 / 8 / 0 / 50 / 75 / 30 / 0 / 26 / 4 |
 | German Chocolate Cake | Scoop (71 grams) | 200 / 10 / 5 / 0 / 25 / 80 / 24 / 1 / 16 / 3 |
-| Caramel Praline Cappy™ - Large | Large (32 fl oz) | 1040 / 31 / 19 / 1 / 110 / 410 / 176 / 2 / 125 / 13 |
 | Lemon Sorbet | 1 - 2.5 oz | 80 / 0 / 0 / 0 / 0 / 0 / 21 / 0 / 16 / 0 |
 | OREO® Layered Sundae | 1 Sundae (369 grams) | 1100 / 46 / 28 / 1 / 100 / 530 / 161 / 3 / 118 / 14 |
-| Vanilla Milkshake - Medium | Medium (24 fl oz) | 1020 / 55 / 34 / 2 / 210 / 300 / 111 / 1 / 99 / 20 |
 | Baseball Nut® Pre-Packed Quart | 2/3 cup (102 grams) | 250 / 13 / 7 / 0 / 40 / 115 / 30 / 1 / 21 / 4 |
 | Gold Medal Ribbon® Pre-Packed Quart | 2/3 cup (98 grams) | 210 / 11 / 7 / 0 / 40 / 135 / 25 / 1 / 18 / 4 |
 | Mom's Makin' Cookies® | 1 - 4 oz | 310 / 15 / 9 / 0 / 45 / 135 / 42 / 0 / 31 / 4 |
 | Peppermint Fudge Cappy™ | 32 fl oz | 1120 / 40 / 31 / 1 / 85 / 430 / 179 / 2 / 150 / 15 |
 | Peppermint | 1 - 4 oz | 270 / 14 / 9 / 0 / 50 / 80 / 33 / 0 / 27 / 4 |
-| Chocolate Fudge Cappy™ - Large | Large (32 fl oz) | 1120 / 41 / 31 / 1 / 85 / 490 / 177 / 4 / 147 / 16 |
+| Chocolate Chip Milkshake - Medium | 24 fl oz | 1030 / 54 / 34 / 1.5 / 185 / 360 / 118 / 3 / 102 / 22 |
+| Gold Medal Ribbon® Milkshake - Small | 16 fl oz | 680 / 30 / 19 / 1 / 110 / 380 / 91 / 1 / 73 / 14 |
+| Chocolate Fudge Cappy™ - Medium | 24 fl oz | 860 / 32 / 24 / 0.5 / 70 / 380 / 136 / 3 / 113 / 13 |
 | Creature Creations™ - High End | 2 Scoops (160g) | 490 / 30 / 15 / 0.5 / 55 / 210 / 51 / 3 / 36 / 9 |
 | Chocolate Dipped Sugar Cone | 1 Cone (32 grams) | 160 / 8 / 4.5 / 0 / 0 / 65 / 22 / 1 / 13 / 1 |
 | Mango Chamoy Bar | 1 Bar (106g) | 90 / 0 / 0 / 0 / 0 / 140 / 23 / 1 / 22 / 0 |

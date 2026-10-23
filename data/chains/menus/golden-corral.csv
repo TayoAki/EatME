@@ -591,7 +591,6 @@ Golden Corral,Desserts,Glazed Chocolate Cake Donut Holes,3 each,49,dessert,200,1
 Golden Corral,Desserts,Gummy Bears,10 each,27,dessert,90,0,0,0,0,5,19,0,13,2,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
 Golden Corral,Desserts,Hot Caramel,1 oz,28,dessert,90,1,0.5,0,5,50,20,0,13,1,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
 Golden Corral,Desserts,Hot Fudge,1 oz,28,dessert,90,3,3,0,0,70,16,1,13,1,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
-Golden Corral,Desserts,Ice Cream - Soft Serve Vanilla,1/2 cup,87,dessert,110,2,1.5,0,5,100,22,0,16,1,https://www.goldencorral.com/nutrition/,2026-10-23,pending
 Golden Corral,Desserts,Ice Cream Cones,1 each,5,dessert,20,0,0,0,0,10,4,0,0,0,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
 Golden Corral,Desserts,"Ice Cream, Butter Pecan",2/3 Cup,113,dessert,190,11,5,0,35,65,21,1,14,3,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
 Golden Corral,Desserts,"Ice Cream, Cookies and Cream",2/3 Cup,113,dessert,200,10,5,0,30,90,27,2,17,3,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
@@ -1156,7 +1155,7 @@ Golden Corral,Sides,Vegetable Trio,1/2 cup,90,side,30,0,0,0,0,210,6,2,3,2,https:
 Golden Corral,Sides,Vegetable Trio with Lemon Butter Herb Sauce,1/2 cup,90,extra,90,7,3,0,0,250,5,2,2,1,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
 Golden Corral,Sides,Veggie Burger,1 each,171,side,350,9,1,0,0,770,55,6,11,12,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
 Golden Corral,Sides,"Zucchini, Sauteed",1/2 cup,90,side,60,5,1,0,0,160,3,1,2,1,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
-Golden Corral,Bread,Buttermilk Biscuit (1 ea),1 each (1 ea),67,main,230,14,7,0,0,630,24,1,2,4,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
+Golden Corral,Bread,Buttermilk Biscuit (1 ea),1 each,67,main,230,14,7,0,0,630,24,1,2,4,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
 Golden Corral,Breads,Biscuit - 1,1 each,92,main,330,19,11,0,0,1080,34,15,3,40,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
 Golden Corral,Breads,Cinnamon Rolls - 3,3 each,145,main,500,22,8,1,2.9,380,68,47,29,8,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
 Golden Corral,Breakfast,Bacon,4 each (2 Strips),38,main,210,19,7,0,30,680,0,1,0,11,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
@@ -1182,21 +1181,22 @@ Golden Corral,Desserts,Brownie (1),1 each,96,dessert,320,14,3.5,0,105,105,45,21,
 Golden Corral,Desserts,Chocolate Chess Pie (Updated 2024),1 Slice,107,dessert,390,17,10,0,55,340,54,1,40,4,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
 Golden Corral,Desserts,Chocolate Chip Cookies (12),12 Each,170,dessert,790,36,18,0,0,430,103,49,55,6,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
 Golden Corral,Desserts,Chocolate Chip Cookies (2 ea),2 each,28,dessert,130,6,3,0,0,70,17,0,9,1,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
-Golden Corral,Desserts,Ice Cream - Soft Serve Vanilla (1/2 Cup) A la Mode,1/2 cup,87,dessert,110,2,1.5,0,5,100,22,0,16,1,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
+Golden Corral,Desserts,Ice Cream - Soft Serve Vanilla,1/2 cup,87,dessert,110,2,1.5,0,5,100,22,0,16,1,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
+Golden Corral,Desserts,Ice Cream - Soft Serve Vanilla A la Mode,1/2 cup,87,dessert,110,2,1.5,0,5,100,22,0,16,1,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
 Golden Corral,Fish/Seafood,Fried Breaded Fish (3 pc),3 pieces,171,main,270,14,3,0,55,1090,11,2,0,23,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
-Golden Corral,Fish/Seafood,Popcorn Shrimp (1/4 cup),1/4 cup,30,main,90,4,1,0,20,330,9,1,0,3,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
-Golden Corral,Kids,Kids Chicken Tender (1),1 Tender,81,main,170,8,1.5,0,60,380,7,74,0,16,https://www.goldencorral.com/nutrition/,2026-10-23,pending
-Golden Corral,Kids Menu,Kids Chicken Drumstick (1),1 Drumstick,77,main,190,12,3,0,80,220,3,73,0,18,https://www.goldencorral.com/nutrition/,2026-10-23,pending
-Golden Corral,Kids Menu,Kids Macaroni & Cheese - 4 oz,4 oz,113,main,170,9,3,0,10,490,17,76,2,5,https://www.goldencorral.com/nutrition/,2026-10-23,pending
+Golden Corral,Fish/Seafood,Popcorn Shrimp,1/4 cup,30,main,90,4,1,0,20,330,9,1,0,3,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
+Golden Corral,Kids,Kids Chicken Tender,1 Tender,81,main,170,8,1.5,0,60,380,7,74,0,16,https://www.goldencorral.com/nutrition/,2026-10-23,pending
+Golden Corral,Kids Menu,Kids Chicken Drumstick,1 Drumstick,77,main,190,12,3,0,80,220,3,73,0,18,https://www.goldencorral.com/nutrition/,2026-10-23,pending
+Golden Corral,Kids Menu,Kids Macaroni & Cheese,4 oz,113,main,170,9,3,0,10,490,17,76,2,5,https://www.goldencorral.com/nutrition/,2026-10-23,pending
 Golden Corral,Pork,Bacon (side),3 slices,85,main,400,30,13,0,100,1150,0,0,0,25,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
-Golden Corral,Pork,BBQ Pork Ribs (Full Rack),Full Rack,1146,main,2430,155,55,1.5,690,4420,64,4,47,195,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
-Golden Corral,Pork,BBQ Pork Ribs (Half Rack),Half Rack,577,main,1250,82,29,0.5,345,2210,32,2,24,97,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
+Golden Corral,Pork,BBQ Pork Ribs,Full Rack,1146,main,2430,155,55,1.5,690,4420,64,4,47,195,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
+Golden Corral,Pork,BBQ Pork Ribs,Half Rack,577,main,1250,82,29,0.5,345,2210,32,2,24,97,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
 Golden Corral,Pork,Bratwurst (Lunch Size),1 Each,66,main,210,15,5,0,35,600,12,0,2,9,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
 Golden Corral,Pork,Double Smoked Cajun Sausage (w/Onions and Peppers),3 oz,85,main,250,21,9,0,50,650,3,1,1,12,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
 Golden Corral,Side,Macaroni and Cheese - Side,1 Each,189,side,310,18,7,0,25,840,26,79,3,9,https://www.goldencorral.com/nutrition/,2026-10-23,pending
 Golden Corral,Sides,Cheddar and Roasted Garlic Mashed Potatoes,2 Cups (16 oz Side),420,side,840,63,17,0,35,2440,55,4,6,13,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
 Golden Corral,Sides,Cheddar and Roasted Garlic Mashed Potatoes,4 Cups (32 oz Side),840,side,1670,127,34,0,75,4880,111,9,13,25,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
-Golden Corral,Sides,Cheddar Grits (4 oz),4 oz,113,side,150,8,4,0,20,270,15,26,0,6,https://www.goldencorral.com/nutrition/,2026-10-23,pending
+Golden Corral,Sides,Cheddar Grits,4 oz,113,side,150,8,4,0,20,270,15,26,0,6,https://www.goldencorral.com/nutrition/,2026-10-23,pending
 Golden Corral,Sides,Macaroni and Cheese,1 Cup (8 oz Side),225,side,330,18,6,0,15,960,33,0,4,10,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
 Golden Corral,Sides,Macaroni and Cheese,2 cups (16 oz Side),450,side,660,36,11,0.5,30,1930,67,0,9,20,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
 Golden Corral,Sides,Macaroni and Cheese,4 cups (32 oz Side),900,side,1320,71,23,1.5,65,3860,133,0,18,39,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
@@ -1208,26 +1208,25 @@ Golden Corral,Sides,Sweet Corn Pudding,16 oz (16 oz side),500,dessert,1350,55,23
 Golden Corral,Sides,Sweet Corn Pudding,8 oz (8 oz side),250,dessert,680,28,11,0,15,800,100,1,53,8,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
 Golden Corral,Sides,Sweet Potato Casserole,16 oz (16oz Side),460,dessert,830,14,5,1.5,15,115,165,6,110,10,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
 Golden Corral,Sides,Sweet Potato Casserole,8 oz (8oz Side),230,dessert,420,7,2.5,1,10,55,82,3,55,5,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
-Golden Corral,Sides,White Rice (16 oz Side),2 Cups (16 oz Side),340,side,480,17,7,0,0,830,69,0,0,7,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
-Golden Corral,Sides,White Rice (8 oz Side),1 Cup (8 oz Side),170,side,240,9,3.5,0,0,420,35,0,0,4,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
-Golden Corral,To-Go Breakfast,Bacon (4 ea),1 each (4 ea),38,main,210,19,7,0,30,680,0,0,0,11,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
-Golden Corral,To-Go Breakfast,Fresh Fruit - 8 ounces,8 ounces (1 each),227,main,100,0,0,0,0,20,24,3,20,2,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
-Golden Corral,To-Go Breakfast,Sausage Link (4 ea),1 Each (4 ea),130,main,460,42,16,0,60,1000,2,0,0,18,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
-Golden Corral,To-Go Breakfast,Sausage Patty (4 ea),1 each (4 ea),128,main,300,27,9,0,75,690,0,0,0,18,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
+Golden Corral,Sides,White Rice (16 oz Side),2 Cups,340,side,480,17,7,0,0,830,69,0,0,7,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
+Golden Corral,Sides,White Rice (8 oz Side),1 Cup,170,side,240,9,3.5,0,0,420,35,0,0,4,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
+Golden Corral,To-Go Breakfast,Bacon (4 ea),1 each,38,main,210,19,7,0,30,680,0,0,0,11,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
+Golden Corral,To-Go Breakfast,Fresh Fruit - 8 ounces,1 each,227,main,100,0,0,0,0,20,24,3,20,2,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
+Golden Corral,To-Go Breakfast,Sausage Link (4 ea),1 Each,130,main,460,42,16,0,60,1000,2,0,0,18,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
+Golden Corral,To-Go Breakfast,Sausage Patty (4 ea),1 each,128,main,300,27,9,0,75,690,0,0,0,18,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
 Golden Corral,To-Go Breakfast,Turkey Sausage (4 ea),4 each,172,main,320,24,8,0,120,380,8,0,32,28,https://www.goldencorral.com/nutrition/,2026-10-23,pending
 Golden Corral,Vegetables,Collard Greens - Seasoned (16 oz side),16 oz,392,main,140,4,0,0,0,1330,16,8,1,4,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
-Golden Corral,Vegetables,Corn - Steamed (16 oz side),2 cups (16 oz side),296,main,460,20,7,0,0,670,65,0,16,9,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
-Golden Corral,Vegetables,Corn - Steamed (8 oz side),1 Cup (8 oz side),148,main,230,10,3.5,0,0,340,32,0,8,5,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
-Golden Corral,Vegetables,Green Beans - Fresh (16 oz side),2 cups (16 oz side),250,main,270,23,9,0.5,0,990,17,6,8,4,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
-Golden Corral,Vegetables,Green Beans - Fresh (32 oz side),4 cups (32 oz side),919,main,1010,84,32,2,0,3640,62,22,30,15,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
-Golden Corral,Vegetables,Green Beans - Fresh (8 oz side),1 cup (8 oz side),125,main,170,15,6,0,0,620,8,3,4,2,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
+Golden Corral,Vegetables,Corn - Steamed (16 oz side),2 cups,296,main,460,20,7,0,0,670,65,0,16,9,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
+Golden Corral,Vegetables,Corn - Steamed (8 oz side),1 Cup,148,main,230,10,3.5,0,0,340,32,0,8,5,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
+Golden Corral,Vegetables,Green Beans - Fresh (16 oz side),2 cups,250,main,270,23,9,0.5,0,990,17,6,8,4,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
+Golden Corral,Vegetables,Green Beans - Fresh (32 oz side),4 cups,919,main,1010,84,32,2,0,3640,62,22,30,15,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
+Golden Corral,Vegetables,Green Beans - Fresh (8 oz side),1 cup,125,main,170,15,6,0,0,620,8,3,4,2,https://www.goldencorral.com/nutrition/,2026-10-23,two-drafts
 Golden Corral,Bread,Buttermilk Biscuits,2 each (2 ea),135,main,470,28,14,0,0,1260,48,2,4,8,https://www.goldencorral.com/nutrition/,2026-10-23,pending
 Golden Corral,Bread,Skillet Cornbread - Homeward,4 pieces,314,main,1190,74,30,1.5,70,2300,121,2,62,12,https://www.goldencorral.com/nutrition/,2026-10-23,pending
 Golden Corral,Breads,Yeast Roll,1 each (1),43,main,170,8,2,0,0,140,21,113,5,4,https://www.goldencorral.com/nutrition/,2026-10-23,pending
 Golden Corral,Breakfast,Waffles (Waffle Station),1 each,213,main,450,9,1.5,0,2.3,1620,84,6,26,7,https://www.goldencorral.com/nutrition/,2026-10-23,pending
 Golden Corral,,Chicken Wings - BBQ,5 Wings (5 pc portion),117,main,220,11,3,0,90,430,14,1,10,15,https://www.goldencorral.com/nutrition/,2026-10-23,pending
 Golden Corral,,Fried Chicken - Piece Variety,3 pcs (3 pc portion),324,main,900,57,14,0.5,325,1760,25,4,0,73,https://www.goldencorral.com/nutrition/,2026-10-23,pending
-Golden Corral,,Ice Cream - Soft Serve Vanilla (1/2 Cup),1/2 cup,87,dessert,110,2,1.5,0,5,100,22,0,16,1,https://www.goldencorral.com/nutrition/,2026-10-23,pending
 Golden Corral,Pork,Bratwurst (Whole - with Bun),1 Each,131,main,430,30,10,0,65,1190,25,0,3,18,https://www.goldencorral.com/nutrition/,2026-10-23,pending
 Golden Corral,Pork,Bratwurst - Dinner Size,1 Each,148,main,350,30,10,0,65,1010,9,1,3,15,https://www.goldencorral.com/nutrition/,2026-10-23,pending
 Golden Corral,Sides,Sauteed Onions (1/4 cup),1/4 cup,57,side,70,6,1,0,0,50,5,0,2,1,https://www.goldencorral.com/nutrition/,2026-10-23,pending

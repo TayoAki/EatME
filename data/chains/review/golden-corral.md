@@ -3,7 +3,7 @@
 Guide: https://www.goldencorral.com/nutrition/ (read 2026-10-23). Draft A: openai/gpt-5.6-luna. Draft B: anthropic/claude-haiku-5.5.
 Numbers in order: calories / fat_g / saturated_fat_g / trans_fat_g / cholesterol_mg / sodium_mg / carbs_g / fiber_g / sugars_g / protein_g.
 
-## Disagreements (109)
+## Disagreements (107)
 
 Fix each line in `menus/golden-corral.csv` from the guide and set its check to `person` (or delete the line if it isn't on the menu).
 
@@ -60,7 +60,6 @@ Fix each line in `menus/golden-corral.csv` from the guide and set its check to `
 | Chocolate Chip Cookies (2) | 2 Each | only in draft A | 130 / 6 / 3 / 0 / 0 / 70 / 17 / 50 / 9 / 1 | not found |
 | Chocolate Cookie - Sugar Free | 1 each | differ: trans_fat_g | 70 / 3.5 / 1 / 0 / 5 / 45 / – / – / – / – | 70 / 3.5 / 1 / – / 5 / 45 / – / – / – / – |
 | Coconut Cream Pie | 1 slice | both read numbers that can't be right: sugars 14 g above carbs 9 g | 240 / 15 / 10 / 0 / 0 / 200 / 9 / 0 / 14 / 1 | 240 / 15 / 10 / 0 / 0 / 200 / 9 / 0 / 14 / 1 |
-| Ice Cream - Soft Serve Vanilla | 1/2 cup | only in draft A | 110 / 2 / 1.5 / 0 / 5 / 100 / 22 / 0 / 16 / 1 | not found |
 | Vanilla Cake - Sugar Free | 1 slice | the guide gives no sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 130 / 8 / 5 / 0 / – / – / – / – / – / – | 130 / 8 / 5 / 0 / – / – / – / – / – / – |
 | Fried Catfish | 2 pieces | both read numbers that can't be right: fiber 60 g above carbs 13 g | 180 / 10 / 2 / 0 / 25 / 890 / 13 / 60 / 0 / 11 | 180 / 10 / 2 / 0 / 25 / 890 / 13 / 60 / 0 / 11 |
 | Lobster Tail | 4 oz | both read numbers that can't be right: fiber 6 g above carbs 1 g | 120 / 3 / 1 / 0 / 145 / 620 / 1 / 6 / 0 / 16 | 120 / 3 / 1 / 0 / 145 / 620 / 1 / 6 / 0 / 16 |
@@ -100,11 +99,11 @@ Fix each line in `menus/golden-corral.csv` from the guide and set its check to `
 | Collard Greens, Seasoned | 1/2 Cup | both read numbers that can't be right: fiber 48 g above carbs 5 g | 30 / 1 / 0 / 0 / 0 / 15 / 5 / 48 / 0 / 3 | 30 / 1 / 0 / 0 / 0 / 15 / 5 / 48 / 0 / 3 |
 | Green Beans, Fresh | 1/2 cup | the guide gives no sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 70 / 6 / 2.5 / 0 / 0 / – / – / – / – / – | 70 / 6 / 2.5 / 0 / 0 / – / – / – / – / – |
 | Chicken Fried Steak (1) | 1 piece | both read numbers that can't be right: fiber 31 g above carbs 13 g | 260 / 15 / 5 / 1 / 30 / 350 / 13 / 31 / 0 / 10 | 260 / 15 / 5 / 1 / 30 / 350 / 13 / 31 / 0 / 10 |
-| Kids Chicken Tender (1) | 1 Tender | both read numbers that can't be right: fiber 74 g above carbs 7 g | 170 / 8 / 1.5 / 0 / 60 / 380 / 7 / 74 / 0 / 16 | 170 / 8 / 1.5 / 0 / 60 / 380 / 7 / 74 / 0 / 16 |
-| Kids Chicken Drumstick (1) | 1 Drumstick | both read numbers that can't be right: fiber 73 g above carbs 3 g | 190 / 12 / 3 / 0 / 80 / 220 / 3 / 73 / 0 / 18 | 190 / 12 / 3 / 0 / 80 / 220 / 3 / 73 / 0 / 18 |
-| Kids Macaroni & Cheese - 4 oz | 4 oz | both read numbers that can't be right: fiber 76 g above carbs 17 g | 170 / 9 / 3 / 0 / 10 / 490 / 17 / 76 / 2 / 5 | 170 / 9 / 3 / 0 / 10 / 490 / 17 / 76 / 2 / 5 |
+| Kids Chicken Tender | 1 Tender | both read numbers that can't be right: fiber 74 g above carbs 7 g | 170 / 8 / 1.5 / 0 / 60 / 380 / 7 / 74 / 0 / 16 | 170 / 8 / 1.5 / 0 / 60 / 380 / 7 / 74 / 0 / 16 |
+| Kids Chicken Drumstick | 1 Drumstick | both read numbers that can't be right: fiber 73 g above carbs 3 g | 190 / 12 / 3 / 0 / 80 / 220 / 3 / 73 / 0 / 18 | 190 / 12 / 3 / 0 / 80 / 220 / 3 / 73 / 0 / 18 |
+| Kids Macaroni & Cheese | 4 oz | both read numbers that can't be right: fiber 76 g above carbs 17 g | 170 / 9 / 3 / 0 / 10 / 490 / 17 / 76 / 2 / 5 | 170 / 9 / 3 / 0 / 10 / 490 / 17 / 76 / 2 / 5 |
 | Macaroni and Cheese - Side | 1 Each | both read numbers that can't be right: fiber 79 g above carbs 26 g | 310 / 18 / 7 / 0 / 25 / 840 / 26 / 79 / 3 / 9 | 310 / 18 / 7 / 0 / 25 / 840 / 26 / 79 / 3 / 9 |
-| Cheddar Grits (4 oz) | 4 oz | both read numbers that can't be right: fiber 26 g above carbs 15 g | 150 / 8 / 4 / 0 / 20 / 270 / 15 / 26 / 0 / 6 | 150 / 8 / 4 / 0 / 20 / 270 / 15 / 26 / 0 / 6 |
+| Cheddar Grits | 4 oz | both read numbers that can't be right: fiber 26 g above carbs 15 g | 150 / 8 / 4 / 0 / 20 / 270 / 15 / 26 / 0 / 6 | 150 / 8 / 4 / 0 / 20 / 270 / 15 / 26 / 0 / 6 |
 | Turkey Sausage (4 ea) | 4 each | both read numbers that can't be right: sugars 32 g above carbs 8 g | 320 / 24 / 8 / 0 / 120 / 380 / 8 / 0 / 32 / 28 | 320 / 24 / 8 / 0 / 120 / 380 / 8 / 0 / 32 / 28 |
 | Buttermilk Biscuits | 2 each (2 ea) | only in draft B | not found | 470 / 28 / 14 / 0 / 0 / 1260 / 48 / 2 / 4 / 8 |
 | Skillet Cornbread - Homeward | 4 pieces | only in draft B | not found | 1190 / 74 / 30 / 1.5 / 70 / 2300 / 121 / 2 / 62 / 12 |
@@ -112,7 +111,6 @@ Fix each line in `menus/golden-corral.csv` from the guide and set its check to `
 | Waffles (Waffle Station) | 1 each | only in draft B | not found | 450 / 9 / 1.5 / 0 / 2.3 / 1620 / 84 / 6 / 26 / 7 |
 | Chicken Wings - BBQ | 5 Wings (5 pc portion) | only in draft B | not found | 220 / 11 / 3 / 0 / 90 / 430 / 14 / 1 / 10 / 15 |
 | Fried Chicken - Piece Variety | 3 pcs (3 pc portion) | only in draft B | not found | 900 / 57 / 14 / 0.5 / 325 / 1760 / 25 / 4 / 0 / 73 |
-| Ice Cream - Soft Serve Vanilla (1/2 Cup) | 1/2 cup | only in draft B | not found | 110 / 2 / 1.5 / 0 / 5 / 100 / 22 / 0 / 16 / 1 |
 | Bratwurst (Whole - with Bun) | 1 Each | only in draft B | not found | 430 / 30 / 10 / 0 / 65 / 1190 / 25 / 0 / 3 / 18 |
 | Bratwurst - Dinner Size | 1 Each | only in draft B | not found | 350 / 30 / 10 / 0 / 65 / 1010 / 9 / 1 / 3 / 15 |
 | Sauteed Onions (1/4 cup) | 1/4 cup | only in draft B | not found | 70 / 6 / 1 / 0 / 0 / 50 / 5 / 0 / 2 / 1 |
@@ -132,6 +130,7 @@ Compare with the guide. If one is wrong, fix it, set its check to `person`, and 
 | Chicken, Broccoli and Rice Bake | 1/2 Cup | 140 / 7 / 3 / 0 / 35 / 730 / 11 / 0 / 0 / 9 |
 | Fantastic Favorites | 1 Serving | 1120 / 72 / 36 / 1 / 545 / 2500 / 62 / 2 / 15 / 55 |
 | Grilled Chicken Livers | 3 each | 210 / 4.5 / 1.5 / 0 / 260 / 620 / 23 / 1 / 1 / 18 |
+| Fresh Fruit - 8 ounces | 1 each | 100 / 0 / 0 / 0 / 0 / 20 / 24 / 3 / 20 / 2 |
 | Hot Tea | 8 fl oz | 0 / 0 / 0 / 0 / 0 / 5 / 1 / 0 / 0 / 0 |
 | Donut Holes - Old Fashioned | 3 each | 210 / 10 / 4.5 / 0 / 5 / 190 / 27 / 9 / 14 / 2 |
 | Turkey Bistro Sandwich with Bacon | 1 Piece | 350 / 19 / 8 / 0 / 60 / 850 / 20 / 1 / 2 / 24 |
@@ -139,4 +138,3 @@ Compare with the guide. If one is wrong, fix it, set its check to `person`, and 
 | Gold Peak Tea, Unsweetened© | 16 fl oz | 0 / 0 / 0 / 0 / 0 / 55 / 0 / 0 / 0 / 0 |
 | Teriyaki Beef | 1 cup | 240 / 8 / 2 / 0 / 45 / 1090 / 22 / 1 / 16 / 19 |
 | Shrimp Boil | 6 oz | 330 / 23 / 9 / 0 / 100 / 660 / 12 / 10 / 2 / 18 |
-| Two Egg Breakfast - Bacon and Grits | 1 each | 450 / 30 / 11 / 0 / 440 / 740 / 23 / 1 / 1 / 22 |

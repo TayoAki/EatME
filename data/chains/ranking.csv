@@ -43,7 +43,7 @@ rank,chain,site,guide_url,notes
 42,Dutch Bros Coffee,dutchbros.com,https://www.dutchbros.com/website/menu/nutritional-guide.pdf,"drafted 2026-10-23: 321 agreed, 698 for a person"
 43,Hardee's,hardees.com,https://www.hardees.com/getContentAsset/20c3e4eb-fa23-4fb2-b914-5fc082e91122/dfc3d011-8f63-43f6-9ed8-4b444333a1d0/nutritional-info-page.pdf?language=en-US,"drafted 2026-10-23: 114 agreed, 12 for a person"
 44,Bojangles,bojangles.com,https://storyblok.pleinaircdn.com/f/110020/x/6c7b2a7e6a/m25-099-2025_02-nutritiongudeupdates_bobitessalad_master.pdf,"drafted 2026-10-23: 75 agreed, 118 for a person"
-45,Golden Corral,goldencorral.com,https://www.goldencorral.com/nutrition/,"drafted 2026-10-23: 1125 agreed, 109 for a person"
+45,Golden Corral,goldencorral.com,https://www.goldencorral.com/nutrition/,"drafted 2026-10-23: 1126 agreed, 107 for a person"
 46,Red Lobster,redlobster.com,https://img-ecomm-rl-prod-fye5gqbxdtbghqer.a03.azurefd.net/brandsite/documents/US_Nutrition_10-12-26.pdf,"drafted 2026-10-23: 174 agreed, 34 for a person"
 47,Tropical Smoothie Cafe,tropicalsmoothiecafe.com,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,"drafted 2026-10-23: 16 agreed, 103 for a person"
 48,Shake Shack,shakeshack.com,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,"drafted 2026-10-23: 152 agreed, 6 for a person"
@@ -65,10 +65,10 @@ rank,chain,site,guide_url,notes
 64,Dave's Hot Chicken,daveshotchicken.com,https://store.daveshotchicken.com/wp-content/uploads/2026/06/DHC-Nutrition-Chart_FOODS.pdf,"drafted 2026-10-23: 47 agreed, 17 for a person"
 65,Del Taco,deltaco.com,https://deltaco.com/nutrition.html,"drafted 2026-10-23: 164 agreed, 4 for a person"
 66,Yard House,yardhouse.com,https://media.yardhouse.com/en_us/pdf/yard_house_nutrition.pdf,"drafted 2026-10-23: 252 agreed, 76 for a person"
-67,P.F. Chang's,pfchangs.com,https://www.pfchangs.com/docs/default-source/pdf/pfc-national-menu-nutrition-autumn-in-kyoto-2026.pdf?sfvrsn=c1edf3f2_9,"drafted 2026-10-23: 109 agreed, 72 for a person"
+67,P.F. Chang's,pfchangs.com,https://www.pfchangs.com/docs/default-source/pdf/pfc-national-menu-nutrition-autumn-in-kyoto-2026.pdf?sfvrsn=c1edf3f2_9,"drafted 2026-10-23: 110 agreed, 70 for a person"
 68,Church's Texas Chicken,churchs.com,https://cdn.sanity.io/files/at6verwz/production/987e1f90747ee65edf2ff6b494571290ed75e31c.pdf,"drafted 2026-10-23: 87 agreed, 35 for a person"
-69,Scooter's Coffee,scooterscoffee.com,https://www.scooterscoffee.com/media/nutrition/scooters_nutrition_and_allergy_information.pdf,"drafted 2026-10-23: 70 agreed, 1066 for a person"
-70,Auntie Anne's,auntieannes.com,https://assets.ctfassets.net/zqt8tllj2cy0/10Ezjc1ozMDByK7cBBikSn/4ca91079eaac12bb63fcec420cd0ca46/AA_2103518_NutritionAllergenGuide_W2andW3_2026_HIGHRES-1.pdf,"drafted 2026-10-23: 113 agreed, 27 for a person"
+69,Scooter's Coffee,scooterscoffee.com,https://www.scooterscoffee.com/media/nutrition/scooters_nutrition_and_allergy_information.pdf,"drafted 2026-10-23: 94 agreed, 1018 for a person"
+70,Auntie Anne's,auntieannes.com,https://assets.ctfassets.net/zqt8tllj2cy0/10Ezjc1ozMDByK7cBBikSn/4ca91079eaac12bb63fcec420cd0ca46/AA_2103518_NutritionAllergenGuide_W2andW3_2026_HIGHRES-1.pdf,"drafted 2026-10-23: 125 agreed, 3 for a person"
 71,Tim Hortons,timhortons.com,,no nutrition page found on timhortons.com: set guide_url by hand
 72,Smoothie King,smoothieking.com,https://www.smoothieking.com/nutrition/,no nutrition numbers found in the guide: set guide_url to the PDF or full table
 73,Cheddar's Scratch Kitchen,cheddars.com,https://media.cheddars.com/images/site/pdf/Cheddars_Nutrition_Guide_effective_3.20.23.pdf,"drafted 2026-10-23: 96 agreed, 104 for a person"

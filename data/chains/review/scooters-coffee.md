@@ -3,41 +3,17 @@
 Guide: https://www.scooterscoffee.com/media/nutrition/scooters_nutrition_and_allergy_information.pdf (read 2026-10-23). Draft A: openai/gpt-5.6-luna. Draft B: anthropic/claude-haiku-5.5.
 Numbers in order: calories / fat_g / saturated_fat_g / trans_fat_g / cholesterol_mg / sodium_mg / carbs_g / fiber_g / sugars_g / protein_g.
 
-## Disagreements (1066)
+## Disagreements (1018)
 
 Fix each line in `menus/scooters-coffee.csv` from the guide and set its check to `person` (or delete the line if it isn't on the menu).
 
 | Item | Size | Why | Draft A | Draft B |
 | --- | --- | --- | --- | --- |
-| Candy Bar Latte (Mocha, Almond, Coconut), Hot | Large, 20 oz, 2% Milk | only in draft A | 500 / 13 / 8 / 0 / 50 / 230 / 80 / 0 / 78 / 15 | not found |
 | Candy Bar Latte (Mocha, Almond, Coconut), Hot | Large, 20 oz, Almond Milk | only in draft A | 410 / 10 / 2.5 / 0 / 15 / 130 / 77 / 0 / 73 / 3 | not found |
-| Candy Bar Latte (Mocha, Almond, Coconut), Hot | Large, 20 oz, Coconut Milk | only in draft A | 440 / 13 / 10 / 0 / 15 / 270 / 77 / 0 / 73 / 3 | not found |
-| Candy Bar Latte (Mocha, Almond, Coconut), Hot | Large, 20 oz, Skim Milk | only in draft A | 430 / 5 / 2.5 / 0 / 25 / 210 / 81 / 0 / 79 / 16 | not found |
-| Candy Bar Latte (Mocha, Almond, Coconut), Hot | Large, 20 oz, Soy Milk | only in draft A | 490 / 12 / 3.5 / 0 / 15 / 200 / 80 / 0 / 75 / 15 | not found |
-| Candy Bar Latte (Mocha, Almond, Coconut), Hot | Large, 20 oz, Whole Milk | only in draft A | 550 / 18 / 10 / 0 / 55 / 210 / 80 / 0 / 78 / 15 | not found |
-| Candy Bar Latte (Mocha, Almond, Coconut), Hot | Medium, 16 oz, 2% Milk | only in draft A | 400 / 11 / 6 / 0 / 40 / 170 / 62 / 0 / 61 / 12 | not found |
 | Candy Bar Latte (Mocha, Almond, Coconut), Hot | Medium, 16 oz, Almond Milk | only in draft A | 330 / 9 / 2.5 / 0 / 15 / 100 / 60 / 0 / 57 / 3 | not found |
-| Candy Bar Latte (Mocha, Almond, Coconut), Hot | Medium, 16 oz, Coconut Milk | only in draft A | 350 / 11 / 8 / 0 / 15 / 200 / 60 / 0 / 57 / 3 | not found |
-| Candy Bar Latte (Mocha, Almond, Coconut), Hot | Medium, 16 oz, Skim Milk | only in draft A | 350 / 4.5 / 2.5 / 0 / 20 / 160 / 63 / 0 / 61 / 12 | not found |
-| Candy Bar Latte (Mocha, Almond, Coconut), Hot | Medium, 16 oz, Whole Milk | only in draft A | 430 / 15 / 8 / 0 / 45 / 160 / 62 / 0 / 61 / 11 | not found |
-| Candy Bar Latte (Mocha, Almond, Coconut), Hot | Small, 12 oz, 2% Milk | only in draft A | 290 / 8 / 5 / 0 / 30 / 125 / 45 / 0 / 44 / 8 | not found |
-| Candy Bar Latte (Mocha, Almond, Coconut), Hot | Small, 12 oz, Coconut Milk | only in draft A | 260 / 8 / 6 / 0 / 15 / 140 / 44 / 0 / 42 / 2 | not found |
-| Candy Bar Latte (Mocha, Almond, Coconut), Hot | Small, 12 oz, Whole Milk | only in draft A | 320 / 11 / 6 / 0 / 35 / 115 / 45 / 0 / 44 / 8 | not found |
 | Candy Bar Latte (Mocha, Almond, Coconut), Iced | Large, 24 oz, Almond Milk | only in draft A | 370 / 9 / 2.5 / 0 / 15 / 100 / 72 / 0 / 69 / 3 | not found |
-| Candy Bar Latte (Mocha, Almond, Coconut), Iced | Large, 24 oz, Coconut Milk | only in draft A | 400 / 10 / 8 / 0 / 15 / 190 / 72 / 0 / 69 / 3 | not found |
-| Candy Bar Latte (Mocha, Almond, Coconut), Iced | Large, 24 oz, Soy Milk | only in draft A | 430 / 10 / 3 / 0 / 15 / 150 / 74 / 0 / 70 / 11 | not found |
-| Candy Bar Latte (Mocha, Almond, Coconut), Iced | Large, 24 oz, Whole Milk | only in draft A | 470 / 14 / 8 / 0 / 45 / 150 / 74 / 0 / 72 / 11 | not found |
-| Candy Bar Latte (Mocha, Almond, Coconut), Iced | Medium, 20 oz, 2% Milk | only in draft A | 330 / 8 / 5 / 0 / 30 / 115 / 56 / 0 / 54 / 8 | not found |
 | Candy Bar Latte (Mocha, Almond, Coconut), Iced | Medium, 20 oz, Almond Milk | only in draft A | 290 / 7 / 2.5 / 0 / 15 / 70 / 55 / 0 / 52 / 2 | not found |
-| Candy Bar Latte (Mocha, Almond, Coconut), Iced | Medium, 20 oz, Coconut Milk | only in draft A | 310 / 8 / 6 / 0 / 15 / 130 / 55 / 0 / 52 / 2 | not found |
-| Candy Bar Latte (Mocha, Almond, Coconut), Iced | Medium, 20 oz, Soy Milk | only in draft A | 330 / 8 / 3 / 0 / 15 / 100 / 56 / 0 / 53 / 7 | not found |
-| Candy Bar Latte (Mocha, Almond, Coconut), Iced | Medium, 20 oz, Whole Milk | only in draft A | 350 / 10 / 6 / 0 / 35 / 105 / 56 / 0 / 54 / 7 | not found |
-| Candy Bar Latte (Mocha, Almond, Coconut), Iced | Small, 16 oz, 2% Milk | only in draft A | 260 / 7 / 4 / 0 / 25 / 90 / 42 / 0 / 41 / 6 | not found |
 | Candy Bar Latte (Mocha, Almond, Coconut), Iced | Small, 16 oz, Almond Milk | only in draft A | 230 / 6 / 2 / 0 / 15 / 55 / 41 / 0 / 39 / 2 | not found |
-| Candy Bar Latte (Mocha, Almond, Coconut), Iced | Small, 16 oz, Coconut Milk | only in draft A | 240 / 7 / 5 / 0 / 15 / 105 / 41 / 0 / 39 / 2 | not found |
-| Candy Bar Latte (Mocha, Almond, Coconut), Iced | Small, 16 oz, Skim Milk | only in draft A | 230 / 4 / 2 / 0 / 15 / 85 / 42 / 0 / 41 / 6 | not found |
-| Candy Bar Latte (Mocha, Almond, Coconut), Iced | Small, 16 oz, Soy Milk | only in draft A | 260 / 7 / 2.5 / 0 / 15 / 80 / 42 / 0 / 40 / 6 | not found |
-| Candy Bar Latte (Mocha, Almond, Coconut), Iced | Small, 16 oz, Whole Milk | only in draft A | 280 / 9 / 5 / 0 / 30 / 85 / 42 / 0 / 41 / 6 | not found |
 | Candy Bar Latte (Mocha, Caramel, Vanilla), Iced, Coconut Milk | Small, 16 oz, Coconut Milk | only in draft A | 230 / 15 / 5 / 0 / 7 / 105 / 40 / 0 / 38 / 2 | not found |
 | Candy Bar Latte (Mocha, Caramel, Vanilla), Iced, Skim Milk | Small, 16 oz, Skim Milk | only in draft A | 230 / 20 / 6 / 0 / 4 / 85 / 42 / 0 / 40 / 2 | not found |
 | Candy Bar Latte (Mocha, Caramel, Vanilla), Iced, Soy Milk | Small, 16 oz, Soy Milk | only in draft A | 250 / 15 / 6 / 0 / 7 / 80 / 42 / 0 / 39 / 2.5 | not found |
@@ -521,35 +497,11 @@ Fix each line in `menus/scooters-coffee.csv` from the guide and set its check to
 | Mocha Latte, Iced, Soy Milk | Small, 16 oz | differ: fiber_g, protein_g | 190 / 4 / 1 / 0 / 0 / 80 / 33 / 6 / 30 / 0 | 190 / 4 / 1 / 0 / 0 / 80 / 33 / 0 / 30 / 6 |
 | Mocha Latte, Iced, Whole Milk | Small, 16 oz | differ: fiber_g, protein_g | 210 / 6 / 3.5 / 0 / 15 / 85 / 33 / 6 / 32 / 0 | 210 / 6 / 3.5 / 0 / 15 / 85 / 33 / 0 / 32 / 6 |
 | Red Bull Infusion, Tropical, Desert Pear | Medium | the guide gives no fiber_g | 220 / 0 / 0 / 0 / 0 / 140 / 54 / – / 52 / 0 | 220 / 0 / 0 / 0 / 0 / 140 / 54 / – / 52 / 0 |
-| Candy Bar Latte (Mocha, Almond, Coconut), Hot, 2% Milk | Large, 20 oz | only in draft B | not found | 500 / 13 / 8 / 0 / 50 / 230 / 80 / 0 / 78 / 15 |
 | Candy Bar Latte (Mocha, Almond, Coconut), Hot, Almond Milk | Large, 20 oz | only in draft B | not found | 410 / 10 / 2.5 / 0 / 15 / 130 / 77 / 0 / 73 / 3 |
-| Candy Bar Latte (Mocha, Almond, Coconut), Hot, Coconut Milk | Large, 20 oz | only in draft B | not found | 440 / 13 / 10 / 0 / 15 / 270 / 77 / 0 / 73 / 3 |
-| Candy Bar Latte (Mocha, Almond, Coconut), Hot, Skim Milk | Large, 20 oz | only in draft B | not found | 430 / 5 / 2.5 / 0 / 25 / 210 / 81 / 0 / 79 / 16 |
-| Candy Bar Latte (Mocha, Almond, Coconut), Hot, Soy Milk | Large, 20 oz | only in draft B | not found | 490 / 12 / 3.5 / 0 / 15 / 200 / 80 / 0 / 75 / 15 |
-| Candy Bar Latte (Mocha, Almond, Coconut), Hot, Whole Milk | Large, 20 oz | only in draft B | not found | 550 / 18 / 10 / 0 / 55 / 210 / 80 / 0 / 78 / 15 |
-| Candy Bar Latte (Mocha, Almond, Coconut), Hot, 2% Milk | Medium, 16 oz | only in draft B | not found | 400 / 11 / 6 / 0 / 40 / 170 / 62 / 0 / 61 / 12 |
 | Candy Bar Latte (Mocha, Almond, Coconut), Hot, Almond Milk | Medium, 16 oz | only in draft B | not found | 330 / 9 / 2.5 / 0 / 15 / 100 / 60 / 0 / 57 / 3 |
-| Candy Bar Latte (Mocha, Almond, Coconut), Hot, Coconut Milk | Medium, 16 oz | only in draft B | not found | 350 / 11 / 8 / 0 / 15 / 200 / 60 / 0 / 57 / 3 |
-| Candy Bar Latte (Mocha, Almond, Coconut), Hot, Skim Milk | Medium, 16 oz | only in draft B | not found | 350 / 4.5 / 2.5 / 0 / 20 / 160 / 63 / 0 / 61 / 12 |
-| Candy Bar Latte (Mocha, Almond, Coconut), Hot, Whole Milk | Medium, 16 oz | only in draft B | not found | 430 / 15 / 8 / 0 / 45 / 160 / 62 / 0 / 61 / 11 |
-| Candy Bar Latte (Mocha, Almond, Coconut), Hot, 2% Milk | Small, 12 oz | only in draft B | not found | 290 / 8 / 5 / 0 / 30 / 125 / 45 / 0 / 44 / 8 |
-| Candy Bar Latte (Mocha, Almond, Coconut), Hot, Coconut Milk | Small, 12 oz | only in draft B | not found | 260 / 8 / 6 / 0 / 15 / 140 / 44 / 0 / 42 / 2 |
-| Candy Bar Latte (Mocha, Almond, Coconut), Hot, Whole Milk | Small, 12 oz | only in draft B | not found | 320 / 11 / 6 / 0 / 35 / 115 / 45 / 0 / 44 / 8 |
 | Candy Bar Latte (Mocha, Almond, Coconut), Iced, Almond Milk | Large, 24 oz | only in draft B | not found | 370 / 9 / 2.5 / 0 / 15 / 100 / 72 / 0 / 69 / 3 |
-| Candy Bar Latte (Mocha, Almond, Coconut), Iced, Coconut Milk | Large, 24 oz | only in draft B | not found | 400 / 10 / 8 / 0 / 15 / 190 / 72 / 0 / 69 / 3 |
-| Candy Bar Latte (Mocha, Almond, Coconut), Iced, Soy Milk | Large, 24 oz | only in draft B | not found | 430 / 10 / 3 / 0 / 15 / 150 / 74 / 0 / 70 / 11 |
-| Candy Bar Latte (Mocha, Almond, Coconut), Iced, Whole Milk | Large, 24 oz | only in draft B | not found | 470 / 14 / 8 / 0 / 45 / 150 / 74 / 0 / 72 / 11 |
-| Candy Bar Latte (Mocha, Almond, Coconut), Iced, 2% Milk | Medium, 20 oz | only in draft B | not found | 330 / 8 / 5 / 0 / 30 / 115 / 56 / 0 / 54 / 8 |
 | Candy Bar Latte (Mocha, Almond, Coconut), Iced, Almond Milk | Medium, 20 oz | only in draft B | not found | 290 / 7 / 2.5 / 0 / 15 / 70 / 55 / 0 / 52 / 2 |
-| Candy Bar Latte (Mocha, Almond, Coconut), Iced, Coconut Milk | Medium, 20 oz | only in draft B | not found | 310 / 8 / 6 / 0 / 15 / 130 / 55 / 0 / 52 / 2 |
-| Candy Bar Latte (Mocha, Almond, Coconut), Iced, Soy Milk | Medium, 20 oz | only in draft B | not found | 330 / 8 / 3 / 0 / 15 / 100 / 56 / 0 / 53 / 7 |
-| Candy Bar Latte (Mocha, Almond, Coconut), Iced, Whole Milk | Medium, 20 oz | only in draft B | not found | 350 / 10 / 6 / 0 / 35 / 105 / 56 / 0 / 54 / 7 |
-| Candy Bar Latte (Mocha, Almond, Coconut), Iced, 2% Milk | Small, 16 oz | only in draft B | not found | 260 / 7 / 4 / 0 / 25 / 90 / 42 / 0 / 41 / 6 |
 | Candy Bar Latte (Mocha, Almond, Coconut), Iced, Almond Milk | Small, 16 oz | only in draft B | not found | 230 / 6 / 2 / 0 / 15 / 55 / 41 / 0 / 39 / 2 |
-| Candy Bar Latte (Mocha, Almond, Coconut), Iced, Coconut Milk | Small, 16 oz | only in draft B | not found | 240 / 7 / 5 / 0 / 15 / 105 / 41 / 0 / 39 / 2 |
-| Candy Bar Latte (Mocha, Almond, Coconut), Iced, Skim Milk | Small, 16 oz | only in draft B | not found | 230 / 4 / 2 / 0 / 15 / 85 / 42 / 0 / 41 / 6 |
-| Candy Bar Latte (Mocha, Almond, Coconut), Iced, Soy Milk | Small, 16 oz | only in draft B | not found | 260 / 7 / 2.5 / 0 / 15 / 80 / 42 / 0 / 40 / 6 |
-| Candy Bar Latte (Mocha, Almond, Coconut), Iced, Whole Milk | Small, 16 oz | only in draft B | not found | 280 / 9 / 5 / 0 / 30 / 85 / 42 / 0 / 41 / 6 |
 | Candy Bar Latte (Mocha, Caramel Sauce, Vanilla), Blended | Large, 24 oz | only in draft B | not found | 640 / 26 / 17 / 0 / 100 / 200 / 95 / 0 / 84 / 7 |
 | Candy Bar Latte (Mocha, Caramel Sauce, Vanilla), Blended | Medium, 20 oz | only in draft B | not found | 520 / 22 / 14 / 0 / 80 / 170 / 76 / 0 / 67 / 6 |
 | Candy Bar Latte (Mocha, Caramel Sauce, Vanilla), Blended | Small, 16 oz | only in draft B | not found | 390 / 17 / 11 / 0 / 65 / 120 / 56 / 0 / 49 / 4 |
@@ -1076,13 +1028,14 @@ Fix each line in `menus/scooters-coffee.csv` from the guide and set its check to
 | Latte, Iced, Soy Milk | Medium, 20 oz | only in draft B | not found | 120 / 4.5 / 0.5 / 0 / 0 / 105 / 12 / 0 / 9 / 7 |
 | Latte, Iced, Whole Milk | Medium, 20 oz | only in draft B | not found | 150 / 8 / 4.5 / 0 / 25 / 110 / 12 / 0 / 11 / 7 |
 
-## Spot check (4 agreed lines)
+## Spot check (5 agreed lines)
 
 Compare with the guide. If one is wrong, fix it, set its check to `person`, and look harder at the rest of this chain.
 
 | Item | Size | Numbers |
 | --- | --- | --- |
-| Candy Bar Latte (Mocha, Almond, Coconut), Hot, Skim Milk | Small, 12 oz, Skim Milk | 260 / 4 / 2 / 0 / 20 / 110 / 46 / 0 / 44 / 8 |
+| Candy Bar Latte (Mocha, Almond, Coconut), Iced | Large, 24 oz, Whole Milk | 470 / 14 / 8 / 0 / 45 / 150 / 74 / 0 / 72 / 11 |
 | Candy Bar Latte (Mocha, Almond, Coconut), Blended | Medium, 20 oz | 520 / 22 / 14 / 0 / 80 / 150 / 76 / 0 / 67 / 6 |
 | Americano, Iced | Large, 24 oz | 10 / 0 / 0 / 0 / 0 / 25 / 2 / 0 / 0 / 0 |
 | Breve, Hot | Large, 20 oz | 660 / 49 / 33 / 0 / 245 / 250 / 18 / 0 / 16 / 16 |
+| Flavored Americano, Vanilla, Hot | Medium, 16 oz | 100 / 0 / 0 / 0 / 0 / 25 / 25 / 0 / 23 / 0 |

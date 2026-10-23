@@ -9,6 +9,7 @@
  * Usage:
  *   npm run chains:draft -- --rank 1-10              chains by rank in data/chains/ranking.csv
  *   npm run chains:draft -- --chain "Chick-fil-A"    one chain (its name or slug)
+ *   npm run chains:draft -- --chains sonic,arbys     some chains (names or slugs, comma-separated)
  * Options: --url <guide url> (with --chain: read this guide and save it to ranking.csv),
  *          --refetch (read the guide again instead of the cached copy),
  *          --redo (draft chains that already have a menu file; lines a person checked are kept),
@@ -686,6 +687,7 @@ async function main() {
   const ranking = readRanking();
   const range = argument('--rank');
   const only = argument('--chain');
+  const some = argument('--chains')?.split(',').map((name) => chainSlug(name.trim()));
   const url = argument('--url');
   const refetch = process.argv.includes('--refetch');
   const redo = process.argv.includes('--redo');
@@ -696,8 +698,10 @@ async function main() {
   const [from, to] = (range ?? '').split('-').map(Number);
   const picked = only
     ? ranking.filter((c) => c.chain.toLowerCase() === only.toLowerCase() || chainSlug(c.chain) === chainSlug(only))
-    : ranking.filter((c) => range && c.rank >= from && c.rank <= (to || from));
-  if (picked.length === 0) throw new Error('Pick chains with --rank 1-10 or --chain "Name" (see data/chains/ranking.csv).');
+    : some
+      ? ranking.filter((c) => some.includes(chainSlug(c.chain)))
+      : ranking.filter((c) => range && c.rank >= from && c.rank <= (to || from));
+  if (picked.length === 0) throw new Error('Pick chains with --rank 1-10, --chain "Name" or --chains a,b (see data/chains/ranking.csv).');
   if (url && picked.length !== 1) throw new Error('--url goes with one --chain.');
 
   /** Set when AI or Firecrawl credit runs out: every chain after would fail the same way. */

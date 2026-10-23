@@ -26,6 +26,6 @@ Compare with the guide. If one is wrong, fix it, set its check to `person`, and 
 | Chipotle Crispy Chicken Guac'd Up Taco | 111g | 280 / 13 / 4 / 0 / 25 / 730 / 23 / 1 / 1 / 14 |
 | Queso Loaded Nachos (Carnias) | 581g | 1070 / 55 / 20 / 0 / 105 / 2550 / 102 / 14 / 5 / 48 |
 | Epic Carne Asada Steak Cali Bacon Burrito | 414g | 1050 / 60 / 22 / 1 / 155 / 2600 / 73 / 4 / 4 / 51 |
-| 3 Pc. Crispy Chicken & Fries Box (Chipotle Dipping Sauce) | 3 Pc. (270g) | 720 / 51 / 9 / 0 / 60 / 1770 / 45 / 0 / 2 / 18 |
 | Gold Peak® Real Brewed Tea - Sweet Tea | Regular (24 fl oz) | 250 / 0 / 0 / 0 / 0 / 0 / 73 / 0 / 73 / 0 |
 | Breakfast Burrito (Bacon, Egg & Cheese) | 223g | 520 / 26 / 9 / 0 / 275 / 1540 / 36 / 2 / 0 / 30 |
+| Fuzz® Raspberry Iced Tea | Large (40 fl oz) | 210 / 0 / 0 / 0 / 0 / 125 / 56 / 0 / 55 / 0 |
