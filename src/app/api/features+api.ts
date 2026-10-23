@@ -1,7 +1,7 @@
 import { aiProviders } from '@/lib/server/ai';
 import { freeScansPerDay, paymentsEnabled } from '@/lib/server/billing';
 import { emailConfigured } from '@/lib/server/email';
-import { followUpEnabled, foodQualityEnabled, multiPhotoEnabled } from '@/lib/server/experiments';
+import { followUpEnabled, foodQualityEnabled, multiPhotoEnabled, whatToOrderEnabled } from '@/lib/server/experiments';
 import { handle } from '@/lib/server/http';
 import { appleConfigured, googleConfigured } from '@/lib/server/social';
 import type { Features } from '@/shared/features';
@@ -18,6 +18,7 @@ export const GET = handle(async () => {
     multiPhoto: multiPhotoEnabled(),
     followUp: followUpEnabled(),
     aiProviders: aiProviders(),
+    whatToOrder: whatToOrderEnabled(),
   };
   return Response.json(features, { headers: { 'Cache-Control': 'public, max-age=300' } });
 });

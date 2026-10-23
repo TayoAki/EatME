@@ -75,14 +75,15 @@ export async function replaceItems(meal: MealRow, body: UpdateMealItemsBody) {
       return { ...kept, name: input.name, foodId: food.id, grams: input.grams, nutrients: foodNutrients(food, input.grams), personalFoodId };
     }
     // A menu item without a weight can only be kept as it is (its count follows the meal's portion).
-    if (old?.restaurant && old.grams <= 0) {
+    if ((old?.restaurant || old?.menu) && old.grams <= 0) {
       return {
         ...kept,
         name: input.name,
         foodId: null,
         grams: 0,
         nutrients: scaleNutrients(old.nutrients, meal.portion),
-        restaurant: { ...old.restaurant, count: old.restaurant.count * meal.portion },
+        restaurant: old.restaurant && { ...old.restaurant, count: old.restaurant.count * meal.portion },
+        menu: old.menu,
       };
     }
     if (!old || old.grams <= 0) throw new HttpError(400, 'Pick new foods from the database.');
@@ -99,6 +100,7 @@ export async function replaceItems(meal: MealRow, body: UpdateMealItemsBody) {
       restaurant: old.restaurant && { ...old.restaurant, count: Math.round(old.restaurant.count * factor * 100) / 100 },
       // A drink's count follows the amount (ml), e.g. 710 ml of beer → 355 ml is one can.
       drink: old.drink && { ...old.drink, count: Math.round(old.drink.count * factor * 100) / 100 },
+      menu: old.menu,
     };
   });
 
@@ -183,7 +185,7 @@ export async function copyItems(fromMealId: string, toMealId: string, executor: 
   await executor
     .insert(mealItems)
     .values(
-      rows.map(({ position, name, foodId, productCode, grams, nutrients, aiName, personalFoodId, restaurant, drink }) => ({
+      rows.map(({ position, name, foodId, productCode, grams, nutrients, aiName, personalFoodId, restaurant, drink, menu }) => ({
         mealId: toMealId,
         position,
         name,
@@ -195,6 +197,7 @@ export async function copyItems(fromMealId: string, toMealId: string, executor: 
         personalFoodId,
         restaurant,
         drink,
+        menu,
       })),
     );
 }
@@ -230,6 +233,7 @@ export async function answerFollowUp(meal: MealRow, option: number | 'skip') {
       personalFoodId: row.personalFoodId,
       restaurant: row.restaurant && { ...row.restaurant, count: row.restaurant.count * claimed.portion },
       drink: row.drink && { ...row.drink, count: row.drink.count * claimed.portion },
+      menu: row.menu,
     }));
     const change = state.options[answer].change;
     const { meal: saved } = await saveComputedItems(claimed, applyChange(items, change), { executor: tx });

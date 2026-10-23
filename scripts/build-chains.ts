@@ -107,10 +107,29 @@ if (errorCount > 0) {
   console.error('Fix the errors above; nothing was written.');
   process.exit(1);
 }
+/**
+ * Each chain's rank (ranking.csv) and the page a list cites: the source most of its items share, else
+ * the chain's full menu page for chains that publish nutrition item by item, else none.
+ */
+function chainList(list: ChainItemsFile['items']): ChainItemsFile['chains'] {
+  const [, ...rows] = parseCsv(readFileSync(path.join(__dirname, '..', 'data', 'chains', 'ranking.csv'), 'utf8'));
+  const ranking = new Map(rows.map(([rank, chain, , guide]) => [chainSlug(chain ?? ''), { rank: Number(rank) || null, guide: guide ?? '' }]));
+  const bySlug = new Map<string, ChainItemsFile['items']>();
+  for (const item of list) bySlug.set(item.chainSlug, [...(bySlug.get(item.chainSlug) ?? []), item]);
+  return [...bySlug].map(([slug, chainItems]) => {
+    const sources = new Map<string, number>();
+    for (const item of chainItems) sources.set(item.sourceUrl, (sources.get(item.sourceUrl) ?? 0) + 1);
+    const [common, uses] = [...sources].sort((a, b) => b[1] - a[1])[0];
+    const menuPage = ranking.get(slug)?.guide.match(/\bmenu=(https:\/\/\S+)/)?.[1] ?? null;
+    return { slug, name: chainItems[0].chain, rank: ranking.get(slug)?.rank ?? null, guideUrl: uses * 2 >= chainItems.length ? common : menuPage };
+  });
+}
+
 if (!checkOnly) {
   const sorted = [...items].sort((a, b) => `${a.chainSlug}|${a.section}|${a.name}`.localeCompare(`${b.chainSlug}|${b.section}|${b.name}`));
-  const version = `chains-${createHash('sha256').update(JSON.stringify(sorted)).digest('hex').slice(0, 12)}`;
-  const file: ChainItemsFile = { version, items: sorted };
+  const chainRows = chainList(sorted);
+  const version = `chains-${createHash('sha256').update(JSON.stringify([chainRows, sorted])).digest('hex').slice(0, 12)}`;
+  const file: ChainItemsFile = { version, chains: chainRows, items: sorted };
   writeFileSync(OUT, `${JSON.stringify(file)}\n`);
   console.log(`Wrote data/chains.json (${version}).`);
 }

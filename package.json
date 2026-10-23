@@ -85,6 +85,7 @@
     "start:server": "node server/index.mjs",
     "lint": "expo lint",
     "typecheck": "expo customize tsconfig.json && tsc --noEmit",
+    "test": "tsx --test src/shared/*.test.ts",
     "testflight": "expo lint && npm run typecheck && npx eas-cli@latest build --platform ios --profile production --auto-submit",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
@@ -97,6 +98,7 @@
     "db:foods": "node server/foods.mjs",
     "chains:build": "tsx scripts/build-chains.ts",
     "chains:draft": "tsx scripts/draft-chains.ts",
+    "menus:pilot": "tsx scripts/menu-pilot.ts",
     "db:chains": "node server/chains.mjs"
   },
   "private": true

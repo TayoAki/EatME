@@ -15,6 +15,7 @@ import {
   type UnitSystem,
 } from './onboarding';
 import type { Glp1Settings } from './glp1';
+import { foodsToSkipSchema } from './menus';
 import type { MacroTargets } from './nutrition';
 
 /** App preferences kept on the account (all off by default). */
@@ -27,6 +28,8 @@ export type Preferences = {
   adaptiveTarget?: boolean;
   /** The check-in day, 0 = Sunday … 6 = Saturday (Monday when not set). */
   checkInWeekday?: number;
+  /** What to order (v2.5): foods the person skips; dishes that mention one leave Fits well. */
+  foodsToSkip?: string[];
 };
 
 /** Profile returned by `GET /api/me`. */
@@ -112,7 +115,7 @@ export const updateProfileSchema = z
     dailyCarbsG: z.number().int().min(MACRO_LIMITS.carbsG.min).max(MACRO_LIMITS.carbsG.max).nullable(),
     dailyFatG: z.number().int().min(MACRO_LIMITS.fatG.min).max(MACRO_LIMITS.fatG.max).nullable(),
     /** Merged into the stored preferences. */
-    preferences: z.object({ foodQualityTag: z.boolean(), calmMode: z.boolean() }).partial().strict(),
+    preferences: z.object({ foodQualityTag: z.boolean(), calmMode: z.boolean(), foodsToSkip: foodsToSkipSchema }).partial().strict(),
     /** Allow (true) or stop (false) AI analysis of meal photos and descriptions. */
     aiConsent: z.boolean(),
   })

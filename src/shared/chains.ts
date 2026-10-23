@@ -144,6 +144,8 @@ export function checkChainItem(row: ChainCsvRow, today: string) {
 export type ChainItemsFile = {
   /** A hash of the items: the server only writes when it changes. */
   version: string;
+  /** One per chain with items: its US sales rank and the page a list cites (null: each item has its own). */
+  chains: { slug: string; name: string; rank: number | null; guideUrl: string | null }[];
   items: {
     chainSlug: string;
     chain: string;

@@ -7,6 +7,7 @@ import type { AiMealItem } from '@/shared/meals';
 import { addNutrients, scaleNutrients, type NutrientAmounts } from '@/shared/nutrients';
 import { foodKey, USUAL_GRAMS_RANGE } from '@/shared/personal-foods';
 import type { DrinkRef } from '@/shared/drinks';
+import type { MenuRef } from '@/shared/menus';
 import type { RestaurantRef } from '@/shared/restaurants';
 
 import { modelFor, structuredCompletion } from './ai';
@@ -34,6 +35,8 @@ export type ComputedItem = {
   restaurant?: RestaurantRef | null;
   /** An alcoholic drink (v2.4). */
   drink?: DrinkRef | null;
+  /** Ordered with What to order (v2.5): the dish and its citation or range. */
+  menu?: MenuRef | null;
 };
 
 const matchSchema = z.object({

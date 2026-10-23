@@ -1,5 +1,5 @@
 // Loads the chain menus (data/chains.json, built from data/chains/*.csv by `npm run chains:build`) into
-// the `chain_items` table for What to order. Runs when the server starts and only writes when the table
+// the `chains` and `chain_items` tables for What to order. Runs when the server starts and only writes when the table
 // doesn't hold this version yet. Items no longer in the file are retired, never deleted (logged meals
 // may point at them). By hand: `npm run db:chains` (uses DATABASE_URL).
 import { existsSync } from 'node:fs';
@@ -40,6 +40,14 @@ export async function loadChainItems(pool) {
   const client = await pool.connect();
   try {
     await client.query('begin');
+    for (const chain of data.chains ?? []) {
+      await client.query(
+        `insert into chains (slug, name, rank, guide_url, version) values ($1, $2, $3, $4, $5)
+         on conflict (slug) do update set name = excluded.name, rank = excluded.rank, guide_url = excluded.guide_url,
+           version = excluded.version, updated_at = now()`,
+        [chain.slug, chain.name, chain.rank, chain.guideUrl, data.version],
+      );
+    }
     for (let start = 0; start < data.items.length; start += BATCH) {
       const params = [];
       const tuples = data.items.slice(start, start + BATCH).map((item) => {

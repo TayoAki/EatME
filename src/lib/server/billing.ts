@@ -1,7 +1,7 @@
-import { and, count, eq, gte, inArray, lt } from 'drizzle-orm';
+import { and, count, eq, gte, inArray, lt, ne, type SQL } from 'drizzle-orm';
 
 import { db } from '@/db';
-import { meals, subscriptions, users, type SubscriptionRow } from '@/db/schema';
+import { meals, menuScans, subscriptions, users, type SubscriptionRow } from '@/db/schema';
 import { PREMIUM_ENTITLEMENT, type BillingStatus } from '@/shared/billing';
 
 import { dayBounds } from './day';
@@ -42,14 +42,48 @@ export async function requirePremium(userId: string, feature: string) {
   if (!(await hasPremiumAccess(userId))) throw new HttpError(402, `${feature} is part of Weight Class Premium.`, 'premium_required');
 }
 
-/** AI analyses logged today in the user's time zone. */
+/** AI scans since `start` (until `end`): meals the AI analyzed and menus it read (a failed menu isn't counted). */
+async function scansBetween(userId: string, start: Date | SQL, end?: SQL) {
+  const [[{ mealScans }], [{ menus }]] = await Promise.all([
+    db
+      .select({ mealScans: count() })
+      .from(meals)
+      .where(and(eq(meals.userId, userId), inArray(meals.source, ANALYZED_SOURCES), gte(meals.createdAt, start), ...(end ? [lt(meals.createdAt, end)] : []))),
+    db
+      .select({ menus: count() })
+      .from(menuScans)
+      .where(and(eq(menuScans.userId, userId), ne(menuScans.status, 'failed'), gte(menuScans.createdAt, start), ...(end ? [lt(menuScans.createdAt, end)] : []))),
+  ]);
+  return mealScans + menus;
+}
+
+/** AI scans (meal photos, labels, descriptions, menus) made today in the user's time zone. */
 export async function scansToday(userId: string, timeZone: string) {
   const { start, end } = dayBounds(localDate(new Date(), timeZone), timeZone);
-  const [{ scans }] = await db
-    .select({ scans: count() })
-    .from(meals)
-    .where(and(eq(meals.userId, userId), inArray(meals.source, ANALYZED_SOURCES), gte(meals.createdAt, start), lt(meals.createdAt, end)));
-  return scans;
+  return scansBetween(userId, start, end);
+}
+
+/** AI scans per rolling 24 hours, for everyone: keeps the AI bill predictable. */
+export const DAILY_SCAN_LIMIT = 50;
+
+
+/**
+ * AI scans (photos, labels, descriptions, menus; copies, barcodes and database foods are free): 50 in
+ * 24 hours for everyone; with payments on, free accounts get a few a day (402 → the app offers
+ * Premium).
+ */
+export async function checkAiLimit(userId: string, timeZone: string) {
+  if ((await scansBetween(userId, new Date(Date.now() - 24 * 60 * 60 * 1000))) >= DAILY_SCAN_LIMIT) {
+    throw new HttpError(429, `You can log up to ${DAILY_SCAN_LIMIT} meals with AI a day. Please try again tomorrow.`);
+  }
+  if (!paymentsEnabled() || isActive(await subscriptionOf(userId))) return;
+  const free = freeScansPerDay();
+  if ((await scansToday(userId, timeZone)) >= free) {
+    throw new HttpError(
+      402,
+      `You've used your ${free} free AI scans for today. Barcodes, food search and your goals stay free — or go Premium for unlimited scans.`,
+    );
+  }
 }
 
 export async function billingStatus(userId: string, timeZone: string): Promise<BillingStatus> {

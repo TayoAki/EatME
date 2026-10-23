@@ -144,6 +144,7 @@ export function toMealItem(
           standardDrinks: standardDrinks(n.alcohol ?? 0),
         }
       : null,
+    menu: item.menu ?? null,
   };
 }
 

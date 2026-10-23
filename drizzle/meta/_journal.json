@@ -169,6 +169,13 @@
       "when": 1792626718760,
       "tag": "0023_chain_items_trans_fat",
       "breakpoints": true
+    },
+    {
+      "idx": 24,
+      "version": "7",
+      "when": 1792714598359,
+      "tag": "0024_what_to_order",
+      "breakpoints": true
     }
   ]
 }

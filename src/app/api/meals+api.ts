@@ -1,10 +1,10 @@
-import { and, count, desc, eq, gte, inArray, lt } from 'drizzle-orm';
+import { and, desc, eq, gte, inArray, lt } from 'drizzle-orm';
 
 import { db } from '@/db';
 import { meals, users } from '@/db/schema';
 import { requireAiConsent } from '@/lib/server/ai-consent';
 import { requireUserId } from '@/lib/server/auth';
-import { ANALYZED_SOURCES, freeScansPerDay, isActive, paymentsEnabled, scansToday, subscriptionOf } from '@/lib/server/billing';
+import { checkAiLimit, isActive, paymentsEnabled, subscriptionOf } from '@/lib/server/billing';
 import { dateParam, dayBounds, loggedAtFor, userTimeZone } from '@/lib/server/day';
 import { multiPhotoEnabled } from '@/lib/server/experiments';
 import { toMeal } from '@/lib/server/dto';
@@ -14,12 +14,11 @@ import { describeError } from '@/lib/server/log';
 import { resumeStalledAnalyses, startMealAnalysis } from '@/lib/server/meal-analysis';
 import { rateLimit } from '@/lib/server/rate-limit';
 import { deleteObject, extraPhotoKey, mealPhotoKey, putObject } from '@/lib/server/storage';
+import { readPhotos } from '@/lib/server/uploads';
 import {
   describeMealSchema,
   MAX_MEAL_NOTE_LENGTH,
-  MAX_MEAL_PHOTO_BYTES,
   MAX_MEAL_PHOTOS,
-  MEAL_PHOTO_FIELD,
   PHOTO_MODES,
   quickMealSchema,
   type PhotoMode,
@@ -27,14 +26,8 @@ import {
 import { drinkMealSchema } from '@/shared/drinks';
 import { barcodeMealSchema, foodMealSchema } from '@/shared/products';
 
-/** AI analyses (photos, labels, descriptions) per rolling 24 hours — keeps the AI bill predictable. */
-const DAILY_SCAN_LIMIT = 50;
-
 /** Meals logged without AI (barcodes, database foods, quick adds, drinks) per 24 hours: only there to stop abuse. */
 const DAILY_INSTANT_LIMIT = 300;
-
-type UploadedFile = { size: number; type: string; arrayBuffer(): Promise<ArrayBuffer> };
-type MultipartForm = { get(name: string): UploadedFile | string | null };
 
 /** Meals logged on one local day (`?date=YYYY-MM-DD`, in the user's time zone). */
 export const GET = handle(async (request) => {
@@ -61,65 +54,6 @@ export const GET = handle(async (request) => {
   return Response.json({ meals: await Promise.all(rows.map(toMeal)) });
 });
 
-/**
- * The photo's bytes. The app sends the JPEG itself as the body (`Content-Type: image/jpeg`);
- * multipart form data with a `photo` field is accepted too (older app versions).
- */
-async function readPhoto(request: Request): Promise<ArrayBuffer> {
-  const declaredSize = Number(request.headers.get('content-length') ?? 0);
-  if (declaredSize > MAX_MEAL_PHOTO_BYTES + 64 * 1024) throw new HttpError(413, 'That photo is too large.');
-
-  let bytes: ArrayBuffer;
-  const contentType = request.headers.get('content-type') ?? '';
-  if (contentType.startsWith('image/')) {
-    bytes = await request.arrayBuffer();
-  } else if (contentType.startsWith('multipart/form-data')) {
-    // Typed by hand: the project's global FormData type is React Native's, which has no get().
-    const form = (await request.formData().catch(() => null)) as MultipartForm | null;
-    const photo = form?.get(MEAL_PHOTO_FIELD);
-    if (!photo || typeof photo === 'string') throw new HttpError(400, 'Attach the meal photo.');
-    if (photo.type && !photo.type.startsWith('image/')) throw new HttpError(415, 'Only photos can be analyzed.');
-    bytes = await photo.arrayBuffer();
-  } else {
-    throw new HttpError(415, 'Send the meal photo as image/jpeg.');
-  }
-
-  if (bytes.byteLength === 0) throw new HttpError(400, 'Attach the meal photo.');
-  if (bytes.byteLength > MAX_MEAL_PHOTO_BYTES) throw new HttpError(413, 'That photo is too large.');
-  return bytes;
-}
-
-/**
- * The photos' bytes: one JPEG as the body, or several photos of the same meal (steer the AI) back
- * to back with their sizes in `X-Photo-Lengths` ("48123,51200"). No FormData: Expo's fetch only
- * partly supports it.
- */
-async function readPhotos(request: Request): Promise<ArrayBuffer[]> {
-  const header = request.headers.get('x-photo-lengths');
-  if (!header) return [await readPhoto(request)];
-  if (Number(request.headers.get('content-length') ?? 0) > MAX_MEAL_PHOTOS * MAX_MEAL_PHOTO_BYTES + 64 * 1024) {
-    throw new HttpError(413, 'Those photos are too large.');
-  }
-  // Read the body before checking it, so a refusal never cuts the upload off mid-way.
-  const bytes = await request.arrayBuffer();
-  const lengths = header.split(',').map((value) => Number(value.trim()));
-  if (
-    lengths.length > MAX_MEAL_PHOTOS ||
-    lengths.some((n) => !Number.isInteger(n) || n <= 0 || n > MAX_MEAL_PHOTO_BYTES)
-  ) {
-    throw new HttpError(400, `Send between 1 and ${MAX_MEAL_PHOTOS} photos of the meal.`);
-  }
-  if (!(request.headers.get('content-type') ?? '').startsWith('image/')) throw new HttpError(415, 'Send the meal photos as image/jpeg.');
-  const total = lengths.reduce((sum, n) => sum + n, 0);
-  if (bytes.byteLength !== total) throw new HttpError(400, "The photos didn't arrive completely. Please try again.");
-  let offset = 0;
-  return lengths.map((n) => {
-    const photo = bytes.slice(offset, offset + n);
-    offset += n;
-    return photo;
-  });
-}
-
 /** The note sent with a photo (`X-Meal-Note`, URI-encoded so any language fits in a header). */
 function photoNote(request: Request) {
   const raw = request.headers.get('x-meal-note');
@@ -138,35 +72,6 @@ function photoMode(request: Request): PhotoMode {
   const mode = new URL(request.url).searchParams.get('mode') ?? 'meal';
   if (!(PHOTO_MODES as readonly string[]).includes(mode)) throw new HttpError(400, 'Unknown photo mode.');
   return mode as PhotoMode;
-}
-
-/**
- * AI analyses (photos, labels, descriptions; copies, barcodes and database foods are free): 50 in
- * 24 hours for everyone; with payments on, free accounts get a few a day (402 → the app offers
- * Premium).
- */
-async function checkAiLimit(userId: string, timeZone: string) {
-  const [{ scans }] = await db
-    .select({ scans: count() })
-    .from(meals)
-    .where(
-      and(
-        eq(meals.userId, userId),
-        inArray(meals.source, ANALYZED_SOURCES),
-        gte(meals.createdAt, new Date(Date.now() - 24 * 60 * 60 * 1000)),
-      ),
-    );
-  if (scans >= DAILY_SCAN_LIMIT) {
-    throw new HttpError(429, `You can log up to ${DAILY_SCAN_LIMIT} meals with AI a day. Please try again tomorrow.`);
-  }
-  if (!paymentsEnabled() || isActive(await subscriptionOf(userId))) return;
-  const free = freeScansPerDay();
-  if ((await scansToday(userId, timeZone)) >= free) {
-    throw new HttpError(
-      402,
-      `You've used your ${free} free AI scans for today. Barcodes, food search and your goals stay free — or go Premium for unlimited scans.`,
-    );
-  }
 }
 
 const has = (body: unknown, key: string) => typeof body === 'object' && body !== null && key in body;
@@ -219,7 +124,7 @@ export const POST = handle(async (request) => {
   const mode = photoMode(request);
   // Label numbers are printed on the package; a note would only compete with them.
   const note = mode === 'meal' ? photoNote(request) : null;
-  const photos = await readPhotos(request);
+  const photos = await readPhotos(request, MAX_MEAL_PHOTOS);
   // Several photos of one meal are still one scan.
   if (photos.length > 1) {
     if (mode !== 'meal') throw new HttpError(400, 'A nutrition label is read from one photo.');

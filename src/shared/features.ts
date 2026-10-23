@@ -18,6 +18,8 @@ export type Features = {
   followUp: boolean;
   /** The companies that get data for AI work, named on the AI consent screen (e.g. OpenRouter, OpenAI). */
   aiProviders: string[];
+  /** What to order (v2.5): chain menus and menu scans ranked for the person's day. */
+  whatToOrder: boolean;
 };
 
 /** Shown on the AI consent screen until the server's list has loaded (the server's own setup). */

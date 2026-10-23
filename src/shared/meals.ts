@@ -1,6 +1,7 @@
 import { z } from 'zod';
 
 import type { NutrientAmounts } from './nutrients';
+import type { MenuRef } from './menus';
 import type { ProductSource } from './products';
 
 /**
@@ -10,8 +11,8 @@ import type { ProductSource } from './products';
 export const MEAL_STATUSES = ['analyzing', 'completed', 'failed', 'not_food', 'saved'] as const;
 export type MealStatus = (typeof MEAL_STATUSES)[number];
 
-/** How the meal was logged. `quick`: calories and macros typed in (quick add), no AI. */
-export const MEAL_SOURCES = ['photo', 'text', 'label', 'copy', 'barcode', 'food', 'quick', 'restaurant', 'drink'] as const;
+/** How the meal was logged. `quick`: calories and macros typed in (quick add), no AI. `menu`: What to order (v2.5). */
+export const MEAL_SOURCES = ['photo', 'text', 'label', 'copy', 'barcode', 'food', 'quick', 'restaurant', 'drink', 'menu'] as const;
 export type MealSource = (typeof MEAL_SOURCES)[number];
 
 /** How sure the AI was: "low" shows a "rough estimate" note. */
@@ -137,6 +138,8 @@ export type MealItem = {
   restaurant: { chain: string; serving: string; count: number } | null;
   /** An alcoholic drink (v2.4): how many, their size and strength, and standard drinks. */
   drink: { title: string; count: number; volumeMl: number; abv: number; standardDrinks: number } | null;
+  /** Ordered with What to order (v2.5): the dish and where its numbers came from when it was logged. */
+  menu: MenuRef | null;
 };
 
 /** A food from the USDA database, as search returns it. Nutrients per 100 g. */

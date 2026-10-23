@@ -37,6 +37,7 @@ import type { NutrientAmounts } from '@/shared/nutrients';
 import { PHOTO_POSES } from '@/shared/body';
 import { CHECKIN_REASONS, CHECKIN_STATUSES } from '@/shared/adaptive';
 import { CHAIN_ITEM_KINDS, CHAIN_ITEM_STATUSES } from '@/shared/chains';
+import { CHAIN_ITEM_REPORT_REASONS, MENU_SCAN_STATUSES, type DishLine, type MenuRef, type ScanDish } from '@/shared/menus';
 import type { DraftItem, DraftSlotChoices } from '@/shared/day-draft';
 import {
   PRODUCT_REPORT_REASONS,
@@ -79,6 +80,9 @@ export const productReportReasonEnum = pgEnum('product_report_reason', PRODUCT_R
 export const productReportStatusEnum = pgEnum('product_report_status', PRODUCT_REPORT_STATUSES);
 export const chainItemKindEnum = pgEnum('chain_item_kind', CHAIN_ITEM_KINDS);
 export const chainItemStatusEnum = pgEnum('chain_item_status', CHAIN_ITEM_STATUSES);
+export const menuScanStatusEnum = pgEnum('menu_scan_status', MENU_SCAN_STATUSES);
+export const chainItemReportReasonEnum = pgEnum('chain_item_report_reason', CHAIN_ITEM_REPORT_REASONS);
+export const chainItemReportStatusEnum = pgEnum('chain_item_report_status', ['open', 'resolved']);
 
 const timestamps = {
   createdAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
@@ -138,6 +142,11 @@ export const users = pgTable('users', {
    */
   aiConsentAt: timestamp({ withTimezone: true }),
   aiConsentProviders: text().array(),
+  /**
+   * What to order (v2.5, Premium with one free try): the list that was the free try, as
+   * "chain:<slug>" or "scan:<id>". It stays open; any other list needs Premium.
+   */
+  whatToOrderTry: text(),
 
   ...timestamps,
 });
@@ -485,6 +494,8 @@ export const mealItems = pgTable(
     restaurant: jsonb().$type<RestaurantRef>(),
     /** An alcoholic drink (v2.4): type, one drink's volume, strength, how many (and a cocktail's shots and mixer). */
     drink: jsonb().$type<DrinkRef>(),
+    /** Ordered with What to order (v2.5): the dish, and the chain's citation or the estimate's range when logged. */
+    menu: jsonb().$type<MenuRef>(),
     ...timestamps,
   },
   (t) => [index('meal_items_meal_id_idx').on(t.mealId)],
@@ -608,6 +619,74 @@ export const chainItems = pgTable(
   ],
 );
 export type ChainItemRow = typeof chainItems.$inferSelect;
+
+/**
+ * What to order (v2.5): the chains in the table, by US sales rank (data/chains/ranking.csv), with the
+ * page that cites them on a list. Loaded with the items by server/chains.mjs.
+ */
+export const chains = pgTable('chains', {
+  /** "chick-fil-a". */
+  slug: text().primaryKey(),
+  name: text().notNull(),
+  /** Technomic Top 500 rank: search lists the biggest chains first. */
+  rank: integer(),
+  /** The chain's own nutrition page or guide (the list's citation); empty when each item has its own page. */
+  guideUrl: text(),
+  version: text().notNull(),
+  ...timestamps,
+});
+export type ChainRow = typeof chains.$inferSelect;
+
+/**
+ * A menu read from photos (v2.5): the confirmed dish lines, then the dishes with their foods and
+ * estimates. Never the photos once read; deleted after 30 days (MENU_SCAN_KEEP_DAYS).
+ */
+export const menuScans = pgTable(
+  'menu_scans',
+  {
+    id: uuid().primaryKey().defaultRandom(),
+    userId: text()
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
+    status: menuScanStatusEnum().notNull().default('reading'),
+    /** The restaurant's name, when the person typed it. */
+    restaurant: text(),
+    /** The lines the person confirmed (or the AI read from the photos). */
+    lines: jsonb().$type<DishLine[]>(),
+    /** Photos waiting to be read (menus/<userId>/<scanId>-n.jpg), deleted once read. */
+    photoKeys: text().array(),
+    /** "fast food", "cafe"…: what the AI took the restaurant to be. */
+    restaurantType: text(),
+    dishes: jsonb().$type<ScanDish[]>(),
+    analysisStartedAt: timestamp({ withTimezone: true }),
+    analysisAttempts: integer().notNull().default(0),
+    error: text(),
+    ...timestamps,
+  },
+  (t) => [index('menu_scans_user_id_created_at_idx').on(t.userId, t.createdAt)],
+);
+export type MenuScanRow = typeof menuScans.$inferSelect;
+
+/** "Report a wrong item" on a chain item, one per person and item; reviewed by hand (data/chains/README.md). */
+export const chainItemReports = pgTable(
+  'chain_item_reports',
+  {
+    id: uuid().primaryKey().defaultRandom(),
+    chainItemId: uuid()
+      .notNull()
+      .references(() => chainItems.id, { onDelete: 'cascade' }),
+    userId: text()
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
+    reason: chainItemReportReasonEnum().notNull(),
+    note: text(),
+    /** What the person saw: the numbers, the source and when it was checked. */
+    snapshot: jsonb().$type<{ calories: number; nutrients: NutrientAmounts; sourceUrl: string; checkedOn: string }>().notNull(),
+    status: chainItemReportStatusEnum().notNull().default('open'),
+    ...timestamps,
+  },
+  (t) => [uniqueIndex('chain_item_reports_user_id_item_idx').on(t.userId, t.chainItemId), index('chain_item_reports_item_idx').on(t.chainItemId)],
+);
 
 /**
  * GLP-1 mode (v2.2): one current medicine (`ended_on` empty) and the ones before it, so doses stay

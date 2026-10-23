@@ -14,3 +14,9 @@ export const foodQualityEnabled = () => process.env.FOOD_QUALITY_TAG === 'true';
  */
 export const multiPhotoEnabled = () => process.env.MULTI_PHOTO !== 'false';
 export const followUpEnabled = () => process.env.FOLLOW_UP_QUESTION === 'true';
+
+/**
+ * What to order (v2.5, WHAT-TO-ORDER.md): on unless WHAT_TO_ORDER=false, a switch for outages only.
+ * It is on in the build Apple reviews and is never turned on for the first time after a review (2.5.19).
+ */
+export const whatToOrderEnabled = () => process.env.WHAT_TO_ORDER !== 'false';

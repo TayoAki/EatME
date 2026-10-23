@@ -110,6 +110,22 @@ const handleApi = createRequestHandler({ build: path.join(root, 'dist', 'server'
 
 await runMigrations();
 
+/** Menu scans (What to order) are kept 30 days (MENU_SCAN_KEEP_DAYS): deleted at start and then once a day. */
+async function deleteOldMenuScans() {
+  if (!process.env.DATABASE_URL) return;
+  const pool = new pg.Pool({ connectionString: process.env.DATABASE_URL, max: 1 });
+  try {
+    const { rowCount } = await pool.query(`delete from menu_scans where created_at < now() - interval '30 days'`);
+    if (rowCount) console.log(`[server] deleted ${rowCount} menu scans older than 30 days`);
+  } catch (error) {
+    console.error(`[server] could not delete old menu scans: ${error instanceof Error ? error.name : typeof error}`);
+  } finally {
+    await pool.end();
+  }
+}
+void deleteOldMenuScans();
+setInterval(() => void deleteOldMenuScans(), 24 * 60 * 60 * 1000).unref();
+
 /** An error's name and code only: the API routes log their own errors without the data inside them. */
 const errorLine = (error) => (error instanceof Error ? `${error.name}${error.code ? ` ${error.code}` : ''}` : typeof error);
 
