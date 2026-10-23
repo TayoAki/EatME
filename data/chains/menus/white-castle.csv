@@ -1,0 +1,41 @@
+chain,section,name,serving,serving_g,kind,calories,fat_g,saturated_fat_g,trans_fat_g,cholesterol_mg,sodium_mg,carbs_g,fiber_g,sugars_g,protein_g,source_url,checked_on,check
+White Castle,Sliders,The Original Slider®,1 serving,55,main,140,7,2.5,0,10,230,15,1,2,6,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sliders,Double Original Slider®,1 serving,98,main,250,13,4.5,1,20,690,24,2,3,11,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sliders,Cheese,1 serving,63,main,170,9,4,0.5,15,370,16,1,2,8,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sliders,Double Cheese,1 serving,113,main,300,17,8,1,30,680,24,2,4,14,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sliders,Smoked Cheddar Cheese,1 serving,60,main,180,10,4.5,0,20,360,16,1,2,8,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sliders,Double Smoked Cheddar Cheese,1 serving,108,main,320,19,9,1,40,640,25,2,3,15,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sliders,Jalapeño Cheese,1 serving,60,main,170,9,4,0.5,15,350,16,1,2,8,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sliders,Double Jalapeño Cheese,1 serving,108,main,320,19,9,1,40,640,25,2,3,15,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sliders,Garlic Cheese - Limited Time Offering,1 serving,61,main,170,9,4,0.5,15,460,14,1,2,8,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sliders,Bacon Cheese,1 serving,66,main,220,14,6,0.5,25,510,15,1,2,11,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sliders,Bacon Jalapeño Cheese,1 serving,67,main,230,15,6,0,30,540,16,1,2,11,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sliders,Bacon Smoked Cheddar Cheese,1 serving,68,main,230,15,6,0,30,540,16,1,2,11,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sliders,Panko Fish Slider - Plain,1 serving,100,main,320,20,3.5,0,25,320,25,1,3,9,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sliders,Panko Fish Slider w/Cheese,1 serving,108,main,340,22,4.5,0,30,460,25,1,3,11,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sliders,Panko Fish Slider w/Jalapeno Cheese,1 serving,109,main,350,23,5,0,35,490,26,1,3,11,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sliders,Panko Fish Slider w/Cheddar Cheese,1 serving,109,main,350,23,5,0,35,490,26,1,3,11,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sliders,Chicken Ring w/Cheese,1 serving,71,main,200,10,3,0,45,470,18,1,2,9,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sliders,Chicken Ring w/Jalapeno Cheese,1 serving,72,main,210,11,3.5,0,45,510,19,1,2,10,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sliders,Chicken Ring w/Smoked Cheddar Cheese,1 serving,72,main,210,11,3.5,0,45,510,19,1,2,10,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sliders,Crispy Chicken,1 serving,112,main,330,18,3,0,35,680,31,2,7,13,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sliders,Garage Beer® Cheese Sausage Sliders - Limited Time Offering,1 serving,109,main,280,18,7,0,45,750,18,0,3,10,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sliders,Southwest Veggie Slider,1 serving,85,main,240,10,3,0,10,540,31,4,5,6,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sides,French Fries,Small,148,side,330,21,4,0,0,50,32,3,2,3,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sides,French Fries,Medium,266,side,600,39,7,0,0,85,57,6,3,6,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sides,French Fries,Sack (serves 3),353,side,770,49,9,0,0,115,76,8,4,8,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sides,French Fries (New York / New Jersey only),Small,148,side,350,21,4.5,0,0,40,34,3,1,5,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sides,French Fries (New York / New Jersey only),Medium,266,side,630,39,9,0,0,70,60,6,3,9,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sides,French Fries (New York / New Jersey only),Sack (serves 3),353,side,810,49,11,0,0,95,81,8,4,12,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sides,Cheese Fries,1 serving,199,side,400,27,5,0,0,350,35,3,2,4,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sides,Garage Beer® Cheese Fries - Limited Time Only,1 serving,191,side,430,29,8,0,20,310,36,3,3,6,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sides,Cheese Fries (New York / New Jersey only),1 serving,201,side,410,28,5,0,0,350,35,3,2,4,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sides,Garage Beer® Cheese Fries - Limited Time Only (NY/NJ only),1 serving,191,side,450,29,9,0,20,300,38,3,2,8,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sides,French Fries (AZ/FL only),Small,195,side,430,29,4,0,0,810,42,3,2,3,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sides,French Fries (AZ/FL only),Medium,268,side,540,33,5,0,0,1140,59,5,2,4,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sides,French Fries (AZ/FL only),Sack (serves 3),348,side,770,51,8,0,0,1450,74,6,3,5,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sides,Cheese Fries (Scottsdale / Orlando only),1 serving,237,side,470,32,5,0,0,1110,43,3,2,4,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sides,Garage Beer® Cheese Fries - Limited Time Only (AZ/FL only),1 serving,191,side,500,34,8,0,20,1070,44,3,3,6,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sides,Onion Chips,Small,124,side,480,36,6,0,0,690,33,6,4,4,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sides,Onion Chips,Medium,262,side,930,65,11,0,0,1550,73,13,8,8,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending
+White Castle,Sides,Onion Chips,Sack (serves 3),349,side,1350,101,17,0,0,1950,92,16,11,11,https://www.whitecastle.com/about-us/restaurant-menu-nutrition-information,2026-10-23,pending

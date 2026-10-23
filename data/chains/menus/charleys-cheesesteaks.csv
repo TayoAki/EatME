@@ -1,0 +1,142 @@
+chain,section,name,serving,serving_g,kind,calories,fat_g,saturated_fat_g,trans_fat_g,cholesterol_mg,sodium_mg,carbs_g,fiber_g,sugars_g,protein_g,source_url,checked_on,check
+Charleys Cheesesteaks,CHEESESTEAKS,Chicken Philly,Small,,main,430,11,6,0,70,910,37,2,3,32,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Chicken Philly,Regular,,main,720,18,9,0,130,1520,55,4,5,57,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Chicken Philly,Large,,main,1010,24,12,0.5,190,2150,76,6,8,82,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Chicken California,Small,,main,490,25,8,0,75,1180,38,3,4,32,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Chicken California,Regular,,main,800,40,12,0.5,140,2010,56,4,5,56,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Chicken California,Large,,main,1120,56,17,1,205,2860,76,6,8,82,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Chicken Buffalo,Small,,main,450,18,7,0,80,940,41,3,4,32,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Chicken Buffalo,Regular,,main,730,31,11,0,140,3080,61,5,6,57,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Chicken Buffalo,Large,,main,1030,44,15,0.5,205,4320,84,7,8,82,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Chicken Teriyaki,Small,,main,440,17,7,0,80,940,41,3,6,33,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Chicken Teriyaki,Regular,,main,740,29,11,0.5,145,1660,63,5,11,58,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Chicken Teriyaki,Large,,main,1040,42,15,1,215,2410,88,7,15,84,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Philly Cheesesteak,Small,,main,470,22,8,0.5,,1200,39,2,4,27,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Philly Cheesesteak,Regular,,main,780,38,14,1,125,2030,58,4,6,51,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Philly Cheesesteak,Large,,main,1100,54,20,1.5,180,2890,80,5,9,73,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Bacon 3 Cheesesteak,Small,,main,550,29,12,0.5,85,1230,39,2,4,35,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Bacon 3 Cheesesteak,Regular,,main,850,43,16,1,140,1950,58,4,6,56,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Bacon 3 Cheesesteak,Large,,main,1200,63,23,1.5,205,2870,80,5,9,80,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Veggie Delight,Small,,main,460,22,9,0,45,880,49,5,9,21,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Veggie Delight,Regular,,main,620,28,10,0,50,1310,71,7,13,25,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Veggie Delight,Large,,main,870,41,14,0,70,1880,98,10,18,34,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Old School Cheesesteak,Small,,main,380,13,4.5,0,50,1120,41,2,6,26,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Old School Cheesesteak,Regular,,main,760,29,11,0.5,140,2280,64,3,10,64,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Old School Cheesesteak,Large,,main,1050,40,15,1,195,3250,86,4,14,86,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Prime BBQ Jalapeño,Small,,main,550,24,10,0,75,1470,51,3,15,31,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Prime BBQ Jalapeño,Regular,,main,940,43,16,0.5,140,2510,83,4,28,56,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Prime BBQ Jalapeño,Large,,main,1335,62,23,1,205,3380,113,6,38,81,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Pepperoni Cheesesteak,Small,,main,560,30,11,0,90,1410,39,2,4,33,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Pepperoni Cheesesteak,Regular,,main,890,49,18,0.5,150,2290,58,4,7,57,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Pepperoni Cheesesteak,Large,,main,1250,68,24,1,215,3200,80,5,9,82,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Bacon Chipotle,Small,,main,570,30,10,0,95,1350,39,3,4,38,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Bacon Chipotle,Regular,,main,820,40,14,0,155,1970,57,5,6,61,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Bacon Chipotle,Large,,main,1170,57,19,0.5,230,2830,79,7,9,89,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Turkey Bacon Club,Small,,main,620,31,13,0,105,2100,44,2,5,43,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Turkey Bacon Club,Regular,,main,830,36,13,0.5,130,3580,66,3,8,63,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Turkey Bacon Club,Large,,main,1090,52,18,0,190,5300,92,4,11,91,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Hot Shot Italiano,Small,,main,520,26,9,0,70,1930,41,2,4,30,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Hot Shot Italiano,Regular,,main,880,48,16,0,130,3550,62,3,7,53,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CHEESESTEAKS,Hot Shot Italiano,Large,,main,1260,69,22,0.5,185,5200,86,4,10,76,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,TOPPINGS,Lettuce,Small,,extra,0,0,0,0,0,0,0,0,0,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,TOPPINGS,Lettuce,Regular,,extra,0,0,0,0,0,0,0,0,0,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,pending
+Charleys Cheesesteaks,TOPPINGS,Lettuce,Large,,extra,5,0,0,0,0,0,1,0.5,0.5,0.5,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,TOPPINGS,Tomato,Small,,extra,5,0,0,0,0,0,1,0,0.5,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,TOPPINGS,Tomato,Regular,,extra,10,0,0,0,0,0,2,0.5,1,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,TOPPINGS,Tomato,Large,,extra,10,0,0,0,0,0,2,0.5,1,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,TOPPINGS,Mayo,Small,,extra,50,6,1,0,2.5,40,0,0,0,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,TOPPINGS,Mayo,Regular,,extra,100,11,1.5,0,10,80,0,0,0,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,TOPPINGS,Mayo,Large,,extra,150,17,2.5,0,10,120,0.5,0,0,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,TOPPINGS,Pickles,Small,,extra,0,0,0,0,0,130,0,0,0,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,TOPPINGS,Pickles,Regular,,extra,0,0,0,0,0,260,0,0,0,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,TOPPINGS,Pickles,Large,,extra,0,0,0,0,0,390,0,0,0,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,TOPPINGS,Banana Peppers,Small,,extra,0,0,0,0,0,115,0,0,0,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,TOPPINGS,Banana Peppers,Regular,,extra,0,0,0,0,0,230,0.5,0,0,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,TOPPINGS,Banana Peppers,Large,,extra,0,0,0,0,0,350,0.5,0,0,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,TOPPINGS,Jalapeños,Small,,extra,0,0,0,0,0,240,0.5,0,0,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,TOPPINGS,Jalapeños,Regular,,extra,5,0,0,0,0,360,1,0.5,0,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,TOPPINGS,Jalapeños,Large,,extra,10,0,0,0,0,470,1,0.5,0.5,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,WINGS,Plain,1 Piece,,main,110,7,1,0,10,270,6,0,1,5,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,WINGS,Plain BBQ,1 Piece,,main,140,7,1,0,10,410,14,0,8,5,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,WINGS,Buffalo,1 Piece,,main,110,7,1,0,10,600,7,0,1,5,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,WINGS,Cajun Rub,1 Piece,,main,110,7,1,0,10,630,6,0,1,5,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,WINGS,Garlic Parm,1 Piece,,main,160,12,2,0,10,560,8,0,1,6,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,WINGS,Korean BBQ,1 Piece,,main,130,7,1,0,10,5209,11,0,5,5,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,WINGS,Lemon Pepper Rub,1 Piece,,main,110,7,1,0,10,630,6,0,1,5,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,WINGS,Mango Habanero,1 Piece,,main,130,7,1,0,10,340,11,0,1,5,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,WINGS,Scorpion String,1 Piece,,main,110,7,1,0,10,630,6,0,1,5,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,WINGS,Teriyaki,1 Piece,,main,140,7,1,0,10,510,13,0,7,5,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,WINGS,Thai Chili,1 Piece,,main,150,7,1,0,10,480,16,0,10,5,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,WINGS,Bold BBQ,1 Piece,,main,160,9,2.5,0,45,190,8,0,7,10,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,SAUCES & RUBS,Bold BBQ Sauce,2 oz.,,extra,140,0,0,0,0,580,32,0,28,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,SAUCES & RUBS,Buffalo Sauce,2 oz.,,extra,30,2,0,0,0,1320,4,0,0,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,SAUCES & RUBS,Cajun Rub,1/4 tsp.,,extra,0,0,0,0,0,80,0,0,0,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,SAUCES & RUBS,Garlic Parm Sauce,2 oz.,,extra,160,16,2,0,0,920,4,0,0,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,SAUCES & RUBS,Lemon Pepper Rub,1/4 tsp.,,extra,0,0,0,0,0,80,0,0,0,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,SAUCES & RUBS,Korean BBQ,2 oz.,,extra,90,1,0,0,0,990,17,0,16,2,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,SAUCES & RUBS,Scorpion String Rub,1/4 tsp.,,extra,0,0,0,0,0,80,0,0,0,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,SAUCES & RUBS,Teriyaki,1 serving,,extra,120,0,0,0,0,960,28,0,24,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,SAUCES & RUBS,Thai Chili Sauce,2 oz.,,extra,160,0,0,0,0,840,40,0,36,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,FRIES,Original Fries,Regular,,side,400,22,7,0,0,510,48,8,0,5,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,FRIES,Original Fries,Large,,side,800,44,14,0,0,1010,93,17,0,9,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,FRIES,Cheese Gourmet Fries,Regular,,side,550,30,9,0,0,1040,62,10,3,6,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,FRIES,Cheese Gourmet Fries,Large,,side,1090,60,18,0,0,1900,124,20,5,11,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,FRIES,Cheese and Bacon Gourmet Fries,Regular,,side,680,41,13,0,20,1530,63,10,4,15,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,FRIES,Cheese and Bacon Gourmet Fries,Large,,side,1360,82,26,0,40,2870,128,20,7,29,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,FRIES,Ultimate Gourmet Fries,Regular,,side,790,54,16,0,25,1600,61,10,3,15,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,FRIES,Ultimate Gourmet Fries,Large,,side,1570,108,30,0.5,50,2800,122,21,6,30,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,SIDES & DIPS,Mozzarella Sticks,1 serving,,extra,320,18,8,0,45,1290,25,0.5,5,13,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,SIDES & DIPS,Ranch Dip,1.5 oz.,,extra,200,21,3,0,15,280,2,0,0.5,0.5,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,SIDES & DIPS,Cheese Sauce,2 oz.,,extra,70,4.5,2.5,0,2.5,680,6,0,2,0.5,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,BEVERAGES,Coke,12 oz.,,drink,90,0,0,0,0,25,25,0,25,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,BEVERAGES,Diet Coke,12 oz.,,drink,0,0,0,0,0,10,0,0,0,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,pending
+Charleys Cheesesteaks,BEVERAGES,Coke Zero,12 oz.,,drink,0,0,0,0,0,0,0,0,0,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,pending
+Charleys Cheesesteaks,BEVERAGES,Sprite,12 oz.,,drink,90,0,0,0,0,20,24,0,24,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,BEVERAGES,Fanta Orange,12 oz.,,drink,100,0,0,0,0,0,26,0,26,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,BEVERAGES,Barq's Root Beer,12 oz.,,drink,100,0,0,0,0,10,27,0,27,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,BEVERAGES,Hi-C Flashin' Fruit Punch,12 oz.,,drink,90,0,0,0,0,10,26,0,26,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,BEVERAGES,Dr. Pepper,12 oz.,,drink,80,0,0,0,0,25,24,0,24,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,BEVERAGES,Original Lemonade,12 oz.,,drink,130,0,0,0,0,0,33,0,32,0.5,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,BEVERAGES,Iced Tea (Unsweetened),12 oz.,,drink,0,0,0,0,0,5,0.5,0,0,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,pending
+Charleys Cheesesteaks,BEVERAGES,Iced Tea (Sweetened),12 oz.,,drink,40,0,0,0,0,5,11,0,10,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,BEVERAGES,ICZE - All flavors,12 oz.,,drink,95,0,0,0,0,15,24,0,24,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,BEVERAGES,Coke,21 oz.,,drink,160,0,0,0,0,40,43,0,43,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,BEVERAGES,Diet Coke,21 oz.,,drink,0,0,0,0,0,55,0,0,0,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,pending
+Charleys Cheesesteaks,BEVERAGES,Coke Zero,21 oz.,,drink,0,0,0,0,0,45,0,0,0,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,pending
+Charleys Cheesesteaks,BEVERAGES,Sprite,21 oz.,,drink,150,0,0,0,0,75,42,0,41,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,BEVERAGES,Fanta Orange,21 oz.,,drink,170,0,0,0,0,45,47,0,46,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,BEVERAGES,Barq's Root Beer,21 oz.,,drink,170,0,0,0,0,55,47,0,47,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,BEVERAGES,Hi-C Flashin' Fruit Punch,21 oz.,,drink,160,0,0,0,0,55,44,0,43,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,BEVERAGES,Dr. Pepper,21 oz.,,drink,120,0,0,0,0,35,33,0,32,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,BEVERAGES,Real Fruit Lemonade - Strawberry,21 oz.,,drink,260,0,0,0,0,0,67,0,64,2,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,BEVERAGES,Real Fruit Lemonade - Peach,21 oz.,,drink,250,0,0,0,0,0,66,0,64,2,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,BEVERAGES,Real Fruit Lemonade - Watermelon Straw.,21 oz.,,drink,280,0,0,0,0,0,68,0.5,65,2,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,BEVERAGES,Original Lemonade,21 oz.,,drink,220,0,0,0,0,0,58,0,56,2,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,BEVERAGES,Iced Tea (Unsweetened),21 oz.,,drink,0,0,0,0,0,10,0.5,0,0,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,pending
+Charleys Cheesesteaks,BEVERAGES,Iced Tea (Sweetened),21 oz.,,drink,60,0,0,0,0,10,16,0,16,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,BEVERAGES,Coke,32 oz.,,drink,230,0,0,0,0,55,63,0,63,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,BEVERAGES,Diet Coke,32 oz.,,drink,0,0,0,0,0,80,0,0,0,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,pending
+Charleys Cheesesteaks,BEVERAGES,Coke Zero,32 oz.,,drink,0,0,0,0,0,65,0,0,0,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,pending
+Charleys Cheesesteaks,BEVERAGES,Sprite,32 oz.,,drink,220,0,0,0,0,110,61,0,60,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,BEVERAGES,Fanta Orange,32 oz.,,drink,250,0,0,0,0,65,69,0,68,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,BEVERAGES,Barq's Root Beer,32 oz.,,drink,250,0,0,0,0,85,69,0,69,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,BEVERAGES,Hi-C Flashin' Fruit Punch,32 oz.,,drink,240,0,0,0,0,85,65,0,63,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,BEVERAGES,Dr. Pepper,32 oz.,,drink,180,0,0,0,0,55,49,0,48,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,BEVERAGES,Real Fruit Lemonade - Strawberry,32 oz.,,drink,390,0,0,0,0,0,102,0.5,99,2,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,BEVERAGES,Real Fruit Lemonade - Peach,32 oz.,,drink,380,0,0,0,0,0,100,0.5,97,3,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,BEVERAGES,Real Fruit Lemonade - Watermelon Straw.,32 oz.,,drink,400,0,0,0,0,0,104,1,100,2,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,BEVERAGES,Original Lemonade,32 oz.,,drink,330,0,0,0,0,0,85,0,82,2,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,BEVERAGES,Iced Tea (Unsweetened),32 oz.,,drink,5,0,0,0,0,15,2,0,0,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,pending
+Charleys Cheesesteaks,BEVERAGES,Iced Tea (Sweetened),32 oz.,,drink,100,0,0,0,0,15,25,0,24,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,FROZEN TREATS,Chocolate,1 serving,,dessert,530,16,10,0,55,190,85,1,72,10,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,FROZEN TREATS,Strawberry,1 serving,,dessert,400,16,10,0,55,170,57,0,49,9,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,FROZEN TREATS,Cookies & Cream,1 serving,,dessert,620,20,11,0,55,280,99,2,79,11,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,FROZEN TREATS,CONE,1 serving,,dessert,230,4.5,2.5,0,15,120,42,1,26,4,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,BREAKFAST SANDWICHES,Egg and Cheese Sandwich,1 serving,,main,460,24,9,0,400,850,37,1,4,23,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,BREAKFAST SANDWICHES,"Bacon, Egg and Cheese Sandwich",1 serving,,main,490,26,9,0,400,800,36,1,4,25,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,BREAKFAST SANDWICHES,"Steak, Egg and Cheese Sandwich",1 serving,,main,520,25,9,0,425,890,36,1,3,36,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,SIDES,Hashbrowns,1 serving,,side,280,18,3.5,0,0,400,27,5,0,2,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,SIDES,Orange Juice,1 serving,,drink,110,0,0,0,0,15,27,0,22,2,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,SIDES,Coffee,1 serving,,drink,0,0,0,0,0,5,0,0,0,0,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,two-drafts
+Charleys Cheesesteaks,CATERING,Cookie,1 serving,,dessert,380,19,11,0,45,430,50,2,28,5,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,pending
+Charleys Cheesesteaks,CATERING,Chips,1 serving,,main,210,2,1.5,0,10,125,23,2,1,3,https://www.charleys.com/wp-content/uploads/2025/02/Nutrition-Guide.pdf,2026-10-23,pending

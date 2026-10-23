@@ -1,0 +1,316 @@
+chain,section,name,serving,serving_g,kind,calories,fat_g,saturated_fat_g,trans_fat_g,cholesterol_mg,sodium_mg,carbs_g,fiber_g,sugars_g,protein_g,source_url,checked_on,check
+Freddy's,Chicken & Hot Dogs,Grilled Chicken Club,1 serving,,main,530,29,8,0,100,1410,31,1,7,35,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Chicken & Hot Dogs,Crispy Chicken Club,1 serving,,main,720,41,10,0,100,1750,44,2,7,42,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Chicken & Hot Dogs,Spicy Chicken Sandwich,1 serving,,main,570,29,4.5,0,65,1630,44,1,6,32,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Chicken & Hot Dogs,Chicken Tenders,Regular (3-Piece),,main,420,17,3,0,60,1330,29,2,0,35,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Chicken & Hot Dogs,Chicken Tenders,Large (5-Piece),,main,690,29,5,0,95,2210,49,4,1,58,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Chicken & Hot Dogs,Hot Dog,1 serving,,main,420,24,9,0,40,1000,35,0,6,15,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Chicken & Hot Dogs,Chili Cheese Dog,1 serving,,main,540,31,13,0,60,1320,41,1,8,23,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Chicken & Hot Dogs,Make any Sandwich a Lettuce Wrap,1 serving,,main,-180,-6,-1,0,0,-270,-25,1,-3,-3,https://www.freddys.com/nutrition-and-allergens,2026-10-23,pending
+Freddy's,Frozen Custard Toppings,Banana,1 serving,,extra,20,0,0,0,0,0,5,1,3,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard Toppings,Brownie,1 serving,,extra,170,6,0.5,0,15,125,26,0,17,2,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard Toppings,Butterfinger®,1 serving,,extra,120,4.5,2.5,0,0,60,19,0,12,1,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard Toppings,Cheesecake,1 serving,,extra,60,3.5,2,0,10,55,6,0,4,1,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard Toppings,Cherry Syrup,1 serving,,extra,60,0,0,0,0,40,15,0,14,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard Toppings,Chocolate Chips,1 serving,,extra,130,8,4.5,0,0,0,19,2,15,2,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard Toppings,Chocolate Syrup,1 serving,,extra,80,0,0,0,0,10,21,1,17,1,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard Toppings,Cookie Dough,1 serving,,extra,100,4.5,2.5,0,0,50,16,0,9,1,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard Toppings,Gummy Worm,1 serving,,extra,100,0,0,0,0,10,23,0,16,2,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard Toppings,Heath® Toffee Bar,1 serving,,extra,120,8,4,0,10,75,14,0,14,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard Toppings,Hot Caramel,1 serving,,extra,150,1.5,1,0,5,115,33,0,23,1,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard Toppings,Hot Fudge,1 serving,,extra,160,5,5,0,0,70,25,1,19,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard Toppings,Maraschino Cherry,1 serving,,extra,5,0,0,0,0,0,2,0,2,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard Toppings,Marshmallow,1 serving,,extra,70,0,0,0,0,15,18,0,15,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard Toppings,M&M® Candies,1 serving,,extra,160,7,4.5,0,5,20,21,1,19,1,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard Toppings,OREO® Cookie Pieces,1 serving,,extra,80,3,1,0,0,60,12,1,6,1,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard Toppings,Pecans,1 serving,,extra,120,12,1,0,0,0,2,2,1,2,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard Toppings,Reese's Peanut Butter Cup,1 serving,,extra,160,9,3.5,0,0,110,18,1,15,3,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard Toppings,Reese's Peanut Butter Sauce,1 serving,,extra,120,11,1.5,0,0,100,4,1,2,4,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard Toppings,Sprinkles,1 serving,,extra,120,4,3.5,0,0,15,21,0,18,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard Toppings,Strawberry,1 serving,,extra,60,0,0,0,0,0,15,1,13,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard Toppings,Whipped Cream,1 serving,,extra,30,2.5,1.5,0,5,10,2,0,2,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Sides,Applesauce,1 serving,,side,50,0,0,0,0,0,13,1,11,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Sides,Cheese Fries,Large,,side,710,36,8,0,30,1210,78,7,4,20,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Sides,Cheese Fries,Regular,,side,470,26,5,0,5,710,53,4,2,6,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Sides,Cheese Curds,Large,,side,1110,81,41,2,130,2530,43,3,1,52,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Sides,Cheese Curds,Regular,,side,520,38,19,1,60,1180,20,1,1,24,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Sides,Chili,Bowl (w/ Cheese),,side,390,19,8,0,70,1440,28,6,6,31,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Sides,Chili,Cup (w/ Cheese),,side,270,14,6,0,50,960,18,4,4,21,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Sides,Chili Cheese Fries,Large,,side,710,36,8,0,30,1210,78,7,4,20,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Sides,Chili Cheese Fries,Regular,,side,520,27,6,0,15,830,58,5,3,12,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Sides,Freddy's Fries,Kid's,,side,230,12,2,0,0,150,27,2,0,3,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Sides,Freddy's Fries,Large,,side,520,27,4,0,0,340,62,5,0,7,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Sides,Freddy's Fries,Regular,,side,400,21,3,0,,260,48,4,0,7,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Sides,Freddy's Kettle Cooked Potato Chips,1 serving,,side,200,12,1.5,0,0,260,23,2,2,2,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Sides,Freddy's Tots,Kid's,,side,300,23,5,0,0,700,23,2,0,2,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Sides,Freddy's Tots,Large,,side,680,52,12,0,0,1570,51,4,1,4,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Sides,Freddy's Tots,Regular,,side,530,40,9,0,0,1220,39,3,0,3,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Sides,Onion Rings,Regular,,side,380,19,3,0,0,610,49,3,8,4,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Sides,Onion Rings,Large,,side,770,38,6,0,2,1230,98,5,15,9,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Steakburgers,Bacon & Cheese,Single Patty,,main,520,28,10,1,100,1460,32,0,6,33,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Steakburgers,Bacon & Cheese,Double Patty,,main,760,44,17,1.5,180,1890,33,0,7,55,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Steakburgers,Bacon & Cheese,Triple Patty,,main,990,60,24,2.5,260,2330,34,0,7,77,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Steakburgers,California Style,Single Patty,,main,510,29,9,1,90,890,35,2,10,27,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Steakburgers,California Style,Double Patty,,main,750,45,16,1.5,170,1320,36,2,10,49,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Steakburgers,California Style,Triple Patty,,main,980,61,23,2.5,250,1760,37,2,11,71,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Steakburgers,Cheeseburger,Single Patty,,main,430,22,8,1,80,1120,31,0,6,26,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Steakburgers,Cheeseburger,Double Patty,,main,670,38,15,1.5,160,1560,32,0,6,48,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Steakburgers,Cheeseburger,Triple Patty,,main,910,54,22,2.5,240,2000,33,0,7,70,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Steakburgers,Patty Melt,Single Patty,,main,540,28,9,1,80,1040,39,2,4,30,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Steakburgers,Patty Melt,Double Patty,,main,780,44,16,1.5,160,1470,40,2,4,52,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Steakburgers,Patty Melt,Triple Patty,,main,1020,60,23,2.5,240,1900,41,2,5,74,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Steakburgers,Jalapeño Pepper Jack,Single Patty,,main,530,33,10,1,95,960,31,1,6,27,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Steakburgers,Jalapeño Pepper Jack,Double Patty,,main,790,50,18,1.5,180,1470,32,1,6,49,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Steakburgers,Jalapeño Pepper Jack,Triple Patty,,main,1050,68,26,2.5,270,1980,33,1,6,72,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Steakburgers,Prime Steakburger,Single Patty,,main,770,54,16,1,130,1350,33,1,6,34,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Steakburgers,Prime Steakburger,Double Patty,,main,1000,70,23,1.5,210,1780,34,1,6,56,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Steakburgers,Prime Steakburger,Triple Patty,,main,1240,86,30,2.5,290,2210,35,1,7,78,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Steakburgers,Grilled Cheese Steakburger,Double Patty,,main,1050,67,25,1.5,215,2340,52,0,7,64,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Steakburgers,Veggie Burger,1 serving,,main,510,24,6,0,20,1180,52,10,11,22,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Bowls,Crispy Chicken Bowl (Excludes Dressing),1 serving,,extra,610,38,11,0,105,1520,24,4,5,43,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Bowls,Grilled Chicken Bowl (Excludes Dressing),1 serving,,extra,420,27,9,0,105,1180,10,4,4,37,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Bowls,Steakburger Bowl (Excludes Dressing),1 serving,,extra,660,45,17,1.5,180,1070,9,4,4,55,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Bowls,Veggie Burger Bowl (Excludes Dressing),1 serving,,extra,370,20,6,0,20,730,26,12,5,22,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Pepsi®,Small,,drink,160,0,0,0,0,30,41,0,41,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Pepsi®,Medium,,drink,260,0,0,0,0,55,69,0,69,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Pepsi®,Large,,drink,410,0,0,0,0,85,110,0,110,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Diet Pepsi®,Small,,drink,0,0,0,0,0,55,0,0,0,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Diet Pepsi®,Medium,,drink,0,0,0,0,0,95,0,0,0,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Diet Pepsi®,Large,,drink,0,0,0,0,0,150,0,0,0,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Tropicana®️ Pink Lemonade,Small,,drink,160,0,0,0,0,155,40,0,40,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,pending
+Freddy's,Drinks,Tropicana®️ Pink Lemonade,Medium,,drink,260,0,0,0,0,260,67,0,67,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,pending
+Freddy's,Drinks,Tropicana®️ Pink Lemonade,Large,,drink,410,0,0,0,0,410,107,0,107,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,pending
+Freddy's,Drinks,Tropicana®️ Lemonade,Small,,drink,160,0,0,0,0,155,40,0,40,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,pending
+Freddy's,Drinks,Tropicana®️ Lemonade,Medium,,drink,260,0,0,0,0,260,67,0,67,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,pending
+Freddy's,Drinks,Tropicana®️ Lemonade,Large,,drink,410,0,0,0,0,410,107,0,107,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,pending
+Freddy's,Drinks,Luzianne®️ Iced Tea Unsweet,Small,,drink,0,0,0,0,0,0,0,0,0,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,pending
+Freddy's,Drinks,Luzianne®️ Iced Tea Unsweet,Medium,,drink,0,0,0,0,0,0,0,0,0,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,pending
+Freddy's,Drinks,Luzianne®️ Iced Tea Unsweet,Large,,drink,0,0,0,0,0,0,0,0,0,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,pending
+Freddy's,Drinks,Luzianne®️ Iced Tea,Medium,,drink,180,0,0,0,0,10,46,0,46,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Luzianne®️ Iced Tea,Large,,drink,280,0,0,0,0,15,73,0,73,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Lipton Brisk®️ Raspberry,Small,,drink,80,0,0,0,0,45,20,0,20,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Lipton Brisk®️ Raspberry,Medium,,drink,130,0,0,0,0,70,33,0,33,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Lipton Brisk®️ Raspberry,Large,,drink,200,0,0,0,0,115,52,0,52,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Lipton Brisk®️ Peach,Small,,drink,0,0,0,0,0,105,0,0,0,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Lipton Brisk®️ Peach,Medium,,drink,5,0,0,0,0,175,0,0,0,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Lipton Brisk®️ Peach,Large,,drink,10,0,0,0,0,285,0,0,0,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Moutain Dew CODE RED®️,Small,,drink,170,0,0,0,50,0,46,0,46,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Moutain Dew CODE RED®️,Medium,,drink,290,0,0,0,0,85,77,0,77,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Moutain Dew CODE RED®️,Large,,drink,460,0,0,0,0,130,123,0,123,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Sobe®️ Lifewater Yumberry Pomegranate,Small,,drink,0,0,0,0,0,45,0,0,0,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Sobe®️ Lifewater Yumberry Pomegranate,Medium,,drink,0,0,0,0,0,80,0,0,0,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Sobe®️ Lifewater Yumberry Pomegranate,Large,,drink,0,0,0,0,0,125,1,0,0,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Freddy's Bevies - Blue Rizzberry Custard Cream Soda,Regular,,drink,250,3.5,2.5,0,20,55,53,0,53,2,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Freddy's Bevies - Blue Rizzberry Custard Cream Soda,Large,,drink,430,7,4.5,0,40,100,87,0,86,3,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Freddy's Bevies - Coco Loco Custard Cream Soda,Regular,,drink,270,3.5,2.5,0,20,75,58,0,57,2,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Freddy's Bevies - Coco Loco Custard Cream Soda,Large,,drink,460,7,4.5,0,40,130,95,0,92,3,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Freddy's Bevies - Golden Hour Orange Custard Cream Soda,Regular,,drink,260,3.5,2.5,0,20,55,58,0,58,2,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Freddy's Bevies - Golden Hour Orange Custard Cream Soda,Large,,drink,450,7,4.5,0,40,100,96,0,95,3,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Freddy's Bevies - Mango Magic Custard Cream Soda,Regular,,drink,270,3.5,2.5,0,20,55,59,0,58,2,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Freddy's Bevies - Mango Magic Custard Cream Soda,Large,,drink,460,7,4.5,0,40,100,98,0,95,3,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Freddy's Bevies - Mango Sunrise Lemonade,Regular,,drink,200,0,0,0,0,125,51,0,51,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Freddy's Bevies - Mango Sunrise Lemonade,Large,,drink,330,0,0,0,0,190,86,0,85,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Freddy's Bevies - Mango Sunrise Tea,Regular,,drink,100,0,,0,0,10,26,0,24,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,pending
+Freddy's,Drinks,Freddy's Bevies - Mango Sunrise Tea,Large,,drink,180,0,,0,0,15,45,0,42,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,pending
+Freddy's,Drinks,Freddy's Bevies -Peachy Keen Lemonade,Regular,,drink,200,0,0,0,0,125,51,0,51,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,pending
+Freddy's,Drinks,Freddy's Bevies - Peachy Keen Lemonade,Large,,drink,330,0,0,0,0,190,85,0,85,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,pending
+Freddy's,Drinks,Freddy's Bevies - Peachy Keen Tea,Regular,,drink,100,0,,0,0,10,25,0,24,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,pending
+Freddy's,Drinks,Freddy's Bevies - Peachy Keen Tea,Large,,drink,180,0,,0,0,15,43,0,42,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,pending
+Freddy's,Drinks,Freddy's Bevies - Peach Peach Baby Custard Cream Soda,Regular,,drink,270,3.5,2.5,0,20,55,58,0,58,2,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Freddy's Bevies - Peach Peach Baby Custard Cream Soda,Large,,drink,460,7,4.5,0,40,100,96,0,95,3,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Freddy's Bevies - Strawberry Sunset Lemonade,Regular,,drink,190,0,0,0,0,125,50,0,49,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,pending
+Freddy's,Drinks,Freddy's Bevies - Strawberry Sunset Lemonade,Large,,drink,320,0,0,0,0,190,83,0,82,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,pending
+Freddy's,Drinks,Freddy's Bevies - Strawberry Sunset Tea,Regular,,drink,90,0,,0,0,10,24,0,22,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,pending
+Freddy's,Drinks,Freddy's Bevies - Strawberry Sunset Tea,Large,,drink,160,0,,0,0,15,42,0,38,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,pending
+Freddy's,Frozen Custard,Chocolate Brownie Delight - Concrete,Mini,,dessert,700,31,17,0,135,360,96,3,73,10,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Chocolate Brownie Delight - Concrete,Regular,,dessert,1040,47,27,0,240,510,132,4,103,19,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Chocolate Brownie Delight - Concrete,Large,,dessert,1710,77,44,0,365,860,224,7,173,28,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Chocolate Brownie Delight - Shake,Mini,,dessert,930,42,24,0,195,470,118,4,93,17,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Chocolate Brownie Delight - Shake,Regular,,dessert,1280,60,35,0,305,630,156,5,125,27,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Chocolate Brownie Delight - Shake,Large,,dessert,1990,91,52,0,435,1020,251,8,198,39,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Chocolate Brownie Delight - Sundae,Mini,,dessert,700,31,17,0,135,360,96,3,73,10,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Chocolate Brownie Delight - Sundae,Regular,,dessert,1040,47,27,0,240,510,132,4,103,19,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Chocolate Brownie Delight - Sundae,Large,,dessert,1710,77,44,0,365,860,224,7,173,28,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Cold Brew Caramel Crunch - Concrete,Mini,,drink,790,36,22,0,160,420,95,0,81,13,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Cold Brew Caramel Crunch - Concrete,Regular,,drink,1120,53,32,0,260,580,129,0,111,20,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Cold Brew Caramel Crunch - Concrete,Large,,drink,1720,79,48,0,365,920,206,0,176,29,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Cold Brew Caramel Crunch - Shake,Mini,,dessert,830,38,23,0,170,450,99,0,85,15,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Cold Brew Caramel Crunch - Shake,Regular,,dessert,1180,56,34,0,270,620,133,0,117,23,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Cold Brew Caramel Crunch - Shake,Large,,dessert,1810,84,51,0,380,980,213,0,184,34,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Cone - Chocolate,Single Scoop,,main,360,17,11,0,105,160,42,2,30,10,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Cone - Chocolate,Double Scoop,,main,690,33,21,0,210,310,79,3,61,19,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Cone - Chocolate,Triple Scoop,,main,1020,50,32,0,320,460,115,5,91,28,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Cone - Vanilla,Single Scoop,,main,360,17,11,0,100,170,39,0,30,9,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Cone - Vanilla,Double Scoop,,main,690,33,21,0,195,330,73,0,61,16,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Cone - Vanilla,Triple Scoop,,main,1020,50,32,0,295,490,106,0,91,24,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,CYO Concrete - Chocolate,Mini,,main,500,25,16,0,160,230,55,2,45,14,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,CYO Concrete - Chocolate,Regular,,main,830,42,26,0,265,380,91,4,76,23,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,CYO Concrete - Chocolate,Large,,main,1170,58,37,0,370,530,127,5,106,32,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,CYO Concrete - Vanilla,Mini,,main,500,25,16,0,150,240,50,0,45,11,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,CYO Concrete - Vanilla,Regular,,main,830,42,26,0,245,400,83,0,76,19,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,CYO Concrete - Vanilla,Large,,main,1170,58,37,0,345,560,117,0,106,26,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,CYO Malt - Chocolate,Mini,,main,630,28,18,0,170,280,76,2,61,17,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,CYO Malt - Chocolate,Regular,,main,,,,,,,,,,,https://www.freddys.com/nutrition-and-allergens,2026-10-23,pending
+Freddy's,Frozen Custard,CYO Malt - Chocolate,Large,,main,1420,64,41,0,390,640,171,5,137,38,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,CYO Malt - Vanilla,Mini,,main,630,28,18,0,155,290,72,0,61,14,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,CYO Malt - Vanilla,Regular,,main,1020,46,29,0,260,470,115,0,98,23,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,CYO Malt - Vanilla,Large,,main,1420,64,41,0,365,660,160,0,137,32,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,CYO Shake - Chocolate,Mini,,dessert,560,28,18,0,170,270,59,2,50,17,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,CYO Shake - Chocolate,Regular,,dessert,910,46,29,0,275,430,97,4,82,27,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,CYO Shake - Chocolate,Large,,dessert,1280,64,41,0,390,610,136,5,116,38,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,CYO Shake - Vanilla,Mini,,dessert,560,28,18,0,155,280,54,0,50,14,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,CYO Shake - Vanilla,Regular,,dessert,910,46,29,0,260,450,89,0,82,23,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,CYO Shake - Vanilla,Large,,dessert,1280,64,41,0,365,640,125,0,116,32,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,CYO Sundae - Chocolate,Mini,,dessert,330,17,11,0,105,150,36,2,30,9,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,CYO Sundae - Chocolate,Regular,,dessert,670,33,21,0,210,300,73,3,61,18,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,CYO Sundae - Chocolate,Large,,dessert,1000,50,32,0,320,450,109,5,91,27,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,CYO Sundae - Vanilla,Mini,,dessert,330,17,11,0,100,160,33,0,30,8,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,CYO Sundae - Vanilla,Regular,,dessert,670,33,21,0,195,320,67,0,61,15,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,CYO Sundae - Vanilla,Large,,dessert,1000,50,32,0,295,480,100,0,91,23,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Dirt n' Worms - Concrete,Mini,,main,530,21,12,0,105,250,69,0,54,9,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Dirt n' Worms - Concrete,Regular,,main,860,37,23,0,205,410,102,0,84,17,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Dirt n' Worms - Concrete,Large,,main,1360,57,34,0,300,670,168,1,135,26,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Dirt n' Worms - Sundae,Mini,,dessert,530,21,12,0,105,250,69,0,54,9,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Dirt n' Worms - Sundae,Regular,,dessert,860,37,23,0,205,410,102,0,84,17,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Dirt n' Worms - Sundae,Large,,dessert,1360,57,34,0,300,670,168,1,135,26,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Freddy's Frost - Lemon Cream,Mini,,main,450,18,11,0,105,160,58,0,54,8,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Freddy's Frost - Lemon Cream,Regular,,main,810,35,22,0,205,320,99,0,92,15,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Freddy's Frost - Lemon Cream,Large,,main,1210,51,32,0,300,480,148,0,137,23,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Freddy's Frost - Orange Cream,Mini,,main,540,18,11,0,105,160,83,0,78,8,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Freddy's Frost - Orange Cream,Regular,,main,1010,35,22,0,205,320,149,0,140,15,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Freddy's Frost - Orange Cream,Large,,main,1500,51,32,0,300,480,222,0,209,23,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,OREO® Custard Cookie - Chocolate,1 serving,,dessert,310,14,7,0,55,190,41,2,28,6,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,OREO® Custard Cookie - Vanilla,1 serving,,dessert,310,14,7,0,50,200,39,1,28,5,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,OREO® Double Trouble - Concrete,Mini,,main,700,33,19,0,155,390,80,1,62,13,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,OREO® Double Trouble - Concrete,Regular,,main,1040,50,29,0,250,550,113,1,93,20,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,OREO® Double Trouble - Concrete,Large,,main,1520,72,42,0,350,820,169,3,135,29,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,OREO® Double Trouble - Shake,Mini,,dessert,760,36,20,0,165,430,84,1,67,16,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,OREO® Double Trouble - Shake,Regular,,dessert,1110,54,32,0,265,600,119,1,99,24,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,OREO® Double Trouble - Shake,Large,,dessert,1630,78,45,0,370,900,178,3,145,35,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,OREO® Double Trouble - Sundae,Mini,,dessert,540,25,13,0,105,310,63,1,47,9,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,OREO® Double Trouble - Sundae,Regular,,dessert,870,42,24,0,205,470,96,1,77,17,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,OREO® Double Trouble - Sundae,Large,,dessert,1350,64,36,0,300,740,152,3,120,25,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Peanut Butter Bananza - Concrete,Mini,,main,560,27,14,0,105,260,65,2,57,12,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Peanut Butter Bananza - Concrete,Regular,,main,890,43,25,0,205,420,98,2,88,19,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Peanut Butter Bananza - Concrete,Large,,main,1420,69,39,0,300,690,160,4,142,31,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Peanut Butter Bananza - Sundae,Mini,,dessert,530,27,14,0,105,260,58,2,51,12,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Peanut Butter Bananza - Sundae,Regular,,dessert,860,43,25,0,205,420,91,2,81,19,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Peanut Butter Bananza - Sundae,Large,,dessert,1360,69,39,0,300,670,146,4,129,31,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Pint - Chocolate,1 serving,,main,1150,57,37,0,365,520,125,5,104,31,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Pint - Vanilla,1 serving,,main,1150,57,37,0,340,550,115,0,104,26,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Quart - Chocolate,1 serving,,main,2300,115,73,0,730,1040,250,10,209,63,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Quart - Vanilla,1 serving,,main,2300,115,73,0,680,1100,230,0,209,52,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Reese's Royale - Concrete,Mini,,main,860,51,22,0,155,490,76,3,67,21,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Reese's Royale - Concrete,Regular,,main,1200,68,32,0,250,650,109,3,97,29,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Reese's Royale - Concrete,Large,,main,1870,109,48,0,350,1060,164,6,146,46,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Reese's Royale - Shake,Mini,,dessert,920,54,24,0,165,530,80,3,72,24,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Reese's Royale - Shake,Regular,,dessert,1270,72,35,0,265,700,115,3,104,33,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Reese's Royale - Shake,Large,,dessert,1980,115,52,0,370,1140,173,6,156,52,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Reese's Royale - Sundae,Mini,,dessert,700,43,17,0,105,410,59,3,52,18,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Reese's Royale - Sundae,Regular,,dessert,1030,59,27,0,205,570,92,3,82,25,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Reese's Royale - Sundae,Large,,dessert,1700,101,43,0,300,980,148,6,131,43,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Signature Turtle - Concrete,Mini,,main,730,34,18,0,110,320,91,2,72,10,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Signature Turtle - Concrete,Regular,,main,1070,51,28,0,205,480,124,2,102,18,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Signature Turtle - Concrete,Large,,main,1770,84,45,0,310,790,211,4,170,28,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Signature Turtle - Shake,Mini,,dessert,960,46,25,0,165,440,112,2,92,17,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Signature Turtle - Shake,Regular,,dessert,1310,63,36,0,270,610,146,2,124,25,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Signature Turtle - Shake,Large,,dessert,2050,98,54,0,375,950,237,4,195,37,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Signature Turtle - Sundae,Mini,,dessert,750,36,18,0,110,320,91,2,72,10,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Signature Turtle - Sundae,Regular,,dessert,1080,53,28,0,205,480,124,2,102,18,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Signature Turtle - Sundae,Large,,dessert,1800,87,45,0,310,790,212,4,171,28,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Strawberry Dreamcake - Concrete,Mini,,main,860,40,23,0,170,430,102,1,86,14,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Strawberry Dreamcake - Concrete,Regular,,main,1190,57,34,0,265,590,135,1,117,22,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Strawberry Dreamcake - Concrete,Large,,main,1850,87,51,0.5,380,930,218,2,185,32,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Strawberry Dreamcake - Shake,Mini,,dessert,920,43,25,0,175,470,106,1,91,17,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Strawberry Dreamcake - Shake,Regular,,dessert,1270,61,36,0,280,640,141,1,123,25,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Strawberry Dreamcake - Shake,Large,,dessert,1960,93,54,0.5,395,1010,226,2,195,37,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Strawberry Dreamcake - Sundae,Mini,,dessert,690,32,18,0,120,350,85,1,71,10,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Strawberry Dreamcake - Sundae,Regular,,dessert,1030,49,28,0,215,510,119,1,102,18,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Frozen Custard,Strawberry Dreamcake - Sundae,Large,,dessert,1690,79,45,0.5,330,850,201,2,170,28,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Condiments & Sandwich Add-Ons,Bacon,1 serving,,extra,80,6,2.5,0,20,330,1,0,1,7,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Condiments & Sandwich Add-Ons,Cheese - American,1 serving,,extra,50,4.5,2.5,0,10,250,1,0,0,3,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Condiments & Sandwich Add-Ons,Cheese - Pepperjack,1 serving,,extra,70,6,3.5,0,20,320,1,0,0,3,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Condiments & Sandwich Add-Ons,Cheese - Shredded Monterey Jack & Cheddar,1 serving,,extra,50,4.5,3,0,10,80,0,0,0,3,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Condiments & Sandwich Add-Ons,Cheese - Swiss,1 serving,,extra,50,4,2.5,0,10,240,1,0,0,3,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Condiments & Sandwich Add-Ons,Freddy's Smoky Fry Sauce,1 oz cup,,extra,130,13,2,0,10,300,4,0,3,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Condiments & Sandwich Add-Ons,Freddy's Buttermilk Ranch,1 oz cup,,extra,140,15,2,0,12,300,2,0,1,0.5,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Condiments & Sandwich Add-Ons,Freddy's Famous Fry Sauce,1 oz cup,,extra,120,12,2,0,12,288,4,0,2,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Condiments & Sandwich Add-Ons,Freddy's Famous Steakburger & Fry Seasoning,1g packet,1,extra,0,0,0,0,0,320,0,0,0,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Condiments & Sandwich Add-Ons,Freddy's Famous Steakburger & Fry Seasoning,Portion per Steakburger patty,,extra,0,0,0,0,0,135,0,0,0,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Condiments & Sandwich Add-Ons,Freddy's Famous Steakburger & Fry Seasoning,Portion per regular fries,,extra,0,0,0,0,0,310,0,0,0,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Condiments & Sandwich Add-Ons,Freddy's Hickory BBQ Sauce,1 oz cup,,extra,35,0,0,0,0,220,9,0,7,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Condiments & Sandwich Add-Ons,Freddy's Honey Mustard,1 oz cup,,extra,100,8,1,0,0,250,7,0,7,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Condiments & Sandwich Add-Ons,Freddy's Jalapeño Fry Sauce,1 oz cup,,extra,120,12,2,0,4,330,4,0,2,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Condiments & Sandwich Add-Ons,Jalapeños - Raw,1 serving,,extra,0,0,0,0,0,470,1,0,1,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Condiments & Sandwich Add-Ons,Jalapeños - Sautéed,1 serving,,extra,35,3,0.5,0,0,10,2,0,1,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Condiments & Sandwich Add-Ons,Ketchup,1 serving,,extra,5,0,0,0,0,45,2,0,2,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Condiments & Sandwich Add-Ons,Ketchup,0.95 oz Cup,,extra,30,0,0,0,0,250,8,0,6,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Condiments & Sandwich Add-Ons,Marinara,2 oz cup,,extra,30,0.5,0,0,0,260,6,0,3,1,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Condiments & Sandwich Add-Ons,Mayonnaise,1 serving,,extra,70,8,1.5,0,5,60,0,0,0,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Condiments & Sandwich Add-Ons,Mayonnaise,Packet,,extra,80,8,1.5,0,5,80,1,0,0,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Condiments & Sandwich Add-Ons,Mustard,1 serving,,extra,0,0,0,0,0,45,0,0,0,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Condiments & Sandwich Add-Ons,Mustard,Packet,,extra,0,0,0,0,0,65,0,0,0,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Condiments & Sandwich Add-Ons,Onion - Diced,1 serving,,extra,5,0,0,0,0,0,1,0,1,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Condiments & Sandwich Add-Ons,Onion - Grilled,1 serving,,extra,30,2,0,0,0,10,2,0,1,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Condiments & Sandwich Add-Ons,Onion - Sliced,1 serving,,extra,5,0,0,0,0,0,1,0,1,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Condiments & Sandwich Add-Ons,Pickles,2 Slices,,extra,5,0,0,0,0,360,1,0,0,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Condiments & Sandwich Add-Ons,Relish,1 serving,,extra,10,0,0,0,0,70,2,0,2,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Condiments & Sandwich Add-Ons,Relish,Packet,,extra,5,0,0,0,0,35,2,0,2,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Condiments & Sandwich Add-Ons,Sauerkraut,1 serving,,extra,5,0,0,0,0,240,1,1,0,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Condiments & Sandwich Add-Ons,Thousand Island,1 serving,,extra,70,7,1,0,10,160,3,0,2,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Condiments & Sandwich Add-Ons,Tomato,1 serving,,extra,5,0,0,0,0,0,1,0,0,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Limited Time Offerings,Steakburger Taco,1 serving,,main,360,21,8,1,85,560,17,0,1,25,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Limited Time Offerings,Smoky Bacon Cheddar Stack,1 serving,,main,1090,67,21,1.5,260,1700,48,2,18,70,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Limited Time Offerings,Bacon Loaded Tots,Regular,,main,750,56,16,0,40,2190,46,3,3,15,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Limited Time Offerings,Bacon Loaded Tots,Large,,main,970,72,22,0,50,2830,60,4,4,18,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Limited Time Offerings,Maple Pecan Concrete,Mini,,main,680,38,18,0,150,240,66,2,59,13,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Limited Time Offerings,Maple Pecan Concrete,Regular,,main,1040,55,25,0,250,400,105,2,96,21,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Limited Time Offerings,Maple Pecan Concrete,Large,,main,1440,73,40,0,355,570,152,2,139,28,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Limited Time Offerings,Maple Pecan Concrete w/ Bacon,Mini,,main,770,45,20,0,175,610,66,2,60,20,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Limited Time Offerings,Maple Pecan Concrete w/ Bacon,Regular,,main,1130,62,31,0,275,770,106,2,96,28,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Limited Time Offerings,Maple Pecan Concrete w/ Bacon,Large,,main,1700,95,44,0,390,1200,154,3,139,42,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Limited Time Offerings,Smoky Bacon Steakburger Taco,1 serving,,main,440,27,11,1,100,600,17,0,1,31,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Steakburgers,Single Steakburger (No Cheese),1 serving,,main,380,12,10,1,70,870,30,0,4,24,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Steakburgers,Double Steakburger (No Cheese),1 serving,,main,570,29,10,1.5,135,1060,30,0,5,43,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Steakburgers,Triple Steakburger (No Cheese),1 serving,,main,760,41,14,2.5,205,1250,30,0,5,63,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Dr. Pepper®️,Small,,drink,160,0,0,0,0,60,40,0,40,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Dr. Pepper®️,Medium,,drink,260,0,0,0,0,100,66,0,66,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Dr. Pepper®️,Large,,drink,410,0,0,0,0,160,105,0,105,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Diet Dr. Pepper®️,Small,,drink,0,0,0,0,0,60,0,0,0,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Diet Dr. Pepper®️,Medium,,drink,0,0,0,0,0,100,0,0,0,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Diet Dr. Pepper®️,Large,,drink,0,0,0,0,0,160,0,0,0,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,MUG®️ Root Beer,Small,,drink,160,0,0,0,0,45,39,0,39,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,MUG®️ Root Beer,Medium,,drink,260,0,0,0,0,75,65,0,65,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,MUG®️ Root Beer,Large,,drink,410,0,0,0,0,120,104,0,104,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Mountain Dew®️,Small,,drink,170,0,0,0,0,50,44,0,44,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Mountain Dew®️,Medium,,drink,290,0,0,0,0,75,65,0,65,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Mountain Dew®️,Large,,drink,460,0,0,0,0,135,117,0,117,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Diet Mountain Dew®️,Small,,drink,0,0,0,0,0,55,0,0,0,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Diet Mountain Dew®️,Medium,,drink,10,0,0,0,0,90,1,0,1,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Diet Mountain Dew®️,Large,,drink,15,0,0,0,0,150,1,0,1,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Mist Twist®️,Small,,drink,160,0,0,0,0,155,40,0,40,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Mist Twist®️,Medium,,drink,260,0,0,0,0,55,68,0,68,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Mist Twist®️,Large,,drink,410,0,0,0,0,90,108,0,108,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Tropicana®️ Light Lemonade,Small,,drink,0,0,0,0,0,140,0,0,0,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Tropicana®️ Light Lemonade,Medium,,drink,10,0,0,0,0,235,0,0,0,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Tropicana®️ Light Lemonade,Large,,drink,15,0,0,0,0,375,1,0,0,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Tropicana®️ Fruit Punch,Small,,drink,170,0,0,0,0,35,45,0,45,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Tropicana®️ Fruit Punch,Medium,,drink,290,0,0,0,0,60,75,0,75,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Tropicana®️ Fruit Punch,Large,,drink,460,0,0,0,0,95,120,0,120,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Pepsi®️ Wild Cherry,Small,,drink,160,0,0,0,0,30,42,0,42,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Pepsi®️ Wild Cherry,Medium,,drink,260,0,0,0,0,50,70,0,70,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Pepsi®️ Wild Cherry,Large,,drink,410,0,0,0,0,85,112,0,112,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Luzianne®️ Iced Tea,Small,,drink,110,0,0,0,0,5,27,0,,,https://www.freddys.com/nutrition-and-allergens,2026-10-23,pending
+Freddy's,Frozen Custard,Chocolate Chip Frozen Custard Sandwich,(Each),,main,300,14,8,0,40,220,43,1,27,4,https://www.freddys.com/nutrition-and-allergens,2026-10-23,two-drafts
+Freddy's,Drinks,Tropicana® Pink Lemonade,Small,,drink,160,0,0,0,0,155,40,0,40,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,pending
+Freddy's,Drinks,Tropicana® Pink Lemonade,Medium,,drink,260,0,0,0,0,260,67,0,67,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,pending
+Freddy's,Drinks,Tropicana® Pink Lemonade,Large,,drink,410,0,0,0,0,410,107,0,107,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,pending
+Freddy's,Drinks,Tropicana® Lemonade,Small,,drink,160,0,0,0,0,155,40,0,40,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,pending
+Freddy's,Drinks,Tropicana® Lemonade,Medium,,drink,260,0,0,0,0,260,67,0,67,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,pending
+Freddy's,Drinks,Tropicana® Lemonade,Large,,drink,410,0,0,0,0,410,107,0,107,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,pending
+Freddy's,Drinks,Luzianne® Iced Tea Unsweet,Small,,drink,0,0,0,0,0,0,0,0,0,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,pending
+Freddy's,Drinks,Luzianne® Iced Tea Unsweet,Medium,,drink,0,0,0,0,0,0,0,0,0,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,pending
+Freddy's,Drinks,Luzianne® Iced Tea Unsweet,Large,,drink,0,0,0,0,0,0,0,0,0,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,pending
+Freddy's,Drinks,Freddy's Bevies -Peachy Keen Lemonade,Large,,drink,330,0,,,0,190,85,0,85,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,pending
+Freddy's,Drinks,Freddy's Bevies -Peachy Keen Tea,Regular,,drink,100,0,,,0,10,25,0,24,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,pending
+Freddy's,Drinks,Freddy's Bevies -Peachy Keen Tea,Large,,drink,180,0,,,0,15,43,0,42,0,https://www.freddys.com/nutrition-and-allergens,2026-10-23,pending
