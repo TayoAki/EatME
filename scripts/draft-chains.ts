@@ -32,7 +32,7 @@ import path from 'node:path';
 import OpenAI from 'openai';
 import { z } from 'zod';
 
-import { CHAIN_CSV_COLUMNS, chainSlug, type ChainCheck, type ChainItemKind } from '../src/shared/chains';
+import { CHAIN_CSV_COLUMNS, chainCsvRowSchema, chainSlug, macroCalories, type ChainCheck, type ChainItemKind } from '../src/shared/chains';
 import { csvLine, parseCsv } from './csv';
 import { firecrawl } from './firecrawl';
 import { DEFAULT_MAX_PAGES, ITEM_PAGES, readItemPages } from './item-pages';
@@ -460,14 +460,52 @@ const normalize = (value: string) =>
 const keyOf = (item: Pick<DraftItem, 'name' | 'serving'>) => `${normalize(item.name)}|${normalize(item.serving)}`;
 const same = (a: number | null, b: number | null) => (a === null || b === null ? a === b : Math.abs(a - b) < 0.01);
 
+/** Chains that sell only sweets: a line that isn't a drink or an extra is a dessert, whatever its section is called. */
+const SWEETS_CHAINS = /\b(baskin|creamery|bundt|crumbl|krispy kreme|cookies?|donuts?|doughnuts?)\b/i;
+/** Bar sections. In a dish's name the same words don't make it a drink ("Beer Cheese" under Appetizers). */
+const BAR_SECTION = /\b(cocktails?|mocktails?|beers?|wines?|margaritas?|mojitos?|sangrias?|spirits?|bar|ales?|seltzers?|ciders?|sake|whiske?y)\b/;
+/** A drink with alcohol: its calories don't come from protein, carbs and fat alone. */
+const ALCOHOL = /\b(cocktails?|beers?|wines?|margaritas?|mojitos?|sangrias?|spirits?|bar|ales?|lagers?|ipas?|stouts?|seltzers?|ciders?|sake|whiske?y|bourbon|vodka|tequila|rum|gin|mimosas?|bellinis?|martinis?|daiquiris?|palomas?|spritz|sour|mules?|old fashioned|manhattan|negroni|michelada|bloody mary|prosecco|champagne|cabernet|chardonnay|pinot|merlot|ros[eé]|riesling|moscato|zinfandel|malbec|sauvignon)\b/i;
+
 /** Mains are ranked as meals; the rest are listed. From the guide's section first, then the name. */
-export function kindOf(section: string, name: string): ChainItemKind {
+export function kindOf(section: string, name: string, chain = ''): ChainItemKind {
   const text = `${section} ${name}`.toLowerCase();
+  const heading = section.toLowerCase();
   if (/\b(sauces?|dressings?|dips?|condiments?|toppings?|add[- ]?ons?|extras?|spreads?|syrups?|creamers?|seasonings?)\b/.test(text)) return 'extra';
-  if (/\b(desserts?|sweets?|treats?|cookies?|pies?|brownies?|ice cream|sundaes?|shakes?|milkshakes?|blizzards?|donuts?|doughnuts?|pastr(y|ies)|bakery|cakes?|muffins?)\b/.test(text)) return 'dessert';
+  if (
+    /\b(desserts?|sweets?|treats?|cookies?|pies?|brownies?|ice cream|frozen custard|custards?|gelato|sorbet|sundaes?|shakes?|milkshakes?|blizzards?|cones?|donuts?|doughnuts?|pastr(y|ies)|bakery|(?<!(crab|fish|salmon|potato|corn|rice|griddle) )cakes?|cheesecakes?|bundt\w*|muffins?)\b/.test(text) ||
+    /\bquarts?\b/.test(heading)
+  ) {
+    return 'dessert';
+  }
   if (/\b(drinks?|beverages?|coffees?|teas?|sodas?|lemonades?|juices?|smoothies?|refreshers?|lattes?|espressos?|frappuccinos?|cold brew|milk|water|fountain)\b/.test(text)) return 'drink';
-  if (/\b(sides?|fries|chips|tots|snacks?)\b/.test(section.toLowerCase())) return 'side';
-  return 'main';
+  if (BAR_SECTION.test(heading)) return 'drink';
+  if (/\b(sides?|fries|chips|tots|snacks?)\b/.test(heading)) return 'side';
+  return SWEETS_CHAINS.test(chain) ? 'dessert' : 'main';
+}
+
+/**
+ * Why a line both drafts read the same can't go in as it is: the build would refuse it (a catering pan over 5,000
+ * kcal, a 130-letter name), or its protein, carbs and fat can't make its calories (both drafts read the same
+ * misaligned row of the guide). Alcohol has calories of its own, so drinks with it skip the sum. Null: it can go in.
+ */
+export function refusal(item: DraftItem): string | null {
+  const parsed = chainCsvRowSchema.safeParse({
+    chain: 'Chain',
+    section: shortSection(item.section) || 'Menu',
+    name: item.name,
+    serving: item.serving,
+    serving_g: show(item.serving_g),
+    kind: 'main',
+    ...Object.fromEntries(NUMBER_FIELDS.map((field) => [field, show(item[field])])),
+    source_url: 'https://example.com/guide.pdf',
+    checked_on: '2026-01-01',
+    check: 'two-drafts',
+  });
+  if (!parsed.success) return `the build would refuse it (${parsed.error.issues.map((issue) => `${issue.path.join('.')}: ${issue.message}`).join('; ')})`;
+  const fromMacros = macroCalories(parsed.data);
+  if (fromMacros !== null && !ALCOHOL.test(`${item.section} ${item.name}`)) return `its protein, carbs and fat make ${fromMacros} kcal, not ${parsed.data.calories}`;
+  return null;
 }
 
 type Line = { item: DraftItem; check: ChainCheck };
@@ -541,7 +579,8 @@ export function compare(a: readonly DraftItem[], b: readonly DraftItem[], pageCo
     const missing = REQUIRED.filter((field) => x[field] === null);
     const noPage = pageCount !== undefined && !(x.page && x.page >= 1 && x.page <= pageCount);
     const impossible = impossibleNumbers(x);
-    if (differ.length > 0 || missing.length > 0 || noPage || impossible) {
+    const refused = differ.length === 0 && missing.length === 0 && !impossible ? refusal(x) : null;
+    if (differ.length > 0 || missing.length > 0 || noPage || impossible || refused) {
       const reason =
         differ.length > 0
           ? `differ: ${differ.join(', ')}`
@@ -549,7 +588,9 @@ export function compare(a: readonly DraftItem[], b: readonly DraftItem[], pageCo
             ? `the guide gives no ${missing.join(', ')}`
             : noPage
               ? 'no item page'
-              : `both read numbers that can't be right: ${impossible}`;
+              : impossible
+                ? `both read numbers that can't be right: ${impossible}`
+                : `both read it the same, but ${refused}`;
       problems.push({ key, a: x, b: y, reason });
       lines.push({ item: x, check: 'pending' });
     } else {
@@ -616,11 +657,11 @@ export function writeMenu(slug: string, chain: string, url: string, readOn: stri
     .map(({ item, check }) =>
       csvLine([
         chain,
-        shortSection(item.section),
+        shortSection(item.section) || 'Menu',
         item.name,
         item.serving,
         show(item.serving_g),
-        kindOf(item.section, item.name),
+        kindOf(item.section, item.name, chain),
         ...NUMBER_FIELDS.map((field) => show(item[field])),
         sourceOf(item),
         readOn,

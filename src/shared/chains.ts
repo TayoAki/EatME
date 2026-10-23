@@ -127,6 +127,12 @@ export function chainItemNutrients(row: ChainCsvRow): NutrientAmounts {
  * What a person should fix before an item loads (errors) or look at again (warnings). Guides round
  * (calories to 10, grams to whole numbers), so the energy check allows for it.
  */
+/** Protein, carbs and fat as calories (4, 4 and 9 kcal a gram) when they're far from the guide's own; null when they agree. */
+export function macroCalories(row: Pick<ChainCsvRow, 'calories' | 'protein_g' | 'carbs_g' | 'fat_g'>) {
+  const fromMacros = row.protein_g * 4 + row.carbs_g * 4 + row.fat_g * 9;
+  return Math.abs(fromMacros - row.calories) > Math.max(25, row.calories * 0.15) ? Math.round(fromMacros) : null;
+}
+
 export function checkChainItem(row: ChainCsvRow, today: string) {
   const errors: string[] = [];
   const warnings: string[] = [];
@@ -136,10 +142,8 @@ export function checkChainItem(row: ChainCsvRow, today: string) {
   const fats = row.saturated_fat_g + (row.trans_fat_g ?? 0);
   if (fats > row.fat_g + slack) errors.push(`saturated + trans fat (${fats} g) above fat (${row.fat_g} g)`);
   if (row.checked_on > today) errors.push(`checked_on ${row.checked_on} is in the future`);
-  const fromMacros = row.protein_g * 4 + row.carbs_g * 4 + row.fat_g * 9;
-  if (Math.abs(fromMacros - row.calories) > Math.max(25, row.calories * 0.15)) {
-    warnings.push(`protein, carbs and fat add up to ${Math.round(fromMacros)} kcal, the guide says ${row.calories}`);
-  }
+  const fromMacros = macroCalories(row);
+  if (fromMacros !== null) warnings.push(`protein, carbs and fat add up to ${fromMacros} kcal, the guide says ${row.calories}`);
   const age = (Date.parse(`${today}T00:00:00Z`) - Date.parse(`${row.checked_on}T00:00:00Z`)) / 86_400_000;
   if (age > RECHECK_DAYS) warnings.push(`checked ${Math.round(age)} days ago: check it against the guide again`);
   return { errors, warnings };
