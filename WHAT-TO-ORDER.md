@@ -363,8 +363,13 @@ changes before any app code.
 - [ ] **Accuracy pilot** (like the week-1 pilot run for ChartME): 60 dishes from those ten chains, their menu text
   through our pipeline (read → foods and portions → USDA) against the chains' published numbers. Pass: median
   calorie error 20% or less, the published top five and ours share at least three dishes, and no underestimate on
-  big plates we can't correct. It also sets the range widths. *`npm run menus:pilot` is written (it writes
-  `data/chains/pilot.md` and the calibration to copy into `ESTIMATE_CALIBRATION`); it waits for OpenRouter credit.*
+  big plates we can't correct. It also sets the range widths. *23 October, run twice (`data/chains/pilot.md`: 465
+  dishes from 15 chains, names and sizes only, no descriptions): median calorie error 19–20% (at the line), big plates
+  −8 to −10% (pass), but our Fits well and the chains' own share a median of 1 of 5 dishes (fail). Safety: 89% of the
+  dishes we put in Fits well fit the day by the chain's own numbers too, none is too big, 10% are too small to be a
+  meal. Ranges that hold the published number 80% of the time are about ±40% (mains −46% / +36%), wider than the
+  ±25–30% in `ESTIMATE_CALIBRATION`, which stays until the owner decides (§13, 5). The run also found a pipeline bug,
+  fixed: one dish over the limits (a 4 kg catering tray) failed every dish read with it.*
 - [ ] **Menu reading on a phone**: the Vision module on 10 real menus (printed, chalkboard, dim light). Pass: 9 of
   10 give usable dish lines after the confirm step; otherwise we send the photo, as meal scans do. *The module
   (`modules/menu-text`) and the layout rules (`src/shared/menu-lines.ts`, tested) are written; the check needs a
@@ -406,6 +411,11 @@ people use it.
    (a dormant feature to App Review, 2.3.1(a)) and its terms forbid the ranking this feature needs; the code was
    removed in build 4 (PLAN.md §16, Eating out). The chain table covers the chains that matter.
 4. **Name**: "What to order" (proposed), or another plain name. Not "healthy menu". Open.
+5. **Scanned menus after the pilot** (23 October 2026, §11): the estimates are safe (no dish we call a fit is too
+   big by the chain's own numbers) but not exact enough to pick the same best five. Chain menus are unaffected: they
+   rank the chains' own numbers. Options: (a) scanned menus show "Likely fits" in no best-first order, with the
+   measured ±40% ranges; (b) v2.5 ships chain menus only, and scanned menus follow once estimates improve (menus
+   with descriptions, a larger pilot); (c) keep the design and accept the failed pass line. Open.
 
 ---
 

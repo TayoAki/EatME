@@ -1,0 +1,288 @@
+chain,section,name,serving,serving_g,kind,calories,fat_g,saturated_fat_g,trans_fat_g,cholesterol_mg,sodium_mg,carbs_g,fiber_g,sugars_g,protein_g,source_url,checked_on,check
+Zaxbys,ZALADS,The Grilled House Zalad,1 serving,,main,560,27,12,0,130,1600,34,5,5,48,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,ZALADS,The Fried House Zalad,1 serving,,main,660,37,13,0,90,1920,42,4,4,44,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,ZALADS,The Garden House Zalad,1 serving,,main,410,25,11,0,35,700,33,4,4,17,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,ZALADS,The Grilled Cobb Zalad,1 serving,,main,660,51,14,0,320,1780,35,5,5,56,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,ZALADS,The Fried Cobb Zalad,1 serving,,main,760,61,15,0,280,2090,41,3,3,52,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,ZALADS,The Garden Cobb Zalad,1 serving,,main,510,49,13,0,225,870,34,4,5,25,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,ZALADS,The Grilled Asian Zensation Zalad,1 serving,,main,530,19,3.5,0,95,1850,54,7,18,39,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,ZALADS,The Fried Asian Zensation Zalad,1 serving,,main,640,29,4.5,0,55,2160,62,6,18,35,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,ZALADS,The Garden Asian Zensation Zalad,1 serving,,main,390,17,3,0,0,940,53,6,18,8,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,ZALADS,The Grilled Blue Zalad,1 serving,,main,510,24,10,0,115,1760,34,4,5,43,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,ZALADS,The Fried Blue Zalad,1 serving,,main,680,39,12,0,80,2890,43,4,5,39,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,ZALADS,The Garden Blue Zalad,1 serving,,main,370,22,9,0,20,860,32,4,4,12,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,SANDWICHES,Kickin’ Chicken Sandwich Only,1 serving,,main,690,39,6,0,65,2760,51,2,5,34,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,SANDWICHES,Grilled Chicken Sandwich Only,1 serving,,main,620,20,3.5,0,100,1440,35,3,8,38,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,SANDWICHES,Nibblerz™ Only,1 serving,,main,960,56,11,0,70,2710,76,4,16,38,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,SANDWICHES,Signature Sandwich Only with Zax Sauce,1 serving,,extra,600,32,5,0,75,2200,45,2,8,31,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,SANDWICHES,Signature Sandwich Only with Spicy Zax Sauce,1 serving,,extra,590,31,5,0,70,2260,45,2,8,31,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,SANDWICHES,Add Cheese,1 Slice,,main,50,4.5,2.5,0,15,190,1,0,0,3,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,SANDWICHES,Add Bacon,2 Slices,,main,60,38,1.5,0,10,230,0,0,0,4,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,MOST POPULAR,Chicken Finger Plate,4,,main,1110,60,9,0,95,3230,98,8,16,45,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,MOST POPULAR,Chicken Finger Plate,5,,main,1190,64,10,0,110,3640,101,8,16,54,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,MOST POPULAR,Chicken Finger Plate,6,,main,1430,83,13,0,140,4560,109,8,19,64,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,MOST POPULAR,Buffalo Chicken Finger Plate,4,,main,1130,62,10,0,95,3750,98,8,15,46,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,MOST POPULAR,Buffalo Chicken Finger Plate,5,,main,1220,66,10,0,110,4340,102,8,15,55,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,MOST POPULAR,Buffalo Chicken Finger Plate,6,,main,1460,86,13,0,140,5220,108,8,16,65,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,MOST POPULAR,Boneless Wings & Things,1 serving,,main,1420,83,13,0,135,4660,111,8,7,62,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,MOST POPULAR,Buffalo Boneless Wings & Things,1 serving,,main,1520,91,14,0,145,4960,117,8,11,59,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,MOST POPULAR,Traditional Wings & Things,1 serving,,main,1440,88,16,0,265,4520,84,6,7,59,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,MOST POPULAR,Buffalo Traditional Wings & Things,1 serving,,main,1450,89,16,0,265,4850,83,6,6,79,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,MOST POPULAR,Boneless Wings Meal,5,,main,870,53,6,0,55,2660,95,7,3,31,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,MOST POPULAR,Traditional Wings Meal,5,,main,1030,61,12,0,195,2780,70,6,4,51,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,MOST POPULAR,Big Zax Snak Meal,1 serving,,main,890,48,7,0,70,2650,80,6,5,36,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,MOST POPULAR,Buffalo Big Zax Snak Meal,1 serving,,main,900,50,8,0,70,2980,79,6,4,36,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,TREATS,Chocolate Chip Cookie,1 serving,,dessert,170,8,4,0,10,125,24,1,15,2,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,TREATS,Fried Cheesecake Bites (No Sauce),1 serving,,extra,520,31,15,0,55,700,53,2,16,7,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,TREATS,Handcrafted Vanilla Milkshake,1 serving,,dessert,570,17,11,0.5,60,600,94,0,93,13,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,TREATS,Handcrafted Strawberry Milkshake,1 serving,,dessert,680,17,11,0.5,60,600,121,1,110,13,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,TREATS,Handcrafted Chocolate Milkshake,1 serving,,dessert,670,18,12,0.5,60,670,119,0,111,14,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,TREATS,Handcrafted Birthday Cake Milkshake,1 serving,,dessert,730,19,13,0.5,60,600,129,0,113,13,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,SIDES,Chicken Bacon Ranch Loaded Fries,1 serving,,side,1300,114,23,0,145,3150,88,8,3,62,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,SIDES,Fried White Cheddar Bites,1 serving,,side,700,46,21,1,75,1550,46,3,2,27,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,SIDES,Crinkle Fries,Regular,,side,330,14,2,0,0,580,47,5,0,5,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,SIDES,Crinkle Fries,Large,,side,530,23,3,0,0,930,75,7,1,8,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,SIDES,Cole Slaw,side,,side,140,10,1.5,0,5,170,13,2,11,1,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,SIDES,Texas Toast,1 slice,,side,150,7,1,0,0,340,19,1,2,3,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,SIDES,Texas Toast,Basket,,side,450,21,3.5,0,0,1020,57,3,9,9,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,SIDES,Fried Pickles,1 serving,,side,470,31,4.5,0,0,2150,42,3,2,5,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,SIDES,Asian Slaw,side,,side,100,7,1,0,0,140,10,0,8,1,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,SIDES,Veggie Eggroll,1 Eggroll,,side,140,6,1,0,0,350,19,1,2,3,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Sides,Texas Toast - Basket,1 serving,,side,450,21,3.5,0,0,1020,57,3,5,9,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Sides,Asian Slaw - side,1 serving,,side,100,7,1,0,0,140,10,0,8,1,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Sides,Veggie Eggroll - 1 Eggroll,1 serving,,side,140,6,1,0,0,350,19,1,2,3,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids,Kiddie Finger® with Zax Sauce,1 serving,,extra,320,23,3.5,0,50,1330,11,0,3,19,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Kids,Kiddie Cheese® Sandwich Only,1 serving,,main,410,23,8,0,30,1060,39,2,4,11,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Kids,Kid's Crinkle Fries,1 serving,,main,200,8,1,0,0,350,28,3,0,3,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Kids,"Goldfish Giant Grahams, Vanilla",1 serving,,main,120,4,1,0,0,105,19,1,7,1,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Kids,Rice Krispie Treat,1 serving,,dessert,45,1,0,0,0,50,8,0,4,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Kids,Milk,8 oz,,drink,110,2.5,1.5,0,10,125,13,0,12,8,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Kids,Chocolate Milk,8oz,,drink,160,2.5,1.5,0,10,220,27,0,25,8,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Kids,Apple Juice,8oz,,drink,35,0,0,0,0,15,9,0,8,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Sweet Tea,1 serving,,dessert,160,0,0,0,0,0,41,0,40,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Sweet Tea,Small,,dessert,270,0,0,0,0,0,68,0,66,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Sweet Tea,Medium,,dessert,410,0,0,0,0,0,103,0,100,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Sweet Tea,Large,,dessert,550,0,0,0,0,0,137,0,133,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Sweet Tea,Gallon,,dessert,1750,0,0,0,0,0,438,0,425,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Unsweet Tea,1 serving,,drink,1750,0,0,0,0,0,0,0,0,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Unsweet Tea,Small,,drink,0,0,0,0,0,0,0,0,0,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Unsweet Tea,Medium,,drink,0,0,0,0,0,0,0,0,0,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Unsweet Tea,Large,,drink,0,0,0,0,0,0,0,0,0,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Unsweet Tea,Gallon,,drink,0,0,0,0,0,0,0,0,0,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Coca-Cola,1 serving,,drink,160,0,0,0,0,40,40,0,40,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Coca-Cola,Small,,drink,270,0,0,0,0,65,67,0,67,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Coca-Cola,Medium,,drink,400,0,0,0,0,95,100,0,100,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Coca-Cola,Large,,drink,530,0,0,0,0,125,133,0,133,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Dr Pepper,1 serving,,drink,140,0,0,0,0,45,39,0,38,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Dr Pepper,Small,,drink,240,0,0,0,0,75,65,0,64,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Dr Pepper,Medium,,drink,360,0,0,0,0,110,98,0,96,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Dr Pepper,Large,,drink,480,0,0,0,0,150,130,0,128,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Sprite,1 serving,,drink,150,0,0,0,0,70,36,0,36,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Sprite,Small,,drink,250,0,0,0,0,115,61,0,61,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Sprite,Medium,,drink,370,0,0,0,0,170,91,0,91,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Sprite,Large,,drink,490,0,0,0,0,230,121,0,121,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Diet Coke,1 serving,,drink,160,0,0,0,0,50,0,0,0,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Diet Coke,Small,,drink,0,0,0,0,0,80,0,0,0,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Diet Coke,Medium,,drink,0,0,0,0,0,120,0,0,0,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Diet Coke,Large,,drink,0,0,0,0,0,160,0,0,0,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Barq's Root Beer,1 serving,,drink,160,0,0,0,0,70,40,0,40,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Barq's Root Beer,Small,,drink,270,0,0,0,0,115,67,0,67,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Barq's Root Beer,Medium,,drink,400,0,0,0,0,170,101,0,101,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Barq's Root Beer,Large,,drink,540,0,0,0,0,230,134,0,134,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Hi-C Flashin' Fruit Punch,1 serving,,drink,170,0,0,0,0,75,42,0,41,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Hi-C Flashin' Fruit Punch,Small,,drink,280,0,0,0,0,120,71,0,69,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Hi-C Flashin' Fruit Punch,Medium,,drink,420,0,0,0,0,180,106,0,103,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Hi-C Flashin' Fruit Punch,Large,,drink,560,0,0,0,0,240,141,0,138,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Fanta Orange,1 serving,,drink,150,0,0,0,0,40,40,0,40,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Fanta Orange,Small,,drink,250,0,0,0,0,65,66,0,66,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Fanta Orange,Medium,,drink,370,0,0,0,0,95,99,0,99,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Fanta Orange,Large,,drink,490,0,0,0,0,125,132,0,132,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Coca-Cola Zero Sugar,1 serving,,drink,150,0,0,0,0,40,0,0,0,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Coca-Cola Zero Sugar,Small,,drink,0,0,0,0,0,65,0,0,0,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Coca-Cola Zero Sugar,Medium,,drink,0,0,0,0,0,100,0,0,0,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Coca-Cola Zero Sugar,Large,,drink,0,0,0,0,0,135,0,0,0,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Mello Yello,1 serving,,drink,170,0,0,0,0,50,44,0,44,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Mello Yello,Small,,drink,290,0,0,0,0,85,73,0,73,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Mello Yello,Medium,,drink,430,0,0,0,0,125,109,0,109,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Mello Yello,Large,,drink,570,0,0,0,0,170,145,0,145,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Powerade Mountain Berry Blast,1 serving,,drink,150,0,0,0,0,110,22,0,22,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Powerade Mountain Berry Blast,Small,,drink,150,0,0,0,0,190,37,0,36,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Powerade Mountain Berry Blast,Medium,,drink,230,0,0,0,0,280,55,0,55,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Powerade Mountain Berry Blast,Large,,drink,300,0,0,0,0,370,73,0,73,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Powerade Mountain Berry Blast,Kidz,,drink,160,0,0,0,0,85,43,0,43,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Drinks,Fanta Strawberry,1 serving,,drink,260,0,0,0,0,140,72,0,71,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Fanta Strawberry,Small,,drink,260,0,0,0,0,210,107,0,106,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Fanta Strawberry,Medium,,drink,400,0,0,0,0,280,143,0,142,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Fanta Strawberry,Large,,drink,530,0,0,0,0,40,43,0,42,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Coca-Cola Cherry,1 serving,,drink,150,0,0,0,0,70,72,0,70,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Coca-Cola Cherry,Small,,drink,260,0,0,0,0,105,107,0,105,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Coca-Cola Cherry,Medium,,drink,380,0,0,0,0,135,143,0,140,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Coca-Cola Cherry,Large,,drink,510,0,0,0,0,40,62,0,82,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Drinks,Peach Sweet Tea,1 serving,,dessert,340,0,0,0,0,50,94,0,122,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Drinks,Peach Sweet Tea,Medium,,dessert,520,0,0,0,0,55,125,0,163,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Drinks,Peach Sweet Tea,Large,,dessert,690,0,0,0,0,75,125,0,163,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Drinks,Peach Unsweetened Tea,1 serving,,drink,100,0,0,0,0,40,0,0,21,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Drinks,Peach Unsweetened Tea,Small,,drink,140,0,0,0,0,55,0,0,32,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Drinks,Peach Unsweetened Tea,Medium,,drink,140,0,0,0,0,75,0,0,42,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Drinks,Peach Unsweetened Tea,Large,,drink,190,0,0,0,0,70,55,0,52,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Drinks,Handcrafted Lemonade,1 serving,,drink,210,0,0,0,0,40,55,0,55,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,PROTEIN ONLY,Boneless Wings (No Sauce),1 wing,,extra,72,4,1,0,11,220,5,0,0,4,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,PROTEIN ONLY,Boneless Wings-Wimpy,1 wing,,main,74,4,1,0,11,316,6,0,1,4,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,PROTEIN ONLY,Boneless Wings-Tongue Torch,1 wing,,main,74,4,1,0,11,338,6,0,0,4,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,PROTEIN ONLY,Boneless Wings-Nuclear,1 wing,,main,74,4,1,0,11,326,6,0,0,4,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,PROTEIN ONLY,Boneless Wings-Buffalo Garlic Blaze,1 wing,,main,82,5,1,0,12,376,5,0,0,4,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,PROTEIN ONLY,Boneless Wings-HHM,1 wing,,main,90,5,1,0,12,272,6,0,1,4,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,PROTEIN ONLY,Boneless Wings-Sweet & Spicy,1 wing,,dessert,82,4,0,0,10,258,8,0,2,4,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,PROTEIN ONLY,Boneless Wings-Teriyaki,1 wing,,main,80,4,1,0,11,282,7,0,2,4,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,PROTEIN ONLY,Boneless Wings-BBQ,1 wing,,main,80,4,1,0,10,270,7,0,2,4,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,SAUCES,Honey Mustard,1 serving,,extra,130,11,2,0,5,210,7,0,6,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,SAUCES,Ranch Sauce,1 serving,,extra,150,16,2.5,0,10,290,2,0,1,1,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,SAUCES,Zax Sauce®,1 serving,,extra,150,15,2.5,0,10,510,4,0,3,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,SAUCES,Spicy Zax Sauce®,1 serving,,extra,170,16,2.5,0,10,720,5,0,4,1,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,SAUCES,Tongue Torch®,1 serving,,extra,20,0,0,0,0,950,4,1,2,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,SAUCES,BBQ,1 serving,,extra,60,0,0,0,0,480,15,1,11,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,SAUCES,Sweet & Spicy,1 serving,,extra,90,1,0,0,0,330,19,0,16,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,SAUCES,Wimpy™,1 serving,,extra,50,0,0,0,0,1180,10,1,7,1,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,SAUCES,Nuclear™,1 serving,,extra,30,1,0,0,0,1290,5,1,2,1,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,SAUCES,Buffalo Garlic Blaze,1 serving,,extra,120,12,2,0,15,1730,3,1,1,1,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,SAUCES,Hot Honey Mustard,1 serving,,extra,200,16,2.5,0,20,640,13,0,8,1,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,SAUCES,Teriyaki,1 serving,,extra,110,0.5,0,0,0,850,25,0,21,2,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,SAUCES,Strawberry Sauce,1 serving,,extra,180,0,0,0,0,0,47,0,43,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,DRESSINGS,Blue Cheese,1 serving,,extra,140,15,3,0,15,270,2,0,1,1,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,DRESSINGS,Lite Vinaigrette,1 serving,,extra,30,0,0,0,0,250,6,0,5,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,DRESSINGS,Ranch,1 serving,,extra,120,13,2,0,10,230,1,0,1,1,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,DRESSINGS,Citrus Vinaigrette,1 serving,,extra,110,9,1.5,0,0,180,8,0,7,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,two-drafts
+Zaxbys,Wings & Fingers,Boneless Wings (No Sauce),5 wings,,extra,360,19,3,0,55,1100,27,1,0,22,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Boneless Wings-Wimpy,5 wings,,main,370,18,3,0,55,1580,30,2,3,22,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Boneless Wings-Tongue Torch,5 wings,,main,370,18,3,0,55,1690,28,2,1,22,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Boneless Wings-Nuclear,5 wings,,main,370,19,3,0,55,1630,24,2,0,22,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Boneless Wings-Buffalo Garlic Blaze,5 wings,,main,410,24,4,0,60,1880,27,2,0,22,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Boneless Wings-HHM,5 wings,,main,450,26,4,0,60,1360,32,2,4,22,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Boneless Wings-Sweet & Spicy,5 wings,,dessert,410,19,3,0,50,1290,39,1,11,22,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Boneless Wings-Teriyaki,5 wings,,main,400,18,3,0,55,1410,36,2,8,22,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Boneless Wings-BBQ,5 wings,,main,400,18,3,0,50,1350,36,2,8,22,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Traditional Wings (No Sauce),1 wing,,extra,80,4.5,1,0,35,200,0,0,0,8,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Traditional Wings-Wimpy,1 wing,,main,80,4.5,1,0,35,300,1,0,1,9,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Traditional Wings-Tongue Torch,1 wing,,main,80,4.5,1,0,35,320,0,0,0,9,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Traditional Wings-Nuclear,1 wing,,main,80,5,1,0,35,330,0,0,0,9,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Traditional Wings-Buffalo Garlic Blaze,1 wing,,main,90,6,1.5,0,40,370,0,0,0,9,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Traditional Wings-HHM,1 wing,,main,100,6,1.5,0,40,260,1,0,1,9,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Traditional Wings-Sweet & Spicy,1 wing,,dessert,90,5,1,0,35,240,3,0,2,9,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Traditional Wings-Teriyaki,1 wing,,main,90,4.5,1,0,35,280,2,0,2,9,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Traditional Wings-BBQ,1 wing,,main,90,4.5,1,0,35,280,3,0,2,9,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Traditional Wings (No Sauce),5 wings,,extra,380,23,6,0,185,980,0,0,0,42,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Traditional Wings-Wimpy,5 wings,,main,400,24,6,0,185,1520,5,0,3,43,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Traditional Wings-Tongue Torch,5 wings,,main,390,24,6,0,185,1580,2,0,1,43,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Traditional Wings-Nuclear,5 wings,,main,400,24,6,0,185,1660,2,1,1,43,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Traditional Wings-Buffalo Garlic Blaze,5 wings,,main,440,29,7,0,190,1820,2,0,1,43,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Traditional Wings-HHM,5 wings,,main,480,31,7,0,190,1290,6,0,4,43,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Traditional Wings-Sweet & Spicy,5 wings,,dessert,440,24,6,0,185,1210,13,0,11,43,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Traditional Wings-Teriyaki,5 wings,,main,430,24,6,0,185,1390,12,0,10,43,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Traditional Wings-BBQ,5 wings,,main,440,23,6,0,185,1390,14,0,11,43,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Chicken Finger (No Sauce),1 finger,,extra,80,4,0.5,0,20,410,3,0,0,9,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Chicken Finger-Wimpy,1 finger,,main,90,4,0.5,0,20,560,4,0,1,9,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Chicken Finger-Tongue Torch,1 finger,,main,90,4,0.5,0,20,590,4,0,0,9,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Chicken Finger-Nuclear,1 finger,,main,90,4,0.5,0,20,560,4,0,0,9,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Chicken Finger-Buffalo Garlic Blaze,1 finger,,main,100,6,1,0,20,650,4,0,0,9,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Chicken Finger-HHM,1 finger,,main,110,6,1,0,20,500,5,0,1,9,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Chicken Finger-Sweet & Spicy,1 finger,,dessert,100,4,0.5,0,20,480,7,0,3,9,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Chicken Finger-Teriyaki,1 finger,,main,100,4,0.5,0,20,540,7,0,3,9,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Chicken Finger-BBQ,1 finger,,main,100,4,0.5,0,20,550,8,0,4,9,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Chicken Finger (No Sauce),5 fingers,,extra,420,20,3,0,90,2030,16,0,0,45,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Chicken Finger-Wimpy,5 fingers,,main,450,20,3,0,95,2790,22,1,5,46,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Chicken Finger-Tongue Torch,5 fingers,,main,440,20,3,0,95,2960,19,1,2,46,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Chicken Finger-Nuclear,5 fingers,,main,440,20,3,0,95,2800,18,1,1,46,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Chicken Finger-Buffalo Garlic Blaze,5 fingers,,main,510,28,4.5,0,100,3260,18,0,1,46,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Chicken Finger-HHM,5 fingers,,main,570,32,5,0,105,2510,25,0,6,46,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Chicken Finger-Sweet & Spicy,5 fingers,,dessert,510,21,3,0,90,2380,36,0,17,46,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Chicken Finger-Teriyaki,5 fingers,,main,510,20,3,0,95,2690,35,0,16,47,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Wings & Fingers,Chicken Finger-BBQ,5 fingers,,main,520,20,3,0,90,2720,39,1,19,46,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Sauces,Ranch,8 oz,,extra,990,105,17,0.5,75,1830,12,0,7,4,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Sauces,Honey Mustard,8 oz,,extra,870,75,12,0,45,1360,48,1,38,2,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Sauces,Zax Sauce®,8 oz,,extra,1040,102,16,0.5,85,3500,30,3,21,3,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Sauces,Spicy Zax Sauce®,8 oz,,extra,920,89,14,0,65,3950,28,2,19,3,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Sauces,Wimpy™,8 oz,,extra,200,2,0,0,5,4720,41,4,28,4,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Sauces,Tongue Torch®,8 oz,,extra,130,2.5,0,0,5,5780,23,4,10,3,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Sauces,Nuclear™,8 oz,,extra,120,3.5,0.5,0,5,5170,19,5,7,4,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Sauces,Buffalo Garlic Blaze,8 oz,,extra,500,49,8,0,55,6940,12,2,6,2,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Sauces,Hot Honey Mustard,8 oz,,extra,800,65,10,0,70,2550,51,2,33,3,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Sauces,Sweet & Spicy,8 oz,,extra,590,6,1,0,0,2280,132,1,111,2,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Sauces,Teriyaki,8 oz,,extra,450,3,0,0,5,3400,99,1,83,7,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Sauces,BBQ,8 oz,,extra,330,0,0,0,0,2300,77,3,62,2,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Dry Rubs,Lemon Pepper Dry Rub Seasoning,0.7 oz,,extra,40,0,0,0,0,3720,5,0,2,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Dry Rubs,Garlic Parmesan Dry Rub Seasoning,0.7 oz,,extra,45,1,0,0,0,2650,6,0,1,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Dry Rubs,Nashville Hot Dry Rub Seasoning,0.7 oz,,extra,70,1,0,0,0,620,14,3,6,1,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Dressings,Honey Mustard,1 oz,,extra,110,9,1.5,0,5,170,6,0,5,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids,Apple Juice,6oz,,drink,35,0,0,0,0,15,9,0,8,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Sweet Tea Kidz,1 serving,,dessert,160,0,0,0,0,0,41,0,40,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Sweet Tea Kidz,Small,,dessert,270,0,0,0,0,0,68,0,66,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Sweet Tea Kidz,Medium,,dessert,410,0,0,0,0,0,103,0,100,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Sweet Tea Kidz,Large,,dessert,550,0,0,0,0,0,137,0,133,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Sweet Tea Kidz,Gallon,,dessert,1750,0,0,0,0,0,438,0,425,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Unsweet Tea Kidz,1 serving,,drink,0,0,0,0,0,0,0,0,0,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Unsweet Tea Kidz,Small,,drink,0,0,0,0,0,0,0,0,0,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Unsweet Tea Kidz,Medium,,drink,0,0,0,0,0,0,0,0,0,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Unsweet Tea Kidz,Large,,drink,0,0,0,0,0,0,0,0,0,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Unsweet Tea Kidz,Gallon,,drink,0,0,0,0,0,0,0,0,0,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Coca-Cola Kidz,1 serving,,drink,160,0,0,0,0,40,40,0,40,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Coca-Cola Kidz,Small,,drink,270,0,0,0,0,65,67,0,67,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Coca-Cola Kidz,Medium,,drink,400,0,0,0,0,95,100,0,100,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Coca-Cola Kidz,Large,,drink,530,0,0,0,0,125,133,0,133,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Dr Pepper Kidz,1 serving,,drink,140,0,0,0,0,45,39,0,38,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Dr Pepper Kidz,Small,,drink,240,0,0,0,0,75,65,0,64,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Dr Pepper Kidz,Medium,,drink,360,0,0,0,0,110,98,0,96,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Dr Pepper Kidz,Large,,drink,480,0,0,0,0,150,130,0,128,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Sprite Kidz,1 serving,,drink,150,0,0,0,0,70,36,0,36,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Sprite Kidz,Small,,drink,250,0,0,0,0,115,61,0,61,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Sprite Kidz,Medium,,drink,370,0,0,0,0,170,91,0,91,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Sprite Kidz,Large,,drink,490,0,0,0,0,230,121,0,121,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Diet Coke Kidz,1 serving,,drink,0,0,0,0,0,50,0,0,0,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Diet Coke Kidz,Small,,drink,0,0,0,0,0,80,0,0,0,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Diet Coke Kidz,Medium,,drink,0,0,0,0,0,120,0,0,0,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Diet Coke Kidz,Large,,drink,0,0,0,0,0,160,0,0,0,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Barq’s Root Beer Kidz,1 serving,,drink,160,0,0,0,0,70,40,0,40,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Barq’s Root Beer Kidz,Small,,drink,270,0,0,0,0,115,67,0,67,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Barq’s Root Beer Kidz,Medium,,drink,400,0,0,0,0,170,101,0,101,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Barq’s Root Beer Kidz,Large,,drink,540,0,0,0,0,230,134,0,134,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Hi-C Flashin' Fruit Punch Kidz,1 serving,,drink,170,0,0,0,0,75,42,0,41,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Hi-C Flashin' Fruit Punch Kidz,Small,,drink,280,0,0,0,0,120,71,0,69,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Hi-C Flashin' Fruit Punch Kidz,Medium,,drink,420,0,0,0,0,180,106,0,103,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Hi-C Flashin' Fruit Punch Kidz,Large,,drink,560,0,0,0,0,240,141,0,138,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Fanta Orange Kidz,1 serving,,drink,150,0,0,0,0,40,40,0,40,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Fanta Orange Kidz,Small,,drink,250,0,0,0,0,65,66,0,66,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Fanta Orange Kidz,Medium,,drink,370,0,0,0,0,95,99,0,99,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Fanta Orange Kidz,Large,,drink,490,0,0,0,0,125,132,0,132,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Coca-Cola Zero Sugar Kidz,1 serving,,drink,0,0,0,0,0,40,0,0,0,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Coca-Cola Zero Sugar Kidz,Small,,drink,0,0,0,0,0,65,0,0,0,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Coca-Cola Zero Sugar Kidz,Medium,,drink,0,0,0,0,0,100,0,0,0,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Coca-Cola Zero Sugar Kidz,Large,,drink,0,0,0,0,0,135,0,0,0,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Mello Yello Kidz,1 serving,,drink,170,0,0,0,0,50,44,0,44,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Mello Yello Kidz,Small,,drink,290,0,0,0,0,85,73,0,73,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Mello Yello Kidz,Medium,,drink,430,0,0,0,0,125,109,0,109,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Mello Yello Kidz,Large,,drink,570,0,0,0,0,170,145,0,145,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Powerade Mountain Berry Blast Kidz,1 serving,,drink,90,0,0,0,0,110,22,0,22,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Powerade Mountain Berry Blast Kidz,Small,,drink,150,0,0,0,0,190,37,0,36,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Powerade Mountain Berry Blast Kidz,Medium,,drink,230,0,0,0,0,280,55,0,55,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Powerade Mountain Berry Blast Kidz,Large,,drink,300,0,0,0,0,370,73,0,73,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Fanta Strawberry Kidz,1 serving,,drink,160,0,0,0,0,85,43,0,43,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Fanta Strawberry Kidz,Small,,drink,260,0,0,0,0,140,72,0,71,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Fanta Strawberry Kidz,Medium,,drink,400,0,0,0,0,210,107,0,106,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Fanta Strawberry Kidz,Large,,drink,530,0,0,0,0,280,143,0,142,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Coca-Cola Cherry Kidz,1 serving,,drink,150,0,0,0,0,40,43,0,42,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Coca-Cola Cherry Kidz,Small,,drink,260,0,0,0,0,70,72,0,70,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Coca-Cola Cherry Kidz,Medium,,drink,380,0,0,0,0,105,107,0,105,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Coca-Cola Cherry Kidz,Large,,drink,510,0,0,0,0,135,143,0,140,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Peach Sweet Tea,Small,,dessert,340,0,0,0,0,40,62,0,82,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Peach UnsweetenedTea,Small,,drink,100,0,0,0,0,40,0,0,21,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Peach UnsweetenedTea,Medium,,drink,140,0,0,0,0,55,0,0,32,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Peach UnsweetenedTea,Large,,drink,190,0,0,0,0,75,0,0,42,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Handcrafted Lemonade Kidz,1 serving,,drink,210,0,0,0,0,40,55,0,52,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Handcrafted Lemonade Kidz,Small,,drink,350,0,0,0,0,65,91,0,86,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Handcrafted Lemonade Kidz,Medium,,drink,520,0,0,0,0,95,137,0,129,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Handcrafted Lemonade Kidz,Large,,drink,700,0.5,0,0,0,130,182,0,172,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Handcrafted Strawberry Lemonade,Small,,drink,430,0,0,0,0,70,110,0,100,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Handcrafted Strawberry Lemonade,Medium,,drink,620,0,0,0,0,105,160,0,147,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Handcrafted Strawberry Lemonade,Large,,drink,850,0.5,0,0,0,140,220,0,200,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Frozen Lemonade,Small,,drink,310,0,0,0,0,55,80,0,76,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Kids Drinks,Frozen Strawberry Lemonade,Small,,drink,400,0,0,0,0,60,103,0,89,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending
+Zaxbys,Drinks,Kidz,1 serving,,drink,160,0,0,0,0,85,43,0,43,0,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,2026-10-23,pending

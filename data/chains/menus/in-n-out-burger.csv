@@ -1,0 +1,73 @@
+chain,section,name,serving,serving_g,kind,calories,fat_g,saturated_fat_g,trans_fat_g,cholesterol_mg,sodium_mg,carbs_g,fiber_g,sugars_g,protein_g,source_url,checked_on,check
+In-N-Out Burger,Burgers,Double-Double®,287g,287,main,610,34,15,0,110,1670,42,2,9,34,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Burgers,Double-Double® With mustard & ketchup instead of spread,280g,280,extra,550,27,14,0,105,1600,41,2,10,34,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Burgers,Cheeseburger,229g,229,main,430,21,8,0,55,1080,40,2,9,20,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Burgers,Cheeseburger With mustard & ketchup instead of spread,222g,222,extra,380,15,7,0,55,1020,39,2,9,20,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Burgers,Hamburger,209g,209,main,360,16,5,0,35,670,38,2,8,16,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Burgers,Hamburger With mustard & ketchup instead of spread,202g,202,extra,300,10,4,0,35,610,38,2,9,16,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Fries,French Fries,125g,125,side,360,15,1.5,0,0,150,49,6,0,6,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Shakes,Chocolate Shake,15 fl oz,,dessert,610,30,19,1,110,370,74,0,61,16,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Shakes,Vanilla Shake,15 fl oz,,dessert,590,31,20,1,115,360,66,0,55,16,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Shakes,Strawberry Shake,15 fl oz,,dessert,610,30,19,1,110,350,74,0,63,15,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Beverages,Coca-Cola,11 fl oz,,drink,130,0,0,0,0,35,37,0,37,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Beverages,Coca-Cola,15 fl oz,,drink,180,0,0,0,0,50,50,0,50,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Beverages,Coca-Cola,22 fl oz,,drink,270,0,0,0,0,75,74,0,74,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Beverages,Coca-Cola,29 fl oz,,drink,360,0,0,0,0,95,97,0,97,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Beverages,Diet Coca-Cola,11 fl oz,,drink,0,0,0,0,0,45,0,0,0,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Beverages,Diet Coca-Cola,15 fl oz,,drink,0,0,0,0,0,60,0.5,0,0,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Beverages,Diet Coca-Cola,22 fl oz,,drink,0,0,0,0,0,90,0.5,0,0,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Beverages,Diet Coca-Cola,29 fl oz,,drink,0,0,0,0,0,115,0.5,0,0,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Beverages,Cherry Coke,11 fl oz,,drink,140,0,0,0,0,40,38,0,38,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Beverages,Cherry Coke,15 fl oz,,drink,190,0,0,0,0,50,52,0,52,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Beverages,Cherry Coke,22 fl oz,,drink,280,0,0,0,0,75,77,0,77,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Beverages,Cherry Coke,29 fl oz,,drink,370,0,0,0,0,100,101,0,101,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Beverages,Barq's Root Beer,11 fl oz,,drink,140,0,0,0,0,65,37,0,37,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Beverages,Barq's Root Beer,15 fl oz,,drink,190,0,0,0,0,85,50,0,50,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Drinks,7-Up,11 fl oz,,drink,130,0,0,0,0,45,35,0,35,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Drinks,Dr. Pepper,11 fl oz,,drink,130,0,0,0,0,40,36,0,35,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Drinks,Signature Pink Lemonade,11 fl oz,,drink,150,0,0,0,0,25,35,0,33,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Drinks,Lite Pink Lemonade,11 fl oz,,drink,5,0,0,0,0,25,3,0,0,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Drinks,Sweet Iced Tea*,6 fl oz,,dessert,80,0,0,0,0,0,20,0,20,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Drinks,Unsweetened Iced Tea,6 fl oz,,drink,0,0,0,0,0,0,0,0,0,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Drinks,Unsweetened Iced Tea,9 fl oz,,drink,0,0,0,0,0,0,0,0,0,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,pending
+In-N-Out Burger,Drinks,Unsweetened Iced Tea,14 fl oz,,drink,0,0,0,0,0,0,0,0,0,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,pending
+In-N-Out Burger,Drinks,Unsweetened Iced Tea,19 fl oz,,drink,0,0,0,0,0,0,0,0,0,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,pending
+In-N-Out Burger,Drinks,Milk,10 fl oz,,drink,160,7,4,0,25,160,16,0,16,10,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Drinks,Hot Cocoa,8 fl oz,,drink,160,3,2.5,0,0,240,33,2,29,2,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Drinks,Hot Cocoa w/ Marshmallows,8 fl oz,,drink,180,3,2.5,0,0,240,33,2,34,2,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Drinks,Coffee,15 fl oz,,drink,0,0,0,0,0,0,0,0,0,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Drinks,Decaf Coffee,15 fl oz,,drink,0,0,0,0,0,0,0,0,0,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Condiments,Ketchup Packets,11g,11,extra,10,0,0,0,0,105,3,0,3,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Condiments,Mustard Packets,7g,7,extra,5,0,0,0,0,85,0,0,0,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Condiments,Spread Packets,28g,28,extra,100,9,1.5,0,5,280,4,1,2,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Condiments,Stevia in the Raw,1g,1,extra,5,0,0,0,0,0,0.5,0,1,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Condiments,Sugar,3.5g,3.5,extra,15,0,0,0,0,0,3,0,3,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Condiments,Creamer,10g,10,extra,10,1,0.5,0,2.5,0,0.5,0,0,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Condiments,Oat Milk Creamer,12g,12,extra,20,0.5,0.5,0,0,15,4,0,3,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Add Ons,Pickles,37g,37,extra,0,0,0,0,0,550,1,0,0,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Add Ons,Chopped Chilies,7g,7,extra,0,0,0,0,0,90,0,0,0,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Add Ons,Grilled Onions,27g,27,extra,15,0,0,0,0,0,4,1,3,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Cookout Truck Items,"Cape Cod Potato Chips, Kettle Cooked",42g,42,main,200,9,0.5,0,0,190,27,2,0,3,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Cookout Truck Items,Salt and Vinegar Chips,43g,43,main,210,12,1.5,0,0,410,23,2,0,3,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Cookout Truck Items,Fuji Apple Fruit Crisps (for school events),10g,10,main,40,0,0,0,0,0,10,1,8,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Burgers,Double-Double® Protein Style® (bun replaced with lettuce),289g,289,main,460,32,15,0,110,1390,12,2,7,30,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Burgers,Cheeseburger Protein Style® (bun replaced with lettuce),231g,231,main,280,19,8,0,55,800,11,2,7,16,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Burgers,Hamburger Protein Style® (bun replaced with lettuce),211g,211,main,210,14,4.5,0,35,390,9,2,6,12,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Drinks,7-Up,15 fl oz,,drink,180,0,0,0,0,65,48,0,48,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Drinks,7-Up,22 fl oz,,drink,260,0,0,0,0,95,71,0,70,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Drinks,7-Up,29 fl oz,,drink,350,0,0,0,0,120,93,0,92,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Drinks,Dr. Pepper,15 fl oz,,drink,180,0,0,0,0,55,49,0,48,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Drinks,Dr. Pepper,22 fl oz,,drink,260,0,0,0,0,80,72,0,70,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Drinks,Dr. Pepper,29 fl oz,,drink,350,0,0,0,0,105,94,0,93,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Drinks,Signature Pink Lemonade,15 fl oz,,drink,200,0,0,0,0,30,48,0,45,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Drinks,Signature Pink Lemonade,22 fl oz,,drink,300,0,0,0,0,50,70,0,66,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Drinks,Signature Pink Lemonade,29 fl oz,,drink,400,0,0,0,0,65,93,0,87,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Drinks,Lite Pink Lemonade,15 fl oz,,drink,10,0,0,0,0,35,4,0,0,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Drinks,Lite Pink Lemonade,22 fl oz,,drink,15,0,0,0,0,50,5,0,0,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Drinks,Lite Pink Lemonade,29 fl oz,,drink,15,0,0,0,0,65,7,0,0,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Drinks,Sweet Iced Tea*,9 fl oz,,dessert,110,0,0,0,0,0,30,0,30,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Drinks,Sweet Iced Tea*,14 fl oz,,dessert,180,0,0,0,0,0,46,0,46,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Drinks,Sweet Iced Tea*,19 fl oz,,dessert,240,0,0,0,0,0,63,0,63,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,two-drafts
+In-N-Out Burger,Drinks,Unsweetened Iced Tea,9 ounce,,drink,0,0,0,0,0,0,0,0,0,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,pending
+In-N-Out Burger,Drinks,Unsweetened Iced Tea,14 ounce,,drink,0,0,0,0,0,0,0,0,0,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,pending
+In-N-Out Burger,Drinks,Unsweetened Iced Tea,19 ounce,,drink,0,0,0,0,0,0,0,0,0,0,https://www.in-n-out.com/menu/nutrition-info,2026-10-23,pending

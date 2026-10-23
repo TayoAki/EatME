@@ -27,21 +27,21 @@ rank,chain,site,guide_url,notes
 26,Arby's,arbys.com,https://assets.ctfassets.net/30q5w5l98nbx/42zLskOHOxnHbSVYO98X47/eb5b661b4d42295aaf804a8f6a150b13/Arbys_Nutritional_and_Allergen_OCT_2026.pdf,"drafted 2026-10-23: 176 agreed, 59 for a person"
 27,Jack in the Box,jackinthebox.com,,no nutrition page found on jackinthebox.com: set guide_url by hand
 28,Jersey Mike's Subs,jerseymikes.com,https://www.jerseymikes.com/menu/nutrition,no nutrition numbers found in the guide: set guide_url to the PDF or full table
-29,Buffalo Wild Wings,buffalowildwings.com,https://assets.ctfassets.net/6dxmiqksdkqb/2XgznB5cOqQ9l1r7PQAasB/dd312340082cc00107545e7ab21318a7/BWW_Nutrition_Guide__08-18-2026_-_11-17-2026_.pdf,guide read 2026-10-22: ready to draft
+29,Buffalo Wild Wings,buffalowildwings.com,https://assets.ctfassets.net/6dxmiqksdkqb/2XgznB5cOqQ9l1r7PQAasB/dd312340082cc00107545e7ab21318a7/BWW_Nutrition_Guide__08-18-2026_-_11-17-2026_.pdf,"drafted 2026-10-23: 152 agreed, 254 for a person"
 30,Applebee's,applebees.com,https://www.applebees.com/en/nutrition,no nutrition numbers found in the guide: set guide_url to the PDF or full table
 31,Papa Johns,papajohns.com,https://www.papajohns.com/company/nutritional-details/index.html,"drafted 2026-10-23: 33 agreed, 82 for a person"
 32,IHOP,ihop.com,https://www.ihop.com/en/nutrition/calculator,guide is run by Nutritionix: set guide_url to the chain’s own PDF
-33,LongHorn Steakhouse,longhornsteakhouse.com,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,guide read 2026-10-22: ready to draft
-34,Zaxbys,zaxbys.com,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,guide read 2026-10-22: ready to draft
-35,Jimmy John's,jimmyjohns.com,https://resources.jimmyjohns.com/downloadable-files/Beefy_Black_And_Bleu_Nutrition_Guide.pdf,guide read 2026-10-22: ready to draft
-36,Outback Steakhouse,outback.com,https://outback.blob.core.windows.net/content/images/OBS_Full_Nutrition_Information_Core_Menu_Items.pdf,guide read 2026-10-22: ready to draft
-37,The Cheesecake Factory,thecheesecakefactory.com,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,guide read 2026-10-22: ready to draft
+33,LongHorn Steakhouse,longhornsteakhouse.com,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,"drafted 2026-10-23: 63 agreed, 130 for a person"
+34,Zaxbys,zaxbys.com,https://www.zaxbys.com/uploads/ZAX_NAI_Guide_Digital_2_01ab6bbb57.pdf,"drafted 2026-10-23: 125 agreed, 162 for a person"
+35,Jimmy John's,jimmyjohns.com,https://resources.jimmyjohns.com/downloadable-files/Beefy_Black_And_Bleu_Nutrition_Guide.pdf,"drafted 2026-10-23: 21 agreed, 5 for a person"
+36,Outback Steakhouse,outback.com,https://outback.blob.core.windows.net/content/images/OBS_Full_Nutrition_Information_Core_Menu_Items.pdf,"drafted 2026-10-23: 244 agreed, 204 for a person"
+37,The Cheesecake Factory,thecheesecakefactory.com,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,"drafted 2026-10-23: 407 agreed, 172 for a person"
 38,Cracker Barrel,crackerbarrel.com,https://www.crackerbarrel.com/nutrition,no nutrition numbers found in the guide: set guide_url to the PDF or full table
-39,Denny's,dennys.com,https://www.dennys.com/sites/default/files/2026-05/M2%20Spring%20Core%20Menu%20Nutrition%20Guide.pdf,guide read 2026-10-22: ready to draft
-40,In-N-Out Burger,in-n-out.com,https://www.in-n-out.com/menu/nutrition-info,guide read 2026-10-22: ready to draft
-41,Five Guys,fiveguys.com,https://www.fiveguys.com/wp-content/uploads/2025/07/five-guys-us-nutrition-allergen-guide-english-1-final.pdf,guide read 2026-10-22: ready to draft
+39,Denny's,dennys.com,https://www.dennys.com/sites/default/files/2026-05/M2%20Spring%20Core%20Menu%20Nutrition%20Guide.pdf,"drafted 2026-10-23: 218 agreed, 26 for a person"
+40,In-N-Out Burger,in-n-out.com,https://www.in-n-out.com/menu/nutrition-info,"drafted 2026-10-23: 66 agreed, 6 for a person"
+41,Five Guys,fiveguys.com,https://www.fiveguys.com/wp-content/uploads/2025/07/five-guys-us-nutrition-allergen-guide-english-1-final.pdf,"drafted 2026-10-23: 40 agreed, 15 for a person"
 42,Dutch Bros Coffee,dutchbros.com,https://www.dutchbros.com/website/menu/nutritional-guide.pdf,guide read 2026-10-22: ready to draft
-43,Hardee's,hardees.com,https://www.hardees.com/getContentAsset/20c3e4eb-fa23-4fb2-b914-5fc082e91122/dfc3d011-8f63-43f6-9ed8-4b444333a1d0/nutritional-info-page.pdf?language=en-US,guide read 2026-10-22: ready to draft
+43,Hardee's,hardees.com,https://www.hardees.com/getContentAsset/20c3e4eb-fa23-4fb2-b914-5fc082e91122/dfc3d011-8f63-43f6-9ed8-4b444333a1d0/nutritional-info-page.pdf?language=en-US,"drafted 2026-10-23: 114 agreed, 12 for a person"
 44,Bojangles,bojangles.com,https://storyblok.pleinaircdn.com/f/110020/x/6c7b2a7e6a/m25-099-2025_02-nutritiongudeupdates_bobitessalad_master.pdf,guide read 2026-10-22: ready to draft
 45,Golden Corral,goldencorral.com,https://www.goldencorral.com/nutrition/,guide read 2026-10-22: ready to draft
 46,Red Lobster,redlobster.com,,no nutrition page found on redlobster.com: set guide_url by hand
