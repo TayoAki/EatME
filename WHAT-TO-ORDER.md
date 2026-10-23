@@ -368,7 +368,8 @@ changes before any app code.
 - [ ] **Menu reading on a phone**: the Vision module on 10 real menus (printed, chalkboard, dim light). Pass: 9 of
   10 give usable dish lines after the confirm step; otherwise we send the photo, as meal scans do. *The module
   (`modules/menu-text`) and the layout rules (`src/shared/menu-lines.ts`, tested) are written; the check needs a
-  development or TestFlight build on an iPhone. The photo route is built and tested on the web.*
+  real build on an iPhone (a preview build while 1.0 is in review, `store/release.md`). The photo route is built and
+  tested on the web.*
 
 ---
 

@@ -116,7 +116,10 @@ After 1.0 is live, raise `expo.version` in `app.json` (1.0.1, 1.1.0...) before b
 ## What to order on a phone (the v2.5 build)
 
 What to order is the first version with a native module of our own (`modules/menu-text`, Apple Vision), so test it
-in a TestFlight build (or `eas build --profile development`), never in Expo Go, before it goes to App Review:
+in a real build, never in Expo Go, before it goes to App Review. While 1.0 is in review, use a **preview build**: it
+installs straight onto your iPhone and never reaches App Store Connect, so it can't be picked for 1.0 by mistake
+(`npx eas-cli@latest device:create` once to register the phone, then `npx eas-cli@latest build -p ios --profile
+preview` and open the link EAS prints on the phone). After 1.0 is approved, raise `expo.version` and use TestFlight:
 
 - [ ] **Menu reading** (WHAT-TO-ORDER.md §11): Scan → Menu on 10 real menus: printed, a chalkboard, a dim room, a
       long menu as 2-3 pages, a menu with prices in a column. Each time the confirm step lists the dishes; fix what's

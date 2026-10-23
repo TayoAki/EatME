@@ -369,7 +369,8 @@ on, all of it. Before that submission:
 - [ ] The accuracy pilot passed (`npm run menus:pilot`, WHAT-TO-ORDER.md §11; needs OpenRouter credit) and its
       calibration copied into `ESTIMATE_CALIBRATION` (`src/shared/menus.ts`)
 - [ ] The menu-reading check on a phone (10 real menus, 9 readable after the confirm step). `modules/menu-text` is
-      native: test it in a development or TestFlight build, not Expo Go
+      native: test it in a preview build while 1.0 is in review (`store/release.md` → What to order on a phone),
+      not Expo Go
 - [ ] `WHAT_TO_ORDER` is not `false` on Railway (the switch is for outages only and is on for the review)
 - [ ] The support page lines below, deployed on submission day and not before: the page lists what Premium
       includes, and the 1.0 review must not read about a feature its build doesn't have
