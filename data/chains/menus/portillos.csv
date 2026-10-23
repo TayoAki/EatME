@@ -37,7 +37,7 @@ Portillo's,SALADS,Chopped Salad,with dressing,,main,850,54,16,,135,1962,45,6,14,
 Portillo's,SALADS,Classic Caesar Salad,without dressing,,main,230,12,3,,218,299,16,4,3,13,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
 Portillo's,SALADS,Classic Caesar Salad,with dressing,,main,570,48,7,,240,671,18,4,3,15,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
 Portillo's,SALADS,Classic Caesar Salad with Grilled Chicken,without dressing,,main,360,12,3,,201,855,18,4,2,38,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,SALADS,Classic Caesar Salad with Grilled Chicken,with dressing,,main,700,65,9,,228,1275,24,4,5,42,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SALADS,Classic Caesar Salad with Grilled Chicken,with dressing,,main,700,65,9,,228,1275,24,4,5,42,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
 Portillo's,SALADS,Greek Salad with Chicken,without dressing,,main,340,16,5,,80,1130,15,7,6,27,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
 Portillo's,SALADS,Greek Salad with Chicken,with dressing,,main,615,44,9,,80,1554,23,7,10,27,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
 Portillo's,SALADS,Spicy Chicken Chopped Salad,without dressing,,main,740,34,13,,135,2336,62,7,8,45,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
@@ -46,7 +46,7 @@ Portillo's,SALAD DRESSINGS & SAUCE,BBQ Sauce,1 serving,,extra,38,1,0,,0,395,9,0,
 Portillo's,SALAD DRESSINGS & SAUCE,Caesar Dressing,1 serving,,extra,340,36,4,,22,372,2,0,0,2,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
 Portillo's,SALAD DRESSINGS & SAUCE,Roasted Garlic Vinaigrette,1 serving,,extra,250,28,5,,0,440,0,0,0,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
 Portillo's,SALAD DRESSINGS & SAUCE,Honey Mustard Sauce,1 serving,,extra,195,17,3,,23,210,11,0,9,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,SALAD DRESSINGS & SAUCE,Hot Giardiniera Sauce,1 serving,,extra,90,5,3,,0,170,2,0,1,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,SALAD DRESSINGS & SAUCE,Hot Giardiniera Sauce,1 serving,,extra,90,5,3,,0,170,2,0,1,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
 Portillo's,SALAD DRESSINGS & SAUCE,House Dressing,1 serving,,extra,340,34,5,,0,500,8,0,6,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
 Portillo's,SALAD DRESSINGS & SAUCE,Lite Italian Dressing,1 serving,,extra,80,7,1,,0,507,4,0,3,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
 Portillo's,SALAD DRESSINGS & SAUCE,Ranch Dressing,1 serving,,extra,130,14,3,,10,292,1,0,0,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
@@ -122,8 +122,8 @@ Portillo's,DRINKS,Diet Coke,Small,,drink,0,0,0,,0,15,0,0,0,0,https://www.portill
 Portillo's,DRINKS,Diet Coke,Large,,drink,0,0,0,,0,24,0,0,0,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
 Portillo's,DRINKS,Dr. Pepper,Small,,drink,165,0,0,,0,53,41,0,41,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
 Portillo's,DRINKS,Dr. Pepper,Large,,drink,264,0,0,,0,84,65,0,65,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,DRINKS,Fanta Orange Soda,Small,,drink,167,0,0,,0,53,53,0,53,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
-Portillo's,DRINKS,Fantasy Orange Soda,Large,,drink,266,0,0,,0,84,84,0,84,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
+Portillo's,DRINKS,Fanta Orange Soda,Small,,drink,167,0,0,,0,53,53,0,53,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
+Portillo's,DRINKS,Fantasy Orange Soda,Large,,drink,266,0,0,,0,84,84,0,84,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,pending
 Portillo's,DRINKS,Hi-C Flashin Fruit Punch,Small,,drink,160,0,0,,0,13,42,0,42,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
 Portillo's,DRINKS,Hi-C Flashin Fruit Punch,Large,,drink,250,0,0,,0,22,67,0,67,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts
 Portillo's,DRINKS,Iced Tea,Small,,drink,0,0,0,,0,8,0,0,0,0,https://www.portillos.com/assets/1/6/NutritionAllergen_V10_0408.pdf,2026-10-23,two-drafts

@@ -24,7 +24,7 @@ Miller's Ale House,STARTERS AND APPS,Fully Loaded Cheese Fries,1 serving,,main,1
 Miller's Ale House,STARTERS AND APPS,Fried Calamari,1 serving,,main,780,38,6,0,320,3420,79,2,31,28,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
 Miller's Ale House,STARTERS AND APPS,Fried Jalapeños,1 serving,,main,650,17,3,0,2.5,2730,103,5,6,16,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
 Miller's Ale House,STARTERS AND APPS,Warm Bavarian Pretzel,1 serving,,main,490,29,10,0.5,40,1860,44,1,7,13,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,STARTERS AND APPS,Creamy Spinach & Artichoke Dip,1 serving,,extra,810,38,26,0.5,140,1240,66,13,0.5,18,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,STARTERS AND APPS,Creamy Spinach & Artichoke Dip,1 serving,,extra,810,38,26,0.5,140,1240,66,13,0.5,18,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,pending
 Miller's Ale House,STARTERS AND APPS,Mozzarella Sticks,12-Count,,main,1170,73,27,0,120,2020,78,2,8,42,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
 Miller's Ale House,STARTERS AND APPS,Mozzarella Sticks,8-Count,,main,800,53,19,0,80,1470,55,2,6,28,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
 Miller's Ale House,STARTERS AND APPS,Miller's Size Tex-Mex Chicken Nachos,1 serving,,main,2260,162,52,0,410,5610,113,11,10,82,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
@@ -72,63 +72,63 @@ Miller's Ale House,HOUSE FAVORITES,Lobster Ravioli,1 serving,,main,810,49,26,0,1
 Miller's Ale House,HOUSE FAVORITES,Cilantro Lime Chicken,1 serving,,main,800,34,11,0,120,1970,67,6,7,55,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
 Miller's Ale House,HOUSE FAVORITES,35 Fried Shrimp (Includes coleslaw),1 serving,,main,1770,90,17,0,520,2410,139,4,13,85,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
 Miller's Ale House,HOUSE FAVORITES,Snow Crab,1 serving,,main,890,51,11,0,320,3860,0,0,0,108,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Cocktails,Smirnoff Cape Cod,1 serving,,main,90,0,0,0,0,15,6,0,6,0,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Cocktails,Smirnoff Martini,1 serving,,main,140,1,0,0,0,160,0,0,0,0,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Cocktails,Strawberry Coconut Mojito,1 serving,,main,220,0,0,0,0,15,36,0.5,32,0,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Cocktails,Strawberry Margarita,1 serving,,main,270,0,0,0,0,50,34,0,31,0,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Cocktails,Strawberry Mule,1 serving,,main,220,0,0,0,0,30,54,0,18,0,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Cocktails,Tito's Loaded Bloody Mary,1 serving,,main,190,1,0,0,0,590,7,2,3,2,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Cocktails,Smirnoff Cape Cod,1 serving,,drink,90,0,0,0,0,15,6,0,6,0,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Cocktails,Smirnoff Martini,1 serving,,drink,140,1,0,0,0,160,0,0,0,0,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Cocktails,Strawberry Coconut Mojito,1 serving,,drink,220,0,0,0,0,15,36,0.5,32,0,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Cocktails,Strawberry Margarita,1 serving,,drink,270,0,0,0,0,50,34,0,31,0,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Cocktails,Strawberry Mule,1 serving,,drink,220,0,0,0,0,30,54,0,18,0,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Cocktails,Tito's Loaded Bloody Mary,1 serving,,drink,190,1,0,0,0,590,7,2,3,2,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
 Miller's Ale House,Cocktails,Tito's Strawberry Lemonade,Glass,,drink,170,0,0,0,0,35,23,0,21,0,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
 Miller's Ale House,Cocktails,Tito's Strawberry Lemonade,Pitcher,,drink,440,0,0,0,0,70,46,0.5,41,0,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Cocktails,Top Shelf Margarita,1 serving,,main,280,0,0,0,0,45,31,0,27,0,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Cocktails,Tropical Mule,1 serving,,main,210,0,0,0,0,5,21,1,21,0.5,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Cocktails,Ultimate Tito's,1 serving,,main,250,1,0,0,0,160,0,0,0,0,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Cocktails,Watermelon Margarita,1 serving,,main,280,0,0,0,0,45,50,0,47,0,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Cocktails,Watermelon Margarita,Pitcher,,main,710,0,0,0,0,105,116,0,110,0,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Cocktails,Wave,1 serving,,main,300,0,0,0,0,50,46,0.5,41,0,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Cocktails,Wave,Pitcher,,main,890,0,0,0,0,135,133,0.5,119,0,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,Angry Orchard,1 serving,,main,220,0,0,0,0,20,28,0,23,0,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,Blue Moon,1 serving,,main,200,0,0,0,0,20,16,0.5,0.5,2,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,Blue Moon,23 oz.,,main,270,0,0,0,0,25,22,1,1,3,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,Blue Moon,Pitcher,,main,630,0,0,0,0,60,53,3,3,7,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,Blue Pt. Toasted Lager,Pint (14 oz.),,main,170,0,0,0,0,20,18,0,0,2,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,Bud Light,1 serving,,main,100,0,0,0,0,10,3,0,0,1,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,Budweiser,Pint (14 oz.),,main,170,0,0,0,0,10,12,0,0,2,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,Coors Light,14 oz. Pint,,main,120,0,0,0,0,15,6,0.5,1,1,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,Corona Light,14 oz. Pint,,main,120,0,0,0,0,0,6,0,0,1,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,Dos Equis,14 oz. Pint,,main,150,0,0,0,0,35,13,0,3,1,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,Founders All Day IPA,14 oz. Pint,,main,160,0,0,0,0,30,13,1,0,1,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,Goose IPA,Pint (14oz),,main,240,0,0,0,0,20,25,0,0,2,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,Guinness,20 oz.,,main,180,0,0,0,0,110,14,0,1,2,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,Guinness Blonde American Lager,14 oz. Pint,,main,180,0,0,0,0,0,13,0,1,3,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,Heineken,14 oz. Pint,,main,170,0,0,0,0,10,13,0,2,1,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,Hoegaaarden Wheat Beer,Pnt (14oz),,main,190,0,0,0,0,20,16,0,0,2,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,Illusive Traveler- Grapefruit Shandy,14 oz. Pint,,main,190,0,0,0,0,25,21,1,10,1,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,Kona Longboard,14 oz. Pint,,main,170,0,0,0,0,0,13,0,0,2,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,Lagunitas IPA,14 oz. Pint,,main,220,0,0,0,0,20,17,0,0,3,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,Leinenkugals,14 oz. Pint,,main,180,0,0,0,0,20,17,0,0,1,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,Michelob Ultra,Pint (14 oz),,main,110,0,0,0,0,20,3,0,0,0.5,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,Miller Lite,14 oz. Pint,,main,110,0,0,0,0,0,4,0,0,0.5,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,Miller Lite,23 oz.,,main,150,0,0,0,0,0,5,0,0,0.5,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,Miller Lite,Pitcher,,main,360,0,0,0,0,0,12,0,0,2,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,New Belgium Fat Tire,14 oz. Pint,,main,160,0,0,0,0,5,10,2,0,2,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,"New Belgium, Voodoo Ranger",14 oz. Pint,,main,220,0,0,0,0,10,18,0,0,0,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,Newcastle Brown Ale,14 oz. Pint,,main,150,0,0,0,0,35,12,0,7,1,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,Rebel IPA,14 oz. Pint,,main,220,0,0,0,0,20,18,1,0,2,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,Samuel Adams Boston Lager,1 serving,,main,240,0,0,0,0,0,0,0,0,0,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,Shock Top Belgian White 5%,Pint (14oz),,main,200,0,0,0,0,20,17,0,0,3,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,Sierra Nevada - Pale Ale,14 oz. Pint,,main,200,0,0,0,0,0,16,0,0,2,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,Sierra Nevada - Sidecar,1 serving,,main,210,0,0,0,0,25,18,0,0,0.5,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,Stella Artois,Pint (14 oz),,main,170,0,0,0,0,40,13,0,0,2,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,Terapin Hopsecutioner IPA,1 serving,,main,210,0,0,0,0,15,15,0,0,2,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,"Terrapin, Hi-5 IPA",14 oz. Pint,,main,210,0,0,0,0,10,19,0,0,2,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Beer,Yuengling,14 oz. Pint,,main,160,0,0,0,0,15,13,0,0,1,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Cocktails,Top Shelf Margarita,1 serving,,drink,280,0,0,0,0,45,31,0,27,0,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Cocktails,Tropical Mule,1 serving,,drink,210,0,0,0,0,5,21,1,21,0.5,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Cocktails,Ultimate Tito's,1 serving,,drink,250,1,0,0,0,160,0,0,0,0,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Cocktails,Watermelon Margarita,1 serving,,drink,280,0,0,0,0,45,50,0,47,0,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Cocktails,Watermelon Margarita,Pitcher,,drink,710,0,0,0,0,105,116,0,110,0,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Cocktails,Wave,1 serving,,drink,300,0,0,0,0,50,46,0.5,41,0,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Cocktails,Wave,Pitcher,,drink,890,0,0,0,0,135,133,0.5,119,0,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,Angry Orchard,1 serving,,drink,220,0,0,0,0,20,28,0,23,0,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,Blue Moon,1 serving,,drink,200,0,0,0,0,20,16,0.5,0.5,2,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,Blue Moon,23 oz.,,drink,270,0,0,0,0,25,22,1,1,3,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,Blue Moon,Pitcher,,drink,630,0,0,0,0,60,53,3,3,7,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,Blue Pt. Toasted Lager,Pint (14 oz.),,drink,170,0,0,0,0,20,18,0,0,2,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,Bud Light,1 serving,,drink,100,0,0,0,0,10,3,0,0,1,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,Budweiser,Pint (14 oz.),,drink,170,0,0,0,0,10,12,0,0,2,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,Coors Light,14 oz. Pint,,drink,120,0,0,0,0,15,6,0.5,1,1,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,Corona Light,14 oz. Pint,,drink,120,0,0,0,0,0,6,0,0,1,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,Dos Equis,14 oz. Pint,,drink,150,0,0,0,0,35,13,0,3,1,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,Founders All Day IPA,14 oz. Pint,,drink,160,0,0,0,0,30,13,1,0,1,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,Goose IPA,Pint (14oz),,drink,240,0,0,0,0,20,25,0,0,2,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,Guinness,20 oz.,,drink,180,0,0,0,0,110,14,0,1,2,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,Guinness Blonde American Lager,14 oz. Pint,,drink,180,0,0,0,0,0,13,0,1,3,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,Heineken,14 oz. Pint,,drink,170,0,0,0,0,10,13,0,2,1,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,Hoegaaarden Wheat Beer,Pnt (14oz),,drink,190,0,0,0,0,20,16,0,0,2,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,Illusive Traveler- Grapefruit Shandy,14 oz. Pint,,drink,190,0,0,0,0,25,21,1,10,1,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,Kona Longboard,14 oz. Pint,,drink,170,0,0,0,0,0,13,0,0,2,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,Lagunitas IPA,14 oz. Pint,,drink,220,0,0,0,0,20,17,0,0,3,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,Leinenkugals,14 oz. Pint,,drink,180,0,0,0,0,20,17,0,0,1,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,Michelob Ultra,Pint (14 oz),,drink,110,0,0,0,0,20,3,0,0,0.5,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,Miller Lite,14 oz. Pint,,drink,110,0,0,0,0,0,4,0,0,0.5,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,Miller Lite,23 oz.,,drink,150,0,0,0,0,0,5,0,0,0.5,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,Miller Lite,Pitcher,,drink,360,0,0,0,0,0,12,0,0,2,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,New Belgium Fat Tire,14 oz. Pint,,drink,160,0,0,0,0,5,10,2,0,2,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,"New Belgium, Voodoo Ranger",14 oz. Pint,,drink,220,0,0,0,0,10,18,0,0,0,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,Newcastle Brown Ale,14 oz. Pint,,drink,150,0,0,0,0,35,12,0,7,1,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,Rebel IPA,14 oz. Pint,,drink,220,0,0,0,0,20,18,1,0,2,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,Samuel Adams Boston Lager,1 serving,,drink,240,0,0,0,0,0,0,0,0,0,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,Shock Top Belgian White 5%,Pint (14oz),,drink,200,0,0,0,0,20,17,0,0,3,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,Sierra Nevada - Pale Ale,14 oz. Pint,,drink,200,0,0,0,0,0,16,0,0,2,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,Sierra Nevada - Sidecar,1 serving,,drink,210,0,0,0,0,25,18,0,0,0.5,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,Stella Artois,Pint (14 oz),,drink,170,0,0,0,0,40,13,0,0,2,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,Terapin Hopsecutioner IPA,1 serving,,drink,210,0,0,0,0,15,15,0,0,2,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,"Terrapin, Hi-5 IPA",14 oz. Pint,,drink,210,0,0,0,0,10,19,0,0,2,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Beer,Yuengling,14 oz. Pint,,drink,160,0,0,0,0,15,13,0,0,1,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
 Miller's Ale House,Fresh Chicken Wings,Fresh Chicken Wings,6 Wings,,main,220,6,1,0,100,140,0,0,0,38,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
 Miller's Ale House,Fresh Chicken Wings,Fresh Chicken Wings,12 Wings,,main,440,12,3.5,0,200,280,0,0,0,76,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
 Miller's Ale House,Fresh Chicken Wings,Fresh Chicken Wings,24 Wings,,main,880,25,7,0,395,560,0,0,0,152,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
 Miller's Ale House,HOUSE FAVORITES,Pork Osso Buco (served with Mashed Potatoes and,1 serving,,main,1380,86,26,0,300,5130,41,4,11,106,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
 Miller's Ale House,HOUSE FAVORITES,English Pub Fish & Chips (served with Fries & Inclu),1 serving,,main,1765,112,21,0,125,2560,122,6,22,47,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
-Miller's Ale House,Cocktails,The Wave,Glass- Big,,main,300,0,0,0,0,50,46,0.5,41,0,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
+Miller's Ale House,Cocktails,The Wave,Glass- Big,,drink,300,0,0,0,0,50,46,0.5,41,0,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,two-drafts
 Miller's Ale House,STEAK DINNERS,Choice Center Cut Sirloin,6oz - Grilled (Discontinued 3/23/25),,main,290,14,6,0,105,710,0.5,0,0,37,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,pending
 Miller's Ale House,STEAK DINNERS,Choice Center Cut Sirloin,10oz - Grilled (Discontinued 3/23/25),,main,510,26,11,0,170,1920,2,0.5,0.5,62,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,pending
 Miller's Ale House,STEAK DINNERS,Filet Mignon - Grilled (Discontinued 3/23/25),1 serving,,main,420,23,9,0,160,750,0.5,0,0,51,https://millersalehouse.com/wp-content/uploads/2025/08/AUG-2025-MAH-NUTRITION-GUIDE.pdf,2026-10-23,pending

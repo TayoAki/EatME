@@ -5,16 +5,18 @@ Numbers in order: calories / fat_g / saturated_fat_g / trans_fat_g / cholesterol
 
 ## Disagreements (6)
 
+The last column comes from `npm run chains:evidence`: whether a draft's numbers sit right after the item's name in the guide text the drafts read. It can't read sizes or sections (one draft called a single 78 g cookie a "6 pack"): check those against the guide, then fix the line and set its check to `person`.
+
 Fix each line in `menus/shake-shack.csv` from the guide and set its check to `person` (or delete the line if it isn't on the menu).
 
-| Item | Size | Why | Draft A | Draft B |
-| --- | --- | --- | --- | --- |
-| Add Veggie Patty* | 1 serving | both read numbers that can't be right: saturated and trans fat above fat | 210 / 4 / 7 / 0 / 0 / 760 / 20 / 2 / 2 / 8 | 210 / 4 / 7 / 0 / 0 / 760 / 20 / 2 / 2 / 8 |
-| Black & White Shake | Mini (8oz) | both read numbers that can't be right: sugars 38 g above carbs 30 g | 390 / 21 / 13 / 0 / 120 / 240 / 30 / 0 / 38 / 9 | 390 / 21 / 13 / 0 / 120 / 240 / 30 / 0 / 38 / 9 |
-| Featured Lemonade | Small | the guide gives no calories, sodium_mg, carbs_g, sugars_g, protein_g | – / 0 / 0 / 0 / 0 / – / – / 0 / – / – | – / 0 / 0 / 0 / 0 / – / – / 0 / – / – |
-| Featured Lemonade | Large | the guide gives no calories, sodium_mg, carbs_g, sugars_g, protein_g | – / 0 / 0 / 0 / 0 / – / – / 0 / – / – | – / 0 / 0 / 0 / 0 / – / – / 0 / – / – |
-| Fifty-Fifty Featured Lemonade | Small | the guide gives no calories, sodium_mg, carbs_g, sugars_g | – / 0 / 0 / 0 / 0 / – / – / 0 / – / 0 | – / 0 / 0 / 0 / 0 / – / – / 0 / – / 0 |
-| Fifty-Fifty Featured Lemonade | Large | the guide gives no calories, sodium_mg, carbs_g, sugars_g, protein_g | – / 0 / 0 / 0 / 0 / – / – / 0 / – / – | – / 0 / 0 / 0 / 0 / – / – / 0 / – / – |
+| Item | Size | Why | Draft A | Draft B | In the guide text (no AI) |
+| --- | --- | --- | --- | --- | --- |
+| Add Veggie Patty* | 1 serving | both read numbers that can't be right: saturated and trans fat above fat | 210 / 4 / 7 / 0 / 0 / 760 / 20 / 2 / 2 / 8 | 210 / 4 / 7 / 0 / 0 / 760 / 20 / 2 / 2 / 8 | A: numbers found after the name (line 41); check the size; B: numbers found after the name (line 41); check the size |
+| Black & White Shake | Mini (8oz) | both read numbers that can't be right: sugars 38 g above carbs 30 g | 390 / 21 / 13 / 0 / 120 / 240 / 30 / 0 / 38 / 9 | 390 / 21 / 13 / 0 / 120 / 240 / 30 / 0 / 38 / 9 | A: numbers found after the name (line 99); check the size; B: numbers found after the name (line 99); check the size |
+| Featured Lemonade | Small | the guide gives no calories, sodium_mg, carbs_g, sugars_g, protein_g | – / 0 / 0 / 0 / 0 / – / – / 0 / – / – | – / 0 / 0 / 0 / 0 / – / – / 0 / – / – | A: numbers found after the name (line 144); check the size, mostly zeros: look; B: numbers found after the name (line 144); check the size, mostly zeros: look |
+| Featured Lemonade | Large | the guide gives no calories, sodium_mg, carbs_g, sugars_g, protein_g | – / 0 / 0 / 0 / 0 / – / – / 0 / – / – | – / 0 / 0 / 0 / 0 / – / – / 0 / – / – | A: numbers found after the name (line 144); check the size, mostly zeros: look; B: numbers found after the name (line 144); check the size, mostly zeros: look |
+| Fifty-Fifty Featured Lemonade | Small | the guide gives no calories, sodium_mg, carbs_g, sugars_g | – / 0 / 0 / 0 / 0 / – / – / 0 / – / 0 | – / 0 / 0 / 0 / 0 / – / – / 0 / – / 0 | A: numbers found after the name (line 146); check the size, mostly zeros: look; B: numbers found after the name (line 146); check the size, mostly zeros: look |
+| Fifty-Fifty Featured Lemonade | Large | the guide gives no calories, sodium_mg, carbs_g, sugars_g, protein_g | – / 0 / 0 / 0 / 0 / – / – / 0 / – / – | – / 0 / 0 / 0 / 0 / – / – / 0 / – / – | A: numbers found after the name (line 146); check the size, mostly zeros: look; B: numbers found after the name (line 146); check the size, mostly zeros: look |
 
 ## Spot check (8 agreed lines)
 

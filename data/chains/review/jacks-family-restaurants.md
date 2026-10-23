@@ -3,16 +3,20 @@
 Guide: https://www.eatatjacks.com/wp-content/uploads/2026/05/Jacks-Nutritional-Info-05112020.pdf (read 2026-10-23). Draft A: openai/gpt-5.6-luna. Draft B: anthropic/claude-haiku-5.5.
 Numbers in order: calories / fat_g / saturated_fat_g / trans_fat_g / cholesterol_mg / sodium_mg / carbs_g / fiber_g / sugars_g / protein_g.
 
-## Disagreements (4)
+## Disagreements (6)
+
+The last column comes from `npm run chains:evidence`: whether a draft's numbers sit right after the item's name in the guide text the drafts read. It can't read sizes or sections (one draft called a single 78 g cookie a "6 pack"): check those against the guide, then fix the line and set its check to `person`.
 
 Fix each line in `menus/jacks-family-restaurants.csv` from the guide and set its check to `person` (or delete the line if it isn't on the menu).
 
-| Item | Size | Why | Draft A | Draft B |
-| --- | --- | --- | --- | --- |
-| Iced Sweet Tea | 1/2 Gal. | only in draft A | 860 / 0 / 0 / 0 / 0 / 55 / 223 / 0 / 217 / 0 | not found |
-| Iced Tea | 1/2 Gal. | only in draft A | 20 / 0 / 0 / 0 / 0 / 55 / 6 / 0 / 0 / 0 | not found |
-| Chicken, Fried, Box (with Biscuits & no side) | 12 pc. | only in draft B | not found | 6460 / 372 / 92 / 34 / 1200 / 18130 / 437 / 15 / 31 / 328 |
-| Chicken, Fried, Box (with Biscuits & no side) | 8 pc. | only in draft B | not found | 4300 / 248 / 61 / 22 / 800 / 12090 / 291 / 10 / 20 / 219 |
+| Item | Size | Why | Draft A | Draft B | In the guide text (no AI) |
+| --- | --- | --- | --- | --- | --- |
+| Iced Sweet Tea | 1/2 Gal. | only in draft A | 860 / 0 / 0 / 0 / 0 / 55 / 223 / 0 / 217 / 0 | not found | A: numbers found after the name (line 204); check the size |
+| Iced Tea | 1/2 Gal. | only in draft A | 20 / 0 / 0 / 0 / 0 / 55 / 6 / 0 / 0 / 0 | not found | A: numbers found after the name (line 208); check the size |
+| Chicken, Fried, Box (with Biscuits & no side) | 12 pc. | only in draft B | not found | 6460 / 372 / 92 / 34 / 1200 / 18130 / 437 / 15 / 31 / 328 | B: name not in the guide text |
+| Chicken, Fried, Box (with Biscuits & no side) | 8 pc. | only in draft B | not found | 4300 / 248 / 61 / 22 / 800 / 12090 / 291 / 10 / 20 / 219 | B: name not in the guide text |
+| Breakfast, Gravy, Chicken | 4 oz. | both read it the same, but its protein, carbs and fat make 71 kcal, not 15 | 15 / 3 / 0.5 / 1 / 0 / 650 / 8 / 0 / 1 / 3 | 15 / 3 / 0.5 / 1 / 0 / 650 / 8 / 0 / 1 / 3 | A: numbers found after the name (line 28); check the size; B: numbers found after the name (line 28); check the size |
+| Orange Fanta | small | both read it the same, but its protein, carbs and fat make 196 kcal, not 170 | 170 / 0 / 0 / 0 / 0 / 65 / 49 / 0 / 48 / 0 | 170 / 0 / 0 / 0 / 0 / 65 / 49 / 0 / 48 / 0 | A: numbers found after the name (line 188); check the size; B: numbers found after the name (line 188); check the size |
 
 ## Spot check (10 agreed lines)
 

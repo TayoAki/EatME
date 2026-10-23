@@ -3,790 +3,794 @@
 Guide: https://7brew.com/nutrition-guide.pdf (read 2026-10-23). Draft A: openai/gpt-5.6-luna. Draft B: anthropic/claude-haiku-5.5.
 Numbers in order: calories / fat_g / saturated_fat_g / trans_fat_g / cholesterol_mg / sodium_mg / carbs_g / fiber_g / sugars_g / protein_g.
 
-## Disagreements (778)
+## Disagreements (780)
+
+The last column comes from `npm run chains:evidence`: whether a draft's numbers sit right after the item's name in the guide text the drafts read. It can't read sizes or sections (one draft called a single 78 g cookie a "6 pack"): check those against the guide, then fix the line and set its check to `person`.
 
 Fix each line in `menus/7-brew-drive-thru-coffee.csv` from the guide and set its check to `person` (or delete the line if it isn't on the menu).
 
-| Item | Size | Why | Draft A | Draft B |
-| --- | --- | --- | --- | --- |
-| Sugar-Free Banana Bread Mocha | kids iced | differ: fiber_g | 150 / 9 / 6 / 0 / 35 / 110 / 7 / 0 / 2 / 3 | 150 / 9 / 6 / 0 / 35 / 110 / 7 / – / 2 / 3 |
-| Sugar-Free Banana Bread Mocha | small iced | differ: fiber_g | 230 / 15 / 10 / 0 / 60 / 130 / 9 / 0 / 3 / 5 | 230 / 15 / 10 / 0 / 60 / 130 / 9 / – / 3 / 5 |
-| Sugar-Free Banana Bread Mocha | medium iced | differ: fiber_g | 380 / 24 / 16 / 0 / 95 / 250 / 15 / 1 / 6 / 8 | 380 / 24 / 16 / 0 / 95 / 250 / 15 / – / 6 / 8 |
-| Sugar-Free Banana Bread Mocha | large iced | differ: fiber_g | 460 / 30 / 20 / 0 / 115 / 270 / 17 / 1 / 7 / 10 | 460 / 30 / 20 / 0 / 115 / 270 / 17 / – / 7 / 10 |
-| Sugar-Free Banana Bread Mocha | kids hot | differ: fiber_g | 300 / 20 / 13 / 0 / 80 / 150 / 10 / 0 / 5 / 7 | 300 / 20 / 13 / 0 / 80 / 150 / 10 / – / 5 / 7 |
-| Sugar-Free Banana Bread Mocha | small hot | differ: fiber_g | 330 / 23 / 15 / 0 / 90 / 160 / 11 / 0 / 5 / 8 | 330 / 23 / 15 / 0 / 90 / 160 / 11 / – / 5 / 8 |
-| Sugar-Free Banana Bread Mocha | medium hot | differ: fiber_g | 460 / 30 / 20 / 0 / 115 / 270 / 17 / 1 / 7 / 10 | 460 / 30 / 20 / 0 / 115 / 270 / 17 / – / 7 / 10 |
-| Sugar-Free Banana Bread Mocha | large hot | differ: fiber_g | 530 / 35 / 23 / 0 / 135 / 290 / 19 / 1 / 8 / 12 | 530 / 35 / 23 / 0 / 135 / 290 / 19 / – / 8 / 12 |
-| Sugar-Free Banana Bread Mocha | kids frozen chiller | differ: fiber_g | 70 / 2 / 1 / 0 / 10 / 100 / 7 / 0 / 3 / 2 | 70 / 2 / 1 / 0 / 10 / 100 / 7 / – / 3 / 2 |
-| Sugar-Free Banana Bread Mocha | small frozen chiller | differ: fiber_g | 100 / 2 / 1 / 0 / 10 / 180 / 10 / 1 / 3 / 2 | 100 / 2 / 1 / 0 / 10 / 180 / 10 / – / 3 / 2 |
-| Sugar-Free Banana Bread Mocha | medium frozen chiller | differ: fiber_g | 160 / 4 / 3 / 0 / 15 / 290 / 17 / 1 / 6 / 4 | 160 / 4 / 3 / 0 / 15 / 290 / 17 / – / 6 / 4 |
-| Sugar-Free Banana Bread Mocha | large frozen chiller | differ: fiber_g | 190 / 4 / 3 / 0 / 15 / 360 / 21 / 1 / 6 / 5 | 190 / 4 / 3 / 0 / 15 / 360 / 21 / – / 6 / 5 |
-| Sugar-Free Blondie Breve | kids iced | differ: fiber_g | 160 / 10 / 7 / 0 / 40 / 70 / 13 / 2 / 2 / 3 | 160 / 10 / 7 / 0 / 40 / 70 / 13 / – / 2 / 3 |
-| Sugar-Free Blondie Breve | small iced | differ: fiber_g | 240 / 16 / 11 / 0 / 60 / 100 / 15 / 2 / 4 / 5 | 240 / 16 / 11 / 0 / 60 / 100 / 15 / – / 4 / 5 |
-| Sugar-Free Blondie Breve | medium iced | differ: fiber_g | 400 / 26 / 17 / 0 / 100 / 170 / 28 / 5 / 6 / 8 | 400 / 26 / 17 / 0 / 100 / 170 / 28 / – / 6 / 8 |
-| Sugar-Free Blondie Breve | large iced | differ: fiber_g | 480 / 32 / 21 / 0 / 120 / 190 / 30 / 5 / 7 / 10 | 480 / 32 / 21 / 0 / 120 / 190 / 30 / – / 7 / 10 |
-| Sugar-Free Blondie Breve | kids hot | differ: fiber_g | 310 / 21 / 14 / 0 / 80 / 120 / 17 / 2 / 5 / 7 | 310 / 21 / 14 / 0 / 80 / 120 / 17 / – / 5 / 7 |
-| Sugar-Free Blondie Breve | small hot | differ: fiber_g | 340 / 24 / 16 / 0 / 90 / 130 / 18 / 2 / 5 / 8 | 340 / 24 / 16 / 0 / 90 / 130 / 18 / – / 5 / 8 |
-| Sugar-Free Blondie Breve | medium hot | differ: fiber_g | 480 / 32 / 21 / 0 / 120 / 190 / 30 / 5 / 7 / 10 | 480 / 32 / 21 / 0 / 120 / 190 / 30 / – / 7 / 10 |
-| Sugar-Free Blondie Breve | large hot | differ: fiber_g | 550 / 37 / 25 / 0 / 140 / 210 / 32 / 5 / 8 / 12 | 550 / 37 / 25 / 0 / 140 / 210 / 32 / – / 8 / 12 |
-| Sugar-Free Blondie Breve | kids frozen chiller | differ: fiber_g | 80 / 3 / 2 / 0 / 10 / 70 / 13 / 2 / 3 / 2 | 80 / 3 / 2 / 0 / 10 / 70 / 13 / – / 3 / 2 |
-| Sugar-Free Blondie Breve | small frozen chiller | differ: fiber_g | 120 / 4 / 3 / 0 / 15 / 100 / 23 / 5 / 3 / 2 | 120 / 4 / 3 / 0 / 15 / 100 / 23 / – / 3 / 2 |
-| Sugar-Free Blondie Breve | medium frozen chiller | differ: fiber_g | 200 / 7 / 4 / 0 / 25 / 170 / 36 / 7 / 6 / 4 | 200 / 7 / 4 / 0 / 25 / 170 / 36 / – / 6 / 4 |
-| Sugar-Free Blondie Breve | large frozen chiller | differ: fiber_g | 240 / 8 / 5 / 0 / 25 / 210 / 46 / 10 / 7 / 4 | 240 / 8 / 5 / 0 / 25 / 210 / 46 / – / 7 / 4 |
-| Sugar-Free Brunette Mocha | kids iced | differ: fiber_g | 150 / 10 / 6 / 0 / 35 / 60 / 10 / 1 / 2 / 3 | 150 / 10 / 6 / 0 / 35 / 60 / 10 / – / 2 / 3 |
-| Sugar-Free Brunette Mocha | small iced | differ: fiber_g | 230 / 16 / 10 / 0 / 60 / 80 / 12 / 1 / 3 / 5 | 230 / 16 / 10 / 0 / 60 / 80 / 12 / – / 3 / 5 |
-| Sugar-Free Brunette Mocha | medium iced | differ: fiber_g | 380 / 25 / 17 / 0 / 95 / 140 / 23 / 2 / 6 / 8 | 380 / 25 / 17 / 0 / 95 / 140 / 23 / – / 6 / 8 |
-| Sugar-Free Brunette Mocha | large iced | differ: fiber_g | 460 / 31 / 21 / 0 / 120 / 170 / 25 / 2 / 7 / 10 | 460 / 31 / 21 / 0 / 120 / 170 / 25 / – / 7 / 10 |
-| Sugar-Free Brunette Mocha | kids hot | differ: fiber_g | 300 / 21 / 14 / 0 / 80 / 100 / 14 / 1 / 5 / 7 | 300 / 21 / 14 / 0 / 80 / 100 / 14 / – / 5 / 7 |
-| Sugar-Free Brunette Mocha | small hot | differ: fiber_g | 330 / 23 / 15 / 0 / 90 / 110 / 15 / 1 / 5 / 8 | 330 / 23 / 15 / 0 / 90 / 110 / 15 / – / 5 / 8 |
-| Sugar-Free Brunette Mocha | medium hot | differ: fiber_g | 460 / 31 / 21 / 0 / 120 / 170 / 25 / 2 / 7 / 10 | 460 / 31 / 21 / 0 / 120 / 170 / 25 / – / 7 / 10 |
-| Sugar-Free Brunette Mocha | large hot | differ: fiber_g | 530 / 36 / 24 / 0 / 140 / 190 / 27 / 2 / 8 / 12 | 530 / 36 / 24 / 0 / 140 / 190 / 27 / – / 8 / 12 |
-| Sugar-Free Brunette Mocha | kids frozen chiller | differ: fiber_g | 70 / 3 / 2 / 0 / 10 / 50 / 10 / 1 / 3 / 2 | 70 / 3 / 2 / 0 / 10 / 50 / 10 / – / 3 / 2 |
-| Sugar-Free Brunette Mocha | small frozen chiller | differ: fiber_g | 100 / 3 / 2 / 0 / 10 / 80 / 18 / 2 / 3 / 2 | 100 / 3 / 2 / 0 / 10 / 80 / 18 / – / 3 / 2 |
-| Sugar-Free Brunette Mocha | medium frozen chiller | differ: fiber_g | 170 / 6 / 3 / 0 / 20 / 130 / 28 / 4 / 6 / 5 | 170 / 6 / 3 / 0 / 20 / 130 / 28 / – / 6 / 5 |
-| Sugar-Free Brunette Mocha | large frozen chiller | differ: fiber_g | 200 / 6 / 4 / 0 / 20 / 160 / 36 / 5 / 6 / 5 | 200 / 6 / 4 / 0 / 20 / 160 / 36 / – / 6 / 5 |
-| Sugar-Free Cinnamon Roll Breve | kids iced | differ: fiber_g | 160 / 10 / 6 / 0 / 35 / 60 / 13 / 3 / 2 / 3 | 160 / 10 / 6 / 0 / 35 / 60 / 13 / – / 2 / 3 |
-| Sugar-Free Cinnamon Roll Breve | small iced | differ: fiber_g | 240 / 16 / 10 / 0 / 60 / 90 / 15 / 3 / 4 / 5 | 240 / 16 / 10 / 0 / 60 / 90 / 15 / – / 4 / 5 |
-| Sugar-Free Cinnamon Roll Breve | medium iced | differ: fiber_g | 400 / 26 / 17 / 0 / 95 / 150 / 28 / 5 / 6 / 8 | 400 / 26 / 17 / 0 / 95 / 150 / 28 / – / 6 / 8 |
-| Sugar-Free Cinnamon Roll Breve | large iced | differ: fiber_g | 480 / 32 / 21 / 0 / 120 / 180 / 30 / 5 / 7 / 10 | 480 / 32 / 21 / 0 / 120 / 180 / 30 / – / 7 / 10 |
-| Sugar-Free Cinnamon Roll Breve | kids hot | differ: fiber_g | 310 / 21 / 14 / 0 / 80 / 110 / 17 / 3 / 5 / 7 | 310 / 21 / 14 / 0 / 80 / 110 / 17 / – / 5 / 7 |
-| Sugar-Free Cinnamon Roll Breve | small hot | differ: fiber_g | 340 / 23 / 15 / 0 / 90 / 120 / 18 / 3 / 5 / 8 | 340 / 23 / 15 / 0 / 90 / 120 / 18 / – / 5 / 8 |
-| Sugar-Free Cinnamon Roll Breve | medium hot | differ: fiber_g | 480 / 32 / 21 / 0 / 120 / 180 / 30 / 5 / 7 / 10 | 480 / 32 / 21 / 0 / 120 / 180 / 30 / – / 7 / 10 |
-| Sugar-Free Cinnamon Roll Breve | large hot | differ: fiber_g | 550 / 37 / 24 / 0 / 140 / 200 / 32 / 5 / 8 / 12 | 550 / 37 / 24 / 0 / 140 / 200 / 32 / – / 8 / 12 |
-| Sugar-Free Cinnamon Roll Breve | kids frozen chiller | differ: fiber_g | 80 / 3 / 2 / 0 / 10 / 60 / 13 / 3 / 3 / 2 | 80 / 3 / 2 / 0 / 10 / 60 / 13 / – / 3 / 2 |
-| Sugar-Free Cinnamon Roll Breve | small frozen chiller | differ: fiber_g | 120 / 4 / 2 / 0 / 10 / 90 / 23 / 5 / 3 / 2 | 120 / 4 / 2 / 0 / 10 / 90 / 23 / – / 3 / 2 |
-| Sugar-Free Cinnamon Roll Breve | medium frozen chiller | differ: fiber_g | 200 / 6 / 4 / 0 / 20 / 150 / 36 / 8 / 6 / 4 | 200 / 6 / 4 / 0 / 20 / 150 / 36 / – / 6 / 4 |
-| Sugar-Free Cinnamon Roll Breve | large frozen chiller | differ: fiber_g | 240 / 7 / 4 / 0 / 20 / 170 / 46 / 10 / 7 / 4 | 240 / 7 / 4 / 0 / 20 / 170 / 46 / – / 7 / 4 |
-| Sugar-Free Cookie Butter Breve | kids iced | differ: fiber_g | 150 / 10 / 6 / 0 / 35 / 60 / 10 / 2 / 2 / 3 | 150 / 10 / 6 / 0 / 35 / 60 / 10 / – / 2 / 3 |
-| Sugar-Free Cookie Butter Breve | small iced | differ: fiber_g | 230 / 16 / 10 / 0 / 60 / 80 / 12 / 2 / 4 / 5 | 230 / 16 / 10 / 0 / 60 / 80 / 12 / – / 4 / 5 |
-| Sugar-Free Cookie Butter Breve | medium iced | differ: fiber_g | 370 / 25 / 17 / 0 / 95 / 140 / 21 / 3 / 6 / 8 | 370 / 25 / 17 / 0 / 95 / 140 / 21 / – / 6 / 8 |
-| Sugar-Free Cookie Butter Breve | large iced | differ: fiber_g | 450 / 31 / 21 / 0 / 120 / 160 / 23 / 3 / 7 / 10 | 450 / 31 / 21 / 0 / 120 / 160 / 23 / – / 7 / 10 |
-| Sugar-Free Cookie Butter Breve | kids hot | differ: fiber_g | 290 / 21 / 14 / 0 / 80 / 100 / 13 / 2 / 5 / 7 | 290 / 21 / 14 / 0 / 80 / 100 / 13 / – / 5 / 7 |
-| Sugar-Free Cookie Butter Breve | small hot | differ: fiber_g | 330 / 23 / 15 / 0 / 90 / 110 / 14 / 2 / 5 / 8 | 330 / 23 / 15 / 0 / 90 / 110 / 14 / – / 5 / 8 |
-| Sugar-Free Cookie Butter Breve | medium hot | differ: fiber_g | 450 / 31 / 21 / 0 / 120 / 160 / 23 / 3 / 7 / 10 | 450 / 31 / 21 / 0 / 120 / 160 / 23 / – / 7 / 10 |
-| Sugar-Free Cookie Butter Breve | large hot | differ: fiber_g | 520 / 36 / 24 / 0 / 140 / 180 / 25 / 3 / 8 / 12 | 520 / 36 / 24 / 0 / 140 / 180 / 25 / – / 8 / 12 |
-| Sugar-Free Cookie Butter Breve | kids frozen chiller | differ: fiber_g | 60 / 3 / 2 / 0 / 10 / 50 / 10 / 2 / 3 / 2 | 60 / 3 / 2 / 0 / 10 / 50 / 10 / – / 3 / 2 |
-| Sugar-Free Cookie Butter Breve | small frozen chiller | differ: fiber_g | 90 / 3 / 2 / 0 / 10 / 70 / 16 / 3 / 3 / 2 | 90 / 3 / 2 / 0 / 10 / 70 / 16 / – / 3 / 2 |
-| Sugar-Free Cookie Butter Breve | medium frozen chiller | differ: fiber_g | 150 / 6 / 3 / 0 / 20 / 120 / 26 / 5 / 6 / 4 | 150 / 6 / 3 / 0 / 20 / 120 / 26 / – / 6 / 4 |
-| Sugar-Free Cookie Butter Breve | large frozen chiller | differ: fiber_g | 180 / 6 / 4 / 0 / 20 / 140 / 32 / 7 / 6 / 4 | 180 / 6 / 4 / 0 / 20 / 140 / 32 / – / 6 / 4 |
-| Sugar-Free Smooth 7 Breve | kids iced | differ: fiber_g | 160 / 10 / 6 / 0 / 35 / 60 / 13 / 3 / 2 / 3 | 160 / 10 / 6 / 0 / 35 / 60 / 13 / – / 2 / 3 |
-| Sugar-Free Smooth 7 Breve | small iced | differ: fiber_g | 240 / 16 / 10 / 0 / 60 / 90 / 15 / 3 / 4 / 5 | 240 / 16 / 10 / 0 / 60 / 90 / 15 / – / 4 / 5 |
-| Sugar-Free Smooth 7 Breve | medium iced | differ: fiber_g | 400 / 26 / 17 / 0 / 95 / 150 / 28 / 5 / 6 / 8 | 400 / 26 / 17 / 0 / 95 / 150 / 28 / – / 6 / 8 |
-| Sugar-Free Smooth 7 Breve | large iced | differ: fiber_g | 480 / 32 / 21 / 0 / 120 / 180 / 30 / 5 / 7 / 10 | 480 / 32 / 21 / 0 / 120 / 180 / 30 / – / 7 / 10 |
-| Sugar-Free Smooth 7 Breve | kids hot | differ: fiber_g | 310 / 21 / 14 / 0 / 80 / 110 / 17 / 3 / 5 / 7 | 310 / 21 / 14 / 0 / 80 / 110 / 17 / – / 5 / 7 |
-| Sugar-Free Smooth 7 Breve | small hot | differ: fiber_g | 340 / 23 / 15 / 0 / 90 / 120 / 18 / 3 / 5 / 8 | 340 / 23 / 15 / 0 / 90 / 120 / 18 / – / 5 / 8 |
-| Sugar-Free Smooth 7 Breve | medium hot | differ: fiber_g | 480 / 32 / 21 / 0 / 120 / 180 / 30 / 5 / 7 / 10 | 480 / 32 / 21 / 0 / 120 / 180 / 30 / – / 7 / 10 |
-| Sugar-Free Smooth 7 Breve | large hot | differ: fiber_g | 550 / 37 / 24 / 0 / 140 / 200 / 32 / 5 / 8 / 12 | 550 / 37 / 24 / 0 / 140 / 200 / 32 / – / 8 / 12 |
-| Sugar-Free Smooth 7 Breve | kids frozen chiller | differ: fiber_g | 80 / 3 / 2 / 0 / 10 / 60 / 13 / 3 / 3 / 2 | 80 / 3 / 2 / 0 / 10 / 60 / 13 / – / 3 / 2 |
-| Sugar-Free Smooth 7 Breve | small frozen chiller | differ: fiber_g | 120 / 4 / 2 / 0 / 10 / 90 / 23 / 5 / 3 / 2 | 120 / 4 / 2 / 0 / 10 / 90 / 23 / – / 3 / 2 |
-| Sugar-Free Smooth 7 Breve | medium frozen chiller | differ: fiber_g | 190 / 6 / 4 / 0 / 20 / 140 / 36 / 8 / 6 / 4 | 190 / 6 / 4 / 0 / 20 / 140 / 36 / – / 6 / 4 |
-| Sugar-Free Smooth 7 Breve | large frozen chiller | differ: fiber_g | 230 / 7 / 4 / 0 / 20 / 170 / 46 / 10 / 7 / 4 | 230 / 7 / 4 / 0 / 20 / 170 / 46 / – / 7 / 4 |
-| Sugar-Free Sweet & Salty Breve | kids iced | differ: fiber_g | 160 / 10 / 6 / 0 / 35 / 110 / 13 / 3 / 2 / 3 | 160 / 10 / 6 / 0 / 35 / 110 / 13 / – / 2 / 3 |
-| Sugar-Free Sweet & Salty Breve | small iced | differ: fiber_g | 240 / 16 / 10 / 0 / 60 / 130 / 15 / 3 / 4 / 5 | 240 / 16 / 10 / 0 / 60 / 130 / 15 / – / 4 / 5 |
-| Sugar-Free Sweet & Salty Breve | medium iced | differ: fiber_g | 400 / 26 / 17 / 0 / 95 / 240 / 28 / 5 / 6 / 8 | 400 / 26 / 17 / 0 / 95 / 240 / 28 / – / 6 / 8 |
-| Sugar-Free Sweet & Salty Breve | large iced | differ: fiber_g | 480 / 32 / 21 / 0 / 120 / 270 / 30 / 5 / 7 / 10 | 480 / 32 / 21 / 0 / 120 / 270 / 30 / – / 7 / 10 |
-| Sugar-Free Sweet & Salty Breve | kids hot | differ: fiber_g | 310 / 21 / 14 / 0 / 80 / 150 / 17 / 3 / 5 / 7 | 310 / 21 / 14 / 0 / 80 / 150 / 17 / – / 5 / 7 |
-| Sugar-Free Sweet & Salty Breve | small hot | differ: fiber_g | 340 / 23 / 15 / 0 / 90 / 160 / 18 / 3 / 5 / 8 | 340 / 23 / 15 / 0 / 90 / 160 / 18 / – / 5 / 8 |
-| Sugar-Free Sweet & Salty Breve | medium hot | differ: fiber_g | 480 / 32 / 21 / 0 / 120 / 270 / 30 / 5 / 7 / 10 | 480 / 32 / 21 / 0 / 120 / 270 / 30 / – / 7 / 10 |
-| Sugar-Free Sweet & Salty Breve | large hot | differ: fiber_g | 550 / 37 / 24 / 0 / 140 / 290 / 32 / 5 / 8 / 12 | 550 / 37 / 24 / 0 / 140 / 290 / 32 / – / 8 / 12 |
-| Sugar-Free Sweet & Salty Breve | kids frozen chiller | differ: fiber_g | 80 / 3 / 2 / 0 / 10 / 100 / 13 / 3 / 3 / 2 | 80 / 3 / 2 / 0 / 10 / 100 / 13 / – / 3 / 2 |
-| Sugar-Free Sweet & Salty Breve | small frozen chiller | differ: fiber_g | 120 / 4 / 2 / 0 / 10 / 180 / 23 / 5 / 3 / 2 | 120 / 4 / 2 / 0 / 10 / 180 / 23 / – / 3 / 2 |
-| Sugar-Free Sweet & Salty Breve | medium frozen chiller | differ: fiber_g | 200 / 6 / 4 / 0 / 20 / 280 / 37 / 8 / 6 / 4 | 200 / 6 / 4 / 0 / 20 / 280 / 37 / – / 6 / 4 |
-| Sugar-Free Sweet & Salty Breve | large frozen chiller | differ: fiber_g | 240 / 7 / 4 / 0 / 20 / 360 / 47 / 10 / 7 / 4 | 240 / 7 / 4 / 0 / 20 / 360 / 47 / – / 7 / 4 |
-| Banana Bread Mocha | kids iced | differ: fiber_g | 160 / 3 / 1 / 0 / 15 / 90 / 31 / 0 / 31 / 4 | 160 / 3 / 1 / 0 / 15 / 90 / 31 / – / 31 / 4 |
-| Banana Bread Mocha | small iced | differ: fiber_g | 220 / 6 / 2 / 0 / 30 / 140 / 39 / 0 / 38 / 7 | 220 / 6 / 2 / 0 / 30 / 140 / 39 / – / 38 / 7 |
-| Banana Bread Mocha | medium iced | differ: fiber_g | 340 / 10 / 4 / 0 / 50 / 260 / 54 / 1 / 53 / 12 | 340 / 10 / 4 / 0 / 50 / 260 / 54 / – / 53 / 12 |
-| Banana Bread Mocha | large iced | differ: fiber_g | 450 / 11 / 5 / 0 / 55 / 290 / 77 / 1 / 76 / 14 | 450 / 11 / 5 / 0 / 55 / 290 / 77 / – / 76 / 14 |
-| Banana Bread Mocha | kids hot | differ: fiber_g | 270 / 8 / 3 / 0 / 40 / 190 / 45 / 1 / 44 / 9 | 270 / 8 / 3 / 0 / 40 / 190 / 45 / – / 44 / 9 |
-| Banana Bread Mocha | small hot | differ: fiber_g | 300 / 8 / 3 / 0 / 40 / 220 / 48 / 1 / 48 / 10 | 300 / 8 / 3 / 0 / 40 / 220 / 48 / – / 48 / 10 |
-| Banana Bread Mocha | medium hot | differ: fiber_g | 400 / 12 / 5 / 0 / 60 / 310 / 61 / 1 / 60 / 15 | 400 / 12 / 5 / 0 / 60 / 310 / 61 / – / 60 / 15 |
-| Banana Bread Mocha | large hot | differ: fiber_g | 500 / 13 / 5 / 0 / 65 / 340 / 84 / 1 / 83 / 16 | 500 / 13 / 5 / 0 / 65 / 340 / 84 / – / 83 / 16 |
-| Banana Bread Mocha | kids frozen chiller | differ: fiber_g | 290 / 8 / 3 / 0 / 40 / 210 / 47 / 1 / 47 / 10 | 290 / 8 / 3 / 0 / 40 / 210 / 47 / – / 47 / 10 |
-| Banana Bread Mocha | small frozen chiller | differ: fiber_g | 430 / 14 / 6 / 0 / 70 / 350 / 66 / 1 / 65 / 17 | 430 / 14 / 6 / 0 / 70 / 350 / 66 / – / 65 / 17 |
-| Banana Bread Mocha | medium frozen chiller | differ: fiber_g | 620 / 21 / 9 / 0 / 105 / 530 / 91 / 2 / 89 / 25 | 620 / 21 / 9 / 0 / 105 / 530 / 91 / – / 89 / 25 |
-| Banana Bread Mocha | large frozen chiller | differ: fiber_g | 870 / 27 / 11 / 0 / 135 / 690 / 132 / 2 / 130 / 33 | 870 / 27 / 11 / 0 / 135 / 690 / 132 / – / 130 / 33 |
-| Sugar-Free Blondie Cold Brew | kids iced | differ: fiber_g | 40 / 1 / 1 / 0 / 0 / 30 / 10 / 2 / 0 / 0.5 | 40 / 1 / 1 / 0 / 0 / 30 / 10 / – / 0 / 0.5 |
-| Sugar-Free Blondie Cold Brew | small iced | differ: fiber_g | 50 / 1 / 1 / 0 / 5 / 40 / 12 / 2 / 0 / 0.5 | 50 / 1 / 1 / 0 / 5 / 40 / 12 / – / 0 / 0.5 |
-| Sugar-Free Blondie Cold Brew | medium iced | differ: fiber_g | 60 / 1 / 1 / 0 / 5 / 40 / 14 / 2 / 0 / 0.5 | 60 / 1 / 1 / 0 / 5 / 40 / 14 / – / 0 / 0.5 |
-| Sugar-Free Blondie Cold Brew | large iced | differ: fiber_g | 70 / 1 / 1 / 0 / 5 / 40 / 15 / 2 / 0 / 1 | 70 / 1 / 1 / 0 / 5 / 40 / 15 / – / 0 / 1 |
-| Sugar-Free Brown Sugar Cinnamon Americano | kids iced | differ: fiber_g | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 | 0 / 0 / 0 / 0 / 0 / 10 / 0 / – / 0 / 0 |
-| Sugar-Free Brown Sugar Cinnamon Americano | small iced | differ: fiber_g | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 | 0 / 0 / 0 / 0 / 0 / 10 / 0 / – / 0 / 0 |
-| Sugar-Free Brown Sugar Cinnamon Americano | medium iced | differ: sodium_mg, protein_g | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 10 | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 |
-| Sugar-Free Brown Sugar Cinnamon Americano | large iced | differ: sodium_mg, protein_g | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 10 | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 |
-| Sugar-Free Brown Sugar Cinnamon Americano | kids hot | differ: sodium_mg, protein_g | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 10 | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 |
-| Sugar-Free Brown Sugar Cinnamon Americano | small hot | differ: sodium_mg, protein_g | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 10 | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 |
-| Sugar-Free Brown Sugar Cinnamon Americano | medium hot | differ: sodium_mg, protein_g | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 10 | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 |
-| Sugar-Free Brown Sugar Cinnamon Americano | large hot | differ: sodium_mg, protein_g | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 10 | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 |
-| Sugar-Free Brunette Cold Brew | kids iced | differ: fat_g, saturated_fat_g, trans_fat_g, cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 50 / 10 / 11 / 2 / 0 / 1 / 1 / 0 / 5 / 40 | 50 / 1 / 1 / 0 / 5 / 40 / 11 / 2 / 0 / 0.5 |
-| Sugar-Free Brunette Cold Brew | small iced | differ: fat_g, saturated_fat_g, trans_fat_g, cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 50 / 10 / 12 / 2 / 0 / 1 / 1 / 0 / 5 / 40 | 50 / 1 / 1 / 0 / 5 / 40 / 12 / 2 / 0 / 0.5 |
-| Sugar-Free Brunette Cold Brew | medium iced | differ: fat_g, saturated_fat_g, trans_fat_g, cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 60 / 10 / 14 / 2 / 0 / 1 / 1 / 0 / 5 / 40 | 60 / 1 / 1 / 0 / 5 / 40 / 14 / 2 / 0 / 0.5 |
-| Sugar-Free Brunette Cold Brew | large iced | differ: fat_g, saturated_fat_g, trans_fat_g, cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 70 / 10 / 15 / 2 / 0 / 1 / 1 / 0 / 5 / 40 | 70 / 1 / 1 / 0 / 5 / 40 / 15 / 2 / 0 / 1 |
-| Sugar-Free Brandelle Cress | small iced | differ: fat_g, saturated_fat_g, trans_fat_g, cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 280 / 150 / 25 / 5 / 4 / 17 / 11 / 0 / 65 / 130 | 280 / 17 / 11 / 0 / 65 / 130 / 25 / 5 / 4 / 5 |
-| Sugar-Free Brandelle Cress | medium iced | differ: fat_g, saturated_fat_g, trans_fat_g, cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 440 / 260 / 29 / 5 / 6 / 29 / 19 / 0 / 110 / 180 | 440 / 29 / 19 / 0 / 110 / 180 / 29 / 5 / 6 / 9 |
-| Sugar-Free Brandelle Cress | large iced | differ: fat_g, saturated_fat_g, trans_fat_g, cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 520 / 320 / 31 / 5 / 8 / 35 / 23 / 0 / 135 / 200 | 520 / 35 / 23 / 0 / 135 / 200 / 31 / 5 / 8 / 11 |
-| Sugar-Free Brandelle Cress | kids hot | differ: fat_g, saturated_fat_g, trans_fat_g, cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 350 / 200 / 27 / 5 / 5 / 22 / 15 / 0 / 85 / 150 | 350 / 22 / 15 / 0 / 85 / 150 / 27 / 5 / 5 / 7 |
-| Sugar-Free Brandelle Cress | small hot | differ: fat_g, saturated_fat_g, trans_fat_g, cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 380 / 220 / 28 / 5 / 5 / 25 / 16 / 0 / 95 / 160 | 380 / 25 / 16 / 0 / 95 / 160 / 28 / 5 / 5 / 8 |
-| Sugar-Free Brandelle Cress | medium hot | differ: fat_g, saturated_fat_g, trans_fat_g, cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 520 / 310 / 31 / 5 / 8 / 35 / 23 / 0 / 130 / 200 | 520 / 35 / 23 / 0 / 130 / 200 / 31 / 5 / 8 / 11 |
-| Sugar-Free Brandelle Cress | large hot | differ: fat_g, saturated_fat_g, trans_fat_g, cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 580 / 360 / 33 / 5 / 9 / 40 / 26 / 0 / 150 / 220 | 580 / 40 / 26 / 0 / 150 / 220 / 33 / 5 / 9 / 13 |
-| Sugar-Free Brandelle Cress | kids frozen chiller | differ: fat_g, saturated_fat_g, trans_fat_g, cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 160 / 70 / 22 / 5 / 2 / 8 / 5 / 0 / 30 / 90 | 160 / 8 / 5 / 0 / 30 / 90 / 22 / 5 / 2 / 2 |
-| Sugar-Free Brandelle Cress | small frozen chiller | differ: fat_g, saturated_fat_g, trans_fat_g, cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 250 / 90 / 42 / 10 / 2 / 10 / 7 / 0 / 35 / 160 | 250 / 10 / 7 / 0 / 35 / 160 / 42 / 10 / 2 / 2 |
-| Sugar-Free Brandelle Cress | medium frozen chiller | differ: fat_g, saturated_fat_g, trans_fat_g, cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 410 / 170 / 64 / 15 / 4 / 19 / 12 / 0 / 65 / 260 | 410 / 19 / 12 / 0 / 65 / 260 / 64 / 15 / 4 / 4 |
-| Sugar-Free Brandelle Cress | large frozen chiller | differ: fat_g, saturated_fat_g, trans_fat_g, cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 490 / 190 / 84 / 20 / 4 / 21 / 13 / 0 / 70 / 330 | 490 / 21 / 13 / 0 / 70 / 330 / 84 / 20 / 4 / 4 |
-| Sugar-Free Dark Chocolate Americano | kids iced | differ: saturated_fat_g, sodium_mg, carbs_g, protein_g | 20 / 0 / 5 / 0 / 0 / 0 / 0 / 0 / 0 / 10 | 20 / 0 / 0 / 0 / 0 / 10 / 5 / 0 / 0 / 0.5 |
-| Sugar-Free Dark Chocolate Americano | small iced | differ: saturated_fat_g, sodium_mg, carbs_g, protein_g | 20 / 0 / 5 / 0 / 0 / 0 / 0 / 0 / 0 / 10 | 20 / 0 / 0 / 0 / 0 / 10 / 5 / 0 / 0 / 0.5 |
-| Sugar-Free Dark Chocolate Americano | medium iced | differ: saturated_fat_g, sodium_mg, carbs_g, protein_g | 20 / 0 / 5 / 0 / 0 / 0 / 0 / 0 / 0 / 10 | 20 / 0 / 0 / 0 / 0 / 10 / 5 / 0 / 0 / 0.5 |
-| Sugar-Free Dark Chocolate Americano | large iced | differ: saturated_fat_g, sodium_mg, carbs_g, protein_g | 20 / 0 / 5 / 0 / 0 / 0 / 0 / 0 / 0 / 10 | 20 / 0 / 0 / 0 / 0 / 10 / 5 / 0 / 0 / 0.5 |
-| Sugar-Free Dark Chocolate Americano | kids hot | differ: saturated_fat_g, sodium_mg, carbs_g, protein_g | 20 / 0 / 5 / 0 / 0 / 0 / 0 / 0 / 0 / 10 | 20 / 0 / 0 / 0 / 0 / 10 / 5 / 0 / 0 / 0.5 |
-| Cappuccino | Medium (21 fl oz) | only in draft A | 130 / 10 / 0 / 0 / 30 / 100 / 4 / 0 / 7 / 7 | not found |
-| Cappuccino | Large (32 fl oz) | only in draft A | 150 / 12 / 0 / 0 / 35 / 110 / 5 / 0 / 8 / 8 | not found |
-| Caramel Breve | Kids iced | only in draft A | 240 / 24 / 11 / 0 / 40 / 110 / 29 / 0 / 3 / 7 | not found |
-| Caramel Breve | Small iced | only in draft A | 320 / 25 / 17 / 0 / 65 / 130 / 31 / 0 / 5 / 11 | not found |
-| Caramel Breve | Medium iced | only in draft A | 480 / 28 / 29 / 0 / 110 / 180 / 35 / 0 / 9 / 19 | not found |
-| Caramel Breve | Large iced | only in draft A | 560 / 29 / 35 / 0 / 135 / 200 / 37 / 0 / 11 / 23 | not found |
-| Caramel Breve | Kids hot | only in draft A | 390 / 26 / 22 / 0 / 85 / 150 / 33 / 0 / 7 / 15 | not found |
-| Caramel Breve | Small hot | only in draft A | 420 / 27 / 25 / 0 / 95 / 160 / 34 / 0 / 8 / 16 | not found |
-| Caramel Breve | Medium hot | only in draft A | 560 / 29 / 35 / 0 / 135 / 200 / 37 / 0 / 11 / 23 | not found |
-| Caramel Breve | Large hot | only in draft A | 620 / 30 / 40 / 0 / 150 / 220 / 39 / 0 / 13 / 26 | not found |
-| Caramel Breve | Kids frozen chiller | only in draft A | 200 / 23 / 8 / 0 / 30 / 100 / 28 / 0 / 2 / 5 | not found |
-| Caramel Breve | Small frozen chiller | only in draft A | 330 / 45 / 11 / 0 / 35 / 170 / 54 / 0 / 3 / 7 | not found |
-| Caramel Breve | Medium frozen chiller | only in draft A | 530 / 68 / 19 / 0 / 65 / 270 / 82 / 0 / 5 / 12 | not found |
-| Caramel Breve | Large frozen chiller | only in draft A | 660 / 90 / 21 / 0 / 70 / 350 / 109 / 0 / 6 / 13 | not found |
-| Cold Brew | Kids iced | only in draft A | 10 / 0 / 0 / 0 / 0 / 0 / 2 / 0 / 0.5 / 0 | not found |
-| Cold Brew | Small iced | only in draft A | 10 / 0 / 0 / 0 / 0 / 0 / 3 / 0 / 0.5 / 0 | not found |
-| Cold Brew | Medium iced | only in draft A | 20 / 0 / 0 / 0 / 0 / 10 / 4 / 0 / 1 / 0 | not found |
-| Cold Brew | Large iced | only in draft A | 30 / 0 / 0 / 0 / 0 / 10 / 5 / 0 / 1 / 0 | not found |
-| Crème Brûlée Latte | Kids iced | only in draft A | 150 / 27 / 3 / 0 / 15 / 80 / 27 / 0 / 3 / 2 | not found |
-| Crème Brûlée Latte | Small iced | only in draft A | 180 / 30 / 5 / 0 / 20 / 110 / 30 / 0 / 5 / 3 | not found |
-| Crème Brûlée Latte | Medium iced | only in draft A | 260 / 36 / 9 / 0 / 40 / 160 / 36 / 0 / 9 / 6 | not found |
-| Crème Brûlée Latte | Large iced | only in draft A | 300 / 38 / 11 / 0 / 45 / 190 / 39 / 0 / 11 / 7 | not found |
-| Crème Brûlée Latte | Kids hot | only in draft A | 210 / 32 / 7 / 0 / 30 / 130 / 33 / 0 / 7 / 4 | not found |
-| Crème Brûlée Latte | Small hot | only in draft A | 230 / 33 / 8 / 0 / 30 / 140 / 34 / 0 / 8 / 5 | not found |
-| Crème Brûlée Latte | Medium hot | only in draft A | 290 / 38 / 11 / 0 / 45 / 190 / 39 / 0 / 11 / 7 | not found |
-| Crème Brûlée Latte | Large hot | only in draft A | 320 / 41 / 13 / 0 / 50 / 210 / 41 / 0 / 13 / 8 | not found |
-| Crème Brûlée Latte | Kids frozen chiller | only in draft A | 240 / 32 / 6 / 0 / 25 / 130 / 32 / 0 / 6 / 4 | not found |
-| Crème Brûlée Latte | Small frozen chiller | only in draft A | 340 / 38 / 11 / 0 / 45 / 190 / 39 / 0 / 11 / 7 | not found |
-| Crème Brûlée Latte | Medium frozen chiller | only in draft A | 480 / 46 / 17 / 0 / 70 / 270 / 47 / 0 / 17 / 10 | not found |
-| Crème Brûlée Latte | Large frozen chiller | only in draft A | 680 / 76 / 22 / 0 / 90 / 380 / 78 / 0 / 22 / 14 | not found |
-| Cupcake Cappuccino | Kids hot | only in draft A | 160 / 28 / 4 / 0 / 15 / 160 / 29 / 0 / 4 / 3 | not found |
-| Cupcake Cappuccino | Small hot | only in draft A | 170 / 29 / 5 / 0 / 20 / 170 / 30 / 0 / 5 / 3 | not found |
-| Cupcake Cappuccino | Medium hot | only in draft A | 210 / 32 / 7 / 0 / 25 / 190 / 33 / 0 / 7 / 4 | not found |
-| Cupcake Cappuccino | Large hot | only in draft A | 230 / 33 / 8 / 0 / 30 / 210 / 34 / 0 / 8 / 5 | not found |
-| Dark Chocolate Americano | Kids iced | only in draft A | 30 / 7 / 0 / 0 / 0 / 0 / 8 / 0 / 0.5 / 0 | not found |
-| Dark Chocolate Americano | Small iced | only in draft A | 30 / 7 / 0 / 0 / 0 / 0 / 8 / 0 / 0.5 / 0 | not found |
-| Dark Chocolate Americano | Medium iced | only in draft A | 30 / 7 / 0 / 0 / 0 / 0 / 8 / 0 / 0.5 / 0 | not found |
-| Dark Chocolate Americano | Large iced | only in draft A | 30 / 7 / 0 / 0 / 0 / 0 / 8 / 0 / 0.5 / 0 | not found |
-| Dark Chocolate Americano | Kids hot | only in draft A | 30 / 7 / 0 / 0 / 0 / 0 / 8 / 0 / 0.5 / 0 | not found |
-| Dark Chocolate Americano | Small hot | only in draft A | 30 / 7 / 0 / 0 / 0 / 0 / 8 / 0 / 0.5 / 0 | not found |
-| Dark Chocolate Americano | Medium hot | only in draft A | 30 / 7 / 0 / 0 / 0 / 0 / 8 / 0 / 0.5 / 0 | not found |
-| Dark Chocolate Americano | Large hot | only in draft A | 30 / 7 / 0 / 0 / 0 / 0 / 8 / 0 / 0.5 / 0 | not found |
-| Sugar-Free 7 Energy | small iced | differ: trans_fat_g, sodium_mg | 0 / 0 / 0 / – / 0 / 0 / 2 / 0 / 0 / 0 | 0 / 0 / 0 / 0 / 0 / 130 / 2 / 0 / 0 / 0 |
-| Sugar-Free 7 Energy | medium iced | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 3 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 190 / 3 / 0 / 0 / 0 |
-| Sugar-Free 7 Energy | large iced | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 4 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 250 / 4 / 0 / 0 / 0 |
-| Sugar-Free 7 Energy | small frozen chiller | differ: trans_fat_g, sodium_mg | 0 / 0 / 0 / – / 0 / 0 / 2 / 0 / 0 / 0 | 0 / 0 / 0 / 0 / 0 / 130 / 2 / 0 / 0 / 0 |
-| Sugar-Free 7 Energy | medium frozen chiller | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 3 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 190 / 3 / 0 / 0 / 0 |
-| Sugar-Free 7 Energy | large frozen chiller | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 4 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 250 / 4 / 0 / 0 / 0 |
-| Sugar-Free Brewberry 7 Energy | small iced | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 2 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 120 / 2 / 0 / 0 / 0 |
-| Sugar-Free Brewberry 7 Energy | medium iced | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 3 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 180 / 3 / 0 / 0 / 0 |
-| Sugar-Free Brewberry 7 Energy | large iced | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 4 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 230 / 4 / 0 / 0 / 0 |
-| Sugar-Free Brewberry 7 Energy | small frozen chiller | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 2 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 110 / 2 / 0 / 0 / 0 |
-| Sugar-Free Brewberry 7 Energy | medium frozen chiller | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 3 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 160 / 3 / 0 / 0 / 0 |
-| Sugar-Free Brewberry 7 Energy | large frozen chiller | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 4 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 210 / 4 / 0 / 0 / 0 |
-| Sugar-Free Ocean Breeze 7 Energy | small iced | differ: trans_fat_g, sodium_mg | 0 / 0 / 0 / – / 0 / 0 / 2 / 0 / 0 / 0 | 0 / 0 / 0 / 0 / 0 / 120 / 2 / 0 / 0 / 0 |
-| Sugar-Free Ocean Breeze 7 Energy | medium iced | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 3 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 180 / 3 / 0 / 0 / 0 |
-| Sugar-Free Ocean Breeze 7 Energy | large iced | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 4 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 230 / 4 / 0 / 0 / 0 |
-| Sugar-Free Ocean Breeze 7 Energy | small frozen chiller | differ: trans_fat_g, sodium_mg | 0 / 0 / 0 / – / 0 / 0 / 2 / 0 / 0 / 0 | 0 / 0 / 0 / 0 / 0 / 110 / 2 / 0 / 0 / 0 |
-| Sugar-Free Ocean Breeze 7 Energy | medium frozen chiller | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 2 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 160 / 2 / 0 / 0 / 0 |
-| Sugar-Free Ocean Breeze 7 Energy | large frozen chiller | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 3 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 210 / 3 / 0 / 0 / 0 |
-| Sugar-Free Sunrise 7 Energy | small iced | differ: trans_fat_g, sodium_mg | 0 / 0 / 0 / – / 0 / 0 / 2 / 0 / 0 / 0 | 0 / 0 / 0 / 0 / 0 / 120 / 2 / 0 / 0 / 0 |
-| Sugar-Free Sunrise 7 Energy | medium iced | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 3 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 180 / 3 / 0 / 0 / 0 |
-| Sugar-Free Sunrise 7 Energy | large iced | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 4 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 230 / 4 / 0 / 0 / 0 |
-| Sugar-Free Sunrise 7 Energy | small frozen chiller | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 2 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 110 / 2 / 0 / 0 / 0 |
-| Sugar-Free Sunrise 7 Energy | medium frozen chiller | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 3 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 160 / 3 / 0 / 0 / 0 |
-| Sugar-Free Sunrise 7 Energy | large frozen chiller | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 3 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 210 / 3 / 0 / 0 / 0 |
-| 7 Energy | small iced | differ: trans_fat_g, sodium_mg | 110 / 0 / 0 / – / 0 / 0 / 28 / 0 / 26 / 0 | 110 / 0 / 0 / 0 / 0 / 130 / 28 / 0 / 26 / 0 |
-| 7 Energy | medium iced | differ: trans_fat_g, sodium_mg | 160 / 0 / 0 / – / 0 / 0 / 42 / 0 / 39 / 0 | 160 / 0 / 0 / 0 / 0 / 190 / 42 / 0 / 39 / 0 |
-| 7 Energy | large iced | differ: trans_fat_g, sodium_mg | 210 / 0 / 0 / – / 0 / 0 / 56 / 0 / 52 / 0 | 210 / 0 / 0 / 0 / 0 / 250 / 56 / 0 / 52 / 0 |
-| 7 Energy | small frozen chiller | differ: trans_fat_g | 70 / 0 / 0 / – / 0 / 0 / 17 / 0 / 16 / 0 | 70 / 0 / 0 / 0 / 0 / 0 / 17 / 0 / 16 / 0 |
-| 7 Energy | medium frozen chiller | differ: trans_fat_g | 100 / 0 / 0 / – / 0 / 0 / 25 / 0 / 24 / 0 | 100 / 0 / 0 / 0 / 0 / 0 / 25 / 0 / 24 / 0 |
-| 7 Energy | large frozen chiller | differ: trans_fat_g | 130 / 0 / 0 / – / 0 / 0 / 33 / 0 / 32 / 0 | 130 / 0 / 0 / 0 / 0 / 0 / 33 / 0 / 32 / 0 |
-| Brewberry 7 Energy | small iced | differ: trans_fat_g, sodium_mg | 180 / 0 / 0 / – / 0 / 0 / 45 / 0 / 44 / 0 | 180 / 0 / 0 / 0 / 0 / 110 / 45 / 0 / 44 / 0 |
-| Brewberry 7 Energy | medium iced | differ: trans_fat_g, sodium_mg | 230 / 0 / 0 / – / 0 / 0 / 59 / 0 / 57 / 0 | 230 / 0 / 0 / 0 / 0 / 180 / 59 / 0 / 57 / 0 |
-| Brewberry 7 Energy | large iced | differ: trans_fat_g, sodium_mg | 350 / 0 / 0 / – / 0 / 0 / 91 / 0 / 87 / 0 | 350 / 0 / 0 / 0 / 0 / 230 / 91 / 0 / 87 / 0 |
-| Brewberry 7 Energy | small frozen chiller | differ: trans_fat_g | 150 / 0 / 0 / – / 0 / 0 / 37 / 0 / 36 / 0 | 150 / 0 / 0 / 0 / 0 / 0 / 37 / 0 / 36 / 0 |
-| Brewberry 7 Energy | medium frozen chiller | differ: trans_fat_g | 180 / 0 / 0 / – / 0 / 0 / 45 / 0 / 44 / 0 | 180 / 0 / 0 / 0 / 0 / 0 / 45 / 0 / 44 / 0 |
-| Brewberry 7 Energy | large frozen chiller | differ: trans_fat_g | 290 / 0 / 0 / – / 0 / 10 / 73 / 0 / 72 / 0 | 290 / 0 / 0 / 0 / 0 / 10 / 73 / 0 / 72 / 0 |
-| Heatwave 7 Energy | small iced | differ: trans_fat_g, sodium_mg | 180 / 0.1 / 0 / – / 0 / 0 / 46 / 0 / 44 / 0 | 180 / 0.1 / 0 / 0 / 0 / 110 / 46 / 0 / 44 / 0 |
-| Heatwave 7 Energy | medium iced | differ: trans_fat_g, sodium_mg | 230 / 0.1 / 0 / – / 0 / 0 / 60 / 0 / 57 / 0 | 230 / 0.1 / 0 / 0 / 0 / 180 / 60 / 0 / 57 / 0 |
-| Heatwave 7 Energy | large iced | differ: trans_fat_g, sodium_mg, fiber_g | 350 / 0.2 / 0 / – / 0 / 0 / 91 / 0 / 88 / 0 | 350 / 0.2 / 0 / 0 / 0 / 230 / 91 / 0.1 / 88 / 0 |
-| Heatwave 7 Energy | small frozen chiller | differ: trans_fat_g | 150 / 0.1 / 0 / – / 0 / 0 / 37 / 0 / 36 / 0 | 150 / 0.1 / 0 / 0 / 0 / 0 / 37 / 0 / 36 / 0 |
-| Heatwave 7 Energy | medium frozen chiller | differ: trans_fat_g | 180 / 0.1 / 0 / – / 0 / 0 / 45 / 0 / 44 / 0 | 180 / 0.1 / 0 / 0 / 0 / 0 / 45 / 0 / 44 / 0 |
-| Heatwave 7 Energy | large frozen chiller | differ: trans_fat_g, fiber_g | 290 / 0.2 / 0 / – / 0 / 6 / 74 / 0 / 72 / 0 | 290 / 0.2 / 0 / 0 / 0 / 6 / 74 / 0.1 / 72 / 0 |
-| Black Tea | kids iced | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found |
-| Black Tea | small iced | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found |
-| Black Tea | medium iced | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found |
-| Black Tea | large iced | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found |
-| Black Tea | kids hot | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found |
-| Black Tea | small hot | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found |
-| Black Tea | medium hot | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found |
-| Black Tea | large hot | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found |
-| Black Tea | kids frozen chiller | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found |
-| Black Tea | small frozen chiller | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found |
-| Black Tea | medium frozen chiller | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found |
-| Black Tea | large frozen chiller | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found |
-| Blondie Breve | kids iced | only in draft B | not found | 230 / 10 / 7 / 0 / 40 / 70 / 28 / – / 24 / 3 |
-| Blondie Breve | small iced | only in draft B | not found | 280 / 16 / 10 / 0 / 60 / 90 / 23 / – / 20 / 5 |
-| Blondie Breve | medium iced | only in draft B | not found | 480 / 26 / 17 / 0 / 100 / 150 / 44 / – / 38 / 8 |
-| Blondie Breve | large iced | only in draft B | not found | 560 / 32 / 21 / 0 / 120 / 170 / 46 / – / 39 / 10 |
-| Blondie Breve | kids hot | only in draft B | not found | 370 / 21 / 14 / 0 / 80 / 120 / 31 / – / 27 / 7 |
-| Blondie Breve | small hot | only in draft B | not found | 410 / 24 / 16 / 0 / 90 / 130 / 32 / – / 27 / 8 |
-| Blondie Breve | medium hot | only in draft B | not found | 610 / 32 / 21 / 0 / 125 / 190 / 59 / – / 51 / 10 |
-| Blondie Breve | large hot | only in draft B | not found | 680 / 37 / 25 / 0 / 140 / 210 / 61 / – / 52 / 12 |
-| Blondie Breve | kids frozen chiller | only in draft B | not found | 260 / 8 / 5 / 0 / 30 / 130 / 34 / – / 31 / 7 |
-| Blondie Breve | small frozen chiller | only in draft B | not found | 360 / 12 / 7 / 0 / 50 / 190 / 40 / – / 38 / 11 |
-| Blondie Breve | medium frozen chiller | only in draft B | not found | 490 / 18 / 11 / 0 / 70 / 270 / 49 / – / 46 / 17 |
-| Blondie Breve | large frozen chiller | only in draft B | not found | 720 / 24 / 15 / 0 / 95 / 380 / 81 / – / 75 / 22 |
-| Brunette Mocha | small iced | only in draft B | not found | 190 / 5 / 2 / 0 / 20 / 120 / 34 / – / 32 / 4 |
-| Brunette Mocha | medium iced | only in draft B | not found | 250 / 7 / 3 / 0 / 30 / 180 / 42 / – / 39 / 7 |
-| Brunette Mocha | large iced | only in draft B | not found | 370 / 11 / 5 / 0 / 55 / 290 / 58 / – / 55 / 13 |
-| Brunette Mocha | small hot | only in draft B | not found | 500 / 14 / 6 / 0 / 60 / 360 / 84 / – / 79 / 14 |
-| Brunette Mocha | medium hot | only in draft B | not found | 300 / 9 / 4 / 0 / 40 / 230 / 49 / – / 46 / 9 |
-| Brunette Mocha | large hot | only in draft B | not found | 320 / 10 / 4 / 0 / 45 / 250 / 52 / – / 49 / 11 |
-| Brunette Mocha | small frozen chiller | only in draft B | not found | 310 / 9 / 4 / 0 / 45 / 240 / 51 / – / 48 / 10 |
-| Brunette Mocha | medium frozen chiller | only in draft B | not found | 460 / 15 / 6 / 0 / 70 / 380 / 70 / – / 66 / 17 |
-| Brunette Mocha | large frozen chiller | only in draft B | not found | 650 / 22 / 9 / 0 / 105 / 560 / 94 / – / 91 / 26 |
-| Cinnamon Roll Breve | small small iced | only in draft B | not found | 210 / 30 / 12 / 0 / 140 / 760 / 25 / – / 133 / 34 |
-| Cinnamon Roll Breve | small small small | only in draft B | not found | 290 / 15 / 10 / 0 / 60 / 100 / 27 / – / 24 / 6 |
-| Cinnamon Roll Breve | medium small small | only in draft B | not found | 500 / 25 / 16 / 0 / 95 / 180 / 52 / – / 47 / 9 |
-| Cinnamon Roll Breve | large small small | only in draft B | not found | 580 / 31 / 20 / 0 / 120 / 200 / 54 / – / 49 / 11 |
-| Cinnamon Roll Breve | small hot | only in draft B | not found | 360 / 20 / 13 / 0 / 80 / 120 / 29 / – / 25 / 7 |
-| Cookie Butter Breve | small small small | only in draft B | not found | 210 / 9 / 6 / 0 / 35 / 60 / 24 / – / 22 / 3 |
-| Cookie Butter Breve | medium small small | only in draft B | not found | 490 / 24 / 16 / 0 / 95 / 150 / 50 / – / 46 / 9 |
-| Cookie Butter Breve | large small small | only in draft B | not found | 570 / 30 / 20 / 0 / 115 / 170 / 52 / – / 47 / 11 |
-| Smooth 7 Breve | small small small | only in draft B | not found | 220 / 9 / 6 / 0 / 35 / 80 / 27 / – / 25 / 4 |
-| Smooth 7 Breve | medium hot | only in draft B | not found | 600 / 31 / 20 / 0 / 120 / 200 / 58 / – / 52 / 11 |
-| Smooth 7 Breve | large hot | only in draft B | not found | 670 / 36 / 24 / 0 / 135 / 220 / 60 / – / 53 / 13 |
-| Smooth 7 Breve | kids frozen chiller | only in draft B | not found | 250 / 7 / 4 / 0 / 30 / 130 / 33 / – / 32 / 7 |
-| Smooth 7 Breve | small frozen chiller | only in draft B | not found | 350 / 11 / 7 / 0 / 45 / 200 / 40 / – / 38 / 11 |
-| Smooth 7 Breve | medium frozen chiller | only in draft B | not found | 490 / 17 / 11 / 0 / 70 / 280 / 48 / – / 46 / 17 |
-| Smooth 7 Breve | large frozen chiller | only in draft B | not found | 700 / 22 / 14 / 0 / 90 / 390 / 80 / – / 76 / 23 |
-| Sweet & Salty Breve | kids iced | only in draft B | not found | 220 / 9 / 6 / 0 / 35 / 130 / 28 / – / 26 / 4 |
-| Sweet & Salty Breve | small iced | only in draft B | not found | 300 / 15 / 10 / 0 / 60 / 150 / 30 / – / 27 / 6 |
-| Sweet & Salty Breve | medium iced | only in draft B | not found | 520 / 25 / 16 / 0 / 95 / 280 / 58 / – / 52 / 9 |
-| Sweet & Salty Breve | large iced | only in draft B | not found | 600 / 31 / 20 / 0 / 120 / 300 / 60 / – / 54 / 11 |
-| Sweet & Salty Breve | kids hot | only in draft B | not found | 370 / 20 / 13 / 0 / 80 / 170 / 31 / – / 28 / 7 |
-| Sweet & Salty Breve | small hot | only in draft B | not found | 400 / 23 / 15 / 0 / 90 / 180 / 32 / – / 29 / 8 |
-| Sweet & Salty Breve | medium hot | only in draft B | not found | 600 / 31 / 20 / 0 / 120 / 300 / 60 / – / 54 / 11 |
-| Sweet & Salty Breve | large hot | only in draft B | not found | 670 / 36 / 24 / 0 / 135 / 320 / 61 / – / 55 / 13 |
-| Sweet & Salty Breve | kids frozen chiller | only in draft B | not found | 250 / 7 / 4 / 0 / 30 / 180 / 34 / – / 33 / 7 |
-| Sweet & Salty Breve | small frozen chiller | only in draft B | not found | 350 / 11 / 7 / 0 / 45 / 240 / 41 / – / 39 / 11 |
-| Sweet & Salty Breve | medium frozen chiller | only in draft B | not found | 490 / 17 / 11 / 0 / 70 / 330 / 49 / – / 47 / 17 |
-| Sweet & Salty Breve | large frozen chiller | only in draft B | not found | 710 / 22 / 14 / 0 / 90 / 490 / 81 / – / 78 / 23 |
-| Sugar-Free Dark Chocolate Americano | small hot | only in draft B | not found | 20 / 0 / 0 / 0 / 0 / 10 / 5 / 0 / 0 / 0.5 |
-| Sugar-Free Dark Chocolate Americano | medium hot | only in draft B | not found | 20 / 0 / 0 / 0 / 0 / 10 / 5 / 0 / 0 / 0.5 |
-| Sugar-Free Dark Chocolate Americano | large hot | only in draft B | not found | 20 / 0 / 0 / 0 / 0 / 10 / 5 / 0 / 0 / 0.5 |
-| Sugar-Free French Vanilla Cappuccino | kids hot | only in draft B | not found | 120 / 5 / 3 / 0 / 20 / 90 / 16 / 2 / 6 / 4 |
-| Sugar-Free French Vanilla Cappuccino | small hot | only in draft B | not found | 130 / 6 / 3 / 0 / 20 / 100 / 17 / 2 / 7 / 5 |
-| Sugar-Free French Vanilla Cappuccino | medium hot | only in draft B | not found | 160 / 8 / 5 / 0 / 30 / 130 / 20 / 2 / 9 / 7 |
-| Sugar-Free French Vanilla Cappuccino | large hot | only in draft B | not found | 180 / 9 / 5 / 0 / 35 / 140 / 21 / 2 / 11 / 8 |
-| Sugar-Free Funnel Cake Macchiato Latte | kids iced | only in draft B | not found | 120 / 5 / 3 / 0 / 15 / 130 / 21 / 4 / 5 / 3 |
-| Sugar-Free Funnel Cake Macchiato Latte | small iced | only in draft B | not found | 200 / 8 / 5 / 0 / 25 / 190 / 34 / 7 / 8 / 5 |
-| Sugar-Free Funnel Cake Macchiato Latte | medium iced | only in draft B | not found | 280 / 12 / 7 / 0 / 45 / 250 / 40 / 7 / 13 / 9 |
-| Sugar-Free Funnel Cake Macchiato Latte | large iced | only in draft B | not found | 320 / 14 / 8 / 0 / 50 / 280 / 43 / 7 / 16 / 11 |
-| Sugar-Free Funnel Cake Macchiato Latte | kids hot | only in draft B | not found | 190 / 8 / 5 / 0 / 30 / 180 / 27 / 4 / 10 / 7 |
-| Sugar-Free Funnel Cake Macchiato Latte | small hot | only in draft B | not found | 250 / 10 / 6 / 0 / 35 / 230 / 38 / 7 / 11 / 8 |
-| Sugar-Free Funnel Cake Macchiato Latte | medium hot | only in draft B | not found | 310 / 14 / 8 / 0 / 50 / 280 / 43 / 7 / 16 / 11 |
-| Sugar-Free Funnel Cake Macchiato Latte | large hot | only in draft B | not found | 340 / 15 / 9 / 0 / 60 / 300 / 45 / 7 / 18 / 13 |
-| Sugar-Free Funnel Cake Macchiato Latte | kids frozen chiller | only in draft B | not found | 110 / 4 / 2 / 0 / 10 / 110 / 20 / 4 / 3 / 2 |
-| Sugar-Free Funnel Cake Macchiato Latte | small frozen chiller | only in draft B | not found | 170 / 5 / 3 / 0 / 15 / 200 / 37 / 8 / 4 / 2 |
-| Sugar-Free Funnel Cake Macchiato Latte | medium frozen chiller | only in draft B | not found | 240 / 8 / 5 / 0 / 25 / 280 / 46 / 10 / 7 / 4 |
-| Sugar-Free Funnel Cake Macchiato Latte | large frozen chiller | only in draft B | not found | 270 / 8 / 5 / 0 / 25 / 330 / 53 / 12 / 7 / 4 |
-| Sugar-Free German Chocolate Mocha | kids iced | only in draft B | not found | 150 / 10 / 6 / 0 / 35 / 60 / 10 / 1 / 2 / 3 |
-| Sugar-Free German Chocolate Mocha | small iced | only in draft B | not found | 230 / 16 / 10 / 0 / 60 / 80 / 12 / 1 / 3 / 5 |
-| Sugar-Free German Chocolate Mocha | medium iced | only in draft B | not found | 380 / 25 / 17 / 0 / 95 / 140 / 23 / 2 / 6 / 8 |
-| Sugar-Free German Chocolate Mocha | large iced | only in draft B | not found | 460 / 31 / 21 / 0 / 120 / 170 / 25 / 2 / 7 / 10 |
-| Sugar-Free German Chocolate Mocha | kids hot | only in draft B | not found | 300 / 21 / 14 / 0 / 80 / 100 / 14 / 1 / 5 / 7 |
-| Sugar-Free German Chocolate Mocha | small hot | only in draft B | not found | 330 / 23 / 15 / 0 / 90 / 110 / 15 / 1 / 5 / 8 |
-| Sugar-Free German Chocolate Mocha | medium hot | only in draft B | not found | 460 / 31 / 21 / 0 / 120 / 170 / 25 / 2 / 7 / 10 |
-| Sugar-Free German Chocolate Mocha | large hot | only in draft B | not found | 530 / 36 / 24 / 0 / 140 / 190 / 27 / 2 / 8 / 12 |
-| Sugar-Free German Chocolate Mocha | kids frozen chiller | only in draft B | not found | 70 / 3 / 2 / 0 / 10 / 50 / 10 / 1 / 3 / 2 |
-| Sugar-Free German Chocolate Mocha | small frozen chiller | only in draft B | not found | 100 / 3 / 2 / 0 / 10 / 80 / 18 / 2 / 3 / 2 |
-| Sugar-Free German Chocolate Mocha | medium frozen chiller | only in draft B | not found | 170 / 6 / 3 / 0 / 20 / 130 / 28 / 4 / 6 / 5 |
-| Sugar-Free German Chocolate Mocha | large frozen chiller | only in draft B | not found | 200 / 6 / 4 / 0 / 20 / 160 / 36 / 5 / 6 / 5 |
-| Sugar-Free Hazelnut Americano | kids iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Sugar-Free Hazelnut Americano | small iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Sugar-Free Hazelnut Americano | medium iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Sugar-Free Hazelnut Americano | large iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Sugar-Free Hazelnut Americano | kids hot | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Sugar-Free Hazelnut Americano | small hot | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Sugar-Free Hazelnut Americano | medium hot | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Sugar-Free Hazelnut Americano | large hot | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Sugar-Free Irish Cream Cappuccino | kids hot | only in draft B | not found | 80 / 4 / 3 / 0 / 15 / 60 / 6 / 0 / 6 / 4 |
-| Sugar-Free Irish Cream Cappuccino | small hot | only in draft B | not found | 90 / 5 / 3 / 0 / 20 / 70 / 7 / 0 / 6 / 5 |
-| Sugar-Free Irish Cream Cappuccino | medium hot | only in draft B | not found | 120 / 7 / 4 / 0 / 25 / 100 / 10 / 0 / 9 / 7 |
-| Sugar-Free Irish Cream Cappuccino | large hot | only in draft B | not found | 140 / 8 / 5 / 0 / 30 / 110 / 11 / 0 / 11 / 8 |
-| Sugar-Free Mocha | kids iced | only in draft B | not found | 140 / 9 / 6 / 0 / 35 / 50 / 8 / 0 / 2 / 3 |
-| Sugar-Free Mocha | small iced | only in draft B | not found | 220 / 15 / 10 / 0 / 60 / 70 / 10 / 0 / 3 / 5 |
-| Sugar-Free Mocha | medium iced | only in draft B | not found | 360 / 24 / 16 / 0 / 95 / 120 / 18 / 0 / 5 / 9 |
-| Sugar-Free Mocha | large iced | only in draft B | not found | 440 / 30 / 20 / 0 / 115 / 140 / 20 / 0 / 7 / 11 |
-| Sugar-Free Mocha | kids hot | only in draft B | not found | 290 / 20 / 13 / 0 / 80 / 90 / 11 / 0 / 4 / 7 |
-| Sugar-Free Mocha | small hot | only in draft B | not found | 320 / 23 / 15 / 0 / 90 / 100 / 12 / 0 / 5 / 8 |
-| Sugar-Free Mocha | medium hot | only in draft B | not found | 440 / 30 / 20 / 0 / 115 / 140 / 20 / 0 / 7 / 11 |
-| Sugar-Free Mocha | large hot | only in draft B | not found | 510 / 35 / 23 / 0 / 135 / 160 / 21 / 0 / 8 / 12 |
-| Sugar-Free Mocha | kids frozen chiller | only in draft B | not found | 60 / 2 / 1 / 0 / 10 / 40 / 8 / 0 / 3 / 2 |
-| Sugar-Free Mocha | small frozen chiller | only in draft B | not found | 80 / 2 / 1 / 0 / 10 / 50 / 13 / 0 / 3 / 3 |
-| Sugar-Free Mocha | medium frozen chiller | only in draft B | not found | 140 / 4 / 3 / 0 / 15 / 90 / 20 / 0 / 6 / 5 |
-| Sugar-Free Mocha | large frozen chiller | only in draft B | not found | 160 / 4 / 3 / 0 / 15 / 100 / 25 / 0 / 6 / 5 |
-| Sugar-Free Raspberry Truffle Macchiato Latte | kids iced | only in draft B | not found | 130 / 4 / 2 / 0 / 15 / 90 / 23 / 3 / 4 / 3 |
-| Sugar-Free Raspberry Truffle Macchiato Latte | small iced | only in draft B | not found | 210 / 6 / 4 / 0 / 20 / 140 / 34 / 4 / 7 / 6 |
-| Sugar-Free Raspberry Truffle Macchiato Latte | medium iced | only in draft B | not found | 280 / 10 / 6 / 0 / 40 / 200 / 40 / 4 / 13 / 10 |
-| Sugar-Free Raspberry Truffle Macchiato Latte | large iced | only in draft B | not found | 320 / 12 / 8 / 0 / 45 / 230 / 42 / 4 / 16 / 12 |
-| Sugar-Free Raspberry Truffle Macchiato Latte | kids hot | only in draft B | not found | 200 / 8 / 5 / 0 / 30 / 140 / 28 / 3 / 10 / 7 |
-| Sugar-Free Raspberry Truffle Macchiato Latte | small hot | only in draft B | not found | 250 / 9 / 5 / 0 / 35 / 180 / 37 / 4 / 11 / 8 |
-| Sugar-Free Raspberry Truffle Macchiato Latte | medium hot | only in draft B | not found | 320 / 12 / 7 / 0 / 45 / 220 / 42 / 4 / 16 / 12 |
-| Sugar-Free Raspberry Truffle Macchiato Latte | large hot | only in draft B | not found | 350 / 14 / 8 / 0 / 55 / 250 / 45 / 4 / 18 / 13 |
-| Sugar-Free Raspberry Truffle Macchiato Latte | kids frozen chiller | only in draft B | not found | 110 / 3 / 2 / 0 / 10 / 80 / 21 / 3 / 3 / 2 |
-| Sugar-Free Raspberry Truffle Macchiato Latte | small frozen chiller | only in draft B | not found | 190 / 4 / 2 / 0 / 10 / 130 / 39 / 6 / 3 / 3 |
-| Sugar-Free Raspberry Truffle Macchiato Latte | medium frozen chiller | only in draft B | not found | 270 / 7 / 4 / 0 / 20 / 190 / 52 / 9 / 6 / 5 |
-| Sugar-Free Raspberry Truffle Macchiato Latte | large frozen chiller | only in draft B | not found | 310 / 8 / 4 / 0 / 20 / 220 / 62 / 11 / 7 / 5 |
-| Sugar-Free Salted Caramel Macchiato Latte | kids iced | only in draft B | not found | 100 / 4 / 3 / 0 / 15 / 170 / 15 / 2 / 4 / 3 |
-| Sugar-Free Salted Caramel Macchiato Latte | small iced | only in draft B | not found | 180 / 7 / 4 / 0 / 25 / 240 / 28 / 5 / 8 / 5 |
-| Sugar-Free Salted Caramel Macchiato Latte | medium iced | only in draft B | not found | 250 / 11 / 7 / 0 / 45 / 290 / 34 / 5 / 13 / 9 |
-| Sugar-Free Salted Caramel Macchiato Latte | large iced | only in draft B | not found | 290 / 13 / 8 / 0 / 50 / 320 / 37 / 5 / 16 / 11 |
-| Sugar-Free Salted Caramel Macchiato Latte | kids hot | only in draft B | not found | 170 / 8 / 5 / 0 / 30 / 230 / 20 / 2 / 10 / 7 |
-| Sugar-Free Salted Caramel Macchiato Latte | small hot | only in draft B | not found | 230 / 10 / 6 / 0 / 35 / 270 / 32 / 5 / 11 / 8 |
-| Sugar-Free Salted Caramel Macchiato Latte | medium hot | only in draft B | not found | 290 / 13 / 8 / 0 / 50 / 320 / 36 / 5 / 16 / 11 |
-| Sugar-Free Salted Caramel Macchiato Latte | large hot | only in draft B | not found | 320 / 15 / 9 / 0 / 55 / 340 / 39 / 5 / 18 / 13 |
-| Sugar-Free Salted Caramel Macchiato Latte | kids frozen chiller | only in draft B | not found | 80 / 3 / 2 / 0 / 10 / 160 / 14 / 2 / 3 / 2 |
-| Sugar-Free Salted Caramel Macchiato Latte | small frozen chiller | only in draft B | not found | 130 / 4 / 3 / 0 / 15 / 290 / 24 / 5 / 3 / 2 |
-| Sugar-Free Salted Caramel Macchiato Latte | medium frozen chiller | only in draft B | not found | 170 / 6 / 4 / 0 / 20 / 420 / 28 / 5 / 6 / 4 |
-| Sugar-Free Salted Caramel Macchiato Latte | large frozen chiller | only in draft B | not found | 170 / 6 / 4 / 0 / 20 / 520 / 28 / 5 / 6 / 4 |
-| Sugar-Free Snickerdoodle Mocha | kids iced | only in draft B | not found | 130 / 9 / 6 / 0 / 35 / 40 / 6 / 0 / 2 / 3 |
-| Sugar-Free Snickerdoodle Mocha | small iced | only in draft B | not found | 210 / 15 / 10 / 0 / 60 / 70 / 8 / 0 / 3 / 5 |
-| Sugar-Free Snickerdoodle Mocha | medium iced | only in draft B | not found | 340 / 24 / 16 / 0 / 95 / 110 / 13 / 0 / 5 / 8 |
-| Sugar-Free Snickerdoodle Mocha | large iced | only in draft B | not found | 420 / 30 / 20 / 0 / 115 / 130 / 15 / 0 / 7 / 10 |
-| Sugar-Free Snickerdoodle Mocha | kids hot | only in draft B | not found | 280 / 20 / 13 / 0 / 80 / 90 / 9 / 0 / 4 / 7 |
-| Sugar-Free Snickerdoodle Mocha | small hot | only in draft B | not found | 310 / 23 / 15 / 0 / 90 / 100 / 10 / 0 / 5 / 8 |
-| Sugar-Free Snickerdoodle Mocha | medium hot | only in draft B | not found | 420 / 30 / 20 / 0 / 115 / 130 / 15 / 0 / 7 / 10 |
-| Sugar-Free Snickerdoodle Mocha | large hot | only in draft B | not found | 490 / 35 / 23 / 0 / 135 / 150 / 17 / 0 / 8 / 12 |
-| Sugar-Free Snickerdoodle Mocha | kids frozen chiller | only in draft B | not found | 50 / 2 / 1 / 0 / 10 / 40 / 5 / 0 / 3 / 2 |
-| Sugar-Free Snickerdoodle Mocha | small frozen chiller | only in draft B | not found | 60 / 2 / 1 / 0 / 10 / 50 / 8 / 0 / 3 / 2 |
-| Sugar-Free Snickerdoodle Mocha | medium frozen chiller | only in draft B | not found | 110 / 4 / 3 / 0 / 15 / 80 / 13 / 0 / 6 / 4 |
-| Sugar-Free Snickerdoodle Mocha | large frozen chiller | only in draft B | not found | 120 / 4 / 3 / 0 / 15 / 90 / 16 / 0 / 6 / 5 |
-| Sugar-Free Toasted Marshmallow Latte | kids iced | only in draft B | not found | 60 / 3 / 2 / 0 / 15 / 50 / 4 / 0 / 4 / 3 |
-| Sugar-Free Toasted Marshmallow Latte | small iced | only in draft B | not found | 100 / 5 / 3 / 0 / 20 / 80 / 7 / 0 / 7 / 5 |
-| Sugar-Free Toasted Marshmallow Latte | medium iced | only in draft B | not found | 170 / 9 / 6 / 0 / 40 / 130 / 13 / 0 / 13 / 9 |
-| Sugar-Free Toasted Marshmallow Latte | large iced | only in draft B | not found | 210 / 11 / 7 / 0 / 45 / 160 / 16 / 0 / 16 / 11 |
-| Sugar-Free Toasted Marshmallow Latte | kids hot | only in draft B | not found | 130 / 7 / 4 / 0 / 30 / 100 / 10 / 0 / 9 / 7 |
-| Sugar-Free Toasted Marshmallow Latte | small hot | only in draft B | not found | 140 / 8 / 5 / 0 / 30 / 110 / 11 / 0 / 11 / 8 |
-| Sugar-Free Toasted Marshmallow Latte | medium hot | only in draft B | not found | 200 / 11 / 7 / 0 / 45 / 160 / 16 / 0 / 15 / 11 |
-| Sugar-Free Toasted Marshmallow Latte | large hot | only in draft B | not found | 240 / 13 / 8 / 0 / 50 / 180 / 18 / 0 / 18 / 13 |
-| Sugar-Free Toasted Marshmallow Latte | kids frozen chiller | only in draft B | not found | 40 / 2 / 1 / 0 / 10 / 30 / 3 / 0 / 3 / 2 |
-| Sugar-Free Toasted Marshmallow Latte | small frozen chiller | only in draft B | not found | 40 / 2 / 1 / 0 / 10 / 40 / 3 / 0 / 3 / 2 |
-| Sugar-Free Toasted Marshmallow Latte | medium frozen chiller | only in draft B | not found | 80 / 4 / 3 / 0 / 15 / 70 / 6 / 0 / 6 / 4 |
-| Sugar-Free Toasted Marshmallow Latte | large frozen chiller | only in draft B | not found | 80 / 4 / 3 / 0 / 15 / 80 / 6 / 0 / 6 / 4 |
-| Sugar-Free Vanilla Latte | kids iced | only in draft B | not found | 60 / 3 / 2 / 0 / 15 / 50 / 5 / 0 / 4 / 3 |
-| Sugar-Free Vanilla Latte | small iced | only in draft B | not found | 90 / 5 / 3 / 0 / 20 / 80 / 8 / 0 / 7 / 5 |
-| Sugar-Free Vanilla Latte | medium iced | only in draft B | not found | 170 / 9 / 6 / 0 / 40 / 130 / 13 / 0 / 13 / 9 |
-| Sugar-Free Vanilla Latte | large iced | only in draft B | not found | 210 / 11 / 7 / 0 / 45 / 160 / 16 / 0 / 16 / 11 |
-| Sugar-Free Vanilla Latte | kids hot | only in draft B | not found | 130 / 7 / 4 / 0 / 30 / 100 / 10 / 0 / 9 / 7 |
-| Sugar-Free Vanilla Latte | small hot | only in draft B | not found | 140 / 8 / 5 / 0 / 30 / 110 / 11 / 0 / 11 / 8 |
-| Sugar-Free Vanilla Latte | medium hot | only in draft B | not found | 200 / 11 / 7 / 0 / 45 / 160 / 16 / 0 / 15 / 11 |
-| Sugar-Free Vanilla Latte | large hot | only in draft B | not found | 240 / 13 / 8 / 0 / 50 / 180 / 18 / 0 / 18 / 13 |
-| Sugar-Free Vanilla Latte | kids frozen chiller | only in draft B | not found | 40 / 2 / 1 / 0 / 10 / 30 / 3 / 0 / 3 / 2 |
-| Sugar-Free Vanilla Latte | small frozen chiller | only in draft B | not found | 40 / 2 / 1 / 0 / 10 / 40 / 3 / 0 / 3 / 2 |
-| Sugar-Free Vanilla Latte | medium frozen chiller | only in draft B | not found | 80 / 4 / 3 / 0 / 15 / 70 / 7 / 0 / 6 / 4 |
-| Sugar-Free Vanilla Latte | large frozen chiller | only in draft B | not found | 80 / 4 / 3 / 0 / 15 / 80 / 7 / 0 / 6 / 4 |
-| Sugar-Free White Chocolate Mocha | kids iced | only in draft B | not found | 170 / 10 / 6 / 2 / 35 / 70 / 15 / 2 / 2 / 3 |
-| Sugar-Free White Chocolate Mocha | small iced | only in draft B | not found | 250 / 16 / 10 / 2 / 60 / 90 / 17 / 2 / 4 / 5 |
-| Sugar-Free White Chocolate Mocha | medium iced | only in draft B | not found | 420 / 26 / 17 / 5 / 95 / 160 / 33 / 5 / 6 / 8 |
-| Sugar-Free White Chocolate Mocha | large iced | only in draft B | not found | 500 / 32 / 21 / 5 / 120 / 180 / 35 / 5 / 7 / 10 |
-| Sugar-Free White Chocolate Mocha | kids hot | only in draft B | not found | 320 / 21 / 14 / 2 / 80 / 110 / 19 / 2 / 5 / 7 |
-| Sugar-Free White Chocolate Mocha | small hot | only in draft B | not found | 350 / 23 / 15 / 2 / 90 / 120 / 20 / 2 / 5 / 8 |
-| Sugar-Free White Chocolate Mocha | medium hot | only in draft B | not found | 500 / 32 / 21 / 5 / 120 / 180 / 35 / 5 / 7 / 10 |
-| Sugar-Free White Chocolate Mocha | large hot | only in draft B | not found | 570 / 37 / 24 / 5 / 140 / 200 / 36 / 5 / 8 / 12 |
-| Sugar-Free White Chocolate Mocha | kids frozen chiller | only in draft B | not found | 90 / 3 / 2 / 2 / 10 / 60 / 15 / 2 / 3 / 2 |
-| Sugar-Free White Chocolate Mocha | small frozen chiller | only in draft B | not found | 140 / 4 / 2 / 5 / 10 / 90 / 28 / 5 / 3 / 2 |
-| Sugar-Free White Chocolate Mocha | medium frozen chiller | only in draft B | not found | 220 / 6 / 4 / 7 / 20 / 150 / 43 / 7 / 6 / 5 |
-| Sugar-Free White Chocolate Mocha | large frozen chiller | only in draft B | not found | 270 / 7 / 4 / 7 / 20 / 190 / 55 / 10 / 7 / 5 |
-| Americano | kids iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Americano | small iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Americano | medium iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Americano | large iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Americano | kids hot | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Americano | small hot | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Americano | medium hot | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Americano | large hot | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Blondie Cold Brew | kids iced | only in draft B | not found | 90 / 1 / 0 / 0 / 0 / 30 / 19 / 0 / 16 / 0.5 |
-| Blondie Cold Brew | small iced | only in draft B | not found | 120 / 1 / 1 / 1 / 5 / 40 / 27 / 0 / 22 / 0.5 |
-| Blondie Cold Brew | medium iced | only in draft B | not found | 130 / 1 / 1 / 1 / 5 / 40 / 28 / 0 / 22 / 1 |
-| Blondie Cold Brew | large iced | only in draft B | not found | 130 / 1 / 1 / 1 / 5 / 50 / 30 / 0 / 22 / 1 |
-| Breve | kids iced | only in draft B | not found | 160 / 12 / 8 / 0 / 45 / 50 / 4 / 0 / 3 / 4 |
-| Breve | small iced | only in draft B | not found | 240 / 18 / 12 / 0 / 70 / 70 / 6 / 0 / 4 / 6 |
-| Breve | medium iced | only in draft B | not found | 400 / 30 / 20 / 0 / 115 / 120 / 10 / 0 / 7 / 10 |
-| Breve | large iced | only in draft B | not found | 480 / 36 / 24 / 0 / 140 / 140 / 12 / 0 / 8 / 12 |
-| Breve | kids hot | only in draft B | not found | 300 / 23 / 15 / 0 / 90 / 90 / 8 / 0 / 5 / 8 |
-| Breve | small hot | only in draft B | not found | 330 / 25 / 17 / 0 / 95 / 100 / 8 / 0 / 6 / 8 |
-| Breve | medium hot | only in draft B | not found | 470 / 35 / 23 / 0 / 135 / 140 / 12 / 0 / 8 / 12 |
-| Breve | large hot | only in draft B | not found | 530 / 40 / 27 / 0 / 155 / 160 / 13 / 0 / 9 / 13 |
-| Breve | kids frozen chiller | only in draft B | not found | 180 / 6 / 4 / 0 / 25 / 30 / 27 / 0 / 27 / 2 |
-| Breve | small frozen chiller | only in draft B | not found | 280 / 6 / 4 / 0 / 25 / 30 / 53 / 0 / 52 / 2 |
-| Breve | medium frozen chiller | only in draft B | not found | 460 / 12 / 8 / 0 / 45 / 60 / 80 / 0 / 79 / 4 |
-| Breve | large frozen chiller | only in draft B | not found | 550 / 12 / 8 / 0 / 45 / 60 / 105 / 0 / 104 / 4 |
-| Brown Sugar Cinnamon Americano | kids iced | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 |
-| Brown Sugar Cinnamon Americano | small iced | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 |
-| Brown Sugar Cinnamon Americano | medium iced | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 |
-| Brown Sugar Cinnamon Americano | large iced | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 |
-| Brown Sugar Cinnamon Americano | small hot | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 |
-| Brown Sugar Cinnamon Americano | medium hot | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 |
-| Brown Sugar Cinnamon Americano | large hot | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 |
-| Brunette Cold Brew | kids lced | only in draft B | not found | 110 / 1 / 1 / 0 / 5 / 40 / 24 / 0 / 20 / 0.5 |
-| Brunette Cold Brew | small lced | only in draft B | not found | 110 / 1 / 1 / 0 / 5 / 40 / 25 / 0 / 20 / 0.5 |
-| Brunette Cold Brew | medium lced | only in draft B | not found | 120 / 1 / 1 / 0 / 5 / 40 / 26 / 0 / 20 / 1 |
-| Brunette Cold Brew | large lced | only in draft B | not found | 120 / 1 / 1 / 0 / 5 / 50 / 28 / 0 / 20 / 1 |
-| Cappuccino | kids hot | only in draft B | not found | 80 / 5 / 3 / 0 / 20 / 60 / 7 / 0 / 6 / 5 |
-| Cappuccino | small hot | only in draft B | not found | 90 / 5 / 3 / 0 / 20 / 70 / 7 / 0 / 7 / 5 |
-| White Mac Cold Brew | medium iced | only in draft B | not found | 110 / 0 / 0 / 0 / 0 / 50 / 27 / 0 / 22 / 0 |
-| White Mac Cold Brew | large iced | only in draft B | not found | 120 / 0 / 0 / 0 / 0 / 50 / 28 / 0 / 22 / 0 |
-| Nightshade 7 Energy | small iced | only in draft B | not found | 180 / 0 / 0 / 0 / 0 / 115 / 50 / 0 / 44 / 0 |
-| Nightshade 7 Energy | medium iced | only in draft B | not found | 230 / 0 / 0 / 0 / 0 / 180 / 60 / 0 / 57 / 0 |
-| Nightshade 7 Energy | large iced | only in draft B | not found | 350 / 0 / 0 / 0 / 0 / 230 / 92 / 0 / 88 / 0 |
-| Nightshade 7 Energy | small frozen chiller | only in draft B | not found | 150 / 0 / 0 / 0 / 0 / 0 / 37 / 0 / 36 / 0 |
-| Nightshade 7 Energy | medium frozen chiller | only in draft B | not found | 180 / 0 / 0 / 0 / 0 / 0 / 45 / 0 / 44 / 0 |
-| Nightshade 7 Energy | large frozen chiller | only in draft B | not found | 290 / 0 / 0 / 0 / 0 / 5 / 74 / 0 / 72 / 0 |
-| Ocean Breeze 7 Energy | small iced | only in draft B | not found | 180 / 0 / 0 / 0 / 0 / 110 / 47 / 0 / 45 / 0 |
-| Ocean Breeze 7 Energy | medium iced | only in draft B | not found | 240 / 0 / 0 / 0 / 0 / 180 / 61 / 0 / 58 / 0 |
-| Ocean Breeze 7 Energy | large iced | only in draft B | not found | 360 / 0 / 0 / 0 / 0 / 230 / 94 / 0 / 91 / 0 |
-| Ocean Breeze 7 Energy | small frozen chiller | only in draft B | not found | 150 / 0 / 0 / 0 / 0 / 0 / 38 / 0 / 38 / 0 |
-| Ocean Breeze 7 Energy | medium frozen chiller | only in draft B | not found | 180 / 0 / 0 / 0 / 0 / 0 / 47 / 0 / 46 / 0 |
-| Ocean Breeze 7 Energy | large frozen chiller | only in draft B | not found | 300 / 0 / 0 / 0 / 0 / 10 / 77 / 0 / 75 / 0 |
-| Pixie Stick 7 Energy | small iced | only in draft B | not found | 170 / 0 / 0 / 0 / 0 / 110 / 45 / 0 / 43 / 0 |
-| Pixie Stick 7 Energy | medium iced | only in draft B | not found | 230 / 0 / 0 / 0 / 0 / 180 / 59 / 0 / 56 / 0 |
-| Pixie Stick 7 Energy | large iced | only in draft B | not found | 350 / 0 / 0 / 0 / 0 / 230 / 90 / 0 / 86 / 0 |
-| Pixie Stick 7 Energy | small frozen chiller | only in draft B | not found | 140 / 0 / 0 / 0 / 0 / 0 / 36 / 0 / 35 / 0 |
-| Pixie Stick 7 Energy | medium frozen chiller | only in draft B | not found | 180 / 0 / 0 / 0 / 0 / 0 / 45 / 0 / 43 / 0 |
-| Pixie Stick 7 Energy | large frozen chiller | only in draft B | not found | 290 / 0 / 0 / 0 / 0 / 10 / 72 / 0 / 71 / 0 |
-| Sunrise 7 Energy | small iced | only in draft B | not found | 180 / 0 / 0 / 0 / 0 / 110 / 46 / 0 / 44 / 0 |
-| Sunrise 7 Energy | medium iced | only in draft B | not found | 230 / 0 / 0 / 0 / 0 / 180 / 60 / 0 / 57 / 0 |
-| Sunrise 7 Energy | large iced | only in draft B | not found | 360 / 0 / 0 / 0 / 0 / 230 / 92 / 0 / 88 / 0 |
-| Sunrise 7 Energy | small frozen chiller | only in draft B | not found | 150 / 0 / 0 / 0 / 0 / 0 / 37 / 0 / 36 / 0 |
-| Sunrise 7 Energy | medium frozen chiller | only in draft B | not found | 180 / 0 / 0 / 0 / 0 / 0 / 46 / 0 / 44 / 0 |
-| Sunrise 7 Energy | large frozen chiller | only in draft B | not found | 290 / 0 / 0 / 0 / 0 / 10 / 74 / 0 / 72 / 0 |
-| Tropic Thunder 7 Energy | small iced | only in draft B | not found | 180 / 0 / 0 / 0 / 0 / 110 / 46 / 0 / 44 / 0 |
-| Tropic Thunder 7 Energy | medium iced | only in draft B | not found | 230 / 0 / 0 / 0 / 0 / 180 / 60 / 0 / 57 / 0 |
-| Tropic Thunder 7 Energy | large iced | only in draft B | not found | 350 / 0 / 0 / 0 / 0 / 230 / 91 / 0 / 88 / 0 |
-| Tropic Thunder 7 Energy | small frozen chiller | only in draft B | not found | 150 / 0 / 0 / 0 / 0 / 0 / 37 / 0 / 36 / 0 |
-| Tropic Thunder 7 Energy | medium frozen chiller | only in draft B | not found | 180 / 0 / 0 / 0 / 0 / 0 / 45 / 0 / 44 / 0 |
-| Tropic Thunder 7 Energy | large frozen chiller | only in draft B | not found | 290 / 0 / 0 / 0 / 0 / 10 / 74 / 0 / 72 / 0 |
-| Sugar-Free Peaches 'n Cream 7 Fizz Soda | kids iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 |
-| Sugar-Free Peaches 'n Cream 7 Fizz Soda | small iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 |
-| Sugar-Free Peaches 'n Cream 7 Fizz Soda | medium iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 20 / 1 / 0 / 0 / 0 |
-| Sugar-Free Peaches 'n Cream 7 Fizz Soda | large iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 20 / 1 / 0 / 0 / 0 |
-| Sugar-Free Peaches 'n Cream 7 Fizz Soda | kids frozen chiller | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 |
-| Sugar-Free Peaches 'n Cream 7 Fizz Soda | small frozen chiller | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 |
-| Sugar-Free Peaches 'n Cream 7 Fizz Soda | medium frozen chiller | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 20 / 1 / 0 / 0 / 0 |
-| Sugar-Free Peaches 'n Cream 7 Fizz Soda | large frozen chiller | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 20 / 1 / 0 / 0 / 0 |
-| 7 Fizz Soda | kids iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| 7 Fizz Soda | small iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| 7 Fizz Soda | medium iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| 7 Fizz Soda | large iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| 7 Fizz Soda | kids frozen chiller | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| 7 Fizz Soda | small frozen chiller | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| 7 Fizz Soda | medium frozen chiller | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| 7 Fizz Soda | large frozen chiller | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Blood Orange 7 Fizz Soda | kids iced | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 22 / 0 / 21 / 0 |
-| Blood Orange 7 Fizz Soda | small iced | only in draft B | not found | 170 / 0 / 0 / 0 / 0 / 10 / 43 / 0 / 42 / 0 |
-| Blood Orange 7 Fizz Soda | medium iced | only in draft B | not found | 250 / 0 / 0 / 0 / 0 / 10 / 65 / 0 / 63 / 0 |
-| Blood Orange 7 Fizz Soda | large iced | only in draft B | not found | 340 / 0 / 0 / 0 / 0 / 20 / 86 / 0 / 85 / 0 |
-| Blood Orange 7 Fizz Soda | kids frozen chiller | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 22 / 0 / 21 / 0 |
-| Blood Orange 7 Fizz Soda | small frozen chiller | only in draft B | not found | 170 / 0 / 0 / 0 / 0 / 10 / 43 / 0 / 42 / 0 |
-| Blood Orange 7 Fizz Soda | medium frozen chiller | only in draft B | not found | 250 / 0 / 0 / 0 / 0 / 10 / 65 / 0 / 63 / 0 |
-| Blood Orange 7 Fizz Soda | large frozen chiller | only in draft B | not found | 340 / 0 / 0 / 0 / 0 / 20 / 86 / 0 / 85 / 0 |
-| Brew Lagoon 7 Fizz Soda | kids iced | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 21 / 0 / 21 / 0 |
-| Brew Lagoon 7 Fizz Soda | small iced | only in draft B | not found | 170 / 0 / 0 / 0 / 0 / 10 / 43 / 0 / 43 / 0 |
-| Brew Lagoon 7 Fizz Soda | medium iced | only in draft B | not found | 250 / 0 / 0 / 0 / 0 / 10 / 64 / 0 / 64 / 0 |
-| Brew Lagoon 7 Fizz Soda | large iced | only in draft B | not found | 340 / 0 / 0 / 0 / 0 / 10 / 85 / 0 / 85 / 0 |
-| Brew Lagoon 7 Fizz Soda | kids frozen chiller | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 21 / 0 / 21 / 0 |
-| Brew Lagoon 7 Fizz Soda | small frozen chiller | only in draft B | not found | 170 / 0 / 0 / 0 / 0 / 10 / 43 / 0 / 43 / 0 |
-| Brew Lagoon 7 Fizz Soda | medium frozen chiller | only in draft B | not found | 250 / 0 / 0 / 0 / 0 / 10 / 64 / 0 / 64 / 0 |
-| Brew Lagoon 7 Fizz Soda | large frozen chiller | only in draft B | not found | 340 / 0 / 0 / 0 / 0 / 10 / 85 / 0 / 85 / 0 |
-| Peaches 'n Cream 7 Fizz Soda | kids iced | only in draft B | not found | 90 / 0 / 0 / 0 / 0 / 0 / 23 / 0 / 23 / 0 |
-| Peaches 'n Cream 7 Fizz Soda | small iced | only in draft B | not found | 180 / 0 / 0 / 0 / 0 / 10 / 47 / 0 / 46 / 0 |
-| Peaches 'n Cream 7 Fizz Soda | medium iced | only in draft B | not found | 270 / 0 / 0 / 0 / 0 / 10 / 70 / 0 / 69 / 0 |
-| Peaches 'n Cream 7 Fizz Soda | large iced | only in draft B | not found | 360 / 0 / 0 / 0 / 0 / 10 / 93 / 0 / 92 / 0 |
-| Peaches 'n Cream 7 Fizz Soda | kids frozen chiller | only in draft B | not found | 90 / 0 / 0 / 0 / 0 / 0 / 23 / 0 / 23 / 0 |
-| Peaches 'n Cream 7 Fizz Soda | small frozen chiller | only in draft B | not found | 180 / 0 / 0 / 0 / 0 / 10 / 47 / 0 / 46 / 0 |
-| Peaches 'n Cream 7 Fizz Soda | medium frozen chiller | only in draft B | not found | 270 / 0 / 0 / 0 / 0 / 10 / 70 / 0 / 69 / 0 |
-| Peaches 'n Cream 7 Fizz Soda | large frozen chiller | only in draft B | not found | 360 / 0 / 0 / 0 / 0 / 10 / 93 / 0 / 92 / 0 |
-| Pink Mermaid 7 Fizz Soda | kids iced | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 21 / 0 / 20 / 0 |
-| Pink Mermaid 7 Fizz Soda | small iced | only in draft B | not found | 160 / 0 / 0 / 0 / 0 / 10 / 41 / 0 / 41 / 0 |
-| Pink Mermaid 7 Fizz Soda | medium iced | only in draft B | not found | 240 / 0 / 0 / 0 / 0 / 10 / 62 / 0 / 61 / 0 |
-| Pink Mermaid 7 Fizz Soda | large iced | only in draft B | not found | 320 / 0 / 0 / 0 / 0 / 10 / 82 / 0 / 81 / 0 |
-| Pink Mermaid 7 Fizz Soda | kids frozen chiller | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 21 / 0 / 20 / 0 |
-| Pink Mermaid 7 Fizz Soda | small frozen chiller | only in draft B | not found | 160 / 0 / 0 / 0 / 0 / 10 / 41 / 0 / 41 / 0 |
-| Pink Mermaid 7 Fizz Soda | medium frozen chiller | only in draft B | not found | 240 / 0 / 0 / 0 / 0 / 10 / 62 / 0 / 61 / 0 |
-| Pink Mermaid 7 Fizz Soda | large frozen chiller | only in draft B | not found | 320 / 0 / 0 / 0 / 0 / 10 / 82 / 0 / 81 / 0 |
-| Sugar-Free Brewchata Chai | kids frozen chiller | only in draft B | not found | 70 / 10 / 0 / 0 / 0 / 20 / 15 / 0 / 15 / 1 |
-| Sugar-Free Brewchata Chai | small frozen chiller | only in draft B | not found | 110 / 10 / 0 / 0 / 0 / 40 / 25 / 0 / 25 / 1 |
-| Sugar-Free Brewchata Chai | medium frozen chiller | only in draft B | not found | 180 / 20 / 0 / 0 / 0 / 60 / 40 / 0 / 39 / 2 |
-| Sugar-Free Brewchata Chai | large frozen chiller | only in draft B | not found | 220 / 20 / 0 / 0 / 0 / 80 / 50 / 1 / 49 / 2 |
-| Sugar-Free Brewchata Chai Latte | kids iced | only in draft B | not found | 50 / 10 / 0 / 0 / 0 / 50 / 9 / 0 / 9 / 1 |
-| Sugar-Free Brewchata Chai Latte | small iced | only in draft B | not found | 90 / 20 / 0 / 0 / 0 / 80 / 17 / 0.5 / 17 / 2 |
-| Sugar-Free Brewchata Chai Latte | medium iced | only in draft B | not found | 150 / 30 / 0 / 0 / 0 / 110 / 28 / 1 / 27 / 3 |
-| Sugar-Free Brewchata Chai Latte | large iced | only in draft B | not found | 200 / 40 / 0 / 0 / 0 / 150 / 39 / 1 / 38 / 5 |
-| Sugar-Free Brewchata Chai Latte | kids hot | only in draft B | not found | 100 / 20 / 0 / 0 / 0 / 80 / 19 / 1 / 18 / 3 |
-| Sugar-Free Brewchata Chai Latte | small hot | only in draft B | not found | 130 / 30 / 0 / 0 / 0 / 100 / 24 / 1 / 23 / 3 |
-| Sugar-Free Brewchata Chai Latte | medium hot | only in draft B | not found | 170 / 40 / 0 / 0 / 0 / 130 / 33 / 1 / 32 / 4 |
-| Sugar-Free Brewchata Chai Latte | large hot | only in draft B | not found | 220 / 50 / 0 / 0 / 0 / 160 / 42 / 1 / 41 / 5 |
-| Sugar-Free Cereal Milk Matcha | kids frozen chiller | only in draft B | not found | 160 / 40 / 3 / 1 / 10 / 190 / 27 / 1 / 22 / 4 |
-| Sugar-Free Cereal Milk Matcha | small frozen chiller | only in draft B | not found | 250 / 60 / 5 / 1 / 20 / 230 / 45 / 1 / 39 / 7 |
-| Sugar-Free Cereal Milk Matcha | medium frozen chiller | only in draft B | not found | 370 / 90 / 7 / 1 / 25 / 270 / 69 / 1 / 62 / 10 |
-| Sugar-Free Cereal Milk Matcha | large frozen chiller | only in draft B | not found | 500 / 120 / 9 / 1 / 35 / 450 / 90 / 1 / 78 / 13 |
-| Sugar-Free Cereal Milk Matcha Latte | kids iced | only in draft B | not found | 120 / 30 / 2 / 1 / 15 / 180 / 15 / 1 / 11 / 3 |
-| Sugar-Free Cereal Milk Matcha Latte | small iced | only in draft B | not found | 180 / 50 / 3 / 1 / 20 / 210 / 25 / 1 / 21 / 5 |
-| Sugar-Free Cereal Milk Matcha Latte | medium iced | only in draft B | not found | 260 / 70 / 5 / 1 / 35 / 250 / 36 / 1 / 32 / 8 |
-| Sugar-Free Cereal Milk Matcha Latte | large iced | only in draft B | not found | 350 / 100 / 7 / 1 / 45 / 300 / 48 / 1 / 44 / 11 |
-| Sugar-Free Cereal Milk Matcha Latte | kids hot | only in draft B | not found | 200 / 50 / 4 / 1 / 25 / 220 / 26 / 1 / 22 / 6 |
-| Sugar-Free Cereal Milk Matcha Latte | small hot | only in draft B | not found | 240 / 60 / 4 / 1 / 30 / 230 / 34 / 1 / 30 / 7 |
-| Sugar-Free Cereal Milk Matcha Latte | medium hot | only in draft B | not found | 310 / 80 / 6 / 1 / 40 / 270 / 45 / 1 / 41 / 9 |
-| Sugar-Free Cereal Milk Matcha Latte | large hot | only in draft B | not found | 380 / 110 / 7 / 1 / 50 / 310 / 56 / 1 / 52 / 12 |
-| Sugar-Free Georgia Peach Black Tea | kids iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 |
-| Sugar-Free Georgia Peach Black Tea | small iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 |
-| Sugar-Free Georgia Peach Black Tea | medium iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 10 / 1 / 0 / 0 / 0 |
-| Sugar-Free Georgia Peach Black Tea | large iced | only in draft B | not found | 10 / 0 / 0 / 0 / 0 / 20 / 1 / 0 / 0 / 0 |
-| Sugar-Free Georgia Peach Black Tea | kids hot | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 |
-| Sugar-Free Georgia Peach Black Tea | small hot | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 |
-| Sugar-Free Georgia Peach Black Tea | medium hot | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 |
-| Sugar-Free Georgia Peach Black Tea | large hot | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 |
-| Sugar-Free Georgia Peach Black Tea | kids frozen chiller | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 |
-| Sugar-Free Strawberry Matcha | kids frozen chiller | only in draft B | not found | 120 / 40 / 3 / 0 / 10 / 60 / 24 / 0 / 22 / 4 |
-| Sugar-Free Strawberry Matcha | small frozen chiller | only in draft B | not found | 210 / 60 / 5 / 0 / 20 / 90 / 42 / 0 / 39 / 7 |
-| Sugar-Free Strawberry Matcha | medium frozen chiller | only in draft B | not found | 330 / 90 / 7 / 0 / 25 / 140 / 66 / 0 / 62 / 10 |
-| Sugar-Free Strawberry Matcha | large frozen chiller | only in draft B | not found | 430 / 120 / 9 / 0 / 35 / 190 / 84 / 0 / 78 / 13 |
-| Sugar-Free Strawberry Matcha Latte | kids iced | only in draft B | not found | 80 / 30 / 2 / 0 / 15 / 50 / 12 / 0 / 11 / 3 |
-| Sugar-Free Strawberry Matcha Latte | small iced | only in draft B | not found | 150 / 50 / 3 / 0 / 20 / 80 / 22 / 0 / 21 / 5 |
-| Sugar-Free Strawberry Matcha Latte | medium iced | only in draft B | not found | 230 / 70 / 5 / 0 / 35 / 120 / 33 / 0 / 32 / 8 |
-| Sugar-Free Strawberry Matcha Latte | large iced | only in draft B | not found | 310 / 100 / 7 / 0 / 45 / 160 / 45 / 0 / 44 / 11 |
-| Sugar-Free Strawberry Matcha Latte | kids hot | only in draft B | not found | 160 / 50 / 4 / 0 / 25 / 90 / 23 / 0 / 22 / 6 |
-| Sugar-Free Strawberry Matcha Latte | small hot | only in draft B | not found | 200 / 60 / 4 / 0 / 30 / 100 / 31 / 0 / 30 / 7 |
-| Sugar-Free Strawberry Matcha Latte | medium hot | only in draft B | not found | 270 / 80 / 6 / 0 / 40 / 140 / 42 / 0 / 41 / 9 |
-| Sugar-Free Strawberry Matcha Latte | large hot | only in draft B | not found | 350 / 110 / 7 / 0 / 50 / 170 / 53 / 0 / 52 / 12 |
-| Hula Earl Grey Tea | large hot | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 |
-| Hula Green Tea | kids iced | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 |
-| Hula Green Tea | small iced | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 |
-| Hula Green Tea | medium iced | only in draft B | not found | 150 / 0 / 0 / 0 / 0 / 10 / 39 / 0 / 38 / 0 |
-| Hula Green Tea | large iced | only in draft B | not found | 230 / 0 / 0 / 0 / 0 / 10 / 58 / 0 / 57 / 0 |
-| Hula Green Tea | kids hot | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 |
-| Hula Green Tea | small hot | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 |
-| Hula Green Tea | medium hot | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 |
-| Hula Green Tea | large hot | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 |
-| Hula Green Tea | kids frozen chiller | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 |
-| Hula Green Tea | small frozen chiller | only in draft B | not found | 150 / 0 / 0 / 0 / 0 / 10 / 39 / 0 / 38 / 0 |
-| Hula Green Tea | medium frozen chiller | only in draft B | not found | 230 / 0 / 0 / 0 / 0 / 10 / 58 / 0 / 57 / 0 |
-| Hula Green Tea | large frozen chiller | only in draft B | not found | 300 / 0 / 0 / 0 / 0 / 10 / 78 / 0 / 76 / 0 |
-| Hula Paris Tea | kids iced | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 |
-| Hula Paris Tea | small iced | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 |
-| Hula Paris Tea | medium iced | only in draft B | not found | 150 / – / – / – / – / – / – / – / – / – |
-| Hula Paris Tea | large iced | only in draft B | not found | 230 / – / – / – / – / – / – / – / – / – |
-| Hula Paris Tea | kids hot | only in draft B | not found | 80 / – / – / – / – / – / – / – / – / – |
-| Hula Paris Tea | small hot | only in draft B | not found | 80 / – / – / – / – / – / – / – / – / – |
-| Hula Paris Tea | medium hot | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 |
-| Hula Paris Tea | large hot | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 |
-| Hula Paris Tea | kids frozen chiller | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 |
-| Hula Paris Tea | small frozen chiller | only in draft B | not found | 150 / – / – / – / – / – / – / – / – / – |
-| Hula Paris Tea | medium frozen chiller | only in draft B | not found | 230 / – / – / – / – / – / – / – / – / – |
-| Hula Paris Tea | large frozen chiller | only in draft B | not found | 300 / – / – / – / – / – / – / – / – / – |
-| Matcha | kids frozen chiller | only in draft B | not found | 150 / 4 / 3 / 0 / 10 / 50 / 30 / 0 / 29 / 2 |
-| Matcha | small frozen chiller | only in draft B | not found | 240 / 7 / 5 / 0 / 20 / 90 / 49 / 0 / 46 / 4 |
-| Matcha | medium frozen chiller | only in draft B | not found | 350 / 10 / 7 / 0 / 25 / 130 / 73 / 0 / 69 / 6 |
-| Matcha | large frozen chiller | only in draft B | not found | 470 / 13 / 9 / 0 / 35 / 170 / 97 / 0 / 92 / 8 |
-| Matcha Latte | kids iced | only in draft B | not found | 100 / 4 / 3 / 0 / 15 / 60 / 13 / 0 / 13 / 4 |
-| Matcha Latte | small iced | only in draft B | not found | 160 / 6 / 4 / 0 / 25 / 90 / 23 / 0 / 23 / 6 |
-| Matcha Latte | medium iced | only in draft B | not found | 240 / 9 / 6 / 0 / 40 / 130 / 34 / 0 / 34 / 9 |
-| Matcha Latte | large iced | only in draft B | not found | 330 / 12 / 8 / 0 / 50 / 170 / 46 / 0 / 45 / 12 |
-| Matcha Latte | kids hot | only in draft B | not found | 180 / 7 / 4 / 0 / 30 / 90 / 24 / 0 / 23 / 7 |
-| Matcha Latte | small hot | only in draft B | not found | 220 / 8 / 5 / 0 / 30 / 110 / 32 / 0 / 32 / 8 |
-| Matcha Latte | medium hot | only in draft B | not found | 290 / 10 / 6 / 0 / 40 / 140 / 43 / 0 / 42 / 10 |
-| Matcha Latte | large hot | only in draft B | not found | 360 / 13 / 8 / 0 / 50 / 180 / 53 / 0 / 53 / 13 |
-| Paris Tea | kids iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Paris Tea | small iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Paris Tea | medium iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Paris Tea | large iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Paris Tea | kids hot | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Paris Tea | small hot | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Paris Tea | medium hot | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Paris Tea | large hot | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Paris Tea | kids frozen chiller | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Paris Tea | small frozen chiller | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Paris Tea | medium frozen chiller | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Paris Tea | large frozen chiller | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Salted Honey Chai | kids frozen chiller | only in draft B | not found | 190 / 2 / 1 / 0 / 5 / 80 / 45 / 0 / 45 / 0.5 |
-| Salted Honey Chai | small frozen chiller | only in draft B | not found | 260 / 3 / 2 / 0 / 10 / 100 / 60 / 0 / 58 / 2 |
-| Salted Honey Chai | medium frozen chiller | only in draft B | not found | 350 / 5 / 3 / 0 / 15 / 120 / 79 / 0 / 77 / 3 |
-| Salted Honey Chai | large frozen chiller | only in draft B | not found | 520 / 7 / 5 / 0 / 20 / 190 / 120 / 0 / 117 / 4 |
-| Salted Honey Chai Latte | kids iced | only in draft B | not found | 170 / 2 / 1 / 0 / 10 / 80 / 39 / 0 / 38 / 2 |
-| Salted Honey Chai Latte | small iced | only in draft B | not found | 230 / 4 / 2 / 0 / 15 / 100 / 48 / 0 / 47 / 4 |
-| Salted Honey Chai Latte | medium iced | only in draft B | not found | 300 / 6 / 3 / 0 / 25 / 130 / 60 / 0 / 60 / 6 |
-| Salted Honey Chai Latte | large iced | only in draft B | not found | 380 / 8 / 5 / 0 / 30 / 160 / 72 / 0 / 72 / 8 |
-| Salted Honey Chai Latte | kids hot | only in draft B | not found | 240 / 4 / 2 / 0 / 15 / 110 / 49 / 0 / 49 / 4 |
-| Salted Honey Chai Latte | small hot | only in draft B | not found | 270 / 5 / 3 / 0 / 20 / 120 / 54 / 0 / 54 / 5 |
-| Salted Honey Chai Latte | medium hot | only in draft B | not found | 330 / 6 / 4 / 0 / 25 / 140 / 65 / 0 / 64 / 6 |
-| Salted Honey Chai Latte | large hot | only in draft B | not found | 390 / 8 / 5 / 0 / 35 / 170 / 75 / 0 / 74 / 8 |
-| Strawberry Matcha | kids frozen chiller | only in draft B | not found | 200 / 4 / 3 / 0 / 10 / 60 / 43 / 0 / 41 / 2 |
-| Strawberry Matcha | small frozen chiller | only in draft B | not found | 290 / 7 / 5 / 0 / 20 / 90 / 61 / 0 / 58 / 4 |
-| Strawberry Matcha | medium frozen chiller | only in draft B | not found | 400 / 10 / 7 / 0 / 25 / 130 / 85 / 0 / 81 / 6 |
-| Strawberry Matcha | large frozen chiller | only in draft B | not found | 570 / 13 / 9 / 0 / 35 / 180 / 122 / 0 / 116 / 8 |
-| Strawberry Matcha Latte | kids iced | only in draft B | not found | 160 / 3 / 2 / 0 / 15 / 50 / 31 / 0 / 30 / 3 |
-| Strawberry Matcha Latte | small iced | only in draft B | not found | 220 / 5 / 3 / 0 / 20 / 70 / 41 / 0 / 40 / 5 |
-| Strawberry Matcha Latte | medium iced | only in draft B | not found | 300 / 8 / 5 / 0 / 35 / 120 / 52 / 0 / 52 / 8 |
-| Strawberry Matcha Latte | large iced | only in draft B | not found | 380 / 11 / 7 / 0 / 45 / 160 / 64 / 0 / 63 / 11 |
-| Strawberry Matcha Latte | kids hot | only in draft B | not found | 240 / 6 / 4 / 0 / 25 / 90 / 42 / 0 / 41 / 6 |
-| Strawberry Matcha Latte | small hot | only in draft B | not found | 340 / 10 / 6 / 0 / 40 / 150 / 55 / 0 / 54 / 10 |
-| Strawberry Matcha Latte | medium hot | only in draft B | not found | 350 / 9 / 6 / 0 / 40 / 130 / 61 / 0 / 60 / 9 |
-| Strawberry Matcha Latte | large hot | only in draft B | not found | 420 / 12 / 7 / 0 / 50 / 170 / 72 / 0 / 71 / 12 |
-| Sugar Cookie Chai | kids frozen chiller | only in draft B | not found | 180 / 2 / 1 / 0 / 5 / 80 / 43 / 0 / 41 / 1 |
-| Sugar Cookie Chai | small frozen chiller | only in draft B | not found | 250 / 3 / 2 / 0 / 10 / 100 / 57 / 0 / 55 / 2 |
-| Sugar Cookie Chai | medium frozen chiller | only in draft B | not found | 340 / 5 / 3 / 0 / 15 / 130 / 76 / 0 / 73 / 3 |
-| Sugar Cookie Chai | large frozen chiller | only in draft B | not found | 510 / 7 / 5 / 0 / 20 / 210 / 114 / 0 / 109 / 5 |
-| Sugar Cookie Chai Latte | kids iced | only in draft B | not found | 170 / 2 / 1 / 0 / 10 / 90 / 36 / 0 / 35 / 2 |
-| Sugar Cookie Chai Latte | small iced | only in draft B | not found | 220 / 4 / 2 / 0 / 15 / 110 / 45 / 0 / 44 / 4 |
-| Sugar Cookie Chai Latte | medium iced | only in draft B | not found | 300 / 6 / 4 / 0 / 25 / 140 / 57 / 0 / 56 / 6 |
-| Sugar Cookie Chai Latte | large iced | only in draft B | not found | 370 / 8 / 5 / 0 / 30 / 170 / 69 / 0 / 68 / 8 |
-| Sugar Cookie Chai Latte | kids hot | only in draft B | not found | 230 / 4 / 2 / 0 / 15 / 110 / 46 / 0 / 45 / 4 |
-| Sugar Cookie Chai Latte | small hot | only in draft B | not found | 260 / 5 / 3 / 0 / 20 / 130 / 52 / 0 / 50 / 5 |
-| Sugar Cookie Chai Latte | medium hot | only in draft B | not found | 330 / 6 / 4 / 0 / 25 / 150 / 62 / 0 / 60 / 7 |
-| Sugar Cookie Chai Latte | large hot | only in draft B | not found | 390 / 8 / 5 / 0 / 35 / 170 / 72 / 0 / 71 / 8 |
-| Sugar-Free Cocoberry Lemon Freeze | kids Lemon Freeze | only in draft B | not found | 220 / 4 / 3 / 0 / 10 / 60 / 46 / 0 / 43 / 2 |
-| Sugar-Free Cocoberry Lemon Freeze | small Lemon Freeze | only in draft B | not found | 400 / 7 / 5 / 0 / 20 / 90 / 86 / 0 / 81 / 4 |
-| Sugar-Free Cocoberry Lemon Freeze | medium Lemon Freeze | only in draft B | not found | 640 / 10 / 7 / 0 / 25 / 140 / 140 / 0 / 133 / 6 |
-| Sugar-Free Cocoberry Lemon Freeze | large Lemon Freeze | only in draft B | not found | 800 / 13 / 9 / 0 / 35 / 190 / 172 / 1 / 163 / 8 |
-| Sugar-Free Cocoberry Lemonade | kids iced | only in draft B | not found | 70 / 0 / 0 / 0 / 0 / 10 / 17 / 0 / 16 / 0.5 |
-| Sugar-Free Cocoberry Lemonade | small iced | only in draft B | not found | 120 / 0 / 0 / 0 / 0 / 10 / 30 / 0 / 29 / 0.5 |
-| Sugar-Free Cocoberry Lemonade | medium iced | only in draft B | not found | 190 / 0 / 0 / 0 / 0 / 10 / 47 / 0 / 45 / 0.5 |
-| Sugar-Free Cocoberry Lemonade | large iced | only in draft B | not found | 240 / 0 / 0 / 0 / 0 / 10 / 60 / 0 / 57 / 0.5 |
-| Sugar-Free Cocoberry Lemonade | kids frozen chiller | only in draft B | not found | 170 / 0 / 0 / 0 / 0 / 10 / 43 / 0 / 42 / 0.5 |
-| Sugar-Free Cocoberry Lemonade | small frozen chiller | only in draft B | not found | 330 / 0 / 0 / 0 / 0 / 10 / 82 / 0 / 80 / 0.5 |
-| Sugar-Free Cocoberry Lemonade | medium frozen chiller | only in draft B | not found | 540 / 0 / 0 / 1 / 0 / 10 / 135 / 1 / 130 / 0.5 |
-| Sugar-Free Cocoberry Lemonade | large frozen chiller | only in draft B | not found | 660 / 0 / 0 / 1 / 0 / 20 / 165 / 1 / 159 / 0.5 |
-| Cocoberry Lemon Freeze | kids Lemon Freeze | only in draft B | not found | 300 / 4 / 3 / 0 / 10 / 60 / 68 / 0 / 66 / 2 |
-| Cocoberry Lemon Freeze | small Lemon Freeze | only in draft B | not found | 490 / 7 / 5 / 0 / 20 / 90 / 109 / 0 / 104 / 4 |
-| Cocoberry Lemon Freeze | medium Lemon Freeze | only in draft B | not found | 730 / 10 / 7 / 0 / 25 / 140 / 163 / 0 / 155 / 6 |
-| Cocoberry Lemon Freeze | large Lemon Freeze | only in draft B | not found | 970 / 13 / 9 / 0 / 35 / 190 / 217 / 1 / 208 / 8 |
-| Cocoberry Lemonade | kids iced | only in draft B | not found | 160 / 0 / 0 / 0 / 0 / 0 / 40 / 0 / 39 / 0.5 |
-| Cocoberry Lemonade | small iced | only in draft B | not found | 210 / 0 / 0 / 0 / 0 / 0 / 52 / 0 / 51 / 0.5 |
-| Cocoberry Lemonade | medium iced | only in draft B | not found | 280 / 0 / 0 / 0 / 0 / 10 / 69 / 0 / 68 / 0.5 |
-| Cocoberry Lemonade | large iced | only in draft B | not found | 420 / 0 / 0 / 0 / 0 / 10 / 105 / 0 / 103 / 0.5 |
-| Cocoberry Lemonade | kids frozen chiller | only in draft B | not found | 260 / 0 / 0 / 0 / 0 / 10 / 66 / 0 / 65 / 0.5 |
-| Cocoberry Lemonade | small frozen chiller | only in draft B | not found | 420 / 0 / 0 / 0 / 0 / 10 / 105 / 0 / 102 / 0.5 |
-| Cocoberry Lemonade | medium frozen chiller | only in draft B | not found | 630 / 0 / 0 / 1 / 0 / 10 / 157 / 1 / 153 / 0.5 |
-| Cocoberry Lemonade | large frozen chiller | only in draft B | not found | 840 / 0 / 0 / 1 / 0 / 20 / 210 / 1 / 205 / 0.5 |
-| Fruit Roll-Up Lemon Freeze | kids Lemon Freeze | only in draft B | not found | 300 / 4 / 3 / 0 / 10 / 60 / 67 / 0 / 64 / 2 |
-| Fruit Roll-Up Lemon Freeze | small Lemon Freeze | only in draft B | not found | 480 / 7 / 5 / 0 / 20 / 90 / 107 / 0 / 102 / 4 |
-| Fruit Roll-Up Lemon Freeze | medium Lemon Freeze | only in draft B | not found | 720 / 10 / 7 / 0 / 25 / 140 / 161 / 0 / 154 / 6 |
-| Fruit Roll-Up Lemon Freeze | large Lemon Freeze | only in draft B | not found | 960 / 13 / 9 / 0 / 35 / 190 / 214 / 1 / 205 / 8 |
-| Fruit Roll-Up Lemonade | kids iced | only in draft B | not found | 150 / 0 / 0 / 0 / 0 / 0 / 38 / 0 / 37 / 0.5 |
-| Fruit Roll-Up Lemonade | small iced | only in draft B | not found | 200 / 0 / 0 / 0 / 0 / 0 / 51 / 0 / 50 / 0.5 |
-| Fruit Roll-Up Lemonade | medium iced | only in draft B | not found | 270 / 0 / 0 / 0 / 0 / 10 / 68 / 0 / 66 / 0.5 |
-| Fruit Roll-Up Lemonade | large iced | only in draft B | not found | 400 / 0 / 0 / 0 / 0 / 10 / 102 / 0 / 100 / 0.5 |
-| Fruit Roll-Up Lemonade | kids frozen chiller | only in draft B | not found | 260 / 0 / 0 / 0 / 0 / 10 / 65 / 0 / 63 / 0.5 |
-| Fruit Roll-Up Lemonade | small frozen chiller | only in draft B | not found | 410 / 0 / 0 / 0 / 0 / 10 / 104 / 0 / 101 / 0.5 |
-| Fruit Roll-Up Lemonade | medium frozen chiller | only in draft B | not found | 620 / 0 / 0 / 1 / 0 / 10 / 156 / 1 / 151 / 0.5 |
-| Fruit Roll-Up Lemonade | large frozen chiller | only in draft B | not found | 830 / 0 / 0 / 1 / 0 / 20 / 207 / 1 / 201 / 0.5 |
-| Key Lime Pie Lemon Freeze | kids Lemon Freeze | only in draft B | not found | 300 / 4 / 3 / 0 / 10 / 80 / 67 / 0 / 64 / 3 |
-| Key Lime Pie Lemon Freeze | small Lemon Freeze | only in draft B | not found | 490 / 7 / 5 / 0 / 20 / 120 / 108 / 0 / 102 / 4 |
-| Key Lime Pie Lemon Freeze | medium Lemon Freeze | only in draft B | not found | 730 / 10 / 7 / 1 / 25 / 160 / 162 / 1 / 153 / 6 |
-| Key Lime Pie Lemon Freeze | large Lemon Freeze | only in draft B | not found | 970 / 14 / 9 / 1 / 35 / 240 / 215 / 1 / 204 / 9 |
-| Key Lime Pie LemonFreeze | small iced | only in draft B | not found | 160 / 0 / 0 / 0 / 0 / 30 / 39 / 0 / 37 / 0.5 |
-| Key Lime Pie LemonFreeze | medium iced | only in draft B | not found | 280 / 0 / 0 / 0 / 0 / 30 / 68 / 0 / 66 / 0.5 |
-| Key Lime Pie LemonFreeze | large iced | only in draft B | not found | 420 / 0 / 0 / 0 / 0 / 60 / 103 / 0 / 99 / 0.5 |
-| Key Lime Pie LemonFreeze | kids frozen chiller | only in draft B | not found | 260 / 0 / 0 / 0 / 0 / 30 / 65 / 0 / 63 / 0.5 |
-| Key Lime Pie LemonFreeze | small frozen chiller | only in draft B | not found | 420 / 0 / 0 / 0 / 0 / 30 / 104 / 0 / 100 / 0.5 |
-| Key Lime Pie LemonFreeze | medium frozen chiller | only in draft B | not found | 630 / 0 / 0 / 1 / 0 / 30 / 156 / 1 / 151 / 0.5 |
-| Key Lime Pie LemonFreeze | large frozen chiller | only in draft B | not found | 840 / 1 / 0 / 1 / 0 / 60 / 208 / 1 / 201 / 1 |
-| Lemon Freeze | kids Lemon Freeze | only in draft B | not found | 300 / 4 / 3 / 0 / 10 / 60 / 67 / 0 / 64 / 2 |
-| Lemon Freeze | small Lemon Freeze | only in draft B | not found | 480 / 7 / 5 / 0 / 20 / 90 / 108 / 0 / 102 / 4 |
-| Lemon Freeze | medium Lemon Freeze | only in draft B | not found | 730 / 10 / 7 / 1 / 25 / 140 / 162 / 1 / 154 / 6 |
-| Lemon Freeze | large Lemon Freeze | only in draft B | not found | 970 / 13 / 9 / 1 / 35 / 180 / 216 / 1 / 205 / 8 |
-| Lemonade | kids iced | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 21 / 0 / 21 / 0.5 |
-| Lemonade | small iced | only in draft B | not found | 140 / 0 / 0 / 0 / 0 / 0 / 34 / 0 / 33 / 0.5 |
-| Lemonade | medium iced | only in draft B | not found | 200 / 0 / 0 / 0 / 0 / 0 / 51 / 0 / 49 / 0.5 |
-| Lemonade | large iced | only in draft B | not found | 270 / 0 / 0 / 0 / 0 / 0 / 68 / 0 / 66 / 0.5 |
-| Lemonade | kids frozen chiller | only in draft B | not found | 260 / 0 / 0 / 0 / 0 / 0 / 65 / 0 / 63 / 0.5 |
-| Lemonade | small frozen chiller | only in draft B | not found | 420 / 0 / 0 / 0 / 0 / 10 / 104 / 0 / 101 / 0.5 |
-| Lemonade | medium frozen chiller | only in draft B | not found | 630 / 0 / 0 / 1 / 0 / 10 / 156 / 1 / 151 / 0.5 |
-| Lemonade | large frozen chiller | only in draft B | not found | 830 / 0 / 0 / 1 / 0 / 10 / 208 / 1 / 202 / 0.5 |
-| Pink Paradise Lemon Freeze | kids Lemon Freeze | only in draft B | not found | 290 / 4 / 3 / 0 / 10 / 60 / 66 / 0 / 63 / 2 |
-| Pink Paradise Lemon Freeze | small Lemon Freeze | only in draft B | not found | 480 / 7 / 5 / 0 / 20 / 90 / 106 / 0 / 101 / 4 |
-| Pink Paradise Lemon Freeze | medium Lemon Freeze | only in draft B | not found | 720 / 10 / 7 / 0 / 25 / 140 / 160 / 0 / 153 / 6 |
-| Pink Paradise Lemon Freeze | large Lemon Freeze | only in draft B | not found | 950 / 13 / 9 / 1 / 35 / 190 / 212 / 1 / 203 / 8 |
-| Pink Paradise LemonFreeze | kids iced | only in draft B | not found | 150 / 0 / 0 / 0 / 0 / 0 / 37 / 0 / 37 / 0.5 |
-| Pink Paradise LemonFreeze | small iced | only in draft B | not found | 200 / 0 / 0 / 0 / 0 / 0 / 50 / 0 / 49 / 0.5 |
-| Pink Paradise LemonFreeze | medium iced | only in draft B | not found | 270 / 0 / 0 / 0 / 0 / 10 / 67 / 0 / 65 / 0.5 |
-| Pink Paradise LemonFreeze | large iced | only in draft B | not found | 400 / 0 / 0 / 0 / 0 / 10 / 100 / 0 / 98 / 0.5 |
-| Pink Paradise LemonFreeze | kids frozen chiller | only in draft B | not found | 250 / 0 / 0 / 0 / 0 / 10 / 64 / 0 / 62 / 0.5 |
-| Pink Paradise LemonFreeze | small frozen chiller | only in draft B | not found | 410 / 0 / 0 / 0 / 0 / 10 / 103 / 0 / 100 / 0.5 |
-| Pink Paradise LemonFreeze | medium frozen chiller | only in draft B | not found | 620 / 0 / 0 / 1 / 0 / 10 / 155 / 1 / 150 / 0.5 |
-| Pink Paradise LemonFreeze | large frozen chiller | only in draft B | not found | 820 / 0 / 0 / 1 / 0 / 10 / 205 / 1 / 200 / 0.5 |
-| Blackberry Cobbler Wildberry | kids Smoothie | only in draft B | not found | 240 / 2 / 1 / 0 / 5 / 90 / 57 / 1 / 51 / 1 |
-| Blackberry Cobbler Wildberry | small Smoothie | only in draft B | not found | 360 / 3 / 2 / 0 / 10 / 110 / 83 / 2 / 72 / 2 |
-| Blackberry Cobbler Wildberry | medium Smoothie | only in draft B | not found | 510 / 5 / 3 / 0 / 15 / 140 / 118 / 3 / 101 / 3 |
-| Blackberry Cobbler Wildberry | large Smoothie | only in draft B | not found | 720 / 7 / 5 / 0 / 20 / 230 / 165 / 3 / 144 / 5 |
-| Blueberry Pomegranate | kids Smoothie | only in draft B | not found | 200 / 2 / 1 / 0 / 5 / 30 / 47 / 1 / 44 / 1 |
-| Blueberry Pomegranate | small Smoothie | only in draft B | not found | 310 / 3 / 2 / 0 / 10 / 50 / 73 / 1 / 69 / 2 |
-| Blueberry Pomegranate | medium Smoothie | only in draft B | not found | 470 / 5 / 3 / 0 / 15 / 80 / 109 / 2 / 103 / 3 |
-| Blueberry Pomegranate | large Smoothie | only in draft B | not found | 630 / 7 / 5 / 0 / 20 / 100 / 145 / 2 / 138 / 4 |
-| Mango | kids Smoothie | only in draft B | not found | 180 / 2 / 1 / 0 / 5 / 20 / 40 / 0 / 33 / 0.5 |
-| Mango | small Smoothie | only in draft B | not found | 290 / 3 / 2 / 0 / 10 / 40 / 62 / 0 / 51 / 2 |
-| Mango | medium Smoothie | only in draft B | not found | 430 / 5 / 3 / 0 / 15 / 60 / 93 / 0 / 77 / 3 |
-| Mango | large Smoothie | only in draft B | not found | 580 / 7 / 5 / 0 / 20 / 90 / 125 / 0 / 102 / 4 |
-| Peach | kids Smoothie | only in draft B | not found | 150 / 2 / 1 / 1 / 5 / 20 / 34 / 1 / 33 / 0.5 |
-| Peach | small Smoothie | only in draft B | not found | 250 / 3 / 2 / 2 / 10 / 40 / 54 / 2 / 51 / 2 |
-| Peach | medium Smoothie | only in draft B | not found | 370 / 5 / 3 / 3 / 15 / 60 / 81 / 3 / 77 / 3 |
-| Peach | large Smoothie | only in draft B | not found | 500 / 7 / 5 / 4 / 20 / 90 / 109 / 4 / 102 / 4 |
-| Piña Colada | kids Smoothie | only in draft B | not found | 300 / 10 / 8 / 1 / 5 / 30 / 52 / 1 / 49 / 2 |
-| Piña Colada | small Smoothie | only in draft B | not found | 470 / 15 / 12 / 2 / 10 / 60 / 80 / 2 / 75 / 4 |
-| Piña Colada | medium Smoothie | only in draft B | not found | 700 / 23 / 18 / 3 / 15 / 90 / 120 / 3 / 113 / 6 |
-| Piña Colada | large Smoothie | only in draft B | not found | 940 / 31 / 25 / 4 / 20 / 130 / 161 / 4 / 150 / 8 |
-| Strawberry Banana | kids Smoothie | only in draft B | not found | 230 / 2 / 1 / 1 / 5 / 20 / 54 / 1 / 52 / 0.5 |
-| Strawberry Banana | small Smoothie | only in draft B | not found | 340 / 3 / 2 / 2 / 10 / 50 / 79 / 2 / 75 / 2 |
-| Strawberry Banana | medium Smoothie | only in draft B | not found | 500 / 5 / 3 / 3 / 15 / 70 / 115 / 3 / 107 / 3 |
-| Strawberry Banana | large Smoothie | only in draft B | not found | 690 / 7 / 5 / 3 / 20 / 90 / 159 / 3 / 150 / 4 |
-| Strawberry | kids Smoothie | only in draft B | not found | 190 / 2 / 1 / 1 / 5 / 20 / 45 / 1 / 42 / 0.5 |
-| Strawberry | small Smoothie | only in draft B | not found | 310 / 3 / 2 / 2 / 10 / 40 / 70 / 2 / 65 / 2 |
-| Strawberry | medium Smoothie | only in draft B | not found | 460 / 5 / 3 / 3 / 15 / 60 / 105 / 3 / 98 / 3 |
-| Strawberry | large Smoothie | only in draft B | not found | 620 / 7 / 5 / 4 / 20 / 85 / 141 / 4 / 130 / 4 |
-| Tiger's Blood Piña Colada | kids Smoothie | only in draft B | not found | 320 / 8 / 6 / 1 / 5 / 30 / 61 / 1 / 58 / 2 |
-| Tiger's Blood Piña Colada | small Smoothie | only in draft B | not found | 480 / 13 / 11 / 2 / 10 / 60 / 90 / 2 / 85 / 4 |
-| Tiger's Blood Piña Colada | medium Smoothie | only in draft B | not found | 720 / 21 / 17 / 3 / 15 / 90 / 130 / 3 / 122 / 5 |
-| Tiger's Blood Piña Colada | large Smoothie | only in draft B | not found | 970 / 27 / 21 / 3 / 20 / 130 / 180 / 3 / 170 / 7 |
-| Tiki Tango Mango | kids Smoothie | only in draft B | not found | 220 / 2 / 1 / 0 / 5 / 20 / 51 / 0 / 45 / 0.5 |
-| Tiki Tango Mango | small Smoothie | only in draft B | not found | 330 / 3 / 2 / 0 / 10 / 50 / 73 / 0 / 63 / 2 |
-| Tiki Tango Mango | medium Smoothie | only in draft B | not found | 470 / 5 / 3 / 0 / 15 / 70 / 104 / 0 / 89 / 3 |
-| Tiki Tango Mango | large Smoothie | only in draft B | not found | 650 / 7 / 5 / 0 / 20 / 90 / 146 / 0 / 126 / 4 |
-| Wildberry | kids Smoothie | only in draft B | not found | 190 / 2 / 1 / 1 / 5 / 30 / 45 / 1 / 38 / 0.5 |
-| Wildberry | small Smoothie | only in draft B | not found | 310 / 3 / 2 / 2 / 10 / 50 / 70 / 2 / 59 / 2 |
-| Wildberry | medium Smoothie | only in draft B | not found | 460 / 5 / 3 / 3 / 15 / 80 / 105 / 3 / 89 / 3 |
-| Wildberry | large Smoothie | only in draft B | not found | 620 / 7 / 5 / 4 / 20 / 110 / 141 / 4 / 118 / 4 |
-| Sugar-Free Rocky Road | small Shake | only in draft B | not found | 260 / 11 / 8 / 0 / 30 / 180 / 44 / 3 / 27 / 6 |
-| Sugar-Free Rocky Road | medium Shake | only in draft B | not found | 390 / 17 / 11 / 0 / 45 / 270 / 66 / 5 / 41 / 9 |
-| Sugar-Free Rocky Road | large Shake | only in draft B | not found | 520 / 22 / 15 / 0 / 60 / 370 / 88 / 7 / 55 / 11 |
-| Birthday Cake | kids Shake | only in draft B | not found | 230 / 7 / 5 / 0 / 20 / 180 / 45 / 0 / 41 / 4 |
-| Birthday Cake | small Shake | only in draft B | not found | 400 / 10 / 7 / 0 / 25 / 310 / 79 / 0 / 72 / 7 |
-| Birthday Cake | medium Shake | only in draft B | not found | 600 / 15 / 11 / 0 / 40 / 470 / 118 / 0 / 108 / 10 |
-| Birthday Cake | large Shake | only in draft B | not found | 800 / 21 / 14 / 0 / 55 / 620 / 158 / 0 / 144 / 14 |
-| Cookies & Cream | kids Shake | only in draft B | not found | 230 / 7 / 5 / 0 / 20 / 150 / 45 / 0 / 41 / 4 |
-| Cookies & Cream | small Shake | only in draft B | not found | 400 / 11 / 7 / 1 / 25 / 260 / 79 / 1 / 72 / 7 |
-| Cookies & Cream | medium Shake | only in draft B | not found | 600 / 16 / 11 / 1 / 40 / 390 / 119 / 1 / 108 / 10 |
-| Cookies & Cream | large Shake | only in draft B | not found | 800 / 21 / 14 / 2 / 55 / 520 / 158 / 2 / 144 / 14 |
-| Orange Sherbet | kids Shake | only in draft B | not found | 220 / 7 / 5 / 0 / 20 / 90 / 42 / 0 / 40 / 4 |
-| Orange Sherbet | small Shake | only in draft B | not found | 370 / 10 / 7 / 0 / 25 / 140 / 74 / 0 / 70 / 6 |
-| Orange Sherbet | medium Shake | only in draft B | not found | 560 / 15 / 10 / 0 / 40 / 200 / 112 / 0 / 105 / 8 |
-| Orange Sherbet | large Shake | only in draft B | not found | 750 / 20 / 14 / 0 / 55 / 270 / 149 / 0 / 140 / 11 |
-| Rocky Road | kids Shake | only in draft B | not found | 270 / 7 / 5 / 0 / 20 / 110 / 53 / 0 / 49 / 4 |
-| Rocky Road | small Shake | only in draft B | not found | 470 / 11 / 8 / 0 / 30 / 190 / 95 / 0 / 88 / 6 |
-| Rocky Road | medium Shake | only in draft B | not found | 700 / 17 / 11 / 0 / 45 / 280 / 143 / 0 / 133 / 9 |
-| Rocky Road | large Shake | only in draft B | not found | 940 / 23 / 15 / 0 / 60 / 370 / 191 / 0 / 177 / 12 |
-| Shake | kids Shake | only in draft B | not found | 170 / 8 / 6 / 0 / 20 / 110 / 26 / 0 / 23 / 5 |
-| Shake | small Shake | only in draft B | not found | 270 / 13 / 9 / 0 / 35 / 170 / 41 / 0 / 36 / 8 |
+| Item | Size | Why | Draft A | Draft B | In the guide text (no AI) |
+| --- | --- | --- | --- | --- | --- |
+| Sugar-Free Banana Bread Mocha | kids iced | differ: fiber_g | 150 / 9 / 6 / 0 / 35 / 110 / 7 / 0 / 2 / 3 | 150 / 9 / 6 / 0 / 35 / 110 / 7 / – / 2 / 3 | A: numbers found after the name (line 74); check the size; B: numbers found after the name (line 74); check the size |
+| Sugar-Free Banana Bread Mocha | small iced | differ: fiber_g | 230 / 15 / 10 / 0 / 60 / 130 / 9 / 0 / 3 / 5 | 230 / 15 / 10 / 0 / 60 / 130 / 9 / – / 3 / 5 | A: numbers found after the name (line 75); check the size; B: numbers found after the name (line 75); check the size |
+| Sugar-Free Banana Bread Mocha | medium iced | differ: fiber_g | 380 / 24 / 16 / 0 / 95 / 250 / 15 / 1 / 6 / 8 | 380 / 24 / 16 / 0 / 95 / 250 / 15 / – / 6 / 8 | A: numbers found after the name (line 76); check the size; B: numbers found after the name (line 76); check the size |
+| Sugar-Free Banana Bread Mocha | large iced | differ: fiber_g | 460 / 30 / 20 / 0 / 115 / 270 / 17 / 1 / 7 / 10 | 460 / 30 / 20 / 0 / 115 / 270 / 17 / – / 7 / 10 | A: numbers found after the name (line 77); check the size; B: numbers found after the name (line 77); check the size |
+| Sugar-Free Banana Bread Mocha | kids hot | differ: fiber_g | 300 / 20 / 13 / 0 / 80 / 150 / 10 / 0 / 5 / 7 | 300 / 20 / 13 / 0 / 80 / 150 / 10 / – / 5 / 7 | A: numbers found after the name (line 78); check the size; B: numbers found after the name (line 78); check the size |
+| Sugar-Free Banana Bread Mocha | small hot | differ: fiber_g | 330 / 23 / 15 / 0 / 90 / 160 / 11 / 0 / 5 / 8 | 330 / 23 / 15 / 0 / 90 / 160 / 11 / – / 5 / 8 | A: numbers found after the name (line 79); check the size; B: numbers found after the name (line 79); check the size |
+| Sugar-Free Banana Bread Mocha | medium hot | differ: fiber_g | 460 / 30 / 20 / 0 / 115 / 270 / 17 / 1 / 7 / 10 | 460 / 30 / 20 / 0 / 115 / 270 / 17 / – / 7 / 10 | A: numbers found after the name (line 77); check the size; B: numbers found after the name (line 77); check the size |
+| Sugar-Free Banana Bread Mocha | large hot | differ: fiber_g | 530 / 35 / 23 / 0 / 135 / 290 / 19 / 1 / 8 / 12 | 530 / 35 / 23 / 0 / 135 / 290 / 19 / – / 8 / 12 | A: numbers found after the name (line 81); check the size; B: numbers found after the name (line 81); check the size |
+| Sugar-Free Banana Bread Mocha | kids frozen chiller | differ: fiber_g | 70 / 2 / 1 / 0 / 10 / 100 / 7 / 0 / 3 / 2 | 70 / 2 / 1 / 0 / 10 / 100 / 7 / – / 3 / 2 | A: numbers found after the name (line 82); check the size; B: numbers found after the name (line 82); check the size |
+| Sugar-Free Banana Bread Mocha | small frozen chiller | differ: fiber_g | 100 / 2 / 1 / 0 / 10 / 180 / 10 / 1 / 3 / 2 | 100 / 2 / 1 / 0 / 10 / 180 / 10 / – / 3 / 2 | A: numbers found after the name (line 83); check the size; B: numbers found after the name (line 83); check the size |
+| Sugar-Free Banana Bread Mocha | medium frozen chiller | differ: fiber_g | 160 / 4 / 3 / 0 / 15 / 290 / 17 / 1 / 6 / 4 | 160 / 4 / 3 / 0 / 15 / 290 / 17 / – / 6 / 4 | A: numbers found after the name (line 84); check the size; B: numbers found after the name (line 84); check the size |
+| Sugar-Free Banana Bread Mocha | large frozen chiller | differ: fiber_g | 190 / 4 / 3 / 0 / 15 / 360 / 21 / 1 / 6 / 5 | 190 / 4 / 3 / 0 / 15 / 360 / 21 / – / 6 / 5 | A: numbers found after the name (line 85); check the size; B: numbers found after the name (line 85); check the size |
+| Sugar-Free Blondie Breve | kids iced | differ: fiber_g | 160 / 10 / 7 / 0 / 40 / 70 / 13 / 2 / 2 / 3 | 160 / 10 / 7 / 0 / 40 / 70 / 13 / – / 2 / 3 | A: numbers found after the name (line 86); check the size; B: numbers found after the name (line 86); check the size |
+| Sugar-Free Blondie Breve | small iced | differ: fiber_g | 240 / 16 / 11 / 0 / 60 / 100 / 15 / 2 / 4 / 5 | 240 / 16 / 11 / 0 / 60 / 100 / 15 / – / 4 / 5 | A: numbers found after the name (line 87); check the size; B: numbers found after the name (line 87); check the size |
+| Sugar-Free Blondie Breve | medium iced | differ: fiber_g | 400 / 26 / 17 / 0 / 100 / 170 / 28 / 5 / 6 / 8 | 400 / 26 / 17 / 0 / 100 / 170 / 28 / – / 6 / 8 | A: numbers found after the name (line 88); check the size; B: numbers found after the name (line 88); check the size |
+| Sugar-Free Blondie Breve | large iced | differ: fiber_g | 480 / 32 / 21 / 0 / 120 / 190 / 30 / 5 / 7 / 10 | 480 / 32 / 21 / 0 / 120 / 190 / 30 / – / 7 / 10 | A: numbers found after the name (line 89); check the size; B: numbers found after the name (line 89); check the size |
+| Sugar-Free Blondie Breve | kids hot | differ: fiber_g | 310 / 21 / 14 / 0 / 80 / 120 / 17 / 2 / 5 / 7 | 310 / 21 / 14 / 0 / 80 / 120 / 17 / – / 5 / 7 | A: numbers found after the name (line 90); check the size; B: numbers found after the name (line 90); check the size |
+| Sugar-Free Blondie Breve | small hot | differ: fiber_g | 340 / 24 / 16 / 0 / 90 / 130 / 18 / 2 / 5 / 8 | 340 / 24 / 16 / 0 / 90 / 130 / 18 / – / 5 / 8 | A: numbers found after the name (line 91); check the size; B: numbers found after the name (line 91); check the size |
+| Sugar-Free Blondie Breve | medium hot | differ: fiber_g | 480 / 32 / 21 / 0 / 120 / 190 / 30 / 5 / 7 / 10 | 480 / 32 / 21 / 0 / 120 / 190 / 30 / – / 7 / 10 | A: numbers found after the name (line 89); check the size; B: numbers found after the name (line 89); check the size |
+| Sugar-Free Blondie Breve | large hot | differ: fiber_g | 550 / 37 / 25 / 0 / 140 / 210 / 32 / 5 / 8 / 12 | 550 / 37 / 25 / 0 / 140 / 210 / 32 / – / 8 / 12 | A: numbers found after the name (line 93); check the size; B: numbers found after the name (line 93); check the size |
+| Sugar-Free Blondie Breve | kids frozen chiller | differ: fiber_g | 80 / 3 / 2 / 0 / 10 / 70 / 13 / 2 / 3 / 2 | 80 / 3 / 2 / 0 / 10 / 70 / 13 / – / 3 / 2 | A: numbers found after the name (line 94); check the size; B: numbers found after the name (line 94); check the size |
+| Sugar-Free Blondie Breve | small frozen chiller | differ: fiber_g | 120 / 4 / 3 / 0 / 15 / 100 / 23 / 5 / 3 / 2 | 120 / 4 / 3 / 0 / 15 / 100 / 23 / – / 3 / 2 | A: numbers found after the name (line 95); check the size; B: numbers found after the name (line 95); check the size |
+| Sugar-Free Blondie Breve | medium frozen chiller | differ: fiber_g | 200 / 7 / 4 / 0 / 25 / 170 / 36 / 7 / 6 / 4 | 200 / 7 / 4 / 0 / 25 / 170 / 36 / – / 6 / 4 | A: numbers found after the name (line 96); check the size; B: numbers found after the name (line 96); check the size |
+| Sugar-Free Blondie Breve | large frozen chiller | differ: fiber_g | 240 / 8 / 5 / 0 / 25 / 210 / 46 / 10 / 7 / 4 | 240 / 8 / 5 / 0 / 25 / 210 / 46 / – / 7 / 4 | A: numbers found after the name (line 97); check the size; B: numbers found after the name (line 97); check the size |
+| Sugar-Free Brunette Mocha | kids iced | differ: fiber_g | 150 / 10 / 6 / 0 / 35 / 60 / 10 / 1 / 2 / 3 | 150 / 10 / 6 / 0 / 35 / 60 / 10 / – / 2 / 3 | A: numbers found after the name (line 98); check the size; B: numbers found after the name (line 98); check the size |
+| Sugar-Free Brunette Mocha | small iced | differ: fiber_g | 230 / 16 / 10 / 0 / 60 / 80 / 12 / 1 / 3 / 5 | 230 / 16 / 10 / 0 / 60 / 80 / 12 / – / 3 / 5 | A: numbers found after the name (line 99); check the size; B: numbers found after the name (line 99); check the size |
+| Sugar-Free Brunette Mocha | medium iced | differ: fiber_g | 380 / 25 / 17 / 0 / 95 / 140 / 23 / 2 / 6 / 8 | 380 / 25 / 17 / 0 / 95 / 140 / 23 / – / 6 / 8 | A: numbers found after the name (line 100); check the size; B: numbers found after the name (line 100); check the size |
+| Sugar-Free Brunette Mocha | large iced | differ: fiber_g | 460 / 31 / 21 / 0 / 120 / 170 / 25 / 2 / 7 / 10 | 460 / 31 / 21 / 0 / 120 / 170 / 25 / – / 7 / 10 | A: numbers found after the name (line 101); check the size; B: numbers found after the name (line 101); check the size |
+| Sugar-Free Brunette Mocha | kids hot | differ: fiber_g | 300 / 21 / 14 / 0 / 80 / 100 / 14 / 1 / 5 / 7 | 300 / 21 / 14 / 0 / 80 / 100 / 14 / – / 5 / 7 | A: numbers found after the name (line 102); check the size; B: numbers found after the name (line 102); check the size |
+| Sugar-Free Brunette Mocha | small hot | differ: fiber_g | 330 / 23 / 15 / 0 / 90 / 110 / 15 / 1 / 5 / 8 | 330 / 23 / 15 / 0 / 90 / 110 / 15 / – / 5 / 8 | A: numbers found after the name (line 103); check the size; B: numbers found after the name (line 103); check the size |
+| Sugar-Free Brunette Mocha | medium hot | differ: fiber_g | 460 / 31 / 21 / 0 / 120 / 170 / 25 / 2 / 7 / 10 | 460 / 31 / 21 / 0 / 120 / 170 / 25 / – / 7 / 10 | A: numbers found after the name (line 101); check the size; B: numbers found after the name (line 101); check the size |
+| Sugar-Free Brunette Mocha | large hot | differ: fiber_g | 530 / 36 / 24 / 0 / 140 / 190 / 27 / 2 / 8 / 12 | 530 / 36 / 24 / 0 / 140 / 190 / 27 / – / 8 / 12 | A: numbers found after the name (line 105); check the size; B: numbers found after the name (line 105); check the size |
+| Sugar-Free Brunette Mocha | kids frozen chiller | differ: fiber_g | 70 / 3 / 2 / 0 / 10 / 50 / 10 / 1 / 3 / 2 | 70 / 3 / 2 / 0 / 10 / 50 / 10 / – / 3 / 2 | A: numbers found after the name (line 106); check the size; B: numbers found after the name (line 106); check the size |
+| Sugar-Free Brunette Mocha | small frozen chiller | differ: fiber_g | 100 / 3 / 2 / 0 / 10 / 80 / 18 / 2 / 3 / 2 | 100 / 3 / 2 / 0 / 10 / 80 / 18 / – / 3 / 2 | A: numbers found after the name (line 107); check the size; B: numbers found after the name (line 107); check the size |
+| Sugar-Free Brunette Mocha | medium frozen chiller | differ: fiber_g | 170 / 6 / 3 / 0 / 20 / 130 / 28 / 4 / 6 / 5 | 170 / 6 / 3 / 0 / 20 / 130 / 28 / – / 6 / 5 | A: numbers found after the name (line 108); check the size; B: numbers found after the name (line 108); check the size |
+| Sugar-Free Brunette Mocha | large frozen chiller | differ: fiber_g | 200 / 6 / 4 / 0 / 20 / 160 / 36 / 5 / 6 / 5 | 200 / 6 / 4 / 0 / 20 / 160 / 36 / – / 6 / 5 | A: numbers found after the name (line 109); check the size; B: numbers found after the name (line 109); check the size |
+| Sugar-Free Cinnamon Roll Breve | kids iced | differ: fiber_g | 160 / 10 / 6 / 0 / 35 / 60 / 13 / 3 / 2 / 3 | 160 / 10 / 6 / 0 / 35 / 60 / 13 / – / 2 / 3 | A: numbers found after the name (line 110); check the size; B: numbers found after the name (line 110); check the size |
+| Sugar-Free Cinnamon Roll Breve | small iced | differ: fiber_g | 240 / 16 / 10 / 0 / 60 / 90 / 15 / 3 / 4 / 5 | 240 / 16 / 10 / 0 / 60 / 90 / 15 / – / 4 / 5 | A: numbers found after the name (line 111); check the size; B: numbers found after the name (line 111); check the size |
+| Sugar-Free Cinnamon Roll Breve | medium iced | differ: fiber_g | 400 / 26 / 17 / 0 / 95 / 150 / 28 / 5 / 6 / 8 | 400 / 26 / 17 / 0 / 95 / 150 / 28 / – / 6 / 8 | A: numbers found after the name (line 112); check the size; B: numbers found after the name (line 112); check the size |
+| Sugar-Free Cinnamon Roll Breve | large iced | differ: fiber_g | 480 / 32 / 21 / 0 / 120 / 180 / 30 / 5 / 7 / 10 | 480 / 32 / 21 / 0 / 120 / 180 / 30 / – / 7 / 10 | A: numbers found after the name (line 113); check the size; B: numbers found after the name (line 113); check the size |
+| Sugar-Free Cinnamon Roll Breve | kids hot | differ: fiber_g | 310 / 21 / 14 / 0 / 80 / 110 / 17 / 3 / 5 / 7 | 310 / 21 / 14 / 0 / 80 / 110 / 17 / – / 5 / 7 | A: numbers found after the name (line 114); check the size; B: numbers found after the name (line 114); check the size |
+| Sugar-Free Cinnamon Roll Breve | small hot | differ: fiber_g | 340 / 23 / 15 / 0 / 90 / 120 / 18 / 3 / 5 / 8 | 340 / 23 / 15 / 0 / 90 / 120 / 18 / – / 5 / 8 | A: numbers found after the name (line 115); check the size; B: numbers found after the name (line 115); check the size |
+| Sugar-Free Cinnamon Roll Breve | medium hot | differ: fiber_g | 480 / 32 / 21 / 0 / 120 / 180 / 30 / 5 / 7 / 10 | 480 / 32 / 21 / 0 / 120 / 180 / 30 / – / 7 / 10 | A: numbers found after the name (line 113); check the size; B: numbers found after the name (line 113); check the size |
+| Sugar-Free Cinnamon Roll Breve | large hot | differ: fiber_g | 550 / 37 / 24 / 0 / 140 / 200 / 32 / 5 / 8 / 12 | 550 / 37 / 24 / 0 / 140 / 200 / 32 / – / 8 / 12 | A: numbers found after the name (line 117); check the size; B: numbers found after the name (line 117); check the size |
+| Sugar-Free Cinnamon Roll Breve | kids frozen chiller | differ: fiber_g | 80 / 3 / 2 / 0 / 10 / 60 / 13 / 3 / 3 / 2 | 80 / 3 / 2 / 0 / 10 / 60 / 13 / – / 3 / 2 | A: numbers found after the name (line 121); check the size; B: numbers found after the name (line 121); check the size |
+| Sugar-Free Cinnamon Roll Breve | small frozen chiller | differ: fiber_g | 120 / 4 / 2 / 0 / 10 / 90 / 23 / 5 / 3 / 2 | 120 / 4 / 2 / 0 / 10 / 90 / 23 / – / 3 / 2 | A: numbers found after the name (line 123); check the size; B: numbers found after the name (line 123); check the size |
+| Sugar-Free Cinnamon Roll Breve | medium frozen chiller | differ: fiber_g | 200 / 6 / 4 / 0 / 20 / 150 / 36 / 8 / 6 / 4 | 200 / 6 / 4 / 0 / 20 / 150 / 36 / – / 6 / 4 | A: numbers found after the name (line 124); check the size; B: numbers found after the name (line 124); check the size |
+| Sugar-Free Cinnamon Roll Breve | large frozen chiller | differ: fiber_g | 240 / 7 / 4 / 0 / 20 / 170 / 46 / 10 / 7 / 4 | 240 / 7 / 4 / 0 / 20 / 170 / 46 / – / 7 / 4 | A: numbers found after the name (line 125); check the size; B: numbers found after the name (line 125); check the size |
+| Sugar-Free Cookie Butter Breve | kids iced | differ: fiber_g | 150 / 10 / 6 / 0 / 35 / 60 / 10 / 2 / 2 / 3 | 150 / 10 / 6 / 0 / 35 / 60 / 10 / – / 2 / 3 | A: numbers found after the name (line 126); check the size; B: numbers found after the name (line 126); check the size |
+| Sugar-Free Cookie Butter Breve | small iced | differ: fiber_g | 230 / 16 / 10 / 0 / 60 / 80 / 12 / 2 / 4 / 5 | 230 / 16 / 10 / 0 / 60 / 80 / 12 / – / 4 / 5 | A: numbers found after the name (line 127); check the size; B: numbers found after the name (line 127); check the size |
+| Sugar-Free Cookie Butter Breve | medium iced | differ: fiber_g | 370 / 25 / 17 / 0 / 95 / 140 / 21 / 3 / 6 / 8 | 370 / 25 / 17 / 0 / 95 / 140 / 21 / – / 6 / 8 | A: numbers found after the name (line 128); check the size; B: numbers found after the name (line 128); check the size |
+| Sugar-Free Cookie Butter Breve | large iced | differ: fiber_g | 450 / 31 / 21 / 0 / 120 / 160 / 23 / 3 / 7 / 10 | 450 / 31 / 21 / 0 / 120 / 160 / 23 / – / 7 / 10 | A: numbers found after the name (line 129); check the size; B: numbers found after the name (line 129); check the size |
+| Sugar-Free Cookie Butter Breve | kids hot | differ: fiber_g | 290 / 21 / 14 / 0 / 80 / 100 / 13 / 2 / 5 / 7 | 290 / 21 / 14 / 0 / 80 / 100 / 13 / – / 5 / 7 | A: numbers found after the name (line 130); check the size; B: numbers found after the name (line 130); check the size |
+| Sugar-Free Cookie Butter Breve | small hot | differ: fiber_g | 330 / 23 / 15 / 0 / 90 / 110 / 14 / 2 / 5 / 8 | 330 / 23 / 15 / 0 / 90 / 110 / 14 / – / 5 / 8 | A: numbers found after the name (line 131); check the size; B: numbers found after the name (line 131); check the size |
+| Sugar-Free Cookie Butter Breve | medium hot | differ: fiber_g | 450 / 31 / 21 / 0 / 120 / 160 / 23 / 3 / 7 / 10 | 450 / 31 / 21 / 0 / 120 / 160 / 23 / – / 7 / 10 | A: numbers found after the name (line 129); check the size; B: numbers found after the name (line 129); check the size |
+| Sugar-Free Cookie Butter Breve | large hot | differ: fiber_g | 520 / 36 / 24 / 0 / 140 / 180 / 25 / 3 / 8 / 12 | 520 / 36 / 24 / 0 / 140 / 180 / 25 / – / 8 / 12 | A: numbers found after the name (line 133); check the size; B: numbers found after the name (line 133); check the size |
+| Sugar-Free Cookie Butter Breve | kids frozen chiller | differ: fiber_g | 60 / 3 / 2 / 0 / 10 / 50 / 10 / 2 / 3 / 2 | 60 / 3 / 2 / 0 / 10 / 50 / 10 / – / 3 / 2 | A: numbers found after the name (line 134); check the size; B: numbers found after the name (line 134); check the size |
+| Sugar-Free Cookie Butter Breve | small frozen chiller | differ: fiber_g | 90 / 3 / 2 / 0 / 10 / 70 / 16 / 3 / 3 / 2 | 90 / 3 / 2 / 0 / 10 / 70 / 16 / – / 3 / 2 | A: numbers found after the name (line 135); check the size; B: numbers found after the name (line 135); check the size |
+| Sugar-Free Cookie Butter Breve | medium frozen chiller | differ: fiber_g | 150 / 6 / 3 / 0 / 20 / 120 / 26 / 5 / 6 / 4 | 150 / 6 / 3 / 0 / 20 / 120 / 26 / – / 6 / 4 | A: numbers found after the name (line 136); check the size; B: numbers found after the name (line 136); check the size |
+| Sugar-Free Cookie Butter Breve | large frozen chiller | differ: fiber_g | 180 / 6 / 4 / 0 / 20 / 140 / 32 / 7 / 6 / 4 | 180 / 6 / 4 / 0 / 20 / 140 / 32 / – / 6 / 4 | A: numbers found after the name (line 137); check the size; B: numbers found after the name (line 137); check the size |
+| Sugar-Free Smooth 7 Breve | kids iced | differ: fiber_g | 160 / 10 / 6 / 0 / 35 / 60 / 13 / 3 / 2 / 3 | 160 / 10 / 6 / 0 / 35 / 60 / 13 / – / 2 / 3 | A: numbers found after the name (line 138); check the size; B: numbers found after the name (line 138); check the size |
+| Sugar-Free Smooth 7 Breve | small iced | differ: fiber_g | 240 / 16 / 10 / 0 / 60 / 90 / 15 / 3 / 4 / 5 | 240 / 16 / 10 / 0 / 60 / 90 / 15 / – / 4 / 5 | A: numbers found after the name (line 139); check the size; B: numbers found after the name (line 139); check the size |
+| Sugar-Free Smooth 7 Breve | medium iced | differ: fiber_g | 400 / 26 / 17 / 0 / 95 / 150 / 28 / 5 / 6 / 8 | 400 / 26 / 17 / 0 / 95 / 150 / 28 / – / 6 / 8 | A: numbers found after the name (line 140); check the size; B: numbers found after the name (line 140); check the size |
+| Sugar-Free Smooth 7 Breve | large iced | differ: fiber_g | 480 / 32 / 21 / 0 / 120 / 180 / 30 / 5 / 7 / 10 | 480 / 32 / 21 / 0 / 120 / 180 / 30 / – / 7 / 10 | A: numbers found after the name (line 141); check the size; B: numbers found after the name (line 141); check the size |
+| Sugar-Free Smooth 7 Breve | kids hot | differ: fiber_g | 310 / 21 / 14 / 0 / 80 / 110 / 17 / 3 / 5 / 7 | 310 / 21 / 14 / 0 / 80 / 110 / 17 / – / 5 / 7 | A: numbers found after the name (line 142); check the size; B: numbers found after the name (line 142); check the size |
+| Sugar-Free Smooth 7 Breve | small hot | differ: fiber_g | 340 / 23 / 15 / 0 / 90 / 120 / 18 / 3 / 5 / 8 | 340 / 23 / 15 / 0 / 90 / 120 / 18 / – / 5 / 8 | A: numbers found after the name (line 143); check the size; B: numbers found after the name (line 143); check the size |
+| Sugar-Free Smooth 7 Breve | medium hot | differ: fiber_g | 480 / 32 / 21 / 0 / 120 / 180 / 30 / 5 / 7 / 10 | 480 / 32 / 21 / 0 / 120 / 180 / 30 / – / 7 / 10 | A: numbers found after the name (line 141); check the size; B: numbers found after the name (line 141); check the size |
+| Sugar-Free Smooth 7 Breve | large hot | differ: fiber_g | 550 / 37 / 24 / 0 / 140 / 200 / 32 / 5 / 8 / 12 | 550 / 37 / 24 / 0 / 140 / 200 / 32 / – / 8 / 12 | A: numbers found after the name (line 145); check the size; B: numbers found after the name (line 145); check the size |
+| Sugar-Free Smooth 7 Breve | kids frozen chiller | differ: fiber_g | 80 / 3 / 2 / 0 / 10 / 60 / 13 / 3 / 3 / 2 | 80 / 3 / 2 / 0 / 10 / 60 / 13 / – / 3 / 2 | A: numbers found after the name (line 146); check the size; B: numbers found after the name (line 146); check the size |
+| Sugar-Free Smooth 7 Breve | small frozen chiller | differ: fiber_g | 120 / 4 / 2 / 0 / 10 / 90 / 23 / 5 / 3 / 2 | 120 / 4 / 2 / 0 / 10 / 90 / 23 / – / 3 / 2 | A: numbers found after the name (line 147); check the size; B: numbers found after the name (line 147); check the size |
+| Sugar-Free Smooth 7 Breve | medium frozen chiller | differ: fiber_g | 190 / 6 / 4 / 0 / 20 / 140 / 36 / 8 / 6 / 4 | 190 / 6 / 4 / 0 / 20 / 140 / 36 / – / 6 / 4 | A: numbers found after the name (line 148); check the size; B: numbers found after the name (line 148); check the size |
+| Sugar-Free Smooth 7 Breve | large frozen chiller | differ: fiber_g | 230 / 7 / 4 / 0 / 20 / 170 / 46 / 10 / 7 / 4 | 230 / 7 / 4 / 0 / 20 / 170 / 46 / – / 7 / 4 | A: numbers found after the name (line 149); check the size; B: numbers found after the name (line 149); check the size |
+| Sugar-Free Sweet & Salty Breve | kids iced | differ: fiber_g | 160 / 10 / 6 / 0 / 35 / 110 / 13 / 3 / 2 / 3 | 160 / 10 / 6 / 0 / 35 / 110 / 13 / – / 2 / 3 | A: numbers found after the name (line 150); check the size; B: numbers found after the name (line 150); check the size |
+| Sugar-Free Sweet & Salty Breve | small iced | differ: fiber_g | 240 / 16 / 10 / 0 / 60 / 130 / 15 / 3 / 4 / 5 | 240 / 16 / 10 / 0 / 60 / 130 / 15 / – / 4 / 5 | A: numbers found after the name (line 151); check the size; B: numbers found after the name (line 151); check the size |
+| Sugar-Free Sweet & Salty Breve | medium iced | differ: fiber_g | 400 / 26 / 17 / 0 / 95 / 240 / 28 / 5 / 6 / 8 | 400 / 26 / 17 / 0 / 95 / 240 / 28 / – / 6 / 8 | A: numbers found after the name (line 152); check the size; B: numbers found after the name (line 152); check the size |
+| Sugar-Free Sweet & Salty Breve | large iced | differ: fiber_g | 480 / 32 / 21 / 0 / 120 / 270 / 30 / 5 / 7 / 10 | 480 / 32 / 21 / 0 / 120 / 270 / 30 / – / 7 / 10 | A: numbers found after the name (line 153); check the size; B: numbers found after the name (line 153); check the size |
+| Sugar-Free Sweet & Salty Breve | kids hot | differ: fiber_g | 310 / 21 / 14 / 0 / 80 / 150 / 17 / 3 / 5 / 7 | 310 / 21 / 14 / 0 / 80 / 150 / 17 / – / 5 / 7 | A: numbers found after the name (line 154); check the size; B: numbers found after the name (line 154); check the size |
+| Sugar-Free Sweet & Salty Breve | small hot | differ: fiber_g | 340 / 23 / 15 / 0 / 90 / 160 / 18 / 3 / 5 / 8 | 340 / 23 / 15 / 0 / 90 / 160 / 18 / – / 5 / 8 | A: numbers found after the name (line 155); check the size; B: numbers found after the name (line 155); check the size |
+| Sugar-Free Sweet & Salty Breve | medium hot | differ: fiber_g | 480 / 32 / 21 / 0 / 120 / 270 / 30 / 5 / 7 / 10 | 480 / 32 / 21 / 0 / 120 / 270 / 30 / – / 7 / 10 | A: numbers found after the name (line 153); check the size; B: numbers found after the name (line 153); check the size |
+| Sugar-Free Sweet & Salty Breve | large hot | differ: fiber_g | 550 / 37 / 24 / 0 / 140 / 290 / 32 / 5 / 8 / 12 | 550 / 37 / 24 / 0 / 140 / 290 / 32 / – / 8 / 12 | A: numbers found after the name (line 157); check the size; B: numbers found after the name (line 157); check the size |
+| Sugar-Free Sweet & Salty Breve | kids frozen chiller | differ: fiber_g | 80 / 3 / 2 / 0 / 10 / 100 / 13 / 3 / 3 / 2 | 80 / 3 / 2 / 0 / 10 / 100 / 13 / – / 3 / 2 | A: numbers found after the name (line 158); check the size; B: numbers found after the name (line 158); check the size |
+| Sugar-Free Sweet & Salty Breve | small frozen chiller | differ: fiber_g | 120 / 4 / 2 / 0 / 10 / 180 / 23 / 5 / 3 / 2 | 120 / 4 / 2 / 0 / 10 / 180 / 23 / – / 3 / 2 | A: numbers found after the name (line 159); check the size; B: numbers found after the name (line 159); check the size |
+| Sugar-Free Sweet & Salty Breve | medium frozen chiller | differ: fiber_g | 200 / 6 / 4 / 0 / 20 / 280 / 37 / 8 / 6 / 4 | 200 / 6 / 4 / 0 / 20 / 280 / 37 / – / 6 / 4 | A: numbers found after the name (line 160); check the size; B: numbers found after the name (line 160); check the size |
+| Sugar-Free Sweet & Salty Breve | large frozen chiller | differ: fiber_g | 240 / 7 / 4 / 0 / 20 / 360 / 47 / 10 / 7 / 4 | 240 / 7 / 4 / 0 / 20 / 360 / 47 / – / 7 / 4 | A: numbers found after the name (line 161); check the size; B: numbers found after the name (line 161); check the size |
+| Banana Bread Mocha | kids iced | differ: fiber_g | 160 / 3 / 1 / 0 / 15 / 90 / 31 / 0 / 31 / 4 | 160 / 3 / 1 / 0 / 15 / 90 / 31 / – / 31 / 4 | A: numbers found after the name (line 162); check the size; B: numbers found after the name (line 162); check the size |
+| Banana Bread Mocha | small iced | differ: fiber_g | 220 / 6 / 2 / 0 / 30 / 140 / 39 / 0 / 38 / 7 | 220 / 6 / 2 / 0 / 30 / 140 / 39 / – / 38 / 7 | A: numbers found after the name (line 163); check the size; B: numbers found after the name (line 163); check the size |
+| Banana Bread Mocha | medium iced | differ: fiber_g | 340 / 10 / 4 / 0 / 50 / 260 / 54 / 1 / 53 / 12 | 340 / 10 / 4 / 0 / 50 / 260 / 54 / – / 53 / 12 | A: numbers found after the name (line 164); check the size; B: numbers found after the name (line 164); check the size |
+| Banana Bread Mocha | large iced | differ: fiber_g | 450 / 11 / 5 / 0 / 55 / 290 / 77 / 1 / 76 / 14 | 450 / 11 / 5 / 0 / 55 / 290 / 77 / – / 76 / 14 | A: numbers found after the name (line 165); check the size; B: numbers found after the name (line 165); check the size |
+| Banana Bread Mocha | kids hot | differ: fiber_g | 270 / 8 / 3 / 0 / 40 / 190 / 45 / 1 / 44 / 9 | 270 / 8 / 3 / 0 / 40 / 190 / 45 / – / 44 / 9 | A: numbers found after the name (line 166); check the size; B: numbers found after the name (line 166); check the size |
+| Banana Bread Mocha | small hot | differ: fiber_g | 300 / 8 / 3 / 0 / 40 / 220 / 48 / 1 / 48 / 10 | 300 / 8 / 3 / 0 / 40 / 220 / 48 / – / 48 / 10 | A: numbers found after the name (line 167); check the size; B: numbers found after the name (line 167); check the size |
+| Banana Bread Mocha | medium hot | differ: fiber_g | 400 / 12 / 5 / 0 / 60 / 310 / 61 / 1 / 60 / 15 | 400 / 12 / 5 / 0 / 60 / 310 / 61 / – / 60 / 15 | A: numbers found after the name (line 168); check the size; B: numbers found after the name (line 168); check the size |
+| Banana Bread Mocha | large hot | differ: fiber_g | 500 / 13 / 5 / 0 / 65 / 340 / 84 / 1 / 83 / 16 | 500 / 13 / 5 / 0 / 65 / 340 / 84 / – / 83 / 16 | A: numbers found after the name (line 169); check the size; B: numbers found after the name (line 169); check the size |
+| Banana Bread Mocha | kids frozen chiller | differ: fiber_g | 290 / 8 / 3 / 0 / 40 / 210 / 47 / 1 / 47 / 10 | 290 / 8 / 3 / 0 / 40 / 210 / 47 / – / 47 / 10 | A: numbers found after the name (line 170); check the size; B: numbers found after the name (line 170); check the size |
+| Banana Bread Mocha | small frozen chiller | differ: fiber_g | 430 / 14 / 6 / 0 / 70 / 350 / 66 / 1 / 65 / 17 | 430 / 14 / 6 / 0 / 70 / 350 / 66 / – / 65 / 17 | A: numbers found after the name (line 171); check the size; B: numbers found after the name (line 171); check the size |
+| Banana Bread Mocha | medium frozen chiller | differ: fiber_g | 620 / 21 / 9 / 0 / 105 / 530 / 91 / 2 / 89 / 25 | 620 / 21 / 9 / 0 / 105 / 530 / 91 / – / 89 / 25 | A: numbers found after the name (line 172); check the size; B: numbers found after the name (line 172); check the size |
+| Banana Bread Mocha | large frozen chiller | differ: fiber_g | 870 / 27 / 11 / 0 / 135 / 690 / 132 / 2 / 130 / 33 | 870 / 27 / 11 / 0 / 135 / 690 / 132 / – / 130 / 33 | A: numbers found after the name (line 173); check the size; B: numbers found after the name (line 173); check the size |
+| Sugar-Free Blondie Cold Brew | kids iced | differ: fiber_g | 40 / 1 / 1 / 0 / 0 / 30 / 10 / 2 / 0 / 0.5 | 40 / 1 / 1 / 0 / 0 / 30 / 10 / – / 0 / 0.5 | A: numbers found after the name (line 253); check the size; B: numbers found after the name (line 253); check the size |
+| Sugar-Free Blondie Cold Brew | small iced | differ: fiber_g | 50 / 1 / 1 / 0 / 5 / 40 / 12 / 2 / 0 / 0.5 | 50 / 1 / 1 / 0 / 5 / 40 / 12 / – / 0 / 0.5 | A: numbers found after the name (line 254); check the size; B: numbers found after the name (line 254); check the size |
+| Sugar-Free Blondie Cold Brew | medium iced | differ: fiber_g | 60 / 1 / 1 / 0 / 5 / 40 / 14 / 2 / 0 / 0.5 | 60 / 1 / 1 / 0 / 5 / 40 / 14 / – / 0 / 0.5 | A: numbers found after the name (line 255); check the size; B: numbers found after the name (line 255); check the size |
+| Sugar-Free Blondie Cold Brew | large iced | differ: fiber_g | 70 / 1 / 1 / 0 / 5 / 40 / 15 / 2 / 0 / 1 | 70 / 1 / 1 / 0 / 5 / 40 / 15 / – / 0 / 1 | A: numbers found after the name (line 256); check the size; B: numbers found after the name (line 256); check the size |
+| Sugar-Free Brown Sugar Cinnamon Americano | kids iced | differ: fiber_g | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 | 0 / 0 / 0 / 0 / 0 / 10 / 0 / – / 0 / 0 | A: numbers found after the name (line 257); check the size, mostly zeros: look; B: numbers found after the name (line 257); check the size, mostly zeros: look |
+| Sugar-Free Brown Sugar Cinnamon Americano | small iced | differ: fiber_g | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 | 0 / 0 / 0 / 0 / 0 / 10 / 0 / – / 0 / 0 | A: numbers found after the name (line 257); check the size, mostly zeros: look; B: numbers found after the name (line 257); check the size, mostly zeros: look |
+| Sugar-Free Brown Sugar Cinnamon Americano | medium iced | differ: sodium_mg, protein_g | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 10 | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 | A: numbers found after the name (line 257); check the size, mostly zeros: look; B: numbers found after the name (line 257); check the size, mostly zeros: look |
+| Sugar-Free Brown Sugar Cinnamon Americano | large iced | differ: sodium_mg, protein_g | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 10 | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 | A: numbers found after the name (line 257); check the size, mostly zeros: look; B: numbers found after the name (line 257); check the size, mostly zeros: look |
+| Sugar-Free Brown Sugar Cinnamon Americano | kids hot | differ: sodium_mg, protein_g | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 10 | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 | A: numbers found after the name (line 257); check the size, mostly zeros: look; B: numbers found after the name (line 257); check the size, mostly zeros: look |
+| Sugar-Free Brown Sugar Cinnamon Americano | small hot | differ: sodium_mg, protein_g | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 10 | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 | A: numbers found after the name (line 257); check the size, mostly zeros: look; B: numbers found after the name (line 257); check the size, mostly zeros: look |
+| Sugar-Free Brown Sugar Cinnamon Americano | medium hot | differ: sodium_mg, protein_g | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 10 | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 | A: numbers found after the name (line 257); check the size, mostly zeros: look; B: numbers found after the name (line 257); check the size, mostly zeros: look |
+| Sugar-Free Brown Sugar Cinnamon Americano | large hot | differ: sodium_mg, protein_g | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 10 | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 | A: numbers found after the name (line 257); check the size, mostly zeros: look; B: numbers found after the name (line 257); check the size, mostly zeros: look |
+| Sugar-Free Brunette Cold Brew | kids iced | differ: fat_g, saturated_fat_g, trans_fat_g, cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 50 / 10 / 11 / 2 / 0 / 1 / 1 / 0 / 5 / 40 | 50 / 1 / 1 / 0 / 5 / 40 / 11 / 2 / 0 / 0.5 | A: numbers found after the name (line 265); check the size; B: numbers found after the name (line 265); check the size |
+| Sugar-Free Brunette Cold Brew | small iced | differ: fat_g, saturated_fat_g, trans_fat_g, cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 50 / 10 / 12 / 2 / 0 / 1 / 1 / 0 / 5 / 40 | 50 / 1 / 1 / 0 / 5 / 40 / 12 / 2 / 0 / 0.5 | A: numbers found after the name (line 266); check the size; B: numbers found after the name (line 266); check the size |
+| Sugar-Free Brunette Cold Brew | medium iced | differ: fat_g, saturated_fat_g, trans_fat_g, cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 60 / 10 / 14 / 2 / 0 / 1 / 1 / 0 / 5 / 40 | 60 / 1 / 1 / 0 / 5 / 40 / 14 / 2 / 0 / 0.5 | A: numbers found after the name (line 267); check the size; B: numbers found after the name (line 267); check the size |
+| Sugar-Free Brunette Cold Brew | large iced | differ: fat_g, saturated_fat_g, trans_fat_g, cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 70 / 10 / 15 / 2 / 0 / 1 / 1 / 0 / 5 / 40 | 70 / 1 / 1 / 0 / 5 / 40 / 15 / 2 / 0 / 1 | A: numbers found after the name (line 268); check the size; B: numbers found after the name (line 268); check the size |
+| Sugar-Free Brandelle Cress | small iced | differ: fat_g, saturated_fat_g, trans_fat_g, cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 280 / 150 / 25 / 5 / 4 / 17 / 11 / 0 / 65 / 130 | 280 / 17 / 11 / 0 / 65 / 130 / 25 / 5 / 4 / 5 | A: numbers found after the name (line 270); check the size; B: numbers found after the name (line 270); check the size |
+| Sugar-Free Brandelle Cress | medium iced | differ: fat_g, saturated_fat_g, trans_fat_g, cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 440 / 260 / 29 / 5 / 6 / 29 / 19 / 0 / 110 / 180 | 440 / 29 / 19 / 0 / 110 / 180 / 29 / 5 / 6 / 9 | A: numbers found after the name (line 271); check the size; B: numbers found after the name (line 271); check the size |
+| Sugar-Free Brandelle Cress | large iced | differ: fat_g, saturated_fat_g, trans_fat_g, cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 520 / 320 / 31 / 5 / 8 / 35 / 23 / 0 / 135 / 200 | 520 / 35 / 23 / 0 / 135 / 200 / 31 / 5 / 8 / 11 | A: numbers found after the name (line 272); check the size; B: numbers found after the name (line 272); check the size |
+| Sugar-Free Brandelle Cress | kids hot | differ: fat_g, saturated_fat_g, trans_fat_g, cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 350 / 200 / 27 / 5 / 5 / 22 / 15 / 0 / 85 / 150 | 350 / 22 / 15 / 0 / 85 / 150 / 27 / 5 / 5 / 7 | A: numbers found after the name (line 273); check the size; B: numbers found after the name (line 273); check the size |
+| Sugar-Free Brandelle Cress | small hot | differ: fat_g, saturated_fat_g, trans_fat_g, cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 380 / 220 / 28 / 5 / 5 / 25 / 16 / 0 / 95 / 160 | 380 / 25 / 16 / 0 / 95 / 160 / 28 / 5 / 5 / 8 | A: numbers found after the name (line 274); check the size; B: numbers found after the name (line 274); check the size |
+| Sugar-Free Brandelle Cress | medium hot | differ: fat_g, saturated_fat_g, trans_fat_g, cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 520 / 310 / 31 / 5 / 8 / 35 / 23 / 0 / 130 / 200 | 520 / 35 / 23 / 0 / 130 / 200 / 31 / 5 / 8 / 11 | A: numbers found after the name (line 275); check the size; B: numbers found after the name (line 275); check the size |
+| Sugar-Free Brandelle Cress | large hot | differ: fat_g, saturated_fat_g, trans_fat_g, cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 580 / 360 / 33 / 5 / 9 / 40 / 26 / 0 / 150 / 220 | 580 / 40 / 26 / 0 / 150 / 220 / 33 / 5 / 9 / 13 | A: numbers found after the name (line 276); check the size; B: numbers found after the name (line 276); check the size |
+| Sugar-Free Brandelle Cress | kids frozen chiller | differ: fat_g, saturated_fat_g, trans_fat_g, cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 160 / 70 / 22 / 5 / 2 / 8 / 5 / 0 / 30 / 90 | 160 / 8 / 5 / 0 / 30 / 90 / 22 / 5 / 2 / 2 | A: numbers found after the name (line 277); check the size; B: numbers found after the name (line 277); check the size |
+| Sugar-Free Brandelle Cress | small frozen chiller | differ: fat_g, saturated_fat_g, trans_fat_g, cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 250 / 90 / 42 / 10 / 2 / 10 / 7 / 0 / 35 / 160 | 250 / 10 / 7 / 0 / 35 / 160 / 42 / 10 / 2 / 2 | A: numbers found after the name (line 278); check the size; B: numbers found after the name (line 278); check the size |
+| Sugar-Free Brandelle Cress | medium frozen chiller | differ: fat_g, saturated_fat_g, trans_fat_g, cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 410 / 170 / 64 / 15 / 4 / 19 / 12 / 0 / 65 / 260 | 410 / 19 / 12 / 0 / 65 / 260 / 64 / 15 / 4 / 4 | A: numbers found after the name (line 279); check the size; B: numbers found after the name (line 279); check the size |
+| Sugar-Free Brandelle Cress | large frozen chiller | differ: fat_g, saturated_fat_g, trans_fat_g, cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 490 / 190 / 84 / 20 / 4 / 21 / 13 / 0 / 70 / 330 | 490 / 21 / 13 / 0 / 70 / 330 / 84 / 20 / 4 / 4 | A: numbers found after the name (line 280); check the size; B: numbers found after the name (line 280); check the size |
+| Sugar-Free Dark Chocolate Americano | kids iced | differ: saturated_fat_g, sodium_mg, carbs_g, protein_g | 20 / 0 / 5 / 0 / 0 / 0 / 0 / 0 / 0 / 10 | 20 / 0 / 0 / 0 / 0 / 10 / 5 / 0 / 0 / 0.5 | A: numbers found after the name (line 281); check the size; B: numbers found after the name (line 281); check the size |
+| Sugar-Free Dark Chocolate Americano | small iced | differ: saturated_fat_g, sodium_mg, carbs_g, protein_g | 20 / 0 / 5 / 0 / 0 / 0 / 0 / 0 / 0 / 10 | 20 / 0 / 0 / 0 / 0 / 10 / 5 / 0 / 0 / 0.5 | A: numbers found after the name (line 281); check the size; B: numbers found after the name (line 281); check the size |
+| Sugar-Free Dark Chocolate Americano | medium iced | differ: saturated_fat_g, sodium_mg, carbs_g, protein_g | 20 / 0 / 5 / 0 / 0 / 0 / 0 / 0 / 0 / 10 | 20 / 0 / 0 / 0 / 0 / 10 / 5 / 0 / 0 / 0.5 | A: numbers found after the name (line 281); check the size; B: numbers found after the name (line 281); check the size |
+| Sugar-Free Dark Chocolate Americano | large iced | differ: saturated_fat_g, sodium_mg, carbs_g, protein_g | 20 / 0 / 5 / 0 / 0 / 0 / 0 / 0 / 0 / 10 | 20 / 0 / 0 / 0 / 0 / 10 / 5 / 0 / 0 / 0.5 | A: numbers found after the name (line 281); check the size; B: numbers found after the name (line 281); check the size |
+| Sugar-Free Dark Chocolate Americano | kids hot | differ: saturated_fat_g, sodium_mg, carbs_g, protein_g | 20 / 0 / 5 / 0 / 0 / 0 / 0 / 0 / 0 / 10 | 20 / 0 / 0 / 0 / 0 / 10 / 5 / 0 / 0 / 0.5 | A: numbers found after the name (line 281); check the size; B: numbers found after the name (line 281); check the size |
+| Cappuccino | Medium (21 fl oz) | only in draft A | 130 / 10 / 0 / 0 / 30 / 100 / 4 / 0 / 7 / 7 | not found | A: not as drafted (line 466 lacks 0) |
+| Cappuccino | Large (32 fl oz) | only in draft A | 150 / 12 / 0 / 0 / 35 / 110 / 5 / 0 / 8 / 8 | not found | A: not as drafted (line 467 lacks 0) |
+| Caramel Breve | Kids iced | only in draft A | 240 / 24 / 11 / 0 / 40 / 110 / 29 / 0 / 3 / 7 | not found | A: numbers found after the name (line 468); check the size |
+| Caramel Breve | Small iced | only in draft A | 320 / 25 / 17 / 0 / 65 / 130 / 31 / 0 / 5 / 11 | not found | A: numbers found after the name (line 469); check the size |
+| Caramel Breve | Medium iced | only in draft A | 480 / 28 / 29 / 0 / 110 / 180 / 35 / 0 / 9 / 19 | not found | A: numbers found after the name (line 470); check the size |
+| Caramel Breve | Large iced | only in draft A | 560 / 29 / 35 / 0 / 135 / 200 / 37 / 0 / 11 / 23 | not found | A: numbers found after the name (line 471); check the size |
+| Caramel Breve | Kids hot | only in draft A | 390 / 26 / 22 / 0 / 85 / 150 / 33 / 0 / 7 / 15 | not found | A: numbers found after the name (line 472); check the size |
+| Caramel Breve | Small hot | only in draft A | 420 / 27 / 25 / 0 / 95 / 160 / 34 / 0 / 8 / 16 | not found | A: numbers found after the name (line 473); check the size |
+| Caramel Breve | Medium hot | only in draft A | 560 / 29 / 35 / 0 / 135 / 200 / 37 / 0 / 11 / 23 | not found | A: numbers found after the name (line 471); check the size |
+| Caramel Breve | Large hot | only in draft A | 620 / 30 / 40 / 0 / 150 / 220 / 39 / 0 / 13 / 26 | not found | A: numbers found after the name (line 475); check the size |
+| Caramel Breve | Kids frozen chiller | only in draft A | 200 / 23 / 8 / 0 / 30 / 100 / 28 / 0 / 2 / 5 | not found | A: numbers found after the name (line 476); check the size |
+| Caramel Breve | Small frozen chiller | only in draft A | 330 / 45 / 11 / 0 / 35 / 170 / 54 / 0 / 3 / 7 | not found | A: numbers found after the name (line 477); check the size |
+| Caramel Breve | Medium frozen chiller | only in draft A | 530 / 68 / 19 / 0 / 65 / 270 / 82 / 0 / 5 / 12 | not found | A: numbers found after the name (line 478); check the size |
+| Caramel Breve | Large frozen chiller | only in draft A | 660 / 90 / 21 / 0 / 70 / 350 / 109 / 0 / 6 / 13 | not found | A: numbers found after the name (line 479); check the size |
+| Cold Brew | Kids iced | only in draft A | 10 / 0 / 0 / 0 / 0 / 0 / 2 / 0 / 0.5 / 0 | not found | A: numbers found after the name (line 480); check the size |
+| Cold Brew | Small iced | only in draft A | 10 / 0 / 0 / 0 / 0 / 0 / 3 / 0 / 0.5 / 0 | not found | A: numbers found after the name (line 481); check the size |
+| Cold Brew | Medium iced | only in draft A | 20 / 0 / 0 / 0 / 0 / 10 / 4 / 0 / 1 / 0 | not found | A: numbers found after the name (line 482); check the size |
+| Cold Brew | Large iced | only in draft A | 30 / 0 / 0 / 0 / 0 / 10 / 5 / 0 / 1 / 0 | not found | A: numbers found after the name (line 483); check the size |
+| Crème Brûlée Latte | Kids iced | only in draft A | 150 / 27 / 3 / 0 / 15 / 80 / 27 / 0 / 3 / 2 | not found | A: numbers found after the name (line 484); check the size |
+| Crème Brûlée Latte | Small iced | only in draft A | 180 / 30 / 5 / 0 / 20 / 110 / 30 / 0 / 5 / 3 | not found | A: numbers found after the name (line 485); check the size |
+| Crème Brûlée Latte | Medium iced | only in draft A | 260 / 36 / 9 / 0 / 40 / 160 / 36 / 0 / 9 / 6 | not found | A: numbers found after the name (line 486); check the size |
+| Crème Brûlée Latte | Large iced | only in draft A | 300 / 38 / 11 / 0 / 45 / 190 / 39 / 0 / 11 / 7 | not found | A: numbers found after the name (line 487); check the size |
+| Crème Brûlée Latte | Kids hot | only in draft A | 210 / 32 / 7 / 0 / 30 / 130 / 33 / 0 / 7 / 4 | not found | A: numbers found after the name (line 488); check the size |
+| Crème Brûlée Latte | Small hot | only in draft A | 230 / 33 / 8 / 0 / 30 / 140 / 34 / 0 / 8 / 5 | not found | A: numbers found after the name (line 489); check the size |
+| Crème Brûlée Latte | Medium hot | only in draft A | 290 / 38 / 11 / 0 / 45 / 190 / 39 / 0 / 11 / 7 | not found | A: numbers found after the name (line 490); check the size |
+| Crème Brûlée Latte | Large hot | only in draft A | 320 / 41 / 13 / 0 / 50 / 210 / 41 / 0 / 13 / 8 | not found | A: numbers found after the name (line 491); check the size |
+| Crème Brûlée Latte | Kids frozen chiller | only in draft A | 240 / 32 / 6 / 0 / 25 / 130 / 32 / 0 / 6 / 4 | not found | A: numbers found after the name (line 492); check the size |
+| Crème Brûlée Latte | Small frozen chiller | only in draft A | 340 / 38 / 11 / 0 / 45 / 190 / 39 / 0 / 11 / 7 | not found | A: numbers found after the name (line 493); check the size |
+| Crème Brûlée Latte | Medium frozen chiller | only in draft A | 480 / 46 / 17 / 0 / 70 / 270 / 47 / 0 / 17 / 10 | not found | A: numbers found after the name (line 494); check the size |
+| Crème Brûlée Latte | Large frozen chiller | only in draft A | 680 / 76 / 22 / 0 / 90 / 380 / 78 / 0 / 22 / 14 | not found | A: numbers found after the name (line 495); check the size |
+| Cupcake Cappuccino | Kids hot | only in draft A | 160 / 28 / 4 / 0 / 15 / 160 / 29 / 0 / 4 / 3 | not found | A: numbers found after the name (line 496); check the size |
+| Cupcake Cappuccino | Small hot | only in draft A | 170 / 29 / 5 / 0 / 20 / 170 / 30 / 0 / 5 / 3 | not found | A: numbers found after the name (line 497); check the size |
+| Cupcake Cappuccino | Medium hot | only in draft A | 210 / 32 / 7 / 0 / 25 / 190 / 33 / 0 / 7 / 4 | not found | A: numbers found after the name (line 498); check the size |
+| Cupcake Cappuccino | Large hot | only in draft A | 230 / 33 / 8 / 0 / 30 / 210 / 34 / 0 / 8 / 5 | not found | A: numbers found after the name (line 499); check the size |
+| Dark Chocolate Americano | Kids iced | only in draft A | 30 / 7 / 0 / 0 / 0 / 0 / 8 / 0 / 0.5 / 0 | not found | A: numbers found after the name (line 500); check the size |
+| Dark Chocolate Americano | Small iced | only in draft A | 30 / 7 / 0 / 0 / 0 / 0 / 8 / 0 / 0.5 / 0 | not found | A: numbers found after the name (line 500); check the size |
+| Dark Chocolate Americano | Medium iced | only in draft A | 30 / 7 / 0 / 0 / 0 / 0 / 8 / 0 / 0.5 / 0 | not found | A: numbers found after the name (line 500); check the size |
+| Dark Chocolate Americano | Large iced | only in draft A | 30 / 7 / 0 / 0 / 0 / 0 / 8 / 0 / 0.5 / 0 | not found | A: numbers found after the name (line 500); check the size |
+| Dark Chocolate Americano | Kids hot | only in draft A | 30 / 7 / 0 / 0 / 0 / 0 / 8 / 0 / 0.5 / 0 | not found | A: numbers found after the name (line 500); check the size |
+| Dark Chocolate Americano | Small hot | only in draft A | 30 / 7 / 0 / 0 / 0 / 0 / 8 / 0 / 0.5 / 0 | not found | A: numbers found after the name (line 500); check the size |
+| Dark Chocolate Americano | Medium hot | only in draft A | 30 / 7 / 0 / 0 / 0 / 0 / 8 / 0 / 0.5 / 0 | not found | A: numbers found after the name (line 500); check the size |
+| Dark Chocolate Americano | Large hot | only in draft A | 30 / 7 / 0 / 0 / 0 / 0 / 8 / 0 / 0.5 / 0 | not found | A: numbers found after the name (line 500); check the size |
+| Sugar-Free 7 Energy | small iced | differ: trans_fat_g, sodium_mg | 0 / 0 / 0 / – / 0 / 0 / 2 / 0 / 0 / 0 | 0 / 0 / 0 / 0 / 0 / 130 / 2 / 0 / 0 / 0 | A: numbers found after the name (line 691); check the size, mostly zeros: look; B: numbers found after the name (line 691); check the size, mostly zeros: look |
+| Sugar-Free 7 Energy | medium iced | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 3 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 190 / 3 / 0 / 0 / 0 | A: numbers found after the name (line 692); check the size, mostly zeros: look; B: numbers found after the name (line 692); check the size |
+| Sugar-Free 7 Energy | large iced | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 4 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 250 / 4 / 0 / 0 / 0 | A: numbers found after the name (line 693); check the size, mostly zeros: look; B: numbers found after the name (line 693); check the size |
+| Sugar-Free 7 Energy | small frozen chiller | differ: trans_fat_g, sodium_mg | 0 / 0 / 0 / – / 0 / 0 / 2 / 0 / 0 / 0 | 0 / 0 / 0 / 0 / 0 / 130 / 2 / 0 / 0 / 0 | A: numbers found after the name (line 691); check the size, mostly zeros: look; B: numbers found after the name (line 691); check the size, mostly zeros: look |
+| Sugar-Free 7 Energy | medium frozen chiller | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 3 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 190 / 3 / 0 / 0 / 0 | A: numbers found after the name (line 692); check the size, mostly zeros: look; B: numbers found after the name (line 692); check the size |
+| Sugar-Free 7 Energy | large frozen chiller | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 4 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 250 / 4 / 0 / 0 / 0 | A: numbers found after the name (line 693); check the size, mostly zeros: look; B: numbers found after the name (line 693); check the size |
+| Sugar-Free Brewberry 7 Energy | small iced | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 2 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 120 / 2 / 0 / 0 / 0 | A: numbers found after the name (line 697); check the size, mostly zeros: look; B: numbers found after the name (line 697); check the size |
+| Sugar-Free Brewberry 7 Energy | medium iced | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 3 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 180 / 3 / 0 / 0 / 0 | A: numbers found after the name (line 698); check the size, mostly zeros: look; B: numbers found after the name (line 698); check the size |
+| Sugar-Free Brewberry 7 Energy | large iced | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 4 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 230 / 4 / 0 / 0 / 0 | A: numbers found after the name (line 699); check the size, mostly zeros: look; B: numbers found after the name (line 699); check the size |
+| Sugar-Free Brewberry 7 Energy | small frozen chiller | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 2 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 110 / 2 / 0 / 0 / 0 | A: numbers found after the name (line 697); check the size, mostly zeros: look; B: numbers found after the name (line 700); check the size |
+| Sugar-Free Brewberry 7 Energy | medium frozen chiller | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 3 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 160 / 3 / 0 / 0 / 0 | A: numbers found after the name (line 698); check the size, mostly zeros: look; B: numbers found after the name (line 701); check the size |
+| Sugar-Free Brewberry 7 Energy | large frozen chiller | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 4 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 210 / 4 / 0 / 0 / 0 | A: numbers found after the name (line 699); check the size, mostly zeros: look; B: numbers found after the name (line 702); check the size |
+| Sugar-Free Ocean Breeze 7 Energy | small iced | differ: trans_fat_g, sodium_mg | 0 / 0 / 0 / – / 0 / 0 / 2 / 0 / 0 / 0 | 0 / 0 / 0 / 0 / 0 / 120 / 2 / 0 / 0 / 0 | A: numbers found after the name (line 703); check the size, mostly zeros: look; B: numbers found after the name (line 703); check the size, mostly zeros: look |
+| Sugar-Free Ocean Breeze 7 Energy | medium iced | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 3 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 180 / 3 / 0 / 0 / 0 | A: numbers found after the name (line 704); check the size, mostly zeros: look; B: numbers found after the name (line 704); check the size |
+| Sugar-Free Ocean Breeze 7 Energy | large iced | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 4 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 230 / 4 / 0 / 0 / 0 | A: numbers found after the name (line 705); check the size, mostly zeros: look; B: numbers found after the name (line 705); check the size |
+| Sugar-Free Ocean Breeze 7 Energy | small frozen chiller | differ: trans_fat_g, sodium_mg | 0 / 0 / 0 / – / 0 / 0 / 2 / 0 / 0 / 0 | 0 / 0 / 0 / 0 / 0 / 110 / 2 / 0 / 0 / 0 | A: numbers found after the name (line 703); check the size, mostly zeros: look; B: numbers found after the name (line 706); check the size, mostly zeros: look |
+| Sugar-Free Ocean Breeze 7 Energy | medium frozen chiller | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 2 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 160 / 2 / 0 / 0 / 0 | A: numbers found after the name (line 707); check the size, mostly zeros: look; B: numbers found after the name (line 707); check the size |
+| Sugar-Free Ocean Breeze 7 Energy | large frozen chiller | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 3 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 210 / 3 / 0 / 0 / 0 | A: numbers found after the name (line 704); check the size, mostly zeros: look; B: numbers found after the name (line 708); check the size |
+| Sugar-Free Sunrise 7 Energy | small iced | differ: trans_fat_g, sodium_mg | 0 / 0 / 0 / – / 0 / 0 / 2 / 0 / 0 / 0 | 0 / 0 / 0 / 0 / 0 / 120 / 2 / 0 / 0 / 0 | A: numbers found after the name (line 709); check the size, mostly zeros: look; B: numbers found after the name (line 709); check the size, mostly zeros: look |
+| Sugar-Free Sunrise 7 Energy | medium iced | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 3 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 180 / 3 / 0 / 0 / 0 | A: numbers found after the name (line 710); check the size, mostly zeros: look; B: numbers found after the name (line 710); check the size |
+| Sugar-Free Sunrise 7 Energy | large iced | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 4 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 230 / 4 / 0 / 0 / 0 | A: numbers found after the name (line 711); check the size, mostly zeros: look; B: numbers found after the name (line 711); check the size |
+| Sugar-Free Sunrise 7 Energy | small frozen chiller | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 2 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 110 / 2 / 0 / 0 / 0 | A: numbers found after the name (line 712); check the size, mostly zeros: look; B: numbers found after the name (line 712); check the size |
+| Sugar-Free Sunrise 7 Energy | medium frozen chiller | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 3 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 160 / 3 / 0 / 0 / 0 | A: numbers found after the name (line 710); check the size, mostly zeros: look; B: numbers found after the name (line 713); check the size |
+| Sugar-Free Sunrise 7 Energy | large frozen chiller | differ: trans_fat_g, sodium_mg | 10 / 0 / 0 / – / 0 / 0 / 3 / 0 / 0 / 0 | 10 / 0 / 0 / 0 / 0 / 210 / 3 / 0 / 0 / 0 | A: numbers found after the name (line 710); check the size, mostly zeros: look; B: numbers found after the name (line 714); check the size |
+| 7 Energy | small iced | differ: trans_fat_g, sodium_mg | 110 / 0 / 0 / – / 0 / 0 / 28 / 0 / 26 / 0 | 110 / 0 / 0 / 0 / 0 / 130 / 28 / 0 / 26 / 0 | A: numbers found after the name (line 715); check the size; B: numbers found after the name (line 715); check the size |
+| 7 Energy | medium iced | differ: trans_fat_g, sodium_mg | 160 / 0 / 0 / – / 0 / 0 / 42 / 0 / 39 / 0 | 160 / 0 / 0 / 0 / 0 / 190 / 42 / 0 / 39 / 0 | A: numbers found after the name (line 716); check the size; B: numbers found after the name (line 716); check the size |
+| 7 Energy | large iced | differ: trans_fat_g, sodium_mg | 210 / 0 / 0 / – / 0 / 0 / 56 / 0 / 52 / 0 | 210 / 0 / 0 / 0 / 0 / 250 / 56 / 0 / 52 / 0 | A: numbers found after the name (line 717); check the size; B: numbers found after the name (line 717); check the size |
+| 7 Energy | small frozen chiller | differ: trans_fat_g | 70 / 0 / 0 / – / 0 / 0 / 17 / 0 / 16 / 0 | 70 / 0 / 0 / 0 / 0 / 0 / 17 / 0 / 16 / 0 | A: numbers found after the name (line 718); check the size; B: numbers found after the name (line 718); check the size |
+| 7 Energy | medium frozen chiller | differ: trans_fat_g | 100 / 0 / 0 / – / 0 / 0 / 25 / 0 / 24 / 0 | 100 / 0 / 0 / 0 / 0 / 0 / 25 / 0 / 24 / 0 | A: numbers found after the name (line 719); check the size; B: numbers found after the name (line 719); check the size |
+| 7 Energy | large frozen chiller | differ: trans_fat_g | 130 / 0 / 0 / – / 0 / 0 / 33 / 0 / 32 / 0 | 130 / 0 / 0 / 0 / 0 / 0 / 33 / 0 / 32 / 0 | A: numbers found after the name (line 720); check the size; B: numbers found after the name (line 720); check the size |
+| Brewberry 7 Energy | small iced | differ: trans_fat_g, sodium_mg | 180 / 0 / 0 / – / 0 / 0 / 45 / 0 / 44 / 0 | 180 / 0 / 0 / 0 / 0 / 110 / 45 / 0 / 44 / 0 | A: numbers found after the name (line 721); check the size; B: numbers found after the name (line 721); check the size |
+| Brewberry 7 Energy | medium iced | differ: trans_fat_g, sodium_mg | 230 / 0 / 0 / – / 0 / 0 / 59 / 0 / 57 / 0 | 230 / 0 / 0 / 0 / 0 / 180 / 59 / 0 / 57 / 0 | A: numbers found after the name (line 722); check the size; B: numbers found after the name (line 722); check the size |
+| Brewberry 7 Energy | large iced | differ: trans_fat_g, sodium_mg | 350 / 0 / 0 / – / 0 / 0 / 91 / 0 / 87 / 0 | 350 / 0 / 0 / 0 / 0 / 230 / 91 / 0 / 87 / 0 | A: numbers found after the name (line 723); check the size; B: numbers found after the name (line 723); check the size |
+| Brewberry 7 Energy | small frozen chiller | differ: trans_fat_g | 150 / 0 / 0 / – / 0 / 0 / 37 / 0 / 36 / 0 | 150 / 0 / 0 / 0 / 0 / 0 / 37 / 0 / 36 / 0 | A: numbers found after the name (line 724); check the size; B: numbers found after the name (line 724); check the size |
+| Brewberry 7 Energy | medium frozen chiller | differ: trans_fat_g | 180 / 0 / 0 / – / 0 / 0 / 45 / 0 / 44 / 0 | 180 / 0 / 0 / 0 / 0 / 0 / 45 / 0 / 44 / 0 | A: numbers found after the name (line 721); check the size; B: numbers found after the name (line 721); check the size |
+| Brewberry 7 Energy | large frozen chiller | differ: trans_fat_g | 290 / 0 / 0 / – / 0 / 10 / 73 / 0 / 72 / 0 | 290 / 0 / 0 / 0 / 0 / 10 / 73 / 0 / 72 / 0 | A: numbers found after the name (line 726); check the size; B: numbers found after the name (line 726); check the size |
+| Heatwave 7 Energy | small iced | differ: trans_fat_g, sodium_mg | 180 / 0.1 / 0 / – / 0 / 0 / 46 / 0 / 44 / 0 | 180 / 0.1 / 0 / 0 / 0 / 110 / 46 / 0 / 44 / 0 | A: numbers found after the name (line 727); check the size; B: numbers found after the name (line 727); check the size |
+| Heatwave 7 Energy | medium iced | differ: trans_fat_g, sodium_mg | 230 / 0.1 / 0 / – / 0 / 0 / 60 / 0 / 57 / 0 | 230 / 0.1 / 0 / 0 / 0 / 180 / 60 / 0 / 57 / 0 | A: numbers found after the name (line 728); check the size; B: numbers found after the name (line 728); check the size |
+| Heatwave 7 Energy | large iced | differ: trans_fat_g, sodium_mg, fiber_g | 350 / 0.2 / 0 / – / 0 / 0 / 91 / 0 / 88 / 0 | 350 / 0.2 / 0 / 0 / 0 / 230 / 91 / 0.1 / 88 / 0 | A: not as drafted (line 729 lacks 0); B: numbers found after the name (line 729); check the size |
+| Heatwave 7 Energy | small frozen chiller | differ: trans_fat_g | 150 / 0.1 / 0 / – / 0 / 0 / 37 / 0 / 36 / 0 | 150 / 0.1 / 0 / 0 / 0 / 0 / 37 / 0 / 36 / 0 | A: numbers found after the name (line 730); check the size; B: numbers found after the name (line 730); check the size |
+| Heatwave 7 Energy | medium frozen chiller | differ: trans_fat_g | 180 / 0.1 / 0 / – / 0 / 0 / 45 / 0 / 44 / 0 | 180 / 0.1 / 0 / 0 / 0 / 0 / 45 / 0 / 44 / 0 | A: numbers found after the name (line 731); check the size; B: numbers found after the name (line 731); check the size |
+| Heatwave 7 Energy | large frozen chiller | differ: trans_fat_g, fiber_g | 290 / 0.2 / 0 / – / 0 / 6 / 74 / 0 / 72 / 0 | 290 / 0.2 / 0 / 0 / 0 / 6 / 74 / 0.1 / 72 / 0 | A: numbers found after the name (line 732); check the size; B: numbers found after the name (line 732); check the size |
+| Black Tea | kids iced | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found | A: numbers found after the name (line 848); check the size, mostly zeros: look |
+| Black Tea | small iced | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found | A: numbers found after the name (line 848); check the size, mostly zeros: look |
+| Black Tea | medium iced | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found | A: numbers found after the name (line 848); check the size, mostly zeros: look |
+| Black Tea | large iced | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found | A: numbers found after the name (line 848); check the size, mostly zeros: look |
+| Black Tea | kids hot | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found | A: numbers found after the name (line 848); check the size, mostly zeros: look |
+| Black Tea | small hot | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found | A: numbers found after the name (line 848); check the size, mostly zeros: look |
+| Black Tea | medium hot | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found | A: numbers found after the name (line 848); check the size, mostly zeros: look |
+| Black Tea | large hot | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found | A: numbers found after the name (line 848); check the size, mostly zeros: look |
+| Black Tea | kids frozen chiller | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found | A: numbers found after the name (line 848); check the size, mostly zeros: look |
+| Black Tea | small frozen chiller | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found | A: numbers found after the name (line 848); check the size, mostly zeros: look |
+| Black Tea | medium frozen chiller | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found | A: numbers found after the name (line 848); check the size, mostly zeros: look |
+| Black Tea | large frozen chiller | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found | A: numbers found after the name (line 848); check the size, mostly zeros: look |
+| Blondie Breve | kids iced | only in draft B | not found | 230 / 10 / 7 / 0 / 40 / 70 / 28 / – / 24 / 3 | B: numbers found after the name (line 174); check the size |
+| Blondie Breve | small iced | only in draft B | not found | 280 / 16 / 10 / 0 / 60 / 90 / 23 / – / 20 / 5 | B: numbers found after the name (line 178); check the size |
+| Blondie Breve | medium iced | only in draft B | not found | 480 / 26 / 17 / 0 / 100 / 150 / 44 / – / 38 / 8 | B: numbers found after the name (line 180); check the size |
+| Blondie Breve | large iced | only in draft B | not found | 560 / 32 / 21 / 0 / 120 / 170 / 46 / – / 39 / 10 | B: numbers found after the name (line 181); check the size |
+| Blondie Breve | kids hot | only in draft B | not found | 370 / 21 / 14 / 0 / 80 / 120 / 31 / – / 27 / 7 | B: numbers found after the name (line 182); check the size |
+| Blondie Breve | small hot | only in draft B | not found | 410 / 24 / 16 / 0 / 90 / 130 / 32 / – / 27 / 8 | B: numbers found after the name (line 183); check the size |
+| Blondie Breve | medium hot | only in draft B | not found | 610 / 32 / 21 / 0 / 125 / 190 / 59 / – / 51 / 10 | B: numbers found after the name (line 184); check the size |
+| Blondie Breve | large hot | only in draft B | not found | 680 / 37 / 25 / 0 / 140 / 210 / 61 / – / 52 / 12 | B: numbers found after the name (line 185); check the size |
+| Blondie Breve | kids frozen chiller | only in draft B | not found | 260 / 8 / 5 / 0 / 30 / 130 / 34 / – / 31 / 7 | B: numbers found after the name (line 186); check the size |
+| Blondie Breve | small frozen chiller | only in draft B | not found | 360 / 12 / 7 / 0 / 50 / 190 / 40 / – / 38 / 11 | B: numbers found after the name (line 187); check the size |
+| Blondie Breve | medium frozen chiller | only in draft B | not found | 490 / 18 / 11 / 0 / 70 / 270 / 49 / – / 46 / 17 | B: numbers found after the name (line 188); check the size |
+| Blondie Breve | large frozen chiller | only in draft B | not found | 720 / 24 / 15 / 0 / 95 / 380 / 81 / – / 75 / 22 | B: numbers found after the name (line 189); check the size |
+| Brunette Mocha | small iced | only in draft B | not found | 190 / 5 / 2 / 0 / 20 / 120 / 34 / – / 32 / 4 | B: numbers found after the name (line 190); check the size |
+| Brunette Mocha | medium iced | only in draft B | not found | 250 / 7 / 3 / 0 / 30 / 180 / 42 / – / 39 / 7 | B: numbers found after the name (line 191); check the size |
+| Brunette Mocha | large iced | only in draft B | not found | 370 / 11 / 5 / 0 / 55 / 290 / 58 / – / 55 / 13 | B: numbers found after the name (line 192); check the size |
+| Brunette Mocha | small hot | only in draft B | not found | 500 / 14 / 6 / 0 / 60 / 360 / 84 / – / 79 / 14 | B: numbers found after the name (line 193); check the size |
+| Brunette Mocha | medium hot | only in draft B | not found | 300 / 9 / 4 / 0 / 40 / 230 / 49 / – / 46 / 9 | B: numbers found after the name (line 194); check the size |
+| Brunette Mocha | large hot | only in draft B | not found | 320 / 10 / 4 / 0 / 45 / 250 / 52 / – / 49 / 11 | B: numbers found after the name (line 195); check the size |
+| Brunette Mocha | small frozen chiller | only in draft B | not found | 310 / 9 / 4 / 0 / 45 / 240 / 51 / – / 48 / 10 | B: numbers found after the name (line 198); check the size |
+| Brunette Mocha | medium frozen chiller | only in draft B | not found | 460 / 15 / 6 / 0 / 70 / 380 / 70 / – / 66 / 17 | B: numbers found after the name (line 199); check the size |
+| Brunette Mocha | large frozen chiller | only in draft B | not found | 650 / 22 / 9 / 0 / 105 / 560 / 94 / – / 91 / 26 | B: numbers found after the name (line 200); check the size |
+| Cinnamon Roll Breve | small small iced | only in draft B | not found | 210 / 30 / 12 / 0 / 140 / 760 / 25 / – / 133 / 34 | B: numbers found after the name (line 201); check the size |
+| Cinnamon Roll Breve | small small small | only in draft B | not found | 290 / 15 / 10 / 0 / 60 / 100 / 27 / – / 24 / 6 | B: numbers found after the name (line 202); check the size |
+| Cinnamon Roll Breve | medium small small | only in draft B | not found | 500 / 25 / 16 / 0 / 95 / 180 / 52 / – / 47 / 9 | B: numbers found after the name (line 203); check the size |
+| Cinnamon Roll Breve | large small small | only in draft B | not found | 580 / 31 / 20 / 0 / 120 / 200 / 54 / – / 49 / 11 | B: numbers found after the name (line 204); check the size |
+| Cinnamon Roll Breve | small hot | only in draft B | not found | 360 / 20 / 13 / 0 / 80 / 120 / 29 / – / 25 / 7 | B: numbers found after the name (line 205); check the size |
+| Cookie Butter Breve | small small small | only in draft B | not found | 210 / 9 / 6 / 0 / 35 / 60 / 24 / – / 22 / 3 | B: numbers found after the name (line 212); check the size |
+| Cookie Butter Breve | medium small small | only in draft B | not found | 490 / 24 / 16 / 0 / 95 / 150 / 50 / – / 46 / 9 | B: numbers found after the name (line 214); check the size |
+| Cookie Butter Breve | large small small | only in draft B | not found | 570 / 30 / 20 / 0 / 115 / 170 / 52 / – / 47 / 11 | B: numbers found after the name (line 215); check the size |
+| Smooth 7 Breve | small small small | only in draft B | not found | 220 / 9 / 6 / 0 / 35 / 80 / 27 / – / 25 / 4 | B: numbers found after the name (line 224); check the size |
+| Smooth 7 Breve | medium hot | only in draft B | not found | 600 / 31 / 20 / 0 / 120 / 200 / 58 / – / 52 / 11 | B: numbers found after the name (line 227); check the size |
+| Smooth 7 Breve | large hot | only in draft B | not found | 670 / 36 / 24 / 0 / 135 / 220 / 60 / – / 53 / 13 | B: numbers found after the name (line 235); check the size |
+| Smooth 7 Breve | kids frozen chiller | only in draft B | not found | 250 / 7 / 4 / 0 / 30 / 130 / 33 / – / 32 / 7 | B: numbers found after the name (line 236); check the size |
+| Smooth 7 Breve | small frozen chiller | only in draft B | not found | 350 / 11 / 7 / 0 / 45 / 200 / 40 / – / 38 / 11 | B: numbers found after the name (line 237); check the size |
+| Smooth 7 Breve | medium frozen chiller | only in draft B | not found | 490 / 17 / 11 / 0 / 70 / 280 / 48 / – / 46 / 17 | B: numbers found after the name (line 238); check the size |
+| Smooth 7 Breve | large frozen chiller | only in draft B | not found | 700 / 22 / 14 / 0 / 90 / 390 / 80 / – / 76 / 23 | B: numbers found after the name (line 239); check the size |
+| Sweet & Salty Breve | kids iced | only in draft B | not found | 220 / 9 / 6 / 0 / 35 / 130 / 28 / – / 26 / 4 | B: numbers found after the name (line 240); check the size |
+| Sweet & Salty Breve | small iced | only in draft B | not found | 300 / 15 / 10 / 0 / 60 / 150 / 30 / – / 27 / 6 | B: numbers found after the name (line 241); check the size |
+| Sweet & Salty Breve | medium iced | only in draft B | not found | 520 / 25 / 16 / 0 / 95 / 280 / 58 / – / 52 / 9 | B: numbers found after the name (line 242); check the size |
+| Sweet & Salty Breve | large iced | only in draft B | not found | 600 / 31 / 20 / 0 / 120 / 300 / 60 / – / 54 / 11 | B: numbers found after the name (line 243); check the size |
+| Sweet & Salty Breve | kids hot | only in draft B | not found | 370 / 20 / 13 / 0 / 80 / 170 / 31 / – / 28 / 7 | B: numbers found after the name (line 244); check the size |
+| Sweet & Salty Breve | small hot | only in draft B | not found | 400 / 23 / 15 / 0 / 90 / 180 / 32 / – / 29 / 8 | B: numbers found after the name (line 245); check the size |
+| Sweet & Salty Breve | medium hot | only in draft B | not found | 600 / 31 / 20 / 0 / 120 / 300 / 60 / – / 54 / 11 | B: numbers found after the name (line 243); check the size |
+| Sweet & Salty Breve | large hot | only in draft B | not found | 670 / 36 / 24 / 0 / 135 / 320 / 61 / – / 55 / 13 | B: numbers found after the name (line 247); check the size |
+| Sweet & Salty Breve | kids frozen chiller | only in draft B | not found | 250 / 7 / 4 / 0 / 30 / 180 / 34 / – / 33 / 7 | B: numbers found after the name (line 248); check the size |
+| Sweet & Salty Breve | small frozen chiller | only in draft B | not found | 350 / 11 / 7 / 0 / 45 / 240 / 41 / – / 39 / 11 | B: numbers found after the name (line 249); check the size |
+| Sweet & Salty Breve | medium frozen chiller | only in draft B | not found | 490 / 17 / 11 / 0 / 70 / 330 / 49 / – / 47 / 17 | B: numbers found after the name (line 250); check the size |
+| Sweet & Salty Breve | large frozen chiller | only in draft B | not found | 710 / 22 / 14 / 0 / 90 / 490 / 81 / – / 78 / 23 | B: numbers found after the name (line 251); check the size |
+| Sugar-Free Dark Chocolate Americano | small hot | only in draft B | not found | 20 / 0 / 0 / 0 / 0 / 10 / 5 / 0 / 0 / 0.5 | B: numbers found after the name (line 281); check the size |
+| Sugar-Free Dark Chocolate Americano | medium hot | only in draft B | not found | 20 / 0 / 0 / 0 / 0 / 10 / 5 / 0 / 0 / 0.5 | B: numbers found after the name (line 281); check the size |
+| Sugar-Free Dark Chocolate Americano | large hot | only in draft B | not found | 20 / 0 / 0 / 0 / 0 / 10 / 5 / 0 / 0 / 0.5 | B: numbers found after the name (line 281); check the size |
+| Sugar-Free French Vanilla Cappuccino | kids hot | only in draft B | not found | 120 / 5 / 3 / 0 / 20 / 90 / 16 / 2 / 6 / 4 | B: numbers found after the name (line 293); check the size |
+| Sugar-Free French Vanilla Cappuccino | small hot | only in draft B | not found | 130 / 6 / 3 / 0 / 20 / 100 / 17 / 2 / 7 / 5 | B: numbers found after the name (line 294); check the size |
+| Sugar-Free French Vanilla Cappuccino | medium hot | only in draft B | not found | 160 / 8 / 5 / 0 / 30 / 130 / 20 / 2 / 9 / 7 | B: numbers found after the name (line 295); check the size |
+| Sugar-Free French Vanilla Cappuccino | large hot | only in draft B | not found | 180 / 9 / 5 / 0 / 35 / 140 / 21 / 2 / 11 / 8 | B: numbers found after the name (line 296); check the size |
+| Sugar-Free Funnel Cake Macchiato Latte | kids iced | only in draft B | not found | 120 / 5 / 3 / 0 / 15 / 130 / 21 / 4 / 5 / 3 | B: numbers found after the name (line 297); check the size |
+| Sugar-Free Funnel Cake Macchiato Latte | small iced | only in draft B | not found | 200 / 8 / 5 / 0 / 25 / 190 / 34 / 7 / 8 / 5 | B: numbers found after the name (line 298); check the size |
+| Sugar-Free Funnel Cake Macchiato Latte | medium iced | only in draft B | not found | 280 / 12 / 7 / 0 / 45 / 250 / 40 / 7 / 13 / 9 | B: numbers found after the name (line 299); check the size |
+| Sugar-Free Funnel Cake Macchiato Latte | large iced | only in draft B | not found | 320 / 14 / 8 / 0 / 50 / 280 / 43 / 7 / 16 / 11 | B: numbers found after the name (line 300); check the size |
+| Sugar-Free Funnel Cake Macchiato Latte | kids hot | only in draft B | not found | 190 / 8 / 5 / 0 / 30 / 180 / 27 / 4 / 10 / 7 | B: numbers found after the name (line 301); check the size |
+| Sugar-Free Funnel Cake Macchiato Latte | small hot | only in draft B | not found | 250 / 10 / 6 / 0 / 35 / 230 / 38 / 7 / 11 / 8 | B: numbers found after the name (line 302); check the size |
+| Sugar-Free Funnel Cake Macchiato Latte | medium hot | only in draft B | not found | 310 / 14 / 8 / 0 / 50 / 280 / 43 / 7 / 16 / 11 | B: numbers found after the name (line 303); check the size |
+| Sugar-Free Funnel Cake Macchiato Latte | large hot | only in draft B | not found | 340 / 15 / 9 / 0 / 60 / 300 / 45 / 7 / 18 / 13 | B: numbers found after the name (line 304); check the size |
+| Sugar-Free Funnel Cake Macchiato Latte | kids frozen chiller | only in draft B | not found | 110 / 4 / 2 / 0 / 10 / 110 / 20 / 4 / 3 / 2 | B: numbers found after the name (line 305); check the size |
+| Sugar-Free Funnel Cake Macchiato Latte | small frozen chiller | only in draft B | not found | 170 / 5 / 3 / 0 / 15 / 200 / 37 / 8 / 4 / 2 | B: numbers found after the name (line 306); check the size |
+| Sugar-Free Funnel Cake Macchiato Latte | medium frozen chiller | only in draft B | not found | 240 / 8 / 5 / 0 / 25 / 280 / 46 / 10 / 7 / 4 | B: numbers found after the name (line 307); check the size |
+| Sugar-Free Funnel Cake Macchiato Latte | large frozen chiller | only in draft B | not found | 270 / 8 / 5 / 0 / 25 / 330 / 53 / 12 / 7 / 4 | B: numbers found after the name (line 308); check the size |
+| Sugar-Free German Chocolate Mocha | kids iced | only in draft B | not found | 150 / 10 / 6 / 0 / 35 / 60 / 10 / 1 / 2 / 3 | B: numbers found after the name (line 309); check the size |
+| Sugar-Free German Chocolate Mocha | small iced | only in draft B | not found | 230 / 16 / 10 / 0 / 60 / 80 / 12 / 1 / 3 / 5 | B: numbers found after the name (line 310); check the size |
+| Sugar-Free German Chocolate Mocha | medium iced | only in draft B | not found | 380 / 25 / 17 / 0 / 95 / 140 / 23 / 2 / 6 / 8 | B: numbers found after the name (line 311); check the size |
+| Sugar-Free German Chocolate Mocha | large iced | only in draft B | not found | 460 / 31 / 21 / 0 / 120 / 170 / 25 / 2 / 7 / 10 | B: numbers found after the name (line 312); check the size |
+| Sugar-Free German Chocolate Mocha | kids hot | only in draft B | not found | 300 / 21 / 14 / 0 / 80 / 100 / 14 / 1 / 5 / 7 | B: numbers found after the name (line 313); check the size |
+| Sugar-Free German Chocolate Mocha | small hot | only in draft B | not found | 330 / 23 / 15 / 0 / 90 / 110 / 15 / 1 / 5 / 8 | B: numbers found after the name (line 314); check the size |
+| Sugar-Free German Chocolate Mocha | medium hot | only in draft B | not found | 460 / 31 / 21 / 0 / 120 / 170 / 25 / 2 / 7 / 10 | B: numbers found after the name (line 312); check the size |
+| Sugar-Free German Chocolate Mocha | large hot | only in draft B | not found | 530 / 36 / 24 / 0 / 140 / 190 / 27 / 2 / 8 / 12 | B: numbers found after the name (line 316); check the size |
+| Sugar-Free German Chocolate Mocha | kids frozen chiller | only in draft B | not found | 70 / 3 / 2 / 0 / 10 / 50 / 10 / 1 / 3 / 2 | B: numbers found after the name (line 317); check the size |
+| Sugar-Free German Chocolate Mocha | small frozen chiller | only in draft B | not found | 100 / 3 / 2 / 0 / 10 / 80 / 18 / 2 / 3 / 2 | B: numbers found after the name (line 318); check the size |
+| Sugar-Free German Chocolate Mocha | medium frozen chiller | only in draft B | not found | 170 / 6 / 3 / 0 / 20 / 130 / 28 / 4 / 6 / 5 | B: numbers found after the name (line 319); check the size |
+| Sugar-Free German Chocolate Mocha | large frozen chiller | only in draft B | not found | 200 / 6 / 4 / 0 / 20 / 160 / 36 / 5 / 6 / 5 | B: numbers found after the name (line 320); check the size |
+| Sugar-Free Hazelnut Americano | kids iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 321); check the size, mostly zeros: look |
+| Sugar-Free Hazelnut Americano | small iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 321); check the size, mostly zeros: look |
+| Sugar-Free Hazelnut Americano | medium iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 321); check the size, mostly zeros: look |
+| Sugar-Free Hazelnut Americano | large iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 321); check the size, mostly zeros: look |
+| Sugar-Free Hazelnut Americano | kids hot | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 321); check the size, mostly zeros: look |
+| Sugar-Free Hazelnut Americano | small hot | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 321); check the size, mostly zeros: look |
+| Sugar-Free Hazelnut Americano | medium hot | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 321); check the size, mostly zeros: look |
+| Sugar-Free Hazelnut Americano | large hot | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 321); check the size, mostly zeros: look |
+| Sugar-Free Irish Cream Cappuccino | kids hot | only in draft B | not found | 80 / 4 / 3 / 0 / 15 / 60 / 6 / 0 / 6 / 4 | B: numbers found after the name (line 329); check the size |
+| Sugar-Free Irish Cream Cappuccino | small hot | only in draft B | not found | 90 / 5 / 3 / 0 / 20 / 70 / 7 / 0 / 6 / 5 | B: numbers found after the name (line 330); check the size |
+| Sugar-Free Irish Cream Cappuccino | medium hot | only in draft B | not found | 120 / 7 / 4 / 0 / 25 / 100 / 10 / 0 / 9 / 7 | B: numbers found after the name (line 331); check the size |
+| Sugar-Free Irish Cream Cappuccino | large hot | only in draft B | not found | 140 / 8 / 5 / 0 / 30 / 110 / 11 / 0 / 11 / 8 | B: numbers found after the name (line 332); check the size |
+| Sugar-Free Mocha | kids iced | only in draft B | not found | 140 / 9 / 6 / 0 / 35 / 50 / 8 / 0 / 2 / 3 | B: numbers found after the name (line 333); check the size |
+| Sugar-Free Mocha | small iced | only in draft B | not found | 220 / 15 / 10 / 0 / 60 / 70 / 10 / 0 / 3 / 5 | B: numbers found after the name (line 334); check the size |
+| Sugar-Free Mocha | medium iced | only in draft B | not found | 360 / 24 / 16 / 0 / 95 / 120 / 18 / 0 / 5 / 9 | B: numbers found after the name (line 335); check the size |
+| Sugar-Free Mocha | large iced | only in draft B | not found | 440 / 30 / 20 / 0 / 115 / 140 / 20 / 0 / 7 / 11 | B: numbers found after the name (line 336); check the size |
+| Sugar-Free Mocha | kids hot | only in draft B | not found | 290 / 20 / 13 / 0 / 80 / 90 / 11 / 0 / 4 / 7 | B: numbers found after the name (line 337); check the size |
+| Sugar-Free Mocha | small hot | only in draft B | not found | 320 / 23 / 15 / 0 / 90 / 100 / 12 / 0 / 5 / 8 | B: numbers found after the name (line 338); check the size |
+| Sugar-Free Mocha | medium hot | only in draft B | not found | 440 / 30 / 20 / 0 / 115 / 140 / 20 / 0 / 7 / 11 | B: numbers found after the name (line 336); check the size |
+| Sugar-Free Mocha | large hot | only in draft B | not found | 510 / 35 / 23 / 0 / 135 / 160 / 21 / 0 / 8 / 12 | B: numbers found after the name (line 340); check the size |
+| Sugar-Free Mocha | kids frozen chiller | only in draft B | not found | 60 / 2 / 1 / 0 / 10 / 40 / 8 / 0 / 3 / 2 | B: numbers found after the name (line 341); check the size |
+| Sugar-Free Mocha | small frozen chiller | only in draft B | not found | 80 / 2 / 1 / 0 / 10 / 50 / 13 / 0 / 3 / 3 | B: numbers found after the name (line 342); check the size |
+| Sugar-Free Mocha | medium frozen chiller | only in draft B | not found | 140 / 4 / 3 / 0 / 15 / 90 / 20 / 0 / 6 / 5 | B: numbers found after the name (line 346); check the size |
+| Sugar-Free Mocha | large frozen chiller | only in draft B | not found | 160 / 4 / 3 / 0 / 15 / 100 / 25 / 0 / 6 / 5 | B: numbers found after the name (line 348); check the size |
+| Sugar-Free Raspberry Truffle Macchiato Latte | kids iced | only in draft B | not found | 130 / 4 / 2 / 0 / 15 / 90 / 23 / 3 / 4 / 3 | B: numbers found after the name (line 349); check the size |
+| Sugar-Free Raspberry Truffle Macchiato Latte | small iced | only in draft B | not found | 210 / 6 / 4 / 0 / 20 / 140 / 34 / 4 / 7 / 6 | B: numbers found after the name (line 350); check the size |
+| Sugar-Free Raspberry Truffle Macchiato Latte | medium iced | only in draft B | not found | 280 / 10 / 6 / 0 / 40 / 200 / 40 / 4 / 13 / 10 | B: numbers found after the name (line 351); check the size |
+| Sugar-Free Raspberry Truffle Macchiato Latte | large iced | only in draft B | not found | 320 / 12 / 8 / 0 / 45 / 230 / 42 / 4 / 16 / 12 | B: numbers found after the name (line 352); check the size |
+| Sugar-Free Raspberry Truffle Macchiato Latte | kids hot | only in draft B | not found | 200 / 8 / 5 / 0 / 30 / 140 / 28 / 3 / 10 / 7 | B: numbers found after the name (line 353); check the size |
+| Sugar-Free Raspberry Truffle Macchiato Latte | small hot | only in draft B | not found | 250 / 9 / 5 / 0 / 35 / 180 / 37 / 4 / 11 / 8 | B: numbers found after the name (line 354); check the size |
+| Sugar-Free Raspberry Truffle Macchiato Latte | medium hot | only in draft B | not found | 320 / 12 / 7 / 0 / 45 / 220 / 42 / 4 / 16 / 12 | B: numbers found after the name (line 355); check the size |
+| Sugar-Free Raspberry Truffle Macchiato Latte | large hot | only in draft B | not found | 350 / 14 / 8 / 0 / 55 / 250 / 45 / 4 / 18 / 13 | B: numbers found after the name (line 356); check the size |
+| Sugar-Free Raspberry Truffle Macchiato Latte | kids frozen chiller | only in draft B | not found | 110 / 3 / 2 / 0 / 10 / 80 / 21 / 3 / 3 / 2 | B: numbers found after the name (line 357); check the size |
+| Sugar-Free Raspberry Truffle Macchiato Latte | small frozen chiller | only in draft B | not found | 190 / 4 / 2 / 0 / 10 / 130 / 39 / 6 / 3 / 3 | B: numbers found after the name (line 358); check the size |
+| Sugar-Free Raspberry Truffle Macchiato Latte | medium frozen chiller | only in draft B | not found | 270 / 7 / 4 / 0 / 20 / 190 / 52 / 9 / 6 / 5 | B: numbers found after the name (line 359); check the size |
+| Sugar-Free Raspberry Truffle Macchiato Latte | large frozen chiller | only in draft B | not found | 310 / 8 / 4 / 0 / 20 / 220 / 62 / 11 / 7 / 5 | B: numbers found after the name (line 360); check the size |
+| Sugar-Free Salted Caramel Macchiato Latte | kids iced | only in draft B | not found | 100 / 4 / 3 / 0 / 15 / 170 / 15 / 2 / 4 / 3 | B: numbers found after the name (line 361); check the size |
+| Sugar-Free Salted Caramel Macchiato Latte | small iced | only in draft B | not found | 180 / 7 / 4 / 0 / 25 / 240 / 28 / 5 / 8 / 5 | B: numbers found after the name (line 362); check the size |
+| Sugar-Free Salted Caramel Macchiato Latte | medium iced | only in draft B | not found | 250 / 11 / 7 / 0 / 45 / 290 / 34 / 5 / 13 / 9 | B: numbers found after the name (line 363); check the size |
+| Sugar-Free Salted Caramel Macchiato Latte | large iced | only in draft B | not found | 290 / 13 / 8 / 0 / 50 / 320 / 37 / 5 / 16 / 11 | B: numbers found after the name (line 364); check the size |
+| Sugar-Free Salted Caramel Macchiato Latte | kids hot | only in draft B | not found | 170 / 8 / 5 / 0 / 30 / 230 / 20 / 2 / 10 / 7 | B: numbers found after the name (line 365); check the size |
+| Sugar-Free Salted Caramel Macchiato Latte | small hot | only in draft B | not found | 230 / 10 / 6 / 0 / 35 / 270 / 32 / 5 / 11 / 8 | B: numbers found after the name (line 366); check the size |
+| Sugar-Free Salted Caramel Macchiato Latte | medium hot | only in draft B | not found | 290 / 13 / 8 / 0 / 50 / 320 / 36 / 5 / 16 / 11 | B: numbers found after the name (line 367); check the size |
+| Sugar-Free Salted Caramel Macchiato Latte | large hot | only in draft B | not found | 320 / 15 / 9 / 0 / 55 / 340 / 39 / 5 / 18 / 13 | B: numbers found after the name (line 368); check the size |
+| Sugar-Free Salted Caramel Macchiato Latte | kids frozen chiller | only in draft B | not found | 80 / 3 / 2 / 0 / 10 / 160 / 14 / 2 / 3 / 2 | B: numbers found after the name (line 369); check the size |
+| Sugar-Free Salted Caramel Macchiato Latte | small frozen chiller | only in draft B | not found | 130 / 4 / 3 / 0 / 15 / 290 / 24 / 5 / 3 / 2 | B: numbers found after the name (line 370); check the size |
+| Sugar-Free Salted Caramel Macchiato Latte | medium frozen chiller | only in draft B | not found | 170 / 6 / 4 / 0 / 20 / 420 / 28 / 5 / 6 / 4 | B: numbers found after the name (line 371); check the size |
+| Sugar-Free Salted Caramel Macchiato Latte | large frozen chiller | only in draft B | not found | 170 / 6 / 4 / 0 / 20 / 520 / 28 / 5 / 6 / 4 | B: numbers found after the name (line 372); check the size |
+| Sugar-Free Snickerdoodle Mocha | kids iced | only in draft B | not found | 130 / 9 / 6 / 0 / 35 / 40 / 6 / 0 / 2 / 3 | B: numbers found after the name (line 373); check the size |
+| Sugar-Free Snickerdoodle Mocha | small iced | only in draft B | not found | 210 / 15 / 10 / 0 / 60 / 70 / 8 / 0 / 3 / 5 | B: numbers found after the name (line 374); check the size |
+| Sugar-Free Snickerdoodle Mocha | medium iced | only in draft B | not found | 340 / 24 / 16 / 0 / 95 / 110 / 13 / 0 / 5 / 8 | B: numbers found after the name (line 375); check the size |
+| Sugar-Free Snickerdoodle Mocha | large iced | only in draft B | not found | 420 / 30 / 20 / 0 / 115 / 130 / 15 / 0 / 7 / 10 | B: numbers found after the name (line 376); check the size |
+| Sugar-Free Snickerdoodle Mocha | kids hot | only in draft B | not found | 280 / 20 / 13 / 0 / 80 / 90 / 9 / 0 / 4 / 7 | B: numbers found after the name (line 377); check the size |
+| Sugar-Free Snickerdoodle Mocha | small hot | only in draft B | not found | 310 / 23 / 15 / 0 / 90 / 100 / 10 / 0 / 5 / 8 | B: numbers found after the name (line 378); check the size |
+| Sugar-Free Snickerdoodle Mocha | medium hot | only in draft B | not found | 420 / 30 / 20 / 0 / 115 / 130 / 15 / 0 / 7 / 10 | B: numbers found after the name (line 376); check the size |
+| Sugar-Free Snickerdoodle Mocha | large hot | only in draft B | not found | 490 / 35 / 23 / 0 / 135 / 150 / 17 / 0 / 8 / 12 | B: numbers found after the name (line 380); check the size |
+| Sugar-Free Snickerdoodle Mocha | kids frozen chiller | only in draft B | not found | 50 / 2 / 1 / 0 / 10 / 40 / 5 / 0 / 3 / 2 | B: numbers found after the name (line 381); check the size |
+| Sugar-Free Snickerdoodle Mocha | small frozen chiller | only in draft B | not found | 60 / 2 / 1 / 0 / 10 / 50 / 8 / 0 / 3 / 2 | B: numbers found after the name (line 382); check the size |
+| Sugar-Free Snickerdoodle Mocha | medium frozen chiller | only in draft B | not found | 110 / 4 / 3 / 0 / 15 / 80 / 13 / 0 / 6 / 4 | B: numbers found after the name (line 383); check the size |
+| Sugar-Free Snickerdoodle Mocha | large frozen chiller | only in draft B | not found | 120 / 4 / 3 / 0 / 15 / 90 / 16 / 0 / 6 / 5 | B: numbers found after the name (line 384); check the size |
+| Sugar-Free Toasted Marshmallow Latte | kids iced | only in draft B | not found | 60 / 3 / 2 / 0 / 15 / 50 / 4 / 0 / 4 / 3 | B: numbers found after the name (line 385); check the size |
+| Sugar-Free Toasted Marshmallow Latte | small iced | only in draft B | not found | 100 / 5 / 3 / 0 / 20 / 80 / 7 / 0 / 7 / 5 | B: numbers found after the name (line 386); check the size |
+| Sugar-Free Toasted Marshmallow Latte | medium iced | only in draft B | not found | 170 / 9 / 6 / 0 / 40 / 130 / 13 / 0 / 13 / 9 | B: numbers found after the name (line 387); check the size |
+| Sugar-Free Toasted Marshmallow Latte | large iced | only in draft B | not found | 210 / 11 / 7 / 0 / 45 / 160 / 16 / 0 / 16 / 11 | B: numbers found after the name (line 388); check the size |
+| Sugar-Free Toasted Marshmallow Latte | kids hot | only in draft B | not found | 130 / 7 / 4 / 0 / 30 / 100 / 10 / 0 / 9 / 7 | B: numbers found after the name (line 389); check the size |
+| Sugar-Free Toasted Marshmallow Latte | small hot | only in draft B | not found | 140 / 8 / 5 / 0 / 30 / 110 / 11 / 0 / 11 / 8 | B: numbers found after the name (line 390); check the size |
+| Sugar-Free Toasted Marshmallow Latte | medium hot | only in draft B | not found | 200 / 11 / 7 / 0 / 45 / 160 / 16 / 0 / 15 / 11 | B: numbers found after the name (line 391); check the size |
+| Sugar-Free Toasted Marshmallow Latte | large hot | only in draft B | not found | 240 / 13 / 8 / 0 / 50 / 180 / 18 / 0 / 18 / 13 | B: numbers found after the name (line 392); check the size |
+| Sugar-Free Toasted Marshmallow Latte | kids frozen chiller | only in draft B | not found | 40 / 2 / 1 / 0 / 10 / 30 / 3 / 0 / 3 / 2 | B: numbers found after the name (line 393); check the size |
+| Sugar-Free Toasted Marshmallow Latte | small frozen chiller | only in draft B | not found | 40 / 2 / 1 / 0 / 10 / 40 / 3 / 0 / 3 / 2 | B: numbers found after the name (line 394); check the size |
+| Sugar-Free Toasted Marshmallow Latte | medium frozen chiller | only in draft B | not found | 80 / 4 / 3 / 0 / 15 / 70 / 6 / 0 / 6 / 4 | B: numbers found after the name (line 395); check the size |
+| Sugar-Free Toasted Marshmallow Latte | large frozen chiller | only in draft B | not found | 80 / 4 / 3 / 0 / 15 / 80 / 6 / 0 / 6 / 4 | B: numbers found after the name (line 396); check the size |
+| Sugar-Free Vanilla Latte | kids iced | only in draft B | not found | 60 / 3 / 2 / 0 / 15 / 50 / 5 / 0 / 4 / 3 | B: numbers found after the name (line 397); check the size |
+| Sugar-Free Vanilla Latte | small iced | only in draft B | not found | 90 / 5 / 3 / 0 / 20 / 80 / 8 / 0 / 7 / 5 | B: numbers found after the name (line 398); check the size |
+| Sugar-Free Vanilla Latte | medium iced | only in draft B | not found | 170 / 9 / 6 / 0 / 40 / 130 / 13 / 0 / 13 / 9 | B: numbers found after the name (line 399); check the size |
+| Sugar-Free Vanilla Latte | large iced | only in draft B | not found | 210 / 11 / 7 / 0 / 45 / 160 / 16 / 0 / 16 / 11 | B: numbers found after the name (line 403); check the size |
+| Sugar-Free Vanilla Latte | kids hot | only in draft B | not found | 130 / 7 / 4 / 0 / 30 / 100 / 10 / 0 / 9 / 7 | B: numbers found after the name (line 405); check the size |
+| Sugar-Free Vanilla Latte | small hot | only in draft B | not found | 140 / 8 / 5 / 0 / 30 / 110 / 11 / 0 / 11 / 8 | B: numbers found after the name (line 406); check the size |
+| Sugar-Free Vanilla Latte | medium hot | only in draft B | not found | 200 / 11 / 7 / 0 / 45 / 160 / 16 / 0 / 15 / 11 | B: numbers found after the name (line 407); check the size |
+| Sugar-Free Vanilla Latte | large hot | only in draft B | not found | 240 / 13 / 8 / 0 / 50 / 180 / 18 / 0 / 18 / 13 | B: numbers found after the name (line 408); check the size |
+| Sugar-Free Vanilla Latte | kids frozen chiller | only in draft B | not found | 40 / 2 / 1 / 0 / 10 / 30 / 3 / 0 / 3 / 2 | B: numbers found after the name (line 409); check the size |
+| Sugar-Free Vanilla Latte | small frozen chiller | only in draft B | not found | 40 / 2 / 1 / 0 / 10 / 40 / 3 / 0 / 3 / 2 | B: numbers found after the name (line 410); check the size |
+| Sugar-Free Vanilla Latte | medium frozen chiller | only in draft B | not found | 80 / 4 / 3 / 0 / 15 / 70 / 7 / 0 / 6 / 4 | B: numbers found after the name (line 411); check the size |
+| Sugar-Free Vanilla Latte | large frozen chiller | only in draft B | not found | 80 / 4 / 3 / 0 / 15 / 80 / 7 / 0 / 6 / 4 | B: numbers found after the name (line 412); check the size |
+| Sugar-Free White Chocolate Mocha | kids iced | only in draft B | not found | 170 / 10 / 6 / 2 / 35 / 70 / 15 / 2 / 2 / 3 | B: not as drafted (line 413 lacks 2) |
+| Sugar-Free White Chocolate Mocha | small iced | only in draft B | not found | 250 / 16 / 10 / 2 / 60 / 90 / 17 / 2 / 4 / 5 | B: not as drafted (line 414 lacks 2) |
+| Sugar-Free White Chocolate Mocha | medium iced | only in draft B | not found | 420 / 26 / 17 / 5 / 95 / 160 / 33 / 5 / 6 / 8 | B: not as drafted (line 415 lacks 5) |
+| Sugar-Free White Chocolate Mocha | large iced | only in draft B | not found | 500 / 32 / 21 / 5 / 120 / 180 / 35 / 5 / 7 / 10 | B: not as drafted (line 416 lacks 5) |
+| Sugar-Free White Chocolate Mocha | kids hot | only in draft B | not found | 320 / 21 / 14 / 2 / 80 / 110 / 19 / 2 / 5 / 7 | B: not as drafted (line 417 lacks 2) |
+| Sugar-Free White Chocolate Mocha | small hot | only in draft B | not found | 350 / 23 / 15 / 2 / 90 / 120 / 20 / 2 / 5 / 8 | B: not as drafted (line 418 lacks 2) |
+| Sugar-Free White Chocolate Mocha | medium hot | only in draft B | not found | 500 / 32 / 21 / 5 / 120 / 180 / 35 / 5 / 7 / 10 | B: not as drafted (line 416 lacks 5) |
+| Sugar-Free White Chocolate Mocha | large hot | only in draft B | not found | 570 / 37 / 24 / 5 / 140 / 200 / 36 / 5 / 8 / 12 | B: not as drafted (line 420 lacks 5) |
+| Sugar-Free White Chocolate Mocha | kids frozen chiller | only in draft B | not found | 90 / 3 / 2 / 2 / 10 / 60 / 15 / 2 / 3 / 2 | B: not as drafted (line 421 lacks 2) |
+| Sugar-Free White Chocolate Mocha | small frozen chiller | only in draft B | not found | 140 / 4 / 2 / 5 / 10 / 90 / 28 / 5 / 3 / 2 | B: not as drafted (line 422 lacks 5) |
+| Sugar-Free White Chocolate Mocha | medium frozen chiller | only in draft B | not found | 220 / 6 / 4 / 7 / 20 / 150 / 43 / 7 / 6 / 5 | B: not as drafted (line 423 lacks 7) |
+| Sugar-Free White Chocolate Mocha | large frozen chiller | only in draft B | not found | 270 / 7 / 4 / 7 / 20 / 190 / 55 / 10 / 7 / 5 | B: not as drafted (line 424 lacks 7) |
+| Americano | kids iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 257); check the size, mostly zeros: look |
+| Americano | small iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 257); check the size, mostly zeros: look |
+| Americano | medium iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 257); check the size, mostly zeros: look |
+| Americano | large iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 257); check the size, mostly zeros: look |
+| Americano | kids hot | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 257); check the size, mostly zeros: look |
+| Americano | small hot | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 257); check the size, mostly zeros: look |
+| Americano | medium hot | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 257); check the size, mostly zeros: look |
+| Americano | large hot | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 257); check the size, mostly zeros: look |
+| Blondie Cold Brew | kids iced | only in draft B | not found | 90 / 1 / 0 / 0 / 0 / 30 / 19 / 0 / 16 / 0.5 | B: numbers found after the name (line 433); check the size |
+| Blondie Cold Brew | small iced | only in draft B | not found | 120 / 1 / 1 / 1 / 5 / 40 / 27 / 0 / 22 / 0.5 | B: not as drafted (line 434 lacks 1) |
+| Blondie Cold Brew | medium iced | only in draft B | not found | 130 / 1 / 1 / 1 / 5 / 40 / 28 / 0 / 22 / 1 | B: not as drafted (line 435 lacks 1) |
+| Blondie Cold Brew | large iced | only in draft B | not found | 130 / 1 / 1 / 1 / 5 / 50 / 30 / 0 / 22 / 1 | B: not as drafted (line 436 lacks 1) |
+| Breve | kids iced | only in draft B | not found | 160 / 12 / 8 / 0 / 45 / 50 / 4 / 0 / 3 / 4 | B: numbers found after the name (line 437); check the size |
+| Breve | small iced | only in draft B | not found | 240 / 18 / 12 / 0 / 70 / 70 / 6 / 0 / 4 / 6 | B: numbers found after the name (line 438); check the size |
+| Breve | medium iced | only in draft B | not found | 400 / 30 / 20 / 0 / 115 / 120 / 10 / 0 / 7 / 10 | B: numbers found after the name (line 439); check the size |
+| Breve | large iced | only in draft B | not found | 480 / 36 / 24 / 0 / 140 / 140 / 12 / 0 / 8 / 12 | B: numbers found after the name (line 440); check the size |
+| Breve | kids hot | only in draft B | not found | 300 / 23 / 15 / 0 / 90 / 90 / 8 / 0 / 5 / 8 | B: numbers found after the name (line 441); check the size |
+| Breve | small hot | only in draft B | not found | 330 / 25 / 17 / 0 / 95 / 100 / 8 / 0 / 6 / 8 | B: numbers found after the name (line 442); check the size |
+| Breve | medium hot | only in draft B | not found | 470 / 35 / 23 / 0 / 135 / 140 / 12 / 0 / 8 / 12 | B: numbers found after the name (line 443); check the size |
+| Breve | large hot | only in draft B | not found | 530 / 40 / 27 / 0 / 155 / 160 / 13 / 0 / 9 / 13 | B: numbers found after the name (line 444); check the size |
+| Breve | kids frozen chiller | only in draft B | not found | 180 / 6 / 4 / 0 / 25 / 30 / 27 / 0 / 27 / 2 | B: numbers found after the name (line 445); check the size |
+| Breve | small frozen chiller | only in draft B | not found | 280 / 6 / 4 / 0 / 25 / 30 / 53 / 0 / 52 / 2 | B: numbers found after the name (line 446); check the size |
+| Breve | medium frozen chiller | only in draft B | not found | 460 / 12 / 8 / 0 / 45 / 60 / 80 / 0 / 79 / 4 | B: numbers found after the name (line 447); check the size |
+| Breve | large frozen chiller | only in draft B | not found | 550 / 12 / 8 / 0 / 45 / 60 / 105 / 0 / 104 / 4 | B: numbers found after the name (line 448); check the size |
+| Brown Sugar Cinnamon Americano | kids iced | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 | B: numbers found after the name (line 449); check the size |
+| Brown Sugar Cinnamon Americano | small iced | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 | B: numbers found after the name (line 449); check the size |
+| Brown Sugar Cinnamon Americano | medium iced | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 | B: numbers found after the name (line 449); check the size |
+| Brown Sugar Cinnamon Americano | large iced | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 | B: numbers found after the name (line 449); check the size |
+| Brown Sugar Cinnamon Americano | small hot | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 | B: numbers found after the name (line 449); check the size |
+| Brown Sugar Cinnamon Americano | medium hot | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 | B: numbers found after the name (line 449); check the size |
+| Brown Sugar Cinnamon Americano | large hot | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 | B: numbers found after the name (line 449); check the size |
+| Brunette Cold Brew | kids lced | only in draft B | not found | 110 / 1 / 1 / 0 / 5 / 40 / 24 / 0 / 20 / 0.5 | B: numbers found after the name (line 459); check the size |
+| Brunette Cold Brew | small lced | only in draft B | not found | 110 / 1 / 1 / 0 / 5 / 40 / 25 / 0 / 20 / 0.5 | B: numbers found after the name (line 461); check the size |
+| Brunette Cold Brew | medium lced | only in draft B | not found | 120 / 1 / 1 / 0 / 5 / 40 / 26 / 0 / 20 / 1 | B: numbers found after the name (line 462); check the size |
+| Brunette Cold Brew | large lced | only in draft B | not found | 120 / 1 / 1 / 0 / 5 / 50 / 28 / 0 / 20 / 1 | B: numbers found after the name (line 463); check the size |
+| Cappuccino | kids hot | only in draft B | not found | 80 / 5 / 3 / 0 / 20 / 60 / 7 / 0 / 6 / 5 | B: numbers found after the name (line 464); check the size |
+| Cappuccino | small hot | only in draft B | not found | 90 / 5 / 3 / 0 / 20 / 70 / 7 / 0 / 7 / 5 | B: numbers found after the name (line 465); check the size |
+| White Mac Cold Brew | medium iced | only in draft B | not found | 110 / 0 / 0 / 0 / 0 / 50 / 27 / 0 / 22 / 0 | B: numbers found after the name (line 682); check the size |
+| White Mac Cold Brew | large iced | only in draft B | not found | 120 / 0 / 0 / 0 / 0 / 50 / 28 / 0 / 22 / 0 | B: numbers found after the name (line 683); check the size |
+| Nightshade 7 Energy | small iced | only in draft B | not found | 180 / 0 / 0 / 0 / 0 / 115 / 50 / 0 / 44 / 0 | B: numbers found after the name (line 733); check the size |
+| Nightshade 7 Energy | medium iced | only in draft B | not found | 230 / 0 / 0 / 0 / 0 / 180 / 60 / 0 / 57 / 0 | B: numbers found after the name (line 734); check the size |
+| Nightshade 7 Energy | large iced | only in draft B | not found | 350 / 0 / 0 / 0 / 0 / 230 / 92 / 0 / 88 / 0 | B: numbers found after the name (line 735); check the size |
+| Nightshade 7 Energy | small frozen chiller | only in draft B | not found | 150 / 0 / 0 / 0 / 0 / 0 / 37 / 0 / 36 / 0 | B: numbers found after the name (line 736); check the size |
+| Nightshade 7 Energy | medium frozen chiller | only in draft B | not found | 180 / 0 / 0 / 0 / 0 / 0 / 45 / 0 / 44 / 0 | B: numbers found after the name (line 737); check the size |
+| Nightshade 7 Energy | large frozen chiller | only in draft B | not found | 290 / 0 / 0 / 0 / 0 / 5 / 74 / 0 / 72 / 0 | B: numbers found after the name (line 738); check the size |
+| Ocean Breeze 7 Energy | small iced | only in draft B | not found | 180 / 0 / 0 / 0 / 0 / 110 / 47 / 0 / 45 / 0 | B: numbers found after the name (line 739); check the size |
+| Ocean Breeze 7 Energy | medium iced | only in draft B | not found | 240 / 0 / 0 / 0 / 0 / 180 / 61 / 0 / 58 / 0 | B: numbers found after the name (line 740); check the size |
+| Ocean Breeze 7 Energy | large iced | only in draft B | not found | 360 / 0 / 0 / 0 / 0 / 230 / 94 / 0 / 91 / 0 | B: numbers found after the name (line 741); check the size |
+| Ocean Breeze 7 Energy | small frozen chiller | only in draft B | not found | 150 / 0 / 0 / 0 / 0 / 0 / 38 / 0 / 38 / 0 | B: numbers found after the name (line 745); check the size |
+| Ocean Breeze 7 Energy | medium frozen chiller | only in draft B | not found | 180 / 0 / 0 / 0 / 0 / 0 / 47 / 0 / 46 / 0 | B: numbers found after the name (line 747); check the size |
+| Ocean Breeze 7 Energy | large frozen chiller | only in draft B | not found | 300 / 0 / 0 / 0 / 0 / 10 / 77 / 0 / 75 / 0 | B: numbers found after the name (line 748); check the size |
+| Pixie Stick 7 Energy | small iced | only in draft B | not found | 170 / 0 / 0 / 0 / 0 / 110 / 45 / 0 / 43 / 0 | B: numbers found after the name (line 749); check the size |
+| Pixie Stick 7 Energy | medium iced | only in draft B | not found | 230 / 0 / 0 / 0 / 0 / 180 / 59 / 0 / 56 / 0 | B: numbers found after the name (line 750); check the size |
+| Pixie Stick 7 Energy | large iced | only in draft B | not found | 350 / 0 / 0 / 0 / 0 / 230 / 90 / 0 / 86 / 0 | B: numbers found after the name (line 751); check the size |
+| Pixie Stick 7 Energy | small frozen chiller | only in draft B | not found | 140 / 0 / 0 / 0 / 0 / 0 / 36 / 0 / 35 / 0 | B: numbers found after the name (line 752); check the size |
+| Pixie Stick 7 Energy | medium frozen chiller | only in draft B | not found | 180 / 0 / 0 / 0 / 0 / 0 / 45 / 0 / 43 / 0 | B: numbers found after the name (line 753); check the size |
+| Pixie Stick 7 Energy | large frozen chiller | only in draft B | not found | 290 / 0 / 0 / 0 / 0 / 10 / 72 / 0 / 71 / 0 | B: numbers found after the name (line 754); check the size |
+| Sunrise 7 Energy | small iced | only in draft B | not found | 180 / 0 / 0 / 0 / 0 / 110 / 46 / 0 / 44 / 0 | B: numbers found after the name (line 755); check the size |
+| Sunrise 7 Energy | medium iced | only in draft B | not found | 230 / 0 / 0 / 0 / 0 / 180 / 60 / 0 / 57 / 0 | B: numbers found after the name (line 756); check the size |
+| Sunrise 7 Energy | large iced | only in draft B | not found | 360 / 0 / 0 / 0 / 0 / 230 / 92 / 0 / 88 / 0 | B: numbers found after the name (line 757); check the size |
+| Sunrise 7 Energy | small frozen chiller | only in draft B | not found | 150 / 0 / 0 / 0 / 0 / 0 / 37 / 0 / 36 / 0 | B: numbers found after the name (line 758); check the size |
+| Sunrise 7 Energy | medium frozen chiller | only in draft B | not found | 180 / 0 / 0 / 0 / 0 / 0 / 46 / 0 / 44 / 0 | B: numbers found after the name (line 755); check the size |
+| Sunrise 7 Energy | large frozen chiller | only in draft B | not found | 290 / 0 / 0 / 0 / 0 / 10 / 74 / 0 / 72 / 0 | B: numbers found after the name (line 760); check the size |
+| Tropic Thunder 7 Energy | small iced | only in draft B | not found | 180 / 0 / 0 / 0 / 0 / 110 / 46 / 0 / 44 / 0 | B: numbers found after the name (line 761); check the size |
+| Tropic Thunder 7 Energy | medium iced | only in draft B | not found | 230 / 0 / 0 / 0 / 0 / 180 / 60 / 0 / 57 / 0 | B: numbers found after the name (line 762); check the size |
+| Tropic Thunder 7 Energy | large iced | only in draft B | not found | 350 / 0 / 0 / 0 / 0 / 230 / 91 / 0 / 88 / 0 | B: numbers found after the name (line 763); check the size |
+| Tropic Thunder 7 Energy | small frozen chiller | only in draft B | not found | 150 / 0 / 0 / 0 / 0 / 0 / 37 / 0 / 36 / 0 | B: numbers found after the name (line 764); check the size |
+| Tropic Thunder 7 Energy | medium frozen chiller | only in draft B | not found | 180 / 0 / 0 / 0 / 0 / 0 / 45 / 0 / 44 / 0 | B: numbers found after the name (line 765); check the size |
+| Tropic Thunder 7 Energy | large frozen chiller | only in draft B | not found | 290 / 0 / 0 / 0 / 0 / 10 / 74 / 0 / 72 / 0 | B: numbers found after the name (line 766); check the size |
+| Sugar-Free Peaches 'n Cream 7 Fizz Soda | kids iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 770); check the size, mostly zeros: look |
+| Sugar-Free Peaches 'n Cream 7 Fizz Soda | small iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 770); check the size, mostly zeros: look |
+| Sugar-Free Peaches 'n Cream 7 Fizz Soda | medium iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 20 / 1 / 0 / 0 / 0 | B: numbers found after the name (line 773); check the size, mostly zeros: look |
+| Sugar-Free Peaches 'n Cream 7 Fizz Soda | large iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 20 / 1 / 0 / 0 / 0 | B: numbers found after the name (line 773); check the size, mostly zeros: look |
+| Sugar-Free Peaches 'n Cream 7 Fizz Soda | kids frozen chiller | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 770); check the size, mostly zeros: look |
+| Sugar-Free Peaches 'n Cream 7 Fizz Soda | small frozen chiller | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 770); check the size, mostly zeros: look |
+| Sugar-Free Peaches 'n Cream 7 Fizz Soda | medium frozen chiller | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 20 / 1 / 0 / 0 / 0 | B: numbers found after the name (line 773); check the size, mostly zeros: look |
+| Sugar-Free Peaches 'n Cream 7 Fizz Soda | large frozen chiller | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 20 / 1 / 0 / 0 / 0 | B: numbers found after the name (line 773); check the size, mostly zeros: look |
+| 7 Fizz Soda | kids iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 768); check the size, mostly zeros: look |
+| 7 Fizz Soda | small iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 768); check the size, mostly zeros: look |
+| 7 Fizz Soda | medium iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 768); check the size, mostly zeros: look |
+| 7 Fizz Soda | large iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 768); check the size, mostly zeros: look |
+| 7 Fizz Soda | kids frozen chiller | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 768); check the size, mostly zeros: look |
+| 7 Fizz Soda | small frozen chiller | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 768); check the size, mostly zeros: look |
+| 7 Fizz Soda | medium frozen chiller | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 768); check the size, mostly zeros: look |
+| 7 Fizz Soda | large frozen chiller | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 768); check the size, mostly zeros: look |
+| Blood Orange 7 Fizz Soda | kids iced | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 22 / 0 / 21 / 0 | B: numbers found after the name (line 787); check the size |
+| Blood Orange 7 Fizz Soda | small iced | only in draft B | not found | 170 / 0 / 0 / 0 / 0 / 10 / 43 / 0 / 42 / 0 | B: numbers found after the name (line 788); check the size |
+| Blood Orange 7 Fizz Soda | medium iced | only in draft B | not found | 250 / 0 / 0 / 0 / 0 / 10 / 65 / 0 / 63 / 0 | B: numbers found after the name (line 789); check the size |
+| Blood Orange 7 Fizz Soda | large iced | only in draft B | not found | 340 / 0 / 0 / 0 / 0 / 20 / 86 / 0 / 85 / 0 | B: numbers found after the name (line 790); check the size |
+| Blood Orange 7 Fizz Soda | kids frozen chiller | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 22 / 0 / 21 / 0 | B: numbers found after the name (line 787); check the size |
+| Blood Orange 7 Fizz Soda | small frozen chiller | only in draft B | not found | 170 / 0 / 0 / 0 / 0 / 10 / 43 / 0 / 42 / 0 | B: numbers found after the name (line 788); check the size |
+| Blood Orange 7 Fizz Soda | medium frozen chiller | only in draft B | not found | 250 / 0 / 0 / 0 / 0 / 10 / 65 / 0 / 63 / 0 | B: numbers found after the name (line 789); check the size |
+| Blood Orange 7 Fizz Soda | large frozen chiller | only in draft B | not found | 340 / 0 / 0 / 0 / 0 / 20 / 86 / 0 / 85 / 0 | B: numbers found after the name (line 790); check the size |
+| Brew Lagoon 7 Fizz Soda | kids iced | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 21 / 0 / 21 / 0 | B: numbers found after the name (line 795); check the size |
+| Brew Lagoon 7 Fizz Soda | small iced | only in draft B | not found | 170 / 0 / 0 / 0 / 0 / 10 / 43 / 0 / 43 / 0 | B: numbers found after the name (line 796); check the size |
+| Brew Lagoon 7 Fizz Soda | medium iced | only in draft B | not found | 250 / 0 / 0 / 0 / 0 / 10 / 64 / 0 / 64 / 0 | B: numbers found after the name (line 797); check the size |
+| Brew Lagoon 7 Fizz Soda | large iced | only in draft B | not found | 340 / 0 / 0 / 0 / 0 / 10 / 85 / 0 / 85 / 0 | B: numbers found after the name (line 798); check the size |
+| Brew Lagoon 7 Fizz Soda | kids frozen chiller | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 21 / 0 / 21 / 0 | B: numbers found after the name (line 795); check the size |
+| Brew Lagoon 7 Fizz Soda | small frozen chiller | only in draft B | not found | 170 / 0 / 0 / 0 / 0 / 10 / 43 / 0 / 43 / 0 | B: numbers found after the name (line 796); check the size |
+| Brew Lagoon 7 Fizz Soda | medium frozen chiller | only in draft B | not found | 250 / 0 / 0 / 0 / 0 / 10 / 64 / 0 / 64 / 0 | B: numbers found after the name (line 797); check the size |
+| Brew Lagoon 7 Fizz Soda | large frozen chiller | only in draft B | not found | 340 / 0 / 0 / 0 / 0 / 10 / 85 / 0 / 85 / 0 | B: numbers found after the name (line 798); check the size |
+| Peaches 'n Cream 7 Fizz Soda | kids iced | only in draft B | not found | 90 / 0 / 0 / 0 / 0 / 0 / 23 / 0 / 23 / 0 | B: numbers found after the name (line 807); check the size |
+| Peaches 'n Cream 7 Fizz Soda | small iced | only in draft B | not found | 180 / 0 / 0 / 0 / 0 / 10 / 47 / 0 / 46 / 0 | B: numbers found after the name (line 808); check the size |
+| Peaches 'n Cream 7 Fizz Soda | medium iced | only in draft B | not found | 270 / 0 / 0 / 0 / 0 / 10 / 70 / 0 / 69 / 0 | B: numbers found after the name (line 809); check the size |
+| Peaches 'n Cream 7 Fizz Soda | large iced | only in draft B | not found | 360 / 0 / 0 / 0 / 0 / 10 / 93 / 0 / 92 / 0 | B: numbers found after the name (line 810); check the size |
+| Peaches 'n Cream 7 Fizz Soda | kids frozen chiller | only in draft B | not found | 90 / 0 / 0 / 0 / 0 / 0 / 23 / 0 / 23 / 0 | B: numbers found after the name (line 807); check the size |
+| Peaches 'n Cream 7 Fizz Soda | small frozen chiller | only in draft B | not found | 180 / 0 / 0 / 0 / 0 / 10 / 47 / 0 / 46 / 0 | B: numbers found after the name (line 808); check the size |
+| Peaches 'n Cream 7 Fizz Soda | medium frozen chiller | only in draft B | not found | 270 / 0 / 0 / 0 / 0 / 10 / 70 / 0 / 69 / 0 | B: numbers found after the name (line 809); check the size |
+| Peaches 'n Cream 7 Fizz Soda | large frozen chiller | only in draft B | not found | 360 / 0 / 0 / 0 / 0 / 10 / 93 / 0 / 92 / 0 | B: numbers found after the name (line 810); check the size |
+| Pink Mermaid 7 Fizz Soda | kids iced | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 21 / 0 / 20 / 0 | B: numbers found after the name (line 815); check the size |
+| Pink Mermaid 7 Fizz Soda | small iced | only in draft B | not found | 160 / 0 / 0 / 0 / 0 / 10 / 41 / 0 / 41 / 0 | B: numbers found after the name (line 816); check the size |
+| Pink Mermaid 7 Fizz Soda | medium iced | only in draft B | not found | 240 / 0 / 0 / 0 / 0 / 10 / 62 / 0 / 61 / 0 | B: numbers found after the name (line 817); check the size |
+| Pink Mermaid 7 Fizz Soda | large iced | only in draft B | not found | 320 / 0 / 0 / 0 / 0 / 10 / 82 / 0 / 81 / 0 | B: numbers found after the name (line 818); check the size |
+| Pink Mermaid 7 Fizz Soda | kids frozen chiller | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 21 / 0 / 20 / 0 | B: numbers found after the name (line 815); check the size |
+| Pink Mermaid 7 Fizz Soda | small frozen chiller | only in draft B | not found | 160 / 0 / 0 / 0 / 0 / 10 / 41 / 0 / 41 / 0 | B: numbers found after the name (line 816); check the size |
+| Pink Mermaid 7 Fizz Soda | medium frozen chiller | only in draft B | not found | 240 / 0 / 0 / 0 / 0 / 10 / 62 / 0 / 61 / 0 | B: numbers found after the name (line 817); check the size |
+| Pink Mermaid 7 Fizz Soda | large frozen chiller | only in draft B | not found | 320 / 0 / 0 / 0 / 0 / 10 / 82 / 0 / 81 / 0 | B: numbers found after the name (line 818); check the size |
+| Sugar-Free Brewchata Chai | kids frozen chiller | only in draft B | not found | 70 / 10 / 0 / 0 / 0 / 20 / 15 / 0 / 15 / 1 | B: numbers found after the name (line 824); check the size |
+| Sugar-Free Brewchata Chai | small frozen chiller | only in draft B | not found | 110 / 10 / 0 / 0 / 0 / 40 / 25 / 0 / 25 / 1 | B: numbers found after the name (line 825); check the size |
+| Sugar-Free Brewchata Chai | medium frozen chiller | only in draft B | not found | 180 / 20 / 0 / 0 / 0 / 60 / 40 / 0 / 39 / 2 | B: numbers found after the name (line 826); check the size |
+| Sugar-Free Brewchata Chai | large frozen chiller | only in draft B | not found | 220 / 20 / 0 / 0 / 0 / 80 / 50 / 1 / 49 / 2 | B: numbers found after the name (line 827); check the size |
+| Sugar-Free Brewchata Chai Latte | kids iced | only in draft B | not found | 50 / 10 / 0 / 0 / 0 / 50 / 9 / 0 / 9 / 1 | B: numbers found after the name (line 828); check the size |
+| Sugar-Free Brewchata Chai Latte | small iced | only in draft B | not found | 90 / 20 / 0 / 0 / 0 / 80 / 17 / 0.5 / 17 / 2 | B: numbers found after the name (line 829); check the size |
+| Sugar-Free Brewchata Chai Latte | medium iced | only in draft B | not found | 150 / 30 / 0 / 0 / 0 / 110 / 28 / 1 / 27 / 3 | B: numbers found after the name (line 830); check the size |
+| Sugar-Free Brewchata Chai Latte | large iced | only in draft B | not found | 200 / 40 / 0 / 0 / 0 / 150 / 39 / 1 / 38 / 5 | B: numbers found after the name (line 831); check the size |
+| Sugar-Free Brewchata Chai Latte | kids hot | only in draft B | not found | 100 / 20 / 0 / 0 / 0 / 80 / 19 / 1 / 18 / 3 | B: numbers found after the name (line 832); check the size |
+| Sugar-Free Brewchata Chai Latte | small hot | only in draft B | not found | 130 / 30 / 0 / 0 / 0 / 100 / 24 / 1 / 23 / 3 | B: numbers found after the name (line 833); check the size |
+| Sugar-Free Brewchata Chai Latte | medium hot | only in draft B | not found | 170 / 40 / 0 / 0 / 0 / 130 / 33 / 1 / 32 / 4 | B: numbers found after the name (line 834); check the size |
+| Sugar-Free Brewchata Chai Latte | large hot | only in draft B | not found | 220 / 50 / 0 / 0 / 0 / 160 / 42 / 1 / 41 / 5 | B: numbers found after the name (line 835); check the size |
+| Sugar-Free Cereal Milk Matcha | kids frozen chiller | only in draft B | not found | 160 / 40 / 3 / 1 / 10 / 190 / 27 / 1 / 22 / 4 | B: not as drafted (line 836 lacks 1) |
+| Sugar-Free Cereal Milk Matcha | small frozen chiller | only in draft B | not found | 250 / 60 / 5 / 1 / 20 / 230 / 45 / 1 / 39 / 7 | B: not as drafted (line 837 lacks 1) |
+| Sugar-Free Cereal Milk Matcha | medium frozen chiller | only in draft B | not found | 370 / 90 / 7 / 1 / 25 / 270 / 69 / 1 / 62 / 10 | B: not as drafted (line 838 lacks 1) |
+| Sugar-Free Cereal Milk Matcha | large frozen chiller | only in draft B | not found | 500 / 120 / 9 / 1 / 35 / 450 / 90 / 1 / 78 / 13 | B: not as drafted (line 839 lacks 1) |
+| Sugar-Free Cereal Milk Matcha Latte | kids iced | only in draft B | not found | 120 / 30 / 2 / 1 / 15 / 180 / 15 / 1 / 11 / 3 | B: not as drafted (line 840 lacks 1) |
+| Sugar-Free Cereal Milk Matcha Latte | small iced | only in draft B | not found | 180 / 50 / 3 / 1 / 20 / 210 / 25 / 1 / 21 / 5 | B: not as drafted (line 841 lacks 1) |
+| Sugar-Free Cereal Milk Matcha Latte | medium iced | only in draft B | not found | 260 / 70 / 5 / 1 / 35 / 250 / 36 / 1 / 32 / 8 | B: not as drafted (line 842 lacks 1) |
+| Sugar-Free Cereal Milk Matcha Latte | large iced | only in draft B | not found | 350 / 100 / 7 / 1 / 45 / 300 / 48 / 1 / 44 / 11 | B: not as drafted (line 843 lacks 1) |
+| Sugar-Free Cereal Milk Matcha Latte | kids hot | only in draft B | not found | 200 / 50 / 4 / 1 / 25 / 220 / 26 / 1 / 22 / 6 | B: not as drafted (line 844 lacks 1) |
+| Sugar-Free Cereal Milk Matcha Latte | small hot | only in draft B | not found | 240 / 60 / 4 / 1 / 30 / 230 / 34 / 1 / 30 / 7 | B: not as drafted (line 845 lacks 1) |
+| Sugar-Free Cereal Milk Matcha Latte | medium hot | only in draft B | not found | 310 / 80 / 6 / 1 / 40 / 270 / 45 / 1 / 41 / 9 | B: not as drafted (line 846 lacks 1) |
+| Sugar-Free Cereal Milk Matcha Latte | large hot | only in draft B | not found | 380 / 110 / 7 / 1 / 50 / 310 / 56 / 1 / 52 / 12 | B: not as drafted (line 847 lacks 1) |
+| Sugar-Free Georgia Peach Black Tea | kids iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 848); check the size, mostly zeros: look |
+| Sugar-Free Georgia Peach Black Tea | small iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 848); check the size, mostly zeros: look |
+| Sugar-Free Georgia Peach Black Tea | medium iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 10 / 1 / 0 / 0 / 0 | B: numbers found after the name (line 850); check the size, mostly zeros: look |
+| Sugar-Free Georgia Peach Black Tea | large iced | only in draft B | not found | 10 / 0 / 0 / 0 / 0 / 20 / 1 / 0 / 0 / 0 | B: numbers found after the name (line 851); check the size |
+| Sugar-Free Georgia Peach Black Tea | kids hot | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 848); check the size, mostly zeros: look |
+| Sugar-Free Georgia Peach Black Tea | small hot | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 848); check the size, mostly zeros: look |
+| Sugar-Free Georgia Peach Black Tea | medium hot | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 848); check the size, mostly zeros: look |
+| Sugar-Free Georgia Peach Black Tea | large hot | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 848); check the size, mostly zeros: look |
+| Sugar-Free Georgia Peach Black Tea | kids frozen chiller | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 10 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 848); check the size, mostly zeros: look |
+| Sugar-Free Strawberry Matcha | kids frozen chiller | only in draft B | not found | 120 / 40 / 3 / 0 / 10 / 60 / 24 / 0 / 22 / 4 | B: numbers found after the name (line 910); check the size |
+| Sugar-Free Strawberry Matcha | small frozen chiller | only in draft B | not found | 210 / 60 / 5 / 0 / 20 / 90 / 42 / 0 / 39 / 7 | B: numbers found after the name (line 911); check the size |
+| Sugar-Free Strawberry Matcha | medium frozen chiller | only in draft B | not found | 330 / 90 / 7 / 0 / 25 / 140 / 66 / 0 / 62 / 10 | B: numbers found after the name (line 915); check the size |
+| Sugar-Free Strawberry Matcha | large frozen chiller | only in draft B | not found | 430 / 120 / 9 / 0 / 35 / 190 / 84 / 0 / 78 / 13 | B: numbers found after the name (line 917); check the size |
+| Sugar-Free Strawberry Matcha Latte | kids iced | only in draft B | not found | 80 / 30 / 2 / 0 / 15 / 50 / 12 / 0 / 11 / 3 | B: numbers found after the name (line 918); check the size |
+| Sugar-Free Strawberry Matcha Latte | small iced | only in draft B | not found | 150 / 50 / 3 / 0 / 20 / 80 / 22 / 0 / 21 / 5 | B: numbers found after the name (line 919); check the size |
+| Sugar-Free Strawberry Matcha Latte | medium iced | only in draft B | not found | 230 / 70 / 5 / 0 / 35 / 120 / 33 / 0 / 32 / 8 | B: numbers found after the name (line 920); check the size |
+| Sugar-Free Strawberry Matcha Latte | large iced | only in draft B | not found | 310 / 100 / 7 / 0 / 45 / 160 / 45 / 0 / 44 / 11 | B: numbers found after the name (line 921); check the size |
+| Sugar-Free Strawberry Matcha Latte | kids hot | only in draft B | not found | 160 / 50 / 4 / 0 / 25 / 90 / 23 / 0 / 22 / 6 | B: numbers found after the name (line 922); check the size |
+| Sugar-Free Strawberry Matcha Latte | small hot | only in draft B | not found | 200 / 60 / 4 / 0 / 30 / 100 / 31 / 0 / 30 / 7 | B: numbers found after the name (line 923); check the size |
+| Sugar-Free Strawberry Matcha Latte | medium hot | only in draft B | not found | 270 / 80 / 6 / 0 / 40 / 140 / 42 / 0 / 41 / 9 | B: numbers found after the name (line 924); check the size |
+| Sugar-Free Strawberry Matcha Latte | large hot | only in draft B | not found | 350 / 110 / 7 / 0 / 50 / 170 / 53 / 0 / 52 / 12 | B: numbers found after the name (line 925); check the size |
+| Hula Earl Grey Tea | large hot | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 | B: numbers found after the name (line 1180); check the size |
+| Hula Green Tea | kids iced | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 | B: numbers found after the name (line 1189); check the size |
+| Hula Green Tea | small iced | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 | B: numbers found after the name (line 1189); check the size |
+| Hula Green Tea | medium iced | only in draft B | not found | 150 / 0 / 0 / 0 / 0 / 10 / 39 / 0 / 38 / 0 | B: numbers found after the name (line 1191); check the size |
+| Hula Green Tea | large iced | only in draft B | not found | 230 / 0 / 0 / 0 / 0 / 10 / 58 / 0 / 57 / 0 | B: numbers found after the name (line 1192); check the size |
+| Hula Green Tea | kids hot | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 | B: numbers found after the name (line 1189); check the size |
+| Hula Green Tea | small hot | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 | B: numbers found after the name (line 1189); check the size |
+| Hula Green Tea | medium hot | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 | B: numbers found after the name (line 1189); check the size |
+| Hula Green Tea | large hot | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 | B: numbers found after the name (line 1189); check the size |
+| Hula Green Tea | kids frozen chiller | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 | B: numbers found after the name (line 1189); check the size |
+| Hula Green Tea | small frozen chiller | only in draft B | not found | 150 / 0 / 0 / 0 / 0 / 10 / 39 / 0 / 38 / 0 | B: numbers found after the name (line 1191); check the size |
+| Hula Green Tea | medium frozen chiller | only in draft B | not found | 230 / 0 / 0 / 0 / 0 / 10 / 58 / 0 / 57 / 0 | B: numbers found after the name (line 1192); check the size |
+| Hula Green Tea | large frozen chiller | only in draft B | not found | 300 / 0 / 0 / 0 / 0 / 10 / 78 / 0 / 76 / 0 | B: numbers found after the name (line 1203); check the size |
+| Hula Paris Tea | kids iced | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 | B: numbers found after the name (line 1205); check the size |
+| Hula Paris Tea | small iced | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 | B: numbers found after the name (line 1205); check the size |
+| Hula Paris Tea | medium iced | only in draft B | not found | 150 / – / – / – / – / – / – / – / – / – | B: numbers found after the name (line 1207); check the size, mostly zeros: look |
+| Hula Paris Tea | large iced | only in draft B | not found | 230 / – / – / – / – / – / – / – / – / – | B: numbers found after the name (line 1208); check the size, mostly zeros: look |
+| Hula Paris Tea | kids hot | only in draft B | not found | 80 / – / – / – / – / – / – / – / – / – | B: numbers found after the name (line 1205); check the size, mostly zeros: look |
+| Hula Paris Tea | small hot | only in draft B | not found | 80 / – / – / – / – / – / – / – / – / – | B: numbers found after the name (line 1205); check the size, mostly zeros: look |
+| Hula Paris Tea | medium hot | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 | B: numbers found after the name (line 1205); check the size |
+| Hula Paris Tea | large hot | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 | B: numbers found after the name (line 1205); check the size |
+| Hula Paris Tea | kids frozen chiller | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 19 / 0 / 19 / 0 | B: numbers found after the name (line 1205); check the size |
+| Hula Paris Tea | small frozen chiller | only in draft B | not found | 150 / – / – / – / – / – / – / – / – / – | B: numbers found after the name (line 1207); check the size, mostly zeros: look |
+| Hula Paris Tea | medium frozen chiller | only in draft B | not found | 230 / – / – / – / – / – / – / – / – / – | B: numbers found after the name (line 1208); check the size, mostly zeros: look |
+| Hula Paris Tea | large frozen chiller | only in draft B | not found | 300 / – / – / – / – / – / – / – / – / – | B: numbers found after the name (line 1216); check the size, mostly zeros: look |
+| Matcha | kids frozen chiller | only in draft B | not found | 150 / 4 / 3 / 0 / 10 / 50 / 30 / 0 / 29 / 2 | B: numbers found after the name (line 1217); check the size |
+| Matcha | small frozen chiller | only in draft B | not found | 240 / 7 / 5 / 0 / 20 / 90 / 49 / 0 / 46 / 4 | B: numbers found after the name (line 1218); check the size |
+| Matcha | medium frozen chiller | only in draft B | not found | 350 / 10 / 7 / 0 / 25 / 130 / 73 / 0 / 69 / 6 | B: numbers found after the name (line 1219); check the size |
+| Matcha | large frozen chiller | only in draft B | not found | 470 / 13 / 9 / 0 / 35 / 170 / 97 / 0 / 92 / 8 | B: numbers found after the name (line 1220); check the size |
+| Matcha Latte | kids iced | only in draft B | not found | 100 / 4 / 3 / 0 / 15 / 60 / 13 / 0 / 13 / 4 | B: numbers found after the name (line 1221); check the size |
+| Matcha Latte | small iced | only in draft B | not found | 160 / 6 / 4 / 0 / 25 / 90 / 23 / 0 / 23 / 6 | B: numbers found after the name (line 1222); check the size |
+| Matcha Latte | medium iced | only in draft B | not found | 240 / 9 / 6 / 0 / 40 / 130 / 34 / 0 / 34 / 9 | B: numbers found after the name (line 1223); check the size |
+| Matcha Latte | large iced | only in draft B | not found | 330 / 12 / 8 / 0 / 50 / 170 / 46 / 0 / 45 / 12 | B: numbers found after the name (line 1224); check the size |
+| Matcha Latte | kids hot | only in draft B | not found | 180 / 7 / 4 / 0 / 30 / 90 / 24 / 0 / 23 / 7 | B: numbers found after the name (line 1225); check the size |
+| Matcha Latte | small hot | only in draft B | not found | 220 / 8 / 5 / 0 / 30 / 110 / 32 / 0 / 32 / 8 | B: numbers found after the name (line 1226); check the size |
+| Matcha Latte | medium hot | only in draft B | not found | 290 / 10 / 6 / 0 / 40 / 140 / 43 / 0 / 42 / 10 | B: numbers found after the name (line 1227); check the size |
+| Matcha Latte | large hot | only in draft B | not found | 360 / 13 / 8 / 0 / 50 / 180 / 53 / 0 / 53 / 13 | B: numbers found after the name (line 1228); check the size |
+| Paris Tea | kids iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 1229); check the size, mostly zeros: look |
+| Paris Tea | small iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 1229); check the size, mostly zeros: look |
+| Paris Tea | medium iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 1229); check the size, mostly zeros: look |
+| Paris Tea | large iced | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 1229); check the size, mostly zeros: look |
+| Paris Tea | kids hot | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 1229); check the size, mostly zeros: look |
+| Paris Tea | small hot | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 1229); check the size, mostly zeros: look |
+| Paris Tea | medium hot | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 1229); check the size, mostly zeros: look |
+| Paris Tea | large hot | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 1229); check the size, mostly zeros: look |
+| Paris Tea | kids frozen chiller | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 1229); check the size, mostly zeros: look |
+| Paris Tea | small frozen chiller | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 1229); check the size, mostly zeros: look |
+| Paris Tea | medium frozen chiller | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 1229); check the size, mostly zeros: look |
+| Paris Tea | large frozen chiller | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 1229); check the size, mostly zeros: look |
+| Salted Honey Chai | kids frozen chiller | only in draft B | not found | 190 / 2 / 1 / 0 / 5 / 80 / 45 / 0 / 45 / 0.5 | B: numbers found after the name (line 1241); check the size |
+| Salted Honey Chai | small frozen chiller | only in draft B | not found | 260 / 3 / 2 / 0 / 10 / 100 / 60 / 0 / 58 / 2 | B: numbers found after the name (line 1242); check the size |
+| Salted Honey Chai | medium frozen chiller | only in draft B | not found | 350 / 5 / 3 / 0 / 15 / 120 / 79 / 0 / 77 / 3 | B: numbers found after the name (line 1243); check the size |
+| Salted Honey Chai | large frozen chiller | only in draft B | not found | 520 / 7 / 5 / 0 / 20 / 190 / 120 / 0 / 117 / 4 | B: numbers found after the name (line 1244); check the size |
+| Salted Honey Chai Latte | kids iced | only in draft B | not found | 170 / 2 / 1 / 0 / 10 / 80 / 39 / 0 / 38 / 2 | B: numbers found after the name (line 1245); check the size |
+| Salted Honey Chai Latte | small iced | only in draft B | not found | 230 / 4 / 2 / 0 / 15 / 100 / 48 / 0 / 47 / 4 | B: numbers found after the name (line 1246); check the size |
+| Salted Honey Chai Latte | medium iced | only in draft B | not found | 300 / 6 / 3 / 0 / 25 / 130 / 60 / 0 / 60 / 6 | B: numbers found after the name (line 1247); check the size |
+| Salted Honey Chai Latte | large iced | only in draft B | not found | 380 / 8 / 5 / 0 / 30 / 160 / 72 / 0 / 72 / 8 | B: numbers found after the name (line 1248); check the size |
+| Salted Honey Chai Latte | kids hot | only in draft B | not found | 240 / 4 / 2 / 0 / 15 / 110 / 49 / 0 / 49 / 4 | B: numbers found after the name (line 1249); check the size |
+| Salted Honey Chai Latte | small hot | only in draft B | not found | 270 / 5 / 3 / 0 / 20 / 120 / 54 / 0 / 54 / 5 | B: numbers found after the name (line 1250); check the size |
+| Salted Honey Chai Latte | medium hot | only in draft B | not found | 330 / 6 / 4 / 0 / 25 / 140 / 65 / 0 / 64 / 6 | B: numbers found after the name (line 1251); check the size |
+| Salted Honey Chai Latte | large hot | only in draft B | not found | 390 / 8 / 5 / 0 / 35 / 170 / 75 / 0 / 74 / 8 | B: numbers found after the name (line 1252); check the size |
+| Strawberry Matcha | kids frozen chiller | only in draft B | not found | 200 / 4 / 3 / 0 / 10 / 60 / 43 / 0 / 41 / 2 | B: numbers found after the name (line 1253); check the size |
+| Strawberry Matcha | small frozen chiller | only in draft B | not found | 290 / 7 / 5 / 0 / 20 / 90 / 61 / 0 / 58 / 4 | B: numbers found after the name (line 1254); check the size |
+| Strawberry Matcha | medium frozen chiller | only in draft B | not found | 400 / 10 / 7 / 0 / 25 / 130 / 85 / 0 / 81 / 6 | B: numbers found after the name (line 1255); check the size |
+| Strawberry Matcha | large frozen chiller | only in draft B | not found | 570 / 13 / 9 / 0 / 35 / 180 / 122 / 0 / 116 / 8 | B: numbers found after the name (line 1256); check the size |
+| Strawberry Matcha Latte | kids iced | only in draft B | not found | 160 / 3 / 2 / 0 / 15 / 50 / 31 / 0 / 30 / 3 | B: numbers found after the name (line 1260); check the size |
+| Strawberry Matcha Latte | small iced | only in draft B | not found | 220 / 5 / 3 / 0 / 20 / 70 / 41 / 0 / 40 / 5 | B: numbers found after the name (line 1262); check the size |
+| Strawberry Matcha Latte | medium iced | only in draft B | not found | 300 / 8 / 5 / 0 / 35 / 120 / 52 / 0 / 52 / 8 | B: numbers found after the name (line 1263); check the size |
+| Strawberry Matcha Latte | large iced | only in draft B | not found | 380 / 11 / 7 / 0 / 45 / 160 / 64 / 0 / 63 / 11 | B: numbers found after the name (line 1264); check the size |
+| Strawberry Matcha Latte | kids hot | only in draft B | not found | 240 / 6 / 4 / 0 / 25 / 90 / 42 / 0 / 41 / 6 | B: numbers found after the name (line 1265); check the size |
+| Strawberry Matcha Latte | small hot | only in draft B | not found | 340 / 10 / 6 / 0 / 40 / 150 / 55 / 0 / 54 / 10 | B: numbers found after the name (line 1266); check the size |
+| Strawberry Matcha Latte | medium hot | only in draft B | not found | 350 / 9 / 6 / 0 / 40 / 130 / 61 / 0 / 60 / 9 | B: numbers found after the name (line 1267); check the size |
+| Strawberry Matcha Latte | large hot | only in draft B | not found | 420 / 12 / 7 / 0 / 50 / 170 / 72 / 0 / 71 / 12 | B: numbers found after the name (line 1268); check the size |
+| Sugar Cookie Chai | kids frozen chiller | only in draft B | not found | 180 / 2 / 1 / 0 / 5 / 80 / 43 / 0 / 41 / 1 | B: numbers found after the name (line 1269); check the size |
+| Sugar Cookie Chai | small frozen chiller | only in draft B | not found | 250 / 3 / 2 / 0 / 10 / 100 / 57 / 0 / 55 / 2 | B: numbers found after the name (line 1270); check the size |
+| Sugar Cookie Chai | medium frozen chiller | only in draft B | not found | 340 / 5 / 3 / 0 / 15 / 130 / 76 / 0 / 73 / 3 | B: numbers found after the name (line 1271); check the size |
+| Sugar Cookie Chai | large frozen chiller | only in draft B | not found | 510 / 7 / 5 / 0 / 20 / 210 / 114 / 0 / 109 / 5 | B: numbers found after the name (line 1272); check the size |
+| Sugar Cookie Chai Latte | kids iced | only in draft B | not found | 170 / 2 / 1 / 0 / 10 / 90 / 36 / 0 / 35 / 2 | B: numbers found after the name (line 1273); check the size |
+| Sugar Cookie Chai Latte | small iced | only in draft B | not found | 220 / 4 / 2 / 0 / 15 / 110 / 45 / 0 / 44 / 4 | B: numbers found after the name (line 1274); check the size |
+| Sugar Cookie Chai Latte | medium iced | only in draft B | not found | 300 / 6 / 4 / 0 / 25 / 140 / 57 / 0 / 56 / 6 | B: numbers found after the name (line 1275); check the size |
+| Sugar Cookie Chai Latte | large iced | only in draft B | not found | 370 / 8 / 5 / 0 / 30 / 170 / 69 / 0 / 68 / 8 | B: numbers found after the name (line 1276); check the size |
+| Sugar Cookie Chai Latte | kids hot | only in draft B | not found | 230 / 4 / 2 / 0 / 15 / 110 / 46 / 0 / 45 / 4 | B: numbers found after the name (line 1277); check the size |
+| Sugar Cookie Chai Latte | small hot | only in draft B | not found | 260 / 5 / 3 / 0 / 20 / 130 / 52 / 0 / 50 / 5 | B: numbers found after the name (line 1278); check the size |
+| Sugar Cookie Chai Latte | medium hot | only in draft B | not found | 330 / 6 / 4 / 0 / 25 / 150 / 62 / 0 / 60 / 7 | B: numbers found after the name (line 1279); check the size |
+| Sugar Cookie Chai Latte | large hot | only in draft B | not found | 390 / 8 / 5 / 0 / 35 / 170 / 72 / 0 / 71 / 8 | B: numbers found after the name (line 1280); check the size |
+| Sugar-Free Cocoberry Lemon Freeze | kids Lemon Freeze | only in draft B | not found | 220 / 4 / 3 / 0 / 10 / 60 / 46 / 0 / 43 / 2 | B: numbers found after the name (line 1284); check the size |
+| Sugar-Free Cocoberry Lemon Freeze | small Lemon Freeze | only in draft B | not found | 400 / 7 / 5 / 0 / 20 / 90 / 86 / 0 / 81 / 4 | B: numbers found after the name (line 1286); check the size |
+| Sugar-Free Cocoberry Lemon Freeze | medium Lemon Freeze | only in draft B | not found | 640 / 10 / 7 / 0 / 25 / 140 / 140 / 0 / 133 / 6 | B: numbers found after the name (line 1287); check the size |
+| Sugar-Free Cocoberry Lemon Freeze | large Lemon Freeze | only in draft B | not found | 800 / 13 / 9 / 0 / 35 / 190 / 172 / 1 / 163 / 8 | B: numbers found after the name (line 1288); check the size |
+| Sugar-Free Cocoberry Lemonade | kids iced | only in draft B | not found | 70 / 0 / 0 / 0 / 0 / 10 / 17 / 0 / 16 / 0.5 | B: numbers found after the name (line 1289); check the size |
+| Sugar-Free Cocoberry Lemonade | small iced | only in draft B | not found | 120 / 0 / 0 / 0 / 0 / 10 / 30 / 0 / 29 / 0.5 | B: numbers found after the name (line 1290); check the size |
+| Sugar-Free Cocoberry Lemonade | medium iced | only in draft B | not found | 190 / 0 / 0 / 0 / 0 / 10 / 47 / 0 / 45 / 0.5 | B: numbers found after the name (line 1291); check the size |
+| Sugar-Free Cocoberry Lemonade | large iced | only in draft B | not found | 240 / 0 / 0 / 0 / 0 / 10 / 60 / 0 / 57 / 0.5 | B: numbers found after the name (line 1292); check the size |
+| Sugar-Free Cocoberry Lemonade | kids frozen chiller | only in draft B | not found | 170 / 0 / 0 / 0 / 0 / 10 / 43 / 0 / 42 / 0.5 | B: numbers found after the name (line 1293); check the size |
+| Sugar-Free Cocoberry Lemonade | small frozen chiller | only in draft B | not found | 330 / 0 / 0 / 0 / 0 / 10 / 82 / 0 / 80 / 0.5 | B: numbers found after the name (line 1294); check the size |
+| Sugar-Free Cocoberry Lemonade | medium frozen chiller | only in draft B | not found | 540 / 0 / 0 / 1 / 0 / 10 / 135 / 1 / 130 / 0.5 | B: not as drafted (line 1295 lacks 1) |
+| Sugar-Free Cocoberry Lemonade | large frozen chiller | only in draft B | not found | 660 / 0 / 0 / 1 / 0 / 20 / 165 / 1 / 159 / 0.5 | B: not as drafted (line 1296 lacks 1) |
+| Cocoberry Lemon Freeze | kids Lemon Freeze | only in draft B | not found | 300 / 4 / 3 / 0 / 10 / 60 / 68 / 0 / 66 / 2 | B: numbers found after the name (line 1297); check the size |
+| Cocoberry Lemon Freeze | small Lemon Freeze | only in draft B | not found | 490 / 7 / 5 / 0 / 20 / 90 / 109 / 0 / 104 / 4 | B: numbers found after the name (line 1298); check the size |
+| Cocoberry Lemon Freeze | medium Lemon Freeze | only in draft B | not found | 730 / 10 / 7 / 0 / 25 / 140 / 163 / 0 / 155 / 6 | B: numbers found after the name (line 1299); check the size |
+| Cocoberry Lemon Freeze | large Lemon Freeze | only in draft B | not found | 970 / 13 / 9 / 0 / 35 / 190 / 217 / 1 / 208 / 8 | B: numbers found after the name (line 1300); check the size |
+| Cocoberry Lemonade | kids iced | only in draft B | not found | 160 / 0 / 0 / 0 / 0 / 0 / 40 / 0 / 39 / 0.5 | B: numbers found after the name (line 1301); check the size |
+| Cocoberry Lemonade | small iced | only in draft B | not found | 210 / 0 / 0 / 0 / 0 / 0 / 52 / 0 / 51 / 0.5 | B: numbers found after the name (line 1302); check the size |
+| Cocoberry Lemonade | medium iced | only in draft B | not found | 280 / 0 / 0 / 0 / 0 / 10 / 69 / 0 / 68 / 0.5 | B: numbers found after the name (line 1303); check the size |
+| Cocoberry Lemonade | large iced | only in draft B | not found | 420 / 0 / 0 / 0 / 0 / 10 / 105 / 0 / 103 / 0.5 | B: numbers found after the name (line 1304); check the size |
+| Cocoberry Lemonade | kids frozen chiller | only in draft B | not found | 260 / 0 / 0 / 0 / 0 / 10 / 66 / 0 / 65 / 0.5 | B: numbers found after the name (line 1305); check the size |
+| Cocoberry Lemonade | small frozen chiller | only in draft B | not found | 420 / 0 / 0 / 0 / 0 / 10 / 105 / 0 / 102 / 0.5 | B: numbers found after the name (line 1306); check the size |
+| Cocoberry Lemonade | medium frozen chiller | only in draft B | not found | 630 / 0 / 0 / 1 / 0 / 10 / 157 / 1 / 153 / 0.5 | B: not as drafted (line 1307 lacks 1) |
+| Cocoberry Lemonade | large frozen chiller | only in draft B | not found | 840 / 0 / 0 / 1 / 0 / 20 / 210 / 1 / 205 / 0.5 | B: not as drafted (line 1308 lacks 1) |
+| Fruit Roll-Up Lemon Freeze | kids Lemon Freeze | only in draft B | not found | 300 / 4 / 3 / 0 / 10 / 60 / 67 / 0 / 64 / 2 | B: numbers found after the name (line 1309); check the size |
+| Fruit Roll-Up Lemon Freeze | small Lemon Freeze | only in draft B | not found | 480 / 7 / 5 / 0 / 20 / 90 / 107 / 0 / 102 / 4 | B: numbers found after the name (line 1310); check the size |
+| Fruit Roll-Up Lemon Freeze | medium Lemon Freeze | only in draft B | not found | 720 / 10 / 7 / 0 / 25 / 140 / 161 / 0 / 154 / 6 | B: numbers found after the name (line 1311); check the size |
+| Fruit Roll-Up Lemon Freeze | large Lemon Freeze | only in draft B | not found | 960 / 13 / 9 / 0 / 35 / 190 / 214 / 1 / 205 / 8 | B: numbers found after the name (line 1312); check the size |
+| Fruit Roll-Up Lemonade | kids iced | only in draft B | not found | 150 / 0 / 0 / 0 / 0 / 0 / 38 / 0 / 37 / 0.5 | B: numbers found after the name (line 1313); check the size |
+| Fruit Roll-Up Lemonade | small iced | only in draft B | not found | 200 / 0 / 0 / 0 / 0 / 0 / 51 / 0 / 50 / 0.5 | B: numbers found after the name (line 1314); check the size |
+| Fruit Roll-Up Lemonade | medium iced | only in draft B | not found | 270 / 0 / 0 / 0 / 0 / 10 / 68 / 0 / 66 / 0.5 | B: numbers found after the name (line 1315); check the size |
+| Fruit Roll-Up Lemonade | large iced | only in draft B | not found | 400 / 0 / 0 / 0 / 0 / 10 / 102 / 0 / 100 / 0.5 | B: numbers found after the name (line 1319); check the size |
+| Fruit Roll-Up Lemonade | kids frozen chiller | only in draft B | not found | 260 / 0 / 0 / 0 / 0 / 10 / 65 / 0 / 63 / 0.5 | B: numbers found after the name (line 1321); check the size |
+| Fruit Roll-Up Lemonade | small frozen chiller | only in draft B | not found | 410 / 0 / 0 / 0 / 0 / 10 / 104 / 0 / 101 / 0.5 | B: numbers found after the name (line 1322); check the size |
+| Fruit Roll-Up Lemonade | medium frozen chiller | only in draft B | not found | 620 / 0 / 0 / 1 / 0 / 10 / 156 / 1 / 151 / 0.5 | B: not as drafted (line 1323 lacks 1) |
+| Fruit Roll-Up Lemonade | large frozen chiller | only in draft B | not found | 830 / 0 / 0 / 1 / 0 / 20 / 207 / 1 / 201 / 0.5 | B: not as drafted (line 1324 lacks 1) |
+| Key Lime Pie Lemon Freeze | kids Lemon Freeze | only in draft B | not found | 300 / 4 / 3 / 0 / 10 / 80 / 67 / 0 / 64 / 3 | B: numbers found after the name (line 1325); check the size |
+| Key Lime Pie Lemon Freeze | small Lemon Freeze | only in draft B | not found | 490 / 7 / 5 / 0 / 20 / 120 / 108 / 0 / 102 / 4 | B: numbers found after the name (line 1326); check the size |
+| Key Lime Pie Lemon Freeze | medium Lemon Freeze | only in draft B | not found | 730 / 10 / 7 / 1 / 25 / 160 / 162 / 1 / 153 / 6 | B: not as drafted (line 1327 lacks 1) |
+| Key Lime Pie Lemon Freeze | large Lemon Freeze | only in draft B | not found | 970 / 14 / 9 / 1 / 35 / 240 / 215 / 1 / 204 / 9 | B: not as drafted (line 1328 lacks 1) |
+| Key Lime Pie LemonFreeze | small iced | only in draft B | not found | 160 / 0 / 0 / 0 / 0 / 30 / 39 / 0 / 37 / 0.5 | B: numbers found after the name (line 1329); check the size |
+| Key Lime Pie LemonFreeze | medium iced | only in draft B | not found | 280 / 0 / 0 / 0 / 0 / 30 / 68 / 0 / 66 / 0.5 | B: numbers found after the name (line 1331); check the size |
+| Key Lime Pie LemonFreeze | large iced | only in draft B | not found | 420 / 0 / 0 / 0 / 0 / 60 / 103 / 0 / 99 / 0.5 | B: numbers found after the name (line 1332); check the size |
+| Key Lime Pie LemonFreeze | kids frozen chiller | only in draft B | not found | 260 / 0 / 0 / 0 / 0 / 30 / 65 / 0 / 63 / 0.5 | B: numbers found after the name (line 1333); check the size |
+| Key Lime Pie LemonFreeze | small frozen chiller | only in draft B | not found | 420 / 0 / 0 / 0 / 0 / 30 / 104 / 0 / 100 / 0.5 | B: numbers found after the name (line 1334); check the size |
+| Key Lime Pie LemonFreeze | medium frozen chiller | only in draft B | not found | 630 / 0 / 0 / 1 / 0 / 30 / 156 / 1 / 151 / 0.5 | B: not as drafted (line 1335 lacks 1) |
+| Key Lime Pie LemonFreeze | large frozen chiller | only in draft B | not found | 840 / 1 / 0 / 1 / 0 / 60 / 208 / 1 / 201 / 1 | B: not as drafted (line 1336 lacks 1) |
+| Lemon Freeze | kids Lemon Freeze | only in draft B | not found | 300 / 4 / 3 / 0 / 10 / 60 / 67 / 0 / 64 / 2 | B: numbers found after the name (line 1309); check the size |
+| Lemon Freeze | small Lemon Freeze | only in draft B | not found | 480 / 7 / 5 / 0 / 20 / 90 / 108 / 0 / 102 / 4 | B: numbers found after the name (line 1338); check the size |
+| Lemon Freeze | medium Lemon Freeze | only in draft B | not found | 730 / 10 / 7 / 1 / 25 / 140 / 162 / 1 / 154 / 6 | B: not as drafted (line 1339 lacks 1) |
+| Lemon Freeze | large Lemon Freeze | only in draft B | not found | 970 / 13 / 9 / 1 / 35 / 180 / 216 / 1 / 205 / 8 | B: not as drafted (line 1340 lacks 1) |
+| Lemonade | kids iced | only in draft B | not found | 80 / 0 / 0 / 0 / 0 / 0 / 21 / 0 / 21 / 0.5 | B: numbers found after the name (line 1341); check the size |
+| Lemonade | small iced | only in draft B | not found | 140 / 0 / 0 / 0 / 0 / 0 / 34 / 0 / 33 / 0.5 | B: numbers found after the name (line 1342); check the size |
+| Lemonade | medium iced | only in draft B | not found | 200 / 0 / 0 / 0 / 0 / 0 / 51 / 0 / 49 / 0.5 | B: numbers found after the name (line 1343); check the size |
+| Lemonade | large iced | only in draft B | not found | 270 / 0 / 0 / 0 / 0 / 0 / 68 / 0 / 66 / 0.5 | B: numbers found after the name (line 1315); check the size |
+| Lemonade | kids frozen chiller | only in draft B | not found | 260 / 0 / 0 / 0 / 0 / 0 / 65 / 0 / 63 / 0.5 | B: numbers found after the name (line 1321); check the size |
+| Lemonade | small frozen chiller | only in draft B | not found | 420 / 0 / 0 / 0 / 0 / 10 / 104 / 0 / 101 / 0.5 | B: numbers found after the name (line 1346); check the size |
+| Lemonade | medium frozen chiller | only in draft B | not found | 630 / 0 / 0 / 1 / 0 / 10 / 156 / 1 / 151 / 0.5 | B: not as drafted (line 1347 lacks 1) |
+| Lemonade | large frozen chiller | only in draft B | not found | 830 / 0 / 0 / 1 / 0 / 10 / 208 / 1 / 202 / 0.5 | B: not as drafted (line 1348 lacks 1) |
+| Pink Paradise Lemon Freeze | kids Lemon Freeze | only in draft B | not found | 290 / 4 / 3 / 0 / 10 / 60 / 66 / 0 / 63 / 2 | B: numbers found after the name (line 1349); check the size |
+| Pink Paradise Lemon Freeze | small Lemon Freeze | only in draft B | not found | 480 / 7 / 5 / 0 / 20 / 90 / 106 / 0 / 101 / 4 | B: numbers found after the name (line 1350); check the size |
+| Pink Paradise Lemon Freeze | medium Lemon Freeze | only in draft B | not found | 720 / 10 / 7 / 0 / 25 / 140 / 160 / 0 / 153 / 6 | B: numbers found after the name (line 1351); check the size |
+| Pink Paradise Lemon Freeze | large Lemon Freeze | only in draft B | not found | 950 / 13 / 9 / 1 / 35 / 190 / 212 / 1 / 203 / 8 | B: not as drafted (line 1352 lacks 1) |
+| Pink Paradise LemonFreeze | kids iced | only in draft B | not found | 150 / 0 / 0 / 0 / 0 / 0 / 37 / 0 / 37 / 0.5 | B: numbers found after the name (line 1353); check the size |
+| Pink Paradise LemonFreeze | small iced | only in draft B | not found | 200 / 0 / 0 / 0 / 0 / 0 / 50 / 0 / 49 / 0.5 | B: numbers found after the name (line 1354); check the size |
+| Pink Paradise LemonFreeze | medium iced | only in draft B | not found | 270 / 0 / 0 / 0 / 0 / 10 / 67 / 0 / 65 / 0.5 | B: numbers found after the name (line 1355); check the size |
+| Pink Paradise LemonFreeze | large iced | only in draft B | not found | 400 / 0 / 0 / 0 / 0 / 10 / 100 / 0 / 98 / 0.5 | B: numbers found after the name (line 1356); check the size |
+| Pink Paradise LemonFreeze | kids frozen chiller | only in draft B | not found | 250 / 0 / 0 / 0 / 0 / 10 / 64 / 0 / 62 / 0.5 | B: numbers found after the name (line 1357); check the size |
+| Pink Paradise LemonFreeze | small frozen chiller | only in draft B | not found | 410 / 0 / 0 / 0 / 0 / 10 / 103 / 0 / 100 / 0.5 | B: numbers found after the name (line 1358); check the size |
+| Pink Paradise LemonFreeze | medium frozen chiller | only in draft B | not found | 620 / 0 / 0 / 1 / 0 / 10 / 155 / 1 / 150 / 0.5 | B: not as drafted (line 1359 lacks 1) |
+| Pink Paradise LemonFreeze | large frozen chiller | only in draft B | not found | 820 / 0 / 0 / 1 / 0 / 10 / 205 / 1 / 200 / 0.5 | B: not as drafted (line 1360 lacks 1) |
+| Blackberry Cobbler Wildberry | kids Smoothie | only in draft B | not found | 240 / 2 / 1 / 0 / 5 / 90 / 57 / 1 / 51 / 1 | B: numbers found after the name (line 1362); check the size |
+| Blackberry Cobbler Wildberry | small Smoothie | only in draft B | not found | 360 / 3 / 2 / 0 / 10 / 110 / 83 / 2 / 72 / 2 | B: numbers found after the name (line 1366); check the size |
+| Blackberry Cobbler Wildberry | medium Smoothie | only in draft B | not found | 510 / 5 / 3 / 0 / 15 / 140 / 118 / 3 / 101 / 3 | B: numbers found after the name (line 1367); check the size |
+| Blackberry Cobbler Wildberry | large Smoothie | only in draft B | not found | 720 / 7 / 5 / 0 / 20 / 230 / 165 / 3 / 144 / 5 | B: numbers found after the name (line 1368); check the size |
+| Blueberry Pomegranate | kids Smoothie | only in draft B | not found | 200 / 2 / 1 / 0 / 5 / 30 / 47 / 1 / 44 / 1 | B: numbers found after the name (line 1369); check the size |
+| Blueberry Pomegranate | small Smoothie | only in draft B | not found | 310 / 3 / 2 / 0 / 10 / 50 / 73 / 1 / 69 / 2 | B: numbers found after the name (line 1370); check the size |
+| Blueberry Pomegranate | medium Smoothie | only in draft B | not found | 470 / 5 / 3 / 0 / 15 / 80 / 109 / 2 / 103 / 3 | B: numbers found after the name (line 1371); check the size |
+| Blueberry Pomegranate | large Smoothie | only in draft B | not found | 630 / 7 / 5 / 0 / 20 / 100 / 145 / 2 / 138 / 4 | B: numbers found after the name (line 1372); check the size |
+| Mango | kids Smoothie | only in draft B | not found | 180 / 2 / 1 / 0 / 5 / 20 / 40 / 0 / 33 / 0.5 | B: numbers found after the name (line 1373); check the size |
+| Mango | small Smoothie | only in draft B | not found | 290 / 3 / 2 / 0 / 10 / 40 / 62 / 0 / 51 / 2 | B: numbers found after the name (line 1374); check the size |
+| Mango | medium Smoothie | only in draft B | not found | 430 / 5 / 3 / 0 / 15 / 60 / 93 / 0 / 77 / 3 | B: numbers found after the name (line 1378); check the size |
+| Mango | large Smoothie | only in draft B | not found | 580 / 7 / 5 / 0 / 20 / 90 / 125 / 0 / 102 / 4 | B: numbers found after the name (line 1380); check the size |
+| Peach | kids Smoothie | only in draft B | not found | 150 / 2 / 1 / 1 / 5 / 20 / 34 / 1 / 33 / 0.5 | B: not as drafted (line 1381 lacks 1) |
+| Peach | small Smoothie | only in draft B | not found | 250 / 3 / 2 / 2 / 10 / 40 / 54 / 2 / 51 / 2 | B: not as drafted (line 1382 lacks 2) |
+| Peach | medium Smoothie | only in draft B | not found | 370 / 5 / 3 / 3 / 15 / 60 / 81 / 3 / 77 / 3 | B: not as drafted (line 1383 lacks 3) |
+| Peach | large Smoothie | only in draft B | not found | 500 / 7 / 5 / 4 / 20 / 90 / 109 / 4 / 102 / 4 | B: not as drafted (line 1384 lacks 4) |
+| Piña Colada | kids Smoothie | only in draft B | not found | 300 / 10 / 8 / 1 / 5 / 30 / 52 / 1 / 49 / 2 | B: not as drafted (line 1385 lacks 1) |
+| Piña Colada | small Smoothie | only in draft B | not found | 470 / 15 / 12 / 2 / 10 / 60 / 80 / 2 / 75 / 4 | B: not as drafted (line 1386 lacks 2) |
+| Piña Colada | medium Smoothie | only in draft B | not found | 700 / 23 / 18 / 3 / 15 / 90 / 120 / 3 / 113 / 6 | B: not as drafted (line 1387 lacks 3) |
+| Piña Colada | large Smoothie | only in draft B | not found | 940 / 31 / 25 / 4 / 20 / 130 / 161 / 4 / 150 / 8 | B: not as drafted (line 1388 lacks 4) |
+| Strawberry Banana | kids Smoothie | only in draft B | not found | 230 / 2 / 1 / 1 / 5 / 20 / 54 / 1 / 52 / 0.5 | B: not as drafted (line 1389 lacks 1) |
+| Strawberry Banana | small Smoothie | only in draft B | not found | 340 / 3 / 2 / 2 / 10 / 50 / 79 / 2 / 75 / 2 | B: not as drafted (line 1390 lacks 2) |
+| Strawberry Banana | medium Smoothie | only in draft B | not found | 500 / 5 / 3 / 3 / 15 / 70 / 115 / 3 / 107 / 3 | B: not as drafted (line 1391 lacks 3) |
+| Strawberry Banana | large Smoothie | only in draft B | not found | 690 / 7 / 5 / 3 / 20 / 90 / 159 / 3 / 150 / 4 | B: not as drafted (line 1392 lacks 3) |
+| Strawberry | kids Smoothie | only in draft B | not found | 190 / 2 / 1 / 1 / 5 / 20 / 45 / 1 / 42 / 0.5 | B: not as drafted (line 1393 lacks 1) |
+| Strawberry | small Smoothie | only in draft B | not found | 310 / 3 / 2 / 2 / 10 / 40 / 70 / 2 / 65 / 2 | B: not as drafted (line 1394 lacks 2) |
+| Strawberry | medium Smoothie | only in draft B | not found | 460 / 5 / 3 / 3 / 15 / 60 / 105 / 3 / 98 / 3 | B: not as drafted (line 1395 lacks 3) |
+| Strawberry | large Smoothie | only in draft B | not found | 620 / 7 / 5 / 4 / 20 / 85 / 141 / 4 / 130 / 4 | B: not as drafted (line 1396 lacks 4) |
+| Tiger's Blood Piña Colada | kids Smoothie | only in draft B | not found | 320 / 8 / 6 / 1 / 5 / 30 / 61 / 1 / 58 / 2 | B: not as drafted (line 1397 lacks 1) |
+| Tiger's Blood Piña Colada | small Smoothie | only in draft B | not found | 480 / 13 / 11 / 2 / 10 / 60 / 90 / 2 / 85 / 4 | B: not as drafted (line 1398 lacks 2) |
+| Tiger's Blood Piña Colada | medium Smoothie | only in draft B | not found | 720 / 21 / 17 / 3 / 15 / 90 / 130 / 3 / 122 / 5 | B: not as drafted (line 1399 lacks 3) |
+| Tiger's Blood Piña Colada | large Smoothie | only in draft B | not found | 970 / 27 / 21 / 3 / 20 / 130 / 180 / 3 / 170 / 7 | B: not as drafted (line 1400 lacks 3) |
+| Tiki Tango Mango | kids Smoothie | only in draft B | not found | 220 / 2 / 1 / 0 / 5 / 20 / 51 / 0 / 45 / 0.5 | B: numbers found after the name (line 1401); check the size |
+| Tiki Tango Mango | small Smoothie | only in draft B | not found | 330 / 3 / 2 / 0 / 10 / 50 / 73 / 0 / 63 / 2 | B: numbers found after the name (line 1402); check the size |
+| Tiki Tango Mango | medium Smoothie | only in draft B | not found | 470 / 5 / 3 / 0 / 15 / 70 / 104 / 0 / 89 / 3 | B: numbers found after the name (line 1403); check the size |
+| Tiki Tango Mango | large Smoothie | only in draft B | not found | 650 / 7 / 5 / 0 / 20 / 90 / 146 / 0 / 126 / 4 | B: numbers found after the name (line 1404); check the size |
+| Wildberry | kids Smoothie | only in draft B | not found | 190 / 2 / 1 / 1 / 5 / 30 / 45 / 1 / 38 / 0.5 | B: not as drafted (line 1405 lacks 1) |
+| Wildberry | small Smoothie | only in draft B | not found | 310 / 3 / 2 / 2 / 10 / 50 / 70 / 2 / 59 / 2 | B: not as drafted (line 1406 lacks 2) |
+| Wildberry | medium Smoothie | only in draft B | not found | 460 / 5 / 3 / 3 / 15 / 80 / 105 / 3 / 89 / 3 | B: not as drafted (line 1407 lacks 3) |
+| Wildberry | large Smoothie | only in draft B | not found | 620 / 7 / 5 / 4 / 20 / 110 / 141 / 4 / 118 / 4 | B: not as drafted (line 1408 lacks 4) |
+| Sugar-Free Rocky Road | small Shake | only in draft B | not found | 260 / 11 / 8 / 0 / 30 / 180 / 44 / 3 / 27 / 6 | B: numbers found after the name (line 1414); check the size |
+| Sugar-Free Rocky Road | medium Shake | only in draft B | not found | 390 / 17 / 11 / 0 / 45 / 270 / 66 / 5 / 41 / 9 | B: numbers found after the name (line 1415); check the size |
+| Sugar-Free Rocky Road | large Shake | only in draft B | not found | 520 / 22 / 15 / 0 / 60 / 370 / 88 / 7 / 55 / 11 | B: numbers found after the name (line 1416); check the size |
+| Birthday Cake | kids Shake | only in draft B | not found | 230 / 7 / 5 / 0 / 20 / 180 / 45 / 0 / 41 / 4 | B: numbers found after the name (line 1417); check the size |
+| Birthday Cake | small Shake | only in draft B | not found | 400 / 10 / 7 / 0 / 25 / 310 / 79 / 0 / 72 / 7 | B: numbers found after the name (line 1418); check the size |
+| Birthday Cake | medium Shake | only in draft B | not found | 600 / 15 / 11 / 0 / 40 / 470 / 118 / 0 / 108 / 10 | B: numbers found after the name (line 1419); check the size |
+| Birthday Cake | large Shake | only in draft B | not found | 800 / 21 / 14 / 0 / 55 / 620 / 158 / 0 / 144 / 14 | B: numbers found after the name (line 1420); check the size |
+| Cookies & Cream | kids Shake | only in draft B | not found | 230 / 7 / 5 / 0 / 20 / 150 / 45 / 0 / 41 / 4 | B: numbers found after the name (line 1421); check the size |
+| Cookies & Cream | small Shake | only in draft B | not found | 400 / 11 / 7 / 1 / 25 / 260 / 79 / 1 / 72 / 7 | B: not as drafted (line 1422 lacks 1) |
+| Cookies & Cream | medium Shake | only in draft B | not found | 600 / 16 / 11 / 1 / 40 / 390 / 119 / 1 / 108 / 10 | B: not as drafted (line 1423 lacks 1) |
+| Cookies & Cream | large Shake | only in draft B | not found | 800 / 21 / 14 / 2 / 55 / 520 / 158 / 2 / 144 / 14 | B: not as drafted (line 1424 lacks 2) |
+| Orange Sherbet | kids Shake | only in draft B | not found | 220 / 7 / 5 / 0 / 20 / 90 / 42 / 0 / 40 / 4 | B: numbers found after the name (line 1425); check the size |
+| Orange Sherbet | small Shake | only in draft B | not found | 370 / 10 / 7 / 0 / 25 / 140 / 74 / 0 / 70 / 6 | B: numbers found after the name (line 1426); check the size |
+| Orange Sherbet | medium Shake | only in draft B | not found | 560 / 15 / 10 / 0 / 40 / 200 / 112 / 0 / 105 / 8 | B: numbers found after the name (line 1427); check the size |
+| Orange Sherbet | large Shake | only in draft B | not found | 750 / 20 / 14 / 0 / 55 / 270 / 149 / 0 / 140 / 11 | B: numbers found after the name (line 1428); check the size |
+| Rocky Road | kids Shake | only in draft B | not found | 270 / 7 / 5 / 0 / 20 / 110 / 53 / 0 / 49 / 4 | B: numbers found after the name (line 1429); check the size |
+| Rocky Road | small Shake | only in draft B | not found | 470 / 11 / 8 / 0 / 30 / 190 / 95 / 0 / 88 / 6 | B: numbers found after the name (line 1430); check the size |
+| Rocky Road | medium Shake | only in draft B | not found | 700 / 17 / 11 / 0 / 45 / 280 / 143 / 0 / 133 / 9 | B: numbers found after the name (line 1431); check the size |
+| Rocky Road | large Shake | only in draft B | not found | 940 / 23 / 15 / 0 / 60 / 370 / 191 / 0 / 177 / 12 | B: numbers found after the name (line 1432); check the size |
+| Shake | kids Shake | only in draft B | not found | 170 / 8 / 6 / 0 / 20 / 110 / 26 / 0 / 23 / 5 | B: numbers found after the name (line 1433); check the size |
+| Shake | small Shake | only in draft B | not found | 270 / 13 / 9 / 0 / 35 / 170 / 41 / 0 / 36 / 8 | B: numbers found after the name (line 1437); check the size |
+| Shake | medium | both read it the same, but its protein, carbs and fat make 472 kcal, not 410 | 410 / 20 / 14 / 0 / 55 / 260 / 62 / 0 / 54 / 11 | 410 / 20 / 14 / 0 / 55 / 260 / 62 / 0 / 54 / 11 | A: numbers found after the name (line 1439); check the size; B: numbers found after the name (line 1439); check the size |
+| Shake | large | both read it the same, but its protein, carbs and fat make 622 kcal, not 540 | 540 / 26 / 18 / 0 / 70 / 350 / 82 / 0 / 72 / 15 | 540 / 26 / 18 / 0 / 70 / 350 / 82 / 0 / 72 / 15 | A: numbers found after the name (line 1440); check the size; B: numbers found after the name (line 1440); check the size |
 
 ## Spot check (3 agreed lines)
 

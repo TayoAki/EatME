@@ -7,7 +7,7 @@ Starbucks,Bakery,"Banana, Walnut & Pecan Loaf",1 Piece,113,dessert,380,20,3,0,50
 Starbucks,Snacks,Vanilla Biscotti with Almonds,1 Piece,42,side,200,9,2.5,0,30,135,25,2,10,5,https://www.starbucks.com/menu/product/2121411/single/nutrition,2026-10-22,two-drafts
 Starbucks,Snacks,That's It® – Apple + Blueberry Bar,1 Piece,35,side,100,0,0,0,0,25,26,4,19,1,https://www.starbucks.com/menu/product/2121694/single/nutrition,2026-10-22,two-drafts
 Starbucks,Snacks,Madeleines,1 Piece,51,side,220,11,7,0,60,105,26,0,17,3,https://www.starbucks.com/menu/product/2121740/single/nutrition,2026-10-22,two-drafts
-Starbucks,Snacks,KIND - Almond Coconut Cashew Chai,1 Serving,40,side,200,14,4,0,0,15,18,3,8,5,https://www.starbucks.com/menu/product/2121814/single/nutrition,2026-10-22,two-drafts
+Starbucks,Snacks,KIND - Almond Coconut Cashew Chai,1 Serving,40,drink,200,14,4,0,0,15,18,3,8,5,https://www.starbucks.com/menu/product/2121814/single/nutrition,2026-10-22,two-drafts
 Starbucks,Snacks,Country Archer™ – Hickory Smoke Turkey Jerky,1 Serving,28,side,70,1,0,0,20,330,5,0,4,10,https://www.starbucks.com/menu/product/2122004/single/nutrition,2026-10-22,two-drafts
 Starbucks,Breakfast,Bacon & Gruyère Egg Bites,1 Serving,130,main,300,20,12,0,215,680,9,0,2,19,https://www.starbucks.com/menu/product/2122116/single/nutrition,2026-10-22,two-drafts
 Starbucks,Breakfast,Egg White & Roasted Red Pepper Egg Bites,1 Serving,130,main,170,8,5,0,25,470,11,0,3,12,https://www.starbucks.com/menu/product/2122117/single/nutrition,2026-10-22,two-drafts
@@ -38,15 +38,15 @@ Starbucks,Cold Coffee & Espresso,Iced Vanilla Protein Latte,Grande 16 fl oz,,dri
 Starbucks,Hot Coffee & Espresso,Vanilla Protein Latte,Grande 16 fl oz,,drink,310,6,4,0,25,160,36,0,34,27,https://www.starbucks.com/menu/product/28499/hot/nutrition,2026-10-22,two-drafts
 Starbucks,Cold Coffee & Espresso,Iced Sugar-Free Vanilla Protein Latte,Grande 16 fl oz,,drink,200,4,2.5,0,15,125,12,0,9,29,https://www.starbucks.com/menu/product/28500/iced/nutrition,2026-10-22,two-drafts
 Starbucks,Hot Coffee & Espresso,Sugar-Free Vanilla Protein Latte,Grande 16 fl oz,,drink,230,6,4,0,25,160,17,0,15,27,https://www.starbucks.com/menu/product/28501/hot/nutrition,2026-10-22,two-drafts
-Starbucks,Matcha,Iced Protein Matcha,Grande 16 fl oz,,main,260,4.5,2.5,0,15,135,25,1,23,31,https://www.starbucks.com/menu/product/28502/iced/nutrition,2026-10-22,two-drafts
-Starbucks,Matcha,Iced Sugar-Free Vanilla Protein Matcha,Grande 16 fl oz,,main,210,4.5,2.5,0,15,135,12,1,10,31,https://www.starbucks.com/menu/product/28504/iced/nutrition,2026-10-22,two-drafts
-Starbucks,Matcha,Sugar-Free Vanilla Protein Matcha,Grande 16 fl oz,,main,240,7,4,0,25,170,18,1,16,28,https://www.starbucks.com/menu/product/28505/hot/nutrition,2026-10-22,two-drafts
+Starbucks,Matcha,Iced Protein Matcha,Grande 16 fl oz,,drink,260,4.5,2.5,0,15,135,25,1,23,31,https://www.starbucks.com/menu/product/28502/iced/nutrition,2026-10-22,two-drafts
+Starbucks,Matcha,Iced Sugar-Free Vanilla Protein Matcha,Grande 16 fl oz,,drink,210,4.5,2.5,0,15,135,12,1,10,31,https://www.starbucks.com/menu/product/28504/iced/nutrition,2026-10-22,two-drafts
+Starbucks,Matcha,Sugar-Free Vanilla Protein Matcha,Grande 16 fl oz,,drink,240,7,4,0,25,170,18,1,16,28,https://www.starbucks.com/menu/product/28505/hot/nutrition,2026-10-22,two-drafts
 Starbucks,Bakery,Cookie Croissant Swirl,1 Serving 62 g,62,dessert,270,12,7,0,35,270,36,1,13,4,https://www.starbucks.com/menu/product/28548/single/nutrition,2026-10-22,two-drafts
 Starbucks,Desserts,Dubai Chocolate Bite,1 Serving 45 g,45,dessert,220,14,7,0,25,120,21,1,6,3,https://www.starbucks.com/menu/product/28550/single/nutrition,2026-10-22,two-drafts
 Starbucks,Bakery,Chocolate Pistachio Loaf,1 Serving 105 g,105,dessert,400,21,4.5,0,65,310,49,2,30,6,https://www.starbucks.com/menu/product/28557/single/nutrition,2026-10-22,two-drafts
 Starbucks,Hot Coffee & Espresso,Caramel Protein Latte,Grande 16 fl oz,,drink,320,6,4,0,25,170,38,0,37,27,https://www.starbucks.com/menu/product/28576/hot/nutrition,2026-10-22,two-drafts
 Starbucks,Cold Coffee & Espresso,Iced Caramel Protein Latte,Grande 16 fl oz,,drink,280,4,2.5,0,15,125,33,0,31,29,https://www.starbucks.com/menu/product/28733/iced/nutrition,2026-10-22,two-drafts
-Starbucks,Matcha,Iced Dubai Chocolate Matcha,Grande 16 fl oz,,main,400,19,12,0.5,60,190,48,2,45,10,https://www.starbucks.com/menu/product/28775/iced/nutrition,2026-10-22,two-drafts
+Starbucks,Matcha,Iced Dubai Chocolate Matcha,Grande 16 fl oz,,drink,400,19,12,0.5,60,190,48,2,45,10,https://www.starbucks.com/menu/product/28775/iced/nutrition,2026-10-22,two-drafts
 Starbucks,Cold Coffee & Espresso,Iced Dubai Chocolate Mocha,Grande 16 fl oz,,drink,470,20,13,0.5,55,230,63,2,57,12,https://www.starbucks.com/menu/product/28824/iced/nutrition,2026-10-22,two-drafts
 Starbucks,Breakfast,Rolled & Steel-Cut Oatmeal,1 Piece 42 g,42,main,160,2.5,0.5,0,0,125,28,4,0,5,https://www.starbucks.com/menu/product/301/single/nutrition,2026-10-22,two-drafts
 Starbucks,Snacks,Marshmallow Dream Bar,1 Piece 60 g,60,side,230,5,3.5,0,15,220,44,0,24,1,https://www.starbucks.com/menu/product/309/single/nutrition,2026-10-22,two-drafts
@@ -57,13 +57,13 @@ Starbucks,Hot Coffee & Espresso,Pistachio Cortado,Short 8 fl oz,,drink,150,5,2.5
 Starbucks,Refreshers,Cannon Ball Drink,Grande 16 fl oz,,drink,160,0,0,0,0,40,38,1,34,1,https://www.starbucks.com/menu/product/34810/iced/nutrition,2026-10-22,two-drafts
 Starbucks,Cold Coffee & Espresso,Iced Sugar-Free Caramel Protein Latte,Grande 16 fl oz,,drink,200,4,2.5,0,15,130,12,0,9,29,https://www.starbucks.com/menu/product/34818/iced/nutrition,2026-10-22,two-drafts
 Starbucks,Hot Coffee & Espresso,Sugar-Free Caramel Protein Latte,Grande 16 fl oz,,drink,230,6,4,0,25,170,17,0,15,27,https://www.starbucks.com/menu/product/34819/hot/nutrition,2026-10-22,two-drafts
-Starbucks,Matcha,Iced Banana Bread Matcha,Grande 16 fl oz,,main,330,15,10,0.5,50,180,40,1,39,8,https://www.starbucks.com/menu/product/34828/iced/nutrition,2026-10-22,two-drafts
+Starbucks,Matcha,Iced Banana Bread Matcha,Grande 16 fl oz,,drink,330,15,10,0.5,50,180,40,1,39,8,https://www.starbucks.com/menu/product/34828/iced/nutrition,2026-10-22,two-drafts
 Starbucks,Cold Coffee & Espresso,Iced Banana Bread Latte,Grande 16 fl oz,,drink,360,15,9,0.5,50,180,49,0,47,9,https://www.starbucks.com/menu/product/34830/iced/nutrition,2026-10-22,two-drafts
 Starbucks,Cold Coffee & Espresso,Toasted Coconut Cream Cold Brew,Grande 16 fl oz,,drink,240,13,9,0,40,40,27,0,27,2,https://www.starbucks.com/menu/product/34832/iced/nutrition,2026-10-22,two-drafts
 Starbucks,Cold Coffee & Espresso,Iced Lavender Latte,Grande 16 fl oz,,drink,180,4.5,3,0,20,230,27,0,25,8,https://www.starbucks.com/menu/product/34913/iced/nutrition,2026-10-22,two-drafts
-Starbucks,Matcha,Iced Mango Cream Matcha,Grande 16 fl oz,,main,270,12,8,0,40,110,32,1,31,8,https://www.starbucks.com/menu/product/37085/iced/nutrition,2026-10-22,two-drafts
+Starbucks,Matcha,Iced Mango Cream Matcha,Grande 16 fl oz,,drink,270,12,8,0,40,110,32,1,31,8,https://www.starbucks.com/menu/product/37085/iced/nutrition,2026-10-22,two-drafts
 Starbucks,Refreshers,Mango Strawberry Refresher,Grande 16 fl oz,,drink,130,0,0,0,0,40,31,1,28,0,https://www.starbucks.com/menu/product/40475/iced/nutrition,2026-10-22,two-drafts
-Starbucks,Chai,Iced Mango Cream Chai,Grande 16 fl oz,,main,310,12,7,0,40,110,43,0,41,7,https://www.starbucks.com/menu/product/40484/iced/nutrition,2026-10-22,two-drafts
+Starbucks,Chai,Iced Mango Cream Chai,Grande 16 fl oz,,drink,310,12,7,0,40,110,43,0,41,7,https://www.starbucks.com/menu/product/40484/iced/nutrition,2026-10-22,two-drafts
 Starbucks,Cold Coffee & Espresso,Iced Toasted Coconut Latte,Grande 16 fl oz,,drink,170,4,2.5,0,15,115,26,0,24,8,https://www.starbucks.com/menu/product/40491/iced/nutrition,2026-10-22,two-drafts
 Starbucks,Energy Refreshers,Mango Dragonfruit Lemonade Energy Refresher,Grande 16 fl oz,,drink,140,0,0,0,0,70,34,1,31,0,https://www.starbucks.com/menu/product/40497/iced/nutrition,2026-10-22,two-drafts
 Starbucks,Energy Refreshers,Pink Energy Drink,Grande 16 fl oz,,drink,140,2.5,2.5,0,0,120,28,1,25,0,https://www.starbucks.com/menu/product/40498/iced/nutrition,2026-10-22,two-drafts
@@ -80,15 +80,15 @@ Starbucks,Refreshers,Pink Cannon Ball Drink,Grande 16 fl oz,,drink,150,3,2.5,0,0
 Starbucks,Crème Frappuccino®,Orange Cream Frappuccino® Blended Beverage,Grande 16 fl oz,,drink,320,16,10,0,50,280,41,0,39,5,https://www.starbucks.com/menu/product/40667/iced/nutrition,2026-10-22,two-drafts
 Starbucks,Hot Coffee & Espresso,Caffè Latte,Grande 16 fl oz,,drink,190,7,4.5,0,30,170,19,0,18,13,https://www.starbucks.com/menu/product/407/hot/nutrition,2026-10-22,two-drafts
 Starbucks,Cold Coffee & Espresso,Iced Caffè Latte,Grande 16 fl oz,,drink,130,4.5,2.5,0,20,115,13,0,11,8,https://www.starbucks.com/menu/product/407/iced/nutrition,2026-10-22,two-drafts
-Starbucks,Chai,Iced Orange Cream Chai,Grande 16 fl oz,,main,390,17,11,0.5,55,160,51,0,48,8,https://www.starbucks.com/menu/product/40719/iced/nutrition,2026-10-22,two-drafts
+Starbucks,Chai,Iced Orange Cream Chai,Grande 16 fl oz,,drink,390,17,11,0.5,55,160,51,0,48,8,https://www.starbucks.com/menu/product/40719/iced/nutrition,2026-10-22,two-drafts
 Starbucks,Hot Coffee & Espresso,Caffè Mocha,Grande 16 fl oz,,drink,370,15,10,0,45,150,43,4,35,14,https://www.starbucks.com/menu/product/408/hot/nutrition,2026-10-22,two-drafts
 Starbucks,Cold Coffee & Espresso,Iced Caffè Mocha,Grande 16 fl oz,,drink,350,17,11,0.5,50,100,38,4,30,10,https://www.starbucks.com/menu/product/408/iced/nutrition,2026-10-22,two-drafts
 Starbucks,Hot Coffee & Espresso,Pecan Cortado,Short 8 fl oz,,drink,130,4,2.5,0,10,110,19,0,17,5,https://www.starbucks.com/menu/product/40812/hot/nutrition,2026-10-22,two-drafts
 Starbucks,Cold Coffee & Espresso,Iced Pecan Crunch Latte,Grande 16 fl oz,,drink,380,19,12,0.5,60,230,45,0,43,10,https://www.starbucks.com/menu/product/40869/iced/nutrition,2026-10-22,two-drafts
 Starbucks,Hot Coffee & Espresso,Pecan Crunch Latte,Grande 16 fl oz,,drink,260,6,4,0,25,250,39,0,37,11,https://www.starbucks.com/menu/product/40876/hot/nutrition,2026-10-22,two-drafts
 Starbucks,Cold Coffee & Espresso,Iced Pumpkin Cream Shaken Espresso,Grande 16 fl oz,,drink,310,14,8,0,40,160,44,1,37,4,https://www.starbucks.com/menu/product/40880/iced/nutrition,2026-10-22,two-drafts
-Starbucks,Matcha,Iced Pumpkin Cream Matcha,Grande 16 fl oz,,main,350,17,11,0.5,55,150,41,1,39,10,https://www.starbucks.com/menu/product/40881/iced/nutrition,2026-10-22,two-drafts
-Starbucks,Chai,Iced Banana Bread Chai,Grande 16 fl oz,,main,350,14,9,0.5,50,170,50,0,48,8,https://www.starbucks.com/menu/product/40882/iced/nutrition,2026-10-22,two-drafts
+Starbucks,Matcha,Iced Pumpkin Cream Matcha,Grande 16 fl oz,,drink,350,17,11,0.5,55,150,41,1,39,10,https://www.starbucks.com/menu/product/40881/iced/nutrition,2026-10-22,two-drafts
+Starbucks,Chai,Iced Banana Bread Chai,Grande 16 fl oz,,drink,350,14,9,0.5,50,170,50,0,48,8,https://www.starbucks.com/menu/product/40882/iced/nutrition,2026-10-22,two-drafts
 Starbucks,Cold Coffee & Espresso,Caramel Aerocano,Grande 16 fl oz,,drink,80,0,0,0,0,10,18,0,16,1,https://www.starbucks.com/menu/product/40883/iced/nutrition,2026-10-22,two-drafts
 Starbucks,Hot Coffee & Espresso,Cappuccino,Grande 16 fl oz,,drink,140,5,3,0,20,120,14,0,12,9,https://www.starbucks.com/menu/product/409/hot/nutrition,2026-10-22,two-drafts
 Starbucks,Hot Coffee & Espresso,Espresso,Doppio 1.5 fl oz,,drink,10,0,0,0,0,0,2,0,0,1,https://www.starbucks.com/menu/product/410/hot/nutrition,2026-10-22,two-drafts
@@ -138,7 +138,7 @@ Starbucks,Cold Coffee & Espresso,Iced Starbucks® Blonde Vanilla Latte,Grande 16
 Starbucks,Cold Coffee & Espresso,Vanilla Sweet Cream Nitro Cold Brew,Grande 16 fl oz,,dessert,70,5,3.5,0,15,20,4,0,4,1,https://www.starbucks.com/menu/product/2122237/iced/nutrition,2026-10-22,two-drafts
 Starbucks,Hot Tea,Honey Citrus Mint Tea,Grande 16 fl oz,,drink,130,0,0,0,0,5,33,0,30,0,https://www.starbucks.com/menu/product/2122274/hot/nutrition,2026-10-22,two-drafts
 Starbucks,Refreshers,Pink Drink,Grande 16 fl oz,,drink,140,2.5,2.5,0,0,85,28,1,25,0,https://www.starbucks.com/menu/product/2122275/iced/nutrition,2026-10-22,two-drafts
-Starbucks,Chai,Pumpkin Spice Chai,Grande 16 fl oz,,main,260,4.5,2.5,0,20,180,45,0,43,10,https://www.starbucks.com/menu/product/2122413/hot/nutrition,2026-10-22,two-drafts
+Starbucks,Chai,Pumpkin Spice Chai,Grande 16 fl oz,,drink,260,4.5,2.5,0,20,180,45,0,43,10,https://www.starbucks.com/menu/product/2122413/hot/nutrition,2026-10-22,two-drafts
 Starbucks,Refreshers,Strawberry Açaí Lemonade Refresher,Grande 16 fl oz,,drink,140,0,0,0,0,35,35,1,32,0,https://www.starbucks.com/menu/product/2122677/iced/nutrition,2026-10-22,two-drafts
 Starbucks,Crème Frappuccino®,Strawberry Crème Frappuccino® Blended Beverage,Grande 16 fl oz,,drink,370,16,10,0.5,50,240,51,0,51,5,https://www.starbucks.com/menu/product/2122724/iced/nutrition,2026-10-22,two-drafts
 Starbucks,Refreshers,Mango Dragonfruit Refresher,Grande 16 fl oz,,drink,90,0,0,0,0,40,22,0,20,0,https://www.starbucks.com/menu/product/2122725/iced/nutrition,2026-10-22,two-drafts
@@ -152,7 +152,7 @@ Starbucks,Cold Coffee & Espresso,Iced Shaken Espresso,Grande 16 fl oz,,drink,100
 Starbucks,Cold Coffee & Espresso,Iced Brown Sugar Oatmilk Shaken Espresso,Grande 16 fl oz,,drink,150,4.5,0,0,0,150,27,2,15,2,https://www.starbucks.com/menu/product/2123431/iced/nutrition,2026-10-22,two-drafts
 Starbucks,Cold Coffee & Espresso,Chocolate Cream Cold Brew,Grande 16 fl oz,,drink,240,14,9,0.5,40,30,26,1,25,3,https://www.starbucks.com/menu/product/2123644/iced/nutrition,2026-10-22,two-drafts
 Starbucks,Cold Coffee & Espresso,Pistachio Cream Cold Brew,Grande 16 fl oz,,drink,250,13,8,0,40,100,33,0,32,2,https://www.starbucks.com/menu/product/2123702/iced/nutrition,2026-10-22,two-drafts
-Starbucks,Chai,Iced Pumpkin Cream Chai,Grande 16 fl oz,,main,400,16,10,0.5,55,150,57,0,55,9,https://www.starbucks.com/menu/product/2123774/iced/nutrition,2026-10-22,two-drafts
+Starbucks,Chai,Iced Pumpkin Cream Chai,Grande 16 fl oz,,drink,400,16,10,0.5,55,150,57,0,55,9,https://www.starbucks.com/menu/product/2123774/iced/nutrition,2026-10-22,two-drafts
 Starbucks,Cold Coffee & Espresso,Iced Hazelnut Oatmilk Shaken Espresso,Grande 16 fl oz,,drink,150,4.5,0,0,0,60,27,1,16,2,https://www.starbucks.com/menu/product/2123805/iced/nutrition,2026-10-22,two-drafts
 Starbucks,Breakfast,"Sausage, Cheddar & Egg Sandwich",1 Serving 157 g,157,main,480,29,10,0,165,890,34,1,2,18,https://www.starbucks.com/menu/product/367/single/nutrition,2026-10-22,two-drafts
 Starbucks,Breakfast,"Turkey Bacon, Cheddar & Egg White Sandwich",1 Serving 142 g,142,main,260,9,3.5,0,25,600,30,2,2,17,https://www.starbucks.com/menu/product/368/single/nutrition,2026-10-22,two-drafts

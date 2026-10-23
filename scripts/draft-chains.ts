@@ -462,25 +462,32 @@ const same = (a: number | null, b: number | null) => (a === null || b === null ?
 
 /** Chains that sell only sweets: a line that isn't a drink or an extra is a dessert, whatever its section is called. */
 const SWEETS_CHAINS = /\b(baskin|creamery|bundt|crumbl|krispy kreme|cookies?|donuts?|doughnuts?)\b/i;
-/** Bar sections. In a dish's name the same words don't make it a drink ("Beer Cheese" under Appetizers). */
-const BAR_SECTION = /\b(cocktails?|mocktails?|beers?|wines?|margaritas?|mojitos?|sangrias?|spirits?|bar|ales?|seltzers?|ciders?|sake|whiske?y)\b/;
+/** Coffee chains: a line is a drink unless its section is food (Biggby's Bragels, a breakfast sandwich). */
+const COFFEE_CHAINS = /\b(coffee|brew|espresso|boba)\b/i;
+const FOOD_SECTION = /\b(breakfast|sandwich(es)?|food|bagels?|bragels?|burritos?|wraps?|toasts?|snacks?|bakery|muffins?|pastr(y|ies)|lunch|bites)\b/;
+/**
+ * Bar sections. In a dish's name the same words don't make it a drink ("Beer Cheese" under Appetizers); "bar" alone
+ * doesn't either (Hot Bar, Salad Bar, Bar Bites are food).
+ */
+const BAR_SECTION = /\b(cocktails?|mocktails?|beers?|wines?|margaritas?|mojitos?|sangrias?|spirits?|from the bar|mini bar|wine bar|ales?|seltzers?|ciders?|sake|whiske?y)\b/;
 /** A drink with alcohol: its calories don't come from protein, carbs and fat alone. */
-const ALCOHOL = /\b(cocktails?|beers?|wines?|margaritas?|mojitos?|sangrias?|spirits?|bar|ales?|lagers?|ipas?|stouts?|seltzers?|ciders?|sake|whiske?y|bourbon|vodka|tequila|rum|gin|mimosas?|bellinis?|martinis?|daiquiris?|palomas?|spritz|sour|mules?|old fashioned|manhattan|negroni|michelada|bloody mary|prosecco|champagne|cabernet|chardonnay|pinot|merlot|ros[eé]|riesling|moscato|zinfandel|malbec|sauvignon)\b/i;
+const ALCOHOL = /\b(cocktails?|beers?|wines?|margaritas?|mojitos?|sangrias?|spirits?|from the bar|mini bar|ales?|lagers?|ipas?|stouts?|seltzers?|ciders?|sake|whiske?y|bourbon|vodka|tequila|rum|gin|mimosas?|bellinis?|martinis?|daiquiris?|palomas?|spritz|sour|mules?|old fashioned|manhattan|negroni|michelada|bloody mary|prosecco|champagne|cabernet|chardonnay|pinot|merlot|ros[eé]|riesling|moscato|zinfandel|malbec|sauvignon)\b/i;
 
 /** Mains are ranked as meals; the rest are listed. From the guide's section first, then the name. */
 export function kindOf(section: string, name: string, chain = ''): ChainItemKind {
   const text = `${section} ${name}`.toLowerCase();
   const heading = section.toLowerCase();
-  if (/\b(sauces?|dressings?|dips?|condiments?|toppings?|add[- ]?ons?|extras?|spreads?|syrups?|creamers?|seasonings?)\b/.test(text)) return 'extra';
+  if (/\b(sauces?|dressings?|dips?|condiments?|toppings?|add[- ]?ons?|add[- ]?ins?|supplements?|boosts?|extras?|spreads?|syrups?|creamers?|seasonings?)\b/.test(text)) return 'extra';
   if (
     /\b(desserts?|sweets?|treats?|cookies?|pies?|brownies?|ice cream|frozen custard|custards?|gelato|sorbet|sundaes?|shakes?|milkshakes?|blizzards?|cones?|donuts?|doughnuts?|pastr(y|ies)|bakery|(?<!(crab|fish|salmon|potato|corn|rice|griddle) )cakes?|cheesecakes?|bundt\w*|muffins?)\b/.test(text) ||
     /\bquarts?\b/.test(heading)
   ) {
     return 'dessert';
   }
-  if (/\b(drinks?|beverages?|coffees?|teas?|sodas?|lemonades?|juices?|smoothies?|refreshers?|lattes?|espressos?|frappuccinos?|cold brew|milk|water|fountain)\b/.test(text)) return 'drink';
+  if (/\b(drinks?|beverages?|coffees?|teas?|sodas?|lemonades?|juices?|smoothies?|refreshers?|lattes?|espressos?|frappuccinos?|frapp[eé]s?|cold brew|milk|water|fountain|cocoas?|hot chocolate|mochas?|breves?|chai|americanos?|macchiatos?|cappuccinos?|cortados?|energy|kombucha|boba|horchata|matcha|coolattas?|frozen chocolate|red bull)\b/.test(text)) return 'drink';
   if (BAR_SECTION.test(heading)) return 'drink';
   if (/\b(sides?|fries|chips|tots|snacks?)\b/.test(heading)) return 'side';
+  if (COFFEE_CHAINS.test(chain) && !FOOD_SECTION.test(heading)) return 'drink';
   return SWEETS_CHAINS.test(chain) ? 'dessert' : 'main';
 }
 

@@ -7,10 +7,10 @@ Texas de Brazil,Meats,Leg of Lamb,1 serving,,main,130,6,1.5,0,45,420,0,0,0,18,ht
 Texas de Brazil,Meats,Lamb Chops,1 serving,,main,270,17,8,1,110,220,0,0,0,32,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
 Texas de Brazil,Meats,Filet Mignon,1 serving,,main,310,25,10,0,80,330,0,0,0,20,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
 Texas de Brazil,Meats,Flank Steak,1 serving,,main,120,5,1.5,0,50,250,0,0,0,18,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Meats,Chicken Breast Wrapped in Bacon,1 serving,,main,190,6,1,0,75,320,0,0,0,22,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Meats,Chicken Breast Wrapped in Bacon,1 serving,,main,190,6,1,0,75,320,0,0,0,22,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,pending
 Texas de Brazil,Meats,Spicy Sirloin,1 serving,,main,180,9,3.5,0,75,680,0,0,0,23,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
 Texas de Brazil,Meats,Parmesan Pork Loin,1 serving,,main,190,10,3,0,70,510,0,0,0,23,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Meats,Filet Mignon Wrapped in Bacon,1 serving,,main,210,7,2.5,0,65,310,0,0,0,23,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Meats,Filet Mignon Wrapped in Bacon,1 serving,,main,210,7,2.5,0,65,310,0,0,0,23,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,pending
 Texas de Brazil,Meats,Parmesan Chicken Drumettes,1 serving,,main,330,23,6,0,145,700,0,0,0,30,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
 Texas de Brazil,Meats,Beef Ribs,1 serving,,main,200,15,6,1,60,260,0,0,0,16,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
 Texas de Brazil,Salad Area,Smoked Salmon,1 serving,,main,110,7,1.5,0,35,400,0,0,0,12,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
@@ -81,53 +81,53 @@ Texas de Brazil,Desserts,Vanilla Ice Cream,1 serving,,dessert,190,10,6,0,40,60,2
 Texas de Brazil,Bar Menu,Basket of House-Baked Cheese Bread,1 serving,,main,360,22,4.5,0,60,1730,33,2,1,5,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
 Texas de Brazil,Bar Menu,Antipasto Platter,1 serving,,main,510,40,15,0,195,2750,5,2,0,31,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
 Texas de Brazil,Bar Menu,Bowl of House-Made Lobster Bisque,1 serving,,main,330,30,19,1,95,520,9,0,4,5,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Cocktails,Caipirinha,1 serving,,main,230,0,0,0,0,20,35,4,23,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Cocktails,Caipirinha - Strawberry,1 serving,,main,270,0,0,0,0,20,45,4,32,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Cocktails,Caipirinha - Passion Fruit,1 serving,,main,270,0,0,0,0,20,46,4,34,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Cocktails,Caipirinha - Mango,1 serving,,main,270,0,0,0,0,20,46,4,33,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Cocktails,Caipirinha - Coconut,1 serving,,main,290,2.5,0,0,0,20,47,4,34,1,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Cocktails,Brugal Mojito Royale,1 serving,,main,260,0,0,0,0,20,35,0,27,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Cocktails,Caipiroska,1 serving,,main,210,0,0,0,0,20,35,4,23,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Cocktails,Santo Passion Fruit Margarita,1 serving,,main,260,0,0,0,0,5,41,0,38,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Cocktails,Brazilian Kiss,1 serving,,main,190,0,0,0,0,0,19,0,18,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Cocktails,Deep Eddy Lemon Drop,1 serving,,main,210,0,0,0,0,5,28,0,27,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Cocktails,Jack Daniel's Apple Martini,1 serving,,main,280,1,0.5,0,5,80,39,0,27,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Cocktails,Drumshanbo Gunpowder Strawberry Limeade,1 serving,,main,150,0,0,0,0,0,13,1,10,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Cocktails,1792 Manhattan,1 serving,,main,180,0,0,0,0,0,4,0,3,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Cocktails,Brazilian Mojito,1 serving,,main,230,0,0,0,0,20,35,4,23,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Cocktails,The Rio Cosmo,1 serving,,main,230,0,0,0,0,5,31,0,28,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Cocktails,Ipanema Margarita,1 serving,,main,250,0,0,0,0,5,35,0,32,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Cocktails,Rio Sunrise,1 serving,,main,230,0,0,0,0,0,17,0,15,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Cocktails,Brazilian Rose,1 serving,,main,350,0,0,0,0,0,61,0,59,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Cocktails,Carnaval,1 serving,,main,180,0,0,0,0,5,18,0,15,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Cocktails,The Samba,1 serving,,main,220,0,0,0,0,10,28,1,24,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Cocktails,Bahia Breeze,1 serving,,main,280,2,0,0,0,0,27,0,24,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Cocktails,Tropical Cream Dream,1 serving,,main,330,6,3.5,0,15,80,41,0,40,3,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Cocktails,Caipirinha,1 serving,,drink,230,0,0,0,0,20,35,4,23,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Cocktails,Caipirinha - Strawberry,1 serving,,drink,270,0,0,0,0,20,45,4,32,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Cocktails,Caipirinha - Passion Fruit,1 serving,,drink,270,0,0,0,0,20,46,4,34,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Cocktails,Caipirinha - Mango,1 serving,,drink,270,0,0,0,0,20,46,4,33,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Cocktails,Caipirinha - Coconut,1 serving,,drink,290,2.5,0,0,0,20,47,4,34,1,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Cocktails,Brugal Mojito Royale,1 serving,,drink,260,0,0,0,0,20,35,0,27,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Cocktails,Caipiroska,1 serving,,drink,210,0,0,0,0,20,35,4,23,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Cocktails,Santo Passion Fruit Margarita,1 serving,,drink,260,0,0,0,0,5,41,0,38,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Cocktails,Brazilian Kiss,1 serving,,drink,190,0,0,0,0,0,19,0,18,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Cocktails,Deep Eddy Lemon Drop,1 serving,,drink,210,0,0,0,0,5,28,0,27,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Cocktails,Jack Daniel's Apple Martini,1 serving,,drink,280,1,0.5,0,5,80,39,0,27,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Cocktails,Drumshanbo Gunpowder Strawberry Limeade,1 serving,,drink,150,0,0,0,0,0,13,1,10,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Cocktails,1792 Manhattan,1 serving,,drink,180,0,0,0,0,0,4,0,3,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Cocktails,Brazilian Mojito,1 serving,,drink,230,0,0,0,0,20,35,4,23,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Cocktails,The Rio Cosmo,1 serving,,drink,230,0,0,0,0,5,31,0,28,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Cocktails,Ipanema Margarita,1 serving,,drink,250,0,0,0,0,5,35,0,32,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Cocktails,Rio Sunrise,1 serving,,drink,230,0,0,0,0,0,17,0,15,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Cocktails,Brazilian Rose,1 serving,,drink,350,0,0,0,0,0,61,0,59,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Cocktails,Carnaval,1 serving,,drink,180,0,0,0,0,5,18,0,15,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Cocktails,The Samba,1 serving,,drink,220,0,0,0,0,10,28,1,24,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Cocktails,Bahia Breeze,1 serving,,drink,280,2,0,0,0,0,27,0,24,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Cocktails,Tropical Cream Dream,1 serving,,drink,330,6,3.5,0,15,80,41,0,40,3,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
 Texas de Brazil,Cocktails,Espresso Delight,1 serving,,drink,250,7,4,0,15,30,15,0,11,1,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Cocktails,The Ruler of Marula,1 serving,,main,220,3,1.5,0,0,50,11,0,8,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Cocktails,Milky Way,1 serving,,main,300,13,7,0,10,35,14,2,10,2,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Cocktails,The Ruler of Marula,1 serving,,drink,220,3,1.5,0,0,50,11,0,8,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Cocktails,Milky Way,1 serving,,drink,300,13,7,0,10,35,14,2,10,2,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
 Texas de Brazil,Cocktails,Key Lime Pie Martini,1 serving,,dessert,230,5,3.5,0,15,0,1,0,0,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Cocktails,Tiramisu Martini,1 serving,,main,380,10,6,0,15,25,24,2,18,2,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Cocktails,Lava,1 serving,,main,190,2,1,0,10,40,21,0,19,2,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Cocktails,Tiramisu Martini,1 serving,,drink,380,10,6,0,15,25,24,2,18,2,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Cocktails,Lava,1 serving,,drink,190,2,1,0,10,40,21,0,19,2,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
 Texas de Brazil,Non-Alcoholic Beverages,Cappuccino,1 serving,,drink,80,4,2.5,0,20,65,6,0,6,4,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
 Texas de Brazil,Non-Alcoholic Beverages,Coffee & Tea,1 serving,,drink,0,0,0,0,0,0,0,0,0,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
 Texas de Brazil,Non-Alcoholic Beverages,Milk,1 serving,,drink,150,8,5,0,35,120,12,0,12,8,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
 Texas de Brazil,Non-Alcoholic Beverages,Soft Drinks,1 serving,,drink,150,1,0,0,0,10,38,0,37,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
 Texas de Brazil,Wine & Spirits,Dessert Wine,1 serving,,dessert,100,0,0,0,0,0,12,0,0,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Wine & Spirits,Port,1 serving,,main,130,0,0,0,0,10,10,0,0,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Wine & Spirits,Spirits,1 serving,,main,100,0,0,0,0,0,0,0,0,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Wine & Spirits,Frangelico,1 serving,,main,180,0,0,0,0,0,24,0,20,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Wine & Spirits,Liqueurs,1 serving,,main,180,0,0,0,0,0,24,0,20,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Wine & Spirits,Cream Liqueurs,1 serving,,main,150,7,4.5,0,25,45,10,0,9,1,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Wine & Spirits,Taylor Fladgate Flight,1 serving,,main,180,0,0,0,0,10,14,0,1,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Wine & Spirits,Styles of Port Flight,1 serving,,main,130,0,0,0,0,10,10,0,0,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Wine & Spirits,Hennessy Flight,1 serving,,main,210,0,0,0,0,0,0,0,0,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Wine & Spirits,Patrón Flight,1 serving,,main,190,0,0,0,0,0,0,0,0,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Wine & Spirits,Grand Marnier Flight,1 serving,,main,320,0,0,0,0,0,77,0,77,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Wine & Spirits,The Macallan Flight,1 serving,,main,210,0,0,0,0,0,0,0,0,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Wine & Spirits,Dorda Flight,1 serving,,main,310,15,9,0,55,85,20,0,18,3,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Wine & Spirits,Johnnie Walker Flight,1 serving,,main,210,0,0,0,0,0,0,0,0,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Wine & Spirits,Beer,1 serving,,main,150,0,0,0,0,15,13,0,0,2,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Wine & Spirits,Port,1 serving,,drink,130,0,0,0,0,10,10,0,0,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Wine & Spirits,Spirits,1 serving,,drink,100,0,0,0,0,0,0,0,0,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Wine & Spirits,Frangelico,1 serving,,drink,180,0,0,0,0,0,24,0,20,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Wine & Spirits,Liqueurs,1 serving,,drink,180,0,0,0,0,0,24,0,20,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Wine & Spirits,Cream Liqueurs,1 serving,,drink,150,7,4.5,0,25,45,10,0,9,1,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Wine & Spirits,Taylor Fladgate Flight,1 serving,,drink,180,0,0,0,0,10,14,0,1,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Wine & Spirits,Styles of Port Flight,1 serving,,drink,130,0,0,0,0,10,10,0,0,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Wine & Spirits,Hennessy Flight,1 serving,,drink,210,0,0,0,0,0,0,0,0,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Wine & Spirits,Patrón Flight,1 serving,,drink,190,0,0,0,0,0,0,0,0,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Wine & Spirits,Grand Marnier Flight,1 serving,,drink,320,0,0,0,0,0,77,0,77,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Wine & Spirits,The Macallan Flight,1 serving,,drink,210,0,0,0,0,0,0,0,0,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Wine & Spirits,Dorda Flight,1 serving,,drink,310,15,9,0,55,85,20,0,18,3,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Wine & Spirits,Johnnie Walker Flight,1 serving,,drink,210,0,0,0,0,0,0,0,0,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Wine & Spirits,Beer,1 serving,,drink,150,0,0,0,0,15,13,0,0,2,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
 Texas de Brazil,Catering,Chimichurri,12 oz,,main,2000,219,16,1,0,710,12,3,0,3,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
 Texas de Brazil,Catering,House Spicy Sauce,12 oz,,extra,980,102,8,0,0,1460,19,5,9,3,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
 Texas de Brazil,Catering,Farofa,8 oz,,main,490,19,12,0,50,500,77,4,3,3,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
@@ -143,21 +143,21 @@ Texas de Brazil,Desserts,Chocolate Mousse Cake,1 serving,,dessert,890,52,33,0,11
 Texas de Brazil,Desserts,Bananas Foster Pie,1 serving,,dessert,570,35,22,0,95,250,61,1,38,5,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
 Texas de Brazil,Desserts,Coconut Chess Pie,1 serving,,dessert,420,18,12,0,15,260,61,1,44,2,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
 Texas de Brazil,Desserts,Pecan Pie,1 serving,,dessert,540,21,5,0,70,490,84,2,55,6,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Cocktails,Sangria,(Glass),,main,230,0,0,0,0,15,29,0,25,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Cocktails,Sangria,(Pitcher),,main,920,0.5,0,0,0,55,117,0,101,2,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Cocktails,Sangria,(Glass),,drink,230,0,0,0,0,15,29,0,25,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Cocktails,Sangria,(Pitcher),,drink,920,0.5,0,0,0,55,117,0,101,2,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
 Texas de Brazil,Non-Alcoholic Beverages,Texas de Brazil Limeade,(Pitcher),,drink,1170,0.5,0,0,0,135,308,8,263,2,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
 Texas de Brazil,Non-Alcoholic Beverages,Texas de Brazil Limeade - Coconut,(Pitcher),,drink,1250,10,0,0,0,150,313,10,263,4,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
 Texas de Brazil,Non-Alcoholic Beverages,Texas de Brazil Limeade - Mango,(Pitcher),,drink,1170,0.5,0,0,0,135,310,8,264,2,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
 Texas de Brazil,Non-Alcoholic Beverages,Texas de Brazil Limeade - Passion Fruit,(Pitcher),,drink,1160,0.5,0,0,0,135,307,8,263,2,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
 Texas de Brazil,Non-Alcoholic Beverages,Texas de Brazil Limeade - Strawberry,(Pitcher),,drink,1140,0.5,0,0,0,135,301,10,255,2,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Wine & Spirits,Champagne & Sparkling Wine,(Glass),,main,150,0,0,0,0,10,5,0,1,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Wine & Spirits,Champagne & Sparkling Wine,(Bottle),,main,620,0,0,0,0,40,20,0,6,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Wine & Spirits,White Wines,(Glass),,main,150,0,0,0,0,10,4,0,2,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Wine & Spirits,White Wines,(Bottle),,main,630,0,0,0,0,40,16,0,7,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Wine & Spirits,Rosé Wines,(Glass),,main,150,0,0,0,0,10,7,0,7,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Wine & Spirits,Rosé Wines,(Bottle),,main,620,0,0,0,0,40,29,0,29,3,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Wine & Spirits,Red Wines,(Glass),,main,150,0,0,0,0,0,5,0,0,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
-Texas de Brazil,Wine & Spirits,Red Wines,(Bottle),,main,620,0,0,0,0,0,20,0,0,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Wine & Spirits,Champagne & Sparkling Wine,(Glass),,drink,150,0,0,0,0,10,5,0,1,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Wine & Spirits,Champagne & Sparkling Wine,(Bottle),,drink,620,0,0,0,0,40,20,0,6,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Wine & Spirits,White Wines,(Glass),,drink,150,0,0,0,0,10,4,0,2,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Wine & Spirits,White Wines,(Bottle),,drink,630,0,0,0,0,40,16,0,7,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Wine & Spirits,Rosé Wines,(Glass),,drink,150,0,0,0,0,10,7,0,7,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Wine & Spirits,Rosé Wines,(Bottle),,drink,620,0,0,0,0,40,29,0,29,3,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Wine & Spirits,Red Wines,(Glass),,drink,150,0,0,0,0,0,5,0,0,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
+Texas de Brazil,Wine & Spirits,Red Wines,(Bottle),,drink,620,0,0,0,0,0,20,0,0,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,two-drafts
 Texas de Brazil,To-Go,Picanha,1 lb,,main,580,21,7,1,300,1330,0,0,0,97,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,pending
 Texas de Brazil,To-Go,Picanha,1/2 lb,,main,290,11,3.5,0.5,150,660,0,0,0,48,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,pending
 Texas de Brazil,To-Go,Garlic Picanha,1 lb,,main,640,29,7,1,285,1260,5,0,0,93,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,pending
@@ -232,14 +232,14 @@ Texas de Brazil,To-Go,San Benedetto Still Water,1 serving,,drink,0,0,0,0,0,15,0,
 Texas de Brazil,To-Go,Saratoga Still Water,28 fl oz,,drink,0,0,0,0,0,0,0,0,0,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,pending
 Texas de Brazil,To-Go,San Benedetto Sparkling Water,1 serving,,drink,0,0,0,0,0,15,0,0,0,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,pending
 Texas de Brazil,To-Go,Saratoga Sparkling Water,28 fl oz,,drink,0,0,0,0,0,0,0,0,0,0,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,pending
-Texas de Brazil,,Garlic Mashed Potatoes,5 lb,,main,2340,97,59,1.5,265,12430,322,30,58,57,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,pending
-Texas de Brazil,,Potatoes Au Gratin,5 lb,,main,8400,782,525,20,2535,12590,61,0,60,201,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,pending
-Texas de Brazil,,Jasmine Rice,5 lb,,main,3730,100,62,0,265,23100,640,0,0,54,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,pending
-Texas de Brazil,,Feijoada Black Beans,5 lb,,main,1390,58,17,0,35,10620,245,129,0,99,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,pending
-Texas de Brazil,,Tabbouleh,5 lb,,main,4850,486,67,0,0,10660,133,40,35,30,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,pending
-Texas de Brazil,,Potato Salad,5 lb,,main,5510,476,79,0,395,38210,270,23,10,33,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,pending
-Texas de Brazil,,Couscous Salad,5 lb,,main,1690,87,7,0,0,2740,200,14,23,29,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,pending
-Texas de Brazil,,Cucumber Salad,5 lb,,main,1540,128,10,0.5,0,4410,99,18,47,15,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,pending
-Texas de Brazil,,Cabbage Salad,5 lb,,main,1760,126,18,0,0,16390,161,48,77,29,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,pending
-Texas de Brazil,,Brazilian Cheese Bread,30 pc,,main,1800,111,22,0,295,8650,167,10,7,23,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,pending
-Texas de Brazil,,French Fries,Box,,main,2500,179,33,1.5,0,6400,218,18,0,18,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,pending
+Texas de Brazil,Menu,Garlic Mashed Potatoes,5 lb,,main,2340,97,59,1.5,265,12430,322,30,58,57,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,pending
+Texas de Brazil,Menu,Potatoes Au Gratin,5 lb,,main,8400,782,525,20,2535,12590,61,0,60,201,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,pending
+Texas de Brazil,Menu,Jasmine Rice,5 lb,,main,3730,100,62,0,265,23100,640,0,0,54,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,pending
+Texas de Brazil,Menu,Feijoada Black Beans,5 lb,,main,1390,58,17,0,35,10620,245,129,0,99,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,pending
+Texas de Brazil,Menu,Tabbouleh,5 lb,,main,4850,486,67,0,0,10660,133,40,35,30,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,pending
+Texas de Brazil,Menu,Potato Salad,5 lb,,main,5510,476,79,0,395,38210,270,23,10,33,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,pending
+Texas de Brazil,Menu,Couscous Salad,5 lb,,main,1690,87,7,0,0,2740,200,14,23,29,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,pending
+Texas de Brazil,Menu,Cucumber Salad,5 lb,,main,1540,128,10,0.5,0,4410,99,18,47,15,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,pending
+Texas de Brazil,Menu,Cabbage Salad,5 lb,,main,1760,126,18,0,0,16390,161,48,77,29,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,pending
+Texas de Brazil,Menu,Brazilian Cheese Bread,30 pc,,main,1800,111,22,0,295,8650,167,10,7,23,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,pending
+Texas de Brazil,Menu,French Fries,Box,,main,2500,179,33,1.5,0,6400,218,18,0,18,https://texasdebrazil.com/nutrition-allergens/,2026-10-23,pending

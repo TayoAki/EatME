@@ -109,7 +109,7 @@ Shake Shack,Drinks,Abita Root Beer,Large,,drink,280,0,0,0,0,25,69,0,59,0,https:/
 Shake Shack,Drinks,Orange Juice,1 serving,,drink,165,0,0,0,0,12,41,2,30,3,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,2026-10-23,two-drafts
 Shake Shack,Drinks,Honest Kids Apple Juice,1 serving,,drink,40,0,0,0,0,0,10,0,9,0,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,2026-10-23,two-drafts
 Shake Shack,Drinks,SHACK2O,1 serving,,drink,0,0,0,0,0,0,0,0,0,0,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,2026-10-23,two-drafts
-Shake Shack,Beer & Wines,Beer Float,1 serving,,main,490,15,9,0,100,190,52,0,30,8,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,2026-10-23,two-drafts
+Shake Shack,Beer & Wines,Beer Float,1 serving,,drink,490,15,9,0,100,190,52,0,30,8,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,2026-10-23,two-drafts
 Shake Shack,Burgers,Single ShackBurger®,1 serving,,main,500,30,12,1,105,1250,26,0,6,29,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,2026-10-23,two-drafts
 Shake Shack,Burgers,Double ShackBurger®,1 serving,,main,760,48,20,2,185,2280,27,0,6,51,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,2026-10-23,two-drafts
 Shake Shack,Burgers,Single Hamburger,1 serving,,main,370,18,8,1,75,850,24,0,5,25,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,2026-10-23,two-drafts
@@ -145,15 +145,15 @@ Shake Shack,Cups,Double Vanilla Cup,1 serving,,main,450,24,14,0,165,280,49,0,48,
 Shake Shack,Cups,Single Vanilla & Chocolate Cup,1 serving,,main,290,17,10,0,105,150,31,0,29,6,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,2026-10-23,two-drafts
 Shake Shack,Cups,Double Vanilla & Chocolate Cup,1 serving,,main,470,27,16,0,170,230,50,0,47,10,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,2026-10-23,two-drafts
 Shake Shack,Drinks,Abita Root Beer Bottle or Can,(12oz),,drink,180,0,0,0,0,16,44,0,38,0,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,2026-10-23,two-drafts
-Shake Shack,Beer & Wines,Brooklyn Brewery ShackMeister Ale,(16oz. Draft),,main,210,0,0,0,0,0,17,0,0,2,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,2026-10-23,two-drafts
-Shake Shack,Beer & Wines,Brooklyn Brewery ShackMeister Ale,(24oz. Draft),,main,310,0,0,0,0,0,25,0,0,4,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,2026-10-23,two-drafts
-Shake Shack,Beer & Wines,Brooklyn Brewery ShackMeister Ale,(32oz. Draft),,main,420,0,0,0,0,0,33,0,0,5,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,2026-10-23,two-drafts
-Shake Shack,Beer & Wines,Brooklyn Brewery ShackMeister Ale,(60oz. Draft),,main,780,0,0,0,0,0,62,0,0,9,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,2026-10-23,two-drafts
-Shake Shack,Beer & Wines,Shack White,(6 oz),,main,140,0,0,0,0,0,4,0,0,0,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,2026-10-23,two-drafts
-Shake Shack,Beer & Wines,Shack White Bottle,(750 ml),,main,600,0,0,0,0,0,15,0,0,1,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,2026-10-23,two-drafts
-Shake Shack,Beer & Wines,Shack Red,(6 oz),,main,150,0,0,0,0,0,5,0,0,0,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,2026-10-23,two-drafts
-Shake Shack,Beer & Wines,Shack Red Bottle,(750 ml),,main,620,0,0,0,0,0,19,0,0,1,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,2026-10-23,two-drafts
-Shake Shack,Beer & Wines,Shack Red Can,(8.4 oz),,main,210,0,0,0,0,10,6,0,0,0,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,2026-10-23,two-drafts
-Shake Shack,Beer & Wines,Shack White Can,(8.4 oz),,main,200,0,0,0,0,10,5,0,0,0,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,2026-10-23,two-drafts
-Shake Shack,Beer & Wines,Shack Rosé Can,(8.4 oz),,main,210,0,0,0,0,10,9,0,0,1,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,2026-10-23,two-drafts
-Shake Shack,Beer & Wines,Shack Sparkling Can,(8.4 oz),,main,200,0,0,0,0,15,6,0,0,0,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,2026-10-23,two-drafts
+Shake Shack,Beer & Wines,Brooklyn Brewery ShackMeister Ale,(16oz. Draft),,drink,210,0,0,0,0,0,17,0,0,2,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,2026-10-23,two-drafts
+Shake Shack,Beer & Wines,Brooklyn Brewery ShackMeister Ale,(24oz. Draft),,drink,310,0,0,0,0,0,25,0,0,4,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,2026-10-23,two-drafts
+Shake Shack,Beer & Wines,Brooklyn Brewery ShackMeister Ale,(32oz. Draft),,drink,420,0,0,0,0,0,33,0,0,5,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,2026-10-23,two-drafts
+Shake Shack,Beer & Wines,Brooklyn Brewery ShackMeister Ale,(60oz. Draft),,drink,780,0,0,0,0,0,62,0,0,9,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,2026-10-23,two-drafts
+Shake Shack,Beer & Wines,Shack White,(6 oz),,drink,140,0,0,0,0,0,4,0,0,0,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,2026-10-23,two-drafts
+Shake Shack,Beer & Wines,Shack White Bottle,(750 ml),,drink,600,0,0,0,0,0,15,0,0,1,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,2026-10-23,two-drafts
+Shake Shack,Beer & Wines,Shack Red,(6 oz),,drink,150,0,0,0,0,0,5,0,0,0,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,2026-10-23,two-drafts
+Shake Shack,Beer & Wines,Shack Red Bottle,(750 ml),,drink,620,0,0,0,0,0,19,0,0,1,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,2026-10-23,two-drafts
+Shake Shack,Beer & Wines,Shack Red Can,(8.4 oz),,drink,210,0,0,0,0,10,6,0,0,0,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,2026-10-23,two-drafts
+Shake Shack,Beer & Wines,Shack White Can,(8.4 oz),,drink,200,0,0,0,0,10,5,0,0,0,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,2026-10-23,two-drafts
+Shake Shack,Beer & Wines,Shack Rosé Can,(8.4 oz),,drink,210,0,0,0,0,10,9,0,0,1,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,2026-10-23,two-drafts
+Shake Shack,Beer & Wines,Shack Sparkling Can,(8.4 oz),,drink,200,0,0,0,0,15,6,0,0,0,https://shakeshack.com/sites/default/files/2023-01/SS%20Nutrition%20Jan%2031%202023%5B87%5D.pdf,2026-10-23,two-drafts

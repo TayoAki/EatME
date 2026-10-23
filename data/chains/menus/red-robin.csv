@@ -53,8 +53,8 @@ Red Robin,BOTTOMLESS BEVERAGES,Honey Mango Lemonade,1 serving,,drink,210,0,0,0,0
 Red Robin,BOTTOMLESS BEVERAGES,Minute Maid® Lemonade,Adult,,drink,140,0,0,0,0,20,36,0,35,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
 Red Robin,BOTTOMLESS BEVERAGES,Lemonade with Peach Flavor,1 serving,,drink,230,0,0,0,0,15,60,0,57,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
 Red Robin,BOTTOMLESS BEVERAGES,Lemonade with Raspberry Flavor,1 serving,,drink,200,0,0,0,0,15,50,0,49,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,BOTTOMLESS BEVERAGES,Lemonade with Sugar Free Peach Flavor,1 serving,,drink,110,0,0,0,0,15,34,0,28,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,BOTTOMLESS BEVERAGES,Lemonade with Sugar Free Raspberry Flavor,1 serving,,drink,110,0,0,0,0,15,34,0,28,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,BOTTOMLESS BEVERAGES,Lemonade with Sugar Free Peach Flavor,1 serving,,drink,110,0,0,0,0,15,34,0,28,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BOTTOMLESS BEVERAGES,Lemonade with Sugar Free Raspberry Flavor,1 serving,,drink,110,0,0,0,0,15,34,0,28,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
 Red Robin,BOTTOMLESS BEVERAGES,Fresh-Brewed Iced Tea,1 serving,,drink,0,0,0,0,0,0,0,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
 Red Robin,BOTTOMLESS BEVERAGES,Honey Mango Tea,1 serving,,drink,100,0,0,0,0,5,26,0,25,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
 Red Robin,BOTTOMLESS BEVERAGES,Peach Iced Tea,1 serving,,drink,120,0,0,0,0,0,32,0,29,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
@@ -100,87 +100,87 @@ Red Robin,TAVERN BURGERS,Cowboy Ranch Double,1 serving,,main,720,45,16,2,105,134
 Red Robin,TAVERN BURGERS,Haystack Double™,1 serving,,main,740,50,19,2,120,1360,41,2,10,32,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
 Red Robin,TAVERN BURGERS,Pig Out Double,1 serving,,main,890,62,23,2.5,160,1730,43,2,16,44,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
 Red Robin,TAVERN BURGERS,Red's Double™,1 serving,,main,640,42,18,2,120,1270,35,2,8,31,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,FROM THE BAR,Casamigos Cadillac Margarita (Lime),1 serving,,main,250,0,0,0,0,45,34,1,27,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,FROM THE BAR,Casamigos Cadillac Margarita (Desert Pear),1 serving,,main,360,0,0,0,0,45,62,1,54,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,FROM THE BAR,Casamigos Cadillac Margarita (Honey Mango),1 serving,,main,350,0,0,0,0,50,59,1,52,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,FROM THE BAR,Casamigos Cadillac Margarita (Strawberry),1 serving,,main,280,0,0,0,0,45,42,1,35,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,FROM THE BAR,Golden Maker's Highball,1 serving,,main,260,0,0,0,0,15,31,0,29,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,FROM THE BAR,House Margarita (Rocks and Frozen),1 serving,,main,140,0,0,0,0,920,23,0,20,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,FROM THE BAR,House Margarita (Lime),1 serving,,main,140,0,0,0,0,920,23,0,20,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,FROM THE BAR,House Margarita (Honey Mango),1 serving,,main,190,0,0,0,0,25,34,0,32,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,FROM THE BAR,House Margarita (Desert Pear),1 serving,,main,190,0,0,0,0,20,35,0,33,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,FROM THE BAR,House Margarita (Strawberry),1 serving,,main,150,0,0,0,0,20,25,0,23,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,FROM THE BAR,Casamigos Cadillac Margarita (Lime),1 serving,,drink,250,0,0,0,0,45,34,1,27,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,FROM THE BAR,Casamigos Cadillac Margarita (Desert Pear),1 serving,,drink,360,0,0,0,0,45,62,1,54,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,FROM THE BAR,Casamigos Cadillac Margarita (Honey Mango),1 serving,,drink,350,0,0,0,0,50,59,1,52,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,FROM THE BAR,Casamigos Cadillac Margarita (Strawberry),1 serving,,drink,280,0,0,0,0,45,42,1,35,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,FROM THE BAR,Golden Maker's Highball,1 serving,,drink,260,0,0,0,0,15,31,0,29,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,FROM THE BAR,House Margarita (Rocks and Frozen),1 serving,,drink,140,0,0,0,0,920,23,0,20,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,FROM THE BAR,House Margarita (Lime),1 serving,,drink,140,0,0,0,0,920,23,0,20,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,FROM THE BAR,House Margarita (Honey Mango),1 serving,,drink,190,0,0,0,0,25,34,0,32,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,FROM THE BAR,House Margarita (Desert Pear),1 serving,,drink,190,0,0,0,0,20,35,0,33,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,FROM THE BAR,House Margarita (Strawberry),1 serving,,drink,150,0,0,0,0,20,25,0,23,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
 Red Robin,FROM THE BAR,Long Island Iced Tea,1 serving,,drink,370,0,0,0,0,55,45,0,43,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,FROM THE BAR,Old Fashioned,1 serving,,main,250,0,0,0,0,0,9,0,8,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,FROM THE BAR,Paradise Punch,1 serving,,main,370,0.5,0,0,0,35,57,1,51,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,FROM THE BAR,Red's Signature Margarita (Rocks and Frozen),1 serving,,main,250,0,0,0,0,940,33,0,25,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,FROM THE BAR,Sand in Your Shorts®,1 serving,,main,330,0.5,0,0,0,10,52,0,47,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,FROM THE BAR,Screaming Red Zombie,1 serving,,main,350,0.5,0,0,0,50,49,1,41,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,FROM THE BAR,Old Fashioned,1 serving,,drink,250,0,0,0,0,0,9,0,8,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,FROM THE BAR,Paradise Punch,1 serving,,drink,370,0.5,0,0,0,35,57,1,51,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,FROM THE BAR,Red's Signature Margarita (Rocks and Frozen),1 serving,,drink,250,0,0,0,0,940,33,0,25,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,FROM THE BAR,Sand in Your Shorts®,1 serving,,drink,330,0.5,0,0,0,10,52,0,47,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,FROM THE BAR,Screaming Red Zombie,1 serving,,drink,350,0.5,0,0,0,50,49,1,41,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
 Red Robin,FROM THE BAR,Spiked Freckled Lemonade®,1 serving,,drink,280,0,0,0,0,10,43,0,42,3,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,FROM THE BAR,The Metropolitan,1 serving,,main,230,0,0,0,0,10,27,0,26,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,FROM THE BAR,Tito's® Blue Chill,1 serving,,main,250,3,1.5,0,10,60,41,0,40,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,FROM THE BAR,Tropical Mai Tai,1 serving,,main,330,0,0,0,0,25,48,1,44,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,WINE,14 Hands® Merlot,5 oz.,,main,120,0,0,0,0,0,4,0,1,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,WINE,14 Hands® Merlot,6 oz.,,main,150,0,0,0,0,0,5,0,1,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,WINE,14 Hands® Merlot,9 oz.,,main,220,0,0,0,0,5,8,0,2,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,WINE,Ava Grace Rosé,5 oz.,,main,110,0,0,0,0,0,4,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,WINE,Ava Grace Rosé,6 oz.,,main,130,0,0,0,0,0,5,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,WINE,Ava Grace Rosé,9 oz.,,main,200,0,0,0,0,0,7,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,WINE,Barefoot Refresh® Moscato Spritzer,6 oz.,,main,110,0,0,0,0,20,13,0,10,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,WINE,Barefoot Refresh® Moscato Spritzer,9 oz.,,main,170,0,0,0,0,25,20,0,15,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,WINE,Beso Del Sol® Red Sangria (Select Locations Only),6 oz.,,main,130,0,0,0,0,0,10,0,10,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,WINE,Canyon Road® Cabernet Sauvignon,6 oz.,,main,170,0,0,0,0,0,7,0,2,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,WINE,Canyon Road® Cabernet Sauvignon,9 oz.,,main,250,0,0,0,0,0,11,0,3,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,WINE,Canyon Road® Pinot Grigio,6 oz.,,main,140,0,0,0,0,0,5,0,2,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,WINE,Canyon Road® Pinot Grigio,9 oz.,,main,220,0,0,0,0,0,7,0,3,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,WINE,Carnivor® Cabernet Sauvignon,5 oz.,,main,140,0,0,0,0,15,5,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,WINE,Carnivor® Cabernet Sauvignon,6 oz.,,main,170,0,0,0,0,20,6,0,1,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,WINE,Carnivor® Cabernet Sauvignon,9 oz.,,main,260,0,0,0,0,25,9,0,2,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,WINE,Copper Ridge® Chardonnay,6 oz.,,main,140,0,0,0,0,0,6,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,WINE,Copper Ridge® Chardonnay,9 oz.,,main,220,0,0,0,0,0,9,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,WINE,Cupcake Vineyards® Chardonnay,5 oz.,,main,130,0,0,0,0,10,3,0,1,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,WINE,Cupcake Vineyards® Chardonnay,6 oz.,,main,160,0,0,0,0,10,4,0,1,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,WINE,Cupcake Vineyards® Chardonnay,9 oz.,,main,230,0,0,0,0,20,5,0,2,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,Wines,Dark Horse® Cabernet Sauvignon,5 oz.,,main,140,0,0,0,0,0,4,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,Wines,Dark Horse® Cabernet Sauvignon,6 oz.,,main,160,0,0,0,0,0,5,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,Wines,Dark Horse® Cabernet Sauvignon,9 oz.,,main,240,0,0,0,0,0,8,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,Wines,Ecco Domani® Pinot Grigio,5 oz.,,main,110,0,0,0,0,0,3,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,Wines,Ecco Domani® Pinot Grigio,6 oz.,,main,130,0,0,0,0,0,3,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,Wines,Ecco Domani® Pinot Grigio,9 oz.,,main,200,0,0,0,0,0,5,0,1,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,Wines,Hogue® Pinot Grigio,6 oz.,,main,120,0,0,0,0,0,6,0,5,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,Wines,Hogue® Pinot Grigio,9 oz.,,main,180,0,0,0,0,0,8,0,8,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,Wines,Josh Cellars® Cabernet Sauvignon,5 oz.,,main,120,0,0,0,0,0,3,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,Wines,Josh Cellars® Cabernet Sauvignon,6 oz.,,main,140,0,0,0,0,0,4,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,Wines,Josh Cellars® Cabernet Sauvignon,9 oz.,,main,210,0,0,0,0,0,6,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,Wines,Kendall-Jackson® Merlot,6 oz.,,main,160,0,0,0,0,0,5,0,5,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,Wines,Kendall-Jackson® Merlot,9 oz.,,main,230,0,0,0,0,0,7,0,7,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,Wines,Kendall-Jackson® V.R. Chardonnay,5 oz.,,main,120,0,0,0,0,0,4,0,4,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,Wines,Kendall-Jackson® V.R. Chardonnay,6 oz.,,main,140,0,0,0,0,0,5,0,5,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,Wines,Kendall-Jackson® V.R. Chardonnay,9 oz.,,main,220,0,0,0,0,0,7,0,7,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,Wines,Kim Crawford Sauvignon Blanc,5 oz.,,main,120,0,0,0,5,0,3,0,2,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,Wines,Kim Crawford Sauvignon Blanc,6 oz.,,main,140,0,0,0,10,0,4,0,2,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,Wines,Kim Crawford Sauvignon Blanc,9 oz.,,main,220,0,0,0,15,0,5,0,3,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,Wines,Leese-Fitch Chardonnay (Select Locations Only),5 oz.,,main,120,0,0,0,5,0,3,0,1,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,Wines,Leese-Fitch Pinot Noir (Select Locations Only),5 oz.,,main,120,0,0,0,0,0,3,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,Wines,The Naked Grape® Chardonnay,5 oz.,,main,130,0,0,0,15,0,4,0,2,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,Wines,The Naked Grape® Chardonnay,6 oz.,,main,150,0,0,0,20,0,5,0,2,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,Wines,The Naked Grape® Chardonnay,9 oz.,,main,230,0,0,0,25,0,7,0,3,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,Wines,Pepperwood Grove Pinot Grigio (Select Locations Only),5 oz.,,main,120,0,0,0,5,0,4,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,Wines,The Crusher Cabernet Sauvignon (Select Locations Only),5 oz.,,main,120,0,0,0,0,0,4,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,Wines,Trinity Oaks® Pinot Noir,6 oz.,,main,150,0,0,0,0,0,6,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,Wines,Trinity Oaks® Pinot Noir,9 oz.,,main,230,0,0,0,0,0,9,0,0,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,Wines,Vina Borgia Rosé (Select Locations Only),5 oz.,,main,110,0,0,0,0,0,2,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,Wines,Woodbridge Cabernet Sauvignon,5 oz.,,main,100,0,0,0,0,0,0,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,Wines,Woodbridge Cabernet Sauvignon,6 oz.,,main,120,0,0,0,0,0,1,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,Wines,Woodbridge Cabernet Sauvignon,9 oz.,,main,180,0,0,0,0,0,2,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,Wines,Woodbridge Chardonnay,5 oz.,,main,110,0,0,0,0,0,3,0,2,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,Wines,Woodbridge Chardonnay,6 oz.,,main,130,0,0,0,0,0,3,0,3,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,Wines,Woodbridge Chardonnay,9 oz.,,main,190,0,0,0,0,0,5,0,4,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,Wines,Woodbridge Merlot,6 oz.,,main,130,0,0,0,0,0,3,0,2,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,Wines,Woodbridge Merlot,9 oz.,,main,190,0,0,0,0,0,5,0,4,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,Wines,Woodbridge White Zinfandel,5 oz.,,main,100,0,0,0,0,0,18,0,18,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,Wines,Woodbridge White Zinfandel,6 oz.,,main,120,0,0,0,0,0,22,0,21,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,Wines,Woodbridge White Zinfandel,9 oz.,,main,170,0,0,0,0,0,33,0,32,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,FROM THE BAR,The Metropolitan,1 serving,,drink,230,0,0,0,0,10,27,0,26,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,FROM THE BAR,Tito's® Blue Chill,1 serving,,drink,250,3,1.5,0,10,60,41,0,40,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,FROM THE BAR,Tropical Mai Tai,1 serving,,drink,330,0,0,0,0,25,48,1,44,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,WINE,14 Hands® Merlot,5 oz.,,drink,120,0,0,0,0,0,4,0,1,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,WINE,14 Hands® Merlot,6 oz.,,drink,150,0,0,0,0,0,5,0,1,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,WINE,14 Hands® Merlot,9 oz.,,drink,220,0,0,0,0,5,8,0,2,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,WINE,Ava Grace Rosé,5 oz.,,drink,110,0,0,0,0,0,4,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,WINE,Ava Grace Rosé,6 oz.,,drink,130,0,0,0,0,0,5,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,WINE,Ava Grace Rosé,9 oz.,,drink,200,0,0,0,0,0,7,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,WINE,Barefoot Refresh® Moscato Spritzer,6 oz.,,drink,110,0,0,0,0,20,13,0,10,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,WINE,Barefoot Refresh® Moscato Spritzer,9 oz.,,drink,170,0,0,0,0,25,20,0,15,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,WINE,Beso Del Sol® Red Sangria (Select Locations Only),6 oz.,,drink,130,0,0,0,0,0,10,0,10,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,WINE,Canyon Road® Cabernet Sauvignon,6 oz.,,drink,170,0,0,0,0,0,7,0,2,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,WINE,Canyon Road® Cabernet Sauvignon,9 oz.,,drink,250,0,0,0,0,0,11,0,3,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,WINE,Canyon Road® Pinot Grigio,6 oz.,,drink,140,0,0,0,0,0,5,0,2,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,WINE,Canyon Road® Pinot Grigio,9 oz.,,drink,220,0,0,0,0,0,7,0,3,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,WINE,Carnivor® Cabernet Sauvignon,5 oz.,,drink,140,0,0,0,0,15,5,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,WINE,Carnivor® Cabernet Sauvignon,6 oz.,,drink,170,0,0,0,0,20,6,0,1,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,WINE,Carnivor® Cabernet Sauvignon,9 oz.,,drink,260,0,0,0,0,25,9,0,2,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,WINE,Copper Ridge® Chardonnay,6 oz.,,drink,140,0,0,0,0,0,6,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,WINE,Copper Ridge® Chardonnay,9 oz.,,drink,220,0,0,0,0,0,9,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,WINE,Cupcake Vineyards® Chardonnay,5 oz.,,drink,130,0,0,0,0,10,3,0,1,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,WINE,Cupcake Vineyards® Chardonnay,6 oz.,,drink,160,0,0,0,0,10,4,0,1,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,WINE,Cupcake Vineyards® Chardonnay,9 oz.,,drink,230,0,0,0,0,20,5,0,2,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,Wines,Dark Horse® Cabernet Sauvignon,5 oz.,,drink,140,0,0,0,0,0,4,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,Wines,Dark Horse® Cabernet Sauvignon,6 oz.,,drink,160,0,0,0,0,0,5,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,Wines,Dark Horse® Cabernet Sauvignon,9 oz.,,drink,240,0,0,0,0,0,8,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,Wines,Ecco Domani® Pinot Grigio,5 oz.,,drink,110,0,0,0,0,0,3,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,Wines,Ecco Domani® Pinot Grigio,6 oz.,,drink,130,0,0,0,0,0,3,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,Wines,Ecco Domani® Pinot Grigio,9 oz.,,drink,200,0,0,0,0,0,5,0,1,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,Wines,Hogue® Pinot Grigio,6 oz.,,drink,120,0,0,0,0,0,6,0,5,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,Wines,Hogue® Pinot Grigio,9 oz.,,drink,180,0,0,0,0,0,8,0,8,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,Wines,Josh Cellars® Cabernet Sauvignon,5 oz.,,drink,120,0,0,0,0,0,3,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,Wines,Josh Cellars® Cabernet Sauvignon,6 oz.,,drink,140,0,0,0,0,0,4,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,Wines,Josh Cellars® Cabernet Sauvignon,9 oz.,,drink,210,0,0,0,0,0,6,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,Wines,Kendall-Jackson® Merlot,6 oz.,,drink,160,0,0,0,0,0,5,0,5,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,Wines,Kendall-Jackson® Merlot,9 oz.,,drink,230,0,0,0,0,0,7,0,7,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,Wines,Kendall-Jackson® V.R. Chardonnay,5 oz.,,drink,120,0,0,0,0,0,4,0,4,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,Wines,Kendall-Jackson® V.R. Chardonnay,6 oz.,,drink,140,0,0,0,0,0,5,0,5,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,Wines,Kendall-Jackson® V.R. Chardonnay,9 oz.,,drink,220,0,0,0,0,0,7,0,7,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,Wines,Kim Crawford Sauvignon Blanc,5 oz.,,drink,120,0,0,0,5,0,3,0,2,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,Wines,Kim Crawford Sauvignon Blanc,6 oz.,,drink,140,0,0,0,10,0,4,0,2,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,Wines,Kim Crawford Sauvignon Blanc,9 oz.,,drink,220,0,0,0,15,0,5,0,3,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,Wines,Leese-Fitch Chardonnay (Select Locations Only),5 oz.,,drink,120,0,0,0,5,0,3,0,1,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,Wines,Leese-Fitch Pinot Noir (Select Locations Only),5 oz.,,drink,120,0,0,0,0,0,3,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,Wines,The Naked Grape® Chardonnay,5 oz.,,drink,130,0,0,0,15,0,4,0,2,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,Wines,The Naked Grape® Chardonnay,6 oz.,,drink,150,0,0,0,20,0,5,0,2,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,Wines,The Naked Grape® Chardonnay,9 oz.,,drink,230,0,0,0,25,0,7,0,3,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,Wines,Pepperwood Grove Pinot Grigio (Select Locations Only),5 oz.,,drink,120,0,0,0,5,0,4,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,Wines,The Crusher Cabernet Sauvignon (Select Locations Only),5 oz.,,drink,120,0,0,0,0,0,4,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,Wines,Trinity Oaks® Pinot Noir,6 oz.,,drink,150,0,0,0,0,0,6,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,Wines,Trinity Oaks® Pinot Noir,9 oz.,,drink,230,0,0,0,0,0,9,0,0,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,Wines,Vina Borgia Rosé (Select Locations Only),5 oz.,,drink,110,0,0,0,0,0,2,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,Wines,Woodbridge Cabernet Sauvignon,5 oz.,,drink,100,0,0,0,0,0,0,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,Wines,Woodbridge Cabernet Sauvignon,6 oz.,,drink,120,0,0,0,0,0,1,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,Wines,Woodbridge Cabernet Sauvignon,9 oz.,,drink,180,0,0,0,0,0,2,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,Wines,Woodbridge Chardonnay,5 oz.,,drink,110,0,0,0,0,0,3,0,2,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,Wines,Woodbridge Chardonnay,6 oz.,,drink,130,0,0,0,0,0,3,0,3,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,Wines,Woodbridge Chardonnay,9 oz.,,drink,190,0,0,0,0,0,5,0,4,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,Wines,Woodbridge Merlot,6 oz.,,drink,130,0,0,0,0,0,3,0,2,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,Wines,Woodbridge Merlot,9 oz.,,drink,190,0,0,0,0,0,5,0,4,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,Wines,Woodbridge White Zinfandel,5 oz.,,drink,100,0,0,0,0,0,18,0,18,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,Wines,Woodbridge White Zinfandel,6 oz.,,drink,120,0,0,0,0,0,22,0,21,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
+Red Robin,Wines,Woodbridge White Zinfandel,9 oz.,,drink,170,0,0,0,0,0,33,0,32,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
 Red Robin,Entrées,Chicken Fajitas (Select Locations Only),1 serving,,main,1180,56,20,1,220,2380,93,13,15,81,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
 Red Robin,Entrées,Clucks & Fries®,1 serving,,main,1340,84,15,0.5,95,2530,102,9,4,27,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
 Red Robin,Entrées,Clucks & Fries®,Buffalo Style,,main,1610,112,27,,115,4870,103,10,4,28,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
@@ -245,95 +245,95 @@ Red Robin,Salad Dressings,Thousand Island,3 oz.,,extra,290,27,4.5,0.5,20,660,10,
 Red Robin,Desserts,Fudge Stuffed Chocolate Chip Cookie,per cookie,,dessert,350,14,9,0.5,45,360,51,1,28,3,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
 Red Robin,Desserts,Gooey Chocolate Brownie Cake,1 serving,,dessert,880,33,78,0.5,80,310,139,2,99,12,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
 Red Robin,Desserts,Mountain High Mudd Pie,1 serving,,dessert,1340,59,40,1,120,570,188,7,129,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,two-drafts
-Red Robin,BEER,Alaskan Amber,12 oz.,,main,180,0,0,0,0,0,16,0,0,3,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Alaskan Amber,16 oz.,,main,230,0,0,0,0,0,21,0,0,4,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Angry Orchard® Hard Cider,12 oz. Bottle,,main,200,0,0,0,0,10,25,0,20,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Angry Orchard® Hard Cider,16 oz.,,main,260,0,0,0,0,15,33,0,27,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Angry Orchard® Hard Cider,22 oz.,,main,360,0,0,0,0,20,45,0,37,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Angry Orchard® Rose Cider,12 oz.,,main,170,0,0,0,0,15,17,1,13,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Angry Orchard® Rose Cider,16 oz.,,main,230,0,0,0,0,20,23,1,17,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Angry Orchard® Rose Cider,22 oz.,,main,310,0,0,0,0,25,31,2,24,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Blue Moon® Belgian White,12 oz.,,main,170,0,0,0,0,15,14,0,11,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Blue Moon® Belgian White,16 oz.,,main,220,0,0,0,0,20,19,0,14,3,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Blue Moon® Belgian White,22 oz.,,main,310,0,0,0,0,30,26,0,20,3,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Bud Light®,12 oz.,,main,100,0,0,0,0,10,5,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Bud Light®,16 oz.,,main,140,0,0,0,0,15,6,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Bud Light®,22 oz.,,main,190,0,0,0,0,20,8,0,0,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Budweiser®,12 oz. Bottle,,main,150,0,0,0,0,10,11,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Budweiser®,16 oz.,,main,200,0,0,0,0,15,14,0,0,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Budweiser®,22 oz.,,main,270,0,0,0,0,20,19,0,0,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Coors Light®,12 oz.,,main,100,0,0,0,0,10,5,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Coors Light®,16 oz.,,main,140,0,0,0,0,15,7,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Coors Light®,22 oz.,,main,190,0,0,0,0,20,9,0,0,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Alaskan Amber,12 oz.,,drink,180,0,0,0,0,0,16,0,0,3,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Alaskan Amber,16 oz.,,drink,230,0,0,0,0,0,21,0,0,4,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Angry Orchard® Hard Cider,12 oz. Bottle,,drink,200,0,0,0,0,10,25,0,20,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Angry Orchard® Hard Cider,16 oz.,,drink,260,0,0,0,0,15,33,0,27,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Angry Orchard® Hard Cider,22 oz.,,drink,360,0,0,0,0,20,45,0,37,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Angry Orchard® Rose Cider,12 oz.,,drink,170,0,0,0,0,15,17,1,13,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Angry Orchard® Rose Cider,16 oz.,,drink,230,0,0,0,0,20,23,1,17,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Angry Orchard® Rose Cider,22 oz.,,drink,310,0,0,0,0,25,31,2,24,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Blue Moon® Belgian White,12 oz.,,drink,170,0,0,0,0,15,14,0,11,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Blue Moon® Belgian White,16 oz.,,drink,220,0,0,0,0,20,19,0,14,3,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Blue Moon® Belgian White,22 oz.,,drink,310,0,0,0,0,30,26,0,20,3,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Bud Light®,12 oz.,,drink,100,0,0,0,0,10,5,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Bud Light®,16 oz.,,drink,140,0,0,0,0,15,6,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Bud Light®,22 oz.,,drink,190,0,0,0,0,20,8,0,0,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Budweiser®,12 oz. Bottle,,drink,150,0,0,0,0,10,11,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Budweiser®,16 oz.,,drink,200,0,0,0,0,15,14,0,0,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Budweiser®,22 oz.,,drink,270,0,0,0,0,20,19,0,0,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Coors Light®,12 oz.,,drink,100,0,0,0,0,10,5,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Coors Light®,16 oz.,,drink,140,0,0,0,0,15,7,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Coors Light®,22 oz.,,drink,190,0,0,0,0,20,9,0,0,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
 Red Robin,BEER,Corona Extra®,12 oz.,,extra,150,0,0,0,0,0,14,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
 Red Robin,BEER,Corona Extra®,16 oz.,,extra,200,0,0,0,0,0,19,0,0,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Deschutes™ Mirror Pond Pale Ale®,12 oz.,,main,170,0,0,0,0,20,16,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Deschutes™ Mirror Pond Pale Ale®,16 oz.,,main,230,0,0,0,0,25,21,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Guinness®,12 oz. Bottle,,main,130,0,0,0,0,10,0,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Guinness®,14.9 oz. Can,,main,160,0,0,0,0,10,0,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Guinness®,16 oz.,,main,170,0,0,0,0,15,0,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Guinness®,22 oz.,,main,230,0,0,0,0,15,0,0,0,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Heineken®,12 oz.,,main,140,0,0,0,0,10,11,0,2,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Heineken®,16 oz.,,main,190,0,0,0,0,10,15,0,3,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Heineken®,22 oz.,,main,260,0,0,0,0,15,21,0,4,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Laquinitas IPA®,12 oz.,,main,180,0,0,0,0,15,14,0,0,3,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Laquinitas IPA®,16 oz.,,main,240,0,0,0,0,20,18,0,0,3,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Laquinitas IPA®,22 oz.,,main,330,0,0,0,0,25,25,0,0,5,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Michelob Ultra®,12 oz.,,main,100,0,0,0,0,15,3,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Michelob Ultra®,16 oz.,,main,130,0,0,0,0,20,4,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Michelob Ultra®,22 oz.,,main,170,0,0,0,0,30,6,0,0,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Miller® Genuine Draft,12 oz.,,main,140,0,0,0,0,5,13,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Miller® Genuine Draft,16 oz.,,main,190,0,0,0,0,10,17,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Miller Lite®,12 oz.,,main,100,0,0,0,0,5,3,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Miller Lite®,16 oz.,,main,130,0,0,0,0,5,4,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Miller Lite®,22 oz.,,main,180,0,0,0,0,10,6,0,0,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Modelo Especial,12 oz.,,main,140,0,0,0,0,20,14,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Modelo Especial,16 oz.,,main,190,0,0,0,0,25,18,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,New Belgium® Fat Tire®,12 oz.,,main,140,0,0,0,0,0,9,2,0,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,New Belgium® Fat Tire®,16 oz.,,main,190,0,0,0,0,5,12,3,0,3,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,New Belgium® Fat Tire®,22 oz.,,main,260,0,0,0,0,10,17,4,0,4,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,O'Doul's®,12 oz.,,main,70,0,0,0,0,10,13,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,O'Doul's®,16 oz.,,main,90,0,0,0,0,10,18,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Pyramid Breweries®,12 oz. Bottle,,main,170,0,0,0,0,0,13,0,0,3,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Pyramid Breweries®,16 oz.,,main,230,0,0,0,0,0,18,0,0,4,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Pyramid Breweries®,22 oz.,,main,310,0,0,0,0,0,25,0,0,5,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Samuel Adams Boston Lager®,12 oz.,,main,170,0,0,0,0,25,19,0,2,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Samuel Adams Boston Lager®,16 oz.,,main,230,0,0,0,0,30,25,1,3,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Samuel Adams Boston Lager®,22 oz.,,main,320,0,0,0,0,40,34,1,4,3,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Samuel Adams Cold Snap,12 oz.,,main,170,0,0,0,0,20,14,1,0,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Samuel Adams Cold Snap,16 oz.,,main,230,0,0,0,0,25,19,1,0,3,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Samuel Adams Cold Snap,22 oz.,,main,310,0,0,0,0,35,26,2,0,4,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Samuel Adams Fresh as Helles™,12 oz.,,main,180,0,0,0,0,25,17,0,0,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Samuel Adams Fresh as Helles™,16 oz.,,main,240,0,0,0,0,30,22,1,1,3,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Samuel Adams Fresh as Helles™,22 oz.,,main,330,0,0,0,0,40,30,1,1,4,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Sam Adams® Hopscape™,12 oz.,,main,170,0,0,0,0,20,13,2,0,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Sam Adams® Hopscape™,16 oz.,,main,220,0,0,0,0,25,17,2,0,3,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Sam Adams® Hopscape™,22 oz.,,main,300,0,0,0,0,35,23,3,0,4,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Sam Adams® OctoberFest,12 oz.,,main,180,0,0,0,0,20,19,0,0,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Sam Adams® OctoberFest,16 oz.,,main,240,0,0,0,0,25,25,1,1,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Sam Adams® OctoberFest,22 oz.,,main,330,0,0,0,0,35,34,1,1,3,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Sam Adams® Summer Ale,12 oz.,,main,170,0,0,0,0,15,14,2,0,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Sam Adams® Summer Ale,16 oz.,,main,220,0,0,0,0,20,18,2,0,3,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Sam Adams® Summer Ale,22 oz.,,main,300,0,0,0,0,30,25,3,0,4,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Sam Adams The Wicked Easy,12 oz.,,main,130,0,0,0,0,20,2,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Sam Adams The Wicked Easy,16 oz.,,main,170,0,0,0,0,25,3,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Sam Adams The Wicked Easy,22 oz.,,main,240,0,0,0,0,35,4,0,0,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Sam Adams® Winter Lager,12 oz.,,main,180,0,0,0,0,20,15,2,0,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Sam Adams® Winter Lager,16 oz.,,main,240,0,0,0,0,25,20,2,0,3,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Sam Adams® Winter Lager,22 oz.,,main,330,0,0,0,0,35,28,3,0,4,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Shiner Bock,12 oz.,,main,140,0,0,0,0,0,13,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Shiner Bock,16 oz.,,main,190,0,0,0,0,0,17,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Stella Artois®,12 oz.,,main,150,0,0,0,0,45,12,0,2,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Stella Artois®,16 oz.,,main,190,0,0,0,0,60,16,0,3,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Stella Artois®,22 oz.,,main,270,0,0,0,0,85,22,0,4,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Troeg Perpetual IPA,16 oz.,,main,300,0,0,0,0,0,20,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Troeg Perpetual IPA,22 oz.,,main,410,0,0,0,0,0,28,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Truly® Wild Berry Hard Seltzer™,12 oz. Can,,main,100,0,0,0,0,0,2,0,1,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Voodoo Ranger® Juicy Haze® IPA,12 oz.,,main,220,0,0,0,0,0,16,1,1,3,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Voodoo Ranger® Juicy Haze® IPA,16 oz.,,main,290,0,0,0,0,5,21,1,1,4,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Voodoo Ranger® Juicy Haze® IPA,22 oz.,,main,400,0,0,0,0,10,29,2,2,6,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Yuengling® Traditional Lager,12 oz.,,main,140,0,0,0,0,20,10,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
-Red Robin,BEER,Yuengling® Traditional Lager,16 oz.,,main,190,0,0,0,0,25,13,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Deschutes™ Mirror Pond Pale Ale®,12 oz.,,drink,170,0,0,0,0,20,16,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Deschutes™ Mirror Pond Pale Ale®,16 oz.,,drink,230,0,0,0,0,25,21,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Guinness®,12 oz. Bottle,,drink,130,0,0,0,0,10,0,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Guinness®,14.9 oz. Can,,drink,160,0,0,0,0,10,0,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Guinness®,16 oz.,,drink,170,0,0,0,0,15,0,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Guinness®,22 oz.,,drink,230,0,0,0,0,15,0,0,0,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Heineken®,12 oz.,,drink,140,0,0,0,0,10,11,0,2,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Heineken®,16 oz.,,drink,190,0,0,0,0,10,15,0,3,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Heineken®,22 oz.,,drink,260,0,0,0,0,15,21,0,4,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Laquinitas IPA®,12 oz.,,drink,180,0,0,0,0,15,14,0,0,3,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Laquinitas IPA®,16 oz.,,drink,240,0,0,0,0,20,18,0,0,3,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Laquinitas IPA®,22 oz.,,drink,330,0,0,0,0,25,25,0,0,5,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Michelob Ultra®,12 oz.,,drink,100,0,0,0,0,15,3,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Michelob Ultra®,16 oz.,,drink,130,0,0,0,0,20,4,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Michelob Ultra®,22 oz.,,drink,170,0,0,0,0,30,6,0,0,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Miller® Genuine Draft,12 oz.,,drink,140,0,0,0,0,5,13,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Miller® Genuine Draft,16 oz.,,drink,190,0,0,0,0,10,17,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Miller Lite®,12 oz.,,drink,100,0,0,0,0,5,3,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Miller Lite®,16 oz.,,drink,130,0,0,0,0,5,4,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Miller Lite®,22 oz.,,drink,180,0,0,0,0,10,6,0,0,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Modelo Especial,12 oz.,,drink,140,0,0,0,0,20,14,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Modelo Especial,16 oz.,,drink,190,0,0,0,0,25,18,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,New Belgium® Fat Tire®,12 oz.,,drink,140,0,0,0,0,0,9,2,0,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,New Belgium® Fat Tire®,16 oz.,,drink,190,0,0,0,0,5,12,3,0,3,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,New Belgium® Fat Tire®,22 oz.,,drink,260,0,0,0,0,10,17,4,0,4,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,O'Doul's®,12 oz.,,drink,70,0,0,0,0,10,13,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,O'Doul's®,16 oz.,,drink,90,0,0,0,0,10,18,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Pyramid Breweries®,12 oz. Bottle,,drink,170,0,0,0,0,0,13,0,0,3,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Pyramid Breweries®,16 oz.,,drink,230,0,0,0,0,0,18,0,0,4,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Pyramid Breweries®,22 oz.,,drink,310,0,0,0,0,0,25,0,0,5,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Samuel Adams Boston Lager®,12 oz.,,drink,170,0,0,0,0,25,19,0,2,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Samuel Adams Boston Lager®,16 oz.,,drink,230,0,0,0,0,30,25,1,3,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Samuel Adams Boston Lager®,22 oz.,,drink,320,0,0,0,0,40,34,1,4,3,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Samuel Adams Cold Snap,12 oz.,,drink,170,0,0,0,0,20,14,1,0,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Samuel Adams Cold Snap,16 oz.,,drink,230,0,0,0,0,25,19,1,0,3,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Samuel Adams Cold Snap,22 oz.,,drink,310,0,0,0,0,35,26,2,0,4,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Samuel Adams Fresh as Helles™,12 oz.,,drink,180,0,0,0,0,25,17,0,0,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Samuel Adams Fresh as Helles™,16 oz.,,drink,240,0,0,0,0,30,22,1,1,3,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Samuel Adams Fresh as Helles™,22 oz.,,drink,330,0,0,0,0,40,30,1,1,4,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Sam Adams® Hopscape™,12 oz.,,drink,170,0,0,0,0,20,13,2,0,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Sam Adams® Hopscape™,16 oz.,,drink,220,0,0,0,0,25,17,2,0,3,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Sam Adams® Hopscape™,22 oz.,,drink,300,0,0,0,0,35,23,3,0,4,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Sam Adams® OctoberFest,12 oz.,,drink,180,0,0,0,0,20,19,0,0,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Sam Adams® OctoberFest,16 oz.,,drink,240,0,0,0,0,25,25,1,1,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Sam Adams® OctoberFest,22 oz.,,drink,330,0,0,0,0,35,34,1,1,3,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Sam Adams® Summer Ale,12 oz.,,drink,170,0,0,0,0,15,14,2,0,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Sam Adams® Summer Ale,16 oz.,,drink,220,0,0,0,0,20,18,2,0,3,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Sam Adams® Summer Ale,22 oz.,,drink,300,0,0,0,0,30,25,3,0,4,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Sam Adams The Wicked Easy,12 oz.,,drink,130,0,0,0,0,20,2,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Sam Adams The Wicked Easy,16 oz.,,drink,170,0,0,0,0,25,3,0,0,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Sam Adams The Wicked Easy,22 oz.,,drink,240,0,0,0,0,35,4,0,0,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Sam Adams® Winter Lager,12 oz.,,drink,180,0,0,0,0,20,15,2,0,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Sam Adams® Winter Lager,16 oz.,,drink,240,0,0,0,0,25,20,2,0,3,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Sam Adams® Winter Lager,22 oz.,,drink,330,0,0,0,0,35,28,3,0,4,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Shiner Bock,12 oz.,,drink,140,0,0,0,0,0,13,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Shiner Bock,16 oz.,,drink,190,0,0,0,0,0,17,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Stella Artois®,12 oz.,,drink,150,0,0,0,0,45,12,0,2,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Stella Artois®,16 oz.,,drink,190,0,0,0,0,60,16,0,3,1,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Stella Artois®,22 oz.,,drink,270,0,0,0,0,85,22,0,4,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Troeg Perpetual IPA,16 oz.,,drink,300,0,0,0,0,0,20,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Troeg Perpetual IPA,22 oz.,,drink,410,0,0,0,0,0,28,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Truly® Wild Berry Hard Seltzer™,12 oz. Can,,drink,100,0,0,0,0,0,2,0,1,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Voodoo Ranger® Juicy Haze® IPA,12 oz.,,drink,220,0,0,0,0,0,16,1,1,3,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Voodoo Ranger® Juicy Haze® IPA,16 oz.,,drink,290,0,0,0,0,5,21,1,1,4,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Voodoo Ranger® Juicy Haze® IPA,22 oz.,,drink,400,0,0,0,0,10,29,2,2,6,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Yuengling® Traditional Lager,12 oz.,,drink,140,0,0,0,0,20,10,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
+Red Robin,BEER,Yuengling® Traditional Lager,16 oz.,,drink,190,0,0,0,0,25,13,0,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
 Red Robin,SUBSTITUTIONS & SIDES,Add Avocado,1 serving,,side,60,6,1,0,0,0,3,3,0,0,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
 Red Robin,SUBSTITUTIONS & SIDES,Side Smashed Avocado,1 serving,,side,140,13,2,0,0,220,8,6,0,2,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending
 Red Robin,SUBSTITUTIONS & SIDES,Add Bacon,1 serving,,side,80,5,2,0,20,250,1,0,0,6,https://www.redrobin.com/sites/default/files/2023-12/0124_NS_US-ALL.pdf,2026-10-23,pending

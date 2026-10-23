@@ -3,46 +3,49 @@
 Guide: https://www.freddys.com/nutrition-and-allergens (read 2026-10-23). Draft A: openai/gpt-5.6-luna. Draft B: anthropic/claude-haiku-5.5.
 Numbers in order: calories / fat_g / saturated_fat_g / trans_fat_g / cholesterol_mg / sodium_mg / carbs_g / fiber_g / sugars_g / protein_g.
 
-## Disagreements (34)
+## Disagreements (35)
+
+The last column comes from `npm run chains:evidence`: whether a draft's numbers sit right after the item's name in the guide text the drafts read. It can't read sizes or sections (one draft called a single 78 g cookie a "6 pack"): check those against the guide, then fix the line and set its check to `person`.
 
 Fix each line in `menus/freddys.csv` from the guide and set its check to `person` (or delete the line if it isn't on the menu).
 
-| Item | Size | Why | Draft A | Draft B |
-| --- | --- | --- | --- | --- |
-| Make any Sandwich a Lettuce Wrap | 1 serving | both read numbers that can't be right: sugars -3 g above carbs -25 g | -180 / -6 / -1 / 0 / 0 / -270 / -25 / 1 / -3 / -3 | -180 / -6 / -1 / 0 / 0 / -270 / -25 / 1 / -3 / -3 |
-| Tropicana®️ Pink Lemonade | Small | only in draft A | 160 / 0 / 0 / 0 / 0 / 155 / 40 / 0 / 40 / 0 | not found |
-| Tropicana®️ Pink Lemonade | Medium | only in draft A | 260 / 0 / 0 / 0 / 0 / 260 / 67 / 0 / 67 / 0 | not found |
-| Tropicana®️ Pink Lemonade | Large | only in draft A | 410 / 0 / 0 / 0 / 0 / 410 / 107 / 0 / 107 / 0 | not found |
-| Tropicana®️ Lemonade | Small | only in draft A | 160 / 0 / 0 / 0 / 0 / 155 / 40 / 0 / 40 / 0 | not found |
-| Tropicana®️ Lemonade | Medium | only in draft A | 260 / 0 / 0 / 0 / 0 / 260 / 67 / 0 / 67 / 0 | not found |
-| Tropicana®️ Lemonade | Large | only in draft A | 410 / 0 / 0 / 0 / 0 / 410 / 107 / 0 / 107 / 0 | not found |
-| Luzianne®️ Iced Tea Unsweet | Small | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found |
-| Luzianne®️ Iced Tea Unsweet | Medium | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found |
-| Luzianne®️ Iced Tea Unsweet | Large | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found |
-| Freddy's Bevies - Mango Sunrise Tea | Regular | the guide gives no saturated_fat_g | 100 / 0 / – / 0 / 0 / 10 / 26 / 0 / 24 / 0 | 100 / 0 / – / 0 / 0 / 10 / 26 / 0 / 24 / 0 |
-| Freddy's Bevies - Mango Sunrise Tea | Large | the guide gives no saturated_fat_g | 180 / 0 / – / 0 / 0 / 15 / 45 / 0 / 42 / 0 | 180 / 0 / – / 0 / 0 / 15 / 45 / 0 / 42 / 0 |
-| Freddy's Bevies -Peachy Keen Lemonade | Regular | differ: saturated_fat_g, trans_fat_g | 200 / 0 / 0 / 0 / 0 / 125 / 51 / 0 / 51 / 0 | 200 / 0 / – / – / 0 / 125 / 51 / 0 / 51 / 0 |
-| Freddy's Bevies - Peachy Keen Lemonade | Large | only in draft A | 330 / 0 / 0 / 0 / 0 / 190 / 85 / 0 / 85 / 0 | not found |
-| Freddy's Bevies - Peachy Keen Tea | Regular | only in draft A | 100 / 0 / – / 0 / 0 / 10 / 25 / 0 / 24 / 0 | not found |
-| Freddy's Bevies - Peachy Keen Tea | Large | only in draft A | 180 / 0 / – / 0 / 0 / 15 / 43 / 0 / 42 / 0 | not found |
-| Freddy's Bevies - Strawberry Sunset Lemonade | Regular | differ: saturated_fat_g, trans_fat_g | 190 / 0 / 0 / 0 / 0 / 125 / 50 / 0 / 49 / 0 | 190 / 0 / – / – / 0 / 125 / 50 / 0 / 49 / 0 |
-| Freddy's Bevies - Strawberry Sunset Lemonade | Large | differ: saturated_fat_g, trans_fat_g | 320 / 0 / 0 / 0 / 0 / 190 / 83 / 0 / 82 / 0 | 320 / 0 / – / – / 0 / 190 / 83 / 0 / 82 / 0 |
-| Freddy's Bevies - Strawberry Sunset Tea | Regular | differ: trans_fat_g | 90 / 0 / – / 0 / 0 / 10 / 24 / 0 / 22 / 0 | 90 / 0 / – / – / 0 / 10 / 24 / 0 / 22 / 0 |
-| Freddy's Bevies - Strawberry Sunset Tea | Large | differ: trans_fat_g | 160 / 0 / – / 0 / 0 / 15 / 42 / 0 / 38 / 0 | 160 / 0 / – / – / 0 / 15 / 42 / 0 / 38 / 0 |
-| CYO Malt - Chocolate | Regular | only in draft A | – / – / – / – / – / – / – / – / – / – | not found |
-| Luzianne®️ Iced Tea | Small | the guide gives no sugars_g, protein_g | 110 / 0 / 0 / 0 / 0 / 5 / 27 / 0 / – / – | 110 / 0 / 0 / 0 / 0 / 5 / 27 / 0 / – / – |
-| Tropicana® Pink Lemonade | Small | only in draft B | not found | 160 / 0 / 0 / 0 / 0 / 155 / 40 / 0 / 40 / 0 |
-| Tropicana® Pink Lemonade | Medium | only in draft B | not found | 260 / 0 / 0 / 0 / 0 / 260 / 67 / 0 / 67 / 0 |
-| Tropicana® Pink Lemonade | Large | only in draft B | not found | 410 / 0 / 0 / 0 / 0 / 410 / 107 / 0 / 107 / 0 |
-| Tropicana® Lemonade | Small | only in draft B | not found | 160 / 0 / 0 / 0 / 0 / 155 / 40 / 0 / 40 / 0 |
-| Tropicana® Lemonade | Medium | only in draft B | not found | 260 / 0 / 0 / 0 / 0 / 260 / 67 / 0 / 67 / 0 |
-| Tropicana® Lemonade | Large | only in draft B | not found | 410 / 0 / 0 / 0 / 0 / 410 / 107 / 0 / 107 / 0 |
-| Luzianne® Iced Tea Unsweet | Small | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Luzianne® Iced Tea Unsweet | Medium | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Luzianne® Iced Tea Unsweet | Large | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Freddy's Bevies -Peachy Keen Lemonade | Large | only in draft B | not found | 330 / 0 / – / – / 0 / 190 / 85 / 0 / 85 / 0 |
-| Freddy's Bevies -Peachy Keen Tea | Regular | only in draft B | not found | 100 / 0 / – / – / 0 / 10 / 25 / 0 / 24 / 0 |
-| Freddy's Bevies -Peachy Keen Tea | Large | only in draft B | not found | 180 / 0 / – / – / 0 / 15 / 43 / 0 / 42 / 0 |
+| Item | Size | Why | Draft A | Draft B | In the guide text (no AI) |
+| --- | --- | --- | --- | --- | --- |
+| Make any Sandwich a Lettuce Wrap | 1 serving | both read numbers that can't be right: sugars -3 g above carbs -25 g | -180 / -6 / -1 / 0 / 0 / -270 / -25 / 1 / -3 / -3 | -180 / -6 / -1 / 0 / 0 / -270 / -25 / 1 / -3 / -3 | A: not as drafted (line 377 lacks -180, -6, -1, -270, -25, -3, -3); B: not as drafted (line 377 lacks -180, -6, -1, -270, -25, -3, -3) |
+| Tropicana®️ Pink Lemonade | Small | only in draft A | 160 / 0 / 0 / 0 / 0 / 155 / 40 / 0 / 40 / 0 | not found | A: numbers found after the name (line 7169); check the size |
+| Tropicana®️ Pink Lemonade | Medium | only in draft A | 260 / 0 / 0 / 0 / 0 / 260 / 67 / 0 / 67 / 0 | not found | A: numbers found after the name (line 7169); check the size |
+| Tropicana®️ Pink Lemonade | Large | only in draft A | 410 / 0 / 0 / 0 / 0 / 410 / 107 / 0 / 107 / 0 | not found | A: numbers found after the name (line 7169); check the size |
+| Tropicana®️ Lemonade | Small | only in draft A | 160 / 0 / 0 / 0 / 0 / 155 / 40 / 0 / 40 / 0 | not found | A: numbers found after the name (line 7307); check the size |
+| Tropicana®️ Lemonade | Medium | only in draft A | 260 / 0 / 0 / 0 / 0 / 260 / 67 / 0 / 67 / 0 | not found | A: numbers found after the name (line 7307); check the size |
+| Tropicana®️ Lemonade | Large | only in draft A | 410 / 0 / 0 / 0 / 0 / 410 / 107 / 0 / 107 / 0 | not found | A: numbers found after the name (line 7307); check the size |
+| Luzianne®️ Iced Tea Unsweet | Small | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found | A: numbers found after the name (line 7859); check the size, mostly zeros: look |
+| Luzianne®️ Iced Tea Unsweet | Medium | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found | A: numbers found after the name (line 7859); check the size, mostly zeros: look |
+| Luzianne®️ Iced Tea Unsweet | Large | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found | A: numbers found after the name (line 7859); check the size, mostly zeros: look |
+| Freddy's Bevies - Mango Sunrise Tea | Regular | the guide gives no saturated_fat_g | 100 / 0 / – / 0 / 0 / 10 / 26 / 0 / 24 / 0 | 100 / 0 / – / 0 / 0 / 10 / 26 / 0 / 24 / 0 | A: numbers found after the name (line 9147); check the size; B: numbers found after the name (line 9147); check the size |
+| Freddy's Bevies - Mango Sunrise Tea | Large | the guide gives no saturated_fat_g | 180 / 0 / – / 0 / 0 / 15 / 45 / 0 / 42 / 0 | 180 / 0 / – / 0 / 0 / 15 / 45 / 0 / 42 / 0 | A: numbers found after the name (line 9147); check the size; B: numbers found after the name (line 9147); check the size |
+| Freddy's Bevies -Peachy Keen Lemonade | Regular | differ: saturated_fat_g, trans_fat_g | 200 / 0 / 0 / 0 / 0 / 125 / 51 / 0 / 51 / 0 | 200 / 0 / – / – / 0 / 125 / 51 / 0 / 51 / 0 | A: numbers found after the name (line 9231); check the size; B: numbers found after the name (line 9231); check the size |
+| Freddy's Bevies - Peachy Keen Lemonade | Large | only in draft A | 330 / 0 / 0 / 0 / 0 / 190 / 85 / 0 / 85 / 0 | not found | A: numbers found after the name (line 9273); check the size |
+| Freddy's Bevies - Peachy Keen Tea | Regular | only in draft A | 100 / 0 / – / 0 / 0 / 10 / 25 / 0 / 24 / 0 | not found | A: numbers found after the name (line 9315); check the size |
+| Freddy's Bevies - Peachy Keen Tea | Large | only in draft A | 180 / 0 / – / 0 / 0 / 15 / 43 / 0 / 42 / 0 | not found | A: numbers found after the name (line 9315); check the size |
+| Freddy's Bevies - Strawberry Sunset Lemonade | Regular | differ: saturated_fat_g, trans_fat_g | 190 / 0 / 0 / 0 / 0 / 125 / 50 / 0 / 49 / 0 | 190 / 0 / – / – / 0 / 125 / 50 / 0 / 49 / 0 | A: numbers found after the name (line 9491); check the size; B: numbers found after the name (line 9491); check the size |
+| Freddy's Bevies - Strawberry Sunset Lemonade | Large | differ: saturated_fat_g, trans_fat_g | 320 / 0 / 0 / 0 / 0 / 190 / 83 / 0 / 82 / 0 | 320 / 0 / – / – / 0 / 190 / 83 / 0 / 82 / 0 | A: numbers found after the name (line 9491); check the size; B: numbers found after the name (line 9491); check the size |
+| Freddy's Bevies - Strawberry Sunset Tea | Regular | differ: trans_fat_g | 90 / 0 / – / 0 / 0 / 10 / 24 / 0 / 22 / 0 | 90 / 0 / – / – / 0 / 10 / 24 / 0 / 22 / 0 | A: numbers found after the name (line 9575); check the size; B: numbers found after the name (line 9575); check the size |
+| Freddy's Bevies - Strawberry Sunset Tea | Large | differ: trans_fat_g | 160 / 0 / – / 0 / 0 / 15 / 42 / 0 / 38 / 0 | 160 / 0 / – / – / 0 / 15 / 42 / 0 / 38 / 0 | A: numbers found after the name (line 9575); check the size; B: numbers found after the name (line 9575); check the size |
+| CYO Malt - Chocolate | Regular | only in draft A | – / – / – / – / – / – / – / – / – / – | not found | no numbers to look for |
+| Luzianne®️ Iced Tea | Small | the guide gives no sugars_g, protein_g | 110 / 0 / 0 / 0 / 0 / 5 / 27 / 0 / – / – | 110 / 0 / 0 / 0 / 0 / 5 / 27 / 0 / – / – | A: numbers found after the name (line 7905); check the size; B: numbers found after the name (line 7905); check the size |
+| Tropicana® Pink Lemonade | Small | only in draft B | not found | 160 / 0 / 0 / 0 / 0 / 155 / 40 / 0 / 40 / 0 | B: name not in the guide text |
+| Tropicana® Pink Lemonade | Medium | only in draft B | not found | 260 / 0 / 0 / 0 / 0 / 260 / 67 / 0 / 67 / 0 | B: name not in the guide text |
+| Tropicana® Pink Lemonade | Large | only in draft B | not found | 410 / 0 / 0 / 0 / 0 / 410 / 107 / 0 / 107 / 0 | B: name not in the guide text |
+| Tropicana® Lemonade | Small | only in draft B | not found | 160 / 0 / 0 / 0 / 0 / 155 / 40 / 0 / 40 / 0 | B: name not in the guide text |
+| Tropicana® Lemonade | Medium | only in draft B | not found | 260 / 0 / 0 / 0 / 0 / 260 / 67 / 0 / 67 / 0 | B: name not in the guide text |
+| Tropicana® Lemonade | Large | only in draft B | not found | 410 / 0 / 0 / 0 / 0 / 410 / 107 / 0 / 107 / 0 | B: name not in the guide text |
+| Luzianne® Iced Tea Unsweet | Small | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: name not in the guide text |
+| Luzianne® Iced Tea Unsweet | Medium | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: name not in the guide text |
+| Luzianne® Iced Tea Unsweet | Large | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: name not in the guide text |
+| Freddy's Bevies -Peachy Keen Lemonade | Large | only in draft B | not found | 330 / 0 / – / – / 0 / 190 / 85 / 0 / 85 / 0 | B: numbers found after the name (line 9231); check the size |
+| Freddy's Bevies -Peachy Keen Tea | Regular | only in draft B | not found | 100 / 0 / – / – / 0 / 10 / 25 / 0 / 24 / 0 | B: name not in the guide text |
+| Freddy's Bevies -Peachy Keen Tea | Large | only in draft B | not found | 180 / 0 / – / – / 0 / 15 / 43 / 0 / 42 / 0 | B: name not in the guide text |
+| Chocolate Chips | 1 serving | both read it the same, but its protein, carbs and fat make 156 kcal, not 130 | 130 / 8 / 4.5 / 0 / 0 / 0 / 19 / 2 / 15 / 2 | 130 / 8 / 4.5 / 0 / 0 / 0 / 19 / 2 / 15 / 2 | A: numbers found after the name (line 949); check the size; B: numbers found after the name (line 949); check the size |
 
 ## Spot check (15 agreed lines)
 

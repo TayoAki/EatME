@@ -1,43 +1,43 @@
 chain,section,name,serving,serving_g,kind,calories,fat_g,saturated_fat_g,trans_fat_g,cholesterol_mg,sodium_mg,carbs_g,fiber_g,sugars_g,protein_g,source_url,checked_on,check
-LongHorn Steakhouse,MARGARITAS,Texas Margarita,1 serving,,main,200,0,0,0,,990,28,,,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
-LongHorn Steakhouse,MARGARITAS,Watermelon Margarita,1 serving,,main,460,0,0,0,0,15,89,0,87,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
-LongHorn Steakhouse,MARGARITAS,Watermelon Margarita Long Pour,1 serving,,main,680,0,0,0,0,20,131,0,129,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
-LongHorn Steakhouse,MARGARITAS,The Perfect,1 serving,,main,290,,,,,10,46,,45,,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
-LongHorn Steakhouse,MARGARITAS,The Perfect Long Pour,1 serving,,main,410,0,0,0,0,15,64,0,64,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
-LongHorn Steakhouse,MARGARITAS,Strawberry,1 serving,,main,310,0,0,0,0,10,52,0,51,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
-LongHorn Steakhouse,MARGARITAS,Strawberry Long Pour,1 serving,,main,460,0,0,0,0,10,76,0,75,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
-LongHorn Steakhouse,MARGARITAS,Mango,1 serving,,main,410,0,0,0,0,10,74,0,74,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
-LongHorn Steakhouse,MARGARITAS,Mango Long Pour,1 serving,,main,630,0,0,0,0,20,118,0,117,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
-LongHorn Steakhouse,MARGARITAS,Patron Dragon Fruit Margarita,1 serving,,main,370,0,0,0,0,10,61,1,54,0.5,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
-LongHorn Steakhouse,MARGARITAS,Patron Dragon Fruit Margarita Long Pour,1 serving,,main,370,0,0,0,0,10,61,1,54,0.5,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
-LongHorn Steakhouse,HAND-CRAFTED COCKTAILS,Smoked LongHorn® Old Fashioned (with Small Batch 9 yr. Bourbon by Knob Creek),1 serving,,main,270,0,0,0,0,0,27,0,26,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
-LongHorn Steakhouse,HAND-CRAFTED COCKTAILS,Lemondrop Martini,1 serving,,main,250,0,0,0,,5,36,,30,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
-LongHorn Steakhouse,HAND-CRAFTED COCKTAILS,Hurricane (where available),1 serving,,main,280,0,0,0,0,10,26,0,24,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
-LongHorn Steakhouse,HAND-CRAFTED COCKTAILS,Blazing Berry Sangria,1 serving,,main,240,0,0,0,0,130,34,0,29,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
+LongHorn Steakhouse,MARGARITAS,Texas Margarita,1 serving,,drink,200,0,0,0,,990,28,,,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
+LongHorn Steakhouse,MARGARITAS,Watermelon Margarita,1 serving,,drink,460,0,0,0,0,15,89,0,87,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
+LongHorn Steakhouse,MARGARITAS,Watermelon Margarita Long Pour,1 serving,,drink,680,0,0,0,0,20,131,0,129,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
+LongHorn Steakhouse,MARGARITAS,The Perfect,1 serving,,drink,290,,,,,10,46,,45,,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
+LongHorn Steakhouse,MARGARITAS,The Perfect Long Pour,1 serving,,drink,410,0,0,0,0,15,64,0,64,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
+LongHorn Steakhouse,MARGARITAS,Strawberry,1 serving,,drink,310,0,0,0,0,10,52,0,51,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
+LongHorn Steakhouse,MARGARITAS,Strawberry Long Pour,1 serving,,drink,460,0,0,0,0,10,76,0,75,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
+LongHorn Steakhouse,MARGARITAS,Mango,1 serving,,drink,410,0,0,0,0,10,74,0,74,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
+LongHorn Steakhouse,MARGARITAS,Mango Long Pour,1 serving,,drink,630,0,0,0,0,20,118,0,117,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
+LongHorn Steakhouse,MARGARITAS,Patron Dragon Fruit Margarita,1 serving,,drink,370,0,0,0,0,10,61,1,54,0.5,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
+LongHorn Steakhouse,MARGARITAS,Patron Dragon Fruit Margarita Long Pour,1 serving,,drink,370,0,0,0,0,10,61,1,54,0.5,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
+LongHorn Steakhouse,HAND-CRAFTED COCKTAILS,Smoked LongHorn® Old Fashioned (with Small Batch 9 yr. Bourbon by Knob Creek),1 serving,,drink,270,0,0,0,0,0,27,0,26,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
+LongHorn Steakhouse,HAND-CRAFTED COCKTAILS,Lemondrop Martini,1 serving,,drink,250,0,0,0,,5,36,,30,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
+LongHorn Steakhouse,HAND-CRAFTED COCKTAILS,Hurricane (where available),1 serving,,drink,280,0,0,0,0,10,26,0,24,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
+LongHorn Steakhouse,HAND-CRAFTED COCKTAILS,Blazing Berry Sangria,1 serving,,drink,240,0,0,0,0,130,34,0,29,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
 LongHorn Steakhouse,HAND-CRAFTED COCKTAILS,Texas Tea,1 serving,,drink,240,0,0,0,0,15,35,0,35,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
 LongHorn Steakhouse,HAND-CRAFTED COCKTAILS,Spiked Strawberry Lemonade,1 serving,,drink,200,0,0,0,0,10,27,0,25,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
-LongHorn Steakhouse,HAND-CRAFTED COCKTAILS,Jack & Coke,1 serving,,main,130,0,0,0,0,15,13,0,13,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
-LongHorn Steakhouse,BEER,Regular Bottle Beer,12 oz.,,main,150,0,0,0,0,15,12,0,0,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
-LongHorn Steakhouse,BEER,Light Draft/Bottle Beer,12 oz.,,main,100,0,0,0,0,15,6,0,0,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
-LongHorn Steakhouse,BEER,Michelob Ultra,16 oz.,,main,130,0,0,0,0,15,3,0,0,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
-LongHorn Steakhouse,BEER,Michelob Ultra,20 oz.,,main,160,0,0,0,0,20,4,0,0,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
-LongHorn Steakhouse,BEER,Regular Draft Beer,16 oz.,,main,200,0,0,0,0,20,16,0,0,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
-LongHorn Steakhouse,BEER,Regular Draft Beer,20 oz.,,main,250,0,0,0,0,25,20,0,0,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
-LongHorn Steakhouse,BEER,Light Draft Beer,16 oz.,,main,140,0,0,0,0,20,8,0,0,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
-LongHorn Steakhouse,BEER,Light Draft Beer,20 oz.,,main,170,0,0,0,0,25,10,0.5,1,1,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
-LongHorn Steakhouse,BEER,Cider Draft,16 oz.,,main,270,,,,,,,,,,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
-LongHorn Steakhouse,BEER,Cider Draft,20 oz.,,main,330,,,,,,,,,,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
-LongHorn Steakhouse,BEER,Cider Bottle,1 serving,,main,200,0,0,0,0,15,21,0,21,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
-LongHorn Steakhouse,BEER,IPA Draft,16 oz.,,main,270,,,,,20,1,,,4,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
-LongHorn Steakhouse,BEER,IPA Draft,20 oz.,,main,340,,,,,25,2,,,5,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
-LongHorn Steakhouse,BEER,IPA Bottle (where available),1 serving,,main,210,,,,,15,0.5,,,3,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
-LongHorn Steakhouse,BEER,Non-Alcoholic Beer,1 serving,,main,130,0,0,0,0,45,29,0,29,0.5,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
-LongHorn Steakhouse,WINE,White - Glass,1 serving,,main,150,0,0,0,0,10,4,0,2,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
-LongHorn Steakhouse,WINE,White - LongPour,1 serving,,main,220,0,0,0,0,15,6,0,3,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
-LongHorn Steakhouse,WINE,White - Bottle,1 serving,,main,630,0,0,0,0,35,16,0,7,0.5,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
-LongHorn Steakhouse,WINE,Red - Glass,1 serving,,main,160,0,0,0,0,0,5,0,0,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
-LongHorn Steakhouse,WINE,Red - LongPour,1 serving,,main,230,0,0,0,0,0,8,0,0,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
-LongHorn Steakhouse,WINE,Red - Bottle,1 serving,,main,660,0,0,0,0,0,21,0,0,0.5,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
+LongHorn Steakhouse,HAND-CRAFTED COCKTAILS,Jack & Coke,1 serving,,drink,130,0,0,0,0,15,13,0,13,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
+LongHorn Steakhouse,BEER,Regular Bottle Beer,12 oz.,,drink,150,0,0,0,0,15,12,0,0,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
+LongHorn Steakhouse,BEER,Light Draft/Bottle Beer,12 oz.,,drink,100,0,0,0,0,15,6,0,0,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
+LongHorn Steakhouse,BEER,Michelob Ultra,16 oz.,,drink,130,0,0,0,0,15,3,0,0,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
+LongHorn Steakhouse,BEER,Michelob Ultra,20 oz.,,drink,160,0,0,0,0,20,4,0,0,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
+LongHorn Steakhouse,BEER,Regular Draft Beer,16 oz.,,drink,200,0,0,0,0,20,16,0,0,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
+LongHorn Steakhouse,BEER,Regular Draft Beer,20 oz.,,drink,250,0,0,0,0,25,20,0,0,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
+LongHorn Steakhouse,BEER,Light Draft Beer,16 oz.,,drink,140,0,0,0,0,20,8,0,0,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
+LongHorn Steakhouse,BEER,Light Draft Beer,20 oz.,,drink,170,0,0,0,0,25,10,0.5,1,1,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
+LongHorn Steakhouse,BEER,Cider Draft,16 oz.,,drink,270,,,,,,,,,,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
+LongHorn Steakhouse,BEER,Cider Draft,20 oz.,,drink,330,,,,,,,,,,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
+LongHorn Steakhouse,BEER,Cider Bottle,1 serving,,drink,200,0,0,0,0,15,21,0,21,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
+LongHorn Steakhouse,BEER,IPA Draft,16 oz.,,drink,270,,,,,20,1,,,4,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
+LongHorn Steakhouse,BEER,IPA Draft,20 oz.,,drink,340,,,,,25,2,,,5,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
+LongHorn Steakhouse,BEER,IPA Bottle (where available),1 serving,,drink,210,,,,,15,0.5,,,3,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
+LongHorn Steakhouse,BEER,Non-Alcoholic Beer,1 serving,,drink,130,0,0,0,0,45,29,0,29,0.5,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
+LongHorn Steakhouse,WINE,White - Glass,1 serving,,drink,150,0,0,0,0,10,4,0,2,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
+LongHorn Steakhouse,WINE,White - LongPour,1 serving,,drink,220,0,0,0,0,15,6,0,3,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
+LongHorn Steakhouse,WINE,White - Bottle,1 serving,,drink,630,0,0,0,0,35,16,0,7,0.5,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
+LongHorn Steakhouse,WINE,Red - Glass,1 serving,,drink,160,0,0,0,0,0,5,0,0,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
+LongHorn Steakhouse,WINE,Red - LongPour,1 serving,,drink,230,0,0,0,0,0,8,0,0,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
+LongHorn Steakhouse,WINE,Red - Bottle,1 serving,,drink,660,0,0,0,0,0,21,0,0,0.5,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
 LongHorn Steakhouse,BOTTOMLESS BEVERAGES,Raspberry Iced Tea,1 serving,,drink,50,0,0,0,0,10,13,0,12,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
 LongHorn Steakhouse,BOTTOMLESS BEVERAGES,Peach Iced Tea,1 serving,,drink,50,0,0,0,0,10,14,0,12,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
 LongHorn Steakhouse,BOTTOMLESS BEVERAGES,Half Lemonade & Half Tea (Sweetened),1 serving,,drink,120,0,0,0,0,15,32,0,31,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
@@ -45,7 +45,7 @@ LongHorn Steakhouse,BOTTOMLESS BEVERAGES,Half Lemonade & Half Tea (Unsweetened),
 LongHorn Steakhouse,BOTTOMLESS BEVERAGES,Sweet Tea,1 serving,,dessert,130,0,0,0,0,10,33,0,32,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
 LongHorn Steakhouse,BOTTOMLESS BEVERAGES,Unsweetened Tea,1 serving,,drink,0,0,0,0,0,10,1,0,0,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
 LongHorn Steakhouse,BOTTOMLESS BEVERAGES,Strawberry Lemonade,1 serving,,drink,200,0,0,0,0,15,50,0.5,46,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
-LongHorn Steakhouse,BOTTOMLESS BEVERAGES,Raspberry Lemonade,1 serving,,drink,170,0,0,0,0,0,41,0,39,10,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
+LongHorn Steakhouse,BOTTOMLESS BEVERAGES,Raspberry Lemonade,1 serving,,drink,170,0,0,0,0,0,41,0,39,10,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
 LongHorn Steakhouse,BOTTOMLESS BEVERAGES,Mango Lemonade,1 serving,,drink,240,0,0,0,0,0,60,0,59,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
 LongHorn Steakhouse,BOTTOMLESS BEVERAGES,Watermelon Lemonade,1 serving,,drink,210,0,0,0,0,0,55,0,54,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
 LongHorn Steakhouse,BOTTOMLESS BEVERAGES,Coke,1 serving,,drink,140,0,,,,45,39,,39,,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
@@ -67,7 +67,7 @@ LongHorn Steakhouse,EPIC BEGINNINGS (APPETIZERS),+ Dip,1 serving,,extra,500,52,8
 LongHorn Steakhouse,EPIC BEGINNINGS (APPETIZERS),Parmesan Cheese Fries,1 serving,,main,2340,167,46,2.5,175,3630,143,0,5,65,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
 LongHorn Steakhouse,EPIC BEGINNINGS (APPETIZERS),White Cheddar Stuffed Mushrooms,1 serving,,main,730,60,36,2,155,1570,14,1,4,33,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
 LongHorn Steakhouse,EPIC BEGINNINGS (APPETIZERS),Firecracker Chicken Wraps,1 serving,,main,720,42,15,0,70,2120,62,0,0,28,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
-LongHorn Steakhouse,EPIC BEGINNINGS (APPETIZERS),+ Avocado-Lime Sauce,1 serving,,extra,170,23,3.5,0,15,450,3,0.5,2,1,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
+LongHorn Steakhouse,EPIC BEGINNINGS (APPETIZERS),+ Avocado-Lime Sauce,1 serving,,extra,170,23,3.5,0,15,450,3,0.5,2,1,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
 LongHorn Steakhouse,EPIC BEGINNINGS (APPETIZERS),Wild West Shrimp,1 serving,,main,970,62,17,0.5,290,3740,65,6,2,39,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
 LongHorn Steakhouse,EPIC BEGINNINGS (APPETIZERS),+ Ranch Dressing,1 serving,,extra,230,25,4,0,20,380,2,0,1,0.5,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
 LongHorn Steakhouse,EPIC BEGINNINGS (APPETIZERS),Seasoned Steakhouse Wings,1 serving,,main,460,28,7,0,245,1030,0,0.5,0,53,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
@@ -154,12 +154,12 @@ LongHorn Steakhouse,SOUPS,Southwest Chicken Tortilla (where available),Cup,,main
 LongHorn Steakhouse,SOUPS,Southwest Chicken Tortilla (where available),Bowl,,main,330,18,1.5,0,30,1420,22,1,0,16,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
 LongHorn Steakhouse,Add-Ons,Cheese (Slice),1 serving,,extra,80,6,4,0,20,140,0.5,0,0,5,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
 LongHorn Steakhouse,Add-Ons,Bacon (Strip),1 serving,,extra,130,12,4.5,0,25,250,0,0,0,7,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,two-drafts
-LongHorn Steakhouse,WINE,White Wine,Glass,,main,150,0,0,0,0,10,4,0,2,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
-LongHorn Steakhouse,WINE,White Wine,LongPour,,main,220,0,0,0,0,15,6,0,3,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
-LongHorn Steakhouse,WINE,White Wine,Bottle,,main,630,0,0,0,0,35,16,0,7,0.5,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
-LongHorn Steakhouse,WINE,Red Wine,Glass,,main,160,0,0,0,0,0,5,0,0,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
-LongHorn Steakhouse,WINE,Red Wine,LongPour,,main,230,0,0,0,0,0,8,0,0,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
-LongHorn Steakhouse,WINE,Red Wine,Bottle,,main,660,0,0,0,0,0,21,0,0,0.5,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
+LongHorn Steakhouse,WINE,White Wine,Glass,,drink,150,0,0,0,0,10,4,0,2,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
+LongHorn Steakhouse,WINE,White Wine,LongPour,,drink,220,0,0,0,0,15,6,0,3,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
+LongHorn Steakhouse,WINE,White Wine,Bottle,,drink,630,0,0,0,0,35,16,0,7,0.5,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
+LongHorn Steakhouse,WINE,Red Wine,Glass,,drink,160,0,0,0,0,0,5,0,0,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
+LongHorn Steakhouse,WINE,Red Wine,LongPour,,drink,230,0,0,0,0,0,8,0,0,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
+LongHorn Steakhouse,WINE,Red Wine,Bottle,,drink,660,0,0,0,0,0,21,0,0,0.5,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
 LongHorn Steakhouse,LEGENDARY STEAKS,7-Pepper Crusted New York Strip,14 oz.,,main,780,30,27,2,270,1110,30,2,0.5,70,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
 LongHorn Steakhouse,LEGENDARY STEAKS,Flo's Filet,6 oz.,,main,330,15,5,0.5,115,330,2,0,0.5,37,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
 LongHorn Steakhouse,LEGENDARY STEAKS,Flo's Filet,9 oz.,,main,450,19,7,1,170,480,3,0,1,56,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
@@ -199,4 +199,4 @@ LongHorn Steakhouse,STEAKHOUSE SIDES,Crispy Texas Okra (where available),1 servi
 LongHorn Steakhouse,STEAKHOUSE SIDES,Fried Okra (where available),1 serving,,side,310,19,3.5,0,0,690,28,5,4,5,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
 LongHorn Steakhouse,STEAKHOUSE SIDES,Honey Wheat Bread,Full Loaf,,side,480,7,1,0,0,920,88,2,8,16,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
 LongHorn Steakhouse,STEAKHOUSE SIDES,+ Add Butter,1 serving,,side,120,13,8,0,35,80,0,0,0,0,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
-LongHorn Steakhouse,,Bacon,Strip,,main,130,12,4.5,0,25,250,0,0,0,7,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending
+LongHorn Steakhouse,Menu,Bacon,Strip,,main,130,12,4.5,0,25,250,0,0,0,7,https://media.longhornsteakhouse.com/en_us/pdf/nutrition_allergen_guide.pdf,2026-10-23,pending

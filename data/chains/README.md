@@ -15,6 +15,7 @@ are the only restaurant numbers Weight Class ranks (`WHAT-TO-ORDER.md` §7).
 npm run chains:draft -- --rank 1-250 --guides-only   # find, read and check the guides first (Firecrawl only, no AI)
 npm run chains:draft -- --rank 1-250             # find, read and draft chains 1 to 250 (picks up where it stopped)
 npm run chains:draft -- --chain "Chick-fil-A"    # one chain (--url <guide> to set its guide, --refetch to read it again)
+npm run chains:draft -- --chains sonic,arbys --redo   # some chains again (names or slugs; person lines are kept)
 npm run chains:build -- --check                  # check every menu file, write nothing
 npm run chains:build                             # check, then write data/chains.json (commit it with the CSVs)
 npm run db:chains                                # load data/chains.json into DATABASE_URL by hand
@@ -42,7 +43,12 @@ when it changed. An item left out of the CSV is **retired**, never deleted.
    into rows on their own, told to copy numbers as printed and never to calculate or guess.
 3. Code compares the drafts. A line where both agree on every number goes in with `check` = `two-drafts`. A line
    they disagree on, that only one found, or where the guide leaves out a required number goes in as `pending`
-   and is never loaded.
+   and is never loaded. So does a line both read the same that the build would refuse (a catering pan over 5,000
+   kcal, a 130-letter name) or whose protein, carbs and fat can't make its calories, which is how two drafts
+   reading the same misaligned row show up (drinks with alcohol skip that sum). Lines one draft split differently
+   between name and size ("911" sized "Hot, Medium", "911 Hot" sized "Medium") pair up when every number agrees.
+   The kind (main, side, drink, dessert, extra) comes from the section and the name: bar sections are drinks,
+   everything at a coffee chain outside its food sections is a drink, everything at a sweets chain a dessert.
 4. A person opens `review/<chain>.md`: fixes each pending line from the guide and sets its `check` to `person` (or
    deletes it), and compares the spot-check sample (about 1 in 20 agreed lines, 3 to 15 per chain) with the guide.
    A wrong sample line means the whole chain gets a closer look. Re-running a draft never overwrites `person` lines.

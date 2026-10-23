@@ -3,93 +3,118 @@
 Guide: https://services1.bjsrestaurants.com/BJSS/images/BJsNutritionInfo.pdf (read 2026-10-23). Draft A: openai/gpt-5.6-luna. Draft B: anthropic/claude-haiku-5.5.
 Numbers in order: calories / fat_g / saturated_fat_g / trans_fat_g / cholesterol_mg / sodium_mg / carbs_g / fiber_g / sugars_g / protein_g.
 
-## Disagreements (81)
+## Disagreements (104)
+
+The last column comes from `npm run chains:evidence`: whether a draft's numbers sit right after the item's name in the guide text the drafts read. It can't read sizes or sections (one draft called a single 78 g cookie a "6 pack"): check those against the guide, then fix the line and set its check to `person`.
 
 Fix each line in `menus/bjs-restaurant-and-brewhouse.csv` from the guide and set its check to `person` (or delete the line if it isn't on the menu).
 
-| Item | Size | Why | Draft A | Draft B |
-| --- | --- | --- | --- | --- |
-| Topping with Anchovies | Personal, 1 slice | only in draft B | not found | 15 / 1 / 0 / 0 / 10 / 574 / 0 / 0 / 0 / 2 |
-| Topping with Black Olives | Personal, 1 slice | only in draft B | not found | 50 / 5 / 0 / 0 / 0 / 250 / 2 / 0 / 0 / 0 |
-| Topping with Chicken | Personal, 1 slice | only in draft B | not found | 60 / 2 / 0 / 0 / 26 / 231 / 0 / 0 / 0 / 10 |
-| Topping with Cup & Char Pepperoni | Personal, 1 slice | only in draft B | not found | 60 / 7 / 2 / 0 / 10 / 232 / 0 / 0 / 0 / 1 |
-| Topping with Fresh Basil | Personal, 1 slice | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Topping with Fresh Tomatoes | Personal, 1 slice | only in draft B | not found | 5 / 0 / 0 / 0 / 0 / 1 / 1 / 0 / 1 / 0 |
-| Topping with Green Bell Peppers | Personal, 1 slice | only in draft B | not found | 10 / 0 / 0 / 0 / 0 / 1 / 2 / 0 / 1 / 0 |
-| Topping with Housemade Meatballs | Personal, 1 slice | only in draft B | not found | 160 / 13 / 5 / 0 / 40 / 191 / 4 / 0 / 1 / 7 |
-| Topping with Italian Sausage | Personal, 1 slice | only in draft B | not found | 60 / 3 / 1 / 0 / 22 / 315 / 1 / 0 / 1 / 6 |
-| Topping with Jalapenos | Personal, 1 slice | only in draft B | not found | 5 / 0 / 0 / 0 / 0 / 0 / 1 / 0 / 1 / 0 |
-| Topping with Mushrooms | Personal, 1 slice | only in draft B | not found | 5 / 0 / 0 / 0 / 0 / 1 / 0 / 0 / 1 / 0 |
-| Topping with Onions | Personal, 1 slice | only in draft B | not found | 20 / 0 / 0 / 0 / 0 / 2 / 4 / 0 / 2 / 0 |
-| Topping with Pineapple | Personal, 1 slice | only in draft B | not found | 30 / 0 / 0 / 0 / 0 / 0 / 7 / 0 / 7 / 0 |
-| Topping with Roasted Garlic | Personal, 1 slice | only in draft B | not found | 5 / 0 / 0 / 0 / 0 / 1 / 0 / 0 / 1 / 0 |
-| Topping with Smoked Bacon | Personal, 1 slice | only in draft B | not found | 45 / 4 / 1 / 0 / 7 / 135 / 0 / 0 / 1 / 2 |
-| Topping with Smoked Ham | Personal, 1 slice | only in draft B | not found | 15 / 1 / 0 / 0 / 6 / 140 / 0 / 0 / 1 / 2 |
-| Topping with Anchovies | Shareable, 1 slice | only in draft B | not found | 10 / 1 / 0 / 0 / 7 / 382 / 0 / 0 / 0 / 2 |
-| Topping with Black Olives | Shareable, 1 slice | only in draft B | not found | 35 / 4 / 0 / 0 / 0 / 167 / 1 / 0 / 0 / 0 |
-| Topping with Chicken | Shareable, 1 slice | only in draft B | not found | 40 / 1 / 0 / 0 / 18 / 154 / 0 / 0 / 0 / 7 |
-| Topping with Cup & Char Pepperoni | Shareable, 1 slice | only in draft B | not found | 40 / 5 / 1 / 0 / 7 / 154 / 0 / 0 / 0 / 1 |
-| Topping with Fresh Basil | Shareable, 1 slice | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Topping with Fresh Tomatoes | Shareable, 1 slice | only in draft B | not found | 5 / 0 / 0 / 0 / 0 / 1 / 1 / 0 / 0 / 0 |
-| Topping with Green Bell Peppers | Shareable, 1 slice | only in draft B | not found | 5 / 0 / 0 / 0 / 0 / 1 / 1 / 0 / 1 / 0 |
-| Topping with Housemade Meatballs | Shareable, 1 slice | only in draft B | not found | 100 / 9 / 3 / 0 / 28 / 127 / 2 / 0 / 1 / 5 |
-| Topping with Italian Sausage | Shareable, 1 slice | only in draft B | not found | 35 / 2 / 0 / 0 / 15 / 210 / 1 / 0 / 0 / 4 |
-| Topping with Jalapenos | Shareable, 1 slice | only in draft B | not found | 5 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Topping with Mushrooms | Shareable, 1 slice | only in draft B | not found | 5 / 0 / 0 / 0 / 0 / 1 / 0 / 0 / 0 / 0 |
-| Topping with Onions | Shareable, 1 slice | only in draft B | not found | 10 / 0 / 0 / 0 / 0 / 1 / 3 / 0 / 1 / 0 |
-| Topping with Pineapple | Shareable, 1 slice | only in draft B | not found | 20 / 0 / 0 / 0 / 0 / 0 / 5 / 0 / 4 / 0 |
-| Topping with Roasted Garlic | Shareable, 1 slice | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Topping with Smoked Bacon | Shareable, 1 slice | only in draft B | not found | 35 / 3 / 1 / 0 / 6 / 108 / 0 / 0 / 0 / 2 |
-| Topping with Smoked Ham | Shareable, 1 slice | only in draft B | not found | 10 / 1 / 0 / 0 / 5 / 93 / 0 / 0 / 0 / 1 |
-| Topping with Anchovies | Large, 1 slice | only in draft B | not found | 15 / 0 / 0 / 0 / 9 / 459 / 0 / 0 / 0 / 2 |
-| Topping with Black Olives | Large, 1 slice | only in draft B | not found | 40 / 4 / 1 / 0 / 0 / 200 / 2 / 0 / 0 / 0 |
-| Topping with Chicken | Large, 1 slice | only in draft B | not found | 50 / 1 / 0 / 0 / 22 / 184 / 0 / 0 / 0 / 8 |
-| Topping with Cup & Char Pepperoni | Large, 1 slice | only in draft B | not found | 50 / 5 / 0 / 0 / 9 / 185 / 0 / 0 / 0 / 1 |
-| Topping with Fresh Basil | Large, 1 slice | only in draft B | not found | 0 / 0 / 2 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Topping with Fresh Tomatoes | Large, 1 slice | only in draft B | not found | 5 / 0 / 0 / 0 / 0 / 1 / 1 / 0 / 0 / 0 |
-| Topping with Green Bell Peppers | Large, 1 slice | only in draft B | not found | 5 / 0 / 0 / 0 / 0 / 1 / 2 / 1 / 0 / 0 |
-| Topping with Housemade Meatballs | Large, 1 slice | only in draft B | not found | 130 / 10 / 1 / 0 / 33 / 152 / 3 / 0 / 0 / 6 |
-| Topping with Italian Sausage | Large, 1 slice | only in draft B | not found | 45 / 2 / 0 / 0 / 18 / 252 / 2 / 0 / 0 / 5 |
-| Topping with Jalapenos | Large, 1 slice | only in draft B | not found | 5 / 0 / 0 / 0 / 0 / 0 / 1 / 0 / 0 / 0 |
-| Topping with Mushrooms | Large, 1 slice | only in draft B | not found | 5 / 0 / 4 / 0 / 0 / 1 / 1 / 0 / 0 / 0 |
-| Topping with Onions | Large, 1 slice | only in draft B | not found | 15 / 0 / 0 / 0 / 0 / 1 / 4 / 0 / 1 / 0 |
-| Topping with Pineapple | Large, 1 slice | only in draft B | not found | 25 / 0 / 0 / 0 / 0 / 0 / 6 / 0 / 5 / 0 |
-| Topping with Roasted Garlic | Large, 1 slice | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 1 / 0 / 0 / 0 |
-| Topping with Smoked Bacon | Large, 1 slice | only in draft B | not found | 45 / 3 / 0 / 0 / 7 / 130 / 1 / 0 / 0 / 2 |
-| Topping with Smoked Ham | Large, 1 slice | only in draft B | not found | 15 / 0 / 0 / 0 / 5 / 112 / 1 / 0 / 0 / 2 |
-| Add Anchovies | 1 slice | only in draft B | not found | 15 / 0 / 0 / 0 / 9 / 477 / 0 / 0 / 0 / 2 |
-| Add Black Olives | 1 slice | only in draft B | not found | 35 / 3 / 0 / 0 / 0 / 166 / 1 / 0 / 0 / 0 |
-| Add Chicken | 1 slice | only in draft B | not found | 40 / 1 / 1 / 0 / 18 / 153 / 0 / 0 / 0 / 7 |
-| Add Cup & Char Pepperoni | 1 slice | only in draft B | not found | 30 / 3 / 1 / 0 / 6 / 100 / 0 / 0 / 0 / 1 |
-| Add Fresh Basil | 1 slice | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Add Green Bell Peppers | 1 slice | only in draft B | not found | 5 / 0 / 0 / 0 / 0 / 0 / 1 / 1 / 0 / 0 |
-| Add Italian Sausage | 1 slice | only in draft B | not found | 100 / 9 / 3 / 0 / 17 / 230 / 1 / 1 / 0 / 3 |
-| Add Jalapenos | 1 slice | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 33 / 0 / 0 / 0 / 0 |
-| Add Mushrooms | 1 slice | only in draft B | not found | 5 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Add Onions | 1 slice | only in draft B | not found | 10 / 0 / 0 / 0 / 0 / 0 / 3 / 1 / 1 / 0 |
-| Add Pineapple | 1 slice | only in draft B | not found | 20 / 0 / 0 / 0 / 0 / 0 / 5 / 1 / 4 / 0 |
-| Add Roasted Garlic | 1 slice | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 1 / 0 / 0 / 0 |
-| Add Smoked Bacon | 1 slice | only in draft B | not found | 35 / 3 / 1 / 0 / 6 / 108 / 0 / 0 / 0 / 2 |
-| Add Smoked Ham | 1 slice | only in draft B | not found | 10 / 0 / 1 / 0 / 4 / 93 / 0 / 0 / 0 / 1 |
-| BJ's Brewhouse Classic | 1 square | only in draft B | not found | 90 / 5 / 2 / 0 / 12 / 247 / 9 / 1 / 0 / 4 |
-| The Spicy Pig | 1 square | only in draft B | not found | 90 / 4 / 1 / 0 / 11 / 250 / 9 / 0 / 2 / 4 |
-| Build Your Own Tavern-Cut Pizza | 1 square | only in draft B | not found | 60 / 2 / 1 / 0 / 5 / 117 / 8 / 0 / 0 / 2 |
-| Add Anchovies | 1 square | only in draft B | not found | 10 / 1 / 0 / 0 / 5 / 239 / 0 / 0 / 0 / 1 |
-| Add Black Olives | 1 square | only in draft B | not found | 20 / 2 / 0 / 0 / 0 / 84 / 1 / 0 / 0 / 0 |
-| Add Chicken | 1 square | only in draft B | not found | 20 / 1 / 0 / 0 / 9 / 77 / 0 / 0 / 0 / 4 |
-| Add Cup & Char Pepperoni | 1 square | only in draft B | not found | 10 / 1 / 0 / 0 / 2 / 39 / 0 / 0 / 0 / 1 |
-| Add Fresh Basil | 1 square | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Add Green Bell Peppers | 1 square | only in draft B | not found | 5 / 0 / 0 / 0 / 0 / 1 / 1 / 1 / 1 / 0 |
-| Add Housemade Meatballs | 1 square | only in draft B | not found | 50 / 4 / 2 / 0 / 14 / 64 / 1 / 1 / 1 / 3 |
-| Add Italian Sausage | 1 square | only in draft B | not found | 50 / 5 / 2 / 0 / 9 / 115 / 1 / 1 / 0 / 2 |
-| Add Jalapenos | 1 square | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 17 / 0 / 0 / 0 / 0 |
-| Add Mushrooms | 1 square | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 1 / 0 / 0 / 0 / 1 |
-| Add Onions | 1 square | only in draft B | not found | 10 / 0 / 0 / 0 / 0 / 1 / 1 / 1 / 1 / 0 |
-| Add Pineapple | 1 square | only in draft B | not found | 10 / 0 / 0 / 0 / 0 / 0 / 3 / 1 / 2 / 0 |
-| Add Roasted Garlic | 1 square | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Add Smoked Bacon | 1 square | only in draft B | not found | 20 / 2 / 1 / 0 / 3 / 54 / 0 / 0 / 0 / 1 |
-| Add Smoked Ham | 1 square | only in draft B | not found | 10 / 1 / 0 / 0 / 2 / 47 / 0 / 0 / 0 / 1 |
-| Chocolate Chunk Cookies, Catering | 1 cookie | only in draft B | not found | 380 / 13 / 8 / 0 / 25 / 376 / 61 / 2 / 38 / 5 |
+| Item | Size | Why | Draft A | Draft B | In the guide text (no AI) |
+| --- | --- | --- | --- | --- | --- |
+| Topping with Anchovies | Personal, 1 slice | only in draft B | not found | 15 / 1 / 0 / 0 / 10 / 574 / 0 / 0 / 0 / 2 | B: numbers found after the name (line 408); check the size |
+| Topping with Black Olives | Personal, 1 slice | only in draft B | not found | 50 / 5 / 0 / 0 / 0 / 250 / 2 / 0 / 0 / 0 | B: numbers found after the name (line 409); check the size |
+| Topping with Chicken | Personal, 1 slice | only in draft B | not found | 60 / 2 / 0 / 0 / 26 / 231 / 0 / 0 / 0 / 10 | B: numbers found after the name (line 410); check the size |
+| Topping with Cup & Char Pepperoni | Personal, 1 slice | only in draft B | not found | 60 / 7 / 2 / 0 / 10 / 232 / 0 / 0 / 0 / 1 | B: numbers found after the name (line 411); check the size |
+| Topping with Fresh Basil | Personal, 1 slice | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 412); check the size, mostly zeros: look |
+| Topping with Fresh Tomatoes | Personal, 1 slice | only in draft B | not found | 5 / 0 / 0 / 0 / 0 / 1 / 1 / 0 / 1 / 0 | B: numbers found after the name (line 413); check the size |
+| Topping with Green Bell Peppers | Personal, 1 slice | only in draft B | not found | 10 / 0 / 0 / 0 / 0 / 1 / 2 / 0 / 1 / 0 | B: numbers found after the name (line 414); check the size |
+| Topping with Housemade Meatballs | Personal, 1 slice | only in draft B | not found | 160 / 13 / 5 / 0 / 40 / 191 / 4 / 0 / 1 / 7 | B: numbers found after the name (line 415); check the size |
+| Topping with Italian Sausage | Personal, 1 slice | only in draft B | not found | 60 / 3 / 1 / 0 / 22 / 315 / 1 / 0 / 1 / 6 | B: numbers found after the name (line 416); check the size |
+| Topping with Jalapenos | Personal, 1 slice | only in draft B | not found | 5 / 0 / 0 / 0 / 0 / 0 / 1 / 0 / 1 / 0 | B: numbers found after the name (line 417); check the size |
+| Topping with Mushrooms | Personal, 1 slice | only in draft B | not found | 5 / 0 / 0 / 0 / 0 / 1 / 0 / 0 / 1 / 0 | B: numbers found after the name (line 418); check the size |
+| Topping with Onions | Personal, 1 slice | only in draft B | not found | 20 / 0 / 0 / 0 / 0 / 2 / 4 / 0 / 2 / 0 | B: numbers found after the name (line 419); check the size |
+| Topping with Pineapple | Personal, 1 slice | only in draft B | not found | 30 / 0 / 0 / 0 / 0 / 0 / 7 / 0 / 7 / 0 | B: numbers found after the name (line 420); check the size |
+| Topping with Roasted Garlic | Personal, 1 slice | only in draft B | not found | 5 / 0 / 0 / 0 / 0 / 1 / 0 / 0 / 1 / 0 | B: numbers found after the name (line 421); check the size |
+| Topping with Smoked Bacon | Personal, 1 slice | only in draft B | not found | 45 / 4 / 1 / 0 / 7 / 135 / 0 / 0 / 1 / 2 | B: numbers found after the name (line 422); check the size |
+| Topping with Smoked Ham | Personal, 1 slice | only in draft B | not found | 15 / 1 / 0 / 0 / 6 / 140 / 0 / 0 / 1 / 2 | B: numbers found after the name (line 423); check the size |
+| Topping with Anchovies | Shareable, 1 slice | only in draft B | not found | 10 / 1 / 0 / 0 / 7 / 382 / 0 / 0 / 0 / 2 | B: numbers found after the name (line 424); check the size |
+| Topping with Black Olives | Shareable, 1 slice | only in draft B | not found | 35 / 4 / 0 / 0 / 0 / 167 / 1 / 0 / 0 / 0 | B: numbers found after the name (line 425); check the size |
+| Topping with Chicken | Shareable, 1 slice | only in draft B | not found | 40 / 1 / 0 / 0 / 18 / 154 / 0 / 0 / 0 / 7 | B: numbers found after the name (line 426); check the size |
+| Topping with Cup & Char Pepperoni | Shareable, 1 slice | only in draft B | not found | 40 / 5 / 1 / 0 / 7 / 154 / 0 / 0 / 0 / 1 | B: numbers found after the name (line 427); check the size |
+| Topping with Fresh Basil | Shareable, 1 slice | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 412); check the size, mostly zeros: look |
+| Topping with Fresh Tomatoes | Shareable, 1 slice | only in draft B | not found | 5 / 0 / 0 / 0 / 0 / 1 / 1 / 0 / 0 / 0 | B: numbers found after the name (line 413); check the size |
+| Topping with Green Bell Peppers | Shareable, 1 slice | only in draft B | not found | 5 / 0 / 0 / 0 / 0 / 1 / 1 / 0 / 1 / 0 | B: numbers found after the name (line 430); check the size |
+| Topping with Housemade Meatballs | Shareable, 1 slice | only in draft B | not found | 100 / 9 / 3 / 0 / 28 / 127 / 2 / 0 / 1 / 5 | B: numbers found after the name (line 431); check the size |
+| Topping with Italian Sausage | Shareable, 1 slice | only in draft B | not found | 35 / 2 / 0 / 0 / 15 / 210 / 1 / 0 / 0 / 4 | B: numbers found after the name (line 432); check the size |
+| Topping with Jalapenos | Shareable, 1 slice | only in draft B | not found | 5 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 433); check the size, mostly zeros: look |
+| Topping with Mushrooms | Shareable, 1 slice | only in draft B | not found | 5 / 0 / 0 / 0 / 0 / 1 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 434); check the size, mostly zeros: look |
+| Topping with Onions | Shareable, 1 slice | only in draft B | not found | 10 / 0 / 0 / 0 / 0 / 1 / 3 / 0 / 1 / 0 | B: numbers found after the name (line 448); check the size |
+| Topping with Pineapple | Shareable, 1 slice | only in draft B | not found | 20 / 0 / 0 / 0 / 0 / 0 / 5 / 0 / 4 / 0 | B: numbers found after the name (line 449); check the size |
+| Topping with Roasted Garlic | Shareable, 1 slice | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 450); check the size, mostly zeros: look |
+| Topping with Smoked Bacon | Shareable, 1 slice | only in draft B | not found | 35 / 3 / 1 / 0 / 6 / 108 / 0 / 0 / 0 / 2 | B: numbers found after the name (line 451); check the size |
+| Topping with Smoked Ham | Shareable, 1 slice | only in draft B | not found | 10 / 1 / 0 / 0 / 5 / 93 / 0 / 0 / 0 / 1 | B: numbers found after the name (line 452); check the size |
+| Topping with Anchovies | Large, 1 slice | only in draft B | not found | 15 / 0 / 0 / 0 / 9 / 459 / 0 / 0 / 0 / 2 | B: numbers found after the name (line 453); check the size |
+| Topping with Black Olives | Large, 1 slice | only in draft B | not found | 40 / 4 / 1 / 0 / 0 / 200 / 2 / 0 / 0 / 0 | B: numbers found after the name (line 454); check the size |
+| Topping with Chicken | Large, 1 slice | only in draft B | not found | 50 / 1 / 0 / 0 / 22 / 184 / 0 / 0 / 0 / 8 | B: numbers found after the name (line 455); check the size |
+| Topping with Cup & Char Pepperoni | Large, 1 slice | only in draft B | not found | 50 / 5 / 0 / 0 / 9 / 185 / 0 / 0 / 0 / 1 | B: numbers found after the name (line 456); check the size |
+| Topping with Fresh Basil | Large, 1 slice | only in draft B | not found | 0 / 0 / 2 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 457); check the size, mostly zeros: look |
+| Topping with Fresh Tomatoes | Large, 1 slice | only in draft B | not found | 5 / 0 / 0 / 0 / 0 / 1 / 1 / 0 / 0 / 0 | B: numbers found after the name (line 413); check the size |
+| Topping with Green Bell Peppers | Large, 1 slice | only in draft B | not found | 5 / 0 / 0 / 0 / 0 / 1 / 2 / 1 / 0 / 0 | B: numbers found after the name (line 459); check the size |
+| Topping with Housemade Meatballs | Large, 1 slice | only in draft B | not found | 130 / 10 / 1 / 0 / 33 / 152 / 3 / 0 / 0 / 6 | B: numbers found after the name (line 460); check the size |
+| Topping with Italian Sausage | Large, 1 slice | only in draft B | not found | 45 / 2 / 0 / 0 / 18 / 252 / 2 / 0 / 0 / 5 | B: numbers found after the name (line 461); check the size |
+| Topping with Jalapenos | Large, 1 slice | only in draft B | not found | 5 / 0 / 0 / 0 / 0 / 0 / 1 / 0 / 0 / 0 | B: numbers found after the name (line 462); check the size, mostly zeros: look |
+| Topping with Mushrooms | Large, 1 slice | only in draft B | not found | 5 / 0 / 4 / 0 / 0 / 1 / 1 / 0 / 0 / 0 | B: numbers found after the name (line 463); check the size |
+| Topping with Onions | Large, 1 slice | only in draft B | not found | 15 / 0 / 0 / 0 / 0 / 1 / 4 / 0 / 1 / 0 | B: numbers found after the name (line 464); check the size |
+| Topping with Pineapple | Large, 1 slice | only in draft B | not found | 25 / 0 / 0 / 0 / 0 / 0 / 6 / 0 / 5 / 0 | B: numbers found after the name (line 465); check the size |
+| Topping with Roasted Garlic | Large, 1 slice | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 1 / 0 / 0 / 0 | B: numbers found after the name (line 466); check the size, mostly zeros: look |
+| Topping with Smoked Bacon | Large, 1 slice | only in draft B | not found | 45 / 3 / 0 / 0 / 7 / 130 / 1 / 0 / 0 / 2 | B: numbers found after the name (line 467); check the size |
+| Topping with Smoked Ham | Large, 1 slice | only in draft B | not found | 15 / 0 / 0 / 0 / 5 / 112 / 1 / 0 / 0 / 2 | B: numbers found after the name (line 468); check the size |
+| Add Anchovies | 1 slice | only in draft B | not found | 15 / 0 / 0 / 0 / 9 / 477 / 0 / 0 / 0 / 2 | B: numbers found after the name (line 483); check the size |
+| Add Black Olives | 1 slice | only in draft B | not found | 35 / 3 / 0 / 0 / 0 / 166 / 1 / 0 / 0 / 0 | B: numbers found after the name (line 484); check the size |
+| Add Chicken | 1 slice | only in draft B | not found | 40 / 1 / 1 / 0 / 18 / 153 / 0 / 0 / 0 / 7 | B: numbers found after the name (line 485); check the size |
+| Add Cup & Char Pepperoni | 1 slice | only in draft B | not found | 30 / 3 / 1 / 0 / 6 / 100 / 0 / 0 / 0 / 1 | B: numbers found after the name (line 486); check the size |
+| Add Fresh Basil | 1 slice | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 487); check the size, mostly zeros: look |
+| Add Green Bell Peppers | 1 slice | only in draft B | not found | 5 / 0 / 0 / 0 / 0 / 0 / 1 / 1 / 0 / 0 | B: numbers found after the name (line 488); check the size |
+| Add Italian Sausage | 1 slice | only in draft B | not found | 100 / 9 / 3 / 0 / 17 / 230 / 1 / 1 / 0 / 3 | B: numbers found after the name (line 489); check the size |
+| Add Jalapenos | 1 slice | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 33 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 490); check the size, mostly zeros: look |
+| Add Mushrooms | 1 slice | only in draft B | not found | 5 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 491); check the size, mostly zeros: look |
+| Add Onions | 1 slice | only in draft B | not found | 10 / 0 / 0 / 0 / 0 / 0 / 3 / 1 / 1 / 0 | B: numbers found after the name (line 492); check the size |
+| Add Pineapple | 1 slice | only in draft B | not found | 20 / 0 / 0 / 0 / 0 / 0 / 5 / 1 / 4 / 0 | B: numbers found after the name (line 493); check the size |
+| Add Roasted Garlic | 1 slice | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 1 / 0 / 0 / 0 | B: numbers found after the name (line 494); check the size, mostly zeros: look |
+| Add Smoked Bacon | 1 slice | only in draft B | not found | 35 / 3 / 1 / 0 / 6 / 108 / 0 / 0 / 0 / 2 | B: numbers found after the name (line 495); check the size |
+| Add Smoked Ham | 1 slice | only in draft B | not found | 10 / 0 / 1 / 0 / 4 / 93 / 0 / 0 / 0 / 1 | B: numbers found after the name (line 496); check the size |
+| BJ's Brewhouse Classic | 1 square | only in draft B | not found | 90 / 5 / 2 / 0 / 12 / 247 / 9 / 1 / 0 / 4 | B: numbers found after the name (line 504); check the size |
+| The Spicy Pig | 1 square | only in draft B | not found | 90 / 4 / 1 / 0 / 11 / 250 / 9 / 0 / 2 / 4 | B: numbers found after the name (line 505); check the size |
+| Build Your Own Tavern-Cut Pizza | 1 square | only in draft B | not found | 60 / 2 / 1 / 0 / 5 / 117 / 8 / 0 / 0 / 2 | B: numbers found after the name (line 506); check the size |
+| Add Anchovies | 1 square | only in draft B | not found | 10 / 1 / 0 / 0 / 5 / 239 / 0 / 0 / 0 / 1 | B: numbers found after the name (line 507); check the size |
+| Add Black Olives | 1 square | only in draft B | not found | 20 / 2 / 0 / 0 / 0 / 84 / 1 / 0 / 0 / 0 | B: numbers found after the name (line 508); check the size |
+| Add Chicken | 1 square | only in draft B | not found | 20 / 1 / 0 / 0 / 9 / 77 / 0 / 0 / 0 / 4 | B: numbers found after the name (line 519); check the size |
+| Add Cup & Char Pepperoni | 1 square | only in draft B | not found | 10 / 1 / 0 / 0 / 2 / 39 / 0 / 0 / 0 / 1 | B: numbers found after the name (line 520); check the size |
+| Add Fresh Basil | 1 square | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 487); check the size, mostly zeros: look |
+| Add Green Bell Peppers | 1 square | only in draft B | not found | 5 / 0 / 0 / 0 / 0 / 1 / 1 / 1 / 1 / 0 | B: numbers found after the name (line 522); check the size |
+| Add Housemade Meatballs | 1 square | only in draft B | not found | 50 / 4 / 2 / 0 / 14 / 64 / 1 / 1 / 1 / 3 | B: numbers found after the name (line 523); check the size |
+| Add Italian Sausage | 1 square | only in draft B | not found | 50 / 5 / 2 / 0 / 9 / 115 / 1 / 1 / 0 / 2 | B: numbers found after the name (line 524); check the size |
+| Add Jalapenos | 1 square | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 17 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 525); check the size, mostly zeros: look |
+| Add Mushrooms | 1 square | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 1 / 0 / 0 / 0 / 1 | B: numbers found after the name (line 526); check the size, mostly zeros: look |
+| Add Onions | 1 square | only in draft B | not found | 10 / 0 / 0 / 0 / 0 / 1 / 1 / 1 / 1 / 0 | B: numbers found after the name (line 527); check the size |
+| Add Pineapple | 1 square | only in draft B | not found | 10 / 0 / 0 / 0 / 0 / 0 / 3 / 1 / 2 / 0 | B: numbers found after the name (line 528); check the size |
+| Add Roasted Garlic | 1 square | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 494); check the size, mostly zeros: look |
+| Add Smoked Bacon | 1 square | only in draft B | not found | 20 / 2 / 1 / 0 / 3 / 54 / 0 / 0 / 0 / 1 | B: numbers found after the name (line 530); check the size |
+| Add Smoked Ham | 1 square | only in draft B | not found | 10 / 1 / 0 / 0 / 2 / 47 / 0 / 0 / 0 / 1 | B: numbers found after the name (line 531); check the size |
+| Chocolate Chunk Cookies, Catering | 1 cookie | only in draft B | not found | 380 / 13 / 8 / 0 / 25 / 376 / 61 / 2 / 38 / 5 | B: numbers found after the name (line 859); check the size |
+| Brewhouse Bites Sampler with Bone-In Wings with Dip Choice Housemade Guacamole, Wing Rub Choice Dill Pickle Ranch Dry Rub | 1 serving | both read it the same, but the build would refuse it (name: Too big: expected string to have <=120 characters) | 1820 / 103 / 33 / 0 / 376 / 4800 / 145 / 14 / 33 / 79 | 1820 / 103 / 33 / 0 / 376 / 4800 / 145 / 14 / 33 / 79 | A: numbers found after the name (line 16); check the size; B: numbers found after the name (line 16); check the size |
+| Brewhouse Bites Sampler with Bone-In Wings with Dip Choice Housemade Guacamole, Wing Rub Choice Lemon Pepper Sesame Dry Rub | 1 serving | both read it the same, but the build would refuse it (name: Too big: expected string to have <=120 characters) | 1800 / 103 / 33 / 0 / 376 / 5222 / 141 / 14 / 32 / 79 | 1800 / 103 / 33 / 0 / 376 / 5222 / 141 / 14 / 32 / 79 | A: numbers found after the name (line 17); check the size; B: numbers found after the name (line 17); check the size |
+| Brewhouse Bites Sampler with Bone-In Wings with Dip Choice Housemade Guacamole, Wing Sauce Choice Sweet & Spicy Asian Glaze | 1 serving | both read it the same, but the build would refuse it (name: Too big: expected string to have <=120 characters) | 1890 / 105 / 33 / 0 / 376 / 5162 / 161 / 14 / 49 / 81 | 1890 / 105 / 33 / 0 / 376 / 5162 / 161 / 14 / 49 / 81 | A: numbers found after the name (line 22); check the size; B: numbers found after the name (line 22); check the size |
+| Brewhouse Bites Sampler with Bone-In Wings with Dip Choice Spinach and Artichoke Dip, Wing Rub Choice Dill Pickle Ranch Dry Rub | 1 serving | both read it the same, but the build would refuse it (name: Too big: expected string to have <=120 characters) | 1960 / 116 / 47 / 0 / 451 / 5213 / 145 / 10 / 33 / 86 | 1960 / 116 / 47 / 0 / 451 / 5213 / 145 / 10 / 33 / 86 | A: numbers found after the name (line 24); check the size; B: numbers found after the name (line 24); check the size |
+| Brewhouse Bites Sampler with Bone-In Wings with Dip Choice Spinach and Artichoke Dip, Wing Rub Choice Lemon Pepper Sesame Dry Rub | 1 serving | both read it the same, but the build would refuse it (name: Too big: expected string to have <=120 characters) | 1940 / 116 / 47 / 0 / 451 / 5635 / 141 / 10 / 33 / 85 | 1940 / 116 / 47 / 0 / 451 / 5635 / 141 / 10 / 33 / 85 | A: numbers found after the name (line 25); check the size; B: numbers found after the name (line 25); check the size |
+| Brewhouse Bites Sampler with Bone-In Wings with Dip Choice Spinach and Artichoke Dip, Wing Sauce Choice BJ's Peppered BBQ | 1 serving | both read it the same, but the build would refuse it (name: Too big: expected string to have <=120 characters) | 2060 / 116 / 47 / 0 / 451 / 5470 / 171 / 10 / 60 / 85 | 2060 / 116 / 47 / 0 / 451 / 5470 / 171 / 10 / 60 / 85 | A: numbers found after the name (line 26); check the size; B: numbers found after the name (line 26); check the size |
+| Brewhouse Bites Sampler with Bone-In Wings with Dip Choice Spinach and Artichoke Dip, Wing Sauce Choice Hot Honey Buffalo | 1 serving | both read it the same, but the build would refuse it (name: Too big: expected string to have <=120 characters) | 2060 / 116 / 47 / 0 / 451 / 5412 / 171 / 10 / 61 / 86 | 2060 / 116 / 47 / 0 / 451 / 5412 / 171 / 10 / 61 / 86 | A: numbers found after the name (line 28); check the size; B: numbers found after the name (line 28); check the size |
+| Brewhouse Bites Sampler with Bone-In Wings with Dip Choice Spinach and Artichoke Dip, Wing Sauce Choice Sweet & Spicy Asian Glaze | 1 serving | both read it the same, but the build would refuse it (name: Too big: expected string to have <=120 characters) | 2030 / 117 / 47 / 0 / 451 / 5575 / 160 / 10 / 49 / 87 | 2030 / 117 / 47 / 0 / 451 / 5575 / 160 / 10 / 49 / 87 | A: numbers found after the name (line 30); check the size; B: numbers found after the name (line 30); check the size |
+| Brewhouse Bites Sampler with Bone-In Wings with Dip Choice Spinach and Artichoke Dip, Wing Sauce Choice Tatonka' Stout Buffalo | 1 serving | both read it the same, but the build would refuse it (name: Too big: expected string to have <=120 characters) | 1950 / 116 / 47 / 0 / 451 / 6306 / 143 / 11 / 33 / 86 | 1950 / 116 / 47 / 0 / 451 / 6306 / 143 / 11 / 33 / 86 | A: numbers found after the name (line 31); check the size; B: numbers found after the name (line 31); check the size |
+| Brewhouse Bites Sampler with Bone-In Wings with Dip Choice Sriracha Queso Dip, Wing Rub Choice Lemon Pepper Sesame Dry Rub | 1 serving | both read it the same, but the build would refuse it (name: Too big: expected string to have <=120 characters) | 1900 / 110 / 43 / 1 / 430 / 5930 / 140 / 9 / 33 / 87 | 1900 / 110 / 43 / 1 / 430 / 5930 / 140 / 9 / 33 / 87 | A: numbers found after the name (line 33); check the size; B: numbers found after the name (line 33); check the size |
+| Brewhouse Bites Sampler with Bone-In Wings with Dip Choice Sriracha Queso Dip, Wing Sauce Choice Sweet & Spicy Asian Glaze | 1 serving | both read it the same, but the build would refuse it (name: Too big: expected string to have <=120 characters) | 1990 / 112 / 43 / 1 / 430 / 5870 / 159 / 9 / 50 / 89 | 1990 / 112 / 43 / 1 / 430 / 5870 / 159 / 9 / 50 / 89 | A: numbers found after the name (line 47); check the size; B: numbers found after the name (line 47); check the size |
+| Brewhouse Bites Sampler with Boneless Wings with Dip Choice Housemade Guacamole, Wing Rub Choice Dill Pickle Ranch Dry Rub | 1 serving | both read it the same, but the build would refuse it (name: Too big: expected string to have <=120 characters) | 1880 / 99 / 32 / 0 / 270 / 5376 / 161 / 14 / 28 / 86 | 1880 / 99 / 32 / 0 / 270 / 5376 / 161 / 14 / 28 / 86 | A: numbers found after the name (line 49); check the size; B: numbers found after the name (line 49); check the size |
+| Brewhouse Bites Sampler with Boneless Wings with Dip Choice Housemade Guacamole, Wing Rub Choice Lemon Pepper Sesame Dry Rub | 1 serving | both read it the same, but the build would refuse it (name: Too big: expected string to have <=120 characters) | 1850 / 99 / 32 / 0 / 270 / 5938 / 155 / 13 / 27 / 86 | 1850 / 99 / 32 / 0 / 270 / 5938 / 155 / 13 / 27 / 86 | A: numbers found after the name (line 50); check the size; B: numbers found after the name (line 50); check the size |
+| Brewhouse Bites Sampler with Boneless Wings with Dip Choice Housemade Guacamole, Wing Sauce Choice Sweet & Spicy Asian Glaze | 1 serving | both read it the same, but the build would refuse it (name: Too big: expected string to have <=120 characters) | 1970 / 101 / 32 / 0 / 270 / 5858 / 181 / 13 / 49 / 88 | 1970 / 101 / 32 / 0 / 270 / 5858 / 181 / 13 / 49 / 88 | A: numbers found after the name (line 55); check the size; B: numbers found after the name (line 55); check the size |
+| Brewhouse Bites Sampler with Boneless Wings with Dip Choice Spinach and Artichoke Dip, Wing Rub Choice Dill Pickle Ranch Dry Rub | 1 serving | both read it the same, but the build would refuse it (name: Too big: expected string to have <=120 characters) | 2020 / 112 / 46 / 0 / 345 / 5789 / 160 / 10 / 28 / 93 | 2020 / 112 / 46 / 0 / 345 / 5789 / 160 / 10 / 28 / 93 | A: numbers found after the name (line 57); check the size; B: numbers found after the name (line 57); check the size |
+| Brewhouse Bites Sampler with Boneless Wings with Dip Choice Spinach and Artichoke Dip, Wing Rub Choice Lemon Pepper Sesame Dry Rub | 1 serving | both read it the same, but the build would refuse it (name: Too big: expected string to have <=120 characters) | 2000 / 112 / 46 / 0 / 345 / 6351 / 155 / 9 / 27 / 92 | 2000 / 112 / 46 / 0 / 345 / 6351 / 155 / 9 / 27 / 92 | A: numbers found after the name (line 58); check the size; B: numbers found after the name (line 58); check the size |
+| Brewhouse Bites Sampler with Boneless Wings with Dip Choice Spinach and Artichoke Dip, Wing Sauce Choice BJ's Peppered BBQ | 1 serving | both read it the same, but the build would refuse it (name: Too big: expected string to have <=120 characters) | 2160 / 112 / 46 / 0 / 345 / 6131 / 195 / 9 / 63 / 92 | 2160 / 112 / 46 / 0 / 345 / 6131 / 195 / 9 / 63 / 92 | A: numbers found after the name (line 59); check the size; B: numbers found after the name (line 59); check the size |
+| Brewhouse Bites Sampler with Boneless Wings with Dip Choice Spinach and Artichoke Dip, Wing Sauce Choice Hot Honey Buffalo | 1 serving | both read it the same, but the build would refuse it (name: Too big: expected string to have <=120 characters) | 2160 / 112 / 46 / 0 / 345 / 6054 / 196 / 10 / 65 / 92 | 2160 / 112 / 46 / 0 / 345 / 6054 / 196 / 10 / 65 / 92 | A: numbers found after the name (line 61); check the size; B: numbers found after the name (line 61); check the size |
+| Brewhouse Bites Sampler with Boneless Wings with Dip Choice Spinach and Artichoke Dip, Wing Sauce Choice Sweet & Spicy Asian Glaze | 1 serving | both read it the same, but the build would refuse it (name: Too big: expected string to have <=120 characters) | 2120 / 114 / 46 / 0 / 345 / 6271 / 181 / 9 / 49 / 94 | 2120 / 114 / 46 / 0 / 345 / 6271 / 181 / 9 / 49 / 94 | A: numbers found after the name (line 63); check the size; B: numbers found after the name (line 63); check the size |
+| Brewhouse Bites Sampler with Boneless Wings with Dip Choice Spinach and Artichoke Dip, Wing Sauce Choice Tatonka Stout Buffalo | 1 serving | both read it the same, but the build would refuse it (name: Too big: expected string to have <=120 characters) | 2010 / 112 / 46 / 0 / 345 / 7246 / 157 / 10 / 28 / 93 | 2010 / 112 / 46 / 0 / 345 / 7246 / 157 / 10 / 28 / 93 | A: numbers found after the name (line 64); check the size; B: numbers found after the name (line 64); check the size |
+| Brewhouse Bites Sampler with Boneless Wings with Dip Choice Sriracha Queso Dip, Wing Rub Choice Dill Pickle Ranch Dry Rub | 1 serving | both read it the same, but the build would refuse it (name: Too big: expected string to have <=120 characters) | 1980 / 106 / 42 / 1 / 323 / 6084 / 159 / 9 / 29 / 94 | 1980 / 106 / 42 / 1 / 323 / 6084 / 159 / 9 / 29 / 94 | A: numbers found after the name (line 65); check the size; B: numbers found after the name (line 65); check the size |
+| Brewhouse Bites Sampler with Boneless Wings with Dip Choice Sriracha Queso Dip, Wing Rub Choice Lemon Pepper Sesame Dry Rub | 1 serving | both read it the same, but the build would refuse it (name: Too big: expected string to have <=120 characters) | 1950 / 106 / 42 / 1 / 323 / 6646 / 154 / 9 / 28 / 94 | 1950 / 106 / 42 / 1 / 323 / 6646 / 154 / 9 / 28 / 94 | A: numbers found after the name (line 66); check the size; B: numbers found after the name (line 66); check the size |
+| Brewhouse Bites Sampler with Boneless Wings with Dip Choice Sriracha Queso Dip, Wing Sauce Choice Sweet & Spicy Asian Glaze | 1 serving | both read it the same, but the build would refuse it (name: Too big: expected string to have <=120 characters) | 2070 / 108 / 42 / 1 / 323 / 6566 / 180 / 9 / 50 / 96 | 2070 / 108 / 42 / 1 / 323 / 6566 / 180 / 9 / 50 / 96 | A: numbers found after the name (line 80); check the size; B: numbers found after the name (line 80); check the size |
 
 ## Spot check (15 agreed lines)
 

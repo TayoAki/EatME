@@ -3,16 +3,20 @@
 Guide: https://deltaco.com/nutrition.html (read 2026-10-23). Draft A: openai/gpt-5.6-luna. Draft B: anthropic/claude-haiku-5.5.
 Numbers in order: calories / fat_g / saturated_fat_g / trans_fat_g / cholesterol_mg / sodium_mg / carbs_g / fiber_g / sugars_g / protein_g.
 
-## Disagreements (4)
+## Disagreements (6)
+
+The last column comes from `npm run chains:evidence`: whether a draft's numbers sit right after the item's name in the guide text the drafts read. It can't read sizes or sections (one draft called a single 78 g cookie a "6 pack"): check those against the guide, then fix the line and set its check to `person`.
 
 Fix each line in `menus/del-taco.csv` from the guide and set its check to `person` (or delete the line if it isn't on the menu).
 
-| Item | Size | Why | Draft A | Draft B |
-| --- | --- | --- | --- | --- |
-| Gold Peak® Real Brewed Tea - Unsweetened | 40 fl oz | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found |
-| Gold Peak® Real Brewed Tea - Unsweetened | 24 fl oz | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found |
-| Gold Peak® Real Brewed Tea - Unsweetened | Large (40 fl oz) | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Gold Peak® Real Brewed Tea - Unsweetened | Regular (24 fl oz) | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
+| Item | Size | Why | Draft A | Draft B | In the guide text (no AI) |
+| --- | --- | --- | --- | --- | --- |
+| Gold Peak® Real Brewed Tea - Unsweetened | 40 fl oz | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found | A: numbers found after the name (line 231); check the size, mostly zeros: look |
+| Gold Peak® Real Brewed Tea - Unsweetened | 24 fl oz | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found | A: numbers found after the name (line 231); check the size, mostly zeros: look |
+| Gold Peak® Real Brewed Tea - Unsweetened | Large (40 fl oz) | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 231); check the size, mostly zeros: look |
+| Gold Peak® Real Brewed Tea - Unsweetened | Regular (24 fl oz) | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 231); check the size, mostly zeros: look |
+| Gold Peak® Real Brewed Tea - Sweet Tea | Large (40 fl oz) | both read it the same, but its protein, carbs and fat make 484 kcal, not 400 | 400 / 0 / 0 / 0 / 0 / 0 / 121 / 0 / 121 / 0 | 400 / 0 / 0 / 0 / 0 / 0 / 121 / 0 / 121 / 0 | A: numbers found after the name (line 229); check the size; B: numbers found after the name (line 229); check the size |
+| Gold Peak® Real Brewed Tea - Sweet Tea | Regular (24 fl oz) | both read it the same, but its protein, carbs and fat make 292 kcal, not 250 | 250 / 0 / 0 / 0 / 0 / 0 / 73 / 0 / 73 / 0 | 250 / 0 / 0 / 0 / 0 / 0 / 73 / 0 / 73 / 0 | A: numbers found after the name (line 230); check the size; B: numbers found after the name (line 230); check the size |
 
 ## Spot check (9 agreed lines)
 

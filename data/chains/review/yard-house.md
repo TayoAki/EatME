@@ -3,88 +3,99 @@
 Guide: https://media.yardhouse.com/en_us/pdf/yard_house_nutrition.pdf (read 2026-10-23). Draft A: openai/gpt-5.6-luna. Draft B: anthropic/claude-haiku-5.5.
 Numbers in order: calories / fat_g / saturated_fat_g / trans_fat_g / cholesterol_mg / sodium_mg / carbs_g / fiber_g / sugars_g / protein_g.
 
-## Disagreements (76)
+## Disagreements (85)
+
+The last column comes from `npm run chains:evidence`: whether a draft's numbers sit right after the item's name in the guide text the drafts read. It can't read sizes or sections (one draft called a single 78 g cookie a "6 pack"): check those against the guide, then fix the line and set its check to `person`.
 
 Fix each line in `menus/yard-house.csv` from the guide and set its check to `person` (or delete the line if it isn't on the menu).
 
-| Item | Size | Why | Draft A | Draft B |
-| --- | --- | --- | --- | --- |
-| Crispy Brussels Sprouts | 1 serving | the guide gives no protein_g | 1270 / 112 / 14 / 0.5 / 25 / 1300 / 53 / 15 / 28 / – | 1270 / 112 / 14 / 0.5 / 25 / 1300 / 53 / 15 / 28 / – |
-| Parm Truffle Fries | 1 serving | the guide gives no protein_g | 500 / 24 / 3.5 / 0 / 10 / 1280 / 63 / 8 / 0 / – | 500 / 24 / 3.5 / 0 / 10 / 1280 / 63 / 8 / 0 / – |
-| Sweet Potato Fries | 1 serving | the guide gives no protein_g | 650 / 26 / 3 / 0 / 0 / 260 / 98 / 6 / 55 / – | 650 / 26 / 3 / 0 / 0 / 260 / 98 / 6 / 55 / – |
-| Wisconsin Fried Cheese Curds | 1 serving | the guide gives no protein_g | 1980 / 141 / 56 / 2.5 / 290 / 4630 / 105 / 6 / 43 / – | 1980 / 141 / 56 / 2.5 / 290 / 4630 / 105 / 6 / 43 / – |
-| Hand-Battered Chicken Tenders & Fries | 1 serving | the guide gives no protein_g | 1320 / 78 / 10 / 1 / 155 / 2650 / 106 / 8 / 21 / – | 1320 / 78 / 10 / 1 / 155 / 2650 / 106 / 8 / 21 / – |
-| Gardein™ Chicken Tenders & Fries | 1 serving | the guide gives no protein_g | 1230 / 76 / 9 / 1 / 40 / 2910 / 96 / 12 / 19 / – | 1230 / 76 / 9 / 1 / 40 / 2910 / 96 / 12 / 19 / – |
-| Cali Roll Stack | 1 serving | the guide gives no protein_g | 970 / 57 / 8 / 0 / 105 / 1940 / 99 / 6 / 38 / – | 970 / 57 / 8 / 0 / 105 / 1940 / 99 / 6 / 38 / – |
-| Chicken Tortilla Soup | Cup | only in draft A | 610 / 47 / 21 / 1 / 150 / 910 / 31 / 4 / 6 / 18 | not found |
-| Chicken Tortilla Soup | Bowl | only in draft A | 1110 / 84 / 36 / 1.5 / 260 / 1600 / 59 / 7 / 10 / 32 | not found |
-| Tomato Bisque | Cup | only in draft A | 240 / 20 / 12 / 0 / 65 / 860 / 15 / 0.5 / 12 / 2 | not found |
-| Tomato Bisque | Bowl | only in draft A | 480 / 40 / 25 / 0.5 / 130 / 1720 / 30 / 1 / 23 / 4 | not found |
-| Traditional Caesar | 1 serving | differ: protein_g | 410 / 34 / 9 / 0 / 50 / 1010 / 13 / 3 / 3 / 16 | 410 / 34 / 9 / 0 / 50 / 1010 / 13 / 3 / 3 / – |
-| House Salad | 1 serving | differ: protein_g | 430 / 29 / 15 / 0 / 60 / 890 / 26 / 4 / 12 / 19 | 430 / 29 / 15 / 0 / 60 / 890 / 26 / 4 / 12 / – |
-| Kale & Romaine Caesar | 1 serving | differ: protein_g | 540 / 39 / 10 / 0 / 50 / 1070 / 31 / 7 / 12 / 21 | 540 / 39 / 10 / 0 / 50 / 1070 / 31 / 7 / 12 / – |
-| Three Cheese | 1 serving | differ: protein_g | 1110 / 47 / 26 / 2 / 135 / 2610 / 113 / 5 / 8 / 59 | 1110 / 47 / 26 / 2 / 135 / 2610 / 113 / 5 / 8 / – |
-| Loaded Pepperoni | 1 serving | differ: protein_g | 1130 / 54 / 24 / 1.5 / 130 / 3010 / 111 / 5 / 7 / 51 | 1130 / 54 / 24 / 1.5 / 130 / 3010 / 111 / 5 / 7 / – |
-| Margherita | 1 serving | differ: protein_g | 890 / 33 / 11 / 0 / 60 / 1720 / 113 / 6 / 6 / 35 | 890 / 33 / 11 / 0 / 60 / 1720 / 113 / 6 / 6 / – |
-| Buffalo Chicken | 1 serving | differ: protein_g | 1510 / 74 / 21 / 1.5 / 210 / 5500 / 137 / 6 / 5 / 76 | 1510 / 74 / 21 / 1.5 / 210 / 5500 / 137 / 6 / 5 / – |
-| Truffled Mushroom | 1 serving | differ: protein_g | 1220 / 69 / 20 / 1 / 100 / 2070 / 111 / 5 / 5 / 41 | 1220 / 69 / 20 / 1 / 100 / 2070 / 111 / 5 / 5 / – |
-| The Carnivore | 1 serving | differ: protein_g | 1440 / 78 / 32 / 2 / 205 / 3360 / 112 / 5 / 8 / 73 | 1440 / 78 / 32 / 2 / 205 / 3360 / 112 / 5 / 8 / – |
-| Vampire Carnitas Taco | each | differ: protein_g | 360 / 23 / 10 / 0 / 65 / 850 / 16 / 2 / 2 / 21 | 360 / 23 / 10 / 0 / 65 / 850 / 16 / 2 / 2 / – |
-| Beer-Battered Baja Fish Taco | each | differ: protein_g | 280 / 18 / 4 / 0 / 30 / 670 / 20 / 2 / 2 / 10 | 280 / 18 / 4 / 0 / 30 / 670 / 20 / 2 / 2 / – |
-| Carne Asada Taco | each | differ: protein_g | 250 / 11 / 3.5 / 0 / 35 / 580 / 20 / 2 / 2 / 17 | 250 / 11 / 3.5 / 0 / 35 / 580 / 20 / 2 / 2 / – |
-| Birria Taco | each | differ: protein_g | 360 / 26 / 12 / 0.5 / 75 / 930 / 12 / 2 / 4 / 20 | 360 / 26 / 12 / 0.5 / 75 / 930 / 12 / 2 / 4 / – |
-| Cumin Chili Shrimp Taco | each | differ: protein_g | 400 / 24 / 10 / 0.5 / 105 / 840 / 25 / 3 / 2 / 21 | 400 / 24 / 10 / 0.5 / 105 / 840 / 25 / 3 / 2 / – |
-| Crispy Korean Chicken Taco | each | differ: protein_g | 370 / 21 / 4.5 / 0 / 35 / 770 / 35 / 1 / 13 / 11 | 370 / 21 / 4.5 / 0 / 35 / 770 / 35 / 1 / 13 / – |
-| Spicy Rice & Pinto Beans | 1 serving | differ: protein_g | 310 / 4 / 0 / 0 / 0 / 900 / 58 / 6 / 3 / 10 | 310 / 4 / 0 / 0 / 0 / 900 / 58 / 6 / 3 / – |
-| Flour Tortilla | 1 serving | differ: fat_g, protein_g | 90 / 3.5 / 1.5 / 0 / 0 / 200 / 12 / 0 / 0 / 2 | 90 / 30 / 1.5 / 0 / 0 / 200 / 12 / 0 / 0 / – |
-| Yellow Corn Tortilla | 1 serving | differ: protein_g | 35 / 0 / 0 / 0 / 0 / 0 / 7 / 0.5 / 0.5 / 0.5 | 35 / 0 / 0 / 0 / 0 / 0 / 7 / 0.5 / 0.5 / – |
-| Lettuce Wrapped | 1 serving | differ: protein_g | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / – |
-| Vampire Style | 1 serving | differ: protein_g | 240 / 14 / 8 / 0 / 25 / 490 / 13 / 0 / 0 / 15 | 240 / 14 / 8 / 0 / 25 / 490 / 13 / 0 / 0 / – |
-| Poke Salad | 1 serving | differ: protein_g | 730 / 52 / 8 / 0 / 80 / 1400 / 35 / 8 / 14 / 33 | 730 / 52 / 8 / 0 / 80 / 1400 / 35 / 8 / 14 / – |
-| Ahi Crunchy Salad | small | differ: protein_g | 410 / 27 / 4.5 / 0 / 30 / 1040 / 20 / 3 / 8 / 22 | 410 / 27 / 4.5 / 0 / 30 / 1040 / 20 / 3 / 8 / – |
-| Ahi Crunchy Salad | regular | differ: protein_g | 780 / 52 / 8 / 0 / 45 / 1990 / 42 / 8 / 17 / 37 | 780 / 52 / 8 / 0 / 45 / 1990 / 42 / 8 / 17 / – |
-| Cobb Salad | small | differ: protein_g | 410 / 34 / 9 / 0 / 130 / 550 / 16 / 7 / 6 / 15 | 410 / 34 / 9 / 0 / 130 / 550 / 16 / 7 / 6 / – |
-| Cobb Salad | regular | differ: protein_g | 740 / 60 / 17 / 0.5 / 260 / 1100 / 25 / 9 / 11 / 29 | 740 / 60 / 17 / 0.5 / 260 / 1100 / 25 / 9 / 11 / – |
-| Cobb Salad with Gardein™ | small | differ: protein_g | 460 / 30 / 4 / 0 / 100 / 920 / 20 / 9 / 6 / 32 | 460 / 30 / 4 / 0 / 100 / 920 / 20 / 9 / 6 / – |
-| Cobb Salad with Gardein™ | regular | differ: protein_g | 650 / 44 / 7 / 0 / 205 / 1180 / 29 / 11 / 11 / 39 | 650 / 44 / 7 / 0 / 205 / 1180 / 29 / 11 / 11 / – |
-| 8 oz. Filet Mignon | 8 oz. | only in draft A | 900 / 51 / 23 / 2 / 200 / 2030 / 61 / 9 / 19 / 52 | not found |
-| Choice of Linguine | large | differ: fat_g, saturated_fat_g | 530 / 3 / 0 / 0 / 0 / 690 / 106 / 5 / 4 / 18 | 530 / 25 / 3 / 0 / 0 / 690 / 106 / 5 / 4 / 18 |
-| GS 8 oz. Filet | 8 oz. | only in draft A | 900 / 51 / 23 / 2 / 200 / 2030 / 61 / 9 / 19 / 52 | not found |
-| GS Tartar | 2 fl. oz. | differ: protein_g | 240 / 23 / 3.5 / 0 / 30 / 610 / 9 / 0 / 7 / 1 | 240 / 23 / 3.5 / 0 / 30 / 610 / 9 / 0 / 7 / 0.5 |
-| GS Sriracha Mayo | 2 fl. oz. | differ: protein_g | 290 / 30 / 4.5 / 0 / 30 / 400 / 4 / 0 / 2 / 0.5 | 290 / 30 / 4.5 / 0 / 30 / 400 / 4 / 0 / 2 / 1 |
-| GS Garlic Aioli | 2 fl. oz. | differ: protein_g | 340 / 37 / 6 / 0 / 40 / 240 / 2 / 0 / 0.5 / 1 | 340 / 37 / 6 / 0 / 40 / 240 / 2 / 0 / 0.5 / 0.5 |
-| GS Lemon Basil Aioli | 2 fl. oz. | differ: sugars_g | 350 / 37 / 6 / 0 / 40 / 360 / 3 / 0 / 1 / 1 | 350 / 37 / 6 / 0 / 40 / 360 / 3 / 0 / 0.5 / 1 |
-| House-Brewed Iced Tea (all flavors) | 1 serving | differ: carbs_g | 0 / 0 / 0 / 0 / 0 / 5 / 0 / 0 / 0 / 0 | 0 / 0 / 0 / 0 / 0 / 5 / 0.5 / 0 / 0 / 0 |
-| Sweet Tea | 1 serving | differ: cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 80 / 0 / 0 / 0 / 0 / 5 / 0.5 / 0 / 0 / 0 | 80 / 0 / 0 / 0 / – / – / – / – / – / – |
-| Classic Lemonade | 1 serving | differ: cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 110 / 0 / 0 / 0 / 0 / 45 / 10 / 0 / 9 / 0 | 110 / 0 / 0 / 0 / – / – / – / – / – / – |
-| Dragonfruit Lemonade | 1 serving | differ: cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 390 / 0 / 0 / 0 / 0 / 45 / 12 / 0 / 12 / 0 | 390 / 0 / 0 / 0 / – / – / – / – / – / – |
-| Strawberry Lemonade | 1 serving | differ: cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 300 / 0 / 0 / 0 / 0 / 45 / 0 / 0 / 0 / 0 | 300 / 0 / 0 / 0 / – / – / – / – / – / – |
-| Espresso | 1 serving | differ: cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 30 / 0 / 0 / 0 / 0 / 50 / 12 / 0 / 12 / 0 | 30 / 0 / 0 / 0 / – / – / – / – / – / – |
-| Cappuccino | 1 serving | differ: cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 120 / 3.5 / 2.5 / 0 / 0 / 45 / 0 / 0 / 0 / 0 | 120 / 3.5 / 2.5 / 0 / – / – / – / – / – / – |
-| Mocha | 1 serving | differ: cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 340 / 12 / 8 / 0 / 0 / 5 / 0.5 / 0 / 0 / 0 | 340 / 12 / 8 / 0 / – / – / – / – / – / – |
-| Latte | 1 serving | differ: cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 150 / 5 / 3 / 0 / 0 / 50 / 12 / 0 / 12 / 0 | 150 / 5 / 3 / 0 / – / – / – / – / – / – |
-| Hot Chocolate | 1 serving | differ: cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 120 / 2 / 2 / 0 / 0 / 45 / 0 / 0 / 0 / 0 | 120 / 2 / 2 / 0 / – / – / – / – / – / – |
-| Hot Tea (all flavors) | 1 serving | differ: cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | 0 / 0 / 0 / 0 / – / – / – / – / – / – |
-| Coffee | 1 serving | differ: cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | 0 / 0 / 0 / 0 / – / – / – / – / – / – |
-| Orange Juice | 1 serving | differ: cholesterol_mg, protein_g | 110 / 0 / 0 / 0 / 2 / 15 / 25 / 0 / 24 / 0 | 110 / 0 / 0 / 0 / 0 / 15 / 25 / 0 / 24 / 2 |
-| Guavarita | 1 serving | differ: fiber_g | 270 / 0 / 0 / 0 / 0 / 10 / 36 / 0 / 30 / 0 | 270 / 0 / 0 / 0 / 0 / 10 / 36 / 0.5 / 30 / 0 |
-| House Light Lager | Pint/Goblet | differ: sodium_mg | 130 / 0 / 0 / 0 / 0 / 20 / 6 / 0 / 0.5 / 1 | 130 / 0 / 0 / 0 / 0 / 30 / 6 / 0 / 0.5 / 1 |
-| Beer (6% ABV and up) | 23 oz. | differ: carbs_g, sugars_g, protein_g | 380 / 0 / 0 / 0 / 0 / 25 / 28 / 0 / 0 / 6 | 380 / 0 / 0 / 0 / 0 / 25 / 40 / 0 / 40 / 0 |
-| Beer (6% ABV and up) | Half Yard | differ: carbs_g | 550 / 0 / 0 / 0 / 0 / 40 / 40 / 0 / 0 / 9 | 550 / 0 / 0 / 0 / 0 / 40 / 39 / 0 / 0 / 9 |
-| Beer (Non-Alcoholic) | Bottle | differ: sodium_mg, carbs_g, sugars_g, protein_g | 130 / 0 / 0 / 0 / 0 / 15 / 15 / 0 / 0 / 3 | 130 / 0 / 0 / 0 / 0 / 45 / 29 / 0 / 29 / 0.5 |
-| Cider | Pint/Goblet | differ: sodium_mg, carbs_g, sugars_g | 270 / 0 / 0 / 0 / 0 / 25 / 40 / 0 / 40 / 0 | 270 / 0 / 0 / 0 / 0 / 20 / 28 / 0 / 28 / 0 |
-| Cider | 23 oz. | differ: sodium_mg, carbs_g, sugars_g, protein_g | 390 / 0 / 0 / 0 / 0 / 40 / 56 / 0 / 56 / 0 | 390 / 0 / 0 / 0 / 0 / 25 / 28 / 0 / 0 / 6 |
-| Cider | Half Yard | differ: sodium_mg, carbs_g, sugars_g | 530 / 0 / 0 / 0 / 0 / 75 / 112 / 0 / 112 / 0 | 530 / 0 / 0 / 0 / 0 / 40 / 56 / 0 / 56 / 0 |
-| Cider | Growler | differ: sodium_mg, carbs_g, sugars_g | 1060 / 0 / 0 / 0 / 0 / 0 / 1 / 0 / 1 / 0 | 1060 / 0 / 0 / 0 / 0 / 75 / 112 / 0 / 112 / 0 |
-| Hard Seltzer | Pint/Goblet | differ: carbs_g, sugars_g | 130 / 0 / 0 / 0 / 0 / 0 / 2 / 0 / 2 / 0 | 130 / 0 / 0 / 0 / 0 / 0 / 1 / 0 / 1 / 0 |
-| Hard Seltzer | 23 oz. | differ: carbs_g, sugars_g | 190 / 0 / 0 / 0 / 0 / 0 / 5 / 0 / 1 / 0 | 190 / 0 / 0 / 0 / 0 / 0 / 2 / 0 / 2 / 0 |
-| Chicken Tortilla Soup - Cup | 1 serving | only in draft B | not found | 610 / 47 / 21 / 1 / 150 / 910 / 31 / 4 / 6 / – |
-| Chicken Tortilla Soup - Bowl | 1 serving | only in draft B | not found | 1110 / 84 / 36 / 1.5 / 260 / 1600 / 59 / 7 / 10 / – |
-| Tomato Bisque - Cup | 1 serving | only in draft B | not found | 240 / 20 / 12 / 0 / 65 / 860 / 15 / 0.5 / 12 / – |
-| Tomato Bisque - Bowl | 1 serving | only in draft B | not found | 480 / 40 / 25 / 0.5 / 130 / 1720 / 30 / 1 / 23 / – |
-| 8 oz. Filet Mignon | 1 serving | only in draft B | not found | 900 / 51 / 23 / 2 / 200 / 2030 / 61 / 9 / 19 / 52 |
-| Fontina Vodka Penne | 1 serving | only in draft B | not found | 1570 / 71 / 36 / 1.5 / 360 / 2950 / 120 / 7 / 11 / 80 |
-| GS 8 oz. Filet | 1 serving | only in draft B | not found | 900 / 51 / 23 / 2 / 200 / 2030 / 61 / 9 / 19 / 52 |
+| Item | Size | Why | Draft A | Draft B | In the guide text (no AI) |
+| --- | --- | --- | --- | --- | --- |
+| Crispy Brussels Sprouts | 1 serving | the guide gives no protein_g | 1270 / 112 / 14 / 0.5 / 25 / 1300 / 53 / 15 / 28 / – | 1270 / 112 / 14 / 0.5 / 25 / 1300 / 53 / 15 / 28 / – | A: numbers found after the name (line 55); check the size; B: numbers found after the name (line 55); check the size |
+| Parm Truffle Fries | 1 serving | the guide gives no protein_g | 500 / 24 / 3.5 / 0 / 10 / 1280 / 63 / 8 / 0 / – | 500 / 24 / 3.5 / 0 / 10 / 1280 / 63 / 8 / 0 / – | A: numbers found after the name (line 56); check the size; B: numbers found after the name (line 56); check the size |
+| Sweet Potato Fries | 1 serving | the guide gives no protein_g | 650 / 26 / 3 / 0 / 0 / 260 / 98 / 6 / 55 / – | 650 / 26 / 3 / 0 / 0 / 260 / 98 / 6 / 55 / – | A: numbers found after the name (line 57); check the size; B: numbers found after the name (line 57); check the size |
+| Wisconsin Fried Cheese Curds | 1 serving | the guide gives no protein_g | 1980 / 141 / 56 / 2.5 / 290 / 4630 / 105 / 6 / 43 / – | 1980 / 141 / 56 / 2.5 / 290 / 4630 / 105 / 6 / 43 / – | A: numbers found after the name (line 58); check the size; B: numbers found after the name (line 58); check the size |
+| Hand-Battered Chicken Tenders & Fries | 1 serving | the guide gives no protein_g | 1320 / 78 / 10 / 1 / 155 / 2650 / 106 / 8 / 21 / – | 1320 / 78 / 10 / 1 / 155 / 2650 / 106 / 8 / 21 / – | A: numbers found after the name (line 59); check the size; B: numbers found after the name (line 59); check the size |
+| Gardein™ Chicken Tenders & Fries | 1 serving | the guide gives no protein_g | 1230 / 76 / 9 / 1 / 40 / 2910 / 96 / 12 / 19 / – | 1230 / 76 / 9 / 1 / 40 / 2910 / 96 / 12 / 19 / – | A: numbers found after the name (line 60); check the size; B: numbers found after the name (line 60); check the size |
+| Cali Roll Stack | 1 serving | the guide gives no protein_g | 970 / 57 / 8 / 0 / 105 / 1940 / 99 / 6 / 38 / – | 970 / 57 / 8 / 0 / 105 / 1940 / 99 / 6 / 38 / – | A: numbers found after the name (line 61); check the size; B: numbers found after the name (line 61); check the size |
+| Chicken Tortilla Soup | Cup | only in draft A | 610 / 47 / 21 / 1 / 150 / 910 / 31 / 4 / 6 / 18 | not found | A: numbers found after the name (line 63); check the size |
+| Chicken Tortilla Soup | Bowl | only in draft A | 1110 / 84 / 36 / 1.5 / 260 / 1600 / 59 / 7 / 10 / 32 | not found | A: numbers found after the name (line 64); check the size |
+| Tomato Bisque | Cup | only in draft A | 240 / 20 / 12 / 0 / 65 / 860 / 15 / 0.5 / 12 / 2 | not found | A: not as drafted (line 65 lacks 0.5) |
+| Tomato Bisque | Bowl | only in draft A | 480 / 40 / 25 / 0.5 / 130 / 1720 / 30 / 1 / 23 / 4 | not found | A: numbers found after the name (line 66); check the size |
+| Traditional Caesar | 1 serving | differ: protein_g | 410 / 34 / 9 / 0 / 50 / 1010 / 13 / 3 / 3 / 16 | 410 / 34 / 9 / 0 / 50 / 1010 / 13 / 3 / 3 / – | A: numbers found after the name (line 67); check the size; B: numbers found after the name (line 67); check the size |
+| House Salad | 1 serving | differ: protein_g | 430 / 29 / 15 / 0 / 60 / 890 / 26 / 4 / 12 / 19 | 430 / 29 / 15 / 0 / 60 / 890 / 26 / 4 / 12 / – | A: numbers found after the name (line 68); check the size; B: numbers found after the name (line 68); check the size |
+| Kale & Romaine Caesar | 1 serving | differ: protein_g | 540 / 39 / 10 / 0 / 50 / 1070 / 31 / 7 / 12 / 21 | 540 / 39 / 10 / 0 / 50 / 1070 / 31 / 7 / 12 / – | A: numbers found after the name (line 69); check the size; B: numbers found after the name (line 69); check the size |
+| Three Cheese | 1 serving | differ: protein_g | 1110 / 47 / 26 / 2 / 135 / 2610 / 113 / 5 / 8 / 59 | 1110 / 47 / 26 / 2 / 135 / 2610 / 113 / 5 / 8 / – | A: numbers found after the name (line 71); check the size; B: numbers found after the name (line 71); check the size |
+| Loaded Pepperoni | 1 serving | differ: protein_g | 1130 / 54 / 24 / 1.5 / 130 / 3010 / 111 / 5 / 7 / 51 | 1130 / 54 / 24 / 1.5 / 130 / 3010 / 111 / 5 / 7 / – | A: numbers found after the name (line 72); check the size; B: numbers found after the name (line 72); check the size |
+| Margherita | 1 serving | differ: protein_g | 890 / 33 / 11 / 0 / 60 / 1720 / 113 / 6 / 6 / 35 | 890 / 33 / 11 / 0 / 60 / 1720 / 113 / 6 / 6 / – | A: numbers found after the name (line 73); check the size; B: numbers found after the name (line 73); check the size |
+| Buffalo Chicken | 1 serving | differ: protein_g | 1510 / 74 / 21 / 1.5 / 210 / 5500 / 137 / 6 / 5 / 76 | 1510 / 74 / 21 / 1.5 / 210 / 5500 / 137 / 6 / 5 / – | A: numbers found after the name (line 74); check the size; B: numbers found after the name (line 74); check the size |
+| Truffled Mushroom | 1 serving | differ: protein_g | 1220 / 69 / 20 / 1 / 100 / 2070 / 111 / 5 / 5 / 41 | 1220 / 69 / 20 / 1 / 100 / 2070 / 111 / 5 / 5 / – | A: numbers found after the name (line 75); check the size; B: numbers found after the name (line 75); check the size |
+| The Carnivore | 1 serving | differ: protein_g | 1440 / 78 / 32 / 2 / 205 / 3360 / 112 / 5 / 8 / 73 | 1440 / 78 / 32 / 2 / 205 / 3360 / 112 / 5 / 8 / – | A: numbers found after the name (line 76); check the size; B: numbers found after the name (line 76); check the size |
+| Vampire Carnitas Taco | each | differ: protein_g | 360 / 23 / 10 / 0 / 65 / 850 / 16 / 2 / 2 / 21 | 360 / 23 / 10 / 0 / 65 / 850 / 16 / 2 / 2 / – | A: numbers found after the name (line 79); check the size; B: numbers found after the name (line 79); check the size |
+| Beer-Battered Baja Fish Taco | each | differ: protein_g | 280 / 18 / 4 / 0 / 30 / 670 / 20 / 2 / 2 / 10 | 280 / 18 / 4 / 0 / 30 / 670 / 20 / 2 / 2 / – | A: numbers found after the name (line 80); check the size; B: numbers found after the name (line 80); check the size |
+| Carne Asada Taco | each | differ: protein_g | 250 / 11 / 3.5 / 0 / 35 / 580 / 20 / 2 / 2 / 17 | 250 / 11 / 3.5 / 0 / 35 / 580 / 20 / 2 / 2 / – | A: numbers found after the name (line 81); check the size; B: numbers found after the name (line 81); check the size |
+| Birria Taco | each | differ: protein_g | 360 / 26 / 12 / 0.5 / 75 / 930 / 12 / 2 / 4 / 20 | 360 / 26 / 12 / 0.5 / 75 / 930 / 12 / 2 / 4 / – | A: numbers found after the name (line 82); check the size; B: numbers found after the name (line 82); check the size |
+| Cumin Chili Shrimp Taco | each | differ: protein_g | 400 / 24 / 10 / 0.5 / 105 / 840 / 25 / 3 / 2 / 21 | 400 / 24 / 10 / 0.5 / 105 / 840 / 25 / 3 / 2 / – | A: numbers found after the name (line 83); check the size; B: numbers found after the name (line 83); check the size |
+| Crispy Korean Chicken Taco | each | differ: protein_g | 370 / 21 / 4.5 / 0 / 35 / 770 / 35 / 1 / 13 / 11 | 370 / 21 / 4.5 / 0 / 35 / 770 / 35 / 1 / 13 / – | A: numbers found after the name (line 84); check the size; B: numbers found after the name (line 84); check the size |
+| Spicy Rice & Pinto Beans | 1 serving | differ: protein_g | 310 / 4 / 0 / 0 / 0 / 900 / 58 / 6 / 3 / 10 | 310 / 4 / 0 / 0 / 0 / 900 / 58 / 6 / 3 / – | A: numbers found after the name (line 85); check the size; B: numbers found after the name (line 85); check the size |
+| Flour Tortilla | 1 serving | differ: fat_g, protein_g | 90 / 3.5 / 1.5 / 0 / 0 / 200 / 12 / 0 / 0 / 2 | 90 / 30 / 1.5 / 0 / 0 / 200 / 12 / 0 / 0 / – | A: numbers found after the name (line 87); check the size; B: numbers found after the name (line 87); check the size |
+| Yellow Corn Tortilla | 1 serving | differ: protein_g | 35 / 0 / 0 / 0 / 0 / 0 / 7 / 0.5 / 0.5 / 0.5 | 35 / 0 / 0 / 0 / 0 / 0 / 7 / 0.5 / 0.5 / – | A: not as drafted (line 89 lacks 0.5, 0.5, 0.5); B: not as drafted (line 89 lacks 0.5, 0.5) |
+| Lettuce Wrapped | 1 serving | differ: protein_g | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / – | A: numbers found after the name (line 87); check the size, mostly zeros: look; B: numbers found after the name (line 87); check the size, mostly zeros: look |
+| Vampire Style | 1 serving | differ: protein_g | 240 / 14 / 8 / 0 / 25 / 490 / 13 / 0 / 0 / 15 | 240 / 14 / 8 / 0 / 25 / 490 / 13 / 0 / 0 / – | A: numbers found after the name (line 91); check the size; B: numbers found after the name (line 91); check the size |
+| Poke Salad | 1 serving | differ: protein_g | 730 / 52 / 8 / 0 / 80 / 1400 / 35 / 8 / 14 / 33 | 730 / 52 / 8 / 0 / 80 / 1400 / 35 / 8 / 14 / – | A: numbers found after the name (line 93); check the size; B: numbers found after the name (line 93); check the size |
+| Ahi Crunchy Salad | small | differ: protein_g | 410 / 27 / 4.5 / 0 / 30 / 1040 / 20 / 3 / 8 / 22 | 410 / 27 / 4.5 / 0 / 30 / 1040 / 20 / 3 / 8 / – | A: numbers found after the name (line 94); check the size; B: numbers found after the name (line 94); check the size |
+| Ahi Crunchy Salad | regular | differ: protein_g | 780 / 52 / 8 / 0 / 45 / 1990 / 42 / 8 / 17 / 37 | 780 / 52 / 8 / 0 / 45 / 1990 / 42 / 8 / 17 / – | A: numbers found after the name (line 95); check the size; B: numbers found after the name (line 95); check the size |
+| Cobb Salad | small | differ: protein_g | 410 / 34 / 9 / 0 / 130 / 550 / 16 / 7 / 6 / 15 | 410 / 34 / 9 / 0 / 130 / 550 / 16 / 7 / 6 / – | A: numbers found after the name (line 96); check the size; B: numbers found after the name (line 96); check the size |
+| Cobb Salad | regular | differ: protein_g | 740 / 60 / 17 / 0.5 / 260 / 1100 / 25 / 9 / 11 / 29 | 740 / 60 / 17 / 0.5 / 260 / 1100 / 25 / 9 / 11 / – | A: numbers found after the name (line 97); check the size; B: numbers found after the name (line 97); check the size |
+| Cobb Salad with Gardein™ | small | differ: protein_g | 460 / 30 / 4 / 0 / 100 / 920 / 20 / 9 / 6 / 32 | 460 / 30 / 4 / 0 / 100 / 920 / 20 / 9 / 6 / – | A: numbers found after the name (line 98); check the size; B: numbers found after the name (line 98); check the size |
+| Cobb Salad with Gardein™ | regular | differ: protein_g | 650 / 44 / 7 / 0 / 205 / 1180 / 29 / 11 / 11 / 39 | 650 / 44 / 7 / 0 / 205 / 1180 / 29 / 11 / 11 / – | A: numbers found after the name (line 99); check the size; B: numbers found after the name (line 99); check the size |
+| 8 oz. Filet Mignon | 8 oz. | only in draft A | 900 / 51 / 23 / 2 / 200 / 2030 / 61 / 9 / 19 / 52 | not found | A: numbers found after the name (line 150); check the size |
+| Choice of Linguine | large | differ: fat_g, saturated_fat_g | 530 / 3 / 0 / 0 / 0 / 690 / 106 / 5 / 4 / 18 | 530 / 25 / 3 / 0 / 0 / 690 / 106 / 5 / 4 / 18 | A: numbers found after the name (line 170); check the size; B: numbers found after the name (line 170); check the size |
+| GS 8 oz. Filet | 8 oz. | only in draft A | 900 / 51 / 23 / 2 / 200 / 2030 / 61 / 9 / 19 / 52 | not found | A: numbers found after the name (line 229); check the size |
+| GS Tartar | 2 fl. oz. | differ: protein_g | 240 / 23 / 3.5 / 0 / 30 / 610 / 9 / 0 / 7 / 1 | 240 / 23 / 3.5 / 0 / 30 / 610 / 9 / 0 / 7 / 0.5 | A: not as drafted (line 271 lacks 30, 610, 9, 0, 7, 1); B: not as drafted (line 271 lacks 30, 610, 9, 0, 7, 0.5) |
+| GS Sriracha Mayo | 2 fl. oz. | differ: protein_g | 290 / 30 / 4.5 / 0 / 30 / 400 / 4 / 0 / 2 / 0.5 | 290 / 30 / 4.5 / 0 / 30 / 400 / 4 / 0 / 2 / 1 | A: not as drafted (line 273 lacks 30, 400, 4, 0, 2, 0.5); B: not as drafted (line 273 lacks 30, 400, 4, 0, 2, 1) |
+| GS Garlic Aioli | 2 fl. oz. | differ: protein_g | 340 / 37 / 6 / 0 / 40 / 240 / 2 / 0 / 0.5 / 1 | 340 / 37 / 6 / 0 / 40 / 240 / 2 / 0 / 0.5 / 0.5 | A: not as drafted (line 274 lacks 40, 240, 2, 0, 0.5, 1); B: not as drafted (line 274 lacks 40, 240, 2, 0, 0.5, 0.5) |
+| GS Lemon Basil Aioli | 2 fl. oz. | differ: sugars_g | 350 / 37 / 6 / 0 / 40 / 360 / 3 / 0 / 1 / 1 | 350 / 37 / 6 / 0 / 40 / 360 / 3 / 0 / 0.5 / 1 | A: not as drafted (line 276 lacks 40, 360, 3, 0, 1, 1); B: not as drafted (line 276 lacks 40, 360, 3, 0, 0.5, 1) |
+| House-Brewed Iced Tea (all flavors) | 1 serving | differ: carbs_g | 0 / 0 / 0 / 0 / 0 / 5 / 0 / 0 / 0 / 0 | 0 / 0 / 0 / 0 / 0 / 5 / 0.5 / 0 / 0 / 0 | A: not as drafted (line 282 lacks 5, 0, 0, 0, 0); B: not as drafted (line 282 lacks 5, 0.5, 0, 0, 0) |
+| Sweet Tea | 1 serving | differ: cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 80 / 0 / 0 / 0 / 0 / 5 / 0.5 / 0 / 0 / 0 | 80 / 0 / 0 / 0 / – / – / – / – / – / – | A: not as drafted (line 283 lacks 5, 0.5, 0, 0, 0); B: numbers found after the name (line 283); check the size, mostly zeros: look |
+| Classic Lemonade | 1 serving | differ: cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 110 / 0 / 0 / 0 / 0 / 45 / 10 / 0 / 9 / 0 | 110 / 0 / 0 / 0 / – / – / – / – / – / – | A: not as drafted (line 284 lacks 45, 10, 0, 9, 0); B: numbers found after the name (line 284); check the size, mostly zeros: look |
+| Dragonfruit Lemonade | 1 serving | differ: cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 390 / 0 / 0 / 0 / 0 / 45 / 12 / 0 / 12 / 0 | 390 / 0 / 0 / 0 / – / – / – / – / – / – | A: not as drafted (line 285 lacks 45, 12, 0, 12, 0); B: numbers found after the name (line 285); check the size, mostly zeros: look |
+| Strawberry Lemonade | 1 serving | differ: cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 300 / 0 / 0 / 0 / 0 / 45 / 0 / 0 / 0 / 0 | 300 / 0 / 0 / 0 / – / – / – / – / – / – | A: not as drafted (line 286 lacks 45, 0, 0, 0, 0); B: numbers found after the name (line 286); check the size, mostly zeros: look |
+| Espresso | 1 serving | differ: cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 30 / 0 / 0 / 0 / 0 / 50 / 12 / 0 / 12 / 0 | 30 / 0 / 0 / 0 / – / – / – / – / – / – | A: not as drafted (line 372 lacks 30, 50, 12, 12); B: numbers found after the name (line 287); check the size, mostly zeros: look |
+| Cappuccino | 1 serving | differ: cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 120 / 3.5 / 2.5 / 0 / 0 / 45 / 0 / 0 / 0 / 0 | 120 / 3.5 / 2.5 / 0 / – / – / – / – / – / – | A: not as drafted (line 288 lacks 0, 45, 0, 0, 0, 0); B: numbers found after the name (line 288); check the size |
+| Mocha | 1 serving | differ: cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 340 / 12 / 8 / 0 / 0 / 5 / 0.5 / 0 / 0 / 0 | 340 / 12 / 8 / 0 / – / – / – / – / – / – | A: not as drafted (line 289 lacks 0, 5, 0.5, 0, 0, 0); B: numbers found after the name (line 289); check the size |
+| Latte | 1 serving | differ: cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 150 / 5 / 3 / 0 / 0 / 50 / 12 / 0 / 12 / 0 | 150 / 5 / 3 / 0 / – / – / – / – / – / – | A: not as drafted (line 290 lacks 0, 50, 12, 0, 12, 0); B: numbers found after the name (line 290); check the size |
+| Hot Chocolate | 1 serving | differ: cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 120 / 2 / 2 / 0 / 0 / 45 / 0 / 0 / 0 / 0 | 120 / 2 / 2 / 0 / – / – / – / – / – / – | A: not as drafted (line 291 lacks 0, 45, 0, 0, 0, 0); B: numbers found after the name (line 291); check the size |
+| Hot Tea (all flavors) | 1 serving | differ: cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | 0 / 0 / 0 / 0 / – / – / – / – / – / – | A: not as drafted (line 292 lacks 0, 0, 0, 0, 0); B: numbers found after the name (line 292); check the size, mostly zeros: look |
+| Coffee | 1 serving | differ: cholesterol_mg, sodium_mg, carbs_g, fiber_g, sugars_g, protein_g | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | 0 / 0 / 0 / 0 / – / – / – / – / – / – | A: not as drafted (line 293 lacks 0, 0, 0, 0, 0); B: numbers found after the name (line 293); check the size, mostly zeros: look |
+| Orange Juice | 1 serving | differ: cholesterol_mg, protein_g | 110 / 0 / 0 / 0 / 2 / 15 / 25 / 0 / 24 / 0 | 110 / 0 / 0 / 0 / 0 / 15 / 25 / 0 / 24 / 2 | A: numbers found after the name (line 357); check the size; B: numbers found after the name (line 357); check the size |
+| Guavarita | 1 serving | differ: fiber_g | 270 / 0 / 0 / 0 / 0 / 10 / 36 / 0 / 30 / 0 | 270 / 0 / 0 / 0 / 0 / 10 / 36 / 0.5 / 30 / 0 | A: not as drafted (line 415 lacks 10, 36, 0, 30, 0); B: not as drafted (line 415 lacks 10, 36, 0.5, 30, 0) |
+| House Light Lager | Pint/Goblet | differ: sodium_mg | 130 / 0 / 0 / 0 / 0 / 20 / 6 / 0 / 0.5 / 1 | 130 / 0 / 0 / 0 / 0 / 30 / 6 / 0 / 0.5 / 1 | A: not as drafted (line 419 lacks 20, 6, 0, 0.5, 1); B: not as drafted (line 419 lacks 30, 6, 0, 0.5, 1) |
+| Beer (6% ABV and up) | 23 oz. | differ: carbs_g, sugars_g, protein_g | 380 / 0 / 0 / 0 / 0 / 25 / 28 / 0 / 0 / 6 | 380 / 0 / 0 / 0 / 0 / 25 / 40 / 0 / 40 / 0 | A: not as drafted (line 433 lacks 25, 28, 0, 0, 6); B: not as drafted (line 433 lacks 25, 40, 0, 40, 0) |
+| Beer (6% ABV and up) | Half Yard | differ: carbs_g | 550 / 0 / 0 / 0 / 0 / 40 / 40 / 0 / 0 / 9 | 550 / 0 / 0 / 0 / 0 / 40 / 39 / 0 / 0 / 9 | A: not as drafted (line 434 lacks 40, 40, 0, 0, 9); B: not as drafted (line 434 lacks 40, 39, 0, 0, 9) |
+| Beer (Non-Alcoholic) | Bottle | differ: sodium_mg, carbs_g, sugars_g, protein_g | 130 / 0 / 0 / 0 / 0 / 15 / 15 / 0 / 0 / 3 | 130 / 0 / 0 / 0 / 0 / 45 / 29 / 0 / 29 / 0.5 | A: not as drafted (line 436 lacks 15, 15, 0, 0, 3); B: not as drafted (line 436 lacks 45, 29, 0, 29, 0.5) |
+| Cider | Pint/Goblet | differ: sodium_mg, carbs_g, sugars_g | 270 / 0 / 0 / 0 / 0 / 25 / 40 / 0 / 40 / 0 | 270 / 0 / 0 / 0 / 0 / 20 / 28 / 0 / 28 / 0 | A: not as drafted (line 437 lacks 25, 40, 0, 40, 0); B: not as drafted (line 437 lacks 20, 28, 0, 28, 0) |
+| Cider | 23 oz. | differ: sodium_mg, carbs_g, sugars_g, protein_g | 390 / 0 / 0 / 0 / 0 / 40 / 56 / 0 / 56 / 0 | 390 / 0 / 0 / 0 / 0 / 25 / 28 / 0 / 0 / 6 | A: not as drafted (line 438 lacks 40, 56, 0, 56, 0); B: not as drafted (line 438 lacks 25, 28, 0, 0, 6) |
+| Cider | Half Yard | differ: sodium_mg, carbs_g, sugars_g | 530 / 0 / 0 / 0 / 0 / 75 / 112 / 0 / 112 / 0 | 530 / 0 / 0 / 0 / 0 / 40 / 56 / 0 / 56 / 0 | A: not as drafted (line 439 lacks 75, 112, 0, 112, 0); B: not as drafted (line 439 lacks 40, 56, 0, 56, 0) |
+| Cider | Growler | differ: sodium_mg, carbs_g, sugars_g | 1060 / 0 / 0 / 0 / 0 / 0 / 1 / 0 / 1 / 0 | 1060 / 0 / 0 / 0 / 0 / 75 / 112 / 0 / 112 / 0 | A: not as drafted (line 440 lacks 0, 1, 0, 1, 0); B: not as drafted (line 440 lacks 75, 112, 0, 112, 0) |
+| Hard Seltzer | Pint/Goblet | differ: carbs_g, sugars_g | 130 / 0 / 0 / 0 / 0 / 0 / 2 / 0 / 2 / 0 | 130 / 0 / 0 / 0 / 0 / 0 / 1 / 0 / 1 / 0 | A: not as drafted (line 441 lacks 0, 2, 0, 2, 0); B: not as drafted (line 441 lacks 0, 1, 0, 1, 0) |
+| Hard Seltzer | 23 oz. | differ: carbs_g, sugars_g | 190 / 0 / 0 / 0 / 0 / 0 / 5 / 0 / 1 / 0 | 190 / 0 / 0 / 0 / 0 / 0 / 2 / 0 / 2 / 0 | A: not as drafted (line 442 lacks 0, 5, 0, 1, 0); B: not as drafted (line 442 lacks 0, 2, 0, 2, 0) |
+| Chicken Tortilla Soup - Cup | 1 serving | only in draft B | not found | 610 / 47 / 21 / 1 / 150 / 910 / 31 / 4 / 6 / – | B: numbers found after the name (line 63); check the size |
+| Chicken Tortilla Soup - Bowl | 1 serving | only in draft B | not found | 1110 / 84 / 36 / 1.5 / 260 / 1600 / 59 / 7 / 10 / – | B: numbers found after the name (line 64); check the size |
+| Tomato Bisque - Cup | 1 serving | only in draft B | not found | 240 / 20 / 12 / 0 / 65 / 860 / 15 / 0.5 / 12 / – | B: not as drafted (line 65 lacks 0.5) |
+| Tomato Bisque - Bowl | 1 serving | only in draft B | not found | 480 / 40 / 25 / 0.5 / 130 / 1720 / 30 / 1 / 23 / – | B: numbers found after the name (line 66); check the size |
+| 8 oz. Filet Mignon | 1 serving | only in draft B | not found | 900 / 51 / 23 / 2 / 200 / 2030 / 61 / 9 / 19 / 52 | B: numbers found after the name (line 150); check the size |
+| Fontina Vodka Penne | 1 serving | only in draft B | not found | 1570 / 71 / 36 / 1.5 / 360 / 2950 / 120 / 7 / 11 / 80 | B: numbers found after the name (line 182); check the size |
+| GS 8 oz. Filet | 1 serving | only in draft B | not found | 900 / 51 / 23 / 2 / 200 / 2030 / 61 / 9 / 19 / 52 | B: numbers found after the name (line 229); check the size |
+| Old 43 | 1 serving | both read it the same, but its protein, carbs and fat make 88 kcal, not 230 | 230 / 0 / 0 / 0 / 0 / 5 / 22 / 0 / 19 / 0 | 230 / 0 / 0 / 0 / 0 / 5 / 22 / 0 / 19 / 0 | A: numbers found after the name (line 382); check the size; B: numbers found after the name (line 382); check the size |
+| Royal Apple (NYC only) | 1 serving | both read it the same, but its protein, carbs and fat make 100 kcal, not 230 | 230 / 0 / 0 / 0 / 0 / 10 / 25 / 0 / 23 / 0 | 230 / 0 / 0 / 0 / 0 / 10 / 25 / 0 / 23 / 0 | A: numbers found after the name (line 383); check the size; B: numbers found after the name (line 383); check the size |
+| The Coco Passion | 1 serving | both read it the same, but its protein, carbs and fat make 192 kcal, not 300 | 300 / 0 / 0 / 0 / 0 / 15 / 48 / 0 / 45 / 0 | 300 / 0 / 0 / 0 / 0 / 15 / 48 / 0 / 45 / 0 | A: numbers found after the name (line 385); check the size; B: numbers found after the name (line 385); check the size |
+| Pineapple Express | 1 serving | both read it the same, but its protein, carbs and fat make 112 kcal, not 220 | 220 / 0 / 0 / 0 / 0 / 15 / 28 / 0 / 26 / 0 | 220 / 0 / 0 / 0 / 0 / 15 / 28 / 0 / 26 / 0 | A: numbers found after the name (line 386); check the size; B: numbers found after the name (line 386); check the size |
+| Malibu Peach | 1 serving | both read it the same, but its protein, carbs and fat make 120 kcal, not 280 | 280 / 0 / 0 / 0 / 0 / 15 / 30 / 0 / 30 / 0 | 280 / 0 / 0 / 0 / 0 / 15 / 30 / 0 / 30 / 0 | A: numbers found after the name (line 391); check the size; B: numbers found after the name (line 391); check the size |
+| Long Beach Tea | 1 serving | both read it the same, but its protein, carbs and fat make 120 kcal, not 270 | 270 / 0 / 0 / 0 / 0 / 20 / 30 / 0 / 27 / 0 | 270 / 0 / 0 / 0 / 0 / 20 / 30 / 0 / 27 / 0 | A: not as drafted (line 399 lacks 20, 30, 0, 27, 0); B: not as drafted (line 399 lacks 20, 30, 0, 27, 0) |
+| Jenn's Blackberry Rickey | 1 serving | both read it the same, but its protein, carbs and fat make 180 kcal, not 360 | 360 / 0 / 0 / 0 / 0 / 15 / 45 / 0 / 42 / 0 | 360 / 0 / 0 / 0 / 0 / 15 / 45 / 0 / 42 / 0 | A: not as drafted (line 400 lacks 15, 45, 0, 42, 0); B: not as drafted (line 400 lacks 15, 45, 0, 42, 0) |
+| Take Me to Tokyo | 1 serving | both read it the same, but its protein, carbs and fat make 136 kcal, not 180 | 180 / 0 / 0 / 0 / 0 / 30 / 34 / 0 / 27 / 0 | 180 / 0 / 0 / 0 / 0 / 30 / 34 / 0 / 27 / 0 | A: not as drafted (line 405 lacks 30, 34, 0, 27, 0); B: not as drafted (line 405 lacks 30, 34, 0, 27, 0) |
+| Kish & Tell | 1 serving | both read it the same, but its protein, carbs and fat make 104 kcal, not 170 | 170 / 0 / 0 / 0 / 0 / 10 / 26 / 0 / 22 / 0 | 170 / 0 / 0 / 0 / 0 / 10 / 26 / 0 / 22 / 0 | A: not as drafted (line 406 lacks 10, 26, 0, 22, 0); B: not as drafted (line 406 lacks 10, 26, 0, 22, 0) |
 
 ## Spot check (13 agreed lines)
 

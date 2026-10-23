@@ -102,9 +102,9 @@ SONIC,COFFEE,ORIGINAL COLD BREW ICED COFFEE,SMALL,,drink,190,9,6,0,30,110,24,0,1
 SONIC,COFFEE,ORIGINAL COLD BREW ICED COFFEE,MEDIUM,,drink,260,13,8,0,45,150,32,0,17,5,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
 SONIC,COFFEE,ORIGINAL COLD BREW ICED COFFEE,LARGE,,drink,410,20,12,0.5,70,230,50,0,26,8,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
 SONIC,COFFEE,ORIGINAL COLD BREW ICED COFFEE,RT 44°,,drink,570,27,17,1,95,320,70,0,37,11,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
-SONIC,SNACKS & SIDES,CHED 'R' BITES®,SMALL,,side,280,27,8,0.5,40,970,23,1,1,14,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
-SONIC,SNACKS & SIDES,CHED 'R' BITES®,MEDIUM,,side,410,46,13,1,65,1570,35,2,2,21,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
-SONIC,SNACKS & SIDES,CHED 'R' BITES®,LARGE,,side,550,53,16,1,85,1940,46,2,2,27,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,SNACKS & SIDES,CHED 'R' BITES®,SMALL,,side,280,27,8,0.5,40,970,23,1,1,14,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,CHED 'R' BITES®,MEDIUM,,side,410,46,13,1,65,1570,35,2,2,21,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,CHED 'R' BITES®,LARGE,,side,550,53,16,1,85,1940,46,2,2,27,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
 SONIC,SNACKS & SIDES,CHILI CHEESE FRIES,SMALL,,side,350,19,6,0,20,640,36,3,1,8,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
 SONIC,SNACKS & SIDES,CHILI CHEESE FRIES,MEDIUM,,side,450,26,10,0.5,35,940,42,4,2,12,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
 SONIC,SNACKS & SIDES,CHILI CHEESE FRIES,LARGE,,side,710,40,14,1,50,1390,70,7,2,18,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
@@ -122,9 +122,9 @@ SONIC,SNACKS & SIDES,FRITOS® CHILI PIE,SMALL,,dessert,510,34,10,0.5,35,1030,35,
 SONIC,SNACKS & SIDES,HANDMADE ONION RINGS,SMALL,,side,440,21,3.5,0,0,430,55,3,14,6,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
 SONIC,SNACKS & SIDES,HANDMADE ONION RINGS,MEDIUM,,side,580,29,5,0,0,570,74,4,19,8,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
 SONIC,SNACKS & SIDES,HANDMADE ONION RINGS,LARGE,,side,800,39,7,0.5,0,790,101,5,26,11,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
-SONIC,SNACKS & SIDES,PICKLE-O'S®,SMALL,,side,190,21,3.5,0,10,850,23,1,2,3,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
-SONIC,SNACKS & SIDES,PICKLE-O'S®,MEDIUM,,side,310,39,7,0.5,20,1490,39,2,4,5,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
-SONIC,SNACKS & SIDES,PICKLE-O'S®,LARGE,,side,500,49,8,0.5,20,2100,61,4,5,8,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,SNACKS & SIDES,PICKLE-O'S®,SMALL,,side,190,21,3.5,0,10,850,23,1,2,3,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,PICKLE-O'S®,MEDIUM,,side,310,39,7,0.5,20,1490,39,2,4,5,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,PICKLE-O'S®,LARGE,,side,500,49,8,0.5,20,2100,61,4,5,8,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
 SONIC,SNACKS & SIDES,SOFT PRETZEL TWIST,1 serving,,side,250,7,1,0,0,440,39,2,6,7,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
 SONIC,SNACKS & SIDES,TOTS,SMALL,,side,250,13,2.5,0,0,620,30,3,0,2,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
 SONIC,SNACKS & SIDES,TOTS,MEDIUM,,side,360,19,3.5,0,0,890,43,4,0,3,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
@@ -210,7 +210,7 @@ SONIC,REAL ICE CREAM SUNDAES,HOT FUDGE REAL ICE CREAM SUNDAE,1 serving,,dessert,
 SONIC,REAL ICE CREAM SUNDAES,STRAWBERRY REAL ICE CREAM SUNDAE,1 serving,,dessert,440,21,14,0.5,65,220,55,1,40,7,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
 SONIC,FROZEN ZONE® ADD-ONS,PEANUTS ADD-ON,1 serving,,extra,40,3.5,0.5,0,0,0,2,1,0,2,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
 SONIC,FROZEN ZONE® ADD-ONS,WHIPPED TOPPING ADD-ON,1 serving,,extra,70,5,5,0,0,0,5,0,5,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
-SONIC,CONE,VANILLA CONE,1 serving,,main,250,12,8,0,45,140,30,0,17,4,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,CONE,VANILLA CONE,1 serving,,dessert,250,12,8,0,45,140,30,0,17,4,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
 SONIC,SLUSHES,PLAIN SLUSH ONLY - NO SYRUP,SMALL,,extra,180,0,0,0,0,30,48,0,48,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
 SONIC,SLUSHES,PLAIN SLUSH ONLY - NO SYRUP,MEDIUM,,extra,240,0,0,0,0,40,66,0,66,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
 SONIC,SLUSHES,PLAIN SLUSH ONLY - NO SYRUP,LARGE,,extra,380,0,0,0,0,60,103,0,103,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
@@ -263,7 +263,7 @@ SONIC,SOFT DRINKS,DIET COKE®,RT 44®,,drink,0,0,0,0,0,50,0,0,0,0,https://offers
 SONIC,SOFT DRINKS,DR PEPPER®,WACKY PACK®,,drink,60,0,0,0,0,25,18,0,18,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
 SONIC,SOFT DRINKS,DR PEPPER®,SMALL,,drink,100,0,0,0,0,35,28,0,28,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
 SONIC,SOFT DRINKS,DR PEPPER®,MEDIUM,,drink,160,0,0,0,0,60,46,0,46,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
-SONIC,SOFT DRINKS,DR PEPPER®,LARGE,,drink,240,0,0,0,0,90,70,0,70,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,SOFT DRINKS,DR PEPPER®,LARGE,,drink,240,0,0,0,0,90,70,0,70,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
 SONIC,SOFT DRINKS,DR PEPPER®,RT 44®,,drink,330,0,0,0,0,120,94,0,94,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
 SONIC,SOFT DRINKS,DIET DR PEPPER®,WACKY PACK®,,drink,0,0,0,0,0,35,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
 SONIC,SOFT DRINKS,DIET DR PEPPER®,SMALL,,drink,0,0,0,0,0,55,0,0,0,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
@@ -292,9 +292,9 @@ SONIC,BURGERS,AHATCH GREEN CHILE CHEESEBURGER,1 serving,,main,590,28,10,1,85,107
 SONIC,TOASTER® SANDWICHES,ABACON CHEESEBURGER TOASTER® SANDWICH,1 serving,,main,760,38,13,1,100,1670,68,3,14,37,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
 SONIC,WRAPS,ACHICKEN WRAP - CRISPY,1 serving,,main,530,28,6,0,40,1280,48,2,2,21,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
 SONIC,BREAKFAST ITEMS,SULFOSOLIC BREAKFAST BURRITO,1 serving,,main,610,35,14,0,325,1800,49,3,3,24,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
-SONIC,SNACKS & SIDES,CHED 'R' PEPPERS®,4 PC SMALL,,side,330,28,8,1,35,1340,37,2,2,9,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
-SONIC,SNACKS & SIDES,CHED 'R' PEPPERS,6 PC MEDIUM,,side,490,48,12,1.5,55,2130,56,3,4,13,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
-SONIC,SNACKS & SIDES,CHED 'R' PEPPERS,8 PC LARGE,,side,660,57,15,2,65,2690,74,4,5,17,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
+SONIC,SNACKS & SIDES,CHED 'R' PEPPERS®,4 PC SMALL,,side,330,28,8,1,35,1340,37,2,2,9,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,CHED 'R' PEPPERS,6 PC MEDIUM,,side,490,48,12,1.5,55,2130,56,3,4,13,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,SNACKS & SIDES,CHED 'R' PEPPERS,8 PC LARGE,,side,660,57,15,2,65,2690,74,4,5,17,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
 SONIC,SNACKS & SIDES,FRITOS,CHILI PIE MEDIUM,,side,750,50,15,1,50,1490,53,5,2,20,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
 SONIC,SNACKS & SIDES,FRITOS,CHILI PIE LARGE,,side,990,66,20,1,70,1940,71,6,3,26,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
 SONIC,SNACKS & SIDES,MOZZARELLA STICKS,4 PC SMALL,,side,370,19,7,0,30,950,40,2,5,15,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,two-drafts
@@ -490,16 +490,16 @@ SONIC,DRINK ADD-INS & TOPPINGS,VANILLA ADD-IN,SMALL,,extra,20,0,0,0,0,0,6,0,6,0,
 SONIC,DRINK ADD-INS & TOPPINGS,VANILLA ADD-IN,MEDIUM,,extra,45,0,0,0,0,0,12,0,12,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
 SONIC,DRINK ADD-INS & TOPPINGS,VANILLA ADD-IN,LARGE,,extra,70,0,0,0,0,5,18,0,18,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
 SONIC,DRINK ADD-INS & TOPPINGS,VANILLA ADD-IN,RT 44®,,extra,90,0,0,0,0,5,24,0,24,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
-SONIC,LIMITED TIME ONLY,ΔRED BULL® SLUSH,SMALL,,main,180,0,0,0,0,50,48,0,48,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
-SONIC,LIMITED TIME ONLY,ΔRED BULL® SLUSH,MEDIUM,,main,250,0,0,0,0,80,65,0,65,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
-SONIC,LIMITED TIME ONLY,ΔRED BULL® SLUSH,LARGE,,main,390,0,0,0,0,125,103,0,102,1,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
-SONIC,LIMITED TIME ONLY,ΔRED BULL® SLUSH,RT 44®,,main,540,0,0,0,0,170,144,0,143,1,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
-SONIC,LIMITED TIME ONLY,ΔRED BULL® CAN,1 serving,,main,120,0,0,0,0,110,30,0,29,1,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
-SONIC,LIMITED TIME ONLY,ΔSUMMER EDITION WATERMELON RED BULL® SLUSH,SMALL,,main,180,0,0,0,0,45,48,0,48,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
-SONIC,LIMITED TIME ONLY,ΔSUMMER EDITION WATERMELON RED BULL® SLUSH,MEDIUM,,main,250,0,0,0,0,75,65,0,65,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
-SONIC,LIMITED TIME ONLY,ΔSUMMER EDITION WATERMELON RED BULL® SLUSH,LARGE,,main,390,0,0,0,0,115,103,0,102,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
-SONIC,LIMITED TIME ONLY,ΔSUMMER EDITION WATERMELON RED BULL® SLUSH,RT 44®,,main,540,0,0,0,0,160,144,0,143,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
-SONIC,LIMITED TIME ONLY,ΔSUMMER EDITION WATERMELON RED BULL® CAN,1 serving,,main,120,0,0,0,0,95,30,0,29,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,LIMITED TIME ONLY,ΔRED BULL® SLUSH,SMALL,,drink,180,0,0,0,0,50,48,0,48,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,LIMITED TIME ONLY,ΔRED BULL® SLUSH,MEDIUM,,drink,250,0,0,0,0,80,65,0,65,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,LIMITED TIME ONLY,ΔRED BULL® SLUSH,LARGE,,drink,390,0,0,0,0,125,103,0,102,1,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,LIMITED TIME ONLY,ΔRED BULL® SLUSH,RT 44®,,drink,540,0,0,0,0,170,144,0,143,1,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,LIMITED TIME ONLY,ΔRED BULL® CAN,1 serving,,drink,120,0,0,0,0,110,30,0,29,1,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,LIMITED TIME ONLY,ΔSUMMER EDITION WATERMELON RED BULL® SLUSH,SMALL,,drink,180,0,0,0,0,45,48,0,48,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,LIMITED TIME ONLY,ΔSUMMER EDITION WATERMELON RED BULL® SLUSH,MEDIUM,,drink,250,0,0,0,0,75,65,0,65,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,LIMITED TIME ONLY,ΔSUMMER EDITION WATERMELON RED BULL® SLUSH,LARGE,,drink,390,0,0,0,0,115,103,0,102,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,LIMITED TIME ONLY,ΔSUMMER EDITION WATERMELON RED BULL® SLUSH,RT 44®,,drink,540,0,0,0,0,160,144,0,143,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
+SONIC,LIMITED TIME ONLY,ΔSUMMER EDITION WATERMELON RED BULL® CAN,1 serving,,drink,120,0,0,0,0,95,30,0,29,0,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
 SONIC,LIMITED TIME ONLY,ΔYELLOW CAKE BATTER SHAKE,MINI,,dessert,540,31,18,0.5,55,200,57,0,40,6,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
 SONIC,LIMITED TIME ONLY,ΔYELLOW CAKE BATTER SHAKE,SMALL,,dessert,770,44,26,1,100,330,83,0,57,10,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending
 SONIC,LIMITED TIME ONLY,ΔYELLOW CAKE BATTER SHAKE,MEDIUM,,dessert,1050,61,33,1.5,125,420,113,0,77,13,https://offers.sonicdrivein.com/nutrition/nutrition.pdf,2026-10-23,pending

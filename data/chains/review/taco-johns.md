@@ -5,22 +5,24 @@ Numbers in order: calories / fat_g / saturated_fat_g / trans_fat_g / cholesterol
 
 ## Disagreements (12)
 
+The last column comes from `npm run chains:evidence`: whether a draft's numbers sit right after the item's name in the guide text the drafts read. It can't read sizes or sections (one draft called a single 78 g cookie a "6 pack"): check those against the guide, then fix the line and set its check to `person`.
+
 Fix each line in `menus/taco-johns.csv` from the guide and set its check to `person` (or delete the line if it isn't on the menu).
 
-| Item | Size | Why | Draft A | Draft B |
-| --- | --- | --- | --- | --- |
-| Mexi Rolls®, Chipotle Shredded Chicken | 2 count | differ: sugars_g | 250 / 12 / 4 / 0 / 30 / 410 / 23 / 4 / 0.5 / 12 | 250 / 12 / 4 / 0 / 30 / 410 / 23 / 4 / 4 / 12 |
-| Fiesta Rice Bowl, Beef | 1 serving | both read numbers that can't be right: fiber 100 g above carbs 76 g | 670 / 27 / 9 / 0.5 / 65 / 1600 / 76 / 100 / 7 / 30 | 670 / 27 / 9 / 0.5 / 65 / 1600 / 76 / 100 / 7 / 30 |
-| Cherry Fizz | Small | differ: protein_g | 280 / 0 / 0 / 0 / 0 / 60 / 71 / 0 / 71 / 0 | 280 / 0 / 0 / 0 / 0 / 60 / 71 / 0 / 71 / 1 |
-| Cherry Fizz | Medium | differ: protein_g | 420 / 0 / 0 / 0 / 0 / 85 / 108 / 0 / 107 / 0 | 420 / 0 / 0 / 0 / 0 / 85 / 108 / 0 / 107 / 1 |
-| Cherry Fizz | Large | differ: protein_g | 580 / 0 / 0 / 0 / 0 / 120 / 149 / 0 / 148 / 0 | 580 / 0 / 0 / 0 / 0 / 120 / 149 / 0 / 148 / 1 |
-| Summer Punch | Small | differ: protein_g | 310 / 0 / 0 / 0 / 0 / 80 / 79 / 0 / 78 / 0 | 310 / 0 / 0 / 0 / 0 / 80 / 79 / 0 / 78 / 1 |
-| Summer Punch | Medium | differ: protein_g | 460 / 0 / 0 / 0 / 0 / 120 / 119 / 0 / 118 / 0 | 460 / 0 / 0 / 0 / 0 / 120 / 119 / 0 / 118 / 1 |
-| Summer Punch | Large | differ: protein_g | 640 / 0 / 0 / 0 / 0 / 170 / 165 / 0 / 164 / 0 | 640 / 0 / 0 / 0 / 0 / 170 / 165 / 0 / 164 / 1 |
-| Add-on, Cherry Fizz Syrup | Small | differ: protein_g | 20 / 0 / 0 / 0 / 0 / 0 / 5 / 0 / 4 / 0 | 20 / 0 / 0 / 0 / 0 / 0 / 5 / 0 / 4 / 1 |
-| Add-on, Cherry Fizz Syrup | Medium/Large | differ: protein_g | 40 / 0 / 0 / 0 / 0 / 0 / 9 / 0 / 9 / 0 | 40 / 0 / 0 / 0 / 0 / 0 / 9 / 0 / 9 / 1 |
-| Add-on, Summer Punch Syrup | Small | differ: protein_g | 20 / 0 / 0 / 0 / 0 / 0 / 5 / 0 / 4 / 0 | 20 / 0 / 0 / 0 / 0 / 0 / 5 / 0 / 4 / 1 |
-| Add-on, Summer Punch Syrup | Medium/Large | differ: protein_g | 35 / 0 / 0 / 0 / 0 / 0 / 9 / 0 / 9 / 0 | 35 / 0 / 0 / 0 / 0 / 0 / 9 / 0 / 9 / 1 |
+| Item | Size | Why | Draft A | Draft B | In the guide text (no AI) |
+| --- | --- | --- | --- | --- | --- |
+| Mexi Rolls®, Chipotle Shredded Chicken | 2 count | differ: sugars_g | 250 / 12 / 4 / 0 / 30 / 410 / 23 / 4 / 0.5 / 12 | 250 / 12 / 4 / 0 / 30 / 410 / 23 / 4 / 4 / 12 | A: name not in the guide text; B: name not in the guide text |
+| Fiesta Rice Bowl, Beef | 1 serving | both read numbers that can't be right: fiber 100 g above carbs 76 g | 670 / 27 / 9 / 0.5 / 65 / 1600 / 76 / 100 / 7 / 30 | 670 / 27 / 9 / 0.5 / 65 / 1600 / 76 / 100 / 7 / 30 | A: name not in the guide text; B: name not in the guide text |
+| Cherry Fizz | Small | differ: protein_g | 280 / 0 / 0 / 0 / 0 / 60 / 71 / 0 / 71 / 0 | 280 / 0 / 0 / 0 / 0 / 60 / 71 / 0 / 71 / 1 | A: name not in the guide text; B: name not in the guide text |
+| Cherry Fizz | Medium | differ: protein_g | 420 / 0 / 0 / 0 / 0 / 85 / 108 / 0 / 107 / 0 | 420 / 0 / 0 / 0 / 0 / 85 / 108 / 0 / 107 / 1 | A: name not in the guide text; B: name not in the guide text |
+| Cherry Fizz | Large | differ: protein_g | 580 / 0 / 0 / 0 / 0 / 120 / 149 / 0 / 148 / 0 | 580 / 0 / 0 / 0 / 0 / 120 / 149 / 0 / 148 / 1 | A: name not in the guide text; B: name not in the guide text |
+| Summer Punch | Small | differ: protein_g | 310 / 0 / 0 / 0 / 0 / 80 / 79 / 0 / 78 / 0 | 310 / 0 / 0 / 0 / 0 / 80 / 79 / 0 / 78 / 1 | A: name not in the guide text; B: name not in the guide text |
+| Summer Punch | Medium | differ: protein_g | 460 / 0 / 0 / 0 / 0 / 120 / 119 / 0 / 118 / 0 | 460 / 0 / 0 / 0 / 0 / 120 / 119 / 0 / 118 / 1 | A: name not in the guide text; B: name not in the guide text |
+| Summer Punch | Large | differ: protein_g | 640 / 0 / 0 / 0 / 0 / 170 / 165 / 0 / 164 / 0 | 640 / 0 / 0 / 0 / 0 / 170 / 165 / 0 / 164 / 1 | A: name not in the guide text; B: name not in the guide text |
+| Add-on, Cherry Fizz Syrup | Small | differ: protein_g | 20 / 0 / 0 / 0 / 0 / 0 / 5 / 0 / 4 / 0 | 20 / 0 / 0 / 0 / 0 / 0 / 5 / 0 / 4 / 1 | A: name not in the guide text; B: name not in the guide text |
+| Add-on, Cherry Fizz Syrup | Medium/Large | differ: protein_g | 40 / 0 / 0 / 0 / 0 / 0 / 9 / 0 / 9 / 0 | 40 / 0 / 0 / 0 / 0 / 0 / 9 / 0 / 9 / 1 | A: name not in the guide text; B: name not in the guide text |
+| Add-on, Summer Punch Syrup | Small | differ: protein_g | 20 / 0 / 0 / 0 / 0 / 0 / 5 / 0 / 4 / 0 | 20 / 0 / 0 / 0 / 0 / 0 / 5 / 0 / 4 / 1 | A: name not in the guide text; B: name not in the guide text |
+| Add-on, Summer Punch Syrup | Medium/Large | differ: protein_g | 35 / 0 / 0 / 0 / 0 / 0 / 9 / 0 / 9 / 0 | 35 / 0 / 0 / 0 / 0 / 0 / 9 / 0 / 9 / 1 | A: name not in the guide text; B: name not in the guide text |
 
 ## Spot check (11 agreed lines)
 

@@ -1,16 +1,16 @@
 chain,section,name,serving,serving_g,kind,calories,fat_g,saturated_fat_g,trans_fat_g,cholesterol_mg,sodium_mg,carbs_g,fiber_g,sugars_g,protein_g,source_url,checked_on,check
-The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,Peach Bellini Spritz,1 serving,,main,280,0,0,0,0,2,37,0,35,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,Peach Bellini Spritz (UT),1 serving,,main,250,0,0,0,0,2,34,0,32,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,Factory Peach Bellini,1 serving,,main,250,0,0,0,0,10,46,1,44,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,Tropical Mimosa,1 serving,,main,250,0,0,0,0,10,34,0,33,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,Tropical Mimosa (PR),1 serving,,main,230,0,0,0,0,10,32,0,30,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,Tropical Mimosa (UT),1 serving,,main,240,0,0,0,0,10,34,0,32,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,White Sangria,1 serving,,main,250,0,0,0,0,1,33,0,30,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,White Sangria (NC),1 serving,,main,210,0,0,0,0,1,28,0,25,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,White Sangria (PR),1 serving,,main,230,0,0,0,0,1,30,0,28,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,White Sangria (HI),1 serving,,main,270,0,0,0,0,1,36,0,34,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,Strawberry Spritz,1 serving,,main,300,0,0,0,0,1,21,0,18,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,Strawberry Spritz (PR),1 serving,,main,280,0,0,0,0,1,21,0,19,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,Peach Bellini Spritz,1 serving,,drink,280,0,0,0,0,2,37,0,35,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,Peach Bellini Spritz (UT),1 serving,,drink,250,0,0,0,0,2,34,0,32,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,Factory Peach Bellini,1 serving,,drink,250,0,0,0,0,10,46,1,44,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,Tropical Mimosa,1 serving,,drink,250,0,0,0,0,10,34,0,33,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,Tropical Mimosa (PR),1 serving,,drink,230,0,0,0,0,10,32,0,30,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,Tropical Mimosa (UT),1 serving,,drink,240,0,0,0,0,10,34,0,32,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,White Sangria,1 serving,,drink,250,0,0,0,0,1,33,0,30,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,White Sangria (NC),1 serving,,drink,210,0,0,0,0,1,28,0,25,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,White Sangria (PR),1 serving,,drink,230,0,0,0,0,1,30,0,28,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,White Sangria (HI),1 serving,,drink,270,0,0,0,0,1,36,0,34,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,Strawberry Spritz,1 serving,,drink,300,0,0,0,0,1,21,0,18,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,Strawberry Spritz (PR),1 serving,,drink,280,0,0,0,0,1,21,0,19,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,Espresso Martini,1 serving,,drink,250,0,0,0,0,2,23,0,22,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,Espresso Martini (PR),1 serving,,drink,250,0,0,0,0,2,23,0,22,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,Espresso Martini (UT),1 serving,,drink,210,0,0,0,0,2,19,0,18,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
@@ -18,48 +18,48 @@ The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,Espresso Martini (SUB),1 serving
 The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,Espresso Old Fashioned,1 serving,,drink,340,0,0,0,0,25,40,0,36,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,Espresso Old Fashioned (PR),1 serving,,drink,340,0,0,0,0,30,41,0,37,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,Espresso Old Fashioned (UT),1 serving,,drink,260,0,0,0,0,20,29,0,27,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,Bloody Mary,1 serving,,main,360,4,0.5,0,5,1180,51,23,30,6,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,Coconut Aperol Spritz (HI),1 serving,,main,260,0,0,0,0,10,36,0,35,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,Lilikoi Mimosa (HI),1 serving,,main,240,0,0,0,0,10,34,0,33,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,Banana Nut Old Fashioned,1 serving,,main,250,1,1,0,0,0,17,0,16,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,Bloody Mary,1 serving,,drink,360,4,0.5,0,5,1180,51,23,30,6,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,Coconut Aperol Spritz (HI),1 serving,,drink,260,0,0,0,0,10,36,0,35,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,Lilikoi Mimosa (HI),1 serving,,drink,240,0,0,0,0,10,34,0,33,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,ALL DAY BRUNCH COCKTAILS,Banana Nut Old Fashioned,1 serving,,drink,250,1,1,0,0,0,17,0,16,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,SPECIALTY DRINKS,Fresh Cucumber Martini,1 serving,,drink,230,0,0,0,0,1,19,0,18,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,SPECIALTY DRINKS,Lemon Drop,1 serving,,drink,270,0,0,0,0,2,28,0,27,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,SPECIALTY DRINKS,Raspberry Lemon Drop,1 serving,,drink,270,0,0,0,0,2,32,1,30,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,SPECIALTY DRINKS,Lemon Drop,1 serving,,drink,270,0,0,0,0,2,28,0,27,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,SPECIALTY DRINKS,Raspberry Lemon Drop,1 serving,,drink,270,0,0,0,0,2,32,1,30,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
 The Cheesecake Factory,SPECIALTY DRINKS,Cucumber Martini (PR),1 serving,,drink,260,0,0,0,0,10,28,0,24,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,SPECIALTY DRINKS,Strawberry Martini,1 serving,,drink,250,0,0,0,0,2,14,0,13,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,SPECIALTY DRINKS,Strawberry Martini (UT),1 serving,,drink,200,0,0,0,0,2,14,0,14,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,SPECIALTY DRINKS,Georgia Peach,1 serving,,drink,350,0,0,0,0,10,55,1,53,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,SPECIALTY DRINKS,Georgia Peach (UT),1 serving,,drink,330,0,0,0,0,10,55,1,53,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,SPECIALTY DRINKS,Georgia Peach,1 serving,,drink,350,0,0,0,0,10,55,1,53,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,SPECIALTY DRINKS,Georgia Peach (UT),1 serving,,drink,330,0,0,0,0,10,55,1,53,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
 The Cheesecake Factory,SPECIALTY DRINKS,Pineapple Moscow Mule,1 serving,,drink,320,0,0,0,0,20,49,1,46,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,SPECIALTY DRINKS,Pineapple Moscow Mule (UT),1 serving,,drink,280,0,0,0,0,20,45,1,42,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,SPECIALTY DRINKS,Yuzu Lemon Drop,1 serving,,drink,260,0,0,0,0,1,30,0,28,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,SPECIALTY DRINKS,Yuzu Lemon Drop (PR),1 serving,,drink,240,0,0,0,0,1,27,0,25,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,SPECIALTY DRINKS,Yuzu Lemon Drop,1 serving,,drink,260,0,0,0,0,1,30,0,28,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,SPECIALTY DRINKS,Yuzu Lemon Drop (PR),1 serving,,drink,240,0,0,0,0,1,27,0,25,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
 The Cheesecake Factory,SPECIALTY DRINKS,Sangria,1 serving,,drink,160,0,0,0,0,10,24,2,21,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,SPECIALTY DRINKS,SkinnyLicious\circledR Sangria,1 serving,,drink,130,0,0,0,0,10,19,1,17,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
-The Cheesecake Factory,SPECIALTY DRINKS,J.W.'s Pink LemonadeTM,1 serving,,drink,300,0,0,0,0,10,49,1,45,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,SPECIALTY DRINKS,J.W.'s Pink Lemonade (UT),1 serving,,drink,290,0,0,0,0,10,50,1,47,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,SPECIALTY DRINKS,J.W.'s Pink Lemonade (PR),1 serving,,drink,270,0,0,0,0,10,45,1,41,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,SPECIALTY DRINKS,J.W.'s Pink LemonadeTM,1 serving,,drink,300,0,0,0,0,10,49,1,45,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,SPECIALTY DRINKS,J.W.'s Pink Lemonade (UT),1 serving,,drink,290,0,0,0,0,10,50,1,47,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,SPECIALTY DRINKS,J.W.'s Pink Lemonade (PR),1 serving,,drink,270,0,0,0,0,10,45,1,41,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
 The Cheesecake Factory,SPECIALTY DRINKS,Lava Flow Punch,1 serving,,drink,250,6,1,0,5,1000,0,3,0,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
-The Cheesecake Factory,SPECIALTY DRINKS,Mai Tai,1 serving,,drink,310,0,0,0,0,10,31,0,29,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,SPECIALTY DRINKS,Mai Tai (UT),1 serving,,drink,290,0,0,0,0,10,31,0,29,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,SPECIALTY DRINKS,Mai Tai (PR),1 serving,,drink,300,0,0,0,0,10,33,0,31,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,SPECIALTY DRINKS,Mai Tai,1 serving,,drink,310,0,0,0,0,10,31,0,29,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,SPECIALTY DRINKS,Mai Tai (UT),1 serving,,drink,290,0,0,0,0,10,31,0,29,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,SPECIALTY DRINKS,Mai Tai (PR),1 serving,,drink,300,0,0,0,0,10,33,0,31,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
 The Cheesecake Factory,SPECIALTY DRINKS,The Well-Mannered Dirty Martini,1 serving,,drink,250,6,1,0,5,1000,0,3,0,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
 The Cheesecake Factory,SPECIALTY DRINKS,The Well-Mannered Dirty Martini (UT),1 serving,,drink,140,5,1,0,5,830,0,3,0,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
-The Cheesecake Factory,ISLAND FAVORITES (HI),Lava Flow 2.0,1 serving,,main,350,1.5,1,0,0,20,38,1,36,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,ISLAND FAVORITES (HI),Lava Flow 2.0,1 serving,,main,350,1.5,1,0,0,20,38,1,36,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
 The Cheesecake Factory,ISLAND FAVORITES (HI),Coconut Margarita,1 serving,,main,220,0,0,0,0,210,31,0,29,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,ISLAND FAVORITES (HI),Island Time Sangria,1 serving,,main,230,0,0,0,0,5,33,2,29,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,ISLAND FAVORITES (HI),Maui Mule,1 serving,,main,310,0,0,0,0,10,47,1,44,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,ISLAND FAVORITES (HI),Tahitian Pineapple,1 serving,,main,280,0,0,0,0,1,31,1,28,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,ISLAND FAVORITES (HI),Mai Tai (HI),1 serving,,main,310,0,0,0,0,25,39,0,37,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,ISLAND FAVORITES (HI),Blue Hawaiian,1 serving,,main,290,0,0,0,0,10,42,1,39,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,ISLAND FAVORITES (HI),Lava Flow,1 serving,,main,490,9,8,0,0,35,79,4,69,2,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,ISLAND FAVORITES (HI),Mango Colada (HI),1 serving,,main,530,7,6,0,0,25,62,1,61,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,ISLAND FAVORITES (HI),Tahitian Pineapple,1 serving,,main,280,0,0,0,0,1,31,1,28,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,ISLAND FAVORITES (HI),Mai Tai (HI),1 serving,,main,310,0,0,0,0,25,39,0,37,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,ISLAND FAVORITES (HI),Blue Hawaiian,1 serving,,main,290,0,0,0,0,10,42,1,39,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,ISLAND FAVORITES (HI),Lava Flow,1 serving,,main,490,9,8,0,0,35,79,4,69,2,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,ISLAND FAVORITES (HI),Mango Colada (HI),1 serving,,main,530,7,6,0,0,25,62,1,61,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
 The Cheesecake Factory,ISLAND FAVORITES (HI),Coconut Lime Daiquiri,1 serving,,main,280,1.5,1,0,0,15,37,1,34,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,ISLAND FAVORITES (HI),Piña Colada,1 serving,,main,520,8,7,0,0,35,75,2,73,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,ISLAND FAVORITES (HI),Obana Punch,1 serving,,main,290,0,0,0,0,3,42,0,39,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,ISLAND FAVORITES (HI),Big Island Paper Plane,1 serving,,main,260,0,0,0,0,4,28,0,26,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,ZERO PROOF COCKTAILS,Zero Proof Pineapple Mule,1 serving,,main,150,0,0,0,0,10,37,0,36,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,ZERO PROOF COCKTAILS,Zero Proof Mojito,1 serving,,main,100,0,0,0,0,10,24,1,20,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,ISLAND FAVORITES (HI),Piña Colada,1 serving,,main,520,8,7,0,0,35,75,2,73,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,ISLAND FAVORITES (HI),Obana Punch,1 serving,,main,290,0,0,0,0,3,42,0,39,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,ISLAND FAVORITES (HI),Big Island Paper Plane,1 serving,,main,260,0,0,0,0,4,28,0,26,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,ZERO PROOF COCKTAILS,Zero Proof Pineapple Mule,1 serving,,drink,150,0,0,0,0,10,37,0,36,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,ZERO PROOF COCKTAILS,Zero Proof Mojito,1 serving,,drink,100,0,0,0,0,10,24,1,20,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,NON-ALCOHOLIC SPECIALTY SODAS,Paradise Punch,1 serving,,drink,120,0,0,0,0,3,31,0,29,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,NON-ALCOHOLIC SPECIALTY SODAS,Coconut Limeade,1 serving,,drink,190,0.5,0,0,0,20,44,0,42,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,NON-ALCOHOLIC SPECIALTY SODAS,Pineapple Cherry Limeade,1 serving,,drink,150,0,0,0,0,15,37,1,34,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
@@ -73,35 +73,35 @@ The Cheesecake Factory,NON-ALCOHOLIC SPECIALTY SODAS,Peaches & Cream Soda,1 serv
 The Cheesecake Factory,NON-ALCOHOLIC SPECIALTY SODAS,Cherry-Licious Soda,1 serving,,drink,380,15,10,0.5,55,15,36,0,53,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
 The Cheesecake Factory,NON-ALCOHOLIC SPECIALTY SODAS,"Root Beer ""Float"" Soda",1 serving,,drink,310,15,10,0.5,55,25,44,0,42,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,NON-ALCOHOLIC SPECIALTY SODAS,Matcha Cream (UT),1 serving,,drink,330,15,9,0.5,55,30,48,1,46,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,MARGARITAS & MOJITOS,The Ultimate,1 serving,,main,260,0,0,0,0,170,25,0,23,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,MARGARITAS & MOJITOS,Paloma Rosa,1 serving,,main,320,0,0,0,0,560,36,1,33,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,MARGARITAS & MOJITOS,Paloma Rosa (PR),1 serving,,main,320,0,0,0,0,560,36,1,33,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,MARGARITAS & MOJITOS,Strawberry Infused Margarita,1 serving,,main,270,0,0,0,0,170,22,0,21,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,MARGARITAS & MOJITOS,Strawberry Infused Margarita (PR),1 serving,,main,270,0,0,0,0,170,22,0,21,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,MARGARITAS & MOJITOS,Coconut Margarita (PR),1 serving,,main,300,0,0,0,0,170,33,0,32,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,MARGARITAS & MOJITOS,Coconut Margarita (UT),1 serving,,main,250,0,0,0,0,160,27,0,26,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,MARGARITAS & MOJITOS,Passion Fruit Margarita,1 serving,,main,270,0,0,0,0,10,29,0,27,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,MARGARITAS & MOJITOS,Pineapple Mezcal,1 serving,,main,290,0,0,0,0,250,36,1,33,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,MARGARITAS & MOJITOS,Pineapple Mezcal (PR),1 serving,,main,270,0,0,0,0,250,36,1,33,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,MARGARITAS & MOJITOS,Mojito,1 serving,,main,240,0,0,0,0,115,30,2,26,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,MARGARITAS & MOJITOS,Mojito (PR),1 serving,,main,260,0,0,0,0,15,31,2,26,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,MARGARITAS & MOJITOS,SkinnyLicious® Mojito,1 serving,,main,150,0,0,0,0,210,16,1,8,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,MARGARITAS & MOJITOS,Coconut Mojito,1 serving,,main,300,2,1,0,0,35,44,1,41,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,MARGARITAS & MOJITOS,Coconut Mojito (PR),1 serving,,main,310,2,1,0,0,30,45,1,41,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,MARGARITAS & MOJITOS,Coconut Mojito (UT),1 serving,,main,270,1.5,1,0,0,95,40,1,36,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,MARGARITAS & MOJITOS,Passion Fruit Mojito,1 serving,,main,270,0,0,0,0,20,34,1,31,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,MARGARITAS & MOJITOS,Passion Fruit Mojito (PR),1 serving,,main,260,0,0,0,0,20,34,1,31,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,WHISKEY COCKTAILS,Raspberry Sour,1 serving,,main,300,0,0,0,0,0,32,0,30,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,MARGARITAS & MOJITOS,The Ultimate,1 serving,,drink,260,0,0,0,0,170,25,0,23,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,MARGARITAS & MOJITOS,Paloma Rosa,1 serving,,drink,320,0,0,0,0,560,36,1,33,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,MARGARITAS & MOJITOS,Paloma Rosa (PR),1 serving,,drink,320,0,0,0,0,560,36,1,33,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,MARGARITAS & MOJITOS,Strawberry Infused Margarita,1 serving,,drink,270,0,0,0,0,170,22,0,21,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,MARGARITAS & MOJITOS,Strawberry Infused Margarita (PR),1 serving,,drink,270,0,0,0,0,170,22,0,21,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,MARGARITAS & MOJITOS,Coconut Margarita (PR),1 serving,,drink,300,0,0,0,0,170,33,0,32,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,MARGARITAS & MOJITOS,Coconut Margarita (UT),1 serving,,drink,250,0,0,0,0,160,27,0,26,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,MARGARITAS & MOJITOS,Passion Fruit Margarita,1 serving,,drink,270,0,0,0,0,10,29,0,27,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,MARGARITAS & MOJITOS,Pineapple Mezcal,1 serving,,drink,290,0,0,0,0,250,36,1,33,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,MARGARITAS & MOJITOS,Pineapple Mezcal (PR),1 serving,,drink,270,0,0,0,0,250,36,1,33,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,MARGARITAS & MOJITOS,Mojito,1 serving,,drink,240,0,0,0,0,115,30,2,26,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,MARGARITAS & MOJITOS,Mojito (PR),1 serving,,drink,260,0,0,0,0,15,31,2,26,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,MARGARITAS & MOJITOS,SkinnyLicious® Mojito,1 serving,,drink,150,0,0,0,0,210,16,1,8,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,MARGARITAS & MOJITOS,Coconut Mojito,1 serving,,drink,300,2,1,0,0,35,44,1,41,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,MARGARITAS & MOJITOS,Coconut Mojito (PR),1 serving,,drink,310,2,1,0,0,30,45,1,41,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,MARGARITAS & MOJITOS,Coconut Mojito (UT),1 serving,,drink,270,1.5,1,0,0,95,40,1,36,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,MARGARITAS & MOJITOS,Passion Fruit Mojito,1 serving,,drink,270,0,0,0,0,20,34,1,31,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,MARGARITAS & MOJITOS,Passion Fruit Mojito (PR),1 serving,,drink,260,0,0,0,0,20,34,1,31,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,WHISKEY COCKTAILS,Raspberry Sour,1 serving,,drink,300,0,0,0,0,0,32,0,30,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,WHISKEY COCKTAILS,Southern Peach Lemonade,1 serving,,drink,280,0,0,0,0,3,32,1,29,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,WHISKEY COCKTAILS,Whiskey Smash,1 serving,,main,190,0,0,0,0,10,22,0,21,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,WHISKEY COCKTAILS,Whiskey Smash (PR),1 serving,,main,220,0,0,0,0,10,31,1,29,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,WHISKEY COCKTAILS,Japanese Whisky Sour,1 serving,,main,250,0,0,0,0,1,26,0,25,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,WHISKEY COCKTAILS,Japanese Whisky Sour (UT),1 serving,,main,240,0,0,0,0,1,26,0,25,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,WHISKEY COCKTAILS,Whisky & Ginger,1 serving,,main,220,0,0,0,0,10,29,0,26,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,WHISKEY COCKTAILS,Whisky & Ginger (UT),1 serving,,main,200,0,0,0,0,10,29,0,26,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,WHISKEY COCKTAILS,Whisky & Ginger (PR),1 serving,,main,230,0,0,0,0,10,29,0,26,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,WHISKEY COCKTAILS,The Old Fashioned,1 serving,,main,280,0,0,0,0,0,10,0,18,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
-The Cheesecake Factory,WHISKEY COCKTAILS,The Old Fashioned (UT),1 serving,,main,230,0,0,0,0,0,10,0,13,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,WHISKEY COCKTAILS,Whiskey Smash,1 serving,,drink,190,0,0,0,0,10,22,0,21,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,WHISKEY COCKTAILS,Whiskey Smash (PR),1 serving,,drink,220,0,0,0,0,10,31,1,29,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,WHISKEY COCKTAILS,Japanese Whisky Sour,1 serving,,drink,250,0,0,0,0,1,26,0,25,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,WHISKEY COCKTAILS,Japanese Whisky Sour (UT),1 serving,,drink,240,0,0,0,0,1,26,0,25,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,WHISKEY COCKTAILS,Whisky & Ginger,1 serving,,drink,220,0,0,0,0,10,29,0,26,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,WHISKEY COCKTAILS,Whisky & Ginger (UT),1 serving,,drink,200,0,0,0,0,10,29,0,26,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,WHISKEY COCKTAILS,Whisky & Ginger (PR),1 serving,,drink,230,0,0,0,0,10,29,0,26,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,WHISKEY COCKTAILS,The Old Fashioned,1 serving,,drink,280,0,0,0,0,0,10,0,18,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,WHISKEY COCKTAILS,The Old Fashioned (UT),1 serving,,drink,230,0,0,0,0,0,10,0,13,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
 The Cheesecake Factory,LUNCH FLATBREADS,Pepperoni Flatbread with Hot Honey,1 serving,,main,1200,66,34,1,165,3430,96,5,11,56,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,LUNCH FLATBREADS,Bee String Flatbread,1 serving,,main,1170,62,30,1,145,3280,97,5,8,54,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,LUNCH FLATBREADS,Hawaiian Flatbread (HI),1 serving,,main,970,40,25,0.5,125,2900,97,4,11,54,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
@@ -252,28 +252,28 @@ The Cheesecake Factory,SATURDAY & SUNDAY BRUNCH,Green Chilaquiles with Chicken a
 The Cheesecake Factory,SATURDAY & SUNDAY BRUNCH,Monte Cristo Sandwich,1 serving,,main,1960,121,64,3.5,870,2470,145,6,70,74,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,SATURDAY & SUNDAY BRUNCH,Jambalaya Hash & Eggs,1 serving,,main,1750,128,68,3.5,750,2370,106,8,15,44,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,SATURDAY & SUNDAY BRUNCH,Breakfast Burrito,1 serving,,main,2080,139,69,3.5,950,4580,121,20,19,88,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,CHEESECAKES,Original,1 serving,,main,830,59,37,2,265,510,63,1,51,12,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,CHEESECAKES,Fresh Strawberry,1 serving,,main,1000,69,43,2.5,305,550,82,2,66,12,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,CHEESECAKES,Oreo® Dream Extreme Cheesecake,1 serving,,main,1510,93,51,2.5,290,800,166,7,122,15,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,CHEESECAKES,Original,1 serving,,dessert,830,59,37,2,265,510,63,1,51,12,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,CHEESECAKES,Fresh Strawberry,1 serving,,dessert,1000,69,43,2.5,305,550,82,2,66,12,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,CHEESECAKES,Oreo® Dream Extreme Cheesecake,1 serving,,dessert,1510,93,51,2.5,290,800,166,7,122,15,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,CHEESECAKES,Ultimate Red Velvet Cake CheesecakeTM,1 serving,,dessert,1580,116,62,4,350,630,125,1,104,14,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,CHEESECAKES,Reese's® Peanut Butter Chocolate Cake Cheesecake,1 serving,,dessert,1510,95,44,2,245,940,154,8,121,23,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,CHEESECAKES,Godiva® Chocolate Cheesecake,1 serving,,main,1400,105,66,3,380,260,110,8,96,15,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,CHEESECAKES,Godiva® Chocolate Cheesecake,1 serving,,dessert,1400,105,66,3,380,260,110,8,96,15,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,CHEESECAKES,Brownie Crunch Choc-A-Lot Cheesecake,1 serving,,dessert,1500,111,66,3,385,580,121,5,105,16,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,CHEESECAKES,Peach Perfect With Raspberry Drizzle,1 serving,,main,1450,98,63,2.5,360,550,129,2,109,13,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,CHEESECAKES,Peach Perfect With Raspberry Drizzle,1 serving,,dessert,1450,98,63,2.5,360,550,129,2,109,13,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,CHEESECAKES,Coconut Cream Pie Cheesecake,1 serving,,dessert,1370,98,64,2.5,335,530,114,5,93,12,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,CHEESECAKES,Adam's Peanut Butter Cup Fudge Ripple,1 serving,,main,1250,82,43,2,245,750,118,5,94,18,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,CHEESECAKES,Triple Berry Bliss,1 serving,,main,1300,86,50,2.5,305,580,122,2,94,11,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,CHEESECAKES,Adam's Peanut Butter Cup Fudge Ripple,1 serving,,dessert,1250,82,43,2,245,750,118,5,94,18,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,CHEESECAKES,Triple Berry Bliss,1 serving,,dessert,1300,86,50,2.5,305,580,122,2,94,11,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,CHEESECAKES,Cookie Dough Lover's Cheesecake with Pecans,1 serving,,dessert,1550,105,62,3,375,650,145,5,110,15,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,CHEESECAKES,Pineapple Upside-Down Cheesecake,1 serving,,main,1260,83,47,2,310,510,109,1,99,10,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,CHEESECAKES,Celebration Cheesecake,1 serving,,main,1380,98,58,3.5,370,740,114,1,87,15,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,CHEESECAKES,Cinnamon® Cinnamon Swirl Cheesecake,1 serving,,main,1370,85,51,3,275,710,141,2,120,10,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,CHEESECAKES,Salted Caramel Cheesecake,1 serving,,main,1240,73,43,2.5,300,750,130,2,107,15,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,CHEESECAKES,Toasted Marshmallow S'mores GaloreTM,1 serving,,main,1550,108,67,3,350,570,141,6,102,14,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,CHEESECAKES,Dulce De Leche Caramel Cheesecake,1 serving,,main,1390,110,61,3,385,600,107,2,83,14,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,CHEESECAKES,White Chocolate Raspberry Truffle®,1 serving,,main,1220,89,57,3,365,550,92,1,78,13,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,CHEESECAKES,Mango Key Lime Cheesecake,1 serving,,main,1300,85,54,2.5,350,520,123,2,97,13,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,CHEESECAKES,Fresh Banana Cream Cheesecake,1 serving,,main,1250,90,56,3,405,510,99,3,79,14,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,CHEESECAKES,Lemon Raspberry Cream Cheesecake,1 serving,,main,1040,73,42,2.5,320,420,87,2,72,10,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,CHEESECAKES,Pineapple Upside-Down Cheesecake,1 serving,,dessert,1260,83,47,2,310,510,109,1,99,10,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,CHEESECAKES,Celebration Cheesecake,1 serving,,dessert,1380,98,58,3.5,370,740,114,1,87,15,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,CHEESECAKES,Cinnamon® Cinnamon Swirl Cheesecake,1 serving,,dessert,1370,85,51,3,275,710,141,2,120,10,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,CHEESECAKES,Salted Caramel Cheesecake,1 serving,,dessert,1240,73,43,2.5,300,750,130,2,107,15,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,CHEESECAKES,Toasted Marshmallow S'mores GaloreTM,1 serving,,dessert,1550,108,67,3,350,570,141,6,102,14,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,CHEESECAKES,Dulce De Leche Caramel Cheesecake,1 serving,,dessert,1390,110,61,3,385,600,107,2,83,14,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,CHEESECAKES,White Chocolate Raspberry Truffle®,1 serving,,dessert,1220,89,57,3,365,550,92,1,78,13,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,CHEESECAKES,Mango Key Lime Cheesecake,1 serving,,dessert,1300,85,54,2.5,350,520,123,2,97,13,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,CHEESECAKES,Fresh Banana Cream Cheesecake,1 serving,,dessert,1250,90,56,3,405,510,99,3,79,14,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,CHEESECAKES,Lemon Raspberry Cream Cheesecake,1 serving,,dessert,1040,73,42,2.5,320,420,87,2,72,10,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,CHEESECAKES AND DESSERTS,Chocolate Tuxedo Cream® Cheesecake,1 serving,,dessert,1250,90,55,2.5,305,400,109,5,87,11,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,CHEESECAKES AND DESSERTS,Chocolate Caramelicious Cheesecake Made With Snickers®,1 serving,,dessert,1370,96,50,2.5,340,400,116,6,96,19,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,CHEESECAKES AND DESSERTS,Chocolate Mousse Cheesecake,1 serving,,dessert,1220,94,58,3,385,480,85,4,69,13,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
@@ -325,7 +325,7 @@ The Cheesecake Factory,Coffee & Tea,Cold Brew Iced Coffee,1 serving,,drink,5,0,0
 The Cheesecake Factory,Coffee & Tea,Certified Organic Black and Herb Teas,1 serving,,drink,0,0,0,0,0,10,0,0,0,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,BEVERAGES,"Freshly Brewed Black, Green or Tropical Iced Teas",1 serving,,drink,0,0,0,0,0,10,0,0,0,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,BEVERAGES,Sweet Tea,1 serving,,dessert,110,0,0,0,0,10,28,0,28,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,BEVERAGES,The Cheesecake Factory Signature Lemonade,1 serving,,drink,310,0,0,0,0,15,84,0,78,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,BEVERAGES,The Cheesecake Factory Signature Lemonade,1 serving,,dessert,310,0,0,0,0,15,84,0,78,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,BEVERAGES,Strawberry Lemonade,1 serving,,drink,330,0,0,0,0,15,87,1,81,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,BEVERAGES,Cucumber Lemonade,1 serving,,drink,340,0,0,0,0,45,90,1,75,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,BEVERAGES,Peach Lemonade,1 serving,,drink,330,0,0,0,0,15,83,4,78,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
@@ -369,9 +369,9 @@ The Cheesecake Factory,Bowls,Teriyaki Salmon,1 serving,,main,1130,33,6,0,75,2030
 The Cheesecake Factory,Bowls,Ahi Tuna Poke* with Rice,1 serving,,main,830,22,3.5,0,50,1470,124,7,19,38,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,Bowls,Ahi Tuna Poke* with Salad,1 serving,,main,600,30,4,0,55,1650,54,7,25,32,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,SKINNYLICIOUS® COCKTAILS,SkinnyLicious® Long Island Iced Tea,1 serving,,drink,110,0,0,0,0,20,6,0,5,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,SKINNYLICIOUS® COCKTAILS,SkinnyLicious® Sangria,1 serving,,main,130,0,0,0,0,10,19,1,17,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,SKINNYLICIOUS® COCKTAILS,SkinnyLicious® Margarita,1 serving,,main,150,0,0,0,0,125,17,0,12,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,SKINNYLICIOUS® COCKTAILS,SkinnyLicious® Cosmopolitan,1 serving,,main,110,0,0,0,0,15,9,0,7,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,SKINNYLICIOUS® COCKTAILS,SkinnyLicious® Sangria,1 serving,,drink,130,0,0,0,0,10,19,1,17,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,SKINNYLICIOUS® COCKTAILS,SkinnyLicious® Margarita,1 serving,,drink,150,0,0,0,0,125,17,0,12,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,SKINNYLICIOUS® COCKTAILS,SkinnyLicious® Cosmopolitan,1 serving,,drink,110,0,0,0,0,15,9,0,7,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,SKINNYLICIOUS® SMALL PLATES & APPETIZERS,Chicken Taquitos,1 serving,,main,470,29,9,0,60,1050,35,7,6,17,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,SKINNYLICIOUS® SMALL PLATES & APPETIZERS,Stuffed Mushrooms,1 serving,,main,510,42,22,1.5,105,500,19,4,5,15,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,SKINNYLICIOUS® SMALL PLATES & APPETIZERS,Crispy Brussels Sprouts,1 serving,,main,570,46,13,0.5,30,410,30,8,15,8,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
@@ -451,12 +451,12 @@ The Cheesecake Factory,KIDS' MENU,Kids' Strawberry Shortcake,1 serving,,main,450
 The Cheesecake Factory,HAPPY HOUR MENU,“Happy Hour” Burger,1 serving,,main,1140,70,31,3,230,3180,72,3,26,54,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,HAPPY HOUR MENU,Margarita,1 serving,,main,210,0,0,0,0,125,25,0,23,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,HAPPY HOUR MENU,Margarita (UT),1 serving,,main,200,0,0,0,0,125,25,0,23,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,HAPPY HOUR MENU,Long Island Iced Tea,1 serving,,drink,240,0,0,0,0,10,28,0,26,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,HAPPY HOUR MENU,Long Island Iced Tea (UT),1 serving,,drink,240,0,0,0,0,10,28,0,26,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,HAPPY HOUR MENU,Long Island Iced Tea,1 serving,,drink,240,0,0,0,0,10,28,0,26,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,HAPPY HOUR MENU,Long Island Iced Tea (UT),1 serving,,drink,240,0,0,0,0,10,28,0,26,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
 The Cheesecake Factory,SELECTED WELL DRINKS,Well Bourbon,1 serving,,drink,80,0,0,0,0,0,0,0,0,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,SELECTED WELL DRINKS,Well Gin,1 serving,,drink,80,0,0,0,0,0,0,0,0,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,SELECTED WELL DRINKS,Well Rum,1 serving,,drink,80,0,0,0,0,0,0,0,0,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,SELECTED WELL DRINKS,Well Scotch,1 serving,,drink,80,0,0,0,0,0,0,0,0,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
+The Cheesecake Factory,SELECTED WELL DRINKS,Well Scotch,1 serving,,drink,80,0,0,0,0,0,0,0,0,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
 The Cheesecake Factory,SELECTED WELL DRINKS,Well Tequila,1 serving,,drink,80,0,0,0,0,0,0,0,0,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,SELECTED WELL DRINKS,Well Vodka,1 serving,,drink,90,0,0,0,0,0,2,0,2,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,SELECTED WELL DRINKS,Ginger Ale,1 serving,,drink,35,0,0,0,0,10,9,0,9,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
@@ -502,24 +502,24 @@ The Cheesecake Factory,GLUTEN FREE SALADS,Cobb Salad,1 serving,,main,1650,141,27
 The Cheesecake Factory,NON-ALCOHOLIC SPECIALTY SODAS,Coconut Vanilla Dr Pepper\circledR (UT),1 serving,,drink,400,15,10,0.5,55,40,66,0,62,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,ICE CREAM DELIGHTS,Godiva® Chocolate Brownie Sundae - Serves 2-4,Serves 2-4,,dessert,1750,118,71,2,330,420,168,10,134,25,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
 The Cheesecake Factory,GLUTEN FREE APPETIZERS,Sweet Corn Tamale Cakes - Serves 2-4,Serves 2-4,,dessert,1340,88,44,2.5,210,1710,119,19,42,16,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,two-drafts
-The Cheesecake Factory,BEERS,Draft Beer,1 glass,,main,250,0,0,0,0,15,1,0,0,4,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
-The Cheesecake Factory,BEERS,Draft Light Beer,1 glass,,main,120,0,0,0,0,15,7,0,0,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
-The Cheesecake Factory,BEERS,Bottled Beer,16 oz,,main,270,0,0,0,0,20,1,0,0,4,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
-The Cheesecake Factory,BEERS,Bottled Light Beer,12 oz,,main,100,0,0,0,0,15,6,0,0,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
-The Cheesecake Factory,BEERS,Stella O.O Non-Alcoholic Beer,1 serving,,main,60,0,0,0,0,0,13,0,0,2,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
-The Cheesecake Factory,BEERS,Hazy IPA Non-Alcoholic Beer,1 serving,,main,70,0,0,0,0,0,16,0,0,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
-The Cheesecake Factory,SPARKLING WINE,Sparkling Wine,5-1/2 oz,,main,130,0,0,0,0,1,4,0,2,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
-The Cheesecake Factory,SPARKLING WINE,Sparkling Wine (UT),5 oz,,main,120,0,0,0,0,1,4,0,2,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
-The Cheesecake Factory,SPARKLING WINE,Sparkling Wine Bottle,375ml,,main,300,0,0,0,0,3,9,0,5,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
-The Cheesecake Factory,SPARKLING WINE,Sparkling Wine Bottle,750ml,,main,600,0,0,0,0,5,19,0,10,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
-The Cheesecake Factory,WHITE WINE,White Wine,6-1/2 oz,,main,160,0,0,0,0,10,5,0,2,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
-The Cheesecake Factory,WHITE WINE,White Wine,9 oz,,main,220,0,0,0,0,15,7,0,3,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
-The Cheesecake Factory,WHITE WINE,White Wine (UT),5 oz,,main,120,0,0,0,0,5,4,0,1,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
-The Cheesecake Factory,WHITE WINE,White Wine Bottle,1 serving,,main,630,0,0,0,0,35,19,0,7,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
-The Cheesecake Factory,RED WINE,Red Wine,6-1/2 oz,,main,160,0,0,0,0,10,5,0,1,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
-The Cheesecake Factory,RED WINE,Red Wine,9 oz,,main,220,0,0,0,0,10,7,0,2,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
-The Cheesecake Factory,RED WINE,Red Wine (UT),5 oz,,main,120,0,0,0,0,5,4,0,1,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
-The Cheesecake Factory,RED WINE,Red Wine Bottle,1 serving,,main,630,0,0,0,0,30,19,0,5,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,BEERS,Draft Beer,1 glass,,drink,250,0,0,0,0,15,1,0,0,4,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,BEERS,Draft Light Beer,1 glass,,drink,120,0,0,0,0,15,7,0,0,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,BEERS,Bottled Beer,16 oz,,drink,270,0,0,0,0,20,1,0,0,4,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,BEERS,Bottled Light Beer,12 oz,,drink,100,0,0,0,0,15,6,0,0,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,BEERS,Stella O.O Non-Alcoholic Beer,1 serving,,drink,60,0,0,0,0,0,13,0,0,2,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,BEERS,Hazy IPA Non-Alcoholic Beer,1 serving,,drink,70,0,0,0,0,0,16,0,0,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,SPARKLING WINE,Sparkling Wine,5-1/2 oz,,drink,130,0,0,0,0,1,4,0,2,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,SPARKLING WINE,Sparkling Wine (UT),5 oz,,drink,120,0,0,0,0,1,4,0,2,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,SPARKLING WINE,Sparkling Wine Bottle,375ml,,drink,300,0,0,0,0,3,9,0,5,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,SPARKLING WINE,Sparkling Wine Bottle,750ml,,drink,600,0,0,0,0,5,19,0,10,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,WHITE WINE,White Wine,6-1/2 oz,,drink,160,0,0,0,0,10,5,0,2,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,WHITE WINE,White Wine,9 oz,,drink,220,0,0,0,0,15,7,0,3,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,WHITE WINE,White Wine (UT),5 oz,,drink,120,0,0,0,0,5,4,0,1,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,WHITE WINE,White Wine Bottle,1 serving,,drink,630,0,0,0,0,35,19,0,7,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,RED WINE,Red Wine,6-1/2 oz,,drink,160,0,0,0,0,10,5,0,1,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,RED WINE,Red Wine,9 oz,,drink,220,0,0,0,0,10,7,0,2,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,RED WINE,Red Wine (UT),5 oz,,drink,120,0,0,0,0,5,4,0,1,0,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,RED WINE,Red Wine Bottle,1 serving,,drink,630,0,0,0,0,30,19,0,5,1,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
 The Cheesecake Factory,SMALL PLATES & SNACKS,Street Corn,1 serving,,side,710,54,14,0.5,40,1000,48,5,17,14,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
 The Cheesecake Factory,SMALL PLATES & SNACKS,Korean Fried Cauliflower,1 serving,,side,1150,71,13,0,20,2570,113,7,44,11,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
 The Cheesecake Factory,SMALL PLATES & SNACKS,Fried Zucchini,1 serving,,side,1000,76,21,1,55,2050,58,4,14,21,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
@@ -559,7 +559,7 @@ The Cheesecake Factory,APPETIZERS,Buffalo Chicken Strips,Serves 2-4,,main,1090,4
 The Cheesecake Factory,APPETIZERS,Ahi Poke (HI),Serves 2,,main,470,10,1.5,0,95,3030,46,3,34,50,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
 The Cheesecake Factory,APPETIZERS,Spicy Ahi Tempura Roll (HI),Serves 2-4,,main,770,51,9,0.5,70,1910,45,3,11,32,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
 The Cheesecake Factory,APPETIZERS,Spicy Tuna (HI),Serves 2-4,,main,460,22,4,0,40,1490,46,2,15,20,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
-The Cheesecake Factory,APPETIZERS,Mini Crab Cakes (HI),Serves 2-4,,dessert,530,42,8,0,130,930,15,2,6,20,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
+The Cheesecake Factory,APPETIZERS,Mini Crab Cakes (HI),Serves 2-4,,main,530,42,8,0,130,930,15,2,6,20,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
 The Cheesecake Factory,SOUPS,Cup of Clam Chowder,1 serving,,main,310,19,11,0.5,70,990,24,2,2,11,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
 The Cheesecake Factory,SOUPS,Cup of Cream of Chicken Soup,1 serving,,main,390,25,15,1,125,1030,25,3,10,17,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending
 The Cheesecake Factory,SOUPS,Cup of Mexican Chicken and Vegetable Soup,1 serving,,main,340,19,7,0,40,1530,27,4,8,14,https://www.thecheesecakefactory.com/assets/pdf/Nutritional_Guide.pdf,2026-10-23,pending

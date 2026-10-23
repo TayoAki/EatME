@@ -3,15 +3,21 @@
 Guide: https://firstwatch.com/nutrition-and-allergens (read 2026-10-23). Draft A: openai/gpt-5.6-luna. Draft B: anthropic/claude-haiku-5.5.
 Numbers in order: calories / fat_g / saturated_fat_g / trans_fat_g / cholesterol_mg / sodium_mg / carbs_g / fiber_g / sugars_g / protein_g.
 
-## Disagreements (3)
+## Disagreements (7)
+
+The last column comes from `npm run chains:evidence`: whether a draft's numbers sit right after the item's name in the guide text the drafts read. It can't read sizes or sections (one draft called a single 78 g cookie a "6 pack"): check those against the guide, then fix the line and set its check to `person`.
 
 Fix each line in `menus/first-watch.csv` from the guide and set its check to `person` (or delete the line if it isn't on the menu).
 
-| Item | Size | Why | Draft A | Draft B |
-| --- | --- | --- | --- | --- |
-| Sweet Honey Pecan Salad | Half Salad with Dressing | differ: protein_g | 430 / 25 / 5 / 0 / 40 / 580 / 36 / 7 / 24 / 20 | 430 / 25 / 5 / 0 / 40 / 580 / 36 / 7 / 24 / 15 |
-| Chicken Avocado Chop Salad | Half Salad with Dressing | differ: protein_g | 330 / 20 / 4 / 0 / 35 / 500 / 25 / 5 / 5 / 3 | 330 / 20 / 4 / 0 / 35 / 500 / 25 / 5 / 5 / 12 |
-| Hot Chocolate | 1 serving | both read numbers that can't be right: sugars 46 g above carbs 23 g | 250 / 5 / 5 / 0 / 15 / 310 / 23 / 0 / 46 / 1 | 250 / 5 / 5 / 0 / 15 / 310 / 23 / 0 / 46 / 1 |
+| Item | Size | Why | Draft A | Draft B | In the guide text (no AI) |
+| --- | --- | --- | --- | --- | --- |
+| Sweet Honey Pecan Salad | Half Salad with Dressing | differ: protein_g | 430 / 25 / 5 / 0 / 40 / 580 / 36 / 7 / 24 / 20 | 430 / 25 / 5 / 0 / 40 / 580 / 36 / 7 / 24 / 15 | A: numbers found after the name (line 328); check the size; B: numbers found after the name (line 328); check the size |
+| Chicken Avocado Chop Salad | Half Salad with Dressing | differ: protein_g | 330 / 20 / 4 / 0 / 35 / 500 / 25 / 5 / 5 / 3 | 330 / 20 / 4 / 0 / 35 / 500 / 25 / 5 / 5 / 12 | A: numbers found after the name (line 330); check the size; B: numbers found after the name (line 330); check the size |
+| Hot Chocolate | 1 serving | both read numbers that can't be right: sugars 46 g above carbs 23 g | 250 / 5 / 5 / 0 / 15 / 310 / 23 / 0 / 46 / 1 | 250 / 5 / 5 / 0 / 15 / 310 / 23 / 0 / 46 / 1 | A: numbers found after the name (line 514); check the size; B: numbers found after the name (line 514); check the size |
+| Spiked Lavender Lemonade | 1 serving | both read it the same, but its protein, carbs and fat make 128 kcal, not 250 | 250 / 0 / 0 / 0 / 0 / 0 / 32 / 0 / 28 / 0 | 250 / 0 / 0 / 0 / 0 / 0 / 32 / 0 / 28 / 0 | A: numbers found after the name (line 400); check the size; B: numbers found after the name (line 400); check the size |
+| Pomegranate Sunrise | 1 serving | both read it the same, but its protein, carbs and fat make 148 kcal, not 340 | 340 / 0 / 0 / 0 / 0 / 0 / 37 / 0 / 31 / 0 | 340 / 0 / 0 / 0 / 0 / 0 / 37 / 0 / 31 / 0 | A: numbers found after the name (line 402); check the size; B: numbers found after the name (line 402); check the size |
+| Cinnamon Toast Cereal Milk | 1 serving | both read it the same, but its protein, carbs and fat make 161 kcal, not 230 | 230 / 1 / 0 / 0 / 0 / 20 / 37 / 0 / 33 / 1 | 230 / 1 / 0 / 0 / 0 / 20 / 37 / 0 / 33 / 1 | A: numbers found after the name (line 404); check the size; B: numbers found after the name (line 404); check the size |
+| Cold Brew Tini | 1 serving | both read it the same, but its protein, carbs and fat make 136 kcal, not 230 | 230 / 8 / 7 / 0 / 5 / 35 / 15 / 0 / 12 / 1 | 230 / 8 / 7 / 0 / 5 / 35 / 15 / 0 / 12 / 1 | A: numbers found after the name (line 423); check the size; B: numbers found after the name (line 423); check the size |
 
 ## Spot check (8 agreed lines)
 

@@ -1,12 +1,12 @@
 chain,section,name,serving,serving_g,kind,calories,fat_g,saturated_fat_g,trans_fat_g,cholesterol_mg,sodium_mg,carbs_g,fiber_g,sugars_g,protein_g,source_url,checked_on,check
-Tropical Smoothie Cafe,SMOOTHIES,Acai Berry Boost,24 oz,,drink,470,18,2,0,0,20,114,5,102,2,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
+Tropical Smoothie Cafe,SMOOTHIES,Acai Berry Boost,24 oz,,extra,470,18,2,0,0,20,114,5,102,2,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
 Tropical Smoothie Cafe,SMOOTHIES,Avocolada,24 oz,,drink,580,72,8,3,0,40,114,5,107,4,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
 Tropical Smoothie Cafe,SMOOTHIES,Bahama Mama,24 oz,,drink,520,40.5,4.5,4.5,0,55,119,4,112,3,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
 Tropical Smoothie Cafe,SMOOTHIES,Beach Bum (Chocolate Frappe),24 oz,,drink,540,36,4,3,0,80,128,7,108,4,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
 Tropical Smoothie Cafe,SMOOTHIES,Beach Bum (White Chocolate Frappe),24 oz,,drink,560,45,5,4.5,0,90,127,3,109,4,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
 Tropical Smoothie Cafe,SMOOTHIES,Blimey Limey,24 oz,,drink,510,0,0,0,0,15,127,2,120,3,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,two-drafts
 Tropical Smoothie Cafe,SMOOTHIES,Blueberry Bliss,24 oz,,drink,340,9,1,0,0,5,85,4,74,1,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
-Tropical Smoothie Cafe,SMOOTHIES,Chia Banana Boost,24 oz,,drink,680,234,26,6,0,130,111,11,73,13,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
+Tropical Smoothie Cafe,SMOOTHIES,Chia Banana Boost,24 oz,,extra,680,234,26,6,0,130,111,11,73,13,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
 Tropical Smoothie Cafe,SMOOTHIES,Detox Island Green,24 oz,,drink,210,9,1,0,0,35,53,6,39,4,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
 Tropical Smoothie Cafe,SMOOTHIES,Island Green,24 oz,,drink,430,9,1,0,0,35,110,6,97,4,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
 Tropical Smoothie Cafe,SMOOTHIES,Jetty Punch,24 oz,,drink,360,4.5,0.5,0,0,10,90,4,76,2,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
@@ -24,40 +24,40 @@ Tropical Smoothie Cafe,SMOOTHIES,Tropical Dragon Passion,24 oz,,drink,410,0,0,0,
 Tropical Smoothie Cafe,KIDS SMOOTHIES (12 OZ.),Kids Awesome Chocolate,12 oz,,drink,250,18,2,2,0,35,60,3,51,2,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
 Tropical Smoothie Cafe,KIDS SMOOTHIES (12 OZ.),Kids Jetty Junior,12 oz,,drink,180,0,0,0,0,0,44,2,37,1,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,two-drafts
 Tropical Smoothie Cafe,KIDS SMOOTHIES (12 OZ.),Kids Lil' Limeberry,12 oz,,drink,170,0,0,0,0,10,41,0,39,0,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,two-drafts
-Tropical Smoothie Cafe,SUPPLEMENTS,Fat Burner,1 serving,,main,0,0,0,0,0,0,0,0,0,0,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,two-drafts
-Tropical Smoothie Cafe,SUPPLEMENTS,Multivitamin,1 serving,,main,15,0,0,0,0,0,4,0,0,0,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,two-drafts
-Tropical Smoothie Cafe,SUPPLEMENTS,Pea Protein Powder,1 serving,,main,130,22.5,2.5,0,0,410,3,,0,24,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
-Tropical Smoothie Cafe,SUPPLEMENTS,Probiotic,1 serving,,main,20,0,0,0,0,5,5,,0,0,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
-Tropical Smoothie Cafe,SUPPLEMENTS,Vital Proteinsa Collagen,1 serving,,main,35,0,0,0,55,0,0,,0,9,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
-Tropical Smoothie Cafe,SUPPLEMENTS,Vitamin B12,1 serving,,main,20,0,0,0,0,0,5,,0,0,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
-Tropical Smoothie Cafe,SUPPLEMENTS,Vitamin C Immune Complex,1 serving,,main,20,0,0,0,0,0,5,,4,0,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
-Tropical Smoothie Cafe,SUPPLEMENTS,Whey Protein Powder,1 serving,,main,100,13.5,1.5,0.5,45,50,6,,0,16,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
-Tropical Smoothie Cafe,FRESH ADD-INS,Chia Seeds,1 serving,,main,30,18,2,0,0,0,2,2,0,1,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
-Tropical Smoothie Cafe,FRESH ADD-INS,Fresh Ginger,1 serving,,main,5,0,0,0,0,0,2,0,0,0,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,two-drafts
-Tropical Smoothie Cafe,FRESH ADD-INS,Peanut Butter,1 serving,,main,180,126,14,3,0,140,6,2,3,7,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
-Tropical Smoothie Cafe,FRESH ADD-INS,Raw Almonds,1 serving,,main,35,27,3,0,0,0,2,1,0,0,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
-Tropical Smoothie Cafe,FRESH ADD-INS,Spinach & Kale,1 serving,,main,10,0,0,0,0,30,2,2,0,2,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,two-drafts
-Tropical Smoothie Cafe,FRESH ADD-INS,Whole-Grain Oats,1 serving,,main,45,4.5,0.5,0,0,0,9,1,0,1,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
+Tropical Smoothie Cafe,SUPPLEMENTS,Fat Burner,1 serving,,extra,0,0,0,0,0,0,0,0,0,0,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,two-drafts
+Tropical Smoothie Cafe,SUPPLEMENTS,Multivitamin,1 serving,,extra,15,0,0,0,0,0,4,0,0,0,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,two-drafts
+Tropical Smoothie Cafe,SUPPLEMENTS,Pea Protein Powder,1 serving,,extra,130,22.5,2.5,0,0,410,3,,0,24,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
+Tropical Smoothie Cafe,SUPPLEMENTS,Probiotic,1 serving,,extra,20,0,0,0,0,5,5,,0,0,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
+Tropical Smoothie Cafe,SUPPLEMENTS,Vital Proteinsa Collagen,1 serving,,extra,35,0,0,0,55,0,0,,0,9,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
+Tropical Smoothie Cafe,SUPPLEMENTS,Vitamin B12,1 serving,,extra,20,0,0,0,0,0,5,,0,0,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
+Tropical Smoothie Cafe,SUPPLEMENTS,Vitamin C Immune Complex,1 serving,,extra,20,0,0,0,0,0,5,,4,0,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
+Tropical Smoothie Cafe,SUPPLEMENTS,Whey Protein Powder,1 serving,,extra,100,13.5,1.5,0.5,45,50,6,,0,16,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
+Tropical Smoothie Cafe,FRESH ADD-INS,Chia Seeds,1 serving,,extra,30,18,2,0,0,0,2,2,0,1,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
+Tropical Smoothie Cafe,FRESH ADD-INS,Fresh Ginger,1 serving,,extra,5,0,0,0,0,0,2,0,0,0,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,two-drafts
+Tropical Smoothie Cafe,FRESH ADD-INS,Peanut Butter,1 serving,,extra,180,126,14,3,0,140,6,2,3,7,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
+Tropical Smoothie Cafe,FRESH ADD-INS,Raw Almonds,1 serving,,extra,35,27,3,0,0,0,2,1,0,0,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
+Tropical Smoothie Cafe,FRESH ADD-INS,Spinach & Kale,1 serving,,extra,10,0,0,0,0,30,2,2,0,2,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,two-drafts
+Tropical Smoothie Cafe,FRESH ADD-INS,Whole-Grain Oats,1 serving,,extra,45,4.5,0.5,0,0,0,9,1,0,1,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
 Tropical Smoothie Cafe,BOTTLED BEVERAGES,Dasania,16.9 fl oz.,,drink,0,0,0,0,0,0,0,0,0,0,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,two-drafts
 Tropical Smoothie Cafe,BOTTLED BEVERAGES,Gold Peaka Sweet Tea,18.5 fl oz.,,dessert,190,0,0,0,0,0,48,0,48,0,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,two-drafts
 Tropical Smoothie Cafe,BOTTLED BEVERAGES,Coca-Colaa,20 fl oz.,,drink,240,0,0,0,0,75,65,0,65,0,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,two-drafts
 Tropical Smoothie Cafe,BOTTLED BEVERAGES,Coca-Cola Zero Sugar,20 fl oz.,,drink,0,0,0,0,0,70,0,0,0,0,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,two-drafts
 Tropical Smoothie Cafe,BOTTLED BEVERAGES,Spritea,20 fl oz.,,drink,230,0,0,0,0,110,64,0,64,0,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,two-drafts
 Tropical Smoothie Cafe,SMOOTHIES,Kiwi Quencher 3,24 oz,,drink,490,0,0,0,0,70,117,1,109,3,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,two-drafts
-Tropical Smoothie Cafe,SUPPLEMENTS,Energizer 6,1 serving,,main,0,0,0,0,0,0,0,0,0,0,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,two-drafts
+Tropical Smoothie Cafe,SUPPLEMENTS,Energizer 6,1 serving,,extra,0,0,0,0,0,0,0,0,0,0,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,two-drafts
 Tropical Smoothie Cafe,SMOOTHIES,"Bahama Mama 3,6",24 oz,,drink,520,4.5,4.5,0,0,55,119,4,112,3,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
 Tropical Smoothie Cafe,SMOOTHIES,"Beach Bum (Chocolate Frappe) 3,6",24 oz,,drink,540,4,3,0,0,80,128,7,108,4,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
 Tropical Smoothie Cafe,SMOOTHIES,"Beach Bum (White Chocolate Frappe) 3,6",24 oz,,drink,560,5,4.5,0,0,90,127,3,109,4,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
-Tropical Smoothie Cafe,SMOOTHIES,"Chia Banana Boost 4,7",24 oz,,drink,680,26,6,0,0,130,111,11,73,13,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
+Tropical Smoothie Cafe,SMOOTHIES,"Chia Banana Boost 4,7",24 oz,,extra,680,26,6,0,0,130,111,11,73,13,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
 Tropical Smoothie Cafe,SMOOTHIES,Mango Magic 3,24 oz,,drink,450,1,0,0,0,60,113,3,104,4,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
 Tropical Smoothie Cafe,SMOOTHIES,"Mocha Madness 3,6",24 oz,,drink,810,6,4.5,0,0,270,185,3,163,9,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
 Tropical Smoothie Cafe,SMOOTHIES,"Peanut Butter Cup 3,4,6",24 oz,,drink,680,19,6,0,0,190,128,7,106,10,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
 Tropical Smoothie Cafe,SMOOTHIES,"Peanut Paradise with Pea 3,4,6,10",24 oz,,drink,730,17,3.5,0,0,610,112,5,90,35,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
 Tropical Smoothie Cafe,SMOOTHIES,"Peanut Paradise with Whey 3,4,6,10",24 oz,,drink,700,16,4,0,45,260,115,5,91,26,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
 Tropical Smoothie Cafe,KIDS SMOOTHIES (12 OZ.),"Kids Awesome Chocolate 3,6",12 oz,,drink,250,2,2,0,0,35,60,3,51,2,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
-Tropical Smoothie Cafe,SUPPLEMENTS,"Whey Protein Powder 3,6",1 serving,,main,100,1.5,0.5,0,45,50,6,0,1,16,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
-Tropical Smoothie Cafe,FRESH ADD-INS,Peanut Butter 4,1 serving,,main,180,14,3,0,0,140,6,2,3,7,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
-Tropical Smoothie Cafe,FRESH ADD-INS,Raw Almonds 7,1 serving,,main,35,3,0,0,0,0,2,1,0,0,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
+Tropical Smoothie Cafe,SUPPLEMENTS,"Whey Protein Powder 3,6",1 serving,,extra,100,1.5,0.5,0,45,50,6,0,1,16,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
+Tropical Smoothie Cafe,FRESH ADD-INS,Peanut Butter 4,1 serving,,extra,180,14,3,0,0,140,6,2,3,7,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
+Tropical Smoothie Cafe,FRESH ADD-INS,Raw Almonds 7,1 serving,,extra,35,3,0,0,0,0,2,1,0,0,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
 Tropical Smoothie Cafe,Salted Caramel Javablender,Salted Caramel Javablender,24 oz,,main,490,12,7,0,15,210,89,2,64,7,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
 Tropical Smoothie Cafe,Salted Caramel Javablender,Salted Caramel Javablender Add Turbinado Sugar,24 oz,,main,730,12,7,0,15,210,147,2,122,7,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending
 Tropical Smoothie Cafe,Salted Caramel Javablender,Salted Caramel Javablender Add Half Turbinado Sugar,24 oz,,main,610,12,7,0,15,210,117,2,92,7,https://www.tropicalsmoothiecafe.com/nutrition/nutrition-guide.pdf,2026-10-23,pending

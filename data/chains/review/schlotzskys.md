@@ -5,10 +5,12 @@ Numbers in order: calories / fat_g / saturated_fat_g / trans_fat_g / cholesterol
 
 ## Disagreements (0)
 
+The last column comes from `npm run chains:evidence`: whether a draft's numbers sit right after the item's name in the guide text the drafts read. It can't read sizes or sections (one draft called a single 78 g cookie a "6 pack"): check those against the guide, then fix the line and set its check to `person`.
+
 Fix each line in `menus/schlotzskys.csv` from the guide and set its check to `person` (or delete the line if it isn't on the menu).
 
-| Item | Size | Why | Draft A | Draft B |
-| --- | --- | --- | --- | --- |
+| Item | Size | Why | Draft A | Draft B | In the guide text (no AI) |
+| --- | --- | --- | --- | --- | --- |
 
 ## Spot check (3 agreed lines)
 

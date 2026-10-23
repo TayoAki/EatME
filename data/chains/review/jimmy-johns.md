@@ -5,15 +5,17 @@ Numbers in order: calories / fat_g / saturated_fat_g / trans_fat_g / cholesterol
 
 ## Disagreements (5)
 
+The last column comes from `npm run chains:evidence`: whether a draft's numbers sit right after the item's name in the guide text the drafts read. It can't read sizes or sections (one draft called a single 78 g cookie a "6 pack"): check those against the guide, then fix the line and set its check to `person`.
+
 Fix each line in `menus/jimmy-johns.csv` from the guide and set its check to `person` (or delete the line if it isn't on the menu).
 
-| Item | Size | Why | Draft A | Draft B |
-| --- | --- | --- | --- | --- |
-| BEEFY BLACK & BLEU | UNWICH® | only in draft A | 380 / 25 / 9 / 0 / 100 / 1350 / 10 / 2 / 6 / 40 | not found |
-| BEEFY BLACK & BLEU | 8” FRENCH BREAD | differ: protein_g | 650 / 27 / 9 / 0 / 100 / 1900 / 60 / 5 / 5 / 46 | 650 / 27 / 9 / 0 / 100 / 1900 / 60 / 5 / 5 / 10 |
-| BEEFY BLACK & BLEU | THICK-SLICED WHEAT | differ: protein_g | 740 / 33 / 9 / 0 / 100 / 1730 / 66 / 6 / 13 / 81 | 740 / 33 / 9 / 0 / 100 / 1730 / 66 / 6 / 13 / 10 |
-| BEEFY BLACK & BLEU | 16” FRENCH BREAD | differ: protein_g | 1300 / 53 / 17 / 0 / 200 / 3790 / 121 / 10 / 10 / 81 | 1300 / 53 / 17 / 0 / 200 / 3790 / 121 / 10 / 10 / 30 |
-| BEEFY BLACK & BLEU | UNWICH® LETTUCE WRAP | only in draft B | not found | 380 / 25 / 9 / 0 / 100 / 1350 / 10 / 2 / 6 / 10 |
+| Item | Size | Why | Draft A | Draft B | In the guide text (no AI) |
+| --- | --- | --- | --- | --- | --- |
+| BEEFY BLACK & BLEU | UNWICH® | only in draft A | 380 / 25 / 9 / 0 / 100 / 1350 / 10 / 2 / 6 / 40 | not found | A: numbers found after the name (line 321); check the size |
+| BEEFY BLACK & BLEU | 8” FRENCH BREAD | differ: protein_g | 650 / 27 / 9 / 0 / 100 / 1900 / 60 / 5 / 5 / 46 | 650 / 27 / 9 / 0 / 100 / 1900 / 60 / 5 / 5 / 10 | A: numbers found after the name (line 321); check the size; B: numbers found after the name (line 321); check the size |
+| BEEFY BLACK & BLEU | THICK-SLICED WHEAT | differ: protein_g | 740 / 33 / 9 / 0 / 100 / 1730 / 66 / 6 / 13 / 81 | 740 / 33 / 9 / 0 / 100 / 1730 / 66 / 6 / 13 / 10 | A: numbers found after the name (line 321); check the size; B: numbers found after the name (line 321); check the size |
+| BEEFY BLACK & BLEU | 16” FRENCH BREAD | differ: protein_g | 1300 / 53 / 17 / 0 / 200 / 3790 / 121 / 10 / 10 / 81 | 1300 / 53 / 17 / 0 / 200 / 3790 / 121 / 10 / 10 / 30 | A: numbers found after the name (line 321); check the size; B: numbers found after the name (line 321); check the size |
+| BEEFY BLACK & BLEU | UNWICH® LETTUCE WRAP | only in draft B | not found | 380 / 25 / 9 / 0 / 100 / 1350 / 10 / 2 / 6 / 10 | B: numbers found after the name (line 321); check the size |
 
 ## Spot check (3 agreed lines)
 

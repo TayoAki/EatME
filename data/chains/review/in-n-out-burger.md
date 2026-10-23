@@ -5,16 +5,18 @@ Numbers in order: calories / fat_g / saturated_fat_g / trans_fat_g / cholesterol
 
 ## Disagreements (6)
 
+The last column comes from `npm run chains:evidence`: whether a draft's numbers sit right after the item's name in the guide text the drafts read. It can't read sizes or sections (one draft called a single 78 g cookie a "6 pack"): check those against the guide, then fix the line and set its check to `person`.
+
 Fix each line in `menus/in-n-out-burger.csv` from the guide and set its check to `person` (or delete the line if it isn't on the menu).
 
-| Item | Size | Why | Draft A | Draft B |
-| --- | --- | --- | --- | --- |
-| Unsweetened Iced Tea | 9 fl oz | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found |
-| Unsweetened Iced Tea | 14 fl oz | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found |
-| Unsweetened Iced Tea | 19 fl oz | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found |
-| Unsweetened Iced Tea | 9 ounce | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Unsweetened Iced Tea | 14 ounce | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
-| Unsweetened Iced Tea | 19 ounce | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 |
+| Item | Size | Why | Draft A | Draft B | In the guide text (no AI) |
+| --- | --- | --- | --- | --- | --- |
+| Unsweetened Iced Tea | 9 fl oz | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found | A: numbers found after the name (line 572); check the size, mostly zeros: look |
+| Unsweetened Iced Tea | 14 fl oz | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found | A: numbers found after the name (line 572); check the size, mostly zeros: look |
+| Unsweetened Iced Tea | 19 fl oz | only in draft A | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | not found | A: numbers found after the name (line 572); check the size, mostly zeros: look |
+| Unsweetened Iced Tea | 9 ounce | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 572); check the size, mostly zeros: look |
+| Unsweetened Iced Tea | 14 ounce | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 572); check the size, mostly zeros: look |
+| Unsweetened Iced Tea | 19 ounce | only in draft B | not found | 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 | B: numbers found after the name (line 572); check the size, mostly zeros: look |
 
 ## Spot check (4 agreed lines)
 

@@ -5,9 +5,9 @@
 > app as **Weight Class**; the code keeps EatME. Tick the boxes here as parts ship and add them to `PLAN.md`.
 >
 > **Status, 23 October 2026: built.** The ranking, the server (live on Railway since 22 October) and the app screens
-> are in the code and pass their tests (`npm test`; a browser run of every screen against the local server). Waiting
-> on: OpenRouter credit (to draft more chains and run the accuracy pilot), a person for the review lists, and a phone
-> for the menu-reading check (section 11). The screens came after commit `f05e76a`: build 4 (version 1.0) is built
+> are in the code and pass their tests (`npm test`; a browser run of every screen against the local server). 100
+> chains have numbers (15,171 items). Waiting on: a person for the review lists, the owner's decision on scanned
+> menus after the accuracy pilot (§13, 5), and a phone for the menu-reading check (section 11). The screens came after commit `f05e76a`: build 4 (version 1.0) is built
 > from that commit, and What to order ships in its own version (`store/README.md` → What to order).
 
 ## Contents
@@ -356,10 +356,13 @@ changes before any app code.
   (`data/chains/README.md`). The order: `data/chains/ranking.csv`, ranks 1-250. Tested on the compare step; the first
   real run (Chick-fil-A, guide read) waits for OpenRouter credit and `FIRECRAWL_API_KEY`.
 - [ ] **First ten chains** drafted and their review lists checked: the ground truth for the next check. Then on to
-  100 before launch. *23 October: 13 chains drafted, 1,570 items both drafts agree on (in `data/chains.json` and live);
-  908 lines wait for a person in `data/chains/review/<chain>.md`, where `npm run chains:evidence` (no AI)
-  shows that for 727 of them a draft's numbers sit right after the item's name in the guide text (sizes still need a look). Dunkin', SONIC, Culver's and Dairy Queen need a
-  rerun and Chipotle a source, once OpenRouter has credit.*
+  100 before launch. *23 October: 104 chains drafted (ranks 1-150 with a guide of their own), 100 with items: 15,171
+  items both drafts agree on (`data/chains.json`). 10,328 lines wait for a person in `data/chains/review/<chain>.md`;
+  `npm run chains:evidence` (no AI) finds a draft's numbers right after the item's name in the guide text for 6,767
+  of the 9,418 it can check (sizes still need a look). Coffee chains' drink tables leave the most (Scooter's 1,018,
+  7 Brew 778). 22 of the top 100 publish only through Nutritionix or inside their apps (Taco Bell, Wendy's, Burger
+  King, KFC, Pizza Hut, Chili's, Applebee's, IHOP and 14 smaller): they wait for Nutritionix (§13, 2); Chipotle, Moe's
+  and other build-your-own chains publish ingredients, not dishes. Drafting cost about 5 US cents a chain.*
 - [ ] **Accuracy pilot** (like the week-1 pilot run for ChartME): 60 dishes from those ten chains, their menu text
   through our pipeline (read → foods and portions → USDA) against the chains' published numbers. Pass: median
   calorie error 20% or less, the published top five and ours share at least three dishes, and no underestimate on
@@ -392,8 +395,8 @@ changes before any app code.
 | | **Total** | **≈ 22.5** |
 
 *Status, 23 October 2026:* steps 2, 3, 4 and 6 are done; 7 is done for the server and the UI (a browser run of every
-screen, payments on and off) and waits on a phone for the device checklist; 1 and 5 wait for OpenRouter credit and a
-person for the review lists.
+screen, payments on and off) and waits on a phone for the device checklist; 1 and 5: 100 chains drafted and the
+accuracy pilot run (§11), waiting on a person for the review lists and the owner's decision on scanned menus.
 
 Release as v2.5 with one EAS build. Then 250 chains and beyond, "near me" (Apple Maps or Overture) and a Home card in v2.6, if
 people use it.

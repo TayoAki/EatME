@@ -3,16 +3,19 @@
 Guide: https://www.qdoba.com/public/assets/documents/qdoba-nutrition-information.pdf (read 2026-10-23). Draft A: openai/gpt-5.6-luna. Draft B: anthropic/claude-haiku-5.5.
 Numbers in order: calories / fat_g / saturated_fat_g / trans_fat_g / cholesterol_mg / sodium_mg / carbs_g / fiber_g / sugars_g / protein_g.
 
-## Disagreements (4)
+## Disagreements (5)
+
+The last column comes from `npm run chains:evidence`: whether a draft's numbers sit right after the item's name in the guide text the drafts read. It can't read sizes or sections (one draft called a single 78 g cookie a "6 pack"): check those against the guide, then fix the line and set its check to `person`.
 
 Fix each line in `menus/qdoba-mexican-eats.csv` from the guide and set its check to `person` (or delete the line if it isn't on the menu).
 
-| Item | Size | Why | Draft A | Draft B |
-| --- | --- | --- | --- | --- |
-| Potatoes, Seasoned | 2 oz. | differ: protein_g | 130 / 6 / 1 / 0 / 0 / 260 / 17 / 2 / 0 / – | 130 / 6 / 1 / 0 / 0 / 260 / 17 / 2 / 0 / 21 |
-| Corn Tortilla 5.5 | 5.5" | only in draft A | 30 / 0 / 0 / 0 / 0 / 50 / 6 / 1 / 0 / 1 | not found |
-| Steak, Grilled | 1.75 oz. | only in draft B | not found | 90 / 4 / 2 / 0 / 35 / 230 / 1 / 0 / 0 / 13 |
-| 3-Cheese Queso | 1 oz. | only in draft B | not found | 45 / 4 / 2.5 / 0 / 10 / 180 / 2 / 0 / 0 / 2 |
+| Item | Size | Why | Draft A | Draft B | In the guide text (no AI) |
+| --- | --- | --- | --- | --- | --- |
+| Potatoes, Seasoned | 2 oz. | differ: protein_g | 130 / 6 / 1 / 0 / 0 / 260 / 17 / 2 / 0 / – | 130 / 6 / 1 / 0 / 0 / 260 / 17 / 2 / 0 / 21 | A: numbers found after the name (line 57); check the size; B: numbers found after the name (line 57); check the size |
+| Corn Tortilla 5.5 | 5.5" | only in draft A | 30 / 0 / 0 / 0 / 0 / 50 / 6 / 1 / 0 / 1 | not found | A: numbers found after the name (line 94); check the size |
+| Steak, Grilled | 1.75 oz. | only in draft B | not found | 90 / 4 / 2 / 0 / 35 / 230 / 1 / 0 / 0 / 13 | B: numbers found after the name (line 106); check the size |
+| 3-Cheese Queso | 1 oz. | only in draft B | not found | 45 / 4 / 2.5 / 0 / 10 / 180 / 2 / 0 / 0 / 2 | B: name not in the guide text |
+| Cheese, Cotija | .25 oz. | both read it the same, but its protein, carbs and fat make 130 kcal, not 30 | 30 / 13.5 / 1.5 / 0 / 5 / 120 / 0 / 0 / 0 / 2 | 30 / 13.5 / 1.5 / 0 / 5 / 120 / 0 / 0 / 0 / 2 | A: numbers found after the name (line 27); check the size; B: numbers found after the name (line 27); check the size |
 
 ## Spot check (6 agreed lines)
 
