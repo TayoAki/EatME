@@ -126,15 +126,26 @@ export type MenuDishAnalysis = z.infer<typeof menuDishAnalysisSchema>;
 
 export const menuAnalysisSchema = z.object({
   /** "fast food", "cafe", "casual dining"…: portions follow the kind of restaurant. */
-  restaurantType: z.string().max(40),
-  dishes: z.array(menuDishAnalysisSchema).max(MAX_MENU_LINES),
+  restaurantType: z.string().transform((type) => type.trim().slice(0, 40)),
+  // A dish outside the limits (a catering tray's 4 kg of nuggets) is left out like a line the AI skipped,
+  // instead of failing every other dish read with it.
+  dishes: z.array(z.unknown()).transform((dishes) =>
+    dishes.slice(0, MAX_MENU_LINES).flatMap((dish) => {
+      const parsed = menuDishAnalysisSchema.safeParse(dish);
+      return parsed.success ? [parsed.data] : [];
+    }),
+  ),
 });
 export type MenuAnalysis = z.infer<typeof menuAnalysisSchema>;
 
-/** Lines read from a menu photo by the AI (when the phone can't read the text itself). */
+const cut = (max: number) => z.string().transform((text) => text.slice(0, max));
+
+/** Lines read from a menu photo by the AI (when the phone can't read the text itself). Long text is cut, never refused. */
 export const menuReadingSchema = z.object({
   isMenu: z.boolean(),
-  lines: z.array(z.object({ name: z.string().max(120), description: z.string().max(300), price: z.string().max(20), section: z.string().max(60) })).max(MAX_MENU_LINES),
+  lines: z
+    .array(z.object({ name: cut(120), description: cut(300), price: cut(20), section: cut(60) }))
+    .transform((lines) => lines.slice(0, MAX_MENU_LINES)),
 });
 
 /** A food of a scanned dish, with its numbers (from the database, or the AI's own estimate). */
