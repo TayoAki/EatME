@@ -71,7 +71,7 @@ export default function MenuScanScreen() {
       <MenuMessage
         busy
         title={stage}
-        message="Weight Class reads each dish, works out its foods and portions, and ranks them for what's left of your day. It takes about half a minute."
+        message="Weight Class reads each dish, works out its foods and portions, and finds the ones likely to fit what's left of your day. It takes about half a minute."
       />
     );
   }
@@ -95,13 +95,15 @@ export default function MenuScanScreen() {
         list={list}
         calm={calm}
         showFreeTry={payments && !billing.data?.premium}
+        estimates
         bottomSpace={insets.bottom}
         onPick={setPicked}
         header={<MenuTop title={data.restaurant ?? 'Your menu'} subtitle={`${dishes === 1 ? '1 dish' : `${dishes} dishes`} from a menu photo · estimates`} />}
         footer={
           <Text className="text-[13px] leading-[18px] text-muted">
-            Every number here is an estimate. Weight Class works out the dishes closest to your aim from the USDA food database;
-            the rest are quick estimates with wider ranges. Menus are kept for 30 days.
+            Every number here is an estimate, shown as a range: tested against chains&apos; own published numbers, about 8 in 10
+            fell inside it. Weight Class works out the dishes closest to your aim from the USDA food database; the rest are
+            the AI&apos;s quick estimates. Menus are kept for 30 days.
           </Text>
         }
       />

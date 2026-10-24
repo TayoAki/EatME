@@ -20,6 +20,8 @@ type MenuListViewProps = {
   footer: ReactElement;
   /** Payments on and no Premium: say this list is the free try. */
   showFreeTry: boolean;
+  /** A scanned menu: its fits are Likely fits, in menu order (an estimate can't tell which dish fits best). */
+  estimates?: boolean;
   onPick: (row: MenuRow) => void;
   bottomSpace: number;
 };
@@ -30,7 +32,7 @@ const matches = (row: MenuRow, words: string[]) => {
 };
 
 /** "About 1,350 kcal and 95 g protein left today", then this meal's share of it. */
-function LeftToday({ list }: { list: MenuList }) {
+function LeftToday({ list, estimates }: { list: MenuList; estimates: boolean }) {
   const { left, aim } = list;
   return (
     <View className="rounded-card bg-surface p-4">
@@ -38,8 +40,10 @@ function LeftToday({ list }: { list: MenuList }) {
         About {left.calories.toLocaleString()} kcal{left.proteinG > 0 ? ` and ${left.proteinG} g protein` : ''} left today
       </Text>
       <Text className="mt-1 text-[14px] leading-5 text-muted">
-        For this meal, about {aim.calories.toLocaleString()} kcal{aim.proteinG > 0 ? ` and ${aim.proteinG} g protein` : ''}. The dishes closest
-        to that come first.
+        For this meal, about {aim.calories.toLocaleString()} kcal{aim.proteinG > 0 ? ` and ${aim.proteinG} g protein` : ''}.{' '}
+        {estimates
+          ? 'Likely fits leave room for your other meals even at the top of their range, and come in menu order.'
+          : 'The dishes closest to that come first.'}
       </Text>
     </View>
   );
@@ -48,9 +52,10 @@ function LeftToday({ list }: { list: MenuList }) {
 /**
  * What to order: a menu ranked for what's left of the person's day. "Fits well" (up to five, a group
  * when estimates are too close to call), then everything else; dishes over what's left are listed
- * last, never hidden. Once the day's budget is spent nothing is ranked (WHAT-TO-ORDER.md §5).
+ * last, never hidden. A scanned menu's are "Likely fits", in menu order. Once the day's budget is spent
+ * nothing is ranked (WHAT-TO-ORDER.md §5).
  */
-export function MenuListView({ list, calm, header, footer, showFreeTry, onPick, bottomSpace }: MenuListViewProps) {
+export function MenuListView({ list, calm, header, footer, showFreeTry, estimates = false, onPick, bottomSpace }: MenuListViewProps) {
   const [query, setQuery] = useState('');
   const [showHidden, setShowHidden] = useState(false);
   const spent = list.state === 'nothing_fits';
@@ -61,15 +66,19 @@ export function MenuListView({ list, calm, header, footer, showFreeTry, onPick, 
     const all: Section[] = [
       {
         key: 'fits',
-        title: 'Fits well',
-        note: list.closeCall && !calm ? 'These are close: any of them fits about as well.' : null,
+        title: estimates ? 'Likely fits' : 'Fits well',
+        note: estimates
+          ? "In menu order: an estimate can't tell which fits best."
+          : list.closeCall && !calm
+            ? 'These are close: any of them fits about as well.'
+            : null,
         data: keep(list.fitsWell),
       },
       { key: 'others', title: spent ? null : 'Everything else', note: null, data: keep(list.others) },
       { key: 'hidden', title: 'Foods you skip', note: null, data: showHidden ? keep(list.hidden) : [] },
     ];
     return all.filter((section) => section.data.length > 0);
-  }, [list, query, showHidden, spent, calm]);
+  }, [list, query, showHidden, spent, calm, estimates]);
 
   const top = (
     <View className="gap-3 pb-2">
@@ -91,10 +100,12 @@ export function MenuListView({ list, calm, header, footer, showFreeTry, onPick, 
         </View>
       ) : calm ? (
         <View className="rounded-card bg-surface p-4">
-          <Text className="text-[16px] leading-[22px] text-ink">Ranked for what&apos;s left of your day.</Text>
+          <Text className="text-[16px] leading-[22px] text-ink">
+            {estimates ? "Likely fits for what's left of your day, in menu order." : "Ranked for what's left of your day."}
+          </Text>
         </View>
       ) : (
-        <LeftToday list={list} />
+        <LeftToday list={list} estimates={estimates} />
       )}
       <View className="h-12 flex-row items-center gap-2 rounded-field bg-surface px-4">
         <Search size={18} color={colors.muted} />

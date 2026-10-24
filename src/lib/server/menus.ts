@@ -457,7 +457,11 @@ export async function menuScanResponse(user: User, scanId: string): Promise<Menu
   const base = { id: scan.id, status: scan.status, restaurant: scan.restaurant, error: scan.error, createdAt: scan.createdAt.toISOString() };
   if (scan.status !== 'ready' || !scan.dishes) return { ...base, list: null };
   const { freeTry } = await openList(user, `scan:${scan.id}`);
-  return { ...base, list: await rankedList(user, scan.dishes.map(scanBase), freeTry) };
+  const list = await rankedList(user, scan.dishes.map(scanBase), freeTry);
+  // Estimates can't tell which dish fits best (the accuracy pilot, WHAT-TO-ORDER.md §11): the dishes that fit even
+  // at the top of their range are Likely fits, in the order the menu lists them.
+  const fitsWell = [...list.fitsWell].sort((a, b) => Number(a.key) - Number(b.key));
+  return { ...base, list: { ...list, fitsWell, closeCall: false } };
 }
 
 // ── Ordering: Log it, Save for later ────────────────────────────────────────────────────────────

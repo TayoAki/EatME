@@ -46,23 +46,25 @@ export const MENU_PHOTO_FIELD = 'photo';
  * How far an estimate can be off, from the accuracy pilot (WHAT-TO-ORDER.md §11, `data/chains/pilot.md`):
  * the share below and above the number, per kind of dish, and the correction for a measured
  * underestimate (numbers are multiplied by it before anything is shown). `quick`: the AI's own first
- * estimate, before our database priced it.
+ * estimate, before our database priced it. Measured on 23 October 2026 (two runs, 339 and 465 dishes; the wider
+ * of the two): a range holds the chain's own number about 8 times in 10. Extras weren't measured and take the
+ * sides' widths. No correction: the estimates ran a little high, the safe side.
  */
 export const ESTIMATE_CALIBRATION = {
   correction: 1,
   estimate: {
-    main: { below: 0.25, above: 0.3 },
-    side: { below: 0.3, above: 0.35 },
-    drink: { below: 0.3, above: 0.35 },
-    dessert: { below: 0.3, above: 0.35 },
-    extra: { below: 0.4, above: 0.4 },
+    main: { below: 0.46, above: 0.39 },
+    side: { below: 0.41, above: 0.61 },
+    drink: { below: 0.6, above: 1 },
+    dessert: { below: 0.52, above: 0.34 },
+    extra: { below: 0.41, above: 0.61 },
   },
   quick: {
-    main: { below: 0.35, above: 0.45 },
-    side: { below: 0.4, above: 0.5 },
-    drink: { below: 0.4, above: 0.5 },
-    dessert: { below: 0.4, above: 0.5 },
-    extra: { below: 0.5, above: 0.5 },
+    main: { below: 0.44, above: 0.31 },
+    side: { below: 0.34, above: 0.6 },
+    drink: { below: 0.6, above: 0.81 },
+    dessert: { below: 0.52, above: 0.23 },
+    extra: { below: 0.34, above: 0.6 },
   },
 } satisfies {
   correction: number;

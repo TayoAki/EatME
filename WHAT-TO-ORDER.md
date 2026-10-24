@@ -147,7 +147,9 @@ ordering page, and the chat (not in v2.5).
   else**. Each row: a small food picture (section 10), the dish, calories (a range for estimates), protein, the source ("From Chick-fil-A" for a
   chain item, "Estimate" for a scanned menu) and one reason ("Leaves about 500 kcal for dinner", "45 g protein").
   Items over what's left are listed last, never hidden. Under a chain's list: "Numbers from Chick-fil-A's nutrition
-  information, checked 22 Oct 2026" with a link to its guide (see **Citing the source** below).
+  information, checked 22 Oct 2026" with a link to its guide (see **Citing the source** below). A scanned menu's are
+  **Likely fits** instead (decided 24 October 2026, §13, 5): the dishes that fit even at the top of their range, in
+  the order the menu lists them ("In menu order: an estimate can't tell which fits best"), with the measured ranges.
 - [x] **When nothing fits** or the day's budget is spent: no ranking, a neutral line ("Nothing here fits what's
   left today; these are the lighter dishes") and the list sorted by size.
 - [x] **A dish**: its numbers and where they're from (the chain's citation below, or the foods and portions behind
@@ -372,8 +374,9 @@ changes before any app code.
   −8 to −10% (pass), but our Fits well and the chains' own share a median of 1 of 5 dishes (fail). Safety: 89% of the
   dishes we put in Fits well fit the day by the chain's own numbers too, none is too big, 10% are too small to be a
   meal. Ranges that hold the published number 80% of the time are about ±40% (mains −46% / +36%), wider than the
-  ±25–30% in `ESTIMATE_CALIBRATION`, which stays until the owner decides (§13, 5). The run also found a pipeline bug,
-  fixed: one dish over the limits (a 4 kg catering tray) failed every dish read with it.*
+  ±25–30% `ESTIMATE_CALIBRATION` had; the measured widths (the wider of the two runs) are in it since 24 October,
+  and scanned menus show Likely fits (§13, 5). The run also found a pipeline bug, fixed: one dish over the limits (a
+  4 kg catering tray) failed every dish read with it.*
 - [ ] **Menu reading on a phone**: the Vision module on 10 real menus (printed, chalkboard, dim light). Pass: 9 of
   10 give usable dish lines after the confirm step; otherwise we send the photo, as meal scans do. *The module
   (`modules/menu-text`) and the layout rules (`src/shared/menu-lines.ts`, tested) are written; the check needs a
@@ -417,9 +420,9 @@ people use it.
 4. **Name**: "What to order" (proposed), or another plain name. Not "healthy menu". Open.
 5. **Scanned menus after the pilot** (23 October 2026, §11): the estimates are safe (no dish we call a fit is too
    big by the chain's own numbers) but not exact enough to pick the same best five. Chain menus are unaffected: they
-   rank the chains' own numbers. Options: (a) scanned menus show "Likely fits" in no best-first order, with the
-   measured ±40% ranges; (b) v2.5 ships chain menus only, and scanned menus follow once estimates improve (menus
-   with descriptions, a larger pilot); (c) keep the design and accept the failed pass line. Open.
+   rank the chains' own numbers. **Decided 24 October 2026: (a)**, scanned menus show "Likely fits" in no best-first
+   order (the order the menu lists them), with the measured ranges (about ±40% for mains). Not chosen: (b) chain
+   menus only in v2.5, (c) keeping the design. A larger pilot with menu descriptions can revisit it.
 
 ---
 

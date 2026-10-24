@@ -368,7 +368,8 @@ on, all of it. Before that submission:
       23 October; `npm run chains:evidence` finds 6,767 of them in the guide text as drafted), then `npm run chains:build`
 - [ ] The accuracy pilot passed (`npm run menus:pilot`, WHAT-TO-ORDER.md §11) and its calibration copied into
       `ESTIMATE_CALIBRATION` (`src/shared/menus.ts`). Run on 23 October: calories and big plates at the line, the
-      best-five overlap failed; the owner decides what scanned menus show (WHAT-TO-ORDER.md §13, 5)
+      best-five overlap failed, so scanned menus show Likely fits in menu order with the measured ranges (decided
+      24 October, WHAT-TO-ORDER.md §13, 5)
 - [ ] The menu-reading check on a phone (10 real menus, 9 readable after the confirm step). `modules/menu-text` is
       native: test it in a preview build while 1.0 is in review (`store/release.md` → What to order on a phone),
       not Expo Go
@@ -401,7 +402,7 @@ meal, What to order (your first menu is free), the weekly check-in and Plan tomo
 ```text
 WHAT TO ORDER
 Scan → Search foods → Restaurants lists chains whose numbers come from their own published nutrition information. Open one (Chick-fil-A, for example): "Fits well" and "Everything else" are ranked for what's left of the day by our own code, not AI. Each item names its source and the day it was checked, with "View [chain]'s guide" linking to the chain's own page, "Weight Class isn't affiliated with [chain]" and "Report a wrong item". Chain names appear as text only; the small food pictures are our own (Fluent Emoji, MIT licence), never the chains' photos or logos.
-To scan a menu without a restaurant: open <server>/test-menu on a second screen (or save the image there and use Choose a photo), then Scan → Menu. The iPhone reads the text, you check the dishes, and only that text and the restaurant's name are sent to AI, after a consent screen that names menus. Estimates show as ranges.
+To scan a menu without a restaurant: open <server>/test-menu on a second screen (or save the image there and use Choose a photo), then Scan → Menu. The iPhone reads the text, you check the dishes, and only that text and the restaurant's name are sent to AI, after a consent screen that names menus. Estimates show as ranges, and the dishes that fit even at the top of their range show as "Likely fits" in the order the menu lists them: our own test against chains' published numbers showed an estimate can't say which dish fits best.
 Every list says "Tell staff about allergies: Weight Class can't know what's in a dish." We never call a dish healthy or safe, the lightest dish never wins for being small, and nothing is ranked once the day's budget is spent. "How What to order works" opens Profile → Sources → Restaurant menus.
 What to order is part of Weight Class Premium; the first menu is free (the demo account hasn't used it), then the Premium screen appears.
 ```
