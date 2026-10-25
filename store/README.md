@@ -58,7 +58,7 @@ Policy if it says so.
 
 | Field | Answer |
 | --- | --- |
-| Screenshots | The iPhone 6.5" display slot on the version page: `screenshots/ios-6.5/01-home.png` to `07-search.png`, in that order (1284 × 2778), or the 6.9" slot in Media Manager: `screenshots/ios-6.9/` (1320 × 2868). One set is enough (no alpha; captions and rules in `screenshots/README.md`). Weight Class is iPhone-only (`supportsTablet: false`), so no iPad screenshots |
+| Screenshots | The iPhone 6.5" display slot on the version page: `screenshots/ios-6.5/01-home.png` to `09-search.png`, in that order (1284 × 2778), or the 6.9" slot in Media Manager: `screenshots/ios-6.9/` (1320 × 2868). One set is enough (no alpha; captions and rules in `screenshots/README.md`). This set is version 1.1's: 1.0 keeps the seven it was submitted with. Weight Class is iPhone-only (`supportsTablet: false`), so no iPad screenshots |
 | Promotional text (170) | `Take a photo, describe your meal or scan a barcode. Weight Class estimates the calories, protein, carbs, fat and fiber, and keeps your day on track.` |
 | Keywords (100) | `loss,lose,diet,deficit,photo,scanner,protein,meal,planner,cut,cutting,glp-1,nutrition,barcode,diary` (99). No word from the name or subtitle: Apple combines the three, so `loss` + "Weight" already makes "weight loss". Never another app's or a medicine's brand name (Apple 2.3.7) |
 | Keywords, Spanish (Mexico) (100) | `semaglutide,tirzepatide,injection,dose,water,fiber,carb,drink,kcal,log,intake,portion,healthy,lean` (98). The US App Store also searches the Spanish (Mexico) listing, which doubles the keyword space: add that localization with the same English name, subtitle, description and screenshots, and these keywords. They combine with the name and subtitle, not with the English keywords |
@@ -383,8 +383,9 @@ on, all of it. Before that submission:
 - [ ] `WHAT_TO_ORDER` is not `false` on Railway (the switch is for outages only and is on for the review)
 - [ ] The support page lines below, deployed on submission day and not before: the page lists what Premium
       includes, and the 1.0 review must not read about a feature its build doesn't have
-- [ ] Screenshots: a chain's What fits list (Search → Restaurants) and a scanned menu, with the Premium badge, and
-      `07-search.png` again (Search now has a Restaurants tab and Restaurant dishes)
+- [x] Screenshots (25 October): a chain's What fits list (`04-what-to-order.png`) and a scanned menu
+      (`05-scanned-menu.png`) with the Premium badge, and Search again (`09-search.png`, with the Restaurants tab);
+      nine in all, in `screenshots/`
 - [ ] The demo account hasn't used its free try (any account's first menu is free; then Premium, sandbox in review)
 - [ ] App Privacy needs no new type: menus are User Content (photos only when the phone can't read the text, and
       the dish list and restaurant name as Other User Content), and the meals ordered from them are Health & Fitness,

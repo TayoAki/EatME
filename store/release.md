@@ -100,8 +100,8 @@ App Store Connect → the app → the iOS version (1.0) → fill it from [`READM
 0. **Name (do this first; it reserves the name):** App Information → Name `Weight Class: Calorie Counter`, and on
    the version the subtitle `AI Food Scan & Macro Tracker`. The app record still says EatME until you change it.
 
-1. **Screenshots:** the iPhone 6.5" display slot → drag in `screenshots/ios-6.5/01-home.png` to `07-search.png` in
-   order (or the 6.9" set from `screenshots/ios-6.9/` through View All Sizes in Media Manager).
+1. **Screenshots:** already uploaded for 1.0 (seven of them); leave them. The set now in `screenshots/` is 1.1's:
+   it shows What to order, which build 4 doesn't have.
 2. **Texts:** promotional text, description, keywords (plus a Spanish (Mexico) localization for the second keyword
    list), support URL (`<server>/support`), copyright (leave the
    marketing URL empty until the landing page links the App Store).
@@ -131,7 +131,8 @@ Only one version can be in review at a time, so 1.1 waits for 1.0:
 2. **The checklist** in [`README.md` → What to order](README.md#what-to-order-version-25-its-own-build): the
    person's spot check of the chains, the phone tests below on the TestFlight build, the screenshots.
 3. **New version:** the app → iOS App → **+** next to the version list → `1.1.0`. Paste What's New, the new
-   description line, the Premium block and the review notes from that section; replace the screenshots.
+   description line, the Premium block and the review notes from that section. Screenshots: delete the seven in the
+   6.5" slot and drag in `screenshots/ios-6.5/01-home.png` to `09-search.png`, in order.
 4. **Build:** the 1.1.0 build you tested. Nothing else changes: same subscriptions (they were approved with 1.0),
    App Privacy, age rating and demo account (check its free menu is unused: Search foods → Restaurants shows no
    crown).
