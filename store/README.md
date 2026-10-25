@@ -386,6 +386,7 @@ on, all of it. Before that submission:
 
 ```text
 What to order: at a restaurant, see which dishes fit what's left of your day. Chains use their own published nutrition numbers, with a link to each chain's guide; for any other restaurant, scan the menu and get estimates with a range. Log the dish in one tap, or save it for when the food arrives. Part of Weight Class Premium; your first menu is free.
+Chain meals: type, snap or search a chain restaurant's dish and Weight Class uses the restaurant's own published numbers, free.
 ```
 
 **Description:** under HOW IT WORKS, after the barcode line:
@@ -403,6 +404,7 @@ meal, What to order (your first menu is free), the weekly check-in and Plan tomo
 WHAT TO ORDER
 Scan → Search foods → Restaurants lists chains whose numbers come from their own published nutrition information. Open one (Chick-fil-A, for example): "Fits well" and "Everything else" are ranked for what's left of the day by our own code, not AI. Each item names its source and the day it was checked, with "View [chain]'s guide" linking to the chain's own page, "Weight Class isn't affiliated with [chain]" and "Report a wrong item". Chain names appear as text only; the small food pictures are our own (Fluent Emoji, MIT licence), never the chains' photos or logos.
 To scan a menu without a restaurant: open <server>/test-menu on a second screen (or save the image there and use Choose a photo), then Scan → Menu. The iPhone reads the text, you check the dishes, and only that text and the restaurant's name are sent to AI, after a consent screen that names menus. Estimates show as ranges, and the dishes that fit even at the top of their range show as "Likely fits" in the order the menu lists them: our own test against chains' published numbers showed an estimate can't say which dish fits best.
+Chain meals logged the usual way use the same numbers: Scan → Describe a meal, type "Big Mac and a medium Coke from McDonald's", and the meal shows "Matched to the McDonald's menu: the restaurant's own numbers" with the source, the day it was checked and the links. Search foods → Foods lists "Restaurant dishes" above the USDA foods (try "big mac"). Only a dish that exactly one item of a chain's guide fits is matched; anything else stays an estimate. Logging a chain's dish is free.
 Every list says "Tell staff about allergies: Weight Class can't know what's in a dish." We never call a dish healthy or safe, the lightest dish never wins for being small, and nothing is ranked once the day's budget is spent. "How What to order works" opens Profile → Sources → Restaurant menus.
 What to order is part of Weight Class Premium; the first menu is free (the demo account hasn't used it), then the Premium screen appears.
 ```

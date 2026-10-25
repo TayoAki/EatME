@@ -153,6 +153,42 @@ export function withFollowUp<S extends { required: readonly string[]; properties
   };
 }
 
+/**
+ * Chain meals matched by themselves (v2.5, WHAT-TO-ORDER.md §5): the AI names the chain and the dish, our code
+ * finds them in the chain table. Added to the meal prompts when the app asked for it.
+ */
+export const CHAIN_RULES = `
+- A dish from a restaurant chain is one item as the chain sells it (a Big Mac is one item, not its bun, patties and sauce); a combo or meal deal is its dishes, one item each (a Big Mac, medium fries and a medium Coke). Dips and sauces that come on the side are their own items.
+- chain, chainDish, size and servings (each item): when the person names the chain, the dish is unmistakably one chain's (a Big Mac, a Whopper, a Frosty, a Baconator) or the photo shows the chain's cup, box, bag or wrapper, give the chain's name (e.g. "McDonald's", "Chick-fil-A"), the dish as the chain's menu names it without the size (e.g. "French Fries", "Chicken Nuggets"), the size as the menu says it (e.g. "Medium", "Large", "8 ct") when the person said it or the packaging shows it, otherwise "", and how many were eaten (usually 1; half of it is 0.5). When you can't tell which of the chain's dishes it is, chainDish is "". For everything else chain, chainDish and size are "" and servings is 1. Still give food, grams and your own numbers for every item: they are used when the dish isn't found.`;
+
+const CHAIN_ITEM_PROPERTIES = {
+  chain: { type: 'string', description: 'The restaurant chain, or "" when it is not a chain dish' },
+  chainDish: { type: 'string', description: 'The dish as the chain\'s menu names it, without the size, or ""' },
+  size: { type: 'string', description: 'The size as the menu says it, or ""' },
+  servings: { type: 'number', description: 'How many were eaten, usually 1' },
+} as const;
+
+type ItemsSchema = { required: readonly string[]; properties: { items: { items: { required: readonly string[]; properties: object } } } };
+
+/** The meal schema with the chain fields on each item. */
+export function withChains<S extends ItemsSchema>(schema: S) {
+  const items = schema.properties.items;
+  return {
+    ...schema,
+    properties: {
+      ...schema.properties,
+      items: {
+        ...items,
+        items: {
+          ...items.items,
+          required: [...items.items.required, ...Object.keys(CHAIN_ITEM_PROPERTIES)],
+          properties: { ...items.items.properties, ...CHAIN_ITEM_PROPERTIES },
+        },
+      },
+    },
+  };
+}
+
 /** Food-quality tag (V2 experiment, FOOD_QUALITY_TAG): added to the meal and label prompts when on. */
 const PROCESSING_SCALE = `"whole" (foods as they come or with kitchen prep: fresh or frozen fruit and vegetables, eggs, plain meat and fish, rice, oats, legumes, nuts, milk, plain yogurt, and home cooking from these), "processed" (simple foods made with salt, sugar or oil, or preserved: cheese, bakery bread, canned fish or beans, smoked or cured meat) or "highly_processed" (industrial products with additives or many refined ingredients: soft drinks, packaged snacks and sweets, instant noodles, most fast food, sausages, breakfast cereals, flavoured yogurts)`;
 

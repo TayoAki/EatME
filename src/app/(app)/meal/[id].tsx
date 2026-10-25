@@ -421,6 +421,13 @@ function MealEditor({ meal, showNumbers, onShowNumbers, corrections, onCorrectio
           </View>
         )}
 
+        {/* A typed or photographed chain meal (v2.5): the chain's numbers come with their citation. */}
+        {fromMenu && (described || hero) ? (
+          <View className="mt-3">
+            <MenuMealSource items={items} hideNumbers={!showNumbers} />
+          </View>
+        ) : null}
+
         <View className="mt-5 flex-row items-center gap-3">
           <TextInput
             accessibilityLabel="Meal name"

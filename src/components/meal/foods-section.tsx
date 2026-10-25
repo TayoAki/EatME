@@ -48,6 +48,10 @@ const drinkLabel = (drink: NonNullable<MealItem['drink']>) => `${drink.abv}% ABV
 const menuLabel = (restaurant: NonNullable<MealItem['restaurant']>) =>
   `${restaurant.chain} menu · ${restaurant.count === 1 ? restaurant.serving : `${countLabel(restaurant.count)} × ${restaurant.serving}`}`;
 
+/** The chain whose own numbers a food has: a restaurant menu (retired) or What to order and chain matching (v2.5). */
+const chainOf = (item: MealItem) =>
+  item.restaurant?.chain ?? (item.menu?.from === 'chain' ? (item.menu.citation?.chain ?? item.menu.restaurant) : null) ?? null;
+
 const draftFromFood = (food: FoodSummary, keep?: FoodDraft): FoodDraft => ({
   id: keep?.id,
   foodId: food.id,
@@ -125,9 +129,19 @@ export function FoodsSection({
   if (items.length === 0) return null;
   const share = Math.round((meal.matchedShare ?? 0) * 100);
   const packaged = items.every((item) => item.product);
-  const fromMenus = items.some((item) => item.restaurant);
   const drinks = items.every((item) => item.drink);
-  const chains = [...new Set(items.flatMap((item) => (item.restaurant ? [item.restaurant.chain] : [])))];
+  const chains = [...new Set(items.flatMap((item) => chainOf(item) ?? []))];
+  // The foods without a chain's numbers: from the database, or the AI's estimates.
+  const others = items.filter((item) => !chainOf(item));
+  const fromDatabase = others.filter((item) => item.foodId !== null).length;
+  const rest =
+    others.length === 0
+      ? ''
+      : fromDatabase === others.length
+        ? ', the rest from the USDA food database'
+        : fromDatabase === 0
+          ? ', the rest are AI estimates'
+          : ', the rest from the USDA food database and AI estimates';
   const logged = toIsoDate(new Date(meal.loggedAt));
 
   return (
@@ -147,8 +161,15 @@ export function FoodsSection({
       <View className="overflow-hidden rounded-card border border-line">
         {items.map((item, index) => {
           // A menu item without a weight is kept as logged (it follows the meal's portion): remove only.
-          const weightless = !!item.restaurant && item.grams <= 0;
-          const amount = weightless ? menuLabel(item.restaurant!) : item.drink ? `${item.grams} millilitres` : `${item.grams} grams`;
+          const weightless = (!!item.restaurant || !!item.menu) && item.grams <= 0;
+          const chain = chainOf(item);
+          const amount = weightless
+            ? item.restaurant
+              ? menuLabel(item.restaurant)
+              : `${chain ?? 'Restaurant'} menu`
+            : item.drink
+              ? `${item.grams} millilitres`
+              : `${item.grams} grams`;
           return (
             <Pressable
               key={item.id}
@@ -175,6 +196,8 @@ export function FoodsSection({
                         ? drinkLabel(item.drink)
                         : item.restaurant
                         ? menuLabel(item.restaurant)
+                        : chain
+                        ? `${chain} menu`
                         : item.product
                           ? packageLabel(item.name, item.product.brand)
                           : item.personalFoodId
@@ -201,8 +224,8 @@ export function FoodsSection({
             ? `Numbers from the package label (${PRODUCT_SOURCE_LABELS[items[0].product?.source ?? 'off']}). See the day's nutrients ›`
             : drinks
             ? "Alcohol from the size and strength; carbs from the USDA food database. See the day's nutrients ›"
-            : fromMenus
-              ? `Numbers from the ${chains.join(' and ')} menu. See the day's nutrients ›`
+            : chains.length > 0
+              ? `Numbers from the ${chains.join(' and ')} menu${rest}. See the day's nutrients ›`
               : share > 0
               ? `${share}% of the calories come from the USDA food database. See the day's vitamins and minerals ›`
               : 'These are AI estimates. Pick database foods for vitamins and minerals.'}

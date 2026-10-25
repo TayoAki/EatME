@@ -19,7 +19,7 @@ import type { CheckIn, CheckInResponse, CheckInSettingsBody } from '@/shared/ada
 import type { DayPlanResponse } from '@/shared/day-draft';
 import type { BillingStatus } from '@/shared/billing';
 import type { Features } from '@/shared/features';
-import type { FoodSummary, Meal, QuickMeal, UpdateMealBody, UpdateMealItemsBody } from '@/shared/meals';
+import type { FoodSearchResponse, Meal, QuickMeal, UpdateMealBody, UpdateMealItemsBody } from '@/shared/meals';
 import type { ChainItemReportBody, ChainMenuResponse, ChainSummary, DishLine, MenuScanResponse, MenuScanSummary, OrderDishBody } from '@/shared/menus';
 import type { NutrientDay } from '@/shared/nutrients';
 import type { FoodCorrection, PersonalFood, RememberFoodsBody, UpdatePersonalFoodBody } from '@/shared/personal-foods';
@@ -56,6 +56,8 @@ export const queryKeys = {
   billing: (userId: string | null | undefined) => ['billing', userId] as const,
   savedMeals: (userId: string | null | undefined) => ['saved-meals', userId] as const,
   personalFoods: (userId: string | null | undefined) => ['personal-foods', userId] as const,
+  /** Food search: the chains' dishes in it say what they leave of the person's day. */
+  foodSearch: (userId: string | null | undefined) => ['foods', userId] as const,
   mealsDetail: (userId: string | null | undefined) => ['meal', userId] as const,
   plannedAll: (userId: string | null | undefined) => ['planned', userId] as const,
   planned: (userId: string | null | undefined, date: string) => ['planned', userId, date] as const,
@@ -163,6 +165,7 @@ export function useInvalidateMeals() {
       queryClient.invalidateQueries({ queryKey: queryKeys.nutrientsAll(userId) }),
       queryClient.invalidateQueries({ queryKey: queryKeys.savedMeals(userId) }),
       queryClient.invalidateQueries({ queryKey: queryKeys.plannedAll(userId) }),
+      queryClient.invalidateQueries({ queryKey: queryKeys.foodSearch(userId) }),
     ]);
 }
 
@@ -499,15 +502,17 @@ export function useDeleteSymptom() {
   });
 }
 
-/** USDA food search as you type (at least 2 letters). */
+/** USDA food search as you type (at least 2 letters), with the chains' own dishes (v2.5). */
 export function useFoodSearch(query: string) {
+  const { userId } = useSession();
   const api = useApi();
   const q = query.trim();
   return useQuery({
-    queryKey: ['foods', q],
-    queryFn: ({ signal }) => api<{ foods: FoodSummary[] }>(`/api/foods?q=${encodeURIComponent(q)}`, { signal }),
+    queryKey: [...queryKeys.foodSearch(userId), q],
+    queryFn: ({ signal }) => api<FoodSearchResponse>(`/api/foods?q=${encodeURIComponent(q)}`, { signal }),
     enabled: q.length >= 2,
-    staleTime: 60 * 60_000,
+    // A chain dish's line follows the day ("Leaves about 500 kcal for dinner"); meals refresh it too.
+    staleTime: 5 * 60_000,
     placeholderData: (previous) => previous,
   });
 }

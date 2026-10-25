@@ -5,7 +5,7 @@ import { Pressable, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { DishSheet } from '@/components/menu/dish-sheet';
-import { checkedText } from '@/components/menu/format';
+import { checkedText, possessive } from '@/components/menu/format';
 import { MenuListView } from '@/components/menu/menu-list';
 import { MenuMessage, MenuPremium, MenuTop } from '@/components/menu/menu-states';
 import { ReportChainItemSheet } from '@/components/menu/report-chain-item-sheet';
@@ -75,7 +75,7 @@ export default function RestaurantMenuScreen() {
                 accessibilityHint="Opens the chain's own nutrition guide"
                 onPress={() => void openLink(chain.guideUrl!)}
                 className="flex-row items-center gap-1.5 self-start py-1 active:opacity-60">
-                <Text className="text-[14px] font-semibold text-ink underline">View {chain.name}&apos;s guide</Text>
+                <Text className="text-[14px] font-semibold text-ink underline">View {possessive(chain.name)} guide</Text>
                 <ExternalLink size={14} color={colors.ink} />
               </Pressable>
             ) : null}

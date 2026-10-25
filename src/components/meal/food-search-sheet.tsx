@@ -8,18 +8,24 @@ import { useCalmMode } from '@/lib/calm';
 import { cn } from '@/lib/cn';
 import { useFoodSearch } from '@/lib/queries';
 import type { FoodSummary } from '@/shared/meals';
+import type { MenuRow } from '@/shared/menus';
 
 type FoodSearchListProps = {
   onPick: (food: FoodSummary) => void;
+  /** Search → Foods (v2.5): the chains' own dishes come first, a tap opens the dish. */
+  onPickDish?: (dish: MenuRow) => void;
   /** Fixed list height inside a sheet; the list fills the screen otherwise. */
   listHeight?: number;
 };
 
-/** Search box and results from the USDA food database (FNDDS). */
-export function FoodSearchList({ onPick, listHeight }: FoodSearchListProps) {
+const SECTION = 'px-1 text-[13px] font-semibold uppercase tracking-wider text-muted';
+
+/** Search box and results from the USDA food database (FNDDS), and with `onPickDish` the chains' dishes. */
+export function FoodSearchList({ onPick, onPickDish, listHeight }: FoodSearchListProps) {
   const [query, setQuery] = useState('');
   const search = useFoodSearch(query);
   const foods = search.data?.foods ?? [];
+  const dishes = onPickDish ? (search.data?.chainDishes ?? []) : [];
   // Calm mode: food names only, no calorie and macro numbers.
   const calm = useCalmMode();
   const typed = query.trim().length >= 2;
@@ -34,7 +40,7 @@ export function FoodSearchList({ onPick, listHeight }: FoodSearchListProps) {
           onChangeText={setQuery}
           autoFocus
           autoCorrect={false}
-          placeholder="e.g. banana, rice, latte"
+          placeholder={onPickDish ? 'e.g. banana, rice, Big Mac' : 'e.g. banana, rice, latte'}
           placeholderTextColor={colors.faint}
           returnKeyType="search"
           className="min-w-0 flex-1 text-[16px] text-ink"
@@ -48,26 +54,50 @@ export function FoodSearchList({ onPick, listHeight }: FoodSearchListProps) {
         keyboardDismissMode="on-drag">
         {!typed ? (
           <Text className="px-1 text-[14px] leading-5 text-muted">
-            Foods come from the USDA food database, with calories and nutrients per 100 g.
+            {onPickDish
+              ? "Foods come from the USDA food database, with calories and nutrients per 100 g. Restaurant dishes come from the chains' own nutrition guides."
+              : 'Foods come from the USDA food database, with calories and nutrients per 100 g.'}
           </Text>
-        ) : foods.length === 0 && !search.isFetching ? (
+        ) : foods.length === 0 && dishes.length === 0 && !search.isFetching ? (
           <Text className="px-1 text-[14px] text-muted">No foods found. Try a simpler word.</Text>
         ) : (
-          foods.map((food) => (
-            <Pressable
-              key={food.id}
-              accessibilityRole="button"
-              accessibilityLabel={calm ? food.description : `${food.description}, ${food.per100g.calories} calories per 100 grams`}
-              onPress={() => onPick(food)}
-              className="border-b border-line py-3 active:opacity-60">
-              <Text className="text-[15px] leading-5 text-ink">{food.description}</Text>
-              {calm ? null : (
-                <Text className="mt-0.5 text-[13px] text-muted">
-                  {food.per100g.calories} kcal · P {food.per100g.proteinG} · C {food.per100g.carbsG} · F {food.per100g.fatG} per 100 g
-                </Text>
-              )}
-            </Pressable>
-          ))
+          <>
+            {dishes.length > 0 ? (
+              <>
+                <Text className={SECTION}>Restaurant dishes</Text>
+                {dishes.map((dish) => {
+                  const where = [dish.citation?.chain, dish.serving].filter(Boolean).join(' · ');
+                  return (
+                    <Pressable
+                      key={dish.key}
+                      accessibilityRole="button"
+                      accessibilityLabel={calm ? `${dish.name}, ${where}` : `${dish.name}, ${where}, ${dish.calories} calories`}
+                      onPress={() => onPickDish?.(dish)}
+                      className="border-b border-line py-3 active:opacity-60">
+                      <Text className="text-[15px] leading-5 text-ink">{dish.name}</Text>
+                      <Text className="mt-0.5 text-[13px] text-muted">{calm ? where : `${where} · ${dish.calories.toLocaleString()} kcal`}</Text>
+                    </Pressable>
+                  );
+                })}
+                {foods.length > 0 ? <Text className={cn(SECTION, 'mt-5')}>Foods</Text> : null}
+              </>
+            ) : null}
+            {foods.map((food) => (
+              <Pressable
+                key={food.id}
+                accessibilityRole="button"
+                accessibilityLabel={calm ? food.description : `${food.description}, ${food.per100g.calories} calories per 100 grams`}
+                onPress={() => onPick(food)}
+                className="border-b border-line py-3 active:opacity-60">
+                <Text className="text-[15px] leading-5 text-ink">{food.description}</Text>
+                {calm ? null : (
+                  <Text className="mt-0.5 text-[13px] text-muted">
+                    {food.per100g.calories} kcal · P {food.per100g.proteinG} · C {food.per100g.carbsG} · F {food.per100g.fatG} per 100 g
+                  </Text>
+                )}
+              </Pressable>
+            ))}
+          </>
         )}
       </ScrollView>
     </>

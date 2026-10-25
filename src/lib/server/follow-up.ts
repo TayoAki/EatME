@@ -105,8 +105,9 @@ export async function buildFollowUp(
   items: readonly ComputedItem[],
 ): Promise<FollowUpState | null> {
   const target = question.item > 0 ? items[question.item - 1] : undefined;
-  // Remembered foods ("Your usual") already have the person's amount and food.
-  if (target?.personalFoodId) return null;
+  // Remembered foods ("Your usual") already have the person's amount and food, a chain's dish the chain's numbers.
+  if (target?.personalFoodId || target?.menu?.matched) return null;
+  if (!target && items.length > 0 && items.every((item) => item.menu?.matched)) return null;
   let options: { label: string; change: FollowUpChange }[] = [];
 
   if (question.kind === 'cooking_fat') {

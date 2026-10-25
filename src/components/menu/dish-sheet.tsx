@@ -22,7 +22,7 @@ import { foodPictureFor } from '@/shared/food-pictures';
 import { FIT_WORDS, type OrderVariant } from '@/shared/menu-fit';
 import type { MenuRow } from '@/shared/menus';
 
-import { checkedText, sourceText } from './format';
+import { checkedText, possessive, sourceText } from './format';
 
 const VARIANTS = [
   { label: 'Whole', value: 'whole' },
@@ -263,7 +263,7 @@ export function DishSheet({ row, target, sides = [], calm, onClose, onReport, on
               accessibilityHint="Opens the chain's own nutrition guide"
               onPress={() => void openLink(citation.sourceUrl)}
               className="flex-row items-center gap-1.5 self-start py-1 active:opacity-60">
-              <Text className="text-[14px] font-semibold text-ink underline">View {citation.chain}&apos;s guide</Text>
+              <Text className="text-[14px] font-semibold text-ink underline">View {possessive(citation.chain)} guide</Text>
               <ExternalLink size={14} color={colors.ink} />
             </Pressable>
             <Text className="text-[13px] leading-[18px] text-muted">

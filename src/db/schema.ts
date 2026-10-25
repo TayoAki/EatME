@@ -247,6 +247,8 @@ export const meals = pgTable(
     extraImageKeys: text().array(),
     /** The one tap-to-answer question and its options, when the analysis asked one. */
     followUp: jsonb().$type<FollowUpState>(),
+    /** The app asked for chain meals to be matched (v2.5, WHAT-TO-ORDER.md §5): the analysis looks dishes up in our chain table. */
+    chainMatch: boolean().notNull().default(false),
     /** Start of the running analysis. An old value means the server stopped mid-way: retry. */
     analysisStartedAt: timestamp({ withTimezone: true }),
     analysisAttempts: integer().notNull().default(0),

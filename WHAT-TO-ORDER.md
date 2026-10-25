@@ -4,11 +4,13 @@
 > is. Read it with `PLAN.md` (the app as it is) and `AGENTS.md` (how we build). People see the
 > app as **Weight Class**; the code keeps EatME. Tick the boxes here as parts ship and add them to `PLAN.md`.
 >
-> **Status, 23 October 2026: built.** The ranking, the server (live on Railway since 22 October) and the app screens
+> **Status, 25 October 2026: built.** The ranking, the server (live on Railway since 22 October) and the app screens
 > are in the code and pass their tests (`npm test`; a browser run of every screen against the local server). 100
-> chains have numbers (15,171 items). Waiting on: a person for the review lists, the owner's decision on scanned
-> menus after the accuracy pilot (§13, 5), and a phone for the menu-reading check (section 11). The screens came after commit `f05e76a`: build 4 (version 1.0) is built
-> from that commit, and What to order ships in its own version (`store/README.md` → What to order).
+> chains have numbers (15,171 items); scanned menus show Likely fits (§13, 5, decided 24 October); chain meals that
+> are typed, photographed or searched use the chain's own numbers (§5, decided 25 October). Waiting on: a person for
+> the review lists and a phone for the menu-reading check (section 11). The screens came after commit `f05e76a`:
+> build 4 (version 1.0) is built from that commit, and What to order ships in its own version (`store/README.md` →
+> What to order).
 
 ## Contents
 
@@ -177,6 +179,28 @@ ordering page, and the chat (not in v2.5).
 - [x] **Calm mode**: words instead of numbers ("Fits what's left", "A bigger meal", "A lighter choice").
 - [x] **States**: the phone couldn't read the menu ("Try again in better light, or type the dishes"); the AI
   failed (the scan isn't counted); no free scans left (the Premium screen).
+- [x] **Chain meals, matched by themselves** (decided and built 25 October 2026): logging a chain meal the usual way
+  uses the chain's own numbers, with no restaurant to pick first.
+  - *Typed or photographed* ("Big Mac and medium fries", Chick-fil-A nuggets in their box): the AI names the chain,
+    the dish as the chain's menu calls it, the size and how many, only when the person names the chain, the dish is
+    unmistakably one chain's (Big Mac, Frosty, Baconator) or the packaging shows it; a chain's dish is one food, a
+    combo its dishes. Our code finds the chain and the dish in the chain table; when exactly one item fits by name
+    (and by size, when the chain sells sizes), its numbers replace the estimate. No size said: the only size listed
+    (unless the guide calls it small, large or a count: it may list only some sizes), else the one called medium or
+    regular, named on the item ("Coca-Cola® (Medium)"); a medium the guide left unnamed between a small and a large
+    counts (Chick-fil-A's waffle fries). Anything uncertain keeps the estimate, silently: McDonald's guide lists
+    only small fries, so "medium fries" stays an estimate. The person's own remembered foods ("Your usual") still
+    come first, a matched dish gets no follow-up question, and a meal matched in full isn't a rough estimate.
+  - *Searched*: Search → Foods lists **Restaurant dishes** ("Big Mac® · McDonald's · 580 kcal") above the database
+    foods: every word typed in the dish's name or size, the chain named first or last ("mcdonalds fries", "nuggets
+    chick fil a"), closest names first, then the bigger chains. Tapping one opens the dish sheet (whole or half,
+    its line for the day, Log it, Save for later).
+  - *The citation travels with it*: the meal says "Matched to the McDonald's menu: the restaurant's own numbers",
+    with the source, the day it was checked, "View McDonald's guide" (or each dish's page when the chain has one per
+    item) and "Report a wrong item"; the foods say "McDonald's menu", and the result after a scan says so too.
+  - *Free*: logging a chain dish costs nothing, like a barcode; the ranked lists stay Premium (§9).
+  - *Only the v2.5 app asks for it* (it sends `X-Weight-Class-Features: chain-match`): build 4 logs meals as before,
+    so every chain number a reviewer can see comes with its citation. `WHAT_TO_ORDER=false` turns it off too.
 
 **Wording**: "fits what's left", "from the restaurant", "an estimate". Never "healthy", "guilt free", "safe",
 "accurate", "verified", "dietitian-approved" or a score.
@@ -274,6 +298,9 @@ own PDF. Each item is rechecked every six months or when a report comes in.
   existing `restaurant` field. For a chain item the source is copied at log time: the chain, `source_url` and
   `checked_on`, so the citation stays with the meal.
 - Reports: `chain_item_reports`, the same shape as product reports.
+- Chain meals matched by themselves: `meals.chain_match` (the app asked for it when logging); a matched food keeps
+  `meal_items.menu` with `matched: true`. The AI's meal answer gains `chain`, `chainDish`, `size` and `servings`
+  per food (only when the meal asked for matching); `src/shared/chain-match.ts` matches names and sizes, tested.
 
 **API**
 - `GET /api/chains?q=` and `GET /api/chains/:chain/menu`: our table, ranked for the person's day. Every item
@@ -284,6 +311,9 @@ own PDF. Each item is rechecked every six months or when a report comes in.
 - `POST /api/menu-scans/:id/dishes/:n/log` (and `save`), and the same for chain items: logs or saves the dish (with
   a tweak if chosen). Tapping twice logs once.
 - `POST /api/chain-items/:id/report`: "this item is wrong".
+- `GET /api/foods?q=` also returns `chainDishes` (up to 5, or 8 when the search names the chain, in the search's
+  order, each with its line for the day) when the app sends the chain-match feature header; logging one goes through
+  `POST /api/chain-items/:id/log`, free (`searchChainDishes` in `src/shared/chain-match.ts`, tested).
 
 **App**
 - On-device menu reading: Apple's Vision text recognition in a small local Expo module (`modules/menu-text`),
@@ -299,7 +329,8 @@ own PDF. Each item is rechecked every six months or when a report comes in.
 
 - **Decided (21 October 2026)**: What to order is **Premium**, like Plan tomorrow, with one free try so people see
   it before the Premium screen (unlike MenuFit's quiz-then-paywall). Menu scans count against the AI scan limits we
-  have (3 a day free, 50 a day Premium). Chain menus by name cost no AI.
+  have (3 a day free, 50 a day Premium). Chain menus by name cost no AI. Logging a chain's dish is free (from a
+  search, a list or a typed or photographed meal): the lists ranked for the day are what Premium adds.
 - **Costs**: no licence fees. A menu scan is text only (cheaper than a photo scan) plus pricing up to eight
   dishes, measured in the pilot. The chain table is staff time.
 - **Server switch**: `WHAT_TO_ORDER`, for outages only. It is on in the build Apple reviews and is never turned on

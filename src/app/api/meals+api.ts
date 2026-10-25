@@ -4,6 +4,7 @@ import { db } from '@/db';
 import { meals, users } from '@/db/schema';
 import { requireAiConsent } from '@/lib/server/ai-consent';
 import { requireUserId } from '@/lib/server/auth';
+import { wantsChainMatch } from '@/lib/server/chain-match';
 import { checkAiLimit, isActive, paymentsEnabled, subscriptionOf } from '@/lib/server/billing';
 import { dateParam, dayBounds, loggedAtFor, userTimeZone } from '@/lib/server/day';
 import { multiPhotoEnabled } from '@/lib/server/experiments';
@@ -114,7 +115,10 @@ export const POST = handle(async (request) => {
     requireAiConsent(user);
     await checkAiLimit(userId, user.timezone);
     const { text } = describeMealSchema.parse(body);
-    const [meal] = await db.insert(meals).values({ userId, status: 'analyzing', source: 'text', note: text }).returning();
+    const [meal] = await db
+      .insert(meals)
+      .values({ userId, status: 'analyzing', source: 'text', note: text, chainMatch: wantsChainMatch(request) })
+      .returning();
     startMealAnalysis(meal.id);
     return Response.json({ meal: await toMeal(meal) }, { status: 201 });
   }
@@ -151,6 +155,8 @@ export const POST = handle(async (request) => {
         status: 'analyzing',
         source: mode === 'label' ? 'label' : 'photo',
         note,
+        // A label is one product with its own numbers: nothing to match.
+        chainMatch: mode !== 'label' && wantsChainMatch(request),
         imageKey,
         extraImageKeys: extraKeys.length > 0 ? extraKeys : null,
       })

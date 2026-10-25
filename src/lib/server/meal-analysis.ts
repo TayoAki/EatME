@@ -3,7 +3,7 @@ import { and, eq, isNull, lt, or, sql } from 'drizzle-orm';
 import type { ChatCompletionMessageParam } from 'openai/resources/chat/completions';
 
 import { db, type Executor } from '@/db';
-import { mealItems, meals, type MealRow } from '@/db/schema';
+import { mealItems, meals, type MealRow, type PersonalFoodRow } from '@/db/schema';
 import {
   labelAnalysisSchema,
   mealAnalysisSchema,
@@ -14,12 +14,14 @@ import {
 } from '@/shared/meals';
 
 import { modelFor, structuredCompletion } from './ai';
+import { matchChainDishes } from './chain-match';
 import { followUpEnabled, foodQualityEnabled } from './experiments';
 import { buildFollowUp } from './follow-up';
 import { computeItems, itemTotals, type ComputedItem } from './food-match';
 import { describeError } from './log';
 import { markUsed, personalFoodsFor, promptNames } from './personal-foods';
 import {
+  CHAIN_RULES,
   FOLLOW_UP_RULES,
   LABEL_JSON_SCHEMA,
   LABEL_QUALITY_RULES,
@@ -31,6 +33,7 @@ import {
   multiPhotoText,
   photoNoteText,
   savedNamesText,
+  withChains,
   withFollowUp,
   withQuality,
 } from './prompts';
@@ -150,12 +153,14 @@ async function askAi(
   savedNames: readonly string[] = [],
 ): Promise<MealAnalysis & Partial<Pick<LabelAnalysis, 'servingSize'>>> {
   const saved = savedNames.length > 0 ? savedNamesText(savedNames) : null;
-  // The food-quality experiment adds three fields to the same call, the follow-up question one.
+  // The food-quality experiment adds three fields to the same call, the follow-up question one, chain matching
+  // (only when the app asked for it) four on each item.
   const quality = foodQualityEnabled();
   const followUp = followUpEnabled();
-  const withQualityFields = quality ? withQuality(MEAL_JSON_SCHEMA) : MEAL_JSON_SCHEMA;
+  const withChainFields = meal.chainMatch ? withChains(MEAL_JSON_SCHEMA) : MEAL_JSON_SCHEMA;
+  const withQualityFields = quality ? withQuality(withChainFields) : withChainFields;
   const mealSchema = followUp ? withFollowUp(withQualityFields) : withQualityFields;
-  const mealRules = (quality ? MEAL_QUALITY_RULES : '') + (followUp ? FOLLOW_UP_RULES : '');
+  const mealRules = (meal.chainMatch ? CHAIN_RULES : '') + (quality ? MEAL_QUALITY_RULES : '') + (followUp ? FOLLOW_UP_RULES : '');
   if (meal.source === 'text') {
     const { data, usage } = await structuredCompletion({
       model: modelFor('text'),
@@ -227,6 +232,25 @@ async function deletePhoto(meal: MealRow) {
   );
 }
 
+/**
+ * The meal's foods: a chain's dish with the chain's own numbers when the meal asked for chain matching (v2.5),
+ * the others from the person's memory, the USDA database or the AI's estimate (`computeItems`), in the AI's order.
+ */
+async function mealFoods(meal: MealRow, aiItems: MealAnalysis['items'], memory: readonly PersonalFoodRow[]) {
+  if (aiItems.length === 0) return [];
+  const chained = meal.chainMatch
+    ? await matchChainDishes(aiItems, memory).catch((error: unknown) => {
+        // Matching is an improvement, never a requirement: keep the estimates.
+        console.warn(`[meals] chain matching for ${meal.id} failed: ${describeError(error)}`);
+        return aiItems.map(() => null);
+      })
+    : aiItems.map(() => null);
+  const rest = aiItems.filter((_, i) => !chained[i]);
+  const computed = rest.length > 0 ? await computeItems(rest, memory) : [];
+  let next = 0;
+  return aiItems.map((_, i): ComputedItem => chained[i] ?? computed[next++]);
+}
+
 async function analyzeMeal(mealId: string) {
   const meal = await claim(mealId);
   if (!meal) return;
@@ -261,9 +285,9 @@ async function analyzeMeal(mealId: string) {
     // Split pipeline: the AI listed the foods and grams, the USDA database does the math where a
     // food matches. Without items (labels) the AI's totals are used as they are. The ids are made
     // here because the question's answers point at the foods.
-    const computed = analysis.items.length > 0 ? await computeItems(analysis.items, memory) : [];
-    const items = computed.map((item) => ({ ...item, id: crypto.randomUUID() }));
+    const items = (await mealFoods(meal, analysis.items, memory)).map((item) => ({ ...item, id: crypto.randomUUID() }));
     const totals = items.length > 0 ? itemTotals(items) : null;
+    const chained = items.filter((item) => item.menu?.matched).length;
     const base = totals ? baseFromNutrients(totals.nutrients) : baseNutrition(analysis);
     // Steer the AI: the options of its question are worked out now, so answering needs no AI call.
     const followUp =
@@ -285,7 +309,8 @@ async function analyzeMeal(mealId: string) {
           baseNutrition: base,
           nutrients: totals?.nutrients ?? null,
           matchedShare: totals?.matchedShare ?? null,
-          confidence: analysis.confidence,
+          // Every food with a chain's own numbers is no rough estimate, whatever the AI thought of its own.
+          confidence: chained === items.length && chained > 0 ? 'high' : analysis.confidence,
           servingSize: analysis.servingSize?.trim() || null,
           processing: analysis.processing ?? null,
           processingReason: analysis.processingReason?.trim() || null,
@@ -302,7 +327,7 @@ async function analyzeMeal(mealId: string) {
     if (updated) await markUsed(items.flatMap((item) => (item.personalFoodId ? [item.personalFoodId] : [])));
     if (totals) {
       const remembered = items.filter((item) => item.personalFoodId).length;
-      console.info('[meals] foods', JSON.stringify({ mealId, items: items.length, remembered, matchedShare: totals.matchedShare }));
+      console.info('[meals] foods', JSON.stringify({ mealId, items: items.length, remembered, chained, matchedShare: totals.matchedShare }));
     }
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);

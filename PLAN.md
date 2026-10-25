@@ -903,9 +903,11 @@ item and replaces the old v2.2 list and the "Later" list; tick a box there and h
     notes (`store/README.md` → What to order) and a browser run of every screen with payments on and off
   - [x] 23 October: 100 chains with numbers (15,171 items, ranks 1-150 with a guide of their own) and the accuracy
     pilot (`data/chains/pilot.md`: calories at the line, the best-five overlap failed, nothing we call a fit is too big)
-  - [ ] Waiting: a person for the 10,328 review lines, the owner's decision on scanned menus (`WHAT-TO-ORDER.md`
-    §13, 5), the menu-reading check on an iPhone, then its own build and version (never build 4, which comes from
-    `f05e76a`)
+  - [x] 24 October: scanned menus show Likely fits in menu order with the measured ranges (the owner's decision)
+  - [x] 25 October: chain meals matched by themselves: a typed or photographed chain meal and a searched dish use the
+    chain's own numbers with its citation, free (`WHAT-TO-ORDER.md` §5; only the v2.5 app asks for it)
+  - [ ] Waiting: a person for the 10,328 review lines, the menu-reading check on an iPhone, then its own build and
+    version (never build 4, which comes from `f05e76a`)
 
 **Eating out decisions** (checked September 2026; migration `restaurant_meals`; kept for the record, the
 feature was retired on 21 October 2026)

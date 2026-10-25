@@ -1,5 +1,7 @@
 import { Platform } from 'react-native';
 
+import { CHAIN_MATCH_FEATURE, CLIENT_FEATURES_HEADER } from '@/shared/chain-match';
+
 import { API_URL } from './api-url';
 import { authClient } from './auth-client';
 
@@ -34,7 +36,8 @@ export async function apiFetch<T>(
   path: string,
   { method = 'GET', body, binary, headers: extraHeaders, signal }: RequestOptions = {},
 ) {
-  const headers: Record<string, string> = { Accept: 'application/json', ...extraHeaders };
+  // This app shows a chain's citation wherever its numbers appear, so the server may match chain meals.
+  const headers: Record<string, string> = { Accept: 'application/json', [CLIENT_FEATURES_HEADER]: CHAIN_MATCH_FEATURE, ...extraHeaders };
   let payload: BodyInit | undefined;
   if (binary) {
     headers['Content-Type'] = binary.type;

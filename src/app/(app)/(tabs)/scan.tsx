@@ -308,6 +308,10 @@ export default function ScanScreen() {
           void allowDrinksInHealth();
           analyze({ kind: 'drink', drink, detail });
         }}
+        onLoggedDish={() => {
+          capture();
+          router.navigate('/');
+        }}
       />
     );
   }

@@ -5,7 +5,7 @@ import { db } from '@/db';
 import { chainItemReports, chainItems, chains, meals, menuScans, users, type ChainItemRow, type MealRow, type MenuScanRow, type User } from '@/db/schema';
 import { MIN_CHOICE_KCAL, slotOf, slotTimes, type DraftSlot } from '@/shared/day-draft';
 import { scaleNutrition, type MealConfidence } from '@/shared/meals';
-import { laterMeals, rankMenu, type MenuDay, type MenuDish, type MenuFit, type RankedDish } from '@/shared/menu-fit';
+import { aimFor, fitWord, laterMeals, rankMenu, reasonFor, type MenuDay, type MenuDish, type MenuFit, type RankedDish } from '@/shared/menu-fit';
 import {
   estimateRange,
   MAX_MENU_PHOTOS,
@@ -29,6 +29,7 @@ import { minimumCalories } from '@/shared/nutrition';
 
 import { requireMenuConsent } from './ai-consent';
 import { checkAiLimit, hasPremiumAccess } from './billing';
+import { chainFood, plainServing } from './chain-match';
 import { dayBounds, loggedAtFor } from './day';
 import { whatToOrderEnabled } from './experiments';
 import { itemTotals, type ComputedItem } from './food-match';
@@ -146,9 +147,6 @@ type RowBase = Omit<MenuRow, 'variant' | 'rankedCalories' | 'fit' | 'reason' | '
 
 const round = (value: number | undefined) => Math.round(value ?? 0);
 
-/** "1 sandwich" says nothing a person needs; "Medium (16 fl oz)" or "8 ct" does. */
-const plainServing = (serving: string) => /^1\s+(each|ea|item|serving|order|sandwich|burger|wrap|bowl|salad|burrito|taco)s?$/i.test(serving.trim());
-
 function chainBase(item: ChainItemRow): RowBase {
   const n = item.nutrients;
   return {
@@ -243,6 +241,26 @@ function listFrom(fit: MenuFit, bases: readonly RowBase[], freeTry: boolean): Me
     hidden: rows(fit.hidden),
     freeTry,
   };
+}
+
+/** Chain items as rows for the person's day, whole and in the order given: a search, not a ranked list. */
+export async function chainRows(user: User, items: readonly ChainItemRow[]): Promise<MenuRow[]> {
+  if (items.length === 0) return [];
+  const day = await menuDay(user);
+  const { left, aim } = aimFor(day);
+  return items.map((item) => {
+    const base = chainBase(item);
+    return toRow(base, {
+      key: base.key,
+      variant: 'whole',
+      calories: base.calories,
+      proteinG: base.proteinG,
+      score: 0,
+      fit: fitWord(base.calories, aim.calories),
+      reason: reasonFor(base.calories, base.proteinG, left.calories, day, aim, item.kind === 'main'),
+      overBudget: base.calories > left.calories,
+    });
+  });
 }
 
 /** Ranks dishes for the person's day and foods to skip. */
@@ -507,28 +525,13 @@ async function saveOrder(
   });
 }
 
-/** A chain item as a meal's food: its numbers for the serving (half, for a half portion), with its citation. */
-function chainFood(item: ChainItemRow, share: number, ref: Omit<MenuRef, 'dish' | 'chainItemId' | 'citation'>): ComputedItem {
-  return {
-    name: (plainServing(item.serving) ? item.name : `${item.name} (${item.serving})`).slice(0, 80),
-    foodId: null,
-    grams: Math.round((item.servingGrams ?? 0) * share * 10) / 10,
-    nutrients: scaleNutrients(item.nutrients, share),
-    menu: {
-      ...ref,
-      from: 'chain',
-      dish: item.name,
-      chainItemId: item.id,
-      citation: { chain: item.chain, sourceUrl: item.sourceUrl, checkedOn: item.checkedOn },
-    },
-  };
-}
-
-/** Logs (or saves) a chain item, whole or half, with one side or drink from the same chain at most. */
+/**
+ * Logs (or saves) a chain item, whole or half, with one side or drink from the same chain at most. Free, like a
+ * barcode (WHAT-TO-ORDER.md §5): the ranked lists are Premium, logging a chain's dish never is.
+ */
 export async function orderChainItem(user: User, itemId: string, body: OrderDishBody, status: 'completed' | 'saved') {
   const item = await db.query.chainItems.findFirst({ where: and(eq(chainItems.id, idParam(itemId, 'item')), eq(chainItems.status, 'live')) });
   if (!item) throw new HttpError(404, "That item isn't on the menu any more.");
-  await openList(user, `chain:${item.chainSlug}`);
   const side = body.sideId
     ? await db.query.chainItems.findFirst({ where: and(eq(chainItems.id, body.sideId), eq(chainItems.chainSlug, item.chainSlug), eq(chainItems.status, 'live')) })
     : null;

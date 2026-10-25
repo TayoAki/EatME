@@ -2,7 +2,7 @@ import * as Sentry from '@sentry/react-native';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { Image } from 'expo-image';
 import { router } from 'expo-router';
-import { CircleHelp, Crown, Flame, ImageOff, PenLine, ScanBarcode, Search, TriangleAlert, Wine } from 'lucide-react-native';
+import { CircleHelp, Crown, Flame, ImageOff, PenLine, ScanBarcode, Search, Store, TriangleAlert, Wine } from 'lucide-react-native';
 import { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, ScrollView, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -246,6 +246,9 @@ export function AnalysisView({ input, onScanAnother, onEdit, onDone, onNeedsCons
   // get neither (no tips about drinks).
   const alcoholic = meal?.source === 'drink';
   const sugar = meal && !alcoholic ? sugarNote(meal) : null;
+  // Chain meals matched by themselves (v2.5): the foods with the restaurant's own numbers.
+  const matched = (meal?.items ?? []).filter((item) => item.menu?.matched);
+  const matchedChains = [...new Set(matched.flatMap((item) => item.menu?.citation?.chain ?? []))];
   const notFood = outcome?.status === 'not_food' ? outcome : null;
   const failureMessage =
     upload.error?.message ??
@@ -352,7 +355,21 @@ export function AnalysisView({ input, onScanAnother, onEdit, onDone, onNeedsCons
                     : "Rough estimate — the photo didn't show everything clearly. You can adjust it on the meal screen."}
                 </Text>
               ) : null}
-              <SourcesLink topic={input.kind === 'drink' ? 'drinks' : 'foods'} label="Where these numbers come from" className="mt-3" />
+              {matched.length > 0 ? (
+                <View className="mt-3 flex-row gap-2">
+                  <Store size={15} color={colors.muted} style={{ marginTop: 1 }} />
+                  <Text className="flex-1 text-[13px] leading-[18px] text-muted">
+                    {matched.length === meal?.items?.length
+                      ? `From the ${matchedChains.join(' and ')} menu: the restaurant's own numbers.`
+                      : `${matched.map((item) => item.name).join(', ')}: from the ${matchedChains.join(' and ')} menu, the restaurant's own numbers. The rest is an estimate.`}
+                  </Text>
+                </View>
+              ) : null}
+              <SourcesLink
+                topic={input.kind === 'drink' ? 'drinks' : matched.length > 0 ? 'restaurants' : 'foods'}
+                label="Where these numbers come from"
+                className="mt-3"
+              />
             </>
           ) : notFood ? (
             <View className="items-center py-2">

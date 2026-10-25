@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 import type { NutrientAmounts } from './nutrients';
-import type { MenuRef } from './menus';
+import type { MenuRef, MenuRow } from './menus';
 import type { ProductSource } from './products';
 
 /**
@@ -152,6 +152,9 @@ export type FoodSummary = {
   portions: [string, number][];
 };
 
+/** `GET /api/foods?q=`: database foods, and the chains' own dishes when the app asked for them (v2.5). */
+export type FoodSearchResponse = { foods: FoodSummary[]; chainDishes?: MenuRow[] };
+
 /** Body of `PUT /api/meals/:id/items`: the meal's foods after editing (grams as logged). */
 export const updateMealItemsSchema = z.object({
   items: z
@@ -186,6 +189,12 @@ export const aiMealItemSchema = z.object({
   carbsG: z.number().min(0).max(1000),
   fatG: z.number().min(0).max(500),
   fiberG: z.number().min(0).max(200),
+  // Chain meals matched by themselves (v2.5, WHAT-TO-ORDER.md §5): only asked for when the meal wants it, and
+  // a field that breaks the rules is dropped (the item keeps its estimate).
+  chain: z.string().max(60).optional().catch(undefined),
+  chainDish: z.string().max(120).optional().catch(undefined),
+  size: z.string().max(60).optional().catch(undefined),
+  servings: z.number().min(0).max(20).optional().catch(undefined),
 });
 export type AiMealItem = z.infer<typeof aiMealItemSchema>;
 

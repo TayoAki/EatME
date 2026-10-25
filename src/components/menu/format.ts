@@ -16,3 +16,10 @@ export function sourceText(row: Pick<MenuRow, 'source' | 'citation'>) {
 export function checkedText(isoDate: string) {
   return fromIsoDate(isoDate).toLocaleDateString([], { day: 'numeric', month: 'short', year: 'numeric' });
 }
+
+/** "McDonald's guide", "Starbucks' guide", "Chick-fil-A's guide": a chain's name as the owner of something. */
+export function possessive(name: string) {
+  if (/['’]s$/i.test(name)) return name;
+  if (/['’]$/.test(name)) return `${name}s`;
+  return /s$/i.test(name) ? `${name}'` : `${name}'s`;
+}

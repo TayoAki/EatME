@@ -311,6 +311,8 @@ export type MenuRef = {
   restaurant?: string | null;
   variant: OrderVariant;
   tweak?: string | null;
+  /** Matched by itself when the meal was typed or photographed (not ordered from a list). */
+  matched?: boolean;
 };
 
 /** What the scan screen shows while the server works out the dishes. */

@@ -5,6 +5,8 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { FoodAmountSheet } from '@/components/meal/food-amount-sheet';
 import { FoodSearchList } from '@/components/meal/food-search-sheet';
+import { DishSheet } from '@/components/menu/dish-sheet';
+import { ReportChainItemSheet } from '@/components/menu/report-chain-item-sheet';
 import { RestaurantSearch } from '@/components/menu/restaurant-search';
 import { DrinkForm } from '@/components/scan/drink-form';
 import { IconButton } from '@/components/ui/icon-button';
@@ -14,6 +16,7 @@ import { useCalmMode } from '@/lib/calm';
 import { useFeatures } from '@/lib/queries';
 import type { DrinkBody } from '@/shared/drinks';
 import type { FoodSummary } from '@/shared/meals';
+import type { MenuRow } from '@/shared/menus';
 
 export type SearchTab = 'foods' | 'drinks' | 'restaurants';
 
@@ -24,6 +27,8 @@ type FoodSearchViewProps = {
   onBack: () => void;
   onLog: (food: FoodSummary, grams: number) => void;
   onLogDrink: (drink: DrinkBody, detail: string) => void;
+  /** A chain's dish was logged from its sheet (v2.5). */
+  onLoggedDish: () => void;
 };
 
 const TABS = [
@@ -33,10 +38,12 @@ const TABS = [
 /** With What to order on (v2.5): chains ranked for what's left of the day. */
 const TABS_WITH_RESTAURANTS = [...TABS, { label: 'Restaurants', value: 'restaurants' }] as const;
 
-/** Log a food from the USDA database or an alcoholic drink, or find what fits at a restaurant. */
-export function FoodSearchView({ bottomSpace, initialTab = 'foods', onBack, onLog, onLogDrink }: FoodSearchViewProps) {
+/** Log a food from the USDA database, a chain's dish or an alcoholic drink, or find what fits at a restaurant. */
+export function FoodSearchView({ bottomSpace, initialTab = 'foods', onBack, onLog, onLogDrink, onLoggedDish }: FoodSearchViewProps) {
   const insets = useSafeAreaInsets();
   const [picked, setPicked] = useState<FoodSummary | null>(null);
+  const [dish, setDish] = useState<MenuRow | null>(null);
+  const [reporting, setReporting] = useState<MenuRow | null>(null);
   const calm = useCalmMode();
   const [tab, setTab] = useState<SearchTab>(initialTab);
   const restaurants = !!useFeatures().data?.whatToOrder;
@@ -56,7 +63,7 @@ export function FoodSearchView({ bottomSpace, initialTab = 'foods', onBack, onLo
         ) : tab === 'restaurants' && restaurants ? (
           <RestaurantSearch />
         ) : (
-          <FoodSearchList onPick={setPicked} />
+          <FoodSearchList onPick={setPicked} onPickDish={restaurants ? setDish : undefined} />
         )}
       </View>
       {picked ? (
@@ -76,6 +83,28 @@ export function FoodSearchView({ bottomSpace, initialTab = 'foods', onBack, onLo
           onClose={() => setPicked(null)}
           onSave={(grams) => onLog(picked, grams)}
         />
+      ) : null}
+      {dish ? (
+        <DishSheet
+          key={dish.key}
+          row={dish}
+          target={{ chainItemId: dish.key }}
+          calm={calm}
+          onClose={() => setDish(null)}
+          onReport={() => {
+            // One sheet at a time: the report opens once the dish sheet has gone (iOS can't show both).
+            const row = dish;
+            setDish(null);
+            setTimeout(() => setReporting(row), 400);
+          }}
+          onLogged={() => {
+            setDish(null);
+            onLoggedDish();
+          }}
+        />
+      ) : null}
+      {reporting?.citation ? (
+        <ReportChainItemSheet itemId={reporting.key} name={reporting.name} chain={reporting.citation.chain} onClose={() => setReporting(null)} />
       ) : null}
     </View>
   );
