@@ -15,8 +15,10 @@ npm run testflight
 ```
 
 It builds whatever is checked out. **Build 4** (the App Review fixes for version 1.0) must come from commit
-`f05e76a`: `git checkout -B build-4 f05e76a` first. Everything after it, What to order's screens included, is v2.5
-and goes into its own build once 1.0 is approved (`store/README.md` → What to order).
+`f05e76a`: `git checkout -B build-4 f05e76a` first. Everything after it, What to order's screens included, is v2.5:
+App Store version **1.1.0** (`expo.version` in `app.json`), built from the `claude/gallant-archimedes-o2u9dy`
+branch. A 1.1.0 build gets its own version in TestFlight, so it can go there while 1.0 is in review: App Store
+Connect lets a version use only builds with its own number, so a 1.1.0 build can't be picked for 1.0 by mistake.
 
 That runs lint and the typecheck (after refreshing the route types Expo Router generates into `.expo/types`, which
 go stale on a machine that hasn't run the dev server since screens were added), builds the production app on EAS (the build number goes up by itself), and
@@ -118,15 +120,35 @@ App Store Connect → the app → the iOS version (1.0) → fill it from [`READM
 8. **Submit for Review.** Most reviews finish within 24 hours. If Apple rejects: ask Claude to "answer this App
    Store rejection" with the message; the skill has the playbook.
 
-After 1.0 is live, raise `expo.version` in `app.json` (1.0.1, 1.1.0...) before building the next App Store version.
+After a version is live, raise `expo.version` in `app.json` before building the next one: 1.1.0 is v2.5 (What to
+order); after it, 1.1.1 for fixes or 1.2.0 for new features.
+
+## App Review for 1.1 (v2.5: What to order)
+
+Only one version can be in review at a time, so 1.1 waits for 1.0:
+
+1. **Release 1.0** when Apple approves it (Pending Developer Release → Release This Version).
+2. **The checklist** in [`README.md` → What to order](README.md#what-to-order-version-25-its-own-build): the
+   person's spot check of the chains, the phone tests below on the TestFlight build, the screenshots.
+3. **New version:** the app → iOS App → **+** next to the version list → `1.1.0`. Paste What's New, the new
+   description line, the Premium block and the review notes from that section; replace the screenshots.
+4. **Build:** the 1.1.0 build you tested. Nothing else changes: same subscriptions (they were approved with 1.0),
+   App Privacy, age rating and demo account (check its free menu is unused: Search foods → Restaurants shows no
+   crown).
+5. **Support page:** ask Claude to "deploy the What to order support lines" the day you submit, not before.
+6. **Submit for Review**, with "Manually release this version" again.
 
 ## What to order on a phone (the v2.5 build)
 
 What to order is the first version with a native module of our own (`modules/menu-text`, Apple Vision), so test it
-in a real build, never in Expo Go, before it goes to App Review. While 1.0 is in review, use a **preview build**: it
-installs straight onto your iPhone and never reaches App Store Connect, so it can't be picked for 1.0 by mistake
-(`npx eas-cli@latest device:create` once to register the phone, then `npx eas-cli@latest build -p ios --profile
-preview` and open the link EAS prints on the phone). After 1.0 is approved, raise `expo.version` and use TestFlight:
+in a real build, never in Expo Go, before it goes to App Review. The 1.1.0 build goes to TestFlight like any other
+(`npm run testflight` on the branch), and internal testers get it once Apple has processed it:
+
+- [ ] **Chain meals**: Scan → Describe a meal → "Big Mac and a medium Coke from McDonald's" says "Matched to the
+      McDonald's menu: the restaurant's own numbers" with the source and links; a photo of a chain's cup, box or
+      wrapper does the same for its dish; Search foods → "big mac" lists Restaurant dishes, and Log it works on a
+      free account with no Premium screen
+- [ ] The camera alert's text mentions restaurant menus; the Premium screen lists What to order
 
 - [ ] **Menu reading** (WHAT-TO-ORDER.md §11): Scan → Menu on 10 real menus: printed, a chalkboard, a dim room, a
       long menu as 2-3 pages, a menu with prices in a column. Each time the confirm step lists the dishes; fix what's

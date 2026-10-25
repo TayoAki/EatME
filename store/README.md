@@ -364,19 +364,27 @@ in the code after commit `f05e76a` and ship as their own App Store version once 
 Apple doesn't want a feature switched off in a submitted app (2.3.1(a), 2.5.19), so the version Apple reviews has it
 on, all of it. Before that submission:
 
-- [ ] A person has checked the review lists (`data/chains/review/<chain>.md`, 10,328 lines pending for 104 chains on
-      23 October; `npm run chains:evidence` finds 6,767 of them in the guide text as drafted), then `npm run chains:build`
-- [ ] The accuracy pilot passed (`npm run menus:pilot`, WHAT-TO-ORDER.md §11) and its calibration copied into
-      `ESTIMATE_CALIBRATION` (`src/shared/menus.ts`). Run on 23 October: calories and big plates at the line, the
-      best-five overlap failed, so scanned menus show Likely fits in menu order with the measured ranges (decided
-      24 October, WHAT-TO-ORDER.md §13, 5)
+- [ ] A person has compared each chain's **spot check** with its guide (`data/chains/review/<chain>.md` → Spot
+      check: 754 lines for 104 chains, about 1 in 20 of the lines that ship), then `npm run chains:build`. This is
+      the check on what the app shows: every live line is one two drafts agreed on, and a wrong sample means a
+      closer look at that chain
+- [ ] Later, not before submitting: the **waiting lines** (10,326 on 25 October, the Disagreements tables) add
+      coverage. They are never loaded until a person fixes them (`npm run chains:evidence` finds 6,767 in the guide
+      text as drafted), so the top chains' first (McDonald's medium sizes, for example)
+- [x] The accuracy pilot (`npm run menus:pilot`, WHAT-TO-ORDER.md §11), its calibration in `ESTIMATE_CALIBRATION`
+      (`src/shared/menus.ts`). Run on 23 October: calories and big plates at the line, the best-five overlap
+      failed, so scanned menus show Likely fits in menu order with the measured ranges (decided 24 October,
+      WHAT-TO-ORDER.md §13, 5)
+- [x] The version is 1.1.0; the camera and photo alerts name restaurant menus (5.1.1(i)); the Premium screen lists
+      What to order (3.1.2)
 - [ ] The menu-reading check on a phone (10 real menus, 9 readable after the confirm step). `modules/menu-text` is
       native: test it in a preview build while 1.0 is in review (`store/release.md` → What to order on a phone),
       not Expo Go
 - [ ] `WHAT_TO_ORDER` is not `false` on Railway (the switch is for outages only and is on for the review)
 - [ ] The support page lines below, deployed on submission day and not before: the page lists what Premium
       includes, and the 1.0 review must not read about a feature its build doesn't have
-- [ ] Screenshots: a chain's What fits list (Search → Restaurants) and a scanned menu, with the Premium badge
+- [ ] Screenshots: a chain's What fits list (Search → Restaurants) and a scanned menu, with the Premium badge, and
+      `07-search.png` again (Search now has a Restaurants tab and Restaurant dishes)
 - [ ] The demo account hasn't used its free try (any account's first menu is free; then Premium, sandbox in review)
 - [ ] App Privacy needs no new type: menus are User Content (photos only when the phone can't read the text, and
       the dish list and restaurant name as Other User Content), and the meals ordered from them are Health & Fitness,

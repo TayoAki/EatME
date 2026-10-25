@@ -38,7 +38,9 @@ function Benefit({ text }: { text: string }) {
 export default function PremiumScreen() {
   const { userId } = useSession();
   const billing = useBilling();
-  const multiPhoto = !!useFeatures().data?.multiPhoto;
+  const features = useFeatures().data;
+  const multiPhoto = !!features?.multiPhoto;
+  const whatToOrder = !!features?.whatToOrder;
   const sync = useSyncBilling();
   const options = useQuery({
     queryKey: ['premium-options', userId],
@@ -123,6 +125,9 @@ export default function PremiumScreen() {
               {multiPhoto ? <Benefit text="Up to 3 photos of one meal for a closer estimate" /> : null}
               <Benefit text="A weekly check-in that suggests a calorie target from your weight trend (you decide)" />
               <Benefit text="Plan tomorrow: a draft of your day from your own meals" />
+              {whatToOrder ? (
+                <Benefit text="What to order: which dishes on a restaurant's menu fit what's left of your day (your first menu is free)" />
+              ) : null}
               <Benefit text="Everything else stays free: barcodes, food search, drinks, goals, water, weight, body, GLP-1 mode and supplements" />
             </View>
             {status ? (

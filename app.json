@@ -2,7 +2,7 @@
   "expo": {
     "name": "Weight Class",
     "slug": "eatme",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "eatme",
@@ -86,7 +86,7 @@
       [
         "expo-camera",
         {
-          "cameraPermission": "Weight Class uses the camera to scan your meals, nutrition labels and barcodes to estimate their calories and macros, and for the progress photos you choose to take. Progress photos stay private.",
+          "cameraPermission": "Weight Class uses the camera to scan your meals, nutrition labels, barcodes and restaurant menus to estimate their calories and macros, and for the progress photos you choose to take. Progress photos stay private.",
           "microphonePermission": false,
           "recordAudioAndroid": false,
           "barcodeScannerEnabled": true
@@ -95,8 +95,8 @@
       [
         "expo-image-picker",
         {
-          "photosPermission": "Weight Class opens your photos so you can analyze a meal or add a progress photo from your gallery. Progress photos stay private.",
-          "cameraPermission": "Weight Class uses the camera to scan your meals and estimate their calories and macros, and for the progress photos you choose to take.",
+          "photosPermission": "Weight Class opens your photos so you can analyze a meal or a restaurant menu, or add a progress photo, from your gallery. Progress photos stay private.",
+          "cameraPermission": "Weight Class uses the camera to scan your meals, nutrition labels, barcodes and restaurant menus to estimate their calories and macros, and for the progress photos you choose to take. Progress photos stay private.",
           "microphonePermission": false
         }
       ],
