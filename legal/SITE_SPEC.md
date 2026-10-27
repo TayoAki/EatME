@@ -157,8 +157,10 @@ with reduced motion), `body` 17px/1.6 on `--bg`, `img { max-width: 100%; display
 
 ## 6. Assets
 
-- Existing: `images/logo.png`, `app-icon.png`, `og.png`, and the framed phones `phone-home.png`,
+- Existing: `images/logo.png`, `app-icon.png`, and the framed phones `phone-home.png`,
   `phone-meal.png`, `phone-weight.png`, `phone-glp1.png` (600 × 1258, 1.0's screens, transparent corners).
+- `og.png` (1200 × 630), redone with this headline: the brand, "Snap a meal. See what’s left." ("left" in #d35400)
+  and the meal and home phones, as before. Its URL in `index.html` carries `?v=2`; raise it when the image changes.
 - To add when available: `images/app-store-badge.svg` (Apple's official badge).
 
 ## 7. Head
