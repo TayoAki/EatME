@@ -10,9 +10,11 @@
     />
     <meta name="color-scheme" content="light" />
     <meta name="theme-color" content="#FFFFFF" />
+    <!-- Safari's own App Store banner for the app. -->
+    <meta name="apple-itunes-app" content="app-id=6816738487" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Weight Class" />
-    <meta property="og:title" content="Weight Class — Calorie tracking made effortless" />
+    <meta property="og:title" content="Weight Class — Snap a meal. See what's left." />
     <meta
       property="og:description"
       content="Snap a meal, scan a barcode or search. See your calories and macros against a plan made for you."
@@ -28,167 +30,202 @@
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/png" href="images/app-icon.png" />
     <link rel="apple-touch-icon" href="images/app-icon.png" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="home.css" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="site-header">
-      <div class="container nav">
-        <a class="brand" href="index.html">
-          <img src="images/logo.png" width="32" height="32" alt="" />
+    <!-- Built from SITE_SPEC.md. The App Store links are text buttons until Apple's official badge is added. -->
+    <header class="nav">
+      <div class="wrap">
+        <a class="brand" href="/">
+          <img src="images/logo.png" width="30" height="30" alt="" />
           <span>Weight Class</span>
         </a>
-        <nav aria-label="Legal">
-          <ul class="nav-links">
-            <li><a href="support.html">Support</a></li>
-            <li><a href="privacy.html">Privacy<span class="long"> Policy</span></a></li>
-            <li class="nav-extra"><a href="terms.html">Terms<span class="long"> of Service</span></a></li>
-          </ul>
+        <nav aria-label="Main">
+          <a href="#how">How it works</a>
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
+          <a href="support.html">Support</a>
+          <a class="btn btn-primary btn-sm" href="https://apps.apple.com/app/weight-class/id6816738487">Get the app</a>
         </nav>
       </div>
     </header>
 
     <main id="main">
       <section class="hero" aria-labelledby="hero-title">
-        <div class="container">
-          <p class="hero-badge"><span class="hero-badge-dot" aria-hidden="true"></span>The AI calorie counter for iPhone</p>
-          <h1 id="hero-title"><span>Calorie tracking</span> <span>made effortless</span></h1>
-          <p class="lead">
-            Snap a meal, describe it in a few words or scan a barcode. Weight Class estimates the calories, protein, carbs, fat
-            and fiber, and keeps your day on track against a plan made for you.
-          </p>
-          <div class="hero-actions">
-            <a class="btn" href="#download">Get the app</a>
+        <div class="wrap hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow"><b>New</b>Now on the App Store</p>
+            <h1 id="hero-title">Snap a meal. <span class="hl">See what&rsquo;s left.</span></h1>
+            <p class="lede">
+              Take a photo, describe it in a few words or scan a barcode. Weight Class estimates the calories, protein,
+              carbs, fat and fiber, and keeps your day on track against a plan made for you.
+            </p>
+            <div class="hero-cta">
+              <a class="btn btn-primary" href="https://apps.apple.com/app/weight-class/id6816738487">Get it on the App Store</a>
+              <a class="btn btn-ghost" href="#how">See how it works</a>
+            </div>
+            <p class="hero-note"><span class="dot" aria-hidden="true"></span>Free to start · 3 AI scans a day · No ads</p>
           </div>
-          <ul class="hero-points" role="list">
-            <li>Free to start</li>
-            <li>No ads</li>
-            <li>Your data is never sold</li>
-          </ul>
-        </div>
 
-        <div class="showcase">
-          <div class="phones">
-            <img
-              class="phone phone--side"
-              src="images/phone-meal.png"
-              width="600"
-              height="1258"
-              alt="A Chicken Caesar salad in Weight Class: the photo, 539 calories, 49 g protein, 19 g carbs, 29 g fat and 3 g fiber, each with an edit button"
-            />
-            <img
-              class="phone phone--center"
-              src="images/phone-home.png"
-              width="600"
-              height="1258"
-              alt="The Weight Class home screen: 821 calories left, protein, carbs and fat left, fiber, water and today's meals"
-            />
-            <img
-              class="phone phone--side"
-              src="images/phone-weight.png"
-              width="600"
-              height="1258"
-              alt="The Weight Class weight screen: 179.9 lb, a smoothed trend going down about 0.7 lb a week, and the goal line"
-            />
+          <div class="stage">
+            <div class="glow-blob" aria-hidden="true"></div>
+            <div class="tilt tilt-back device">
+              <img
+                src="images/phone-weight.png"
+                width="600"
+                height="1258"
+                alt="The Weight Class weight screen: 179.9 lb, a smoothed trend going down about 0.7 lb a week, and the goal line"
+              />
+            </div>
+            <div class="tilt tilt-main device">
+              <img
+                src="images/phone-home.png"
+                width="600"
+                height="1258"
+                alt="The Weight Class home screen: 821 calories left, protein, carbs and fat left, fiber, water and today's meals"
+              />
+            </div>
+            <div class="tilt tilt-front device">
+              <img
+                src="images/phone-meal.png"
+                width="600"
+                height="1258"
+                alt="A Chicken Caesar salad in Weight Class: the photo, 539 calories, 49 g protein, 19 g carbs, 29 g fat and 3 g fiber, each with an edit button"
+              />
+            </div>
+
+            <div class="chip chip-1" aria-hidden="true">
+              <span class="chip-icon">
+                <svg viewBox="0 0 24 24"><path fill="#ff7a1a" d="M12 2.5c.4 3.1 2.2 4.8 3.8 6.4 1.6 1.6 3.2 3.3 3.2 6.1A7 7 0 0 1 5 15c0-2.6 1.3-4.4 2.9-5.6.2 1.6 1 2.8 2.3 3.3-.6-3.9.4-7.4 1.8-10.2z" /></svg>
+              </span>
+              <span><b>15-day streak</b><small>logged every day</small></span>
+            </div>
+            <div class="chip chip-2" aria-hidden="true">
+              <span>
+                <b>Chicken Caesar salad &middot; 539 kcal</b>
+                <span class="macros"
+                  ><span><i style="background: var(--protein)"></i>49g</span><span><i style="background: var(--carbs)"></i>19g</span
+                  ><span><i style="background: var(--fat)"></i>29g</span></span
+                >
+              </span>
+            </div>
+            <div class="chip chip-3" aria-hidden="true">
+              <span class="chip-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#7a3a05" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7.5l5 6 3.5-3.5L20 16.5" /><path d="M15 16.5h5v-5" /></svg>
+              </span>
+              <span><b>&minus;0.7 lb a week</b><small>weight trend vs. goal line</small></span>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section" id="features" aria-labelledby="features-title">
-        <div class="container">
+      <section id="how" aria-labelledby="how-title">
+        <div class="wrap">
           <div class="section-head">
-            <p class="eyebrow">Features</p>
-            <h2 id="features-title">Tracking that fits into real life</h2>
-            <p>Weight Class takes the busywork out of counting calories, so logging a meal takes seconds, not minutes.</p>
+            <h2 id="how-title">A meal logged in three steps</h2>
+            <p class="lede">Snap it, check it and see where your day stands. No weighing every ingredient.</p>
           </div>
-
-          <ul class="features" role="list">
-            <li class="card">
-              <span class="card-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <path d="M8.6 6.5l1.2-2a1 1 0 0 1 .86-.5h2.68a1 1 0 0 1 .86.5l1.2 2" />
-                  <rect x="3" y="6.5" width="18" height="13.5" rx="3.5" />
-                  <circle cx="12" cy="13.25" r="3.6" />
-                </svg>
-              </span>
-              <h3>Snap, describe or scan</h3>
-              <p>
-                Take a photo of your plate, describe it in a few words, photograph a nutrition label or scan a barcode.
-                Add a second photo or a note like &ldquo;cooked in butter&rdquo; for a closer estimate.
-              </p>
-            </li>
-
-            <li class="card">
-              <span class="card-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <path
-                    d="M10.5 4.5l1.55 4.2a2 2 0 0 0 1.2 1.2l4.25 1.6-4.25 1.6a2 2 0 0 0-1.2 1.2L10.5 18.5l-1.55-4.2a2 2 0 0 0-1.2-1.2L3.5 11.5l4.25-1.6a2 2 0 0 0 1.2-1.2z"
-                  />
-                  <path d="M18.5 3v4M16.5 5h4" />
-                </svg>
-              </span>
-              <h3>Numbers you can check</h3>
-              <p>
-                AI names the foods and portions, and the numbers come from the USDA food database wherever a food
-                matches. Change any number in a tap: Weight Class remembers your foods and portions for next time.
-              </p>
-              <div class="card-detail" aria-hidden="true">
-                <span class="chip"><span class="dot dot--protein"></span>Protein <b>49g</b></span>
-                <span class="chip"><span class="dot dot--carbs"></span>Carbs <b>19g</b></span>
-                <span class="chip"><span class="dot dot--fat"></span>Fats <b>29g</b></span>
+          <ol class="steps">
+            <li class="step">
+              <div class="step-media at-photo">
+                <img src="images/phone-meal.png" width="600" height="1258" loading="lazy" alt="" />
+              </div>
+              <div class="step-body">
+                <span class="step-n">1</span>
+                <h3>Snap it</h3>
+                <p>
+                  Take a photo of your plate, describe it in a few words or scan a barcode. Add a second photo or a note
+                  like &ldquo;cooked in butter&rdquo; for a closer estimate.
+                </p>
               </div>
             </li>
+            <li class="step">
+              <div class="step-media at-numbers">
+                <img src="images/phone-meal.png" width="600" height="1258" loading="lazy" alt="" />
+              </div>
+              <div class="step-body">
+                <span class="step-n">2</span>
+                <h3>Check the estimate</h3>
+                <p>
+                  AI names the foods and portions, and the numbers come from the USDA food database wherever a food
+                  matches. Wrong portion? Change it in a tap.
+                </p>
+              </div>
+            </li>
+            <li class="step">
+              <div class="step-media at-top">
+                <img src="images/phone-home.png" width="600" height="1258" loading="lazy" alt="" />
+              </div>
+              <div class="step-body">
+                <span class="step-n">3</span>
+                <h3>See what&rsquo;s left</h3>
+                <p>
+                  Calories, protein, carbs, fat, fiber and water fill up against your plan, so you know what&rsquo;s left for
+                  the rest of the day.
+                </p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
 
-            <li class="card">
-              <span class="card-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="8.5" />
-                  <circle cx="12" cy="12" r="4.75" />
-                  <circle cx="12" cy="12" r="1.1" fill="currentColor" />
-                </svg>
+      <section class="band" aria-labelledby="check-title">
+        <div class="wrap">
+          <div class="inner">
+            <div class="band-phone device" aria-hidden="true">
+              <img src="images/phone-meal.png" width="600" height="1258" loading="lazy" alt="" />
+            </div>
+            <div class="text">
+              <h2 id="check-title">An estimate you can check.</h2>
+              <p>
+                A number only helps if you can check it. Weight Class shows the foods and portions it saw, takes the numbers
+                from the USDA food database wherever a food matches, and lets you change anything in a tap. It remembers
+                your fixes for next time, and every calculation links to its sources in the app.
+              </p>
+              <ul class="band-points">
+                <li>USDA food database</li>
+                <li>Sources in the app</li>
+                <li>Edit anything</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" aria-labelledby="features-title">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="features-title">Tracking that fits into real life</h2>
+            <p class="lede">
+              Weight Class takes the busywork out of counting calories, so logging a meal takes seconds, not minutes.
+            </p>
+          </div>
+          <ul class="features">
+            <li class="f">
+              <span class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><circle cx="12" cy="12" r="4.75" /><circle cx="12" cy="12" r="1.1" fill="currentColor" /></svg>
               </span>
               <h3>A plan made for you</h3>
               <p>
                 Answer a few questions about your body, activity and goal, and get daily targets for calories, protein,
-                carbs, fat, fiber and water. <a href="support.html#sources">See how they're worked out</a>.
+                carbs, fat, fiber and water. <a href="support.html#sources">See how they&rsquo;re worked out</a>.
               </p>
             </li>
-
-            <li class="card">
-              <span class="card-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <path d="M4 18.5l5-6 3.5 3.5L20 7.5" />
-                  <path d="M15 7.5h5v5" />
-                </svg>
+            <li class="f">
+              <span class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 18.5l5-6 3.5 3.5L20 7.5" /><path d="M15 7.5h5v5" /></svg>
               </span>
               <h3>See the trend, not the noise</h3>
               <p>
-                A smoothed weight trend shows where you're really heading, with your goal line, milestones, body
+                A smoothed weight trend shows where you&rsquo;re really heading, with your goal line, milestones, body
                 measurements and private progress photos.
               </p>
             </li>
-
-            <li class="card">
-              <span class="card-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <rect x="7.5" y="2.5" width="9" height="19" rx="4.5" transform="rotate(45 12 12)" />
-                  <path d="M8.8 8.8l6.4 6.4" />
-                </svg>
-              </span>
-              <h3>Made for GLP-1 medicines too</h3>
-              <p>
-                Log your doses and injection sites, keep count of your pens or vials, and put protein, fiber and water
-                first while your appetite is lower. Weight Class never gives dosing advice.
-              </p>
-            </li>
-
-            <li class="card">
-              <span class="card-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <rect x="3.5" y="5" width="17" height="15.5" rx="3.5" />
-                  <path d="M3.5 10h17M8 3v4M16 3v4" />
-                </svg>
+            <li class="f">
+              <span class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="3.5" /><path d="M3.5 10h17M8 3v4M16 3v4" /></svg>
               </span>
               <h3>Plan tomorrow <span class="tag">Premium</span></h3>
               <p>
@@ -196,298 +233,223 @@
                 target. Swap or shuffle anything; nothing is logged until you tap Log it.
               </p>
             </li>
-
-            <li class="card">
-              <span class="card-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <path d="M6.5 17.5C6.5 10 11 5.5 19 5c-.5 8-5 12.5-12.5 12.5z" />
-                  <path d="M5 19l6.5-6.5" />
-                </svg>
+            <li class="f">
+              <span class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M6.5 17.5C6.5 10 11 5.5 19 5c-.5 8-5 12.5-12.5 12.5z" /><path d="M5 19l6.5-6.5" /></svg>
               </span>
               <h3>Calm mode</h3>
               <p>
-                When counting feels like too much, calm mode swaps calorie numbers for simple words, and you still see
-                how your day is going.
+                When counting feels like too much, calm mode swaps calorie numbers for simple words, and you still see how
+                your day is going.
               </p>
             </li>
-
-            <li class="card">
-              <span class="card-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <path
-                    d="M12 20s-7.5-4.4-7.5-10.1A4.2 4.2 0 0 1 12 7.3a4.2 4.2 0 0 1 7.5 2.6C19.5 15.6 12 20 12 20z"
-                  />
-                </svg>
+            <li class="f">
+              <span class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 20s-7.5-4.4-7.5-10.1A4.2 4.2 0 0 1 12 7.3a4.2 4.2 0 0 1 7.5 2.6C19.5 15.6 12 20 12 20z" /></svg>
               </span>
               <h3>Works with Apple Health</h3>
               <p>
-                Save your calories, macros, fiber and water to Apple Health, or to Health Connect on Android, and see
-                your steps, workouts and sleep next to your meals. That activity data stays on your phone.
+                Save your calories, macros, fiber and water to Apple Health, and see your steps, workouts and sleep next to
+                your meals. That activity data stays on your phone.
+              </p>
+            </li>
+            <li class="f">
+              <span class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2.5" /><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5" /></svg>
+              </span>
+              <h3>Your data, your call</h3>
+              <p>
+                Photos and descriptions go to AI only after you allow it, and the app names who gets them. No ads, never
+                sold. Delete any meal, or your whole account, at any time.
               </p>
             </li>
           </ul>
         </div>
       </section>
 
-      <section class="section section--band" id="screens" aria-labelledby="screens-title">
-        <div class="container">
-          <div class="section-head">
-            <p class="eyebrow">A closer look</p>
-            <h2 id="screens-title">Everything in one place</h2>
+      <section class="showcase" aria-labelledby="glp1-title">
+        <div class="wrap sc-grid">
+          <div class="duo">
+            <div class="device dA">
+              <img
+                src="images/phone-glp1.png"
+                width="600"
+                height="1258"
+                loading="lazy"
+                alt="GLP-1 mode in Weight Class: a weekly semaglutide injection, pens left and the next use-by date, and recent injection sites"
+              />
+            </div>
+            <div class="device dB">
+              <img
+                src="images/phone-calm.png"
+                width="600"
+                height="1258"
+                loading="lazy"
+                alt="The Weight Class home screen in calm mode: words such as On your way and Plenty left instead of calorie numbers"
+              />
+            </div>
           </div>
-
-          <ul class="gallery" role="list">
-            <li>
-              <figure>
-                <img
-                  src="images/phone-search.png"
-                  width="600"
-                  height="1258"
-                  loading="lazy"
-                  alt="Food search in Weight Class: chicken breast, rotisserie, 150 g, 216 kcal, with a Log it button"
-                />
-                <figcaption>Search and barcodes<span class="sub">Everyday foods, no AI needed</span></figcaption>
-              </figure>
-            </li>
-            <li>
-              <figure>
-                <img
-                  src="images/phone-tomorrow.png"
-                  width="600"
-                  height="1258"
-                  loading="lazy"
-                  alt="Plan tomorrow in Weight Class: breakfast, lunch, a snack and dinner from the person's own meals, about 1,870 kcal and 145 g protein"
-                />
-                <figcaption>Plan tomorrow <span class="tag">Premium</span><span class="sub">A draft of your day</span></figcaption>
-              </figure>
-            </li>
-            <li>
-              <figure>
-                <img
-                  src="images/phone-glp1.png"
-                  width="600"
-                  height="1258"
-                  loading="lazy"
-                  alt="GLP-1 mode in Weight Class: a weekly semaglutide injection, pens left and the next use-by date, and recent injection sites"
-                />
-                <figcaption>GLP-1 mode<span class="sub">Doses, pens and sites</span></figcaption>
-              </figure>
-            </li>
-            <li>
-              <figure>
-                <img
-                  src="images/phone-calm.png"
-                  width="600"
-                  height="1258"
-                  loading="lazy"
-                  alt="The Weight Class home screen in calm mode: words such as On your way and Plenty left instead of calorie numbers"
-                />
-                <figcaption>Calm mode<span class="sub">Words instead of numbers</span></figcaption>
-              </figure>
-            </li>
-          </ul>
+          <div>
+            <h2 id="glp1-title">Built for GLP-1 medicines</h2>
+            <p class="lede">
+              For people taking a GLP-1 medicine, with protein, fiber and water first while your appetite is lower.
+            </p>
+            <ul class="ticks">
+              <li><b>Doses and sites.</b> Log each dose and see where you injected last.</li>
+              <li><b>Pens and vials.</b> Keep count of what&rsquo;s left and when it&rsquo;s due to be used.</li>
+              <li><b>Protein, fiber and water first.</b> Targets that suit a smaller appetite.</li>
+              <li><b>Never dosing advice.</b> Your prescriber decides; Weight Class keeps the log.</li>
+            </ul>
+          </div>
         </div>
       </section>
 
-      <section class="section" id="how-it-works" aria-labelledby="how-title">
-        <div class="container">
+      <section id="pricing" aria-labelledby="pricing-title">
+        <div class="wrap">
           <div class="section-head">
-            <p class="eyebrow">How it works</p>
-            <h2 id="how-title">Up and running in three steps</h2>
-          </div>
-
-          <ol class="steps" role="list">
-            <li class="step">
-              <span class="step-num">1</span>
-              <h3>Answer a few questions</h3>
-              <p>Tell Weight Class about your height, weight, activity level and goal. It takes about a minute.</p>
-            </li>
-            <li class="step">
-              <span class="step-num">2</span>
-              <h3>Get your personal plan</h3>
-              <p>Daily targets for calories, protein, carbs and fat, with fiber and water goals to match.</p>
-            </li>
-            <li class="step">
-              <span class="step-num">3</span>
-              <h3>Snap, scan or search</h3>
-              <p>Log each meal in seconds, check the estimate, and watch your day fill up against your plan.</p>
-            </li>
-          </ol>
-        </div>
-      </section>
-
-      <section class="section section--flush-top" id="pricing" aria-labelledby="pricing-title">
-        <div class="container">
-          <div class="section-head">
-            <p class="eyebrow">Pricing</p>
             <h2 id="pricing-title">Free to use, Premium if you want more</h2>
+            <p class="lede">Start free. Upgrade when you want unlimited scans.</p>
           </div>
-
-          <ul class="features" role="list">
-            <li class="card">
+          <div class="plans">
+            <div class="plan">
               <h3>Free</h3>
-              <p class="price">$0, no time limit</p>
-              <ul class="includes" role="list">
+              <div class="price"><b>$0</b><span>no time limit</span></div>
+              <p class="plan-note">Everything you need to track every day</p>
+              <ul>
                 <li>3 AI meal scans a day</li>
                 <li>Barcodes, food search and quick add</li>
                 <li>Your plan, fiber and water goals, vitamins and minerals</li>
                 <li>Weight trend, body measurements and progress photos</li>
                 <li>GLP-1 mode, drinks and supplements</li>
-                <li>Apple Health and Health Connect, calm mode, reminders</li>
+                <li>Apple Health, calm mode, reminders</li>
               </ul>
-            </li>
-
-            <li class="card">
+              <a class="btn btn-ghost" href="https://apps.apple.com/app/weight-class/id6816738487">Get it on the App Store</a>
+            </div>
+            <div class="plan best">
+              <span class="plan-tag">Free trial</span>
               <h3>Weight Class Premium</h3>
-              <p class="price">$7.99 a month or $39.99 a year</p>
-              <ul class="includes" role="list">
+              <div class="price"><b>$39.99</b><span>a year</span></div>
+              <p class="plan-note">or $7.99 a month</p>
+              <ul>
                 <li>Unlimited AI scans of meals, labels and descriptions (fair use: 50 a day)</li>
                 <li>Up to 3 photos of one meal for a closer estimate</li>
                 <li>A weekly check-in that suggests a calorie target from your weight trend (you decide)</li>
                 <li>Plan tomorrow: a draft of your day from your own meals</li>
               </ul>
-              <p class="fine">
-                US prices; the app shows the price for your country, and any free trial you can get, before you
-                subscribe. Renews automatically until you cancel in your App Store or Google Play settings, at least 24
-                hours before the end of the period. <a href="support.html#cancel">How to cancel</a>.
-              </p>
-            </li>
-          </ul>
+              <a class="btn btn-invert" href="https://apps.apple.com/app/weight-class/id6816738487">Start in the app</a>
+            </div>
+          </div>
+          <p class="fine">
+            US prices; the app shows the price for your country before you subscribe. New subscribers can start with a
+            one-month free trial; the app shows whether you can get it. Renews automatically until you cancel in your App
+            Store settings, at least 24 hours before the end of the period.
+            <a href="support.html#cancel">How to cancel</a> &middot; <a href="terms.html">Terms of Service</a> &middot;
+            <a href="privacy.html">Privacy Policy</a>
+          </p>
         </div>
       </section>
 
-      <section class="section section--band" id="faq" aria-labelledby="faq-title">
-        <div class="container">
+      <section id="faq" aria-labelledby="faq-title">
+        <div class="wrap">
           <div class="section-head">
-            <p class="eyebrow">FAQ</p>
             <h2 id="faq-title">Questions, answered</h2>
           </div>
-
           <div class="faq">
-            <details>
+            <details open>
               <summary>Is Weight Class free?</summary>
-              <div class="faq-answer">
-                <p>
-                  Yes. Barcodes, food search, drinks, your goals, water, weight, body measurements, GLP-1 mode,
-                  supplements and 3 AI meal scans a day are free, with no ads. Weight Class Premium is optional: it adds
-                  unlimited AI scans, several photos of one meal, the weekly check-in and Plan tomorrow. You'll see the
-                  price in the app before you pay, and you're never charged without agreeing first.
-                </p>
-              </div>
+              <p>
+                Yes. Barcodes, food search, drinks, your goals, water, weight, body measurements, GLP-1 mode, supplements
+                and 3 AI meal scans a day are free, with no ads. Weight Class Premium is optional: it adds unlimited AI
+                scans, several photos of one meal, the weekly check-in and Plan tomorrow. You'll see the price in the app
+                before you pay, and you're never charged without agreeing first.
+              </p>
             </details>
-
             <details>
               <summary>How do I cancel Premium?</summary>
-              <div class="faq-answer">
-                <p>
-                  On iPhone: in Weight Class, Profile → Weight Class Premium → Manage subscription, or Settings → your name →
-                  Subscriptions. On Android: Google Play → Payments &amp; subscriptions → Subscriptions. Premium stays on
-                  until the end of the period you paid for. More in <a href="support.html#cancel">Support</a>.
-                </p>
-              </div>
+              <p>
+                In Weight Class, Profile &rarr; Weight Class Premium &rarr; Manage subscription, or Settings &rarr; your
+                name &rarr; Subscriptions. Premium stays on until the end of the period you paid for. More in
+                <a href="support.html#cancel">Support</a>.
+              </p>
             </details>
-
             <details>
               <summary>Is Weight Class medical advice?</summary>
-              <div class="faq-answer">
-                <p>
-                  No. The calorie and nutrient numbers in Weight Class are estimates meant to help you stay aware of what you eat,
-                  and they can be wrong. Weight Class is not a medical device and doesn't replace a doctor or registered
-                  dietitian. <a href="support.html#sources">Here's how Weight Class works out your numbers</a>.
-                </p>
-                <p>
-                  If you have a medical condition, take medication such as a GLP-1, are pregnant or breastfeeding, or
-                  have a history of disordered eating, please talk to a professional before changing how you eat.
-                </p>
-              </div>
+              <p>
+                No. The calorie and nutrient numbers in Weight Class are estimates meant to help you stay aware of what you
+                eat, and they can be wrong. Weight Class is not a medical device and doesn't replace a doctor or registered
+                dietitian. <a href="support.html#sources">Here's how Weight Class works out your numbers</a>.
+              </p>
+              <p>
+                If you have a medical condition, take medication such as a GLP-1, are pregnant or breastfeeding, or have a
+                history of disordered eating, please talk to a professional before changing how you eat.
+              </p>
             </details>
-
             <details>
               <summary>Does Weight Class use AI, and where does my data go?</summary>
-              <div class="faq-answer">
-                <p>
-                  Only when you allow it. Before a photo or description goes to AI, Weight Class asks for your permission and
-                  names the companies involved, and you can turn it off at any time. Barcodes, food search, drinks and
-                  quick add never use AI. We never sell your data and show no ads. The
-                  <a href="privacy.html">Privacy Policy</a> has the details.
-                </p>
-              </div>
+              <p>
+                Only when you allow it. Before a photo or description goes to AI, Weight Class asks for your permission and
+                names the companies involved, and you can turn it off at any time. Barcodes, food search, drinks and quick
+                add never use AI. We never sell your data and show no ads. The <a href="privacy.html">Privacy Policy</a>
+                has the details.
+              </p>
             </details>
-
             <details>
               <summary>Does Weight Class work with Apple Health?</summary>
-              <div class="faq-answer">
-                <p>
-                  Yes. Turn it on in Profile → Apple Health (or Health Connect on Android) to save the calories, macros,
-                  fiber and water you log. You can also let Weight Class read your steps, workouts and sleep to show them next
-                  to your meals; that data stays on your phone.
-                </p>
-              </div>
+              <p>
+                Yes. Turn it on in Profile &rarr; Apple Health to save the calories, macros, fiber and water you log. You
+                can also let Weight Class read your steps, workouts and sleep to show them next to your meals; that data
+                stays on your phone.
+              </p>
             </details>
-
             <details>
               <summary>How do I delete my account?</summary>
-              <div class="faq-answer">
-                <p>
-                  Open the app, go to Profile and tap Delete account. After you confirm, we permanently delete your
-                  account, your profile and plan, every meal you've logged and all of your photos.
-                </p>
-                <p>
-                  Can't access the app? Use our <a href="delete-account.html">account deletion page</a> or email us at
-                  <a href="mailto:support@ugcmediakits.com">support@ugcmediakits.com</a>. Our
-                  <a href="privacy.html#deleting-your-account">Privacy Policy</a> explains the details.
-                </p>
-              </div>
+              <p>
+                Open the app, go to Profile and tap Delete account. After you confirm, we permanently delete your account,
+                your profile and plan, every meal you've logged and all of your photos.
+              </p>
+              <p>
+                Can't access the app? Use our <a href="delete-account.html">account deletion page</a> or email us at
+                <a href="mailto:support@ugcmediakits.com">support@ugcmediakits.com</a>. Our
+                <a href="privacy.html#deleting-your-account">Privacy Policy</a> explains the details.
+              </p>
             </details>
-
             <details>
               <summary>Which devices does Weight Class work on?</summary>
-              <div class="faq-answer">
-                <p>
-                  iPhone. An Android version is on the way.
-                </p>
-              </div>
+              <p>iPhone, from the App Store. An Android version is on the way.</p>
             </details>
           </div>
         </div>
       </section>
 
-      <section class="section" id="download" aria-labelledby="download-title">
-        <div class="container">
-          <div class="download">
-            <img class="download-icon" src="images/app-icon.png" width="80" height="80" alt="" />
-            <h2 id="download-title">Get Weight Class</h2>
-            <p>
-              Weight Class is on its way to the App Store for iPhone: free to download, with Weight Class Premium if you
-              want more. Email us and we'll tell you the day it's live.
+      <section class="cta" aria-labelledby="cta-title">
+        <div class="wrap">
+          <div class="inner">
+            <img src="images/app-icon.png" width="72" height="72" alt="" />
+            <h2 id="cta-title">Start with your next meal</h2>
+            <p class="lede">
+              Weight Class is on the App Store now: free to download, with Weight Class Premium if you want more.
             </p>
-            <!-- When the app is live: add Apple's "Download on the App Store" badge here, linking to
-                 https://apps.apple.com/app/id<the app's Apple ID from App Store Connect → App Information>. -->
-            <ul class="platforms" role="list">
-              <li class="platform">iPhone <span>App Store</span></li>
-              <li class="platform">Android <span>On the way</span></li>
-            </ul>
-            <p class="download-contact">
-              Questions or feedback:
-              <a href="mailto:support@ugcmediakits.com">support@ugcmediakits.com</a>
+            <a class="btn btn-invert" href="https://apps.apple.com/app/weight-class/id6816738487">Get it on the App Store</a>
+            <p class="cta-contact">
+              Questions or feedback: <a href="mailto:support@ugcmediakits.com">support@ugcmediakits.com</a>
             </p>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="container">
+    <footer class="site">
+      <div class="wrap">
         <div class="footer-top">
           <div>
-            <a class="footer-brand" href="index.html">
+            <a class="brand" href="/">
               <img src="images/logo.png" width="30" height="30" alt="" />
               <span>Weight Class</span>
             </a>
             <p class="footer-tagline">AI calorie tracking, made effortless.</p>
           </div>
           <nav aria-label="Footer">
-            <ul class="footer-links" role="list">
+            <ul>
               <li><a href="support.html">Support</a></li>
               <li><a href="privacy.html">Privacy Policy</a></li>
               <li><a href="terms.html">Terms of Service</a></li>
@@ -498,7 +460,7 @@
           </nav>
         </div>
         <div class="footer-bottom">
-          <p>© 2026 UGC Mediakits</p>
+          <p>&copy; 2026 UGC Mediakits</p>
           <p>This website uses no cookies and no analytics.</p>
         </div>
       </div>

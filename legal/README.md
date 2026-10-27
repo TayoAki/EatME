@@ -15,7 +15,9 @@ It is served by the app's server on Railway (`server/index.mjs`), the same serve
 | `health-data.html` | Consumer Health Data Privacy Policy (`/health-data`, Washington My Health My Data Act), linked on its own from the homepage footer |
 | `support.html` | Support (`/support`): contact details (Apple wants them behind the App Store Support URL), Weight Class Premium, cancelling, refunds and restoring, account, Apple Health, how the estimates work, and the methods and sources behind the numbers (`/support#sources`, linked from the app's plan screen) |
 | `404.html` | Not-found page, served for unknown URLs (uses root-relative paths) |
-| `style.css` | All styles, using the app's colors and radii |
+| `home.css` | The landing page's styles (rebuilt 27 October 2026 from `SITE_SPEC.md`) |
+| `style.css` | The legal pages' styles, using the app's colors and radii |
+| `SITE_SPEC.md` | The landing page's specification: tokens, sections, copy and the checks before shipping (not served) |
 | `images/` | Logo, app icon (also the favicon), phone mockups (`phone-*.png`) and the social preview (`og.png`, 1200 × 630) |
 
 ## How it is served
@@ -24,7 +26,7 @@ It is served by the app's server on Railway (`server/index.mjs`), the same serve
 
 - `/` → `index.html`, `/privacy` → `privacy.html`, `/terms` → `terms.html`, `/delete-account` →
   `delete-account.html`, `/health-data` → `health-data.html`, `/support` → `support.html`
-- `/style.css` and `/images/<file>` as they are (files directly inside `images/`, no subfolders)
+- `/style.css`, `/home.css` and `/images/<file>` as they are (files directly inside `images/`, no subfolders)
 - old links such as `/privacy.html`, `/terms.html` and `/index.html` redirect (301) to the clean URLs, so the
   `privacy.html` / `terms.html` links between the pages keep working
 - any other path gets `404.html` with status 404

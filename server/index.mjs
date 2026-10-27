@@ -96,7 +96,8 @@ async function serveSite(req, res) {
   }
 
   let file = PAGES[pathname];
-  if (!file && (pathname === '/style.css' || /^\/images\/[\w.-]+$/.test(pathname))) file = pathname.slice(1);
+  // style.css for the legal pages, home.css for the landing page.
+  if (!file && (pathname === '/style.css' || pathname === '/home.css' || /^\/images\/[\w.-]+$/.test(pathname))) file = pathname.slice(1);
   if (file) {
     try {
       await sendFile(res, file, 200, req.method);
