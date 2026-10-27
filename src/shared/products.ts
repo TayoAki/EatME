@@ -83,7 +83,17 @@ export const barcodeMealSchema = z.object({
   barcode: z.object({ code: z.string().regex(/^\d{8,14}$/, 'That barcode is not valid.'), grams }),
 });
 
-/** `POST /api/meals` as JSON: a food from the USDA database, and how much of it. */
+/**
+ * `POST /api/meals` as JSON: a food from the USDA database, and how much of it. `date`: an earlier day
+ * to log it on (Search from Home's meals section; today when left out).
+ */
 export const foodMealSchema = z.object({
-  food: z.object({ foodId: z.number().int().positive(), grams }),
+  food: z.object({
+    foodId: z.number().int().positive(),
+    grams,
+    date: z
+      .string()
+      .regex(/^\d{4}-\d{2}-\d{2}$/)
+      .optional(),
+  }),
 });

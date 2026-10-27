@@ -108,7 +108,8 @@ export const POST = handle(async (request) => {
       } else if (has(body, 'barcode')) {
         meal = await logProductMeal(userId, barcodeMealSchema.parse(body).barcode);
       } else {
-        meal = await logFoodMeal(userId, foodMealSchema.parse(body).food);
+        const { food } = foodMealSchema.parse(body);
+        meal = await logFoodMeal(userId, food, loggedAtFor(food.date, user.timezone));
       }
       return Response.json({ meal: await toMeal(meal) }, { status: 201 });
     }

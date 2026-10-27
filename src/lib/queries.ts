@@ -18,6 +18,7 @@ import type { BodyMeasurement, BodyResponse, MeasurementsBody, PhotoPose, Progre
 import type { CheckIn, CheckInResponse, CheckInSettingsBody } from '@/shared/adaptive';
 import type { DayPlanResponse } from '@/shared/day-draft';
 import type { BillingStatus } from '@/shared/billing';
+import type { DrinkBody } from '@/shared/drinks';
 import type { Features } from '@/shared/features';
 import type { FoodSearchResponse, Meal, QuickMeal, UpdateMealBody, UpdateMealItemsBody } from '@/shared/meals';
 import type { ChainItemReportBody, ChainMenuResponse, ChainSummary, DishLine, MenuScanResponse, MenuScanSummary, OrderDishBody } from '@/shared/menus';
@@ -219,6 +220,28 @@ export function useQuickAdd() {
   return useMutation({
     mutationFn: ({ date, ...quick }: QuickMeal) =>
       api<{ meal: Meal }>('/api/meals', { method: 'POST', body: { quick: { ...quick, date: date && dayParam(date) } } }),
+    onSuccess: () => invalidateMeals(),
+  });
+}
+
+/** Search from Home's meals section: a USDA database food (no AI), now or on an earlier `date`. */
+export function useLogFood() {
+  const api = useApi();
+  const invalidateMeals = useInvalidateMeals();
+  return useMutation({
+    mutationFn: ({ foodId, grams, date }: { foodId: number; grams: number; date: string }) =>
+      api<{ meal: Meal }>('/api/meals', { method: 'POST', body: { food: { foodId, grams, date: dayParam(date) } } }),
+    onSuccess: () => invalidateMeals(),
+  });
+}
+
+/** Search → Drinks from Home's meals section: an alcoholic drink (the server works out the numbers), now or on an earlier `date`. */
+export function useLogDrink() {
+  const api = useApi();
+  const invalidateMeals = useInvalidateMeals();
+  return useMutation({
+    mutationFn: ({ drink, date }: { drink: DrinkBody; date: string }) =>
+      api<{ meal: Meal }>('/api/meals', { method: 'POST', body: { drink: { ...drink, date: dayParam(date) } } }),
     onSuccess: () => invalidateMeals(),
   });
 }

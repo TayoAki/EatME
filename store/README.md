@@ -396,6 +396,7 @@ on, all of it. Before that submission:
 ```text
 What to order: at a restaurant, see which dishes fit what's left of your day. Chains use their own published nutrition numbers, with a link to each chain's guide; for any other restaurant, scan the menu and get estimates with a range. Log the dish in one tap, or save it for when the food arrives. Part of Weight Class Premium; your first menu is free.
 Chain meals: type, snap or search a chain restaurant's dish and Weight Class uses the restaurant's own published numbers, free.
+Search from Home: look up a food right under Today's meals and log it in a tap, on any day you're viewing.
 ```
 
 **Description:** under HOW IT WORKS, after the barcode line:

@@ -14,6 +14,7 @@ import { SegmentedControl } from '@/components/ui/segmented-control';
 import { colors } from '@/constants/colors';
 import { useCalmMode } from '@/lib/calm';
 import { useFeatures } from '@/lib/queries';
+import { formatDay, todayIso } from '@/lib/time';
 import type { DrinkBody } from '@/shared/drinks';
 import type { FoodSummary } from '@/shared/meals';
 import type { MenuRow } from '@/shared/menus';
@@ -24,6 +25,15 @@ type FoodSearchViewProps = {
   bottomSpace: number;
   /** The tab to open on (after a drink: Drinks). */
   initialTab?: SearchTab;
+  /**
+   * The day it goes on (Search from Home's meals section). An earlier day is named under the title, and the
+   * restaurant dishes and Restaurants tab stay out: both are about what's left of today.
+   */
+  date?: string;
+  /** What the back button says to VoiceOver. */
+  backLabel?: string;
+  /** The picked food is being logged: Log it shows a spinner. */
+  saving?: boolean;
   onBack: () => void;
   onLog: (food: FoodSummary, grams: number) => void;
   onLogDrink: (drink: DrinkBody, detail: string) => void;
@@ -39,24 +49,38 @@ const TABS = [
 const TABS_WITH_RESTAURANTS = [...TABS, { label: 'Restaurants', value: 'restaurants' }] as const;
 
 /** Log a food from the USDA database, a chain's dish or an alcoholic drink, or find what fits at a restaurant. */
-export function FoodSearchView({ bottomSpace, initialTab = 'foods', onBack, onLog, onLogDrink, onLoggedDish }: FoodSearchViewProps) {
+export function FoodSearchView({
+  bottomSpace,
+  initialTab = 'foods',
+  date,
+  backLabel = 'Back to the camera',
+  saving = false,
+  onBack,
+  onLog,
+  onLogDrink,
+  onLoggedDish,
+}: FoodSearchViewProps) {
   const insets = useSafeAreaInsets();
   const [picked, setPicked] = useState<FoodSummary | null>(null);
   const [dish, setDish] = useState<MenuRow | null>(null);
   const [reporting, setReporting] = useState<MenuRow | null>(null);
   const calm = useCalmMode();
   const [tab, setTab] = useState<SearchTab>(initialTab);
-  const restaurants = !!useFeatures().data?.whatToOrder;
+  const earlierDay = date && date !== todayIso() ? formatDay(date) : null;
+  const restaurants = !!useFeatures().data?.whatToOrder && !earlierDay;
 
   return (
     <View className="flex-1 bg-canvas" style={{ paddingTop: insets.top }}>
       <View className="h-14 justify-center px-5">
-        <IconButton accessibilityLabel="Back to the camera" icon={<ArrowLeft size={20} color={colors.ink} />} onPress={onBack} />
+        <IconButton accessibilityLabel={backLabel} icon={<ArrowLeft size={20} color={colors.ink} />} onPress={onBack} />
       </View>
       <View className="flex-1 px-5" style={{ paddingBottom: bottomSpace }}>
         <Text accessibilityRole="header" className="text-[32px] font-bold tracking-tight text-ink">
           Search foods
         </Text>
+        {earlierDay ? (
+          <Text className="mt-1 text-[15px] text-muted">Logging for {earlierDay === 'Yesterday' ? 'yesterday' : earlierDay}</Text>
+        ) : null}
         <SegmentedControl options={restaurants ? TABS_WITH_RESTAURANTS : TABS} value={tab} onChange={setTab} className="mt-3" />
         {tab === 'drinks' ? (
           <DrinkForm onLog={onLogDrink} />
@@ -77,7 +101,7 @@ export function FoodSearchView({ bottomSpace, initialTab = 'foods', onBack, onLo
             kcalPerGram: picked.per100g.calories / 100,
             portions: picked.portions,
           }}
-          saving={false}
+          saving={saving}
           hideCalories={calm}
           saveLabel="Log it"
           onClose={() => setPicked(null)}

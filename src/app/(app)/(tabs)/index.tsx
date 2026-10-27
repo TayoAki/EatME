@@ -1,5 +1,5 @@
 import { router } from 'expo-router';
-import { Camera, ChevronRight, Copy, Plus } from 'lucide-react-native';
+import { Camera, ChevronRight, Copy, Plus, Search } from 'lucide-react-native';
 import { useMemo, useState } from 'react';
 import { ActivityIndicator, Pressable, RefreshControl, ScrollView, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -220,6 +220,16 @@ function Home({ profile }: { profile: Profile }) {
                   <Text className="text-[15px] font-semibold text-ink">Quick add</Text>
                 </Pressable>
               </View>
+
+              {/* Look a food up and log it without the Scan tab, on the day shown. */}
+              <Pressable
+                accessibilityRole="button"
+                accessibilityLabel={isToday ? 'Search foods' : `Search foods to log for ${formatDay(selectedDate)}`}
+                onPress={() => router.push({ pathname: '/search', params: isToday ? {} : { date: selectedDate } })}
+                className="mb-3 h-12 flex-row items-center gap-2 rounded-field bg-surface px-4 active:opacity-70">
+                <Search size={18} color={colors.muted} />
+                <Text className="text-[16px] text-muted">Search foods</Text>
+              </Pressable>
 
               {isToday ? <PlannedCard date={selectedDate} calm={calm} /> : null}
 

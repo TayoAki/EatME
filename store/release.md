@@ -150,6 +150,9 @@ in a real build, never in Expo Go, before it goes to App Review. The 1.1.0 build
       wrapper does the same for its dish; Search foods → "big mac" lists Restaurant dishes, and Log it works on a
       free account with no Premium screen
 - [ ] The camera alert's text mentions restaurant menus; the Premium screen lists What to order
+- [ ] **Home search**: Home → Search foods under Today's meals opens Search with the keyboard up; a food's Log it goes
+      back to Home with the meal in the list; on yesterday it reads "Logging for yesterday", has no Restaurants tab,
+      and the food lands on yesterday at noon
 
 - [ ] **Menu reading** (WHAT-TO-ORDER.md §11): Scan → Menu on 10 real menus: printed, a chalkboard, a dim room, a
       long menu as 2-3 pages, a menu with prices in a column. Each time the confirm step lists the dishes; fix what's

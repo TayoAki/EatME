@@ -62,12 +62,12 @@ export async function logProductMeal(userId: string, { code, grams }: { code: st
   return createMeal(userId, 'barcode', product.name, [item]);
 }
 
-/** A food picked from the USDA database search. */
-export async function logFoodMeal(userId: string, { foodId, grams }: { foodId: number; grams: number }) {
+/** A food picked from the USDA database search. `loggedAt`: an earlier day (now when left out). */
+export async function logFoodMeal(userId: string, { foodId, grams }: { foodId: number; grams: number }, loggedAt?: Date | SQL) {
   const food = (await foodsByIds([foodId])).get(foodId);
   if (!food) throw new HttpError(400, 'That food is not in the database.');
   const item: ComputedItem = { name: food.description.split(',')[0], foodId, grams, nutrients: foodNutrients(food, grams) };
-  return createMeal(userId, 'food', food.description, [item]);
+  return createMeal(userId, 'food', food.description, [item], 'completed', loggedAt);
 }
 
 /**

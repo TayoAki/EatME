@@ -126,6 +126,10 @@ Welcome ──Get started──▶ Onboarding questions ──▶ Building your 
   `Not today`; nothing is logged until tapped). Calm mode (Preferences) shows words instead of
   calorie and macro numbers ("Plenty left", "On your way", "Nearly there", "Goal reached"), neutral
   grey rings over a goal and "{n} days logged" (never resets) instead of the streak.
+- v2.5: a "Search foods" box under the meals heading opens Search foods for the day shown (27 October 2026, the
+  owner's ask): a database food or a drink is logged on that day at once, no AI, and the screen goes back to Home.
+  An earlier day reads "Logging for yesterday" and leaves out the restaurant dishes and the Restaurants tab (both
+  about what's left of today).
 - "Last 7 days" card under the meals (v1.2, once two days are logged): calories per day
   against the goal, average calories, protein and fiber, and one neutral suggestion
   (something to add, never something to cut). Tapping it opens every average vs its goal.
@@ -348,7 +352,7 @@ added to an earlier day are stored at local noon of that day.
 | `POST /api/onboarding` | session | Save answers + plan on the user |
 | `GET/PATCH/DELETE /api/me` | session | Profile, edits (personal details, time zone, `aiConsent`), delete account |
 | `POST /api/account/delete` | public, 10/h per IP | Delete an account from the web page with its email + password (no session) |
-| `GET/POST /api/meals` | session | List a day's meals / log a meal + start the analysis (50 AI analyses a day): a JPEG body (`?mode=label` for labels, `X-Meal-Note` header for a note, up to 3 photos back to back with `X-Photo-Lengths`) or JSON `{ text }`; JSON `{ barcode: { code, grams } }`, `{ food: { foodId, grams } }` or `{ quick: { calories, … } }` logs at once without AI |
+| `GET/POST /api/meals` | session | List a day's meals / log a meal + start the analysis (50 AI analyses a day): a JPEG body (`?mode=label` for labels, `X-Meal-Note` header for a note, up to 3 photos back to back with `X-Photo-Lengths`) or JSON `{ text }`; JSON `{ barcode: { code, grams } }`, `{ food: { foodId, grams, date? } }` or `{ quick: { calories, … } }` logs at once without AI (`date`: an earlier day, at noon) |
 | `POST /api/meals/:id/follow-up` | session | The answer to the meal's one question (`{ option }` or `"skip"`); no AI call |
 | `GET/POST /api/saved-meals` | session, 60 writes/h | Saved meals (up to 100) with their repeats / save a logged meal (`{ mealId }`) or build one from foods |
 | `PUT/DELETE /api/saved-meals/:id/repeat` | session | Repeat a saved meal on weekdays at a time / stop (up to 20 repeats) |
@@ -906,6 +910,8 @@ item and replaces the old v2.2 list and the "Later" list; tick a box there and h
   - [x] 24 October: scanned menus show Likely fits in menu order with the measured ranges (the owner's decision)
   - [x] 25 October: chain meals matched by themselves: a typed or photographed chain meal and a searched dish use the
     chain's own numbers with its citation, free (`WHAT-TO-ORDER.md` §5; only the v2.5 app asks for it)
+  - [x] 27 October: Search foods from Home's meals section, for the day shown (`src/app/(app)/search.tsx`; a food's
+    `date` on `POST /api/meals`)
   - [ ] Waiting: a person for the 10,328 review lines, the menu-reading check on an iPhone, then its own build and
     version (never build 4, which comes from `f05e76a`)
 
