@@ -48,3 +48,6 @@ example
 
 # Cloudflare / Wrangler
 .wrangler/
+
+# Tripo models for the character (scripts/character-3d.ts): several MB each, kept outside git
+design/character-3d/models/

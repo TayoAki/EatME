@@ -1,0 +1,270 @@
+{
+  "tasks": {
+    "model:body_guy": {
+      "taskId": "b2ddb6b7-1c69-4e5e-a330-1345d834b8d4",
+      "status": "success",
+      "startedAt": "2026-10-28T18:11:35.468Z",
+      "request": {
+        "model": "v3.1-20260211",
+        "prompt": "Full-body 3D cartoon character, a friendly young man with chibi proportions: a big round head about one third of his height on a short visible neck, a short sturdy body, round ears. Smooth bald head. Smooth blank face with no eyes, eyebrows or mouth, only a small rounded nose. Plain white crew-neck t-shirt, plain gray jogger pants, simple dark gray sneakers. Simple rounded hands with short fingers. T-pose: arms straight out to the sides and clear of the body, legs straight and slightly apart, symmetrical, facing forward. Stylized 3D cartoon, mobile game avatar style: chunky rounded shapes, smooth clean surfaces, flat matte solid colors, no fine texture detail, no text, no logos.",
+        "negative_prompt": "realistic, photo, skin pores, wrinkles, hair strands, text, letters, logo, watermark, pedestal, base, ground, multiple characters, extra limbs, weapon",
+        "face_limit": 20000,
+        "texture": true,
+        "pbr": false,
+        "model_seed": 339817629,
+        "image_seed": 441129680,
+        "texture_seed": 87169192
+      },
+      "credits": 20,
+      "output": {},
+      "files": {
+        "model_url": "models/body_guy.glb",
+        "rendered_image_url": "previews/body_guy.webp",
+        "generated_image_url": "previews/body_guy-generated_image.jpeg"
+      }
+    },
+    "model:body_girl": {
+      "taskId": "c737d7a6-8741-4112-a68b-4dd41b415173",
+      "status": "success",
+      "startedAt": "2026-10-28T18:13:18.598Z",
+      "request": {
+        "model": "v3.1-20260211",
+        "prompt": "Full-body 3D cartoon character, a friendly young woman with chibi proportions: a big round head about one third of her height on a short visible neck, a short slim body with slightly narrower shoulders, round ears. Smooth bald head. Smooth blank face with no eyes, eyebrows or mouth, only a small rounded nose. Plain white crew-neck t-shirt, plain gray jogger pants, simple dark gray sneakers. Simple rounded hands with short fingers. T-pose: arms straight out to the sides and clear of the body, legs straight and slightly apart, symmetrical, facing forward. Stylized 3D cartoon, mobile game avatar style: chunky rounded shapes, smooth clean surfaces, flat matte solid colors, no fine texture detail, no text, no logos.",
+        "negative_prompt": "realistic, photo, skin pores, wrinkles, hair strands, text, letters, logo, watermark, pedestal, base, ground, multiple characters, extra limbs, weapon",
+        "face_limit": 20000,
+        "texture": true,
+        "pbr": false,
+        "model_seed": 381153605,
+        "image_seed": 198036518,
+        "texture_seed": 620862699
+      },
+      "credits": 20,
+      "output": {},
+      "files": {
+        "model_url": "models/body_girl.glb",
+        "rendered_image_url": "previews/body_girl.webp",
+        "generated_image_url": "previews/body_girl-generated_image.jpeg"
+      }
+    },
+    "model:hair_short": {
+      "taskId": "b4045b49-11f2-4e11-9b07-7f86fefb4a86",
+      "status": "success",
+      "startedAt": "2026-10-28T18:13:19.065Z",
+      "request": {
+        "model": "v3.1-20260211",
+        "prompt": "A single stylized 3D cartoon hairpiece on its own, made to sit on a big round cartoon head: short tidy hair with a soft fringe swept to one side. Chunky smooth sculpted clumps, medium brown, hollow underneath. No head, no face, no body. Stylized 3D cartoon, mobile game avatar style: chunky rounded shapes, smooth clean surfaces, flat matte solid colors, no fine texture detail, no text, no logos.",
+        "negative_prompt": "realistic, photo, text, letters, logo, watermark, pedestal, base, ground, head, face, body, mannequin, hands",
+        "face_limit": 8000,
+        "texture": true,
+        "pbr": false,
+        "model_seed": 6151995,
+        "image_seed": 539617190,
+        "texture_seed": 114553283
+      },
+      "credits": 20,
+      "output": {},
+      "files": {
+        "model_url": "models/hair_short.glb",
+        "rendered_image_url": "previews/hair_short.webp",
+        "generated_image_url": "previews/hair_short-generated_image.jpeg"
+      }
+    },
+    "model:hair_long": {
+      "taskId": "1a877a4f-cc38-479d-b783-015d52dcf917",
+      "status": "success",
+      "startedAt": "2026-10-28T18:13:19.418Z",
+      "request": {
+        "model": "v3.1-20260211",
+        "prompt": "A single stylized 3D cartoon hairpiece on its own, made to sit on a big round cartoon head: long straight hair falling past the shoulders at the back and sides, a soft fringe parted in the middle, open at the front where the face goes. Chunky smooth sculpted clumps, medium brown, hollow underneath. No head, no face, no body. Stylized 3D cartoon, mobile game avatar style: chunky rounded shapes, smooth clean surfaces, flat matte solid colors, no fine texture detail, no text, no logos.",
+        "negative_prompt": "realistic, photo, text, letters, logo, watermark, pedestal, base, ground, head, face, body, mannequin, hands",
+        "face_limit": 8000,
+        "texture": true,
+        "pbr": false,
+        "model_seed": 68878475,
+        "image_seed": 934332834,
+        "texture_seed": 835076233
+      },
+      "credits": 20,
+      "output": {},
+      "files": {
+        "model_url": "models/hair_long.glb",
+        "rendered_image_url": "previews/hair_long.webp",
+        "generated_image_url": "previews/hair_long-generated_image.jpeg"
+      }
+    },
+    "model:hair_bun": {
+      "taskId": "2aad3e4d-98c8-4733-b0b8-d6415dd25fe8",
+      "status": "success",
+      "startedAt": "2026-10-28T18:13:19.762Z",
+      "request": {
+        "model": "v3.1-20260211",
+        "prompt": "A single stylized 3D cartoon hairpiece on its own, made to sit on a big round cartoon head: hair pulled back smoothly into a round bun on top of the head, with a short soft fringe. Chunky smooth sculpted shapes, medium brown, hollow underneath. No head, no face, no body. Stylized 3D cartoon, mobile game avatar style: chunky rounded shapes, smooth clean surfaces, flat matte solid colors, no fine texture detail, no text, no logos.",
+        "negative_prompt": "realistic, photo, text, letters, logo, watermark, pedestal, base, ground, head, face, body, mannequin, hands",
+        "face_limit": 8000,
+        "texture": true,
+        "pbr": false,
+        "model_seed": 492741616,
+        "image_seed": 812129663,
+        "texture_seed": 948547156
+      },
+      "credits": 20,
+      "output": {},
+      "files": {
+        "model_url": "models/hair_bun.glb",
+        "rendered_image_url": "previews/hair_bun.webp",
+        "generated_image_url": "previews/hair_bun-generated_image.jpeg"
+      }
+    },
+    "model:hair_ponytail": {
+      "taskId": "ad81cfa0-499b-45ae-8caa-bf2fe28515e1",
+      "status": "success",
+      "startedAt": "2026-10-28T18:13:20.426Z",
+      "request": {
+        "model": "v3.1-20260211",
+        "prompt": "A single stylized 3D cartoon hairpiece on its own, made to sit on a big round cartoon head: hair pulled back smoothly into a high ponytail at the back that swings out, with a soft fringe. Chunky smooth sculpted clumps, medium brown, hollow underneath. No head, no face, no body. Stylized 3D cartoon, mobile game avatar style: chunky rounded shapes, smooth clean surfaces, flat matte solid colors, no fine texture detail, no text, no logos.",
+        "negative_prompt": "realistic, photo, text, letters, logo, watermark, pedestal, base, ground, head, face, body, mannequin, hands",
+        "face_limit": 8000,
+        "texture": true,
+        "pbr": false,
+        "model_seed": 380663080,
+        "image_seed": 713248866,
+        "texture_seed": 719551138
+      },
+      "credits": 20,
+      "output": {},
+      "files": {
+        "model_url": "models/hair_ponytail.glb",
+        "rendered_image_url": "previews/hair_ponytail.webp",
+        "generated_image_url": "previews/hair_ponytail-generated_image.jpeg"
+      }
+    },
+    "model:beard": {
+      "taskId": "cb2ab198-b03d-4557-9f5e-3b59ee8b0db8",
+      "status": "queued",
+      "startedAt": "2026-10-28T18:13:20.771Z",
+      "request": {
+        "model": "v3.1-20260211",
+        "prompt": "A single stylized 3D cartoon beard on its own, made for a big round cartoon head: a short rounded beard along the jaw line and chin, no moustache, open around the mouth. Chunky smooth sculpted shape, medium brown. No head, no face, no body. Stylized 3D cartoon, mobile game avatar style: chunky rounded shapes, smooth clean surfaces, flat matte solid colors, no fine texture detail, no text, no logos.",
+        "negative_prompt": "realistic, photo, text, letters, logo, watermark, pedestal, base, ground, head, face, body, mannequin, hands",
+        "face_limit": 5000,
+        "texture": true,
+        "pbr": false,
+        "model_seed": 589829038,
+        "image_seed": 575364320,
+        "texture_seed": 261908444
+      }
+    },
+    "model:glasses_round": {
+      "taskId": "e1900dfa-3206-4c91-99d2-e92b1e678716",
+      "status": "queued",
+      "startedAt": "2026-10-28T18:13:21.250Z",
+      "request": {
+        "model": "v3.1-20260211",
+        "prompt": "A pair of stylized 3D cartoon glasses on their own: big perfectly round frames, thick chunky dark frames, clear flat lenses, short straight arms, facing forward. No face, no head. Stylized 3D cartoon, mobile game avatar style: chunky rounded shapes, smooth clean surfaces, flat matte solid colors, no fine texture detail, no text, no logos.",
+        "negative_prompt": "realistic, photo, text, letters, logo, watermark, pedestal, base, ground, head, face, body, mannequin, hands",
+        "face_limit": 4000,
+        "texture": true,
+        "pbr": false,
+        "model_seed": 543732804,
+        "image_seed": 557913455,
+        "texture_seed": 133325118
+      }
+    },
+    "model:glasses_square": {
+      "taskId": "9d529324-e1ea-4985-ad2b-65b59986abd7",
+      "status": "queued",
+      "startedAt": "2026-10-28T18:13:21.590Z",
+      "request": {
+        "model": "v3.1-20260211",
+        "prompt": "A pair of stylized 3D cartoon glasses on their own: big square frames with rounded corners, thick chunky dark frames, clear flat lenses, short straight arms, facing forward. No face, no head. Stylized 3D cartoon, mobile game avatar style: chunky rounded shapes, smooth clean surfaces, flat matte solid colors, no fine texture detail, no text, no logos.",
+        "negative_prompt": "realistic, photo, text, letters, logo, watermark, pedestal, base, ground, head, face, body, mannequin, hands",
+        "face_limit": 4000,
+        "texture": true,
+        "pbr": false,
+        "model_seed": 93596187,
+        "image_seed": 63797729,
+        "texture_seed": 713574730
+      }
+    },
+    "model:gear_headband": {
+      "taskId": "cd4a7114-67d1-42be-8c27-cc14df29fee1",
+      "status": "queued",
+      "startedAt": "2026-10-28T18:13:21.929Z",
+      "request": {
+        "model": "v3.1-20260211",
+        "prompt": "A stylized 3D cartoon sports sweatband headband on its own: a thick soft terry-cloth ring, perfectly round, plain white. No head. Stylized 3D cartoon, mobile game avatar style: chunky rounded shapes, smooth clean surfaces, flat matte solid colors, no fine texture detail, no text, no logos.",
+        "negative_prompt": "realistic, photo, text, letters, logo, watermark, pedestal, base, ground, head, face, body, mannequin, hands",
+        "face_limit": 3000,
+        "texture": true,
+        "pbr": false,
+        "model_seed": 786832503,
+        "image_seed": 553431623,
+        "texture_seed": 402953164
+      }
+    },
+    "model:gear_wristband": {
+      "taskId": "ac9110fd-0a18-4fd0-88b6-ad30603a58cb",
+      "status": "queued",
+      "startedAt": "2026-10-28T18:13:22.273Z",
+      "request": {
+        "model": "v3.1-20260211",
+        "prompt": "A single stylized 3D cartoon sports wristband on its own: a short thick soft terry-cloth tube, plain white. No arm, no hand. Stylized 3D cartoon, mobile game avatar style: chunky rounded shapes, smooth clean surfaces, flat matte solid colors, no fine texture detail, no text, no logos.",
+        "negative_prompt": "realistic, photo, text, letters, logo, watermark, pedestal, base, ground, head, face, body, mannequin, hands",
+        "face_limit": 2000,
+        "texture": true,
+        "pbr": false,
+        "model_seed": 201287132,
+        "image_seed": 256344566,
+        "texture_seed": 70327922
+      }
+    },
+    "model:gear_medal": {
+      "taskId": "d0513a43-a0f1-4c46-81d5-d15f2abab8d0",
+      "status": "queued",
+      "startedAt": "2026-10-28T18:14:53.519Z",
+      "request": {
+        "model": "v3.1-20260211",
+        "prompt": "A stylized 3D cartoon gold medal on its own: a thick round gold medal with a raised star in the middle and a raised rim, hanging from a short blue V-shaped ribbon. No person. Stylized 3D cartoon, mobile game avatar style: chunky rounded shapes, smooth clean surfaces, flat matte solid colors, no fine texture detail, no text, no logos.",
+        "negative_prompt": "realistic, photo, text, letters, logo, watermark, pedestal, base, ground, head, face, body, mannequin, hands",
+        "face_limit": 4000,
+        "texture": true,
+        "pbr": false,
+        "model_seed": 231303144,
+        "image_seed": 820732114,
+        "texture_seed": 242750506
+      }
+    },
+    "model:gear_glove": {
+      "taskId": "60e17847-dc4f-465e-8b70-7c5f93e888d8",
+      "status": "queued",
+      "startedAt": "2026-10-28T18:15:39.825Z",
+      "request": {
+        "model": "v3.1-20260211",
+        "prompt": "A single stylized 3D cartoon boxing glove on its own, for the right hand: big, round and puffy, red with a white cuff, the thumb tucked along the side. No arm. Stylized 3D cartoon, mobile game avatar style: chunky rounded shapes, smooth clean surfaces, flat matte solid colors, no fine texture detail, no text, no logos.",
+        "negative_prompt": "realistic, photo, text, letters, logo, watermark, pedestal, base, ground, head, face, body, mannequin, hands",
+        "face_limit": 5000,
+        "texture": true,
+        "pbr": false,
+        "model_seed": 222479204,
+        "image_seed": 214422129,
+        "texture_seed": 457406101
+      }
+    },
+    "model:gear_belt": {
+      "taskId": "81e35925-bf7c-4ec2-bf2f-bd8c745e5063",
+      "status": "queued",
+      "startedAt": "2026-10-28T18:15:40.616Z",
+      "request": {
+        "model": "v3.1-20260211",
+        "prompt": "A stylized 3D cartoon boxing champion belt on its own, closed into a ring as if worn around a waist: a wide gold band, a big oval gold center plate with a raised star, two small gold side plates. No text, no person. Stylized 3D cartoon, mobile game avatar style: chunky rounded shapes, smooth clean surfaces, flat matte solid colors, no fine texture detail, no text, no logos.",
+        "negative_prompt": "realistic, photo, text, letters, logo, watermark, pedestal, base, ground, head, face, body, mannequin, hands",
+        "face_limit": 6000,
+        "texture": true,
+        "pbr": false,
+        "model_seed": 761639655,
+        "image_seed": 180696439,
+        "texture_seed": 265645582
+      }
+    }
+  }
+}
