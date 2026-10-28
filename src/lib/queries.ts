@@ -18,7 +18,6 @@ import type { BodyMeasurement, BodyResponse, MeasurementsBody, PhotoPose, Progre
 import type { CheckIn, CheckInResponse, CheckInSettingsBody } from '@/shared/adaptive';
 import type { DayPlanResponse } from '@/shared/day-draft';
 import type { BillingStatus } from '@/shared/billing';
-import type { CharacterBody, CharacterResponse } from '@/shared/character';
 import type { DrinkBody } from '@/shared/drinks';
 import type { Features } from '@/shared/features';
 import type { FoodSearchResponse, Meal, QuickMeal, UpdateMealBody, UpdateMealItemsBody } from '@/shared/meals';
@@ -70,8 +69,6 @@ export const queryKeys = {
   menusAll: (userId: string | null | undefined) => ['menus', userId] as const,
   chainMenu: (userId: string | null | undefined, slug: string) => ['menus', userId, 'chain', slug] as const,
   menuScan: (userId: string | null | undefined, id: string) => ['menus', userId, 'scan', id] as const,
-  /** Your character (v2.6): level and stats move with meals and water. */
-  character: (userId: string | null | undefined) => ['character', userId] as const,
 };
 
 /** Earlier days are sent as `date`; today logs at "now". */
@@ -170,7 +167,6 @@ export function useInvalidateMeals() {
       queryClient.invalidateQueries({ queryKey: queryKeys.savedMeals(userId) }),
       queryClient.invalidateQueries({ queryKey: queryKeys.plannedAll(userId) }),
       queryClient.invalidateQueries({ queryKey: queryKeys.foodSearch(userId) }),
-      queryClient.invalidateQueries({ queryKey: queryKeys.character(userId) }),
     ]);
 }
 
@@ -354,8 +350,7 @@ export function useAddWater(date: string) {
       return { previous };
     },
     onError: (_error, _amount, context) => queryClient.setQueryData(key, context?.previous),
-    onSettled: () =>
-      Promise.all([queryClient.invalidateQueries({ queryKey: key }), queryClient.invalidateQueries({ queryKey: queryKeys.character(userId) })]),
+    onSettled: () => queryClient.invalidateQueries({ queryKey: key }),
   });
 }
 
@@ -1071,25 +1066,3 @@ export function useReportChainItem(itemId: string) {
   });
 }
 
-
-/** Your character (v2.6, CHARACTER.md): its look, level, stats and what today earned. */
-export function useCharacter(enabled = true) {
-  const { userId } = useSession();
-  const api = useApi();
-  return useQuery({
-    queryKey: queryKeys.character(userId),
-    queryFn: () => api<CharacterResponse>('/api/character'),
-    enabled: enabled && !!userId,
-  });
-}
-
-/** Saves the look, name and worn gear; the answer is the whole character again. */
-export function useSaveCharacter() {
-  const { userId } = useSession();
-  const api = useApi();
-  const queryClient = useQueryClient();
-  return useMutation({
-    mutationFn: (body: CharacterBody) => api<CharacterResponse>('/api/character', { method: 'PUT', body }),
-    onSuccess: (character) => queryClient.setQueryData(queryKeys.character(userId), character),
-  });
-}

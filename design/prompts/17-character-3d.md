@@ -1,3 +1,6 @@
+> **Shelved with the character on 28 October 2026** (`CHARACTER.md`): Flamie (`FLAMIE.md`) took its place in 1.2.
+> The models, the script and this brief stay for the record.
+
 3D models of the character (`CHARACTER.md`) for Tripo (tripo3d.ai): text to 3D, auto rig, animation. Not decided
 for the app: version 1.2 ships the 2D drawing in `src/components/character/figure.tsx`. A 3D version would replace
 only that drawing. The saved look in `src/shared/character.ts` stays the same, so nobody re-makes their character,

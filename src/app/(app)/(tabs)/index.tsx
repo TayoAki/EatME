@@ -11,7 +11,6 @@ import { DateStrip } from '@/components/home/date-strip';
 import { FiberWaterRow } from '@/components/home/fiber-water-row';
 import { HomeHeader } from '@/components/home/home-header';
 import { ActivityRow } from '@/components/home/activity-row';
-import { CharacterCard } from '@/components/home/character-card';
 import { CheckInArea } from '@/components/home/checkin-card';
 import { CopyDaySheet } from '@/components/home/copy-day-sheet';
 import { MealCard } from '@/components/home/meal-card';
@@ -27,6 +26,7 @@ import { SourcesLink, SourcesScreenLink } from '@/components/sources';
 import { Button } from '@/components/ui/button';
 import { colors } from '@/constants/colors';
 import { notify } from '@/lib/confirm';
+import { useFlamie } from '@/lib/flamie';
 import { haptics } from '@/lib/haptics';
 import {
   useAddWater,
@@ -40,6 +40,7 @@ import {
   useWeeklyInsights,
 } from '@/lib/queries';
 import { addDays, formatDay, todayIso, toIsoDate } from '@/lib/time';
+import type { Spark } from '@/shared/flamie';
 import type { Profile } from '@/shared/user';
 
 /** Space for the floating native tab bar so it never covers the last meal. */
@@ -75,6 +76,31 @@ function Home({ profile }: { profile: Profile }) {
   const supplements = useSupplements(selectedDate);
   // Two logged days are the least that says something about a week.
   const insights = weekly.data && weekly.data.daysLogged >= 2 ? weekly.data : null;
+
+  // Flamie (FLAMIE.md): today's goals reached are its sparks, whichever day the strip shows.
+  const today = todayIso();
+  const todayMeals = useMeals(today);
+  const todayWater = useWater(today);
+  const sparks = useMemo<Spark[] | undefined>(() => {
+    if (!todayMeals.data || !todayWater.data) return undefined;
+    const done = todayMeals.data.meals.filter((m) => m.status === 'completed');
+    const protein = done.reduce((sum, m) => sum + (m.proteinG ?? 0), 0);
+    const fiber = done.reduce((sum, m) => sum + (m.fiberG ?? 0), 0);
+    const reached: Spark[] = [];
+    if (protein >= (profile.dailyProteinG ?? 120)) reached.push('protein');
+    if (todayWater.data.totalMl >= profile.dailyWaterMl) reached.push('water');
+    if (fiber >= profile.dailyFiberG) reached.push('fiber');
+    return reached;
+  }, [todayMeals.data, todayWater.data, profile.dailyProteinG, profile.dailyWaterMl, profile.dailyFiberG]);
+  const flamie = useFlamie({ userId: profile.id, streak: streak.data, sparks, enabled: !calm });
+  // A milestone opens the streak sheet once, with Flamie cheering; goals only cheer in the pill.
+  const [openedFor, setOpenedFor] = useState(0);
+  const [celebration, setCelebration] = useState<string | null>(null);
+  if (flamie.cheering?.celebration.kind === 'milestone' && flamie.cheering.count !== openedFor) {
+    setOpenedFor(flamie.cheering.count);
+    setCelebration(flamie.cheering.text);
+    setStreakOpen(true);
+  }
 
   const targets: Totals = {
     calories: profile.dailyCalories ?? 2000,
@@ -140,6 +166,7 @@ function Home({ profile }: { profile: Profile }) {
           streak={streak.data?.current ?? 0}
           daysLogged={streak.data?.totalDays ?? 0}
           calm={calm}
+          flamie={{ mood: flamie.mood, stage: flamie.stage.key, line: flamie.line, cheerKey: flamie.cheering?.count, cheerText: flamie.cheering?.text }}
           onStreakPress={() => setStreakOpen(true)}
         />
 
@@ -156,7 +183,6 @@ function Home({ profile }: { profile: Profile }) {
           <DraftDay date={tomorrow} calm={calm} />
         ) : (
           <>
-            {isToday ? <CharacterCard gender={profile.gender} /> : null}
             {isToday && profile.glp1 && glp1.data?.settings ? (
               <Glp1Card
                 glp1={glp1.data}
@@ -324,11 +350,23 @@ function Home({ profile }: { profile: Profile }) {
 
       <StreakSheet
         visible={streakOpen}
-        onClose={() => setStreakOpen(false)}
+        onClose={() => {
+          setStreakOpen(false);
+          setCelebration(null);
+        }}
         streak={streak.data?.current ?? 0}
         loggedDates={streak.data?.loggedDates ?? []}
         calm={calm}
         daysLogged={streak.data?.totalDays ?? 0}
+        flamie={{
+          mood: flamie.mood,
+          stage: flamie.stage,
+          nextStage: flamie.nextStage,
+          line: flamie.line,
+          sparks: sparks ?? [],
+          cheerKey: celebration && flamie.cheering?.count === openedFor ? openedFor : undefined,
+          celebration: celebration ?? undefined,
+        }}
       />
     </View>
   );

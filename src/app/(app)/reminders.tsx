@@ -222,7 +222,7 @@ function PhotoSheet({
 }
 
 type Editing =
-  | { kind: 'time'; key: MealSlot | 'dose' | 'planTomorrow' | 'character'; title: string }
+  | { kind: 'time'; key: MealSlot | 'dose' | 'planTomorrow' | 'flamie'; title: string }
   | { kind: 'water' }
   | { kind: 'weighIn' }
   | { kind: 'photo' }
@@ -308,21 +308,29 @@ export default function RemindersScreen() {
         </View>
 
         <View>
-          <Text className="mb-2 ml-1 text-[15px] font-medium text-muted">Your character</Text>
-          <View className="overflow-hidden rounded-[20px] border border-line">
-            <ReminderRow
-              first
-              title="Character check-in"
-              subtitle={`Evenings at ${formatTimeOfDay(settings.character)}`}
-              enabled={settings.character.enabled}
-              disabled={disabled}
-              onToggle={(on) => void toggle({ character: { ...settings.character, enabled: on } }, on)}
-              onPressDetail={() => setEditing({ kind: 'time', key: 'character', title: 'Character check-in' })}
-            />
-          </View>
-          <Text className="ml-1 mt-2 text-[13px] leading-[18px] text-muted">
-            Only on evenings with nothing logged yet, a little more each day you&apos;re away, and quiet after five.
-          </Text>
+          <Text className="mb-2 ml-1 text-[15px] font-medium text-muted">Flamie</Text>
+          {profile?.preferences.calmMode ? (
+            <Text className="ml-1 text-[13px] leading-[18px] text-muted">
+              Flamie rests in calm mode: no streak, so no check-ins.
+            </Text>
+          ) : (
+            <>
+              <View className="overflow-hidden rounded-[20px] border border-line">
+                <ReminderRow
+                  first
+                  title="Flamie check-in"
+                  subtitle={`Evenings at ${formatTimeOfDay(settings.flamie)}`}
+                  enabled={settings.flamie.enabled}
+                  disabled={disabled}
+                  onToggle={(on) => void toggle({ flamie: { ...settings.flamie, enabled: on } }, on)}
+                  onPressDetail={() => setEditing({ kind: 'time', key: 'flamie', title: 'Flamie check-in' })}
+                />
+              </View>
+              <Text className="ml-1 mt-2 text-[13px] leading-[18px] text-muted">
+                Only on evenings with nothing logged yet, a little more each day you&apos;re away, and quiet after five.
+              </Text>
+            </>
+          )}
         </View>
 
         <View>

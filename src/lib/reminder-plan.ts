@@ -1,4 +1,4 @@
-import { CHARACTER_NUDGES, nudgePlan } from '@/shared/character';
+import { FLAMIE_NUDGES, nudgePlan } from '@/shared/flamie';
 import { MEDICINE_FORM_LABELS, type Glp1Settings, type SupplyStatus } from '@/shared/glp1';
 
 /**
@@ -24,8 +24,8 @@ export type ReminderSettings = {
   progressPhoto: MealReminder & { weekday: number; startDate: string | null };
   /** Plan tomorrow (Premium): in the evening, a nudge to draft tomorrow. */
   planTomorrow: MealReminder;
-  /** Your character's check-in (v2.6): evenings with nothing logged yet, gentler each day away, quiet after five. */
-  character: MealReminder;
+  /** Flamie's check-in (v2.6, FLAMIE.md §5): evenings with nothing logged yet, gentler each day away, quiet after five. */
+  flamie: MealReminder;
 };
 
 export const DEFAULT_REMINDERS: ReminderSettings = {
@@ -37,7 +37,7 @@ export const DEFAULT_REMINDERS: ReminderSettings = {
   weighIn: { enabled: false, hour: 7, minute: 30, weekday: 1 },
   progressPhoto: { enabled: false, hour: 9, minute: 0, weekday: 0, startDate: null },
   planTomorrow: { enabled: false, hour: 20, minute: 0 },
-  character: { enabled: false, hour: 19, minute: 30 },
+  flamie: { enabled: false, hour: 19, minute: 30 },
 };
 
 /** Days between progress photos. */
@@ -66,12 +66,12 @@ export type PlannedReminder = {
 };
 
 /**
- * What else the plan needs besides the settings: Pens & vials, the character (its name, today and the last day with
- * a logged meal), and the time "now".
+ * What else the plan needs besides the settings: Pens & vials, Flamie (today and the last day with a logged meal; none
+ * in calm mode), and the time "now".
  */
 export type ReminderContext = {
   supply?: SupplyStatus | null;
-  character?: { name: string; today: string; lastShowedUp: string | null };
+  flamie?: { today: string; lastShowedUp: string | null };
   now?: Date;
 };
 
@@ -194,18 +194,18 @@ export function planReminders(settings: ReminderSettings, glp1: Glp1Settings | n
     }
   }
 
-  // Your character's check-in (CHARACTER.md §5): planned again whenever a meal is logged or the app opens.
-  const checkIn = settings.character;
-  if (checkIn.enabled && context.character) {
-    const { name, today, lastShowedUp } = context.character;
+  // Flamie's check-in (FLAMIE.md §5): planned again whenever a meal is logged or the app opens.
+  const checkIn = settings.flamie;
+  if (checkIn.enabled && context.flamie) {
+    const { today, lastShowedUp } = context.flamie;
     const fromTomorrow = lastShowedUp === today || localAt(today, checkIn.hour, checkIn.minute) <= now;
     for (const { offset, nudge } of nudgePlan(today, lastShowedUp, fromTomorrow)) {
-      const [title, body] = CHARACTER_NUDGES[nudge];
+      const [title, body] = FLAMIE_NUDGES[nudge];
       planned.push({
-        identifier: `${REMINDER_PREFIX}character-${offset}`,
-        title: title.replaceAll('{name}', name),
-        body: body.replaceAll('{name}', name),
-        url: '/character',
+        identifier: `${REMINDER_PREFIX}flamie-${offset}`,
+        title,
+        body,
+        url: '/',
         trigger: { type: 'date', date: localAt(today, checkIn.hour, checkIn.minute, offset).toISOString() },
       });
     }

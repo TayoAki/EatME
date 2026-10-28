@@ -19,7 +19,7 @@ It builds whatever is checked out. **Build 4** (the App Review fixes for version
 version **1.1.0** (What to order, Search from Home, Describe it instead), built from that commit:
 `git fetch origin && git checkout -B build-1.1 dc57641 && npm run testflight`, then
 `git checkout claude/gallant-archimedes-o2u9dy` to come back. Everything after `dc57641` is v2.6, version **1.2.0**
-(the character, `CHARACTER.md`), built from the branch itself once it's done. Each version gets its own builds in
+(Flamie, `FLAMIE.md`), built from the branch itself once it's done. Each version gets its own builds in
 TestFlight, and App Store Connect lets a version use only builds with its own number, so a build can't be picked
 for the wrong version by mistake.
 
@@ -175,19 +175,20 @@ in a real build, never in Expo Go, before it goes to App Review. The 1.1.0 build
 - [ ] Calm mode: no numbers on the lists or the dish sheet; Foods to skip hides dishes and says how many
 - [ ] VoiceOver reads each row's dish, source, numbers and reason
 
-## The character on a phone (the 1.2 build)
+## Flamie on a phone (the 1.2 build)
 
-Version 1.2.0, built from the branch once 1.1 is out (`CHARACTER.md`):
+Version 1.2.0, built from the branch once 1.1 is out (`FLAMIE.md`):
 
-- [ ] **Make your character**: Home shows "Meet your character"; Make yours opens the maker with a live preview (Girl or
-      Guy from onboarding); every option changes the preview; Save shows it on Home with its level
-- [ ] **Alive**: it breathes and blinks; waves once something is logged today; dozes with floating "z"s after two days
-      away; with Settings → Accessibility → Reduce Motion on, it stands still
-- [ ] **XP**: logging the first meal of the day adds 10 XP on Home; reaching the protein goal cheers once (confetti and a
-      haptic) and adds 10; deleting the meal never takes XP back, but the streak follows the meals
-- [ ] **Gear**: an account at level 5 or more earns the headband (Customize → Gear can take it off)
-- [ ] **Check-ins**: Reminders → Your character → Character check-in on; with nothing logged by the time, the nudge
-      comes and opens the character; logging a meal before then means no nudge that evening
+- [ ] **The pill**: Home's streak button shows Flamie's face and the count; before today's first meal it waits (round
+      eyes), after it it's lit (^‿^); an account away two days or more shows pale embers asleep
+- [ ] **Alive**: Flamie flickers and blinks while it waits; with Settings → Accessibility → Reduce Motion on, it's still
+- [ ] **The sheet**: a tap opens Flamie large, its stage and the next ("A Blaze · Bonfire at 30 days"), the week, today's
+      sparks (protein, water, fiber goals reached) and Check-ins
+- [ ] **Celebrations**: reaching the protein goal makes the pill hop with sparks and a haptic, once; the meal that makes
+      a 7-day streak opens the sheet by itself, once, with "7 days in a row! Flamie grew into a Blaze"
+- [ ] **Calm mode**: Profile → Preferences → Calm mode shows the calendar and days logged, no Flamie, no check-ins
+- [ ] **Check-ins**: Reminders → Flamie → Flamie check-in on; with nothing logged by the time, the nudge comes and opens
+      Home; logging a meal before then means no nudge that evening
 
 ## Android (Google Play internal testing)
 

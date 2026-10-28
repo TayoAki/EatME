@@ -39,7 +39,6 @@ import { PHOTO_POSES } from '@/shared/body';
 import { CHECKIN_REASONS, CHECKIN_STATUSES } from '@/shared/adaptive';
 import { CHAIN_ITEM_KINDS, CHAIN_ITEM_STATUSES } from '@/shared/chains';
 import { CHAIN_ITEM_REPORT_REASONS, MENU_SCAN_STATUSES, type DishLine, type MenuRef, type ScanDish } from '@/shared/menus';
-import type { StoredCharacter } from '@/shared/character';
 import type { DraftItem, DraftSlotChoices } from '@/shared/day-draft';
 import {
   PRODUCT_REPORT_REASONS,
@@ -151,8 +150,11 @@ export const users = pgTable('users', {
    * "chain:<slug>" or "scan:<id>". It stays open; any other list needs Premium.
    */
   whatToOrderTry: text(),
-  /** Your character (v2.6, CHARACTER.md): its look, name and worn gear. Empty until the person makes it. */
-  character: jsonb().$type<StoredCharacter>(),
+  /**
+   * The character (CHARACTER.md, shelved 28 October 2026 for Flamie): the look, name and worn gear someone made while
+   * it was in the app. Nothing reads it now; it stays so the character could come back.
+   */
+  character: jsonb().$type<Record<string, unknown>>(),
 
   ...timestamps,
 });
@@ -825,8 +827,8 @@ export const supplementLogs = pgTable(
 export type SupplementRow = typeof supplements.$inferSelect;
 
 /**
- * Your character (v2.6, CHARACTER.md): what each local day earned, in the person's time zone. A day's flags only
- * ever turn on, so a deleted meal never takes XP back and levels never go down. Days that earned nothing aren't kept.
+ * The character's days (CHARACTER.md, shelved 28 October 2026 for Flamie): what each local day earned while it was in
+ * the app. Nothing reads or writes it now; it stays (no migration drops it) so the character could come back.
  */
 export const characterDays = pgTable(
   'character_days',

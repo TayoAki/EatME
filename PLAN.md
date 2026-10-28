@@ -919,12 +919,15 @@ item and replaces the old v2.2 list and the "Later" list; tick a box there and h
   - [ ] Waiting: a person for the 10,328 review lines, the menu-reading check on an iPhone, then its own build and
     version (never build 4, which comes from `f05e76a`). Version 1.1.0 is built from `dc57641`
 
-**v2.6 · Your character (App Store version 1.2): planned in [`CHARACTER.md`](./CHARACTER.md)** (28 October 2026,
-the owner's decisions): a customizable cartoon character (girl or guy, skin, hair, outfit; all free) that grows with
-game stats from habits (protein, water and fiber days, the streak), never with weight; moods from showing up; warm
-nudges that stop after five days. The build order and its boxes are in that file.
-- [x] v2.6 · The character: model, server, drawing, Home card, character screen, customize, celebrations, nudges
-  (28 October 2026; a browser run of every screen; waiting on a phone run of the 1.2 build)
+**v2.6 · Flamie, your streak flame (App Store version 1.2): planned in [`FLAMIE.md`](./FLAMIE.md)** (28 October
+2026, the owner's decisions): the streak flame becomes a character that grows taller and brighter with the streak,
+lives in the Home streak pill and the streak sheet, cheers at milestones and goals, and can check in on evenings with
+nothing logged (warm, then quiet after five days). Never calories or weight; none in calm mode. The build order and
+its boxes are in that file.
+- [x] v2.6 · Flamie: rules, drawing, streak pill and sheet, celebrations, check-ins (28 October 2026; a browser run
+  of every stage and mood; waiting on a phone run of the 1.2 build)
+- The customizable character (`CHARACTER.md`) was built for 1.2 the same day and shelved for Flamie: its code left
+  the app (last in `88324b1`); its tables and migration `0027_character` stay.
 
 **Eating out decisions** (checked September 2026; migration `restaurant_meals`; kept for the record, the
 feature was retired on 21 October 2026)

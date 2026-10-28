@@ -1,4 +1,9 @@
-# EatME — Your character (v2.6 plan, App Store version 1.2)
+# EatME — Your character (v2.6 plan, shelved)
+
+> **Shelved on 28 October 2026:** the owner chose **Flamie**, the streak flame as a character (`FLAMIE.md`), instead.
+> The character was built for 1.2 (everything below is how it worked) and removed from the app the same day; the
+> last commit with it is `88324b1`. Its tables (`users.character`, `character_days`, migration `0027_character`) stay
+> untouched, and its 3D models stay as design files (`design/prompts/17-character-3d.md`, `design/character-3d`).
 
 > Written 28 October 2026 from the owner's answers (27–28 October) and a read of the code as it is. Read it with
 > `PLAN.md` (the app as it is) and `AGENTS.md` (how we build). People see the app as **Weight Class**; the code keeps

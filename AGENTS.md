@@ -11,8 +11,9 @@ store texts) and "Weight Class Premium" for the subscription. The repo, code, co
 PLAN.md already answers; if something is missing, ask. Tick the checkbox in PLAN.md when a
 feature is done. The v2.2–v2.4 features (GLP-1 medicines and supply, body tracking, activity reads,
 the weekly check-in, drinks, Plan tomorrow) are specified in `NEXT-FEATURES.md`: change them from it
-and keep it and PLAN.md in step. What to order (v2.5, version 1.1) is specified in `WHAT-TO-ORDER.md`, and the character (v2.6, version 1.2: a
-customizable character that grows with the person's habits, never their weight) in `CHARACTER.md`.
+and keep it and PLAN.md in step. What to order (v2.5, version 1.1) is specified in `WHAT-TO-ORDER.md`, and Flamie (v2.6, version 1.2: the streak flame
+as a character that grows with the streak, never with weight) in `FLAMIE.md`. The customizable character it replaced is
+shelved in `CHARACTER.md`.
 
 ## Workflow
 
