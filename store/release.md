@@ -15,10 +15,13 @@ npm run testflight
 ```
 
 It builds whatever is checked out. **Build 4** (the App Review fixes for version 1.0) must come from commit
-`f05e76a`: `git checkout -B build-4 f05e76a` first. Everything after it, What to order's screens included, is v2.5:
-App Store version **1.1.0** (`expo.version` in `app.json`), built from the `claude/gallant-archimedes-o2u9dy`
-branch. A 1.1.0 build gets its own version in TestFlight, so it can go there while 1.0 is in review: App Store
-Connect lets a version use only builds with its own number, so a 1.1.0 build can't be picked for 1.0 by mistake.
+`f05e76a`: `git checkout -B build-4 f05e76a` first. Everything after it up to commit `dc57641` is v2.5: App Store
+version **1.1.0** (What to order, Search from Home, Describe it instead), built from that commit:
+`git fetch origin && git checkout -B build-1.1 dc57641 && npm run testflight`, then
+`git checkout claude/gallant-archimedes-o2u9dy` to come back. Everything after `dc57641` is v2.6, version **1.2.0**
+(the character, `CHARACTER.md`), built from the branch itself once it's done. Each version gets its own builds in
+TestFlight, and App Store Connect lets a version use only builds with its own number, so a build can't be picked
+for the wrong version by mistake.
 
 That runs lint and the typecheck (after refreshing the route types Expo Router generates into `.expo/types`, which
 go stale on a machine that hasn't run the dev server since screens were added), builds the production app on EAS (the build number goes up by itself), and

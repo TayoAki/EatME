@@ -917,7 +917,13 @@ item and replaces the old v2.2 list and the "Later" list; tick a box there and h
     `date` on `POST /api/meals`)
   - [x] 28 October: "Describe it instead" in Search when no food has every word typed (`closeMatch` on `/api/foods`)
   - [ ] Waiting: a person for the 10,328 review lines, the menu-reading check on an iPhone, then its own build and
-    version (never build 4, which comes from `f05e76a`)
+    version (never build 4, which comes from `f05e76a`). Version 1.1.0 is built from `dc57641`
+
+**v2.6 · Your character (App Store version 1.2): planned in [`CHARACTER.md`](./CHARACTER.md)** (28 October 2026,
+the owner's decisions): a customizable cartoon character (girl or guy, skin, hair, outfit; all free) that grows with
+game stats from habits (protein, water and fiber days, the streak), never with weight; moods from showing up; warm
+nudges that stop after five days. The build order and its boxes are in that file.
+- [ ] v2.6 · The character: model, server, drawing, Home card, character screen, customize, celebrations, nudges
 
 **Eating out decisions** (checked September 2026; migration `restaurant_meals`; kept for the record, the
 feature was retired on 21 October 2026)
