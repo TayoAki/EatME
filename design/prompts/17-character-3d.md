@@ -56,13 +56,13 @@ realistic, photo, text, letters, logo, watermark, pedestal, base, ground, head, 
 Guy:
 
 ```text
-Full-body 3D cartoon character, a friendly young man with chibi proportions: a big round head about one third of his height on a short visible neck, a short sturdy body, round ears. Smooth bald head. Smooth blank face with no eyes, eyebrows or mouth, only a small rounded nose. Plain white crew-neck t-shirt, plain gray jogger pants, simple dark gray sneakers. Simple rounded hands with short fingers. T-pose: arms straight out to the sides and clear of the body, legs straight and slightly apart, symmetrical, facing forward. Stylized 3D cartoon, mobile game avatar style: chunky rounded shapes, smooth clean surfaces, flat matte solid colors, no fine texture detail, no text, no logos.
+Full-body 3D cartoon character, a friendly young man with cute chibi proportions like a vinyl toy: an oversized round head about one third of his height on a short visible neck, a short sturdy body, round ears. Smooth bald head. Smooth blank face with no eyes, eyebrows or mouth, only a small rounded nose. Plain white crew-neck t-shirt, plain gray jogger pants, simple dark gray sneakers. Simple rounded hands with short fingers. T-pose: arms straight out to the sides and clear of the body, legs straight and slightly apart, symmetrical, facing forward. Stylized 3D cartoon, mobile game avatar style: chunky rounded shapes, smooth clean surfaces, flat matte solid colors, no fine texture detail, no text, no logos.
 ```
 
 Girl:
 
 ```text
-Full-body 3D cartoon character, a friendly young woman with chibi proportions: a big round head about one third of her height on a short visible neck, a short slim body with slightly narrower shoulders, round ears. Smooth bald head. Smooth blank face with no eyes, eyebrows or mouth, only a small rounded nose. Plain white crew-neck t-shirt, plain gray jogger pants, simple dark gray sneakers. Simple rounded hands with short fingers. T-pose: arms straight out to the sides and clear of the body, legs straight and slightly apart, symmetrical, facing forward. Stylized 3D cartoon, mobile game avatar style: chunky rounded shapes, smooth clean surfaces, flat matte solid colors, no fine texture detail, no text, no logos.
+Full-body 3D cartoon character, a friendly young woman with cute chibi proportions like a vinyl toy: an oversized round head about one third of her height on a short visible neck, a short slim body with slightly narrower shoulders, round ears. Smooth bald head. Smooth blank face with no eyes, eyebrows or mouth, only a small rounded nose. Plain white crew-neck t-shirt, plain gray jogger pants, simple dark gray sneakers. Simple rounded hands with short fingers. T-pose: arms straight out to the sides and clear of the body, legs straight and slightly apart, symmetrical, facing forward. Stylized 3D cartoon, mobile game avatar style: chunky rounded shapes, smooth clean surfaces, flat matte solid colors, no fine texture detail, no text, no logos.
 ```
 
 Before rigging, check: arms clear of the body, a neck between head and shoulders, no hair. If Tripo draws a face
@@ -92,7 +92,7 @@ A single stylized 3D cartoon hairpiece on its own, made to sit on a big round ca
 Ponytail:
 
 ```text
-A single stylized 3D cartoon hairpiece on its own, made to sit on a big round cartoon head: hair pulled back smoothly into a high ponytail at the back that swings out, with a soft fringe. Chunky smooth sculpted clumps, medium brown, hollow underneath. No head, no face, no body. Stylized 3D cartoon, mobile game avatar style: chunky rounded shapes, smooth clean surfaces, flat matte solid colors, no fine texture detail, no text, no logos.
+A single stylized 3D cartoon wig on its own, empty inside like a hollow shell: hair pulled back smoothly into a high ponytail at the back that swings out, with a soft fringe in front. Chunky smooth sculpted clumps, medium brown. No head, no face, no ears, no skin, no body. Stylized 3D cartoon, mobile game avatar style: chunky rounded shapes, smooth clean surfaces, flat matte solid colors, no fine texture detail, no text, no logos.
 ```
 
 Buzz cut and stubble need no model: they're the scalp or jaw of the head itself, copied and pushed out a little,
@@ -102,7 +102,7 @@ head under a hairpiece, split the hair off with Segmentation and delete the head
 ## Beard
 
 ```text
-A single stylized 3D cartoon beard on its own, made for a big round cartoon head: a short rounded beard along the jaw line and chin, no moustache, open around the mouth. Chunky smooth sculpted shape, medium brown. No head, no face, no body. Stylized 3D cartoon, mobile game avatar style: chunky rounded shapes, smooth clean surfaces, flat matte solid colors, no fine texture detail, no text, no logos.
+A single stylized 3D cartoon costume beard on its own: a short rounded horseshoe-shaped beard that runs along the jaw line from ear to ear and covers the chin, open at the top where the mouth and cheeks go, no moustache. Chunky smooth sculpted shape, medium brown. No head, no face, no skin, no body. Stylized 3D cartoon, mobile game avatar style: chunky rounded shapes, smooth clean surfaces, flat matte solid colors, no fine texture detail, no text, no logos.
 ```
 
 ## Glasses
@@ -160,10 +160,10 @@ A stylized 3D cartoon boxing champion belt on its own, closed into a ring as if 
 | Clip | When | Make it with |
 | --- | --- | --- |
 | `idle` | always, under the others | the Idle preset |
-| `wave` | happy: a meal logged today | Text to Motion, below (or a wave/greet preset) |
+| `wave` | happy: a meal logged today | Text to Motion, below (or the `greet_02` preset) |
 | `waiting` | nothing logged yet today | Text to Motion, below |
 | `doze` | two or more days away | Text to Motion, below (there's no sleep preset) |
-| `cheer` | a level, streak milestone or goal | Text to Motion, below (or the cheer or jump preset) |
+| `cheer` | a level, streak milestone or goal | Text to Motion, below (or the `clap` preset; arms overhead hit the head) |
 
 ```text
 Standing in place, raises the right hand above the shoulder and waves side to side three times with a friendly little bounce, then lowers the arm and ends in the starting pose.
@@ -208,3 +208,35 @@ In Tripo Studio (September 2026), rigging costs 20 credits per character and eac
 - It shows the parts that match the look, colors the materials, scales the bones for build and strength, and plays
   the mood's clip over `idle`; the cheer also keeps the confetti. Reduce Motion and the editor's thumbnails get a
   still pose.
+
+## Made on 28 October 2026
+
+With `npm run character:3d` (`scripts/character-3d.ts`) on the owner's Tripo API key: 520 of 560 credits ($5.20).
+`design/character-3d/parts.png` shows every part and `clips.mp4` the clips on both bodies; `manifest.json` has the
+task id, request, seeds and credits of every try, and `previews/` Tripo's renders and concept images. The models
+(22 MB) stay outside git: the owner has them as a zip, and the task ids can fetch them from Tripo again.
+
+| File | What |
+| --- | --- |
+| `body_guy.glb`, `body_girl.glb` | the bodies, about 19,000 triangles each, not rigged |
+| `rig-body_guy.glb`, `rig-body_girl.glb` | the same bodies on a Mixamo skeleton (23 bones, no finger bones) |
+| `clip-<idle, wave, waiting, cheer>-body_<guy, girl>.glb` | each body playing one clip, in place |
+| `hair_*.glb`, `beard.glb`, `glasses_*.glb`, `gear_*.glb` | the props, 1,850–7,700 triangles |
+| `hair_ponytail-v1-with-head.glb` | the first ponytail: the better shape, with a head to cut out |
+
+What changed from the plan:
+
+- The first guy came out slim with a small head; the second matches the girl, and the body prompts now ask for "cute
+  chibi proportions like a vinyl toy: an oversized round head".
+- The first ponytail had a head inside and the first beard covered the whole face, so their prompts changed. The new
+  ponytail reads more like swept-back hair; the first one has the better shape once its head is cut out. The beard
+  has two small ear bumps to trim.
+- The clips come from Tripo's preset library (rig v1.0). The big head swallows arms raised overhead: `wave_goodbye_01`
+  crouched and `cheer` read as a facepalm. `greet_02` (the arm out at shoulder height, briefly near the face) is the
+  wave and `clap` the cheer. There's no sleep preset: `doze` needs Studio's Text to Motion (the prompt above), or the
+  app moves the head itself.
+- The girl came out in an A-pose (arms lowered), which rigged fine.
+
+Before the app can use them (a new build with a 3D view): fit the props on both bodies and parent them to bones, cut
+the ponytail's head, trim the beard, add the face part and plain named materials, and put the clips in one GLB per
+body (Putting it together, above).

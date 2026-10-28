@@ -8,7 +8,8 @@
  *   npm run character:3d -- rig [body ...]       rig check, then auto rig (biped, Mixamo skeleton)
  *   npm run character:3d -- animate [body ...]   the preset clips on each rigged body
  *   npm run character:3d -- wait                 waits for running tasks and downloads what finished
- * Options: --redo (generate named parts again; the earlier task stays in the manifest's history).
+ * Options: --redo (generate named parts again; the earlier task stays in the manifest's history),
+ *          --clips=name=preset,... (animate: other presets instead of CLIPS, e.g. to try one on a single body).
  *
  * Task ids, seeds and credits go to design/character-3d/manifest.json and Tripo's previews to
  * design/character-3d/previews/. Models go to design/character-3d/models/, which git ignores (several MB each).
@@ -38,7 +39,7 @@ type Part = { kind: 'body' | 'prop'; faceLimit: number; subject: string };
 const hairpiece = (style: string) =>
   `A single stylized 3D cartoon hairpiece on its own, made to sit on a big round cartoon head: ${style} medium brown, hollow underneath. No head, no face, no body.`;
 const body = (who: 'man' | 'woman', build: string) =>
-  `Full-body 3D cartoon character, a friendly young ${who} with chibi proportions: a big round head about one third of ${who === 'man' ? 'his' : 'her'} height on a short visible neck, ${build}, round ears. Smooth bald head. Smooth blank face with no eyes, eyebrows or mouth, only a small rounded nose. Plain white crew-neck t-shirt, plain gray jogger pants, simple dark gray sneakers. Simple rounded hands with short fingers. T-pose: arms straight out to the sides and clear of the body, legs straight and slightly apart, symmetrical, facing forward.`;
+  `Full-body 3D cartoon character, a friendly young ${who} with cute chibi proportions like a vinyl toy: an oversized round head about one third of ${who === 'man' ? 'his' : 'her'} height on a short visible neck, ${build}, round ears. Smooth bald head. Smooth blank face with no eyes, eyebrows or mouth, only a small rounded nose. Plain white crew-neck t-shirt, plain gray jogger pants, simple dark gray sneakers. Simple rounded hands with short fingers. T-pose: arms straight out to the sides and clear of the body, legs straight and slightly apart, symmetrical, facing forward.`;
 
 /** One model per option of the look (src/shared/character.ts); the app colors them. */
 const PARTS: Record<string, Part> = {
@@ -57,16 +58,18 @@ const PARTS: Record<string, Part> = {
     faceLimit: 8000,
     subject: hairpiece('hair pulled back smoothly into a round bun on top of the head, with a short soft fringe. Chunky smooth sculpted shapes,'),
   },
+  // The first try put a head in the ponytail and made the beard a mask over the whole face.
   hair_ponytail: {
     kind: 'prop',
     faceLimit: 8000,
-    subject: hairpiece('hair pulled back smoothly into a high ponytail at the back that swings out, with a soft fringe. Chunky smooth sculpted clumps,'),
+    subject:
+      'A single stylized 3D cartoon wig on its own, empty inside like a hollow shell: hair pulled back smoothly into a high ponytail at the back that swings out, with a soft fringe in front. Chunky smooth sculpted clumps, medium brown. No head, no face, no ears, no skin, no body.',
   },
   beard: {
     kind: 'prop',
     faceLimit: 5000,
     subject:
-      'A single stylized 3D cartoon beard on its own, made for a big round cartoon head: a short rounded beard along the jaw line and chin, no moustache, open around the mouth. Chunky smooth sculpted shape, medium brown. No head, no face, no body.',
+      'A single stylized 3D cartoon costume beard on its own: a short rounded horseshoe-shaped beard that runs along the jaw line from ear to ear and covers the chin, open at the top where the mouth and cheeks go, no moustache. Chunky smooth sculpted shape, medium brown. No head, no face, no skin, no body.',
   },
   glasses_round: {
     kind: 'prop',
@@ -111,13 +114,17 @@ const PARTS: Record<string, Part> = {
 };
 const BODIES = Object.keys(PARTS).filter((name) => PARTS[name].kind === 'body');
 
-/** Mood clips from Tripo's preset library, which needs its v1.0 rig. There's no sleep preset for `doze`. */
+/**
+ * Mood clips from Tripo's preset library, which needs its v1.0 rig. There's no sleep preset for `doze`. The big head
+ * swallows arms raised overhead, so `wave_goodbye_01` (it also crouches) and `cheer` lost to `greet_02` (the arm out at
+ * shoulder height) and `clap` (hands in front of the chest); `greet_01` is a polite gesture, not a wave.
+ */
 const RIG_MODEL = 'v1.0-20240301';
 const CLIPS = {
   idle: 'preset:biped:idle',
-  wave: 'preset:biped:wave_goodbye_01',
+  wave: 'preset:biped:greet_02',
   waiting: 'preset:biped:wait',
-  cheer: 'preset:biped:cheer',
+  cheer: 'preset:biped:clap',
 };
 
 type TaskRecord = {
@@ -172,7 +179,9 @@ async function start(manifest: Manifest, label: string, endpoint: string, reques
   const previous = manifest.tasks[label];
   let history: TaskRecord['history'];
   if (previous) {
+    // The new task's files replace the old ones; history keeps the task id, request and credits.
     const { history: earlier = [], ...rest } = previous;
+    delete rest.files;
     history = [...earlier, rest];
   }
   manifest.tasks[label] = { taskId: task_id, status: 'queued', startedAt: new Date().toISOString(), request, ...(history ? { history } : {}) };
@@ -267,11 +276,11 @@ async function rig(manifest: Manifest, names: string[]) {
   }
 }
 
-async function animate(manifest: Manifest, names: string[]) {
+async function animate(manifest: Manifest, names: string[], clips: Record<string, string>) {
   for (const name of names.length ? names : BODIES) {
     const rigged = manifest.tasks[`rig:${name}`];
     if (rigged?.status !== 'success') throw new Error(`${name} isn't rigged yet.`);
-    for (const [clip, preset] of Object.entries(CLIPS)) {
+    for (const [clip, preset] of Object.entries(clips)) {
       await start(manifest, `clip-${clip}:${name}`, '/animations/retarget', { input: rigged.taskId, animation: preset, out_format: 'glb', animate_in_place: true });
     }
   }
@@ -284,7 +293,12 @@ async function main() {
   if (command === 'balance') return console.log(await tripo('GET', '/account/balance'));
   if (command === 'generate') await generate(manifest, names, rest.includes('--redo'));
   else if (command === 'rig') await rig(manifest, names);
-  else if (command === 'animate') await animate(manifest, names);
+  else if (command === 'animate') {
+    // --clips name=preset,name=preset tries other presets (each clip is 10 credits).
+    const option = rest.find((arg) => arg.startsWith('--clips='));
+    const clips = option ? Object.fromEntries(option.slice('--clips='.length).split(',').map((pair) => pair.split('='))) : CLIPS;
+    await animate(manifest, names, clips);
+  }
   else if (command !== 'wait') throw new Error('Commands: balance, generate, rig, animate, wait.');
   await waitAll(manifest);
 }

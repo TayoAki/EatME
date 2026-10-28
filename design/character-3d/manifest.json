@@ -1,20 +1,40 @@
 {
   "tasks": {
     "model:body_guy": {
-      "taskId": "b2ddb6b7-1c69-4e5e-a330-1345d834b8d4",
+      "taskId": "ee2e6aad-c5e9-4e0d-8c78-5153fbc34382",
       "status": "success",
-      "startedAt": "2026-10-28T18:11:35.468Z",
+      "startedAt": "2026-10-28T18:18:22.549Z",
       "request": {
         "model": "v3.1-20260211",
-        "prompt": "Full-body 3D cartoon character, a friendly young man with chibi proportions: a big round head about one third of his height on a short visible neck, a short sturdy body, round ears. Smooth bald head. Smooth blank face with no eyes, eyebrows or mouth, only a small rounded nose. Plain white crew-neck t-shirt, plain gray jogger pants, simple dark gray sneakers. Simple rounded hands with short fingers. T-pose: arms straight out to the sides and clear of the body, legs straight and slightly apart, symmetrical, facing forward. Stylized 3D cartoon, mobile game avatar style: chunky rounded shapes, smooth clean surfaces, flat matte solid colors, no fine texture detail, no text, no logos.",
+        "prompt": "Full-body 3D cartoon character, a friendly young man with cute chibi proportions like a vinyl toy: an oversized round head about one third of his height on a short visible neck, a short sturdy body, round ears. Smooth bald head. Smooth blank face with no eyes, eyebrows or mouth, only a small rounded nose. Plain white crew-neck t-shirt, plain gray jogger pants, simple dark gray sneakers. Simple rounded hands with short fingers. T-pose: arms straight out to the sides and clear of the body, legs straight and slightly apart, symmetrical, facing forward. Stylized 3D cartoon, mobile game avatar style: chunky rounded shapes, smooth clean surfaces, flat matte solid colors, no fine texture detail, no text, no logos.",
         "negative_prompt": "realistic, photo, skin pores, wrinkles, hair strands, text, letters, logo, watermark, pedestal, base, ground, multiple characters, extra limbs, weapon",
         "face_limit": 20000,
         "texture": true,
         "pbr": false,
-        "model_seed": 339817629,
-        "image_seed": 441129680,
-        "texture_seed": 87169192
+        "model_seed": 135713141,
+        "image_seed": 115436833,
+        "texture_seed": 797369474
       },
+      "history": [
+        {
+          "taskId": "b2ddb6b7-1c69-4e5e-a330-1345d834b8d4",
+          "status": "success",
+          "startedAt": "2026-10-28T18:11:35.468Z",
+          "request": {
+            "model": "v3.1-20260211",
+            "prompt": "Full-body 3D cartoon character, a friendly young man with chibi proportions: a big round head about one third of his height on a short visible neck, a short sturdy body, round ears. Smooth bald head. Smooth blank face with no eyes, eyebrows or mouth, only a small rounded nose. Plain white crew-neck t-shirt, plain gray jogger pants, simple dark gray sneakers. Simple rounded hands with short fingers. T-pose: arms straight out to the sides and clear of the body, legs straight and slightly apart, symmetrical, facing forward. Stylized 3D cartoon, mobile game avatar style: chunky rounded shapes, smooth clean surfaces, flat matte solid colors, no fine texture detail, no text, no logos.",
+            "negative_prompt": "realistic, photo, skin pores, wrinkles, hair strands, text, letters, logo, watermark, pedestal, base, ground, multiple characters, extra limbs, weapon",
+            "face_limit": 20000,
+            "texture": true,
+            "pbr": false,
+            "model_seed": 339817629,
+            "image_seed": 441129680,
+            "texture_seed": 87169192
+          },
+          "credits": 20,
+          "output": {}
+        }
+      ],
       "credits": 20,
       "output": {},
       "files": {
@@ -116,20 +136,43 @@
       }
     },
     "model:hair_ponytail": {
-      "taskId": "ad81cfa0-499b-45ae-8caa-bf2fe28515e1",
+      "taskId": "2ddb16bd-0ecd-4bf0-80e0-84e0bff4542d",
       "status": "success",
-      "startedAt": "2026-10-28T18:13:20.426Z",
+      "startedAt": "2026-10-28T18:18:23.074Z",
       "request": {
         "model": "v3.1-20260211",
-        "prompt": "A single stylized 3D cartoon hairpiece on its own, made to sit on a big round cartoon head: hair pulled back smoothly into a high ponytail at the back that swings out, with a soft fringe. Chunky smooth sculpted clumps, medium brown, hollow underneath. No head, no face, no body. Stylized 3D cartoon, mobile game avatar style: chunky rounded shapes, smooth clean surfaces, flat matte solid colors, no fine texture detail, no text, no logos.",
+        "prompt": "A single stylized 3D cartoon wig on its own, empty inside like a hollow shell: hair pulled back smoothly into a high ponytail at the back that swings out, with a soft fringe in front. Chunky smooth sculpted clumps, medium brown. No head, no face, no ears, no skin, no body. Stylized 3D cartoon, mobile game avatar style: chunky rounded shapes, smooth clean surfaces, flat matte solid colors, no fine texture detail, no text, no logos.",
         "negative_prompt": "realistic, photo, text, letters, logo, watermark, pedestal, base, ground, head, face, body, mannequin, hands",
         "face_limit": 8000,
         "texture": true,
         "pbr": false,
-        "model_seed": 380663080,
-        "image_seed": 713248866,
-        "texture_seed": 719551138
+        "model_seed": 472429115,
+        "image_seed": 22605978,
+        "texture_seed": 153466147
       },
+      "history": [
+        {
+          "taskId": "ad81cfa0-499b-45ae-8caa-bf2fe28515e1",
+          "status": "success",
+          "startedAt": "2026-10-28T18:13:20.426Z",
+          "request": {
+            "model": "v3.1-20260211",
+            "prompt": "A single stylized 3D cartoon hairpiece on its own, made to sit on a big round cartoon head: hair pulled back smoothly into a high ponytail at the back that swings out, with a soft fringe. Chunky smooth sculpted clumps, medium brown, hollow underneath. No head, no face, no body. Stylized 3D cartoon, mobile game avatar style: chunky rounded shapes, smooth clean surfaces, flat matte solid colors, no fine texture detail, no text, no logos.",
+            "negative_prompt": "realistic, photo, text, letters, logo, watermark, pedestal, base, ground, head, face, body, mannequin, hands",
+            "face_limit": 8000,
+            "texture": true,
+            "pbr": false,
+            "model_seed": 380663080,
+            "image_seed": 713248866,
+            "texture_seed": 719551138
+          },
+          "credits": 20,
+          "output": {},
+          "files": {
+            "model_url": "models/hair_ponytail-v1-with-head.glb"
+          }
+        }
+      ],
       "credits": 20,
       "output": {},
       "files": {
@@ -139,24 +182,51 @@
       }
     },
     "model:beard": {
-      "taskId": "cb2ab198-b03d-4557-9f5e-3b59ee8b0db8",
-      "status": "queued",
-      "startedAt": "2026-10-28T18:13:20.771Z",
+      "taskId": "2320b23f-0c05-4ebb-8646-6eae1989f3d9",
+      "status": "success",
+      "startedAt": "2026-10-28T18:18:23.429Z",
       "request": {
         "model": "v3.1-20260211",
-        "prompt": "A single stylized 3D cartoon beard on its own, made for a big round cartoon head: a short rounded beard along the jaw line and chin, no moustache, open around the mouth. Chunky smooth sculpted shape, medium brown. No head, no face, no body. Stylized 3D cartoon, mobile game avatar style: chunky rounded shapes, smooth clean surfaces, flat matte solid colors, no fine texture detail, no text, no logos.",
+        "prompt": "A single stylized 3D cartoon costume beard on its own: a short rounded horseshoe-shaped beard that runs along the jaw line from ear to ear and covers the chin, open at the top where the mouth and cheeks go, no moustache. Chunky smooth sculpted shape, medium brown. No head, no face, no skin, no body. Stylized 3D cartoon, mobile game avatar style: chunky rounded shapes, smooth clean surfaces, flat matte solid colors, no fine texture detail, no text, no logos.",
         "negative_prompt": "realistic, photo, text, letters, logo, watermark, pedestal, base, ground, head, face, body, mannequin, hands",
         "face_limit": 5000,
         "texture": true,
         "pbr": false,
-        "model_seed": 589829038,
-        "image_seed": 575364320,
-        "texture_seed": 261908444
+        "model_seed": 731113743,
+        "image_seed": 806012907,
+        "texture_seed": 145625867
+      },
+      "history": [
+        {
+          "taskId": "cb2ab198-b03d-4557-9f5e-3b59ee8b0db8",
+          "status": "success",
+          "startedAt": "2026-10-28T18:13:20.771Z",
+          "request": {
+            "model": "v3.1-20260211",
+            "prompt": "A single stylized 3D cartoon beard on its own, made for a big round cartoon head: a short rounded beard along the jaw line and chin, no moustache, open around the mouth. Chunky smooth sculpted shape, medium brown. No head, no face, no body. Stylized 3D cartoon, mobile game avatar style: chunky rounded shapes, smooth clean surfaces, flat matte solid colors, no fine texture detail, no text, no logos.",
+            "negative_prompt": "realistic, photo, text, letters, logo, watermark, pedestal, base, ground, head, face, body, mannequin, hands",
+            "face_limit": 5000,
+            "texture": true,
+            "pbr": false,
+            "model_seed": 589829038,
+            "image_seed": 575364320,
+            "texture_seed": 261908444
+          },
+          "credits": 20,
+          "output": {}
+        }
+      ],
+      "credits": 20,
+      "output": {},
+      "files": {
+        "model_url": "models/beard.glb",
+        "rendered_image_url": "previews/beard.webp",
+        "generated_image_url": "previews/beard-generated_image.jpeg"
       }
     },
     "model:glasses_round": {
       "taskId": "e1900dfa-3206-4c91-99d2-e92b1e678716",
-      "status": "queued",
+      "status": "success",
       "startedAt": "2026-10-28T18:13:21.250Z",
       "request": {
         "model": "v3.1-20260211",
@@ -168,11 +238,18 @@
         "model_seed": 543732804,
         "image_seed": 557913455,
         "texture_seed": 133325118
+      },
+      "credits": 20,
+      "output": {},
+      "files": {
+        "model_url": "models/glasses_round.glb",
+        "rendered_image_url": "previews/glasses_round.webp",
+        "generated_image_url": "previews/glasses_round-generated_image.jpeg"
       }
     },
     "model:glasses_square": {
       "taskId": "9d529324-e1ea-4985-ad2b-65b59986abd7",
-      "status": "queued",
+      "status": "success",
       "startedAt": "2026-10-28T18:13:21.590Z",
       "request": {
         "model": "v3.1-20260211",
@@ -184,11 +261,18 @@
         "model_seed": 93596187,
         "image_seed": 63797729,
         "texture_seed": 713574730
+      },
+      "credits": 20,
+      "output": {},
+      "files": {
+        "model_url": "models/glasses_square.glb",
+        "rendered_image_url": "previews/glasses_square.webp",
+        "generated_image_url": "previews/glasses_square-generated_image.jpeg"
       }
     },
     "model:gear_headband": {
       "taskId": "cd4a7114-67d1-42be-8c27-cc14df29fee1",
-      "status": "queued",
+      "status": "success",
       "startedAt": "2026-10-28T18:13:21.929Z",
       "request": {
         "model": "v3.1-20260211",
@@ -200,11 +284,18 @@
         "model_seed": 786832503,
         "image_seed": 553431623,
         "texture_seed": 402953164
+      },
+      "credits": 20,
+      "output": {},
+      "files": {
+        "model_url": "models/gear_headband.glb",
+        "rendered_image_url": "previews/gear_headband.webp",
+        "generated_image_url": "previews/gear_headband-generated_image.jpeg"
       }
     },
     "model:gear_wristband": {
       "taskId": "ac9110fd-0a18-4fd0-88b6-ad30603a58cb",
-      "status": "queued",
+      "status": "success",
       "startedAt": "2026-10-28T18:13:22.273Z",
       "request": {
         "model": "v3.1-20260211",
@@ -216,11 +307,18 @@
         "model_seed": 201287132,
         "image_seed": 256344566,
         "texture_seed": 70327922
+      },
+      "credits": 20,
+      "output": {},
+      "files": {
+        "model_url": "models/gear_wristband.glb",
+        "rendered_image_url": "previews/gear_wristband.webp",
+        "generated_image_url": "previews/gear_wristband-generated_image.jpeg"
       }
     },
     "model:gear_medal": {
       "taskId": "d0513a43-a0f1-4c46-81d5-d15f2abab8d0",
-      "status": "queued",
+      "status": "success",
       "startedAt": "2026-10-28T18:14:53.519Z",
       "request": {
         "model": "v3.1-20260211",
@@ -232,11 +330,18 @@
         "model_seed": 231303144,
         "image_seed": 820732114,
         "texture_seed": 242750506
+      },
+      "credits": 20,
+      "output": {},
+      "files": {
+        "model_url": "models/gear_medal.glb",
+        "rendered_image_url": "previews/gear_medal.webp",
+        "generated_image_url": "previews/gear_medal-generated_image.jpeg"
       }
     },
     "model:gear_glove": {
       "taskId": "60e17847-dc4f-465e-8b70-7c5f93e888d8",
-      "status": "queued",
+      "status": "success",
       "startedAt": "2026-10-28T18:15:39.825Z",
       "request": {
         "model": "v3.1-20260211",
@@ -248,11 +353,18 @@
         "model_seed": 222479204,
         "image_seed": 214422129,
         "texture_seed": 457406101
+      },
+      "credits": 20,
+      "output": {},
+      "files": {
+        "model_url": "models/gear_glove.glb",
+        "rendered_image_url": "previews/gear_glove.webp",
+        "generated_image_url": "previews/gear_glove-generated_image.jpeg"
       }
     },
     "model:gear_belt": {
       "taskId": "81e35925-bf7c-4ec2-bf2f-bd8c745e5063",
-      "status": "queued",
+      "status": "success",
       "startedAt": "2026-10-28T18:15:40.616Z",
       "request": {
         "model": "v3.1-20260211",
@@ -264,6 +376,278 @@
         "model_seed": 761639655,
         "image_seed": 180696439,
         "texture_seed": 265645582
+      },
+      "credits": 20,
+      "output": {},
+      "files": {
+        "model_url": "models/gear_belt.glb",
+        "rendered_image_url": "previews/gear_belt.webp",
+        "generated_image_url": "previews/gear_belt-generated_image.jpeg"
+      }
+    },
+    "rig-check:body_guy": {
+      "taskId": "d28e77de-9a33-44b1-add4-798f6d96e802",
+      "status": "success",
+      "startedAt": "2026-10-28T18:22:01.638Z",
+      "request": {
+        "input": "ee2e6aad-c5e9-4e0d-8c78-5153fbc34382"
+      },
+      "credits": 0,
+      "output": {
+        "riggable": true,
+        "rig_type": "biped"
+      },
+      "files": {}
+    },
+    "rig:body_guy": {
+      "taskId": "e8918eeb-be64-4b12-b121-78e67ef1bbde",
+      "status": "success",
+      "startedAt": "2026-10-28T18:22:12.770Z",
+      "request": {
+        "input": "ee2e6aad-c5e9-4e0d-8c78-5153fbc34382",
+        "model": "v1.0-20240301",
+        "rig_type": "biped",
+        "spec": "mixamo",
+        "out_format": "glb"
+      },
+      "credits": 25,
+      "output": {},
+      "files": {
+        "model_url": "models/rig-body_guy.glb",
+        "rendered_image_url": "previews/rig-body_guy.webp"
+      }
+    },
+    "rig-check:body_girl": {
+      "taskId": "97e3e661-d6bf-4e59-9ff8-a7623986ad61",
+      "status": "success",
+      "startedAt": "2026-10-28T18:22:13.326Z",
+      "request": {
+        "input": "c737d7a6-8741-4112-a68b-4dd41b415173"
+      },
+      "credits": 0,
+      "output": {
+        "riggable": true,
+        "rig_type": "biped"
+      },
+      "files": {}
+    },
+    "rig:body_girl": {
+      "taskId": "e60f17ac-83df-4616-bda3-3da4cefd1d5a",
+      "status": "success",
+      "startedAt": "2026-10-28T18:22:24.088Z",
+      "request": {
+        "input": "c737d7a6-8741-4112-a68b-4dd41b415173",
+        "model": "v1.0-20240301",
+        "rig_type": "biped",
+        "spec": "mixamo",
+        "out_format": "glb"
+      },
+      "credits": 25,
+      "output": {},
+      "files": {
+        "model_url": "models/rig-body_girl.glb",
+        "rendered_image_url": "previews/rig-body_girl.webp"
+      }
+    },
+    "clip-idle:body_guy": {
+      "taskId": "e119d675-3a22-471c-849c-1a2f1d498275",
+      "status": "success",
+      "startedAt": "2026-10-28T18:23:04.018Z",
+      "request": {
+        "input": "e8918eeb-be64-4b12-b121-78e67ef1bbde",
+        "animation": "preset:biped:idle",
+        "out_format": "glb",
+        "animate_in_place": true
+      },
+      "credits": 10,
+      "output": {},
+      "files": {
+        "model_url": "models/clip-idle-body_guy.glb"
+      }
+    },
+    "clip-wave:body_guy": {
+      "taskId": "0ec26c83-a0fd-4278-aebe-cd88bac5bb13",
+      "status": "success",
+      "startedAt": "2026-10-28T18:24:41.872Z",
+      "request": {
+        "input": "e8918eeb-be64-4b12-b121-78e67ef1bbde",
+        "animation": "preset:biped:greet_02",
+        "out_format": "glb",
+        "animate_in_place": true
+      },
+      "credits": 10,
+      "output": {},
+      "files": {
+        "model_url": "models/clip-wave-body_guy.glb"
+      },
+      "history": [
+        {
+          "taskId": "4f8840f6-ffcb-4912-bee5-e35449cec569",
+          "status": "success",
+          "startedAt": "2026-10-28T18:23:04.551Z",
+          "request": {
+            "input": "e8918eeb-be64-4b12-b121-78e67ef1bbde",
+            "animation": "preset:biped:wave_goodbye_01",
+            "out_format": "glb",
+            "animate_in_place": true
+          },
+          "credits": 10,
+          "output": {}
+        },
+        {
+          "taskId": "74916218-e963-446f-9726-e33b807d0bc6",
+          "status": "success",
+          "startedAt": "2026-10-28T18:24:41.485Z",
+          "request": {
+            "input": "e8918eeb-be64-4b12-b121-78e67ef1bbde",
+            "animation": "preset:biped:greet_01",
+            "out_format": "glb",
+            "animate_in_place": true
+          },
+          "credits": 10,
+          "output": {}
+        }
+      ]
+    },
+    "clip-waiting:body_guy": {
+      "taskId": "c01101a6-1592-49e5-946f-066f5ee3bb26",
+      "status": "success",
+      "startedAt": "2026-10-28T18:23:04.954Z",
+      "request": {
+        "input": "e8918eeb-be64-4b12-b121-78e67ef1bbde",
+        "animation": "preset:biped:wait",
+        "out_format": "glb",
+        "animate_in_place": true
+      },
+      "credits": 10,
+      "output": {},
+      "files": {
+        "model_url": "models/clip-waiting-body_guy.glb"
+      }
+    },
+    "clip-cheer:body_guy": {
+      "taskId": "f8e8d2c8-7dc0-43e2-a7ad-306802b245b3",
+      "status": "success",
+      "startedAt": "2026-10-28T18:24:40.934Z",
+      "request": {
+        "input": "e8918eeb-be64-4b12-b121-78e67ef1bbde",
+        "animation": "preset:biped:clap",
+        "out_format": "glb",
+        "animate_in_place": true
+      },
+      "credits": 10,
+      "output": {},
+      "files": {
+        "model_url": "models/clip-cheer-body_guy.glb"
+      },
+      "history": [
+        {
+          "taskId": "09f56789-e55b-4d7b-aa10-c5cdb6bf63cf",
+          "status": "success",
+          "startedAt": "2026-10-28T18:23:05.345Z",
+          "request": {
+            "input": "e8918eeb-be64-4b12-b121-78e67ef1bbde",
+            "animation": "preset:biped:cheer",
+            "out_format": "glb",
+            "animate_in_place": true
+          },
+          "credits": 10,
+          "output": {}
+        }
+      ]
+    },
+    "clip-idle:body_girl": {
+      "taskId": "37053b5c-6fe5-4c00-9dbe-50af77a134a1",
+      "status": "success",
+      "startedAt": "2026-10-28T18:23:06.098Z",
+      "request": {
+        "input": "e60f17ac-83df-4616-bda3-3da4cefd1d5a",
+        "animation": "preset:biped:idle",
+        "out_format": "glb",
+        "animate_in_place": true
+      },
+      "credits": 10,
+      "output": {},
+      "files": {
+        "model_url": "models/clip-idle-body_girl.glb"
+      }
+    },
+    "clip-wave:body_girl": {
+      "taskId": "328a947b-8974-49ec-a9ce-9ea689dd1ea9",
+      "status": "success",
+      "startedAt": "2026-10-28T18:25:37.663Z",
+      "request": {
+        "input": "e60f17ac-83df-4616-bda3-3da4cefd1d5a",
+        "animation": "preset:biped:greet_02",
+        "out_format": "glb",
+        "animate_in_place": true
+      },
+      "history": [
+        {
+          "taskId": "6d9c7e21-e671-4c7f-800b-891440de7623",
+          "status": "success",
+          "startedAt": "2026-10-28T18:23:06.490Z",
+          "request": {
+            "input": "e60f17ac-83df-4616-bda3-3da4cefd1d5a",
+            "animation": "preset:biped:wave_goodbye_01",
+            "out_format": "glb",
+            "animate_in_place": true
+          },
+          "credits": 10,
+          "output": {}
+        }
+      ],
+      "credits": 10,
+      "output": {},
+      "files": {
+        "model_url": "models/clip-wave-body_girl.glb"
+      }
+    },
+    "clip-waiting:body_girl": {
+      "taskId": "eee0a7b6-3187-4ad1-9352-adff96df0fdc",
+      "status": "success",
+      "startedAt": "2026-10-28T18:23:06.895Z",
+      "request": {
+        "input": "e60f17ac-83df-4616-bda3-3da4cefd1d5a",
+        "animation": "preset:biped:wait",
+        "out_format": "glb",
+        "animate_in_place": true
+      },
+      "credits": 10,
+      "output": {},
+      "files": {
+        "model_url": "models/clip-waiting-body_girl.glb"
+      }
+    },
+    "clip-cheer:body_girl": {
+      "taskId": "c326b2f8-bb27-4848-ad77-ddb9b26482af",
+      "status": "success",
+      "startedAt": "2026-10-28T18:25:38.178Z",
+      "request": {
+        "input": "e60f17ac-83df-4616-bda3-3da4cefd1d5a",
+        "animation": "preset:biped:clap",
+        "out_format": "glb",
+        "animate_in_place": true
+      },
+      "history": [
+        {
+          "taskId": "99f244f6-d066-44a0-b7e0-d11dbef58bbf",
+          "status": "success",
+          "startedAt": "2026-10-28T18:23:07.292Z",
+          "request": {
+            "input": "e60f17ac-83df-4616-bda3-3da4cefd1d5a",
+            "animation": "preset:biped:cheer",
+            "out_format": "glb",
+            "animate_in_place": true
+          },
+          "credits": 10,
+          "output": {}
+        }
+      ],
+      "credits": 10,
+      "output": {},
+      "files": {
+        "model_url": "models/clip-cheer-body_girl.glb"
       }
     }
   }
