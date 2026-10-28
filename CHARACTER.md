@@ -36,7 +36,8 @@ its owl, art or words.
   (Strength · protein days, Energy · water days, Vitality · fiber days, Streak · days in a row), the gear (earned and
   still to earn, with the level it needs), **Customize**, the nudge switch, and a line on how it grows: "Your
   character grows with your habits. It never changes with your weight."
-- **Customize** (`/character/edit`): a live preview over tabs: Body (Girl / Guy), Skin (8 tones), Hair (short, long,
+- **Customize** (`/character/edit`): a live preview over tabs: Body (Girl / Guy, and a build: slim, medium or
+  full, the person's pick), Skin (8 tones), Hair (short, long,
   bun, ponytail, buzz, bald), Hair colour (8), Face (no facial hair, stubble, beard; no glasses, round, square),
   Outfit (top and bottom colours), Gear (earned items on or off), and the name (default **Champ**, up to 16
   characters). Save.
@@ -124,16 +125,31 @@ only (no push server), like every other reminder.
 
 ## 8. Build order
 
-- [ ] Spec (this file), version 1.2.0 in `app.json`, 1.1 builds from `dc57641`
-- [ ] Shared model and math with tests (`src/shared/character.ts`)
-- [ ] Server: migration, `GET/PUT /api/character`, the days backfill
-- [ ] The drawing and its animations (`src/components/character/`)
-- [ ] Home card, character screen, customize, celebrations
-- [ ] Character check-in nudges (Reminders)
-- [ ] Browser run of every screen; lint, typecheck, tests; `PLAN.md`
+- [x] Spec (this file), version 1.2.0 in `app.json`, 1.1 builds from `dc57641` (28 October 2026)
+- [x] Shared model and math with tests (`src/shared/character.ts`, 22 tests)
+- [x] Server: migration `0027_character`, `GET/PUT /api/character`, the days backfill
+- [x] The drawing and its animations (`src/components/character/`): breathing, blinking, a wave, dozing, cheering;
+  still with Reduce Motion
+- [x] Home card, character screen (`/character`), customize (`/character/edit`), celebrations once per phone
+- [x] Character check-in nudges (Reminders → Your character; `nudgePlan` in `src/shared/character.ts`)
+- [x] Browser run of every screen against the local server; lint, typecheck, tests; `PLAN.md`
+- [ ] A phone run of the 1.2 build (`store/release.md` → The character on a phone)
 - [ ] Later (after 1.2): the iOS widget with the character's mood; a share card for milestones
 
-## 9. Choices made without the owner (easy to change)
+## 9. On 1.2's submission day, not before
+
+- **Privacy Policy** (`legal/privacy.html`, after What to order, and the "Last updated" date): "**Your character.** If
+  you make a character, we store the look you choose (body, build, skin tone, hair, facial hair, glasses and outfit
+  colours), its name and the gear it wears. For each day, we store which of these earned it XP: a logged meal, and
+  reaching your protein, water or fiber goal, worked out on our server from what you log. Nothing about your
+  character goes to an AI provider. It is deleted with your account."
+- **App Privacy** needs no new type: the look is Other User Content, already declared.
+- **What's New:** "Meet your character: make it look like you, and watch it grow with your habits (protein, water,
+  fiber and showing up), never your weight. Earn gear as you level up, and let it check in on evenings you haven't
+  logged, if you like."
+- **Screenshots:** one of the character (the 1.2 set).
+
+## 10. Choices made without the owner (easy to change)
 
 - The default name **Champ** (Weight Class: a boxing word, like the gloves and belt).
 - XP amounts, level curve, gear levels and the five nudge lines above.

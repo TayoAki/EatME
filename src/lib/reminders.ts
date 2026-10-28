@@ -4,7 +4,8 @@ import { router } from 'expo-router';
 import { useEffect } from 'react';
 import { Platform } from 'react-native';
 
-import { useGlp1, useProfile } from './queries';
+import { characterName } from './character';
+import { useCharacter, useGlp1, useProfile } from './queries';
 import { planReminders, REMINDER_PREFIX, type PlannedReminder } from './reminder-plan';
 import { useReminderStore } from './reminder-store';
 
@@ -98,7 +99,14 @@ export function useReminderSync() {
   const settings = useReminderStore((s) => s.settings);
   const glp1 = useProfile()?.glp1 ?? null;
   const supply = useGlp1(!!glp1).data?.supply ?? null;
-  const plan = JSON.stringify(planReminders(settings, glp1, { supply }));
+  // The character's check-in needs the last day with a logged meal: logging one moves tonight's nudge on.
+  const character = useCharacter(settings.character.enabled).data;
+  const plan = JSON.stringify(
+    planReminders(settings, glp1, {
+      supply,
+      character: character ? { name: characterName(character), today: character.today.date, lastShowedUp: character.lastShowedUp } : undefined,
+    }),
+  );
 
   useEffect(() => {
     if (!remindersSupported) return;

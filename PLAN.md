@@ -923,7 +923,8 @@ item and replaces the old v2.2 list and the "Later" list; tick a box there and h
 the owner's decisions): a customizable cartoon character (girl or guy, skin, hair, outfit; all free) that grows with
 game stats from habits (protein, water and fiber days, the streak), never with weight; moods from showing up; warm
 nudges that stop after five days. The build order and its boxes are in that file.
-- [ ] v2.6 · The character: model, server, drawing, Home card, character screen, customize, celebrations, nudges
+- [x] v2.6 · The character: model, server, drawing, Home card, character screen, customize, celebrations, nudges
+  (28 October 2026; a browser run of every screen; waiting on a phone run of the 1.2 build)
 
 **Eating out decisions** (checked September 2026; migration `restaurant_meals`; kept for the record, the
 feature was retired on 21 October 2026)

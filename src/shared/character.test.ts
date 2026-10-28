@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { describe, test } from 'node:test';
 
 import {
+  CHARACTER_NUDGES,
   characterSchema,
   dayXp,
   DEFAULT_LOOKS,
@@ -11,6 +12,7 @@ import {
   levelStart,
   MAX_LEVEL,
   moodFor,
+  nudgePlan,
   strengthTier,
 } from './character';
 
@@ -117,5 +119,51 @@ describe('the look', () => {
   test('only known gear can be worn', () => {
     assert.deepEqual(characterSchema.parse({ name: 'Champ', look: DEFAULT_LOOKS.guy, gear: { headband: true } }).gear, { headband: true });
     assert.ok(!characterSchema.safeParse({ name: 'Champ', look: DEFAULT_LOOKS.guy, gear: { crown: true } }).success);
+  });
+});
+
+describe('check-in nudges', () => {
+  test('logged today: the five nudges start tomorrow evening', () => {
+    assert.deepEqual(nudgePlan('2026-10-28', '2026-10-28', true), [
+      { offset: 1, nudge: 0 },
+      { offset: 2, nudge: 1 },
+      { offset: 3, nudge: 2 },
+      { offset: 4, nudge: 3 },
+      { offset: 5, nudge: 4 },
+    ]);
+  });
+
+  test('logged yesterday, tonight still ahead: the first nudge is tonight', () => {
+    assert.deepEqual(nudgePlan('2026-10-28', '2026-10-27', false)[0], { offset: 0, nudge: 0 });
+  });
+
+  test('three days away: the count goes on from the third, then stops after the fifth', () => {
+    assert.deepEqual(nudgePlan('2026-10-28', '2026-10-25', false), [
+      { offset: 0, nudge: 2 },
+      { offset: 1, nudge: 3 },
+      { offset: 2, nudge: 4 },
+    ]);
+  });
+
+  test('tonight already passed: tomorrow gets the next nudge', () => {
+    assert.deepEqual(nudgePlan('2026-10-28', '2026-10-27', true)[0], { offset: 1, nudge: 1 });
+  });
+
+  test('away more than five days: nothing more is sent', () => {
+    assert.deepEqual(nudgePlan('2026-10-28', '2026-10-20', false), []);
+  });
+
+  test('never logged yet: the five nudges from tonight', () => {
+    assert.deepEqual(
+      nudgePlan('2026-10-28', null, false).map((n) => n.nudge),
+      [0, 1, 2, 3, 4],
+    );
+  });
+
+  test('the nudges never mention calories, weight or food guilt', () => {
+    const words = CHARACTER_NUDGES.flat().join(' ').toLowerCase();
+    for (const banned of ['calorie', 'weight', 'healthy', 'guilt', 'bad', 'cheat', 'safe', 'accurate', 'verified']) {
+      assert.ok(!words.includes(banned), banned);
+    }
   });
 });

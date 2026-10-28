@@ -11,6 +11,7 @@ import { DateStrip } from '@/components/home/date-strip';
 import { FiberWaterRow } from '@/components/home/fiber-water-row';
 import { HomeHeader } from '@/components/home/home-header';
 import { ActivityRow } from '@/components/home/activity-row';
+import { CharacterCard } from '@/components/home/character-card';
 import { CheckInArea } from '@/components/home/checkin-card';
 import { CopyDaySheet } from '@/components/home/copy-day-sheet';
 import { MealCard } from '@/components/home/meal-card';
@@ -155,6 +156,7 @@ function Home({ profile }: { profile: Profile }) {
           <DraftDay date={tomorrow} calm={calm} />
         ) : (
           <>
+            {isToday ? <CharacterCard gender={profile.gender} /> : null}
             {isToday && profile.glp1 && glp1.data?.settings ? (
               <Glp1Card
                 glp1={glp1.data}

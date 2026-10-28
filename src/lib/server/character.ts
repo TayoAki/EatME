@@ -3,6 +3,7 @@ import { and, desc, eq, gte, lt, max, sql } from 'drizzle-orm';
 import { db } from '@/db';
 import { characterDays, meals, users, waterLogs } from '@/db/schema';
 import {
+  characterSchema,
   DAY_XP,
   earnedGear,
   levelFor,
@@ -87,6 +88,13 @@ async function syncDays(user: User, today: string) {
     });
 }
 
+/** A stored character read with today's schema: options added later get their defaults (a look saved before builds is medium). */
+function readCharacter(stored: StoredCharacter | null): StoredCharacter | null {
+  if (!stored) return null;
+  const parsed = characterSchema.safeParse(stored);
+  return parsed.success ? { ...parsed.data, madeAt: stored.madeAt } : null;
+}
+
 /** The character, its level and stats, after bringing the days up to date (`GET /api/character`). */
 export async function characterFor(userId: string, { sync = true } = {}): Promise<CharacterResponse> {
   const user = await db.query.users.findFirst({ where: eq(users.id, userId) });
@@ -124,7 +132,7 @@ export async function characterFor(userId: string, { sync = true } = {}): Promis
   const level = levelFor(xp);
 
   return {
-    character: user.character ?? null,
+    character: readCharacter(user.character),
     level,
     xp,
     levelStart: levelStart(level),

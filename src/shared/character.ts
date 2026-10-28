@@ -56,6 +56,9 @@ export type BottomColor = keyof typeof BOTTOM_COLORS;
 
 export const BODIES = ['girl', 'guy'] as const;
 export type Body = (typeof BODIES)[number];
+/** The person's own pick, never changed by their weight. */
+export const BUILDS = ['slim', 'medium', 'full'] as const;
+export type Build = (typeof BUILDS)[number];
 export const FACIAL_HAIR = ['none', 'stubble', 'beard'] as const;
 export const GLASSES = ['none', 'round', 'square'] as const;
 
@@ -74,6 +77,7 @@ const keysOf = <T extends Record<string, string>>(record: T) => Object.keys(reco
 
 export const lookSchema = z.object({
   body: z.enum(BODIES),
+  build: z.enum(BUILDS).default('medium'),
   skin: z
     .number()
     .int()
@@ -103,8 +107,8 @@ export type StoredCharacter = CharacterBody & { madeAt: string };
 
 /** The starting looks for Girl and Guy in the editor; everything can be changed. */
 export const DEFAULT_LOOKS: Record<Body, Look> = {
-  girl: { body: 'girl', skin: 1, hair: 'long', hairColor: 'brown', facialHair: 'none', glasses: 'none', top: 'orange', bottom: 'navy' },
-  guy: { body: 'guy', skin: 3, hair: 'short', hairColor: 'black', facialHair: 'none', glasses: 'none', top: 'blue', bottom: 'navy' },
+  girl: { body: 'girl', build: 'medium', skin: 1, hair: 'long', hairColor: 'brown', facialHair: 'none', glasses: 'none', top: 'orange', bottom: 'navy' },
+  guy: { body: 'guy', build: 'medium', skin: 3, hair: 'short', hairColor: 'black', facialHair: 'none', glasses: 'none', top: 'blue', bottom: 'navy' },
 };
 
 /** What a local day earned (CHARACTER.md §3). Flags only ever turn on, so levels never go down. */
@@ -184,3 +188,29 @@ export type CharacterResponse = {
   lastShowedUp: string | null;
   gear: GearKey[];
 };
+
+/** The check-in nudges (CHARACTER.md §5), gentler each day away; after the fifth, quiet. `{name}` is the character's. */
+export const CHARACTER_NUDGES = [
+  ['{name} saved you a seat', 'Log a meal and keep things rolling.'],
+  ['{name} is warming up without you', 'One log is all it takes to pick things back up.'],
+  ['{name} misses you', 'Your streak can start again with any meal, big or small.'],
+  ['{name} kept your spot warm', "Whenever you're ready."],
+  ['{name} will stop nudging', "No pressure. {name} will be right here when you're back."],
+] as const;
+
+/**
+ * Which check-in goes out on which evening: days from today (0 = tonight) and the nudge, counted from the last day
+ * shown up (the first day without a log gets the first one), so opening the app doesn't start the count again.
+ * `fromTomorrow`: a meal is logged today, or tonight's time has passed.
+ */
+export function nudgePlan(today: string, lastShowedUp: string | null, fromTomorrow: boolean): { offset: number; nudge: number }[] {
+  const start = fromTomorrow ? 1 : 0;
+  const plan: { offset: number; nudge: number }[] = [];
+  for (let offset = start; offset < start + CHARACTER_NUDGES.length; offset += 1) {
+    const away = lastShowedUp ? dayNumber(today) + offset - dayNumber(lastShowedUp) : offset - start + 1;
+    if (away < 1) continue;
+    if (away > CHARACTER_NUDGES.length) break;
+    plan.push({ offset, nudge: away - 1 });
+  }
+  return plan;
+}

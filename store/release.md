@@ -175,6 +175,20 @@ in a real build, never in Expo Go, before it goes to App Review. The 1.1.0 build
 - [ ] Calm mode: no numbers on the lists or the dish sheet; Foods to skip hides dishes and says how many
 - [ ] VoiceOver reads each row's dish, source, numbers and reason
 
+## The character on a phone (the 1.2 build)
+
+Version 1.2.0, built from the branch once 1.1 is out (`CHARACTER.md`):
+
+- [ ] **Make your character**: Home shows "Meet your character"; Make yours opens the maker with a live preview (Girl or
+      Guy from onboarding); every option changes the preview; Save shows it on Home with its level
+- [ ] **Alive**: it breathes and blinks; waves once something is logged today; dozes with floating "z"s after two days
+      away; with Settings → Accessibility → Reduce Motion on, it stands still
+- [ ] **XP**: logging the first meal of the day adds 10 XP on Home; reaching the protein goal cheers once (confetti and a
+      haptic) and adds 10; deleting the meal never takes XP back, but the streak follows the meals
+- [ ] **Gear**: an account at level 5 or more earns the headband (Customize → Gear can take it off)
+- [ ] **Check-ins**: Reminders → Your character → Character check-in on; with nothing logged by the time, the nudge
+      comes and opens the character; logging a meal before then means no nudge that evening
+
 ## Android (Google Play internal testing)
 
 ```bash

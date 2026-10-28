@@ -1,3 +1,4 @@
+import { CHARACTER_NUDGES, nudgePlan } from '@/shared/character';
 import { MEDICINE_FORM_LABELS, type Glp1Settings, type SupplyStatus } from '@/shared/glp1';
 
 /**
@@ -23,6 +24,8 @@ export type ReminderSettings = {
   progressPhoto: MealReminder & { weekday: number; startDate: string | null };
   /** Plan tomorrow (Premium): in the evening, a nudge to draft tomorrow. */
   planTomorrow: MealReminder;
+  /** Your character's check-in (v2.6): evenings with nothing logged yet, gentler each day away, quiet after five. */
+  character: MealReminder;
 };
 
 export const DEFAULT_REMINDERS: ReminderSettings = {
@@ -34,6 +37,7 @@ export const DEFAULT_REMINDERS: ReminderSettings = {
   weighIn: { enabled: false, hour: 7, minute: 30, weekday: 1 },
   progressPhoto: { enabled: false, hour: 9, minute: 0, weekday: 0, startDate: null },
   planTomorrow: { enabled: false, hour: 20, minute: 0 },
+  character: { enabled: false, hour: 19, minute: 30 },
 };
 
 /** Days between progress photos. */
@@ -61,8 +65,15 @@ export type PlannedReminder = {
     | { type: 'date'; date: string };
 };
 
-/** What else the plan needs besides the settings: Pens & vials, and the time "now". */
-export type ReminderContext = { supply?: SupplyStatus | null; now?: Date };
+/**
+ * What else the plan needs besides the settings: Pens & vials, the character (its name, today and the last day with
+ * a logged meal), and the time "now".
+ */
+export type ReminderContext = {
+  supply?: SupplyStatus | null;
+  character?: { name: string; today: string; lastShowedUp: string | null };
+  now?: Date;
+};
 
 const localAt = (isoDate: string, hour: number, minute: number, dayShift = 0) => {
   const [y, m, d] = isoDate.split('-').map(Number);
@@ -180,6 +191,23 @@ export function planReminders(settings: ReminderSettings, glp1: Glp1Settings | n
         trigger: { type: 'date', date: at.toISOString() },
       });
       n += 1;
+    }
+  }
+
+  // Your character's check-in (CHARACTER.md §5): planned again whenever a meal is logged or the app opens.
+  const checkIn = settings.character;
+  if (checkIn.enabled && context.character) {
+    const { name, today, lastShowedUp } = context.character;
+    const fromTomorrow = lastShowedUp === today || localAt(today, checkIn.hour, checkIn.minute) <= now;
+    for (const { offset, nudge } of nudgePlan(today, lastShowedUp, fromTomorrow)) {
+      const [title, body] = CHARACTER_NUDGES[nudge];
+      planned.push({
+        identifier: `${REMINDER_PREFIX}character-${offset}`,
+        title: title.replaceAll('{name}', name),
+        body: body.replaceAll('{name}', name),
+        url: '/character',
+        trigger: { type: 'date', date: localAt(today, checkIn.hour, checkIn.minute, offset).toISOString() },
+      });
     }
   }
 
