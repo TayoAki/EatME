@@ -54,17 +54,31 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
   );
 }
 
-function Swatches({ colorsByKey, value, label, onChange }: { colorsByKey: Record<string, string>; value: string; label: string; onChange: (key: string) => void }) {
+/** Colour circles; `named` says the keys are words a screen reader can say ("black"), otherwise it counts ("2 of 8"). */
+function Swatches({
+  colorsByKey,
+  value,
+  label,
+  named = true,
+  onChange,
+}: {
+  colorsByKey: Record<string, string>;
+  value: string;
+  label: string;
+  named?: boolean;
+  onChange: (key: string) => void;
+}) {
+  const entries = Object.entries(colorsByKey);
   return (
     <View className="flex-row flex-wrap gap-3">
-      {Object.entries(colorsByKey).map(([key, color], i) => {
+      {entries.map(([key, color], i) => {
         const selected = key === value;
         return (
           <Pressable
             key={key}
             accessibilityRole="radio"
             accessibilityState={{ selected }}
-            accessibilityLabel={`${label} ${i + 1}: ${key}`}
+            accessibilityLabel={named ? `${label}: ${key}` : `${label} ${i + 1} of ${entries.length}`}
             hitSlop={4}
             onPress={() => {
               haptics.selection();
@@ -113,7 +127,7 @@ function Editor({ character, gender }: { character: CharacterResponse; gender: G
         </Section>
 
         <Section title="Skin">
-          <Swatches colorsByKey={Object.fromEntries(SKIN_TONES.map((c, i) => [String(i), c]))} value={String(look.skin)} label="Skin tone" onChange={(i) => set('skin', Number(i))} />
+          <Swatches colorsByKey={Object.fromEntries(SKIN_TONES.map((c, i) => [String(i), c]))} value={String(look.skin)} label="Skin tone" named={false} onChange={(i) => set('skin', Number(i))} />
         </Section>
 
         <Section title="Hair">
@@ -124,7 +138,7 @@ function Editor({ character, gender }: { character: CharacterResponse; gender: G
           </View>
           {look.hair === 'bald' ? null : (
             <View className="mt-3">
-              <Swatches colorsByKey={HAIR_COLORS} value={look.hairColor} label="Hair colour" onChange={(key) => set('hairColor', key as Look['hairColor'])} />
+              <Swatches colorsByKey={HAIR_COLORS} value={look.hairColor} label="Hair color" onChange={(key) => set('hairColor', key as Look['hairColor'])} />
             </View>
           )}
         </Section>
@@ -143,10 +157,10 @@ function Editor({ character, gender }: { character: CharacterResponse; gender: G
         </Section>
 
         <Section title="Top">
-          <Swatches colorsByKey={TOP_COLORS} value={look.top} label="Top colour" onChange={(key) => set('top', key as Look['top'])} />
+          <Swatches colorsByKey={TOP_COLORS} value={look.top} label="Top color" onChange={(key) => set('top', key as Look['top'])} />
         </Section>
         <Section title="Bottoms">
-          <Swatches colorsByKey={BOTTOM_COLORS} value={look.bottom} label="Bottoms colour" onChange={(key) => set('bottom', key as Look['bottom'])} />
+          <Swatches colorsByKey={BOTTOM_COLORS} value={look.bottom} label="Bottoms color" onChange={(key) => set('bottom', key as Look['bottom'])} />
         </Section>
 
         <Section title="Gear">
