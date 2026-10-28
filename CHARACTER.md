@@ -134,7 +134,7 @@ only (no push server), like every other reminder.
 - [x] Character check-in nudges (Reminders → Your character; `nudgePlan` in `src/shared/character.ts`)
 - [x] Browser run of every screen against the local server; lint, typecheck, tests; `PLAN.md`
 - [ ] A phone run of the 1.2 build (`store/release.md` → The character on a phone)
-- [ ] Later (after 1.2): the iOS widget with the character's mood; a share card for milestones
+- [ ] Later (after 1.2): the iOS widget with the character's mood; a share card for milestones; a 3D version from Tripo models (`design/prompts/17-character-3d.md`, not decided)
 
 ## 9. On 1.2's submission day, not before
 
