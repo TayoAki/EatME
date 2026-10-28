@@ -39,6 +39,8 @@ type FoodSearchViewProps = {
   onLogDrink: (drink: DrinkBody, detail: string) => void;
   /** A chain's dish was logged from its sheet (v2.5). */
   onLoggedDish: () => void;
+  /** "Describe it instead": the words typed go to Describe a meal. */
+  onDescribe?: (text: string) => void;
 };
 
 const TABS = [
@@ -59,6 +61,7 @@ export function FoodSearchView({
   onLog,
   onLogDrink,
   onLoggedDish,
+  onDescribe,
 }: FoodSearchViewProps) {
   const insets = useSafeAreaInsets();
   const [picked, setPicked] = useState<FoodSummary | null>(null);
@@ -87,7 +90,7 @@ export function FoodSearchView({
         ) : tab === 'restaurants' && restaurants ? (
           <RestaurantSearch />
         ) : (
-          <FoodSearchList onPick={setPicked} onPickDish={restaurants ? setDish : undefined} />
+          <FoodSearchList onPick={setPicked} onPickDish={restaurants ? setDish : undefined} onDescribe={onDescribe} />
         )}
       </View>
       {picked ? (

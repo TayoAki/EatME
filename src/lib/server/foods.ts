@@ -19,22 +19,27 @@ export function searchWords(text: string) {
 
 /**
  * Foods whose description shares words with `text`, best first: descriptions with every word
- * first, then by rank (shorter descriptions win ties). `prefix` makes the last word a prefix
- * (search as you type).
+ * first (`allWords`), then by rank (shorter descriptions win ties). `prefix` makes the last word a
+ * prefix (search as you type).
  */
-export async function searchFoods(text: string, limit = 8, { prefix = false } = {}): Promise<FoodRow[]> {
+export async function rankFoods(text: string, limit = 8, { prefix = false } = {}): Promise<{ food: FoodRow; allWords: boolean }[]> {
   const words = searchWords(text);
   if (words.length === 0) return [];
   const terms = words.map((w, i) => (prefix && i === words.length - 1 ? `${w}:*` : w));
   const vector = sql`to_tsvector('english', ${foods.description})`;
   const any = sql`to_tsquery('english', ${terms.join(' | ')})`;
-  const every = sql`to_tsquery('english', ${terms.join(' & ')})`;
+  const every = sql<boolean>`(${vector} @@ to_tsquery('english', ${terms.join(' & ')}))`;
   return db
-    .select()
+    .select({ food: foods, allWords: every })
     .from(foods)
     .where(sql`${vector} @@ ${any}`)
-    .orderBy(sql`(${vector} @@ ${every}) desc`, sql`ts_rank(${vector}, ${any}, 1) desc`, foods.description)
+    .orderBy(sql`${every} desc`, sql`ts_rank(${vector}, ${any}, 1) desc`, foods.description)
     .limit(limit);
+}
+
+/** The foods `rankFoods` finds, best first. */
+export async function searchFoods(text: string, limit = 8, options: { prefix?: boolean } = {}): Promise<FoodRow[]> {
+  return (await rankFoods(text, limit, options)).map((row) => row.food);
 }
 
 /** A food by its exact description (any case), else the best search match. */

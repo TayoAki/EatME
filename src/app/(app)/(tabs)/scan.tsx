@@ -1,5 +1,5 @@
 import * as Sentry from '@sentry/react-native';
-import { router } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
 import { useRef, useState } from 'react';
 import { ActivityIndicator, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -56,6 +56,16 @@ export default function ScanScreen() {
   const bottomSpace = insets.bottom + TAB_BAR_SPACE;
   const profile = useProfile();
   const updateProfile = useUpdateProfile();
+
+  // Home → Search → "Describe it instead": the words (`describe`) and when (`at`) open Describe a meal with
+  // them, once; coming back to the tab later keeps the step it's on.
+  const { describe, at } = useLocalSearchParams<{ describe?: string; at?: string }>();
+  const describeRequest = describe ? `${at ?? ''} ${describe}` : undefined;
+  const [described, setDescribed] = useState<string | undefined>(undefined);
+  if (describeRequest !== described) {
+    setDescribed(describeRequest);
+    if (describe) setStep({ name: 'describe', text: describe });
+  }
   // What to order: Menu mode, the menu's pages while the camera takes the next one, and its name.
   const menus = !!features.data?.whatToOrder;
   const consentVersion = menus ? MENU_CONSENT_VERSION : 1;
@@ -312,6 +322,7 @@ export default function ScanScreen() {
           capture();
           router.navigate('/');
         }}
+        onDescribe={(text) => setStep({ name: 'describe', text })}
       />
     );
   }

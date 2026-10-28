@@ -152,8 +152,12 @@ export type FoodSummary = {
   portions: [string, number][];
 };
 
-/** `GET /api/foods?q=`: database foods, and the chains' own dishes when the app asked for them (v2.5). */
-export type FoodSearchResponse = { foods: FoodSummary[]; chainDishes?: MenuRow[] };
+/**
+ * `GET /api/foods?q=`: database foods, and the chains' own dishes when the app asked for them (v2.5).
+ * `closeMatch`: a food has every word searched (or a chain's dish matched); without one, Search offers
+ * "Describe it instead".
+ */
+export type FoodSearchResponse = { foods: FoodSummary[]; chainDishes?: MenuRow[]; closeMatch?: boolean };
 
 /** Body of `PUT /api/meals/:id/items`: the meal's foods after editing (grams as logged). */
 export const updateMealItemsSchema = z.object({

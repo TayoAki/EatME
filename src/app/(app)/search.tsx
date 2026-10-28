@@ -45,6 +45,8 @@ export default function SearchScreen() {
         logDrink.mutate({ drink, date }, { onSuccess: logged, onError: failed('drink') });
       }}
       onLoggedDish={() => router.back()}
+      // Describe a meal lives on the Scan tab and logs at "now", so only for today.
+      onDescribe={date === today ? (text) => router.navigate({ pathname: '/scan', params: { describe: text, at: String(Date.now()) } }) : undefined}
     />
   );
 }

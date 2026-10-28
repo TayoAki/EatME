@@ -143,7 +143,10 @@ Welcome ──Get started──▶ Onboarding questions ──▶ Building your 
   gives voice) with examples; the AI estimates it like a photo. Photos of meals can carry an
   optional note ("cooked in butter, ate half"). A search button opens **Search foods** (V2):
   the USDA database search, pick a food and the grams (household measures offered), logged
-  at once without AI.
+  at once without AI. v2.5 (28 October 2026, the owner's ask): when no food has every word typed ("taco soup"
+  finds only other soups), the list opens with "Describe it instead", and otherwise ends with "Not what you had?
+  Describe it instead": the words go to Describe a meal (AI, like any described meal). Not from Home's search on
+  an earlier day, since a described meal is logged now.
 - Barcode → product screen: name, brand, grams (serving, whole pack or 100 g chips), the
   label's calories and macros for that amount, attribution (Open Food Facts, ODbL / USDA),
   `Log it` (no AI, instant). Unknown barcode or no nutrition facts → `Scan the nutrition
@@ -371,7 +374,7 @@ added to an earlier day are stored at local noon of that day.
 | `GET/PUT/DELETE /api/glp1` | session | GLP-1 mode: settings, recent doses and side effects, next dose / turn on, change or off / off + delete the history |
 | `POST /api/glp1/doses`, `DELETE /api/glp1/doses/:id` | session | Log or remove a dose |
 | `POST /api/glp1/symptoms`, `DELETE /api/glp1/symptoms/:id` | session | Log or remove side effects |
-| `GET /api/foods?q=` | session | USDA food search (as you type) |
+| `GET /api/foods?q=` | session | USDA food search (as you type); the v2.5 app also gets `chainDishes`, and `closeMatch` (a food has every word, or a dish matched) |
 | `PUT /api/meals/:id/items` | session | Edit a meal's foods and grams; every number is recalculated; returns the corrections worth remembering |
 | `GET /api/nutrients?date=` | session | A day's vitamins and minerals (foods + supplements), coverage, DRI targets, upper-limit warnings |
 | `GET/POST /api/weights` | session | Weigh-ins oldest first + goal / log one (today or an earlier `date`; replaces that day's) |
@@ -912,6 +915,7 @@ item and replaces the old v2.2 list and the "Later" list; tick a box there and h
     chain's own numbers with its citation, free (`WHAT-TO-ORDER.md` §5; only the v2.5 app asks for it)
   - [x] 27 October: Search foods from Home's meals section, for the day shown (`src/app/(app)/search.tsx`; a food's
     `date` on `POST /api/meals`)
+  - [x] 28 October: "Describe it instead" in Search when no food has every word typed (`closeMatch` on `/api/foods`)
   - [ ] Waiting: a person for the 10,328 review lines, the menu-reading check on an iPhone, then its own build and
     version (never build 4, which comes from `f05e76a`)
 

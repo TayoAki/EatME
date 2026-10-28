@@ -153,6 +153,8 @@ in a real build, never in Expo Go, before it goes to App Review. The 1.1.0 build
 - [ ] **Home search**: Home → Search foods under Today's meals opens Search with the keyboard up; a food's Log it goes
       back to Home with the meal in the list; on yesterday it reads "Logging for yesterday", has no Restaurants tab,
       and the food lands on yesterday at noon
+- [ ] **Describe it instead**: Search "taco soup" opens with "No close match" and Describe it instead, which opens
+      Describe a meal with "taco soup" typed; "chicken breast" ends with "Not what you had? Describe it instead"
 
 - [ ] **Menu reading** (WHAT-TO-ORDER.md §11): Scan → Menu on 10 real menus: printed, a chalkboard, a dim room, a
       long menu as 2-3 pages, a menu with prices in a column. Each time the confirm step lists the dishes; fix what's
