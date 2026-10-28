@@ -187,17 +187,20 @@ In Tripo Studio (September 2026), rigging costs 20 credits per character and eac
 
 ## Putting it together (Blender)
 
+`scripts/character-3d-assemble.py` does all of this (Put together, below); by hand it goes like this.
+
 1. Import a rigged body, then each prop. Scale and move the prop onto the body, then parent it to its bone (Mixamo
    names): `Head` for hair, beard, glasses and the headband; `Spine2` for the medal; `Hips` for the belt;
    `LeftForeArm` and `RightForeArm` for the wristbands; `LeftHand` and `RightHand` for the gloves. Buzz cut and
    stubble: copy the scalp or jaw faces of the head, push them out a little, and they follow the head's weights.
 2. Face: copy the front faces of the head into their own part named `face`, with a flat front-view UV, so the app
    can show the face pictures on it.
-3. Replace the generated materials with plain ones named for what the app colors: `skin`, `hair`, `top`, `bottom`,
-   `band` (headband, wristbands), `shoes`, `frame` (glasses), `lens`, `gold`, `ribbon`, `glove`, `cuff`.
+3. Replace the generated materials with plain ones named for what the app colors: `skin`, `hair`, `stubble`, `top`,
+   `bottom`, `band` (headbands, wristbands), `shoes`, `frame` (glasses). The medal, gloves and belt keep Tripo's
+   colors as `medal`, `glove` and `belt`.
 4. Name the parts: `hair_short`, `hair_long`, `hair_bun`, `hair_ponytail`, `hair_buzz`, `stubble`, `beard`,
-   `glasses_round`, `glasses_square`, `gear_headband`, `gear_wristband_left`, `gear_wristband_right`, `gear_medal`,
-   `gear_glove_left`, `gear_glove_right`, `gear_belt`, `face`.
+   `glasses_round`, `glasses_square`, `gear_headband`, `gear_headband_snug` (bald or buzz cut), `gear_wristband_left`,
+   `gear_wristband_right`, `gear_medal`, `gear_glove_left`, `gear_glove_right`, `gear_belt`, `face`.
 5. Put the five clips on the body as actions named `idle`, `wave`, `waiting`, `doze`, `cheer`, and export one GLB
    per body (`character-guy.glb`, `character-girl.glb`) with compression, each under about 5 MB, feet on the ground
    at the origin, facing the front view.
@@ -237,6 +240,31 @@ What changed from the plan:
   app moves the head itself.
 - The girl came out in an A-pose (arms lowered), which rigged fine.
 
-Before the app can use them (a new build with a 3D view): fit the props on both bodies and parent them to bones, cut
-the ponytail's head, trim the beard, add the face part and plain named materials, and put the clips in one GLB per
-body (Putting it together, above).
+## Put together on 28 October 2026
+
+`scripts/character-3d-assemble.py` (Blender's Python module: `pip install bpy`, then
+`python scripts/character-3d-assemble.py`) builds `character-guy.glb` and `character-girl.glb` (4.6 MB each, in the
+git-ignored models folder; the owner has them as a zip) from the models above and `design/character-3d/faces`. Each
+holds every part, so the app shows the ones the look picks:
+
+- `body` on the Mixamo skeleton in four plain materials, `skin`, `top`, `bottom` and `shoes`, split by the
+  texture's colors (the waistline is where the light top gives way to darker trousers).
+- `face`: the front of the head as its own part, with front-view UVs in the 2D head's frame (43 × 45, centered on
+  the cranium) so the face pictures land where the drawing has them. `faces/<body>-<mood>.png` (happy, waiting,
+  missing, cheer, and happy and waiting blinks; lashes for the girl) are drawn from `figure.tsx` (SVGs beside them).
+  Brows are dark brown in every picture, not the hair color.
+- `hair_buzz` and `stubble` (32% opacity, under the face so the mouth shows) are copies of the scalp and jaw that
+  move with the head's weights.
+- Props rest on the cranium, fitted with a sphere: hair scaled to the head and squashed a little so fringes clear
+  the brows; the ponytail is the first one, placed by fitting the head Tripo made inside it onto ours, then that head
+  is cut out; the beard (ears trimmed) wraps the jaw; glasses sit at the drawing's eye line. Each is parented to its
+  bone: `Head`, `Spine2` (medal), `Hips` (belt), the forearms (wristbands) and hands (gloves, the one model
+  mirrored for the right hand).
+- Headbands are soft tori, not Tripo's model (a thick tube that squashed into a washer): `gear_headband` goes round
+  the hair at the forehead and `gear_headband_snug` round a bald head or buzz cut.
+- Clips `idle`, `wave`, `waiting` and `cheer` as glTF animations; the props follow the bones in every one.
+
+In the app the look picks the parts by name, the materials take the look's colors (`band` is the top color at 92%,
+`stubble` the hair color), the face part shows the mood's picture and blinks by swapping it, and the mood plays its
+clip. `design/character-3d/looks.png` shows eight looks recolored from the app's palette, and `moods.mp4` the clips
+with their faces.
