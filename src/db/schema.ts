@@ -7,6 +7,7 @@ import {
   jsonb,
   pgEnum,
   pgTable,
+  primaryKey,
   smallint,
   text,
   timestamp,
@@ -38,6 +39,7 @@ import { PHOTO_POSES } from '@/shared/body';
 import { CHECKIN_REASONS, CHECKIN_STATUSES } from '@/shared/adaptive';
 import { CHAIN_ITEM_KINDS, CHAIN_ITEM_STATUSES } from '@/shared/chains';
 import { CHAIN_ITEM_REPORT_REASONS, MENU_SCAN_STATUSES, type DishLine, type MenuRef, type ScanDish } from '@/shared/menus';
+import type { StoredCharacter } from '@/shared/character';
 import type { DraftItem, DraftSlotChoices } from '@/shared/day-draft';
 import {
   PRODUCT_REPORT_REASONS,
@@ -149,6 +151,8 @@ export const users = pgTable('users', {
    * "chain:<slug>" or "scan:<id>". It stays open; any other list needs Premium.
    */
   whatToOrderTry: text(),
+  /** Your character (v2.6, CHARACTER.md): its look, name and worn gear. Empty until the person makes it. */
+  character: jsonb().$type<StoredCharacter>(),
 
   ...timestamps,
 });
@@ -819,3 +823,23 @@ export const supplementLogs = pgTable(
 );
 
 export type SupplementRow = typeof supplements.$inferSelect;
+
+/**
+ * Your character (v2.6, CHARACTER.md): what each local day earned, in the person's time zone. A day's flags only
+ * ever turn on, so a deleted meal never takes XP back and levels never go down. Days that earned nothing aren't kept.
+ */
+export const characterDays = pgTable(
+  'character_days',
+  {
+    userId: text()
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
+    date: date({ mode: 'string' }).notNull(),
+    /** At least one logged meal (the streak's own rule). */
+    showedUp: boolean().notNull().default(false),
+    protein: boolean().notNull().default(false),
+    water: boolean().notNull().default(false),
+    fiber: boolean().notNull().default(false),
+  },
+  (t) => [primaryKey({ columns: [t.userId, t.date] })],
+);
