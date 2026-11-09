@@ -16,6 +16,7 @@ import {
   type UnitSystem,
 } from './onboarding';
 import type { Glp1Settings } from './glp1';
+import { planBudgetSchema } from './meal-cost';
 import { foodsToSkipSchema } from './menus';
 import type { MacroTargets } from './nutrition';
 
@@ -31,6 +32,8 @@ export type Preferences = {
   checkInWeekday?: number;
   /** What to order (v2.5): foods the person skips; dishes that mention one leave Fits well. */
   foodsToSkip?: string[];
+  /** Plan tomorrow (v2.7): a daily budget in whole dollars the draft aims to stay under; null or missing = off. */
+  planBudget?: number | null;
 };
 
 /** Profile returned by `GET /api/me`. */
@@ -118,7 +121,7 @@ export const updateProfileSchema = z
     dailyCarbsG: z.number().int().min(MACRO_LIMITS.carbsG.min).max(MACRO_LIMITS.carbsG.max).nullable(),
     dailyFatG: z.number().int().min(MACRO_LIMITS.fatG.min).max(MACRO_LIMITS.fatG.max).nullable(),
     /** Merged into the stored preferences. */
-    preferences: z.object({ foodQualityTag: z.boolean(), calmMode: z.boolean(), foodsToSkip: foodsToSkipSchema }).partial().strict(),
+    preferences: z.object({ foodQualityTag: z.boolean(), calmMode: z.boolean(), foodsToSkip: foodsToSkipSchema, planBudget: planBudgetSchema }).partial().strict(),
     /** Allow (true) or stop (false) AI analysis of meal photos and descriptions. */
     aiConsent: z.boolean(),
     /** The consent wording the person saw when allowing it (`MENU_CONSENT_VERSION` names menus). */

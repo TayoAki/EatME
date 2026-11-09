@@ -1,5 +1,5 @@
 import { router } from 'expo-router';
-import { CalendarDays, Crown, Repeat, Shuffle } from 'lucide-react-native';
+import { CalendarDays, Crown, Minus, Plus, Repeat, Shuffle } from 'lucide-react-native';
 import { useState } from 'react';
 import { ActivityIndicator, Pressable, Text, View } from 'react-native';
 
@@ -11,12 +11,19 @@ import { ApiError } from '@/lib/api';
 import { cn } from '@/lib/cn';
 import { confirm, notify } from '@/lib/confirm';
 import { haptics } from '@/lib/haptics';
-import { useClearDayPlan, useDayPlan, useDraftDay, useUpdateDraftItem } from '@/lib/queries';
+import { useClearDayPlan, useDayPlan, useDraftDay, useProfile, useUpdateDraftItem, useUpdateProfile } from '@/lib/queries';
 import { formatTimeOfDay } from '@/lib/reminder-plan';
-import { draftSummary, SLOT_LABELS, type DayPlanItem } from '@/shared/day-draft';
+import { draftSummary, SLOT_LABELS, type DayPlanItem, type DayPlanResponse } from '@/shared/day-draft';
+import { BUDGET_MAX, BUDGET_MIN, BUDGET_PRESETS, costLine, formatCost, overBudget } from '@/shared/meal-cost';
 
 export const timeLabel = (time: string) => formatTimeOfDay({ hour: Number(time.slice(0, 2)), minute: Number(time.slice(3, 5)) });
-const numbers = (n: { calories: number; proteinG: number }) => `${n.calories.toLocaleString('en-US')} kcal · ${n.proteinG} g protein`;
+/** "520 kcal · 32 g protein · about $2.40": a meal's cost only when it has one (v2.7). */
+const numbers = (n: { calories: number; proteinG: number }, costCents?: number | null) =>
+  `${n.calories.toLocaleString('en-US')} kcal · ${n.proteinG} g protein${typeof costCents === 'number' ? ` · about ${formatCost(costCents)}` : ''}`;
+
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+/** "2026-09" → "September 2026". */
+const monthName = (month: string) => `${MONTHS[Number(month.slice(5, 7)) - 1]} ${month.slice(0, 4)}`;
 
 const NOT_ENOUGH = 'Log a few more meals and Weight Class can draft your day.';
 
@@ -61,7 +68,7 @@ export function PlanTomorrowCard({ tomorrow, calm, onOpen }: { tomorrow: string;
         {plan
           ? calm
             ? planned.map((i) => i.name).join(', ')
-            : draftSummary(plan.totals)
+            : [draftSummary(plan.totals), plan.cost ? costLine(plan.cost) : null].filter(Boolean).join(' · ')
           : eligible
             ? 'A draft of tomorrow from your own meals. Nothing is logged until you tap.'
             : NOT_ENOUGH}
@@ -94,16 +101,119 @@ function SwapSheet({ item, calm, onPick, onClose }: { item: DayPlanItem; calm: b
           <Pressable
             key={choice.key}
             accessibilityRole="button"
-            accessibilityLabel={calm ? choice.name : `${choice.name}, ${numbers(choice.nutrients)}`}
+            accessibilityLabel={calm ? choice.name : `${choice.name}, ${numbers(choice.nutrients, choice.costCents)}`}
             onPress={() => onPick(choice.key)}
             className={cn('min-h-[56px] justify-center px-4 py-3 active:bg-surface', index > 0 && 'border-t border-line')}>
             <Text className="text-[16px] font-semibold text-ink">{choice.name}</Text>
-            {calm ? null : <Text className="text-[13px] text-muted">{numbers(choice.nutrients)}</Text>}
+            {calm ? null : <Text className="text-[13px] text-muted">{numbers(choice.nutrients, choice.costCents)}</Text>}
           </Pressable>
         ))}
       </View>
       <Button title="Cancel" variant="secondary" className="mt-4" onPress={onClose} />
     </BottomSheet>
+  );
+}
+
+/**
+ * The daily budget (v2.7): Off or whole dollars. Plan tomorrow keeps the day's groceries near it with the person's own
+ * meals, and never plans under their minimum to save money.
+ */
+function BudgetSheet({ budget, hasDraft, onClose, onSaved }: { budget: number | null; hasDraft: boolean; onClose: () => void; onSaved: () => void }) {
+  const update = useUpdateProfile();
+  const [value, setValue] = useState<number | null>(budget);
+  const step = (by: number) => setValue((v) => Math.min(BUDGET_MAX, Math.max(BUDGET_MIN, (v ?? 12) + by)));
+  const save = () =>
+    update.mutate(
+      { preferences: { planBudget: value } },
+      { onSuccess: onSaved, onError: (error) => notify("We couldn't save your budget", error.message) },
+    );
+  const chip = (label: string, selected: boolean, onPress: () => void) => (
+    <Pressable
+      key={label}
+      accessibilityRole="radio"
+      accessibilityState={{ selected }}
+      onPress={() => {
+        haptics.selection();
+        onPress();
+      }}
+      className={cn('h-10 items-center justify-center rounded-full px-4 active:opacity-70', selected ? 'bg-ink' : 'bg-surface')}>
+      <Text className={cn('text-[15px] font-semibold', selected ? 'text-canvas' : 'text-ink')}>{label}</Text>
+    </Pressable>
+  );
+  return (
+    <BottomSheet visible onClose={onClose}>
+      <Text accessibilityRole="header" className="text-[22px] font-bold tracking-tight text-ink">
+        Daily budget
+      </Text>
+      <Text className="mt-1 text-[15px] leading-[21px] text-muted">
+        Plan tomorrow keeps the day&apos;s groceries near this with your own meals. It never plans less than your minimum to save money.
+      </Text>
+      <View accessibilityRole="radiogroup" className="mt-4 flex-row flex-wrap gap-2">
+        {chip('Off', value === null, () => setValue(null))}
+        {BUDGET_PRESETS.map((preset) => chip(`$${preset}`, value === preset, () => setValue(preset)))}
+      </View>
+      <View className={cn('mt-4 flex-row items-center justify-between rounded-2xl bg-surface px-2 py-2', value === null && 'opacity-40')}>
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel="A dollar less"
+          disabled={value === null || value <= BUDGET_MIN}
+          onPress={() => step(-1)}
+          className="h-11 w-11 items-center justify-center rounded-full active:bg-canvas">
+          <Minus size={20} color={colors.ink} />
+        </Pressable>
+        <Text className="text-[17px] font-semibold text-ink">{value === null ? 'No budget' : `$${value} a day`}</Text>
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel="A dollar more"
+          disabled={value === null || value >= BUDGET_MAX}
+          onPress={() => step(1)}
+          className="h-11 w-11 items-center justify-center rounded-full active:bg-canvas">
+          <Plus size={20} color={colors.ink} />
+        </Pressable>
+      </View>
+      <Text className="mt-3 text-[13px] leading-[18px] text-muted">Costs are US average prices, not your store&apos;s, so treat them as a guide.</Text>
+      <Button title={hasDraft ? 'Save and redraft' : 'Save'} className="mt-5" loading={update.isPending} disabled={value === budget} onPress={save} />
+      <Button title="Cancel" variant="secondary" className="mt-3" onPress={onClose} />
+    </BottomSheet>
+  );
+}
+
+/** "Budget: $12" or "Set a budget": opens the budget sheet. */
+function BudgetPill({ budget, onPress }: { budget: number | null; onPress: () => void }) {
+  return (
+    <Pressable
+      accessibilityRole="button"
+      accessibilityLabel={budget === null ? 'Set a daily budget' : `Daily budget: $${budget}. Change it`}
+      onPress={onPress}
+      className="h-8 items-center justify-center rounded-full bg-surface px-3 active:opacity-70">
+      <Text className="text-[13px] font-semibold text-ink">{budget === null ? 'Set a budget' : `Budget: $${budget}`}</Text>
+    </Pressable>
+  );
+}
+
+/** "Groceries: about $9.80", the budget, the month of the prices, and a kind word when the meals cost more (v2.7). */
+function Groceries({ plan, onBudget }: { plan: NonNullable<DayPlanResponse['plan']>; onBudget: () => void }) {
+  if (!plan.cost) return null;
+  const line = costLine(plan.cost);
+  const over = plan.overBudget && plan.budget !== null ? overBudget(plan.cost, plan.budget * 100) : 0;
+  return (
+    <View className="mt-2">
+      <View className="flex-row items-center justify-between gap-3">
+        <Text className="flex-1 text-[15px] text-ink">{line ? `Groceries: ${line}` : 'Groceries: no cost yet for these meals'}</Text>
+        <BudgetPill budget={plan.budget} onPress={onBudget} />
+      </View>
+      {plan.priceMonth ? (
+        <Text className="mt-0.5 text-[13px] text-muted">US average prices for {monthName(plan.priceMonth)}, not your store&apos;s</Text>
+      ) : null}
+      {over > 0 ? (
+        <View className="mt-3 rounded-2xl bg-surface p-3.5">
+          <Text className="text-[14px] leading-5 text-ink">
+            About {formatCost(over)} over your ${plan.budget} budget. These are the closest of your own meals
+            {plan.belowFloor ? '.' : ' that still reach your minimum.'}
+          </Text>
+        </View>
+      ) : null}
+    </View>
   );
 }
 
@@ -125,7 +235,7 @@ function DraftRow({ item, first, calm, busy, onSwap, onRemove, onPutBack }: {
       <Text numberOfLines={2} className={cn('mt-0.5 text-[16px] font-semibold', removed ? 'text-faint line-through' : 'text-ink')}>
         {item.name}
       </Text>
-      {calm || removed ? null : <Text className="text-[13px] text-muted">{numbers(item.nutrients)}</Text>}
+      {calm || removed ? null : <Text className="text-[13px] text-muted">{numbers(item.nutrients, item.costCents)}</Text>}
       {item.repeatId ? (
         <View className="mt-1.5 flex-row items-center gap-1.5">
           <Repeat size={13} color={colors.muted} />
@@ -177,10 +287,12 @@ function DraftRow({ item, first, calm, busy, onSwap, onRemove, onPutBack }: {
  */
 export function DraftDay({ date, calm }: { date: string; calm: boolean }) {
   const state = useDayPlan(date);
+  const profile = useProfile();
   const { run, pending, shuffling } = useDraft(date);
   const update = useUpdateDraftItem(date);
   const clear = useClearDayPlan(date);
   const [swapping, setSwapping] = useState<DayPlanItem | null>(null);
+  const [budgetOpen, setBudgetOpen] = useState(false);
 
   if (!state.data) {
     return (
@@ -190,6 +302,7 @@ export function DraftDay({ date, calm }: { date: string; calm: boolean }) {
     );
   }
   const { plan, eligible, premium } = state.data;
+  const budget = profile?.preferences.planBudget ?? null;
 
   const change = (n: number, body: { key: string } | { status: 'removed' }) =>
     update.mutate(
@@ -215,14 +328,17 @@ export function DraftDay({ date, calm }: { date: string; calm: boolean }) {
             {eligible ? 'A draft of tomorrow from your own meals: saved meals and the ones you eat often. Nothing is logged until you tap.' : NOT_ENOUGH}
           </Text>
           {eligible ? (
-            <Button
-              title={premium ? 'Draft tomorrow' : 'Draft tomorrow with Premium'}
-              size="md"
-              className="mt-3 self-start px-5"
-              icon={premium ? undefined : <Crown size={16} color={colors.canvas} strokeWidth={1.8} />}
-              loading={pending}
-              onPress={() => (premium ? run(false) : router.push('/premium'))}
-            />
+            <View className="mt-3 flex-row items-center justify-between gap-3">
+              <Button
+                title={premium ? 'Draft tomorrow' : 'Draft tomorrow with Premium'}
+                size="md"
+                className="px-5"
+                icon={premium ? undefined : <Crown size={16} color={colors.canvas} strokeWidth={1.8} />}
+                loading={pending}
+                onPress={() => (premium ? run(false) : router.push('/premium'))}
+              />
+              {premium && !calm ? <BudgetPill budget={budget} onPress={() => setBudgetOpen(true)} /> : null}
+            </View>
           ) : null}
         </View>
       ) : (
@@ -232,6 +348,7 @@ export function DraftDay({ date, calm }: { date: string; calm: boolean }) {
           </Text>
           <SourcesLink topic="plan-tomorrow" className="mt-1" />
           {calm ? null : <Text className="mt-2 text-[17px] font-semibold text-ink">{draftSummary(plan.totals)}</Text>}
+          {calm ? null : <Groceries plan={plan} onBudget={() => setBudgetOpen(true)} />}
           {plan.belowFloor ? (
             <View className="mt-3 rounded-2xl bg-surface p-3.5">
               <Text className="text-[14px] leading-5 text-ink">Add a snack to reach your minimum.</Text>
@@ -265,6 +382,18 @@ export function DraftDay({ date, calm }: { date: string; calm: boolean }) {
           </View>
         </>
       )}
+      {budgetOpen ? (
+        <BudgetSheet
+          budget={budget}
+          hasDraft={!!plan}
+          onClose={() => setBudgetOpen(false)}
+          onSaved={() => {
+            setBudgetOpen(false);
+            // A new budget changes the best day: draft it again.
+            if (plan) run(false);
+          }}
+        />
+      ) : null}
       {swapping ? (
         <SwapSheet
           item={swapping}

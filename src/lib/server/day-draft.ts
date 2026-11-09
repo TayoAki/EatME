@@ -4,6 +4,7 @@ import { db, type Executor } from '@/db';
 import { dayPlans, mealRepeats, meals, users, type DayPlanRow, type User } from '@/db/schema';
 import {
   DRAFT_SLOTS,
+  draftCost,
   draftTotals,
   MAIN_SLOTS,
   MAX_CHOICES,
@@ -23,12 +24,14 @@ import {
   type DraftSlot,
   type DraftSlotChoices,
 } from '@/shared/day-draft';
+import { overBudget } from '@/shared/meal-cost';
 import { minimumCalories } from '@/shared/nutrition';
 
 import { hasPremiumAccess, requirePremium } from './billing';
 import { DATE_RE } from './day';
 import { HttpError } from './http';
 import { describeError } from './log';
+import { mealCosts, priceMonth } from './meal-costs';
 import { copyMeal, copyPhoto } from './meal-values';
 import { plannedMeals } from './saved-meals';
 import { deleteObject } from './storage';
@@ -85,10 +88,10 @@ type History = {
 
 /**
  * The person's last 30 days: for each slot, the meals they ate there (grouped by name, the most
- * eaten first) and their saved meals, with the numbers of one portion as they eat it. Alcoholic
- * drinks are never planned.
+ * eaten first) and their saved meals, with the numbers of one portion as they eat it and what it
+ * costs (`costs: false` skips that when only eligibility matters). Alcoholic drinks are never planned.
  */
-async function history(user: User): Promise<History> {
+async function history(user: User, { costs = true } = {}): Promise<History> {
   const tz = user.timezone;
   const localMinutes = (column: typeof meals.loggedAt | typeof meals.createdAt) =>
     sql<number>`(extract(hour from ${column} at time zone ${tz}) * 60 + extract(minute from ${column} at time zone ${tz}))::int`;
@@ -163,6 +166,7 @@ async function history(user: User): Promise<History> {
         sourceMealId: group.latest.id,
         name: savedMeal?.name ?? group.latest.name!,
         nutrients: numbersOf(savedMeal ?? group.latest),
+        costCents: null,
         times,
       });
     }
@@ -172,7 +176,7 @@ async function history(user: User): Promise<History> {
     if (groups.has(key) || (row.calories ?? 0) < MIN_CHOICE_KCAL) continue;
     const time = repeatTime.get(row.id);
     const slot = slotOf(time ? Number(time.slice(0, 2)) * 60 + Number(time.slice(3, 5)) : row.minutes);
-    choices.get(slot)!.push({ key, savedMealId: row.id, sourceMealId: null, name: row.name!, nutrients: numbersOf(row), times: 0 });
+    choices.get(slot)!.push({ key, savedMealId: row.id, sourceMealId: null, name: row.name!, nutrients: numbersOf(row), costCents: null, times: 0 });
   }
   for (const [slot, list] of choices) {
     choices.set(
@@ -180,11 +184,20 @@ async function history(user: User): Promise<History> {
       list.sort((a, b) => b.times - a.times || Number(!!b.savedMealId) - Number(!!a.savedMealId) || a.name.localeCompare(b.name)).slice(0, MAX_CHOICES),
     );
   }
+  // About what each choice costs (v2.7): the saved meal it logs, or the meal it was last eaten as.
+  if (costs) {
+    const kept = [...choices.values()].flat();
+    const byMeal = await mealCosts(kept.map((c) => (c.savedMealId ?? c.sourceMealId)!));
+    for (const choice of kept) choice.costCents = byMeal.get((choice.savedMealId ?? choice.sourceMealId)!) ?? null;
+  }
   const differentMeals = new Set([...groups.keys(), ...savedByKey.keys()]).size;
   return { choices, minutes, loggedDays: days.size, differentMeals, keysByDay };
 }
 
 const eligibleFrom = (h: History) => h.loggedDays >= MIN_LOGGED_DAYS && h.differentMeals >= MIN_DIFFERENT_MEALS;
+
+/** The daily budget in cents, when the person set one; calm mode keeps money out of the draft. */
+const budgetOf = (user: User) => (!user.preferences.calmMode && user.preferences.planBudget ? user.preferences.planBudget * 100 : null);
 
 function goalOf(user: User): DraftGoal {
   return {
@@ -192,6 +205,7 @@ function goalOf(user: User): DraftGoal {
     proteinG: user.dailyProteinG ?? 0,
     floor: minimumCalories(user.gender),
     glp1: !!user.glp1,
+    budgetCents: budgetOf(user),
   };
 }
 
@@ -217,6 +231,7 @@ export async function draftDay(user: User, date: string, { shuffle = false } = {
 
   const times = slotTimes(h.minutes);
   const repeats = (await plannedMeals(user.id, date)).filter((p) => p.response !== 'skipped');
+  const repeatCosts = await mealCosts(repeats.map((p) => p.meal.id));
   const fixed: DraftItem[] = repeats.map((p) => ({
     slot: slotOf(Number(p.time.slice(0, 2)) * 60 + Number(p.time.slice(3, 5))),
     time: p.time,
@@ -225,6 +240,7 @@ export async function draftDay(user: User, date: string, { shuffle = false } = {
     sourceMealId: null,
     name: p.meal.name ?? 'Meal',
     nutrients: numbersOf(p.meal),
+    costCents: repeatCosts.get(p.meal.id) ?? null,
     status: 'planned',
     repeatId: p.repeatId,
   }));
@@ -238,7 +254,7 @@ export async function draftDay(user: User, date: string, { shuffle = false } = {
   const goal = goalOf(user);
   const ranked = rankDrafts({
     goal,
-    fixed: fixed.map((f) => ({ ...f, times: 0 })),
+    fixed: fixed.map((f) => ({ ...f, costCents: f.costCents ?? null, times: 0 })),
     slots,
     dayBefore: h.keysByDay.get(addDay(date, -1)) ?? [],
   });
@@ -256,6 +272,7 @@ export async function draftDay(user: User, date: string, { shuffle = false } = {
             sourceMealId: pick.sourceMealId,
             name: pick.name,
             nutrients: pick.nutrients,
+            costCents: pick.costCents,
             status: 'planned' as const,
           },
         ]
@@ -276,19 +293,28 @@ export async function dayPlanResponse(user: User, date: string): Promise<DayPlan
   if (!row) {
     // Only tomorrow can be drafted, so only then is the history worth reading.
     const tomorrow = addDay(localDate(new Date(), user.timezone), 1);
-    return { date, premium, eligible: date === tomorrow && eligibleFrom(await history(user)), plan: null };
+    return { date, premium, eligible: date === tomorrow && eligibleFrom(await history(user, { costs: false })), plan: null };
   }
   const goal = goalOf(user);
+  const calm = !!user.preferences.calmMode;
   const items = row.items.map((item, n) => {
     const slotChoices = row.choices.find((c) => c.slot === item.slot)?.choices ?? [];
-    const rest = row.items.filter((other, i) => i !== n && other.status !== 'removed').map((other) => other.nutrients);
+    const rest = row.items.filter((other, i) => i !== n && other.status !== 'removed');
     const current = slotChoices.find((c) => c.key === item.key) ?? null;
     const alternatives =
       item.repeatId || item.status !== 'planned'
         ? []
-        : swapChoices(slotChoices, current ?? { ...item, times: 0 }, rest, goal).map(({ key, name, nutrients }) => ({ key, name, nutrients }));
-    return { ...item, n, alternatives };
+        : swapChoices(slotChoices, current ?? { ...item, costCents: item.costCents ?? null, times: 0 }, rest, goal).map(({ key, name, nutrients, costCents }) => ({
+            key,
+            name,
+            nutrients,
+            // Calm mode keeps money off the screen, as it does calories.
+            costCents: calm ? null : (costCents ?? null),
+          }));
+    return { ...item, costCents: calm ? null : (item.costCents ?? null), n, alternatives };
   });
+  const month = calm ? null : await priceMonth();
+  const cost = calm || !month ? null : draftCost(row.items);
   return {
     date,
     premium,
@@ -298,6 +324,10 @@ export async function dayPlanResponse(user: User, date: string): Promise<DayPlan
       totals: draftTotals(row.items),
       target: { calories: goal.calories, proteinG: goal.proteinG },
       belowFloor: row.belowFloor,
+      cost,
+      priceMonth: month,
+      budget: goal.budgetCents === null ? null : goal.budgetCents / 100,
+      overBudget: !!cost && overBudget(cost, goal.budgetCents) > 0,
       updatedAt: row.updatedAt.toISOString(),
     },
   };
@@ -331,7 +361,16 @@ export async function updateDraftItem(user: User, date: string, n: number, chang
     if ('key' in change) {
       const choice = row.choices.find((c) => c.slot === item.slot)?.choices.find((c) => c.key === change.key);
       if (!choice) throw new HttpError(400, 'Pick one of the choices for this meal.');
-      next = { ...item, key: choice.key, savedMealId: choice.savedMealId, sourceMealId: choice.sourceMealId, name: choice.name, nutrients: choice.nutrients, status: 'planned' };
+      next = {
+        ...item,
+        key: choice.key,
+        savedMealId: choice.savedMealId,
+        sourceMealId: choice.sourceMealId,
+        name: choice.name,
+        nutrients: choice.nutrients,
+        costCents: choice.costCents ?? null,
+        status: 'planned',
+      };
     } else {
       next = { ...item, status: 'removed' };
     }

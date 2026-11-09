@@ -1,0 +1,23 @@
+series,item,unit,grams,codes,note
+APU0000708111,"Eggs, grade A, large",dozen,600,31101010 31102000 31103010 31105010,12 large eggs at 50 g each without the shell
+APU0000FC1101,All uncooked ground beef,lb,453.6,21500000,raw
+APU0000FC1101,All uncooked ground beef,lb,327,21500100 21500310,cooked: about 72% of the raw weight
+APU0000FF1101,"Chicken breast, boneless",lb,340,24122131 24122161,roasted: about 75% of the raw weight
+APU0000704111,"Bacon, sliced",lb,136,22600100 22600110,cooked: about 30% of the raw weight
+APU0000714233,"Beans, dried, any type",lb,1111,41101120 41102020 41104020 41106020 41302020,cooked: about 2.45 times the dry weight
+APU0000714233,"Beans, dried, any type",lb,1157,41303000 41305000,"lentils and split peas, cooked: about 2.55 times the dry weight"
+APU0000709112,"Milk, whole",gallon,3900,11111000,3.79 litres at 1.03 g a millilitre
+APU0000FJ1101,"Milk, low-fat, reduced fat, skim",gallon,3900,11112110 11112210 11113000,3.79 litres at 1.03 g a millilitre
+APU0000702111,"Bread, white, pan",lb,453.6,51101000,
+APU0000711211,Bananas,lb,290,63107010,64% left after peeling
+APU0000701312,"Rice, white, long grain, uncooked",lb,1179,56205001 56205008,cooked: about 2.6 times the dry weight
+APU0000710212,"Cheese, cheddar",lb,453.6,14104100,
+APU0000FS1101,"Butter, stick",lb,453.6,81100500 81101000,
+APU0000715211,"Sugar, white",lb,453.6,91101010,
+APU0000701322,Spaghetti and macaroni,lb,1134,56130000,cooked: about 2.5 times the dry weight
+APU0000712112,"Potatoes, white",lb,340,71103010,"boiled, peeled: about 75% left after paring"
+APU0000712112,"Potatoes, white",lb,440,71103125,"boiled with the peel: about 97%"
+APU0000712112,"Potatoes, white",lb,340,71508001,"baked with the peel: about 75% after cooking"
+APU0000712311,"Tomatoes, field grown",lb,413,74101000,about 91% left after coring
+APU0000711311,"Oranges, navel",lb,318,61119010,about 70% left after peeling
+APU0000712211,"Lettuce, iceberg",lb,431,75113000,about 95% left after coring

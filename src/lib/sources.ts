@@ -8,6 +8,23 @@
 
 export type Citation = { title: string; by: string; url: string };
 
+// Meal costs in Plan tomorrow (v2.7): opened on 9 November 2026.
+const PURCHASE_TO_PLATE: Citation = {
+  title: 'Purchase to Plate: national average prices for the foods Americans eat',
+  by: 'USDA Economic Research Service, 2023',
+  url: 'https://www.ers.usda.gov/data-products/purchase-to-plate',
+};
+const BLS_AVERAGE_PRICES: Citation = {
+  title: 'CPI: Average Price Data',
+  by: 'US Bureau of Labor Statistics',
+  url: 'https://www.bls.gov/cpi/factsheets/average-prices.htm',
+};
+const CPI: Citation = {
+  title: 'Consumer Price Index',
+  by: 'US Bureau of Labor Statistics',
+  url: 'https://www.bls.gov/cpi/',
+};
+
 const MIFFLIN: Citation = {
   title: 'A new predictive equation for resting energy expenditure in healthy individuals',
   by: 'Mifflin et al., American Journal of Clinical Nutrition, 1990',
@@ -273,8 +290,8 @@ export const SOURCES: SourceSection[] = [
     topic: 'plan-tomorrow',
     title: 'Plan tomorrow',
     method:
-      'Plan tomorrow picks meals you already eat, one for each part of the day, so the day lands near your calorie goal with enough protein. It uses your own goals and the numbers of your own meals, and no AI. How the goals are worked out is under Daily calories and Protein, carbs and fat on the Sources screen.',
-    citations: [ISSN_PROTEIN],
+      "Plan tomorrow picks meals you already eat, one for each part of the day, so the day lands near your calorie goal with enough protein. It uses your own goals and the numbers of your own meals, and no AI. How the goals are worked out is under Daily calories and Protein, carbs and fat on the Sources screen. Groceries are about what a meal's foods cost to make at home at US average prices: for staples (eggs, ground beef, chicken breast, bacon, dried beans and lentils, milk, white bread, rice, pasta, potatoes, cheddar, butter, sugar, bananas, tomatoes, oranges and lettuce), the Bureau of Labor Statistics' average shelf price for the month, turned into a price as eaten with a typical cooking yield or the part left after peeling; for other foods, USDA's Purchase to Plate national average prices, which average everything shoppers bought in 2017 and 2018 and so run above the plainest store brands, carried to the same month with the Consumer Price Index for their food group. A meal's cost is its foods' weights times those prices. It shows only when foods with a price make up at least 90% of the meal's weight, and the rest counts at the same price per gram; restaurant dishes, barcoded products and drinks have none. With a daily budget, a day over it counts against the draft, but never enough to plan less than your minimum. Your store's prices will differ.",
+    citations: [ISSN_PROTEIN, PURCHASE_TO_PLATE, BLS_AVERAGE_PRICES, CPI],
   },
   {
     // src/shared/drinks.ts: drinkNumbers, STANDARD_DRINK_G

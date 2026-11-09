@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+import { budgetCost, dayCost, type DayCost } from './meal-cost';
+
 /**
  * Plan tomorrow (v2.4): a draft of a day from the person's own meals: saved meals and meals they
  * eat often, one for each slot, so the day lands near the calorie target with enough protein. No
@@ -68,6 +70,8 @@ export type DraftChoice = {
   sourceMealId: string | null;
   name: string;
   nutrients: DraftNumbers;
+  /** About what one portion costs to make at home, in cents (v2.7); null when too little of it has a price. */
+  costCents: number | null;
   /** Times eaten in the last 30 days (ranks the choices). */
   times: number;
 };
@@ -85,6 +89,8 @@ export type DraftItem = {
   sourceMealId: string | null;
   name: string;
   nutrients: DraftNumbers;
+  /** About what it costs, in cents (v2.7; drafts made before have none). */
+  costCents?: number | null;
   status: DraftItemStatus;
   /** A repeat already planned that day: kept as it is and logged from Planned for today. */
   repeatId?: string | null;
@@ -99,6 +105,8 @@ export type DraftGoal = {
   floor: number;
   /** GLP-1 mode: protein comes first, then the calorie fit. */
   glp1: boolean;
+  /** The person's daily budget in cents (v2.7), when they set one and calm mode is off. */
+  budgetCents: number | null;
 };
 
 export type DraftSlotChoices = { slot: DraftSlot; choices: readonly DraftChoice[] };
@@ -154,6 +162,7 @@ export function dayScore(totals: DraftNumbers, goal: DraftGoal) {
 export function rankDrafts(input: DraftInput): DraftCombination[] {
   const fixedTotals = addNumbers(input.fixed.map((f) => f.nutrients));
   const fixedKeys = input.fixed.map((f) => f.key);
+  const fixedCosts = input.fixed.map((f) => f.costCents);
   const dayBefore = new Set(input.dayBefore ?? []);
   const options = input.slots.map(({ slot, choices }) => (slot === 'snack' ? [null, ...choices] : [...choices]));
   if (options.some((list) => list.length === 0)) return [];
@@ -165,7 +174,7 @@ export function rankDrafts(input: DraftInput): DraftCombination[] {
       const chosen = picks.filter((p): p is DraftChoice => p !== null);
       const totals = addNumbers([fixedTotals, ...chosen.map((c) => c.nutrients)]);
       const keys = [...fixedKeys, ...chosen.map((c) => c.key)];
-      let score = dayScore(totals, input.goal);
+      let score = dayScore(totals, input.goal) + budgetCost(dayCost([...fixedCosts, ...chosen.map((c) => c.costCents)]), input.goal.budgetCents);
       if (new Set(keys).size < keys.length) score += TWICE_COST;
       if (picks.some((p, i) => p !== null && input.slots[i].slot === 'snack')) score += SNACK_COST;
       if (dayBefore.size > 0 && chosen.length > 0 && chosen.every((c) => dayBefore.has(c.key))) score += SAME_AS_BEFORE_COST;
@@ -191,15 +200,19 @@ export function rankDrafts(input: DraftInput): DraftCombination[] {
   });
 }
 
+/** The rest of the day, for Swap: what the other meals add up to. */
+export type DraftRest = { nutrients: DraftNumbers; costCents?: number | null };
+
 /**
  * For Swap: the other choices of a slot, best fit first when they take its place and the rest of
  * the day stays.
  */
-export function swapChoices(choices: readonly DraftChoice[], current: DraftChoice | null, rest: readonly DraftNumbers[], goal: DraftGoal, limit = SWAP_CHOICES) {
-  const others = addNumbers(rest);
+export function swapChoices(choices: readonly DraftChoice[], current: DraftChoice | null, rest: readonly DraftRest[], goal: DraftGoal, limit = SWAP_CHOICES) {
+  const others = addNumbers(rest.map((r) => r.nutrients));
+  const otherCosts = rest.map((r) => r.costCents);
   return choices
     .filter((c) => c.key !== current?.key)
-    .map((c) => ({ choice: c, score: dayScore(addNumbers([others, c.nutrients]), goal) }))
+    .map((c) => ({ choice: c, score: dayScore(addNumbers([others, c.nutrients]), goal) + budgetCost(dayCost([...otherCosts, c.costCents]), goal.budgetCents) }))
     .sort((a, b) => a.score - b.score)
     .slice(0, limit)
     .map(({ choice }) => choice);
@@ -207,6 +220,9 @@ export function swapChoices(choices: readonly DraftChoice[], current: DraftChoic
 
 /** Totals of what is still planned or logged. */
 export const draftTotals = (items: readonly DraftItem[]) => addNumbers(items.filter((i) => i.status !== 'removed').map((i) => i.nutrients));
+
+/** What the meals still planned or logged cost (v2.7). */
+export const draftCost = (items: readonly DraftItem[]): DayCost => dayCost(items.filter((i) => i.status !== 'removed').map((i) => i.costCents ?? null));
 
 /** "About 1,840 kcal · 125 g protein": rounded, because it is a draft. */
 export function draftSummary(totals: DraftNumbers) {
@@ -224,7 +240,7 @@ export const draftItemBodySchema = z.union([
 ]);
 
 /** A draft item for the app, with its place in the list and what Swap offers. */
-export type DayPlanItem = DraftItem & { n: number; alternatives: Pick<DraftChoice, 'key' | 'name' | 'nutrients'>[] };
+export type DayPlanItem = DraftItem & { n: number; alternatives: Pick<DraftChoice, 'key' | 'name' | 'nutrients' | 'costCents'>[] };
 
 /** `GET /api/day-plan/:date`. */
 export type DayPlanResponse = {
@@ -239,6 +255,14 @@ export type DayPlanResponse = {
     target: { calories: number; proteinG: number };
     /** Even the biggest day of the person's meals is under their minimum. */
     belowFloor: boolean;
+    /** About what the planned meals cost (v2.7; empty in calm mode or before prices are loaded). */
+    cost: DayCost | null;
+    /** The month the prices are for, "2026-09". */
+    priceMonth: string | null;
+    /** The daily budget in dollars, when set (and calm mode is off). */
+    budget: number | null;
+    /** The meals with a cost already come to more than the budget. */
+    overBudget: boolean;
     updatedAt: string;
   } | null;
 };

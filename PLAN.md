@@ -929,6 +929,15 @@ its boxes are in that file.
 - The customizable character (`CHARACTER.md`) was built for 1.2 the same day and shelved for Flamie: its code left
   the app (last in `88324b1`); its tables and migration `0027_character` stay.
 
+**v2.7 · Budget plans: planned in [`BUDGET-PLANS.md`](./BUDGET-PLANS.md)** (9 November 2026, the owner's ask after the
+TapCook research, `research/tapcook-teardown.md`): what Plan tomorrow's day costs to make at home and an optional daily
+budget, from public US prices (BLS shelf prices for staples, USDA Purchase to Plate national averages carried forward
+with the CPI for the rest), no AI, never under the calorie floor, none in calm mode. Steps 2 (a week plan and a
+shopping list) and 3 (a store hand-off) wait for step 1's use and the owner.
+- [x] v2.7 · Step 1: grocery costs on Plan tomorrow's meals and day, a daily budget, `food_prices` (migration
+  `0028_food_prices`, `npm run prices:build` each month); a browser run against the local server (9 November 2026);
+  waiting on a receipt check and a phone run
+
 **Eating out decisions** (checked September 2026; migration `restaurant_meals`; kept for the record, the
 feature was retired on 21 October 2026)
 - Source: FatSecret Platform API, Premier Free (`premier` scope). OAuth 2.0 client credentials

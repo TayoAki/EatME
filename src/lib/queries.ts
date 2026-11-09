@@ -142,6 +142,8 @@ export function useUpdateProfile() {
       queryClient.setQueryData(queryKeys.me(userId), data);
       // A new weight is also today's weigh-in.
       if (body.weightKg !== undefined) void queryClient.invalidateQueries({ queryKey: queryKeys.weights(userId) });
+      // Calm mode and the daily budget change what Plan tomorrow shows.
+      if (body.preferences) void queryClient.invalidateQueries({ queryKey: queryKeys.dayPlanAll(userId) });
     },
   });
 }

@@ -55,3 +55,6 @@ design/character-3d/models/
 # deep-research working folders (the final report is copied to research/)
 research_notes/
 reports/
+
+# USDA Purchase to Plate download for npm run prices:build (only the built prices are kept)
+data/food-prices/.cache/

@@ -478,6 +478,21 @@ export const foods = pgTable(
   (t) => [index('foods_description_search_idx').using('gin', sql`to_tsvector('english', ${t.description})`)],
 );
 
+/**
+ * What 100 g of a food costs as eaten, in US cents (Plan tomorrow's meal costs, BUDGET-PLANS.md): built by
+ * `npm run prices:build` into data/food-prices.json and loaded when the server starts (server/food-prices.mjs).
+ */
+export const foodPrices = pgTable('food_prices', {
+  foodId: integer()
+    .primaryKey()
+    .references(() => foods.id, { onDelete: 'cascade' }),
+  centsPer100g: doublePrecision().notNull(),
+  /** "bls" (a staple's BLS shelf price) or the USDA Purchase to Plate cycle carried forward, e.g. "2017/2018". */
+  basis: text().notNull(),
+  /** The file's version: the price month and a hash, e.g. "2026-09.ed21df31". */
+  version: text().notNull(),
+});
+
 /** The foods in a meal with their weight: from the AI (matched to `foods`) or edited by the user. */
 export const mealItems = pgTable(
   'meal_items',

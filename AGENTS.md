@@ -13,7 +13,8 @@ feature is done. The v2.2–v2.4 features (GLP-1 medicines and supply, body trac
 the weekly check-in, drinks, Plan tomorrow) are specified in `NEXT-FEATURES.md`: change them from it
 and keep it and PLAN.md in step. What to order (v2.5, version 1.1) is specified in `WHAT-TO-ORDER.md`, and Flamie (v2.6, version 1.2: the streak flame
 as a character that grows with the streak, never with weight) in `FLAMIE.md`. The customizable character it replaced is
-shelved in `CHARACTER.md`.
+shelved in `CHARACTER.md`. Budget plans (v2.7: grocery costs and a daily budget in Plan tomorrow, from public US prices) are
+specified in `BUDGET-PLANS.md`.
 
 ## Workflow
 

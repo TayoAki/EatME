@@ -197,6 +197,13 @@
       "when": 1793206489260,
       "tag": "0027_character",
       "breakpoints": true
+    },
+    {
+      "idx": 28,
+      "version": "7",
+      "when": 1794219203612,
+      "tag": "0028_food_prices",
+      "breakpoints": true
     }
   ]
 }

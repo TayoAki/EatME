@@ -190,6 +190,19 @@ Version 1.2.0, built from the branch once 1.1 is out (`FLAMIE.md`):
 - [ ] **Check-ins**: Reminders → Flamie → Flamie check-in on; with nothing logged by the time, the nudge comes and opens
       Home; logging a meal before then means no nudge that evening
 
+## Meal costs on a phone (the next build after Flamie)
+
+Budget plans step 1 (`BUDGET-PLANS.md`), in the next version built from the branch:
+
+- [ ] **Costs**: tomorrow in the date strip → Draft tomorrow: each meal shows "· about $2.80" after its protein (meals
+      from restaurants, barcodes or quick adds show none), and the day shows "Groceries: about $8.00" with the month of
+      the prices; Swap shows a cost for each choice
+- [ ] **Budget**: Set a budget → $8 → Save and redraft: the pill reads "Budget: $8"; a budget the meals can't meet shows
+      "About … over your $8 budget", never fewer calories than the minimum; Off removes it
+- [ ] **Sources**: the Sources link on tomorrow opens Plan tomorrow's method with the USDA and BLS links, and they open
+- [ ] **Calm mode**: no costs, no budget pill
+- [ ] **Receipts**: a few real grocery receipts against the app's costs for the same meals (`BUDGET-PLANS.md` §3)
+
 ## Android (Google Play internal testing)
 
 ```bash
