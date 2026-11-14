@@ -203,6 +203,23 @@ Budget plans step 1 (`BUDGET-PLANS.md`), in the next version built from the bran
 - [ ] **Calm mode**: no costs, no budget pill
 - [ ] **Receipts**: a few real grocery receipts against the app's costs for the same meals (`BUDGET-PLANS.md` §3)
 
+## Onboarding on a phone (the next build after Flamie)
+
+v2.8 (`PLAN.md` §3), in the next version built from the branch. Delete the app first so onboarding starts fresh:
+
+- [ ] **Motion**: Welcome's phone fades in and floats; on each question the title, subtitle and rows rise in one after
+      another; tapping a row gives under the finger, pops and ticks (haptic); Continue pops on the first answer
+- [ ] **Your path**: Lose weight → 65 kg → 0.5 kg a week: the line draws to the goal, the goal weight counts down with
+      it, the dot lands with a light tap and a pulse; the date matches the one on Plan ready; Sources opens Daily
+      calories. Maintain skips the screen
+- [ ] **What's gotten in the way**: each pick opens to show what helps (Flamie next to "Staying consistent"; Premium
+      parts say "(Premium)"); Plan ready lists the picks under "Built for what got in your way"
+- [ ] **Building and Plan ready**: the bar keeps up with the number, each checklist line ticks with a haptic and names
+      the answers; the check pops with a burst, the targets count up
+- [ ] **Reduce Motion** (Settings → Accessibility → Motion): everything appears at once, nothing floats or counts
+- [ ] **VoiceOver**: the rows read as radio buttons (checkboxes on the obstacles question), the chart and the targets
+      read their final numbers
+
 ## Android (Google Play internal testing)
 
 ```bash

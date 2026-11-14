@@ -11,7 +11,9 @@ export const ONBOARDING_STEPS = [
   'desired-weight',
   'activity',
   'pace',
+  'projection',
   'diet',
+  'obstacles',
 ] as const;
 export type OnboardingStep = (typeof ONBOARDING_STEPS)[number];
 
@@ -24,15 +26,19 @@ const STEP_HREF: Record<OnboardingStep, Href> = {
   'desired-weight': '/onboarding/desired-weight',
   activity: '/onboarding/activity',
   pace: '/onboarding/pace',
+  projection: '/onboarding/projection',
   diet: '/onboarding/diet',
+  obstacles: '/onboarding/obstacles',
 };
 
-/** Maintaining weight skips the desired-weight and pace questions. */
-const SKIPPED_WHEN_MAINTAINING = new Set<OnboardingStep>(['desired-weight', 'pace']);
+/** Maintaining weight skips the desired-weight and pace questions and the path to the goal. */
+const SKIPPED_WHEN_MAINTAINING = new Set<OnboardingStep>(['desired-weight', 'pace', 'projection']);
 
 export function stepsFor(goal: Goal | undefined) {
   return ONBOARDING_STEPS.filter((step) => goal !== 'maintain' || !SKIPPED_WHEN_MAINTAINING.has(step));
 }
+
+export const stepHref = (step: OnboardingStep): Href => STEP_HREF[step];
 
 export function nextStepHref(step: OnboardingStep, goal: Goal | undefined): Href {
   const steps = stepsFor(goal);

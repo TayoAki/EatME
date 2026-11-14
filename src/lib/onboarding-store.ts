@@ -3,6 +3,7 @@ import { useMemo, useSyncExternalStore } from 'react';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 
+import type { Obstacle } from '@/lib/onboarding-obstacles';
 import {
   DEFAULT_WEEKLY_GOAL_KG,
   onboardingAnswersSchema,
@@ -30,9 +31,12 @@ type OnboardingState = {
   aiConsentVersion: number | null;
   /** Set when the user finished onboarding; cleared after the plan is saved to the database. */
   pendingSaveAt: number | null;
+  /** What got in the way before (picked in onboarding): kept on this phone only, never sent anywhere. */
+  obstacles: Obstacle[];
   setAnswers: (answers: Partial<OnboardingAnswers>) => void;
   setPlan: (plan: NutritionPlan) => void;
   setAiConsent: (allowed: boolean, version: number) => void;
+  toggleObstacle: (obstacle: Obstacle) => void;
   markPendingSave: () => void;
   clearPendingSave: () => void;
   reset: () => void;
@@ -46,17 +50,30 @@ export const useOnboardingStore = create<OnboardingState>()(
       aiConsent: null,
       aiConsentVersion: null,
       pendingSaveAt: null,
+      obstacles: [],
       setAnswers: (answers) => set((s) => ({ answers: { ...s.answers, ...answers } })),
       setPlan: (plan) => set({ plan }),
       setAiConsent: (aiConsent, aiConsentVersion) => set({ aiConsent, aiConsentVersion }),
+      toggleObstacle: (obstacle) =>
+        set((s) => ({
+          obstacles: s.obstacles.includes(obstacle) ? s.obstacles.filter((o) => o !== obstacle) : [...s.obstacles, obstacle],
+        })),
       markPendingSave: () => set({ pendingSaveAt: Date.now() }),
       clearPendingSave: () => set({ pendingSaveAt: null }),
-      reset: () => set({ answers: DEFAULT_ANSWERS, plan: null, aiConsent: null, aiConsentVersion: null, pendingSaveAt: null }),
+      reset: () =>
+        set({ answers: DEFAULT_ANSWERS, plan: null, aiConsent: null, aiConsentVersion: null, pendingSaveAt: null, obstacles: [] }),
     }),
     {
       name: 'eatme-onboarding',
       storage: createJSONStorage(() => AsyncStorage),
-      partialize: ({ answers, plan, aiConsent, aiConsentVersion, pendingSaveAt }) => ({ answers, plan, aiConsent, aiConsentVersion, pendingSaveAt }),
+      partialize: ({ answers, plan, aiConsent, aiConsentVersion, pendingSaveAt, obstacles }) => ({
+        answers,
+        plan,
+        aiConsent,
+        aiConsentVersion,
+        pendingSaveAt,
+        obstacles,
+      }),
       // A finished onboarding that was never saved (no sign-up) expires after a week.
       onRehydrateStorage: () => (state) => {
         if (state?.pendingSaveAt && Date.now() - state.pendingSaveAt > PENDING_SAVE_TTL_MS) {

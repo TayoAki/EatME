@@ -68,7 +68,8 @@ Welcome ──Get started──▶ Onboarding questions ──▶ Building your 
                          Home ◀── save plan to DB ◀── Sign up (email + password) ◀── Plan ready
 ```
 
-1. **Welcome** — logo, headline, phone demo image, `Get started`, `Sign in` link.
+1. **Welcome** — logo, headline, phone demo image, `Get started`, `Sign in` link. v2.8: the phone fades in and
+   floats gently, the words and buttons rise in after it.
 2. **Onboarding questions** (before auth, answers kept on device):
    1. Gender
    2. Birthday (18 or older, matching the Terms of Service)
@@ -78,7 +79,23 @@ Welcome ──Get started──▶ Onboarding questions ──▶ Building your 
    6. Desired weight (skipped when maintaining; a loss goal never below a BMI of 18.5)
    7. How active are you (weekly)
    8. Weekly pace in kg per week (skipped when maintaining; at most 1 kg a week)
-   9. Diet — classic / pescatarian / vegetarian / vegan
+   9. **Your path to 65 kg** (v2.8, skipped when maintaining): not a question — a chart that draws a straight line
+      from today's weight to the goal at the chosen pace, the goal weight counting down (or up) with it, the date
+      from `goalDate` (the same as on Plan ready), then weeks, pace and total. "A straight line assumes your pace
+      holds. Real weight change usually slows over time, and weight goes up and down from day to day." + Sources
+      (Daily calories). No results claims.
+   10. Diet — classic / pescatarian / vegetarian / vegan
+   11. **What's gotten in the way before?** (v2.8): any number of seven answers, none needed — logging takes too
+       long, eating out and takeout, not knowing what to eat, staying consistent, feeling hungry, what food costs,
+       eating enough on a GLP-1 medicine. Each one opens to show the part of Weight Class made for it
+       (`src/lib/onboarding-obstacles.ts`; Premium parts say "(Premium)" whenever payments are on). Kept on the
+       phone only, never sent to the server, the AI, analytics or Sentry, and cleared once the plan is saved.
+
+   **Motion (v2.8)**: on every question the title, subtitle and rows rise in 100 ms apart; a row gives under the
+   finger and pops when picked (selection haptic); Continue pops when the question gets its first answer; the
+   progress bar eases. Reduce Motion shows everything at once. Shared pieces: `src/components/ui/motion.tsx`
+   (`Rise`, `rise`, `useCountUp`) and `OptionRow`. The study behind the two new screens, and what was left out (a
+   rating prompt, testimonials, "How did you hear about us?", a paywall step): `research/onboarding-study.md`.
 3. **AI consent** (Apple 5.1.2(i)) — "EatME uses AI": which answers go where (OpenRouter,
    which passes them to OpenAI's model; the names come from `/api/features`), that later meal
    photos and descriptions go the same way, never name or email, no training, barcodes /
@@ -86,8 +103,12 @@ Welcome ──Get started──▶ Onboarding questions ──▶ Building your 
    (the formula plan; scans ask again).
 4. **Building your plan** — answers are sent to `POST /api/plan` with the consent choice; the
    server asks the AI only when allowed and answers with the plan (a few seconds, formula
-   fallback). The screen animates while it waits.
-5. **Plan ready** — daily calories, protein, carbs, fat + tips. `Continue`.
+   fallback). The screen animates while it waits. v2.8: the bar keeps up with the number, and the checklist names
+   the person's answers ("Calories · to lose 0.5 kg a week", "Protein · Active", "Carbs and fat · Vegetarian
+   diet", "Tips for you · 3 picks"), each line ticking with a haptic.
+5. **Plan ready** — daily calories, protein, carbs, fat + tips. `Continue`. v2.8: the check pops with a burst of the
+   macro colors, the goal and the four targets count up, and "How to reach your goals" becomes "Built for what got
+   in your way" (each answer from question 11 with what helps) when the person picked any.
 6. **Sign up** — name, email and password (at least 8 characters). After sign-up the app
    calls `POST /api/onboarding` and the calculated plan is stored in Postgres. Returning
    users sign in with email + password. No "forgot password" in V1 (needs an email
@@ -937,6 +958,17 @@ shopping list) and 3 (a store hand-off) wait for step 1's use and the owner.
 - [x] v2.7 · Step 1: grocery costs on Plan tomorrow's meals and day, a daily budget, `food_prices` (migration
   `0028_food_prices`, `npm run prices:build` each month); a browser run against the local server (9 November 2026);
   waiting on a receipt check and a phone run
+
+**v2.8 · A livelier onboarding** (14 November 2026, the owner's ask with the Galaxies.dev video on onboarding funnels;
+the study, competitors' lengths and what was left out: `research/onboarding-study.md`): motion on every screen, two
+screens built from the person's own answers ("Your path to 65 kg", "What's gotten in the way before?"), a livelier
+building screen and plan reveal (§3). No new data leaves the phone; no rating prompt, testimonials or results claims.
+- [x] v2.8 · Motion (`src/components/ui/motion.tsx`, `OptionRow`), the welcome screen, the path chart
+  (`src/components/onboarding/goal-path-chart.tsx`), the obstacles question, the building checklist and the plan
+  reveal; a browser run of the lose, gain and maintain paths (14 November 2026); waiting on a phone run (haptics,
+  Reduce Motion: `store/release.md` → Onboarding on a phone)
+- [ ] Owner's call (`research/onboarding-study.md`): a soft Premium offer with a trial reminder after sign-up; "How did
+  you hear about us?" (Privacy Policy and App Privacy first); the rating prompt after a first good scan
 
 **Eating out decisions** (checked September 2026; migration `restaurant_meals`; kept for the record, the
 feature was retired on 21 October 2026)

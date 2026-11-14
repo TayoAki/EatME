@@ -1,6 +1,7 @@
 import { Text, View } from 'react-native';
 
-import { OnboardingScreen } from '@/components/onboarding/onboarding-screen';
+import { OnboardingScreen, ROWS_AFTER_MS } from '@/components/onboarding/onboarding-screen';
+import { Rise } from '@/components/ui/motion';
 import { OptionRow } from '@/components/ui/option-row';
 import { useOnboardingStore } from '@/lib/onboarding-store';
 import { canLoseWeight, DEFAULT_WEEKLY_GOAL_KG, GOAL_LABELS, GOALS, lowestGoalWeightKg, type Goal } from '@/shared/onboarding';
@@ -33,13 +34,16 @@ export default function GoalStep() {
   return (
     <OnboardingScreen
       step="goal"
+      contentEnters={false}
       title="What is your goal?"
       subtitle="This helps us generate a plan for your calorie intake."
       canContinue={!!goal && (goal !== 'lose' || canLose)}>
       <View className="gap-3">
-        {GOALS.map((value) => (
+        {GOALS.map((value, index) => (
           <OptionRow
             key={value}
+            enterIndex={index}
+            enterAfter={ROWS_AFTER_MS}
             centered
             title={GOAL_LABELS[value]}
             selected={goal === value && (value !== 'lose' || canLose)}
@@ -48,10 +52,12 @@ export default function GoalStep() {
           />
         ))}
         {canLose ? null : (
-          <Text className="mt-1 text-center text-[14px] leading-5 text-muted">
-            Your weight is already at the low end of the healthy range for your height, so Weight Class doesn&apos;t set
-            weight-loss goals. Maintaining or gaining works.
-          </Text>
+          <Rise index={GOALS.length} after={ROWS_AFTER_MS}>
+            <Text className="mt-1 text-center text-[14px] leading-5 text-muted">
+              Your weight is already at the low end of the healthy range for your height, so Weight Class doesn&apos;t
+              set weight-loss goals. Maintaining or gaining works.
+            </Text>
+          </Rise>
         )}
       </View>
     </OnboardingScreen>

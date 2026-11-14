@@ -14,7 +14,8 @@ the weekly check-in, drinks, Plan tomorrow) are specified in `NEXT-FEATURES.md`:
 and keep it and PLAN.md in step. What to order (v2.5, version 1.1) is specified in `WHAT-TO-ORDER.md`, and Flamie (v2.6, version 1.2: the streak flame
 as a character that grows with the streak, never with weight) in `FLAMIE.md`. The customizable character it replaced is
 shelved in `CHARACTER.md`. Budget plans (v2.7: grocery costs and a daily budget in Plan tomorrow, from public US prices) are
-specified in `BUDGET-PLANS.md`.
+specified in `BUDGET-PLANS.md`. The livelier onboarding (v2.8: motion, "Your path to 65 kg", "What's gotten in the way
+before?") is in `PLAN.md` §3, and the study behind it, with what was left out and why, in `research/onboarding-study.md`.
 
 ## Workflow
 
