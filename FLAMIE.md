@@ -123,7 +123,7 @@ only, like every other reminder; none in calm mode.
 
 - **What's New:** "Meet Flamie, your streak flame. It grows taller and brighter with every day in a row, sparks when
   you reach your protein, water or fiber goals, and can check in on evenings you haven't logged, if you like."
-- **Screenshots:** one with Flamie (the streak sheet) in the 1.2 set.
+- **Screenshots:** one with Flamie (the streak sheet) in the 1.2 set: `store/screenshots/ios-6.9/04-flamie.png`.
 - **Privacy Policy and App Privacy:** nothing to change.
 
 ## 10. Choices made without the owner (easy to change)

@@ -103,8 +103,8 @@ App Store Connect → the app → the iOS version (1.0) → fill it from [`READM
 0. **Name (do this first; it reserves the name):** App Information → Name `Weight Class: Calorie Counter`, and on
    the version the subtitle `AI Food Scan & Macro Tracker`. The app record still says EatME until you change it.
 
-1. **Screenshots:** already uploaded for 1.0 (seven of them); leave them. The set now in `screenshots/` is 1.1's:
-   it shows What to order, which build 4 doesn't have.
+1. **Screenshots:** already uploaded for 1.0 (seven of them); leave them. The set now in `screenshots/` is 1.2's:
+   it shows What to order and Flamie, which build 4 doesn't have.
 2. **Texts:** promotional text, description, keywords (plus a Spanish (Mexico) localization for the second keyword
    list), support URL (`<server>/support`), copyright (leave the
    marketing URL empty until the landing page links the App Store).

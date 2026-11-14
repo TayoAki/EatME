@@ -59,7 +59,8 @@ screenshots in `store/screenshots/`. Update this file when the app changes.
 6. A fresh demo account (`npm run demo:account:remote -- --email review@<domain>` after deleting the old one), its credentials in App
    Review Information, and the notes from `store/README.md`.
 7. Screenshots from `store/screenshots/ios-6.9/` still match the app as the store build shows it: taken with the
-   production flag values (compare `/api/features`), Premium marked wherever a Premium card appears. Re-take them
-   when a screen changes.
+   production flag values (compare `/api/features`), Premium marked wherever a Premium card appears, no money on
+   them (Plan tomorrow's grocery line is covered), and our own phone frame (Apple's bezels are licensed only for
+   apps that run only on Apple platforms; Weight Class is on Google Play too). Re-take them when a screen changes.
 8. A TestFlight build tested on a real iPhone and an iPad: sign-in, AI consent, a scan, barcode, Apple Health
    switch, a sandbox purchase, Restore, Delete account.

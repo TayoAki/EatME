@@ -58,7 +58,7 @@ Policy if it says so.
 
 | Field | Answer |
 | --- | --- |
-| Screenshots | The iPhone 6.5" display slot on the version page: `screenshots/ios-6.5/01-home.png` to `09-search.png`, in that order (1284 × 2778), or the 6.9" slot in Media Manager: `screenshots/ios-6.9/` (1320 × 2868). One set is enough (no alpha; captions and rules in `screenshots/README.md`). This set is version 1.1's: 1.0 keeps the seven it was submitted with. Weight Class is iPhone-only (`supportsTablet: false`), so no iPad screenshots |
+| Screenshots | The iPhone 6.5" display slot on the version page: `screenshots/ios-6.5/01-snap.png` to `10-search.png`, in that order (1284 × 2778), or the 6.9" slot in Media Manager: `screenshots/ios-6.9/` (1320 × 2868). One set is enough (no alpha; captions and rules in `screenshots/README.md`). This set is version 1.2's (it shows What to order and Flamie): 1.0 keeps the seven it was submitted with. Weight Class is iPhone-only (`supportsTablet: false`), so no iPad screenshots |
 | Promotional text (170) | `Take a photo, describe your meal or scan a barcode. Weight Class estimates the calories, protein, carbs, fat and fiber, and keeps your day on track.` |
 | Keywords (100) | `loss,lose,diet,deficit,photo,scanner,protein,meal,planner,cut,cutting,glp-1,nutrition,barcode,diary` (99). No word from the name or subtitle: Apple combines the three, so `loss` + "Weight" already makes "weight loss". Never another app's or a medicine's brand name (Apple 2.3.7) |
 | Keywords, Spanish (Mexico) (100) | `semaglutide,tirzepatide,injection,dose,water,fiber,carb,drink,kcal,log,intake,portion,healthy,lean` (98). The US App Store also searches the Spanish (Mexico) listing, which doubles the keyword space: add that localization with the same English name, subtitle, description and screenshots, and these keywords. They combine with the name and subtitle, not with the English keywords |
@@ -456,7 +456,8 @@ Built from the branch after commit `3db4c9e` (`store/release.md`). On submission
       said "Data Not Collected" (published in September): the whole table above has to go in first, for 1.0 too
 - [ ] The What to order list from the version 2.5 section above (review notes block, support page lines, the
       `WHAT_TO_ORDER` flag, the demo account's free try), since 1.1 never went out on its own
-- [ ] Screenshots: one with Flamie (the streak sheet) in the 1.2 set (`FLAMIE.md` §9)
+- [ ] Screenshots: replace 1.0's seven with the ten in `screenshots/ios-6.5/` (`01-snap` to `10-search`, made on
+      14 November with real food photos and real AI scans; `04-flamie` is Flamie's streak sheet, `FLAMIE.md` §9)
 - [ ] The phone checks in `store/release.md`: Flamie, meal costs, onboarding, the Premium offer, trial reminder and
       rating
 
