@@ -447,6 +447,33 @@ and in 6. How Weight Class works out your numbers (the same method as the app's 
 </li>
 ```
 
+## Version 1.2.0 (Flamie, meal costs, the new onboarding, the Premium offer)
+
+Built from the branch after commit `3db4c9e` (`store/release.md`). On submission day:
+
+- [ ] App Privacy: add Other Data → Other Data Types (Analytics, linked, not tracking) for "How did you hear about
+      Weight Class?" (the table under App Privacy above), then Publish
+- [ ] Screenshots: one with Flamie (the streak sheet) in the 1.2 set (`FLAMIE.md` §9)
+- [ ] The phone checks in `store/release.md`: Flamie, meal costs, onboarding, the Premium offer, trial reminder and
+      rating
+
+**What's New (App Store, up to 4,000 characters):**
+
+```text
+Meet Flamie, your streak flame. It grows taller and brighter with every day in a row you log, sparks when you reach your protein, water or fiber goals, and can check in on evenings you haven't logged yet, if you turn that on in Reminders. It's about showing up, never about your weight.
+Grocery costs in Plan tomorrow: each drafted meal and the whole day show about what they cost to make at home, from US average prices. Set a daily budget and Plan tomorrow keeps your day close to it, without ever planning less than your minimum. Part of Weight Class Premium.
+Trial reminders: start a free trial of Weight Class Premium and Weight Class reminds you two days before it ends, with the date and the price.
+A livelier setup: making a new plan now moves with you, draws your path to your goal, and shows which parts of Weight Class help with what's gotten in your way before.
+```
+
+**What's new (Google Play release notes, up to 500 characters):**
+
+```text
+Meet Flamie, your streak flame: it grows with every day in a row you log and sparks when you reach your protein, water or fiber goals. Plan tomorrow (Premium) now shows about what each meal and the whole day cost to make at home, with an optional daily budget. Start a free trial of Premium and Weight Class reminds you two days before it ends. Making a new plan is livelier too.
+```
+
+No prices, savings or "cheap" in either (App Review 2.3.7 and 2.3.14, `BUDGET-PLANS.md` §7).
+
 ## Google Play Console
 
 ### Store listing
