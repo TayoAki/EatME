@@ -1,3 +1,4 @@
+import { trialReminderAt } from '@/shared/billing';
 import { FLAMIE_NUDGES, nudgePlan } from '@/shared/flamie';
 import { MEDICINE_FORM_LABELS, type Glp1Settings, type SupplyStatus } from '@/shared/glp1';
 
@@ -26,7 +27,12 @@ export type ReminderSettings = {
   planTomorrow: MealReminder;
   /** Flamie's check-in (v2.6, FLAMIE.md §5): evenings with nothing logged yet, gentler each day away, quiet after five. */
   flamie: MealReminder;
+  /** Weight Class Premium's free trial, started on this phone: a reminder two days before it ends (`trialReminderAt`). */
+  trialEnd: TrialReminder | null;
 };
+
+/** A free trial's end date (the store's, ISO), the price after it ("$39.99 / year") and the store's name. */
+export type TrialReminder = { enabled: boolean; endsAt: string; price: string; store: string };
 
 export const DEFAULT_REMINDERS: ReminderSettings = {
   breakfast: { enabled: false, hour: 8, minute: 30 },
@@ -38,6 +44,7 @@ export const DEFAULT_REMINDERS: ReminderSettings = {
   progressPhoto: { enabled: false, hour: 9, minute: 0, weekday: 0, startDate: null },
   planTomorrow: { enabled: false, hour: 20, minute: 0 },
   flamie: { enabled: false, hour: 19, minute: 30 },
+  trialEnd: null,
 };
 
 /** Days between progress photos. */
@@ -72,8 +79,16 @@ export type PlannedReminder = {
 export type ReminderContext = {
   supply?: SupplyStatus | null;
   flamie?: { today: string; lastShowedUp: string | null };
+  /** False once the server says the subscription won't renew (cancelled) or Premium ended: no trial reminder then. */
+  trialRenews?: boolean;
   now?: Date;
 };
+
+/** "Your Weight Class Premium trial ends on December 14. After that it's $39.99 / year, unless …" */
+export function trialReminderBody({ endsAt, price, store }: TrialReminder) {
+  const date = new Date(endsAt).toLocaleDateString([], { month: 'long', day: 'numeric' });
+  return `Your Weight Class Premium trial ends on ${date}. After that it's ${price}, unless you cancel before then in your ${store} settings.`;
+}
 
 const localAt = (isoDate: string, hour: number, minute: number, dayShift = 0) => {
   const [y, m, d] = isoDate.split('-').map(Number);
@@ -230,6 +245,21 @@ export function planReminders(settings: ReminderSettings, glp1: Glp1Settings | n
       url: '/weight',
       trigger: weekday === null ? { type: 'daily', hour, minute } : { type: 'weekly', weekday: weekday + 1, hour, minute },
     });
+  }
+
+  // The free trial: two days before it ends, unless it was cancelled (then nothing will be charged).
+  const trial = settings.trialEnd;
+  if (trial?.enabled && context.trialRenews !== false) {
+    const at = trialReminderAt(new Date(trial.endsAt));
+    if (at > now) {
+      planned.push({
+        identifier: `${REMINDER_PREFIX}trial-end`,
+        title: 'Your free trial ends in 2 days',
+        body: trialReminderBody(trial),
+        url: '/premium',
+        trigger: { type: 'date', date: at.toISOString() },
+      });
+    }
   }
   return planned;
 }

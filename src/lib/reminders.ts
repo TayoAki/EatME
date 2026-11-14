@@ -6,7 +6,7 @@ import { Platform } from 'react-native';
 
 import { lastShowedUp } from '@/shared/flamie';
 
-import { useGlp1, useProfile, useStreak } from './queries';
+import { useBilling, useGlp1, useProfile, useStreak } from './queries';
 import { planReminders, REMINDER_PREFIX, type PlannedReminder } from './reminder-plan';
 import { useReminderStore } from './reminder-store';
 
@@ -104,7 +104,10 @@ export function useReminderSync() {
   // Flamie's check-in needs the last day with a logged meal: logging one moves tonight's nudge on. None in calm mode.
   const streak = useStreak().data;
   const flamie = settings.flamie.enabled && !profile?.preferences.calmMode && streak ? { today: streak.today, lastShowedUp: lastShowedUp(streak) } : undefined;
-  const plan = JSON.stringify(planReminders(settings, glp1, { supply, flamie }));
+  // A free trial started on this phone: no reminder once it's cancelled (won't renew) or Premium has ended.
+  const billing = useBilling(!!settings.trialEnd?.enabled).data;
+  const trialRenews = billing ? billing.premium && billing.willRenew : undefined;
+  const plan = JSON.stringify(planReminders(settings, glp1, { supply, flamie, trialRenews }));
 
   useEffect(() => {
     if (!remindersSupported) return;

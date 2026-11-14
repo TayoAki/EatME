@@ -14,6 +14,7 @@ export const ONBOARDING_STEPS = [
   'projection',
   'diet',
   'obstacles',
+  'referral',
 ] as const;
 export type OnboardingStep = (typeof ONBOARDING_STEPS)[number];
 
@@ -29,6 +30,7 @@ const STEP_HREF: Record<OnboardingStep, Href> = {
   projection: '/onboarding/projection',
   diet: '/onboarding/diet',
   obstacles: '/onboarding/obstacles',
+  referral: '/onboarding/referral',
 };
 
 /** Maintaining weight skips the desired-weight and pace questions and the path to the goal. */

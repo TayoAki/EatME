@@ -16,6 +16,7 @@ import { notify } from '@/lib/confirm';
 import { haptics } from '@/lib/haptics';
 import { useProfile } from '@/lib/queries';
 import { firstPhotoDay, formatTimeOfDay, MEAL_SLOTS, type MealSlot, type ReminderSettings, type TimeOfDay } from '@/lib/reminder-plan';
+import { trialReminderAt } from '@/shared/billing';
 import { useReminderStore } from '@/lib/reminder-store';
 import {
   getNotificationPermission,
@@ -55,6 +56,9 @@ function usePermission() {
   return [permission, setPermission] as const;
 }
 
+/** "December 12". */
+const longDay = (date: Date) => date.toLocaleDateString([], { month: 'long', day: 'numeric' });
+
 function ReminderRow({
   title,
   subtitle,
@@ -62,6 +66,7 @@ function ReminderRow({
   disabled,
   onToggle,
   onPressDetail,
+  detailLabel = 'Change the time',
   first,
 }: {
   title: string;
@@ -70,13 +75,15 @@ function ReminderRow({
   disabled: boolean;
   onToggle: (on: boolean) => void;
   onPressDetail: () => void;
+  /** What tapping the row does, for screen readers. */
+  detailLabel?: string;
   first?: boolean;
 }) {
   return (
     <View className={`min-h-[64px] flex-row items-center gap-3 px-4 ${first ? '' : 'border-t border-line'}`}>
       <Pressable
         accessibilityRole="button"
-        accessibilityLabel={`${title}, ${subtitle}. Change the time`}
+        accessibilityLabel={`${title}, ${subtitle}. ${detailLabel}`}
         disabled={disabled}
         onPress={onPressDetail}
         className="flex-1 py-3 active:opacity-60">
@@ -253,6 +260,7 @@ export default function RemindersScreen() {
   };
 
   const water = settings.water;
+  const trial = settings.trialEnd;
   const doseSubtitle = glp1
     ? `${glp1.schedule === 'weekly' && glp1.doseWeekday !== null ? WEEKDAYS[glp1.doseWeekday] : 'Every day'} at ${formatTimeOfDay(settings.dose)}`
     : '';
@@ -428,6 +436,28 @@ export default function RemindersScreen() {
             </View>
             <Text className="ml-1 mt-2 text-[13px] leading-[18px] text-muted">
               Reminds you on the day you set in GLP-1 mode. It never changes your schedule.
+            </Text>
+          </View>
+        ) : null}
+
+        {trial && trialReminderAt(new Date(trial.endsAt)) > new Date() ? (
+          <View>
+            <Text className="mb-2 ml-1 text-[15px] font-medium text-muted">Weight Class Premium</Text>
+            <View className="overflow-hidden rounded-[20px] border border-line">
+              <ReminderRow
+                first
+                title="Free trial ends"
+                subtitle={`On ${longDay(trialReminderAt(new Date(trial.endsAt)))}, two days before`}
+                enabled={trial.enabled}
+                disabled={disabled}
+                onToggle={(on) => void toggle({ trialEnd: { ...trial, enabled: on } }, on)}
+                onPressDetail={() => router.push('/premium')}
+                detailLabel="Open Weight Class Premium"
+              />
+            </View>
+            <Text className="ml-1 mt-2 text-[13px] leading-[18px] text-muted">
+              Your free trial ends on {longDay(new Date(trial.endsAt))}. After that it&apos;s {trial.price}, unless you
+              cancel before then in your {trial.store} settings.
             </Text>
           </View>
         ) : null}

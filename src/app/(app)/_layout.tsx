@@ -6,6 +6,7 @@ import { useSession } from '@/lib/auth-client';
 import { billingSupported, identifyBillingUser } from '@/lib/billing';
 import { HealthSync } from '@/lib/health';
 import { useHealthStore } from '@/lib/health-store';
+import { usePremiumOfferAfterSignUp } from '@/lib/premium-offer';
 import { useFeatures, useMe, useUpdateProfile } from '@/lib/queries';
 import { useNotificationRouting, useReminderSync } from '@/lib/reminders';
 import { WaterWidgetSync, waterWidgetSupported } from '@/lib/water-widget';
@@ -43,6 +44,7 @@ function useBillingIdentity() {
 export default function AppLayout() {
   useSyncTimeZone();
   useBillingIdentity();
+  usePremiumOfferAfterSignUp();
   useReminderSync();
   useNotificationRouting();
   const healthSync = useHealthStore((state) => state.enabled);
@@ -65,6 +67,7 @@ export default function AppLayout() {
         <Stack.Screen name="weight" />
         <Stack.Screen name="verify-email" />
         <Stack.Screen name="premium" />
+        <Stack.Screen name="premium-offer" options={{ presentation: 'fullScreenModal', gestureEnabled: false }} />
         <Stack.Screen name="preferences" />
         <Stack.Screen name="personal-foods" />
         <Stack.Screen name="restaurant/[slug]" />

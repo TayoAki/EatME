@@ -38,6 +38,8 @@ type OnboardingScreenProps = {
   scrollable?: boolean;
   /** False when the screen's rows rise one by one themselves (`OptionRow`'s `enterIndex`). */
   contentEnters?: boolean;
+  /** The button's label: "Skip" on an optional question nobody answered yet. */
+  continueTitle?: string;
   children: ReactNode;
 };
 
@@ -50,6 +52,7 @@ export function OnboardingScreen({
   onContinue,
   scrollable = false,
   contentEnters = true,
+  continueTitle = 'Continue',
   children,
 }: OnboardingScreenProps) {
   const reduceMotion = useReducedMotion();
@@ -128,7 +131,7 @@ export function OnboardingScreen({
 
       <Animated.View style={[{ paddingHorizontal: 24, paddingTop: 12 }, buttonStyle]}>
         <Button
-          title="Continue"
+          title={continueTitle}
           disabled={!canContinue}
           onPress={() => {
             onContinue?.();

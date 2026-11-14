@@ -1,4 +1,4 @@
-import { router } from 'expo-router';
+import { router, useIsFocused } from 'expo-router';
 import { Camera, ChevronRight, Copy, Plus, Search } from 'lucide-react-native';
 import { useMemo, useState } from 'react';
 import { ActivityIndicator, Pressable, RefreshControl, ScrollView, Text, View } from 'react-native';
@@ -28,6 +28,7 @@ import { colors } from '@/constants/colors';
 import { notify } from '@/lib/confirm';
 import { useFlamie } from '@/lib/flamie';
 import { haptics } from '@/lib/haptics';
+import { useRatingPrompt } from '@/lib/rating';
 import {
   useAddWater,
   useCopyDay,
@@ -80,6 +81,8 @@ function Home({ profile }: { profile: Profile }) {
   // Flamie (FLAMIE.md): today's goals reached are its sparks, whichever day the strip shows.
   const today = todayIso();
   const todayMeals = useMeals(today);
+  // The store's rating sheet, once, after the first scan that finished well while Home was open.
+  useRatingPrompt(todayMeals.data?.meals, useIsFocused());
   const todayWater = useWater(today);
   const sparks = useMemo<Spark[] | undefined>(() => {
     if (!todayMeals.data || !todayWater.data) return undefined;

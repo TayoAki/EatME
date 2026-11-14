@@ -8,15 +8,17 @@
 Weight Class asked fewer questions than any app it competes with: **12 to 14 screens** from Welcome to sign-up (7 to 9
 questions). Health and fitness apps average **36**. Length itself doesn't convert, though: what works in the long
 flows is that every screen either personalizes the plan or shows the person their plan taking shape. So v2.8 adds the
-two screens that do that (**13 to 16 screens** now) and puts motion on every screen, and leaves out the parts of the
-video's funnel that break Weight Class's own rules (a rating prompt, testimonials, results claims).
+two screens that do that and an optional "How did you hear about Weight Class?" (**14 to 17 screens** now), puts motion
+on every screen, and keeps the parts of the video's funnel that break Weight Class's own rules out of onboarding: a
+rating prompt (it comes after the first good scan instead), testimonials and results claims. The video's trial pages
+became a Premium offer after sign-up.
 
 ## How long the others are
 
 | App | Onboarding | Source |
 | --- | --- | --- |
 | Weight Class before v2.8 | 12–14 screens: Welcome, 7–9 questions, AI consent, building, plan ready, sign-up | this repo |
-| Weight Class v2.8 | 13–16 screens: adds "Your path to 65 kg" (lose or gain) and "What's gotten in the way before?" | this repo |
+| Weight Class v2.8 | 14–17 screens: adds "Your path to 65 kg" (lose or gain), "What's gotten in the way before?" and "How did you hear about Weight Class?" (optional), then a Premium offer after sign-up for people who can get a free trial | this repo |
 | Average of 1,460 flows (986 apps) | 25 screens (from 3 to 187); **Health & Fitness 35.8**, Food & Drink 18.8 | [Mobbin](https://mobbin.com/blog/the-long-onboarding-a-study-of-1-460-flows) |
 | Cal AI | "25+ onboarding cards before serving a tailored paywall", with stats between the questions | [Adapty](https://adapty.io/blog/markdown/how-to-personalize-onboarding-and-paywalls-in-your-mobile-app.md); screens at [ScreensDesign](https://screensdesign.com/apps/cal-ai-calorie-tracker/) |
 | MenuFit | 34 steps, then a hard paywall; the founder says 99.8% finish the quiz (unverified) | `research/menufit-teardown.md` |
@@ -52,21 +54,24 @@ video's funnel that break Weight Class's own rules (a rating prompt, testimonial
 | Fade-ins 100 ms apart, haptics on select | **Added** everywhere: title, subtitle and rows rise 100 ms apart; rows give under the finger and pop when picked, with a selection haptic; Continue pops when the question gets its answer | Reanimated entrances follow Reduce Motion |
 | "Customizing your plan" spinner | Kept and livelier: the bar keeps up with the number, the checklist ticks with a haptic and names the person's own answers ("to lose 0.5 kg a week", "Active", "Vegetarian diet") | |
 | Plan reveal | Livelier: the check pops with a burst of the macro colors, the goal and the four targets count up | |
-| "How did you hear about us?" | **Not yet** | New data sent to our server: needs the Privacy Policy and the App Privacy answers changed first. The owner's call (below) |
-| A rating prompt | **No** | `PLAN.md`: no rating prompt before a first good scan; the TapCook and MenuFit evidence above |
+| "How did you hear about us?" | **Added** (14 November): the last question, optional ("Skip"), saved on the account | New data sent to our server, so the Privacy Policy and App Privacy name it; never sent to AI or used for ads |
+| A rating prompt | **Not in onboarding**; after the first good scan instead (14 November) | `PLAN.md`: no rating prompt before a first good scan; the TapCook and MenuFit evidence above |
 | Testimonials | **No** | No real ones yet; invented or paid-for reviews break the FTC's rule on reviews and testimonials (16 CFR 465) |
-| Trial features page, trial reminder with a bell, then the paywall | **Not yet** | Weight Class is free to use with an optional Premium; the plan-ready screen says what's free and the price. A paywall step is a product decision (below) |
+| Trial features page, trial reminder with a bell, then the paywall | **Added after sign-up** (14 November), not in onboarding | Shown once, only to people the store will give a free trial, with a real reminder two days before it ends; onboarding itself stays free of a paywall |
 
-## For the owner to decide next
+## What came next (built 14 November 2026, the owner's ask)
 
 1. **A soft Premium offer right after sign-up**, the honest version of the video's last three screens: what Premium
-   adds, a real reminder two days before the trial ends (a notification Weight Class schedules, shown with a bell), the
-   billed price as the biggest price, "Not now" as easy as "Start free trial". With 89% of trial starts on day one,
-   this is the biggest lever left; it changes App Review notes (3.1.2) and the screenshots.
-2. **"How did you hear about us?"**, optional, one tap: useful for the TikTok campaigns, but the Privacy Policy and
-   App Store Connect's App Privacy answers change first.
-3. **The rating prompt after a first good scan** (Apple's own sheet through `expo-store-review`, which allows three a
-   year), as `PLAN.md` already allows.
-4. **Measure before adding more screens**: Sentry already logs "Onboarding plan generated" and "Onboarding completed";
-   their ratio is the share who reach the plan and make an account. A step-by-step drop-off needs an analytics event
-   per screen, which the Privacy Policy would have to name.
+   adds, then a ringing bell over a timeline (today, the reminder two days before the trial ends, the day the price
+   starts), the billed price as the biggest price, "Not now" as easy as "Start free trial", and a real reminder
+   notification Weight Class schedules. Only for people the store will give a trial (`PLAN.md` §3).
+2. **"How did you hear about Weight Class?"**, optional, one tap, saved on the account; the Privacy Policy names it
+   and App Privacy gets Other Data (Analytics) (`store/README.md`).
+3. **The rating prompt after the first good scan**: the store's own sheet, once, never in onboarding (`PLAN.md`).
+
+Still to do: **measure before adding more screens**. Sentry logs "Onboarding plan generated", "Onboarding
+completed", "Premium offer shown", "Premium offer: not now" and "Premium offer: trial started"; their ratios show how
+many reach the plan, make an account and start a trial. A step-by-step drop-off needs an analytics event per screen,
+which the Privacy Policy would have to name. The answers to "How did you hear about Weight Class?" can be counted in
+Railway → Postgres (read only): `select referral_source, count(*) from users where onboarding_completed_at > now() -
+interval '30 days' group by 1 order by 2 desc;`

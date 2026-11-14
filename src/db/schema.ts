@@ -128,6 +128,8 @@ export const users = pgTable('users', {
   planSource: planSourceEnum(),
   planSummary: text(),
   onboardingCompletedAt: timestamp({ withTimezone: true }),
+  /** "How did you hear about Weight Class?" (v2.8, optional, in onboarding): a `REFERRAL_SOURCES` key. Empty = skipped. */
+  referralSource: text(),
 
   // The user's own daily goals. Empty = use the recommended value (src/shared/nutrition.ts).
   dailyFiberG: integer(),

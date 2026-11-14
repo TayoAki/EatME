@@ -9,6 +9,7 @@ import {
   onboardingAnswersSchema,
   type NutritionPlan,
   type OnboardingAnswers,
+  type ReferralSource,
 } from '@/shared/onboarding';
 
 /** A plan that was generated but not saved yet (e.g. the user still has to sign up). */
@@ -33,10 +34,13 @@ type OnboardingState = {
   pendingSaveAt: number | null;
   /** What got in the way before (picked in onboarding): kept on this phone only, never sent anywhere. */
   obstacles: Obstacle[];
+  /** "How did you hear about Weight Class?" (optional): saved with the plan after sign-up, never sent to AI. */
+  referral: ReferralSource | null;
   setAnswers: (answers: Partial<OnboardingAnswers>) => void;
   setPlan: (plan: NutritionPlan) => void;
   setAiConsent: (allowed: boolean, version: number) => void;
   toggleObstacle: (obstacle: Obstacle) => void;
+  setReferral: (referral: ReferralSource | null) => void;
   markPendingSave: () => void;
   clearPendingSave: () => void;
   reset: () => void;
@@ -51,6 +55,7 @@ export const useOnboardingStore = create<OnboardingState>()(
       aiConsentVersion: null,
       pendingSaveAt: null,
       obstacles: [],
+      referral: null,
       setAnswers: (answers) => set((s) => ({ answers: { ...s.answers, ...answers } })),
       setPlan: (plan) => set({ plan }),
       setAiConsent: (aiConsent, aiConsentVersion) => set({ aiConsent, aiConsentVersion }),
@@ -58,21 +63,31 @@ export const useOnboardingStore = create<OnboardingState>()(
         set((s) => ({
           obstacles: s.obstacles.includes(obstacle) ? s.obstacles.filter((o) => o !== obstacle) : [...s.obstacles, obstacle],
         })),
+      setReferral: (referral) => set({ referral }),
       markPendingSave: () => set({ pendingSaveAt: Date.now() }),
       clearPendingSave: () => set({ pendingSaveAt: null }),
       reset: () =>
-        set({ answers: DEFAULT_ANSWERS, plan: null, aiConsent: null, aiConsentVersion: null, pendingSaveAt: null, obstacles: [] }),
+        set({
+          answers: DEFAULT_ANSWERS,
+          plan: null,
+          aiConsent: null,
+          aiConsentVersion: null,
+          pendingSaveAt: null,
+          obstacles: [],
+          referral: null,
+        }),
     }),
     {
       name: 'eatme-onboarding',
       storage: createJSONStorage(() => AsyncStorage),
-      partialize: ({ answers, plan, aiConsent, aiConsentVersion, pendingSaveAt, obstacles }) => ({
+      partialize: ({ answers, plan, aiConsent, aiConsentVersion, pendingSaveAt, obstacles, referral }) => ({
         answers,
         plan,
         aiConsent,
         aiConsentVersion,
         pendingSaveAt,
         obstacles,
+        referral,
       }),
       // A finished onboarding that was never saved (no sign-up) expires after a week.
       onRehydrateStorage: () => (state) => {
@@ -94,7 +109,13 @@ export function completeAnswers(answers: Partial<OnboardingAnswers>): Onboarding
   return parsed.success ? parsed.data : null;
 }
 
-export type PendingOnboarding = { answers: OnboardingAnswers; plan: NutritionPlan; aiConsent: boolean; aiConsentVersion?: number };
+export type PendingOnboarding = {
+  answers: OnboardingAnswers;
+  plan: NutritionPlan;
+  aiConsent: boolean;
+  aiConsentVersion?: number;
+  referralSource?: ReferralSource;
+};
 
 /** The answers + plan waiting to be saved after sign-up, if they are still fresh. */
 export function usePendingOnboarding(): PendingOnboarding | null {
@@ -103,11 +124,20 @@ export function usePendingOnboarding(): PendingOnboarding | null {
   const aiConsent = useOnboardingStore((s) => s.aiConsent);
   const aiConsentVersion = useOnboardingStore((s) => s.aiConsentVersion);
   const pendingSaveAt = useOnboardingStore((s) => s.pendingSaveAt);
+  const referral = useOnboardingStore((s) => s.referral);
   return useMemo(() => {
     if (!pendingSaveAt || !plan) return null;
     const complete = completeAnswers(answers);
-    return complete ? { answers: complete, plan, aiConsent: !!aiConsent, ...(aiConsent && aiConsentVersion ? { aiConsentVersion } : {}) } : null;
-  }, [answers, plan, aiConsent, aiConsentVersion, pendingSaveAt]);
+    return complete
+      ? {
+          answers: complete,
+          plan,
+          aiConsent: !!aiConsent,
+          ...(aiConsent && aiConsentVersion ? { aiConsentVersion } : {}),
+          ...(referral ? { referralSource: referral } : {}),
+        }
+      : null;
+  }, [answers, plan, aiConsent, aiConsentVersion, pendingSaveAt, referral]);
 }
 
 const subscribeToHydration = (onChange: () => void) => useOnboardingStore.persist.onFinishHydration(onChange);

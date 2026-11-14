@@ -2,8 +2,9 @@ import * as Sentry from '@sentry/react-native';
 import { useEffect, useRef } from 'react';
 
 import { ErrorScreen, LoadingScreen } from '@/components/full-screen-state';
-import { authClient } from '@/lib/auth-client';
+import { authClient, useSession } from '@/lib/auth-client';
 import { useOnboardingStore, type PendingOnboarding } from '@/lib/onboarding-store';
+import { usePremiumOfferStore } from '@/lib/premium-offer';
 import { useSaveOnboarding } from '@/lib/queries';
 import { deviceTimeZone } from '@/lib/time';
 
@@ -14,6 +15,7 @@ import { deviceTimeZone } from '@/lib/time';
 export function FinishOnboarding({ pending }: { pending: PendingOnboarding }) {
   const save = useSaveOnboarding();
   const reset = useOnboardingStore((s) => s.reset);
+  const { userId } = useSession();
   const started = useRef(false);
 
   const run = () =>
@@ -22,6 +24,8 @@ export function FinishOnboarding({ pending }: { pending: PendingOnboarding }) {
       {
         onSuccess: () => {
           Sentry.logger.info('Onboarding completed', { planSource: pending.plan.source, aiConsent: pending.aiConsent });
+          // A new account sees the Premium offer once, if the store can give it a free trial (premium-offer.ts).
+          if (userId) usePremiumOfferStore.getState().markPending(userId);
           reset();
         },
         onError: (error) => Sentry.logger.error('Saving the onboarding plan failed', { error: error.message }),

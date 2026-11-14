@@ -219,6 +219,30 @@ v2.8 (`PLAN.md` §3), in the next version built from the branch. Delete the app 
 - [ ] **Reduce Motion** (Settings → Accessibility → Motion): everything appears at once, nothing floats or counts
 - [ ] **VoiceOver**: the rows read as radio buttons (checkboxes on the obstacles question), the chart and the targets
       read their final numbers
+- [ ] **How did you hear about Weight Class?**: the last question says "Skip" until something is picked; after sign-up
+      the answer is on the account (Railway → Postgres, read only:
+      `select referral_source from users order by created_at desc limit 5;`)
+
+## Premium offer, trial reminder and rating on a phone (the same build)
+
+`PLAN.md` §3 and the honest-paywall rules. TestFlight buys in the sandbox for free; use a tester Apple Account that
+never had the trial:
+
+- [ ] **The offer**: a new account (delete the app, sign up) sees "Get more out of your plan" once the plan is saved,
+      then Continue → the ringing bell, the timeline (today, the reminder day, the end day), both plans with the
+      billed price as the biggest price, Start free trial, the terms with the end date, Restore, Terms, Privacy.
+      "Not now" and the X close it; it never comes back for that account. An Apple Account that already had the trial
+      sees no offer at all
+- [ ] **Starting the trial**: the store sheet, then the system notification alert (nothing of ours before it), then
+      "You're Premium … We'll remind you on …"; Profile → Premium shows the renewal date. A sandbox trial lasts
+      minutes, so its reminder date is already past and none is scheduled: check the reminder with
+      `planReminders` instead, or with a month-long trial in production
+- [ ] **Profile → Reminders**: "Free trial ends" with the reminder day and a switch; cancelling the subscription in
+      Settings → Apple Account → Subscriptions removes it the next time the app opens
+- [ ] **The Premium screen**: starting the trial there also plans the reminder and says when
+- [ ] **Rating**: in a development build (TestFlight never shows Apple's sheet), scan a meal by photo or description and
+      stay on Home: about 2.5 seconds after its numbers appear, Apple's rating sheet shows once; never again on that
+      phone, never after a rough-estimate scan or while its question waits
 
 ## Android (Google Play internal testing)
 

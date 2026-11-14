@@ -15,7 +15,8 @@ and keep it and PLAN.md in step. What to order (v2.5, version 1.1) is specified 
 as a character that grows with the streak, never with weight) in `FLAMIE.md`. The customizable character it replaced is
 shelved in `CHARACTER.md`. Budget plans (v2.7: grocery costs and a daily budget in Plan tomorrow, from public US prices) are
 specified in `BUDGET-PLANS.md`. The livelier onboarding (v2.8: motion, "Your path to 65 kg", "What's gotten in the way
-before?") is in `PLAN.md` §3, and the study behind it, with what was left out and why, in `research/onboarding-study.md`.
+before?", "How did you hear about Weight Class?"), the Premium offer after sign-up with its trial reminder, and the
+rating prompt are in `PLAN.md` (§3 and the honest-paywall rules); the study behind them in `research/onboarding-study.md`.
 
 ## Workflow
 

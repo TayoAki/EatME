@@ -13,7 +13,9 @@ import { saveOnboardingSchema } from '@/shared/onboarding';
 /** Saves the onboarding answers + the AI plan right after sign-up (the account row already exists). */
 export const POST = handle(async (request) => {
   const userId = await requireUserId(request);
-  const { answers, plan: sentPlan, timezone, aiConsent, aiConsentVersion } = saveOnboardingSchema.parse(await readJson(request));
+  const { answers, plan: sentPlan, timezone, aiConsent, aiConsentVersion, referralSource } = saveOnboardingSchema.parse(
+    await readJson(request),
+  );
   // The plan comes from the app: never store one below the safety floor.
   const plan = sentPlan.calories >= minimumCalories(answers.gender) ? sentPlan : formulaPlan(answers);
 
@@ -40,6 +42,8 @@ export const POST = handle(async (request) => {
       planSummary: plan.summary,
       onboardingCompletedAt: new Date(),
       ...(aiConsent !== undefined ? aiConsentValues(aiConsent, aiConsentVersion) : {}),
+      // Optional: a skipped question never clears an earlier answer.
+      ...(referralSource ? { referralSource } : {}),
     })
     .where(eq(users.id, userId))
     .returning();

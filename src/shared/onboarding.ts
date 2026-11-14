@@ -92,6 +92,37 @@ export const planRequestSchema = onboardingAnswersObject.extend({ aiConsent: z.b
 export const MENU_CONSENT_VERSION = 2;
 
 /**
+ * "How did you hear about Weight Class?" (v2.8, the last onboarding question, optional): saved on the account with the
+ * plan (`users.referral_source`) to see where people find Weight Class. Never sent to AI, never shared.
+ */
+export const REFERRAL_SOURCES = [
+  'tiktok',
+  'instagram',
+  'youtube',
+  'facebook',
+  'reddit',
+  'search',
+  'ai_assistant',
+  'app_store',
+  'friend',
+  'other',
+] as const;
+export type ReferralSource = (typeof REFERRAL_SOURCES)[number];
+
+export const REFERRAL_LABELS: Record<ReferralSource, string> = {
+  tiktok: 'TikTok',
+  instagram: 'Instagram',
+  youtube: 'YouTube',
+  facebook: 'Facebook',
+  reddit: 'Reddit',
+  search: 'Google or another search engine',
+  ai_assistant: 'ChatGPT or another AI assistant',
+  app_store: 'App Store',
+  friend: 'A friend or family member',
+  other: 'Somewhere else',
+};
+
+/**
  * Body of `POST /api/onboarding`. `aiConsent`: the choice on the AI consent screen;
  * `aiConsentVersion`: the wording it showed (`MENU_CONSENT_VERSION` names menus).
  */
@@ -101,6 +132,7 @@ export const saveOnboardingSchema = z.object({
   timezone: z.string().min(1).max(100),
   aiConsent: z.boolean().optional(),
   aiConsentVersion: z.number().int().min(1).max(MENU_CONSENT_VERSION).optional(),
+  referralSource: z.enum(REFERRAL_SOURCES).optional(),
 });
 export type SaveOnboardingBody = z.infer<typeof saveOnboardingSchema>;
 

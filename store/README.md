@@ -158,8 +158,10 @@ process data for Weight Class as service providers, so nothing is "shared" for t
 | Diagnostics → Crash Data, Performance Data, Other Diagnostic Data | Sentry crash reports, performance samples, diagnostic logs | when `EXPO_PUBLIC_SENTRY_DSN` is set |
 | Purchases → Purchase History | subscriptions, through RevenueCat | always (payments are on) |
 | Contact Info, Identifiers → used for Apple / Google sign-in | Apple or Google account ID (Apple may give a relay email) | when Apple or Google sign-in is on (already covered by Email Address and User ID) |
+| Other Data → Other Data Types | the answer to "How did you hear about Weight Class?" (TikTok, a friend …), optional, saved with the account (v2.8). **Purpose: Analytics** (not App Functionality); linked to the user; not used for tracking | when the person answers |
 
-Not collected: product interaction (Sentry session replay is off in store builds, `src/lib/sentry.ts`), location (the device time zone is stored only to know where your day starts and ends), contacts,
+Not collected: the answers to "What's gotten in the way before?" (they stay on the phone), the trial reminder (a
+local notification), the App Store rating (Apple's own sheet; Weight Class never sees it), product interaction (Sentry session replay is off in store builds, `src/lib/sentry.ts`), location (the device time zone is stored only to know where your day starts and ends), contacts,
 browsing or search history (food searches are answered and not stored), financial info, sensitive info, audio,
 body scans, device IDs and advertising data. Apple Health: Weight Class writes to it on the device and, when the person
 turns on "Read activity and sleep", reads steps, active energy, workouts and sleep to show them in the app. That
@@ -182,6 +184,7 @@ TESTING WITHOUT FOOD
 Scan → "Describe a meal" (e.g. "two eggs on toast"), a food photo from the library, or any packaged food's barcode.
 
 WEIGHT CLASS PREMIUM (IN-APP PURCHASE)
+A new account sees Weight Class Premium once, right after its plan is saved, and only when the App Store says it can get the free trial: what Premium adds, then the trial's timeline (today, a reminder two days before the trial ends, the day the price starts) with the prices, Start free trial, the renewal terms, Restore purchases, Terms and Privacy. "Not now" and the X close it. Starting a trial asks for notifications with the system alert only, for the reminder Weight Class sends two days before the trial ends.
 The demo account is on the free plan (3 AI scans a day). Profile → Weight Class Premium shows both auto-renewable subscriptions (monthly, yearly; one group) with prices, the free trial when the account can get it, Restore purchases, and Terms and Privacy links. A sandbox purchase unlocks unlimited scans, several photos per meal, the weekly check-in (Profile → Daily goals) and Plan tomorrow: on Home, tap tomorrow's date in the week strip (any time of day). Nothing changes the target or logs a meal without the user's tap.
 
 HEALTH AND SAFETY (1.4.1)
@@ -189,6 +192,9 @@ Every number Weight Class works out cites its sources inside the app, with links
 
 CAMERA (5.1.1(iv))
 Scan asks for the camera with the system alert only; there is no screen of ours before it. If the camera is turned down, Scan says the camera is off and offers Open Settings, plus ways to log without it (choose a photo, describe a meal, search foods).
+
+RATINGS (5.6.1)
+Weight Class only asks with Apple's own rating sheet (SKStoreReviewController), once, a few seconds after the first AI scan finishes on Home. No question of ours before it.
 
 GLP-1 MODE
 Profile → GLP-1 mode logs the user's own medicine, doses, injection sites and side effects. No dosing advice and no dose, unit or reconstitution calculations; supply is a count of pens or vials the user enters.

@@ -90,12 +90,18 @@ Welcome ──Get started──▶ Onboarding questions ──▶ Building your 
        eating enough on a GLP-1 medicine. Each one opens to show the part of Weight Class made for it
        (`src/lib/onboarding-obstacles.ts`; Premium parts say "(Premium)" whenever payments are on). Kept on the
        phone only, never sent to the server, the AI, analytics or Sentry, and cleared once the plan is saved.
+   12. **How did you hear about Weight Class?** (v2.8, optional; the button reads "Skip" until something is picked,
+       a second tap takes the pick back): TikTok, Instagram, YouTube, Facebook, Reddit, Google or another search
+       engine, ChatGPT or another AI assistant, App Store (Google Play on Android), a friend or family member,
+       somewhere else (`REFERRAL_SOURCES`). Kept on the phone until sign-up, then saved with the plan
+       (`users.referral_source`, migration `0029_referral_source`); never sent to AI, never shared, never used for
+       ads. Privacy Policy and App Privacy (Other Data, Analytics) name it.
 
    **Motion (v2.8)**: on every question the title, subtitle and rows rise in 100 ms apart; a row gives under the
    finger and pops when picked (selection haptic); Continue pops when the question gets its first answer; the
    progress bar eases. Reduce Motion shows everything at once. Shared pieces: `src/components/ui/motion.tsx`
-   (`Rise`, `rise`, `useCountUp`) and `OptionRow`. The study behind the two new screens, and what was left out (a
-   rating prompt, testimonials, "How did you hear about us?", a paywall step): `research/onboarding-study.md`.
+   (`Rise`, `rise`, `useCountUp`) and `OptionRow`. The study behind the new screens, and what stays out of onboarding
+   (a rating prompt, testimonials, a paywall step): `research/onboarding-study.md`.
 3. **AI consent** (Apple 5.1.2(i)) — "EatME uses AI": which answers go where (OpenRouter,
    which passes them to OpenAI's model; the names come from `/api/features`), that later meal
    photos and descriptions go the same way, never name or email, no training, barcodes /
@@ -113,6 +119,19 @@ Welcome ──Get started──▶ Onboarding questions ──▶ Building your 
    calls `POST /api/onboarding` and the calculated plan is stored in Postgres. Returning
    users sign in with email + password. No "forgot password" in V1 (needs an email
    service — V2).
+   **Premium offer** (v2.8, `src/app/(app)/premium-offer.tsx`, `src/lib/premium-offer.ts`): once the plan is
+   saved, a new account sees one offer, but only when payments are on, the app is a store build, the account isn't
+   Premium and the store says this person can still get a free trial (`premiumOptions`); otherwise nothing shows.
+   Two steps, "Not now" always one tap away (the X and a button): what Premium adds and what stays free, then
+   "We'll remind you before your trial ends" — a ringing bell and a timeline (Today: Premium free for 1 month;
+   two days before the end: a reminder; the end date: the price starts unless cancelled), the plans with the billed
+   price as the biggest price on screen, `Start free trial`, the renewal terms with the end date, Restore purchases,
+   Terms and Privacy. After a trial starts: the system notification alert (nothing of ours in front of it) and
+   "You're Premium. Your free trial ends on December 14. We'll remind you on December 12."
+   **Trial reminder** (`src/lib/trial-reminder.ts`, `trialEnd` in the reminder settings): any free trial started in
+   the app (the offer or the Premium screen) schedules a local notification two days before the store's end date, at
+   10:00 ("Your free trial ends in 2 days" with the date and the price), shown in Profile → Reminders with a switch;
+   dropped once the server says the subscription won't renew or Premium ended.
 7. **Rule:** a signed-in user without a completed onboarding is always sent to the
    onboarding flow (e.g. someone who taps "Sign in" on the welcome screen with a brand-new
    account). Nobody reaches the home screen without a plan.
@@ -967,8 +986,12 @@ building screen and plan reveal (§3). No new data leaves the phone; no rating p
   (`src/components/onboarding/goal-path-chart.tsx`), the obstacles question, the building checklist and the plan
   reveal; a browser run of the lose, gain and maintain paths (14 November 2026); waiting on a phone run (haptics,
   Reduce Motion: `store/release.md` → Onboarding on a phone)
-- [ ] Owner's call (`research/onboarding-study.md`): a soft Premium offer with a trial reminder after sign-up; "How did
-  you hear about us?" (Privacy Policy and App Privacy first); the rating prompt after a first good scan
+- [x] v2.8 · The owner's next three (14 November 2026): "How did you hear about Weight Class?" (question 12,
+  `users.referral_source`, Privacy Policy and App Privacy), the Premium offer after sign-up with its trial timeline
+  and the trial reminder (§3), and the rating prompt after the first good scan (below); a browser run of the
+  question and of the offer's development preview (`/premium-offer?preview=1`); waiting on a phone run
+  (`store/release.md` → Premium offer, trial reminder and rating on a phone) and on the App Privacy answer in App
+  Store Connect
 
 **Eating out decisions** (checked September 2026; migration `restaurant_meals`; kept for the record, the
 feature was retired on 21 October 2026)
@@ -1034,6 +1057,11 @@ feature was retired on 21 October 2026)
 - Honest paywall (Apple pulled Cal AI in April 2026 over its paywall): the billed price is the
   biggest price on screen, the trial says when it renews, nothing costs money to restore a
   streak, no rating prompt before a first good scan
+- **Rating prompt** (v2.8, `src/lib/rating.ts`, rules in `src/shared/rating.ts` with tests): the store's own sheet
+  (`expo-store-review`, Apple 5.6.1), asked once per phone, 2.5 seconds after the first AI scan (photo, description
+  or label) the person watched finish on Home without being a rough estimate or leaving a question unanswered, and
+  only while Home is on screen. No question of ours before it, never in onboarding; Apple shows it at most three
+  times a year and never in TestFlight
 - 18+ stays; nothing is marketed to high-school athletes
 - Review 8 weeks after launch, and again when FDA decides on the July 2026 peptide votes
 

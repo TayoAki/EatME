@@ -3,7 +3,7 @@ import Constants, { ExecutionEnvironment } from 'expo-constants';
 import { Linking, Platform } from 'react-native';
 import type { CustomerInfo, IntroEligibility, PurchasesPackage } from 'react-native-purchases';
 
-import { PREMIUM_ENTITLEMENT } from '@/shared/billing';
+import { PREMIUM_ENTITLEMENT, type TrialPeriod } from '@/shared/billing';
 
 type Purchases = (typeof import('react-native-purchases'))['default'];
 
@@ -20,6 +20,9 @@ const apiKey =
       : undefined;
 export const billingSupported =
   !!apiKey && Platform.OS !== 'web' && Constants.executionEnvironment !== ExecutionEnvironment.StoreClient;
+
+/** Where people pay and cancel, in the store's own words. */
+export const STORE_NAME = Platform.OS === 'ios' ? 'App Store' : Platform.OS === 'android' ? 'Google Play' : 'app store';
 
 let purchases: Purchases | null | undefined;
 let configured = false;
@@ -98,6 +101,17 @@ export async function premiumOptions(userId: string | null): Promise<PremiumOpti
 
 const hasPremium = (info: CustomerInfo) => !!info.entitlements.active[PREMIUM_ENTITLEMENT];
 
+/**
+ * The free trial this account is in right now, from the store (RevenueCat's customer info): when it ends. Null when
+ * Premium isn't active or isn't a trial.
+ */
+export async function currentTrial(userId: string): Promise<{ endsAt: string } | null> {
+  const sdk = await ready(userId);
+  if (!sdk) return null;
+  const entitlement = (await sdk.getCustomerInfo()).entitlements.active[PREMIUM_ENTITLEMENT];
+  return entitlement?.periodType === 'TRIAL' && entitlement.expirationDate ? { endsAt: entitlement.expirationDate } : null;
+}
+
 /** Buys a package. Resolves false when the person cancels in the store sheet. */
 export async function buyPackage(userId: string, pkg: PurchasesPackage) {
   const sdk = await ready(userId);
@@ -130,6 +144,16 @@ export function packagePrice(pkg: PurchasesPackage) {
   const period: Record<string, string> = { MONTHLY: 'month', ANNUAL: 'year', WEEKLY: 'week', SIX_MONTH: '6 months', THREE_MONTH: '3 months' };
   const per = period[pkg.packageType];
   return per ? `${pkg.product.priceString} / ${per}` : pkg.product.priceString;
+}
+
+const TRIAL_UNITS = new Set<TrialPeriod['unit']>(['DAY', 'WEEK', 'MONTH', 'YEAR']);
+
+/** How long the package's free trial lasts (for the offer's timeline), or null without one. */
+export function trialPeriod(pkg: PurchasesPackage): TrialPeriod | null {
+  const intro = pkg.product.introPrice;
+  const unit = intro?.periodUnit.toUpperCase() as TrialPeriod['unit'] | undefined;
+  if (!intro || intro.price > 0 || !unit || !TRIAL_UNITS.has(unit)) return null;
+  return { units: intro.periodNumberOfUnits, unit };
 }
 
 /** "Free for 1 week" when the package starts with a free trial. */

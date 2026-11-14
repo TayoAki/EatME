@@ -14,8 +14,10 @@ import { cn } from '@/lib/cn';
 import { notify } from '@/lib/confirm';
 import { haptics } from '@/lib/haptics';
 import { links, openLink } from '@/lib/links';
+import { premiumOptionsKey } from '@/lib/premium-offer';
 import { useBilling, useFeatures, useSyncBilling } from '@/lib/queries';
 import { formatLongDate } from '@/lib/time';
+import { startTrialReminder } from '@/lib/trial-reminder';
 
 const STORE = Platform.OS === 'ios' ? 'App Store' : Platform.OS === 'android' ? 'Google Play' : 'app store';
 /** Where an active subscription was bought (RevenueCat's store names). */
@@ -43,7 +45,7 @@ export default function PremiumScreen() {
   const whatToOrder = !!features?.whatToOrder;
   const sync = useSyncBilling();
   const options = useQuery({
-    queryKey: ['premium-options', userId],
+    queryKey: premiumOptionsKey(userId),
     queryFn: () => premiumOptions(userId),
     enabled: billingSupported && !!userId,
     staleTime: 10 * 60_000,
@@ -63,6 +65,16 @@ export default function PremiumScreen() {
       if (await buyPackage(userId, pkg)) {
         await sync.mutateAsync();
         haptics.success();
+        // A free trial gets a reminder two days before it ends (asks for notifications once).
+        const trial = await startTrialReminder(userId, pkg);
+        if (trial) {
+          notify(
+            'Your free trial has started',
+            trial.remindAt
+              ? `It ends on ${formatLongDate(trial.endsAt)}. We'll remind you on ${formatLongDate(trial.remindAt)}.`
+              : `It ends on ${formatLongDate(trial.endsAt)}. Cancel any time before then in your ${STORE} settings if you don't want to keep it.`,
+          );
+        }
       }
     } catch (error) {
       notify("We couldn't complete the purchase", error instanceof Error ? error.message : 'Please try again.');
