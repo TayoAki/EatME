@@ -452,14 +452,22 @@ and in 6. How Weight Class works out your numbers (the same method as the app's 
 Built from the branch after commit `3db4c9e` (`store/release.md`). On submission day:
 
 - [ ] App Privacy: add Other Data → Other Data Types (Analytics, linked, not tracking) for "How did you hear about
-      Weight Class?" (the table under App Privacy above), then Publish
+      Weight Class?" (the table under App Privacy above), then Publish. On 14 November 2026 App Store Connect still
+      said "Data Not Collected" (published in September): the whole table above has to go in first, for 1.0 too
+- [ ] The What to order list from the version 2.5 section above (review notes block, support page lines, the
+      `WHAT_TO_ORDER` flag, the demo account's free try), since 1.1 never went out on its own
 - [ ] Screenshots: one with Flamie (the streak sheet) in the 1.2 set (`FLAMIE.md` §9)
 - [ ] The phone checks in `store/release.md`: Flamie, meal costs, onboarding, the Premium offer, trial reminder and
       rating
 
-**What's New (App Store, up to 4,000 characters):**
+**What's New (App Store, up to 4,000 characters).** On 14 November 2026 App Store Connect listed only version 1.0, so
+1.1 (What to order) never reached the App Store and 1.2.0 is the first update since 1.0: the text covers both. If 1.1
+ships first after all, drop the first three lines.
 
 ```text
+What to order: at a restaurant, see which dishes fit what's left of your day. Chains use their own published nutrition numbers, with a link to each chain's guide; for any other restaurant, scan the menu and get estimates with a range. Part of Weight Class Premium; your first menu is free.
+Chain meals: type, snap or search a chain restaurant's dish and Weight Class uses the restaurant's own published numbers, free.
+Search from Home: look up a food right under Today's meals and log it in a tap. Can't find it? Describe it instead.
 Meet Flamie, your streak flame. It grows taller and brighter with every day in a row you log, sparks when you reach your protein, water or fiber goals, and can check in on evenings you haven't logged yet, if you turn that on in Reminders. It's about showing up, never about your weight.
 Grocery costs in Plan tomorrow: each drafted meal and the whole day show about what they cost to make at home, from US average prices. Set a daily budget and Plan tomorrow keeps your day close to it, without ever planning less than your minimum. Part of Weight Class Premium.
 Trial reminders: start a free trial of Weight Class Premium and Weight Class reminds you two days before it ends, with the date and the price.
@@ -469,7 +477,7 @@ A livelier setup: making a new plan now moves with you, draws your path to your 
 **What's new (Google Play release notes, up to 500 characters):**
 
 ```text
-Meet Flamie, your streak flame: it grows with every day in a row you log and sparks when you reach your protein, water or fiber goals. Plan tomorrow (Premium) now shows about what each meal and the whole day cost to make at home, with an optional daily budget. Start a free trial of Premium and Weight Class reminds you two days before it ends. Making a new plan is livelier too.
+What to order: see which restaurant dishes fit what's left of your day (Premium, first menu free); chain meals use the restaurant's own numbers. Meet Flamie, your streak flame, which grows with every day in a row you log. Plan tomorrow (Premium) shows about what a day of meals costs at home, with an optional budget. A Premium free trial comes with a reminder two days before it ends.
 ```
 
 No prices, savings or "cheap" in either (App Review 2.3.7 and 2.3.14, `BUDGET-PLANS.md` §7).
